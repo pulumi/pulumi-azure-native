@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// MEC role.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetMECRoleResult> InvokeAsync(GetMECRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMECRoleResult>("azure-native:databoxedge:getMECRole", args ?? new GetMECRoleArgs(), options.WithVersion());
@@ -54,10 +54,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly Outputs.AsymmetricEncryptedSecretResponse? ConnectionString;
         /// <summary>
-        /// Controller Endpoint.
-        /// </summary>
-        public readonly string? ControllerEndpoint;
-        /// <summary>
         /// The path ID that uniquely identifies the object.
         /// </summary>
         public readonly string Id;
@@ -70,10 +66,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// The object name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Unique Id of the Resource.
-        /// </summary>
-        public readonly string? ResourceUniqueId;
         /// <summary>
         /// Role status.
         /// </summary>
@@ -91,15 +83,11 @@ namespace Pulumi.AzureNative.DataBoxEdge
         private GetMECRoleResult(
             Outputs.AsymmetricEncryptedSecretResponse? connectionString,
 
-            string? controllerEndpoint,
-
             string id,
 
             string kind,
 
             string name,
-
-            string? resourceUniqueId,
 
             string roleStatus,
 
@@ -108,11 +96,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
             string type)
         {
             ConnectionString = connectionString;
-            ControllerEndpoint = controllerEndpoint;
             Id = id;
             Kind = kind;
             Name = name;
-            ResourceUniqueId = resourceUniqueId;
             RoleStatus = roleStatus;
             SystemData = systemData;
             Type = type;

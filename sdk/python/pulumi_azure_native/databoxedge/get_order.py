@@ -20,7 +20,7 @@ class GetOrderResult:
     """
     The order details.
     """
-    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, system_data=None, type=None):
+    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, type=None):
         if contact_information and not isinstance(contact_information, dict):
             raise TypeError("Expected argument 'contact_information' to be a dict")
         pulumi.set(__self__, "contact_information", contact_information)
@@ -51,9 +51,6 @@ class GetOrderResult:
         if shipping_address and not isinstance(shipping_address, dict):
             raise TypeError("Expected argument 'shipping_address' to be a dict")
         pulumi.set(__self__, "shipping_address", shipping_address)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -139,14 +136,6 @@ class GetOrderResult:
         return pulumi.get(self, "shipping_address")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Order configured on ASE resource
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -171,7 +160,6 @@ class AwaitableGetOrderResult(GetOrderResult):
             serial_number=self.serial_number,
             shipment_type=self.shipment_type,
             shipping_address=self.shipping_address,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -180,7 +168,7 @@ def get_order(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderResult:
     """
     The order details.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.
@@ -206,5 +194,4 @@ def get_order(device_name: Optional[str] = None,
         serial_number=__ret__.serial_number,
         shipment_type=__ret__.shipment_type,
         shipping_address=__ret__.shipping_address,
-        system_data=__ret__.system_data,
         type=__ret__.type)

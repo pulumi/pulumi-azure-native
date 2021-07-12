@@ -8,7 +8,7 @@ import (
 )
 
 // The metric setting details for the role
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupMonitoringConfig(ctx *pulumi.Context, args *LookupMonitoringConfigArgs, opts ...pulumi.InvokeOption) (*LookupMonitoringConfigResult, error) {
 	var rv LookupMonitoringConfigResult
 	err := ctx.Invoke("azure-native:databoxedge:getMonitoringConfig", args, &rv, opts...)
@@ -35,8 +35,6 @@ type LookupMonitoringConfigResult struct {
 	MetricConfigurations []MetricConfigurationResponse `pulumi:"metricConfigurations"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// MonitoringConfiguration on ASE device
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

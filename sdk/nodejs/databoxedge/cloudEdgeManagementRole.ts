@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * CloudEdgeManagementRole role, Currently It's in Private Preview
- * API Version: 2021-02-01.
+ * CloudEdgeManagementRole role.
+ * API Version: 2020-12-01.
  */
 export class CloudEdgeManagementRole extends pulumi.CustomResource {
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a share on the  Data Box Edge/Gateway device.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     if (!opts) {

@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Kubernetes role, Currently it's in Private Preview
-// API Version: 2021-02-01.
+// Kubernetes role.
+// API Version: 2020-12-01.
 type KubernetesRole struct {
 	pulumi.CustomResourceState
 

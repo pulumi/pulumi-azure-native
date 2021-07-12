@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
-    /// CloudEdgeManagementRole role, Currently It's in Private Preview
-    /// API Version: 2021-02-01.
+    /// CloudEdgeManagementRole role.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:CloudEdgeManagementRole")]
     public partial class CloudEdgeManagementRole : Pulumi.CustomResource

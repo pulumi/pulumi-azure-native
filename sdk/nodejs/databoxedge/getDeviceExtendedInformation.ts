@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The extended Info of the Data Box Edge/Gateway device.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getDeviceExtendedInformation(args: GetDeviceExtendedInformationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceExtendedInformationResult> {
     if (!opts) {
@@ -57,7 +57,7 @@ export interface GetDeviceExtendedInformationResult {
     /**
      * Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
      */
-    readonly deviceSecrets: {[key: string]: outputs.databoxedge.SecretResponse};
+    readonly deviceSecrets: outputs.databoxedge.DeviceSecretsResponse;
     /**
      * The public part of the encryption certificate. Client uses this to encrypt any secret.
      */

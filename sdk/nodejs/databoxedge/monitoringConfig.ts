@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The metric setting details for the role
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class MonitoringConfig extends pulumi.CustomResource {
     /**
@@ -45,10 +45,6 @@ export class MonitoringConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * MonitoringConfiguration on ASE device
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
-    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -81,12 +77,10 @@ export class MonitoringConfig extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["metricConfigurations"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

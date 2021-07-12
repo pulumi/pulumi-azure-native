@@ -110,8 +110,8 @@ class CloudEdgeManagementRole(pulumi.CustomResource):
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  __props__=None):
         """
-        CloudEdgeManagementRole role, Currently It's in Private Preview
-        API Version: 2021-02-01.
+        CloudEdgeManagementRole role.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,8 +129,8 @@ class CloudEdgeManagementRole(pulumi.CustomResource):
                  args: CloudEdgeManagementRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        CloudEdgeManagementRole role, Currently It's in Private Preview
-        API Version: 2021-02-01.
+        CloudEdgeManagementRole role.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param CloudEdgeManagementRoleArgs args: The arguments to use to populate this resource's properties.

@@ -8,7 +8,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupFileEventTrigger(ctx *pulumi.Context, args *LookupFileEventTriggerArgs, opts ...pulumi.InvokeOption) (*LookupFileEventTriggerResult, error) {
 	var rv LookupFileEventTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge:getFileEventTrigger", args, &rv, opts...)

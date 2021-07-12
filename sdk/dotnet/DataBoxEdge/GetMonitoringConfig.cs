@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The metric setting details for the role
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetMonitoringConfigResult> InvokeAsync(GetMonitoringConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringConfigResult>("azure-native:databoxedge:getMonitoringConfig", args ?? new GetMonitoringConfigArgs(), options.WithVersion());
@@ -62,10 +62,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// MonitoringConfiguration on ASE device
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -78,14 +74,11 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string name,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             MetricConfigurations = metricConfigurations;
             Name = name;
-            SystemData = systemData;
             Type = type;
         }
     }

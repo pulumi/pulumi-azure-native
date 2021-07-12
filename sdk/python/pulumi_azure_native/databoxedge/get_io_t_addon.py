@@ -171,7 +171,7 @@ def get_io_t_addon(addon_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTAddonResult:
     """
     IoT Addon.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str addon_name: The addon name.

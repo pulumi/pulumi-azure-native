@@ -8,7 +8,7 @@ import (
 )
 
 // Arc Addon.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupArcAddon(ctx *pulumi.Context, args *LookupArcAddonArgs, opts ...pulumi.InvokeOption) (*LookupArcAddonResult, error) {
 	var rv LookupArcAddonResult
 	err := ctx.Invoke("azure-native:databoxedge:getArcAddon", args, &rv, opts...)

@@ -111,7 +111,7 @@ class Order(pulumi.CustomResource):
                  __props__=None):
         """
         The order details.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class Order(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The order details.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param OrderArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +180,6 @@ class Order(pulumi.CustomResource):
             __props__.__dict__["order_history"] = None
             __props__.__dict__["return_tracking_info"] = None
             __props__.__dict__["serial_number"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:databoxedge:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190301:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190701:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20190801:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200501preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20200901preview:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20201201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201:Order"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:Order"), pulumi.Alias(type_="azure-nextgen:databoxedge/v20210201preview:Order")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -215,7 +214,6 @@ class Order(pulumi.CustomResource):
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["shipment_type"] = None
         __props__.__dict__["shipping_address"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Order(resource_name, opts=opts, __props__=__props__)
 
@@ -290,14 +288,6 @@ class Order(pulumi.CustomResource):
         The shipping address.
         """
         return pulumi.get(self, "shipping_address")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Order configured on ASE resource
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -144,7 +144,7 @@ class IoTAddon(pulumi.CustomResource):
                  __props__=None):
         """
         IoT Addon.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class IoTAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Addon.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param IoTAddonArgs args: The arguments to use to populate this resource's properties.

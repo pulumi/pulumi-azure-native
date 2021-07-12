@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The bandwidth schedule details.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:BandwidthSchedule")]
     public partial class BandwidthSchedule : Pulumi.CustomResource

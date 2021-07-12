@@ -8,7 +8,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 //
 // Deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.
 func LookupRole(ctx *pulumi.Context, args *LookupRoleArgs, opts ...pulumi.InvokeOption) (*LookupRoleResult, error) {

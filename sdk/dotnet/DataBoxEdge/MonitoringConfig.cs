@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The metric setting details for the role
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MonitoringConfig")]
     public partial class MonitoringConfig : Pulumi.CustomResource
@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// MonitoringConfiguration on ASE device
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

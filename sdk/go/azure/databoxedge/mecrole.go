@@ -12,21 +12,17 @@ import (
 )
 
 // MEC role.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 type MECRole struct {
 	pulumi.CustomResourceState
 
 	// Activation key of the MEC.
 	ConnectionString AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"connectionString"`
-	// Controller Endpoint.
-	ControllerEndpoint pulumi.StringPtrOutput `pulumi:"controllerEndpoint"`
 	// Role type.
 	// Expected value is 'MEC'.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Unique Id of the Resource.
-	ResourceUniqueId pulumi.StringPtrOutput `pulumi:"resourceUniqueId"`
 	// Role status.
 	RoleStatus pulumi.StringOutput `pulumi:"roleStatus"`
 	// Role configured on ASE resource
@@ -139,15 +135,11 @@ func GetMECRole(ctx *pulumi.Context,
 type mecroleState struct {
 	// Activation key of the MEC.
 	ConnectionString *AsymmetricEncryptedSecretResponse `pulumi:"connectionString"`
-	// Controller Endpoint.
-	ControllerEndpoint *string `pulumi:"controllerEndpoint"`
 	// Role type.
 	// Expected value is 'MEC'.
 	Kind *string `pulumi:"kind"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// Unique Id of the Resource.
-	ResourceUniqueId *string `pulumi:"resourceUniqueId"`
 	// Role status.
 	RoleStatus *string `pulumi:"roleStatus"`
 	// Role configured on ASE resource
@@ -159,15 +151,11 @@ type mecroleState struct {
 type MECRoleState struct {
 	// Activation key of the MEC.
 	ConnectionString AsymmetricEncryptedSecretResponsePtrInput
-	// Controller Endpoint.
-	ControllerEndpoint pulumi.StringPtrInput
 	// Role type.
 	// Expected value is 'MEC'.
 	Kind pulumi.StringPtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// Unique Id of the Resource.
-	ResourceUniqueId pulumi.StringPtrInput
 	// Role status.
 	RoleStatus pulumi.StringPtrInput
 	// Role configured on ASE resource
@@ -183,8 +171,6 @@ func (MECRoleState) ElementType() reflect.Type {
 type mecroleArgs struct {
 	// Activation key of the MEC.
 	ConnectionString *AsymmetricEncryptedSecret `pulumi:"connectionString"`
-	// Controller Endpoint.
-	ControllerEndpoint *string `pulumi:"controllerEndpoint"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// Role type.
@@ -194,8 +180,6 @@ type mecroleArgs struct {
 	Name *string `pulumi:"name"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Unique Id of the Resource.
-	ResourceUniqueId *string `pulumi:"resourceUniqueId"`
 	// Role status.
 	RoleStatus string `pulumi:"roleStatus"`
 }
@@ -204,8 +188,6 @@ type mecroleArgs struct {
 type MECRoleArgs struct {
 	// Activation key of the MEC.
 	ConnectionString AsymmetricEncryptedSecretPtrInput
-	// Controller Endpoint.
-	ControllerEndpoint pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// Role type.
@@ -215,8 +197,6 @@ type MECRoleArgs struct {
 	Name pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
-	// Unique Id of the Resource.
-	ResourceUniqueId pulumi.StringPtrInput
 	// Role status.
 	RoleStatus pulumi.StringInput
 }

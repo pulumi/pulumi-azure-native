@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The extended Info of the Data Box Edge/Gateway device.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDeviceExtendedInformationResult> InvokeAsync(GetDeviceExtendedInformationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceExtendedInformationResult>("azure-native:databoxedge:getDeviceExtendedInformation", args ?? new GetDeviceExtendedInformationArgs(), options.WithVersion());
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.SecretResponse> DeviceSecrets;
+        public readonly Outputs.DeviceSecretsResponse DeviceSecrets;
         /// <summary>
         /// The public part of the encryption certificate. Client uses this to encrypt any secret.
         /// </summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string? clientSecretStoreUrl,
 
-            ImmutableDictionary<string, Outputs.SecretResponse> deviceSecrets,
+            Outputs.DeviceSecretsResponse deviceSecrets,
 
             string? encryptionKey,
 

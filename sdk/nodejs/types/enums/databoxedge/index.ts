@@ -66,18 +66,6 @@ export const ClientPermissionType = {
  */
 export type ClientPermissionType = (typeof ClientPermissionType)[keyof typeof ClientPermissionType];
 
-export const DataBoxEdgeDeviceKind = {
-    AzureDataBoxGateway: "AzureDataBoxGateway",
-    AzureStackEdge: "AzureStackEdge",
-    AzureStackHub: "AzureStackHub",
-    AzureModularDataCentre: "AzureModularDataCentre",
-} as const;
-
-/**
- * The kind of the device.
- */
-export type DataBoxEdgeDeviceKind = (typeof DataBoxEdgeDeviceKind)[keyof typeof DataBoxEdgeDeviceKind];
-
 export const DataBoxEdgeDeviceStatus = {
     ReadyToSetup: "ReadyToSetup",
     Online: "Online",
@@ -102,16 +90,6 @@ export const DataPolicy = {
  * Data policy of the storage Account.
  */
 export type DataPolicy = (typeof DataPolicy)[keyof typeof DataPolicy];
-
-export const DataResidencyType = {
-    GeoZoneReplication: "GeoZoneReplication",
-    ZoneReplication: "ZoneReplication",
-} as const;
-
-/**
- * DataResidencyType enum
- */
-export type DataResidencyType = (typeof DataResidencyType)[keyof typeof DataResidencyType];
 
 export const DayOfWeek = {
     Sunday: "Sunday",
@@ -265,14 +243,10 @@ export const SkuName = {
     EdgeP_High: "EdgeP_High",
     EdgePR_Base: "EdgePR_Base",
     EdgePR_Base_UPS: "EdgePR_Base_UPS",
-    EP2_64_1VPU_W: "EP2_64_1VPU_W",
-    EP2_128_1T4_Mx1_W: "EP2_128_1T4_Mx1_W",
-    EP2_256_2T4_W: "EP2_256_2T4_W",
     EdgeMR_Mini: "EdgeMR_Mini",
     RCA_Small: "RCA_Small",
     RCA_Large: "RCA_Large",
     RDC: "RDC",
-    Management: "Management",
 } as const;
 
 /**

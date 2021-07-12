@@ -121,7 +121,7 @@ def get_user(device_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

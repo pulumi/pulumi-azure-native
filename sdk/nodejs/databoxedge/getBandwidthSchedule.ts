@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The bandwidth schedule details.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getBandwidthSchedule(args: GetBandwidthScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetBandwidthScheduleResult> {
     if (!opts) {

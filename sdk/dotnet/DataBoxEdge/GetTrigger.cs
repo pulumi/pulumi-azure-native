@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Trigger details.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetTriggerResult> InvokeAsync(GetTriggerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTriggerResult>("azure-native:databoxedge:getTrigger", args ?? new GetTriggerArgs(), options.WithVersion());

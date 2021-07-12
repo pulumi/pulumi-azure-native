@@ -19,7 +19,7 @@ __all__ = [
     'CniConfigResponse',
     'ComputeResourceResponse',
     'ContactDetailsResponse',
-    'DataResidencyResponse',
+    'DeviceSecretsResponse',
     'EdgeProfileResponse',
     'EdgeProfileSubscriptionResponse',
     'EtcdInfoResponse',
@@ -596,26 +596,110 @@ class ContactDetailsResponse(dict):
 
 
 @pulumi.output_type
-class DataResidencyResponse(dict):
+class DeviceSecretsResponse(dict):
     """
-    Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+    Device Secrets
     """
     def __init__(__self__, *,
-                 type: Optional[str] = None):
+                 bmc_default_user_password: Optional['outputs.SecretResponse'] = None,
+                 hcs_data_volume_bit_locker_external_key: Optional['outputs.SecretResponse'] = None,
+                 hcs_internal_volume_bit_locker_external_key: Optional['outputs.SecretResponse'] = None,
+                 rotate_key_for_data_volume_bitlocker: Optional['outputs.SecretResponse'] = None,
+                 rotate_keys_for_sed_drives_serialized: Optional['outputs.SecretResponse'] = None,
+                 sed_encryption_external_key: Optional['outputs.SecretResponse'] = None,
+                 sed_encryption_external_key_id: Optional['outputs.SecretResponse'] = None,
+                 system_volume_bit_locker_recovery_key: Optional['outputs.SecretResponse'] = None):
         """
-        Wraps data-residency related information for edge-resource and this should be used with ARM layer.
-        :param str type: DataResidencyType enum
+        Device Secrets
+        :param 'SecretResponse' bmc_default_user_password: Keyvault Id of BMCDefaultUserPassword
+        :param 'SecretResponse' hcs_data_volume_bit_locker_external_key: Keyvault Id of HcsDataVolumeBitLockerExternalKey
+        :param 'SecretResponse' hcs_internal_volume_bit_locker_external_key: Keyvault Id of HcsInternalVolumeBitLockerExternalKey
+        :param 'SecretResponse' rotate_key_for_data_volume_bitlocker: Keyvault Id of RotateKeyForDataVolumeBitlocker
+        :param 'SecretResponse' rotate_keys_for_sed_drives_serialized: Keyvault Id of RotateKeysForSedDrivesSerialized
+        :param 'SecretResponse' sed_encryption_external_key: Keyvault Id of SEDEncryptionExternalKey
+        :param 'SecretResponse' sed_encryption_external_key_id: Keyvault Id of SEDEncryptionExternalKeyId
+        :param 'SecretResponse' system_volume_bit_locker_recovery_key: Keyvault Id of SystemVolumeBitLockerRecoveryKey
         """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
+        if bmc_default_user_password is not None:
+            pulumi.set(__self__, "bmc_default_user_password", bmc_default_user_password)
+        if hcs_data_volume_bit_locker_external_key is not None:
+            pulumi.set(__self__, "hcs_data_volume_bit_locker_external_key", hcs_data_volume_bit_locker_external_key)
+        if hcs_internal_volume_bit_locker_external_key is not None:
+            pulumi.set(__self__, "hcs_internal_volume_bit_locker_external_key", hcs_internal_volume_bit_locker_external_key)
+        if rotate_key_for_data_volume_bitlocker is not None:
+            pulumi.set(__self__, "rotate_key_for_data_volume_bitlocker", rotate_key_for_data_volume_bitlocker)
+        if rotate_keys_for_sed_drives_serialized is not None:
+            pulumi.set(__self__, "rotate_keys_for_sed_drives_serialized", rotate_keys_for_sed_drives_serialized)
+        if sed_encryption_external_key is not None:
+            pulumi.set(__self__, "sed_encryption_external_key", sed_encryption_external_key)
+        if sed_encryption_external_key_id is not None:
+            pulumi.set(__self__, "sed_encryption_external_key_id", sed_encryption_external_key_id)
+        if system_volume_bit_locker_recovery_key is not None:
+            pulumi.set(__self__, "system_volume_bit_locker_recovery_key", system_volume_bit_locker_recovery_key)
 
     @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
+    @pulumi.getter(name="bmcDefaultUserPassword")
+    def bmc_default_user_password(self) -> Optional['outputs.SecretResponse']:
         """
-        DataResidencyType enum
+        Keyvault Id of BMCDefaultUserPassword
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "bmc_default_user_password")
+
+    @property
+    @pulumi.getter(name="hcsDataVolumeBitLockerExternalKey")
+    def hcs_data_volume_bit_locker_external_key(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of HcsDataVolumeBitLockerExternalKey
+        """
+        return pulumi.get(self, "hcs_data_volume_bit_locker_external_key")
+
+    @property
+    @pulumi.getter(name="hcsInternalVolumeBitLockerExternalKey")
+    def hcs_internal_volume_bit_locker_external_key(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of HcsInternalVolumeBitLockerExternalKey
+        """
+        return pulumi.get(self, "hcs_internal_volume_bit_locker_external_key")
+
+    @property
+    @pulumi.getter(name="rotateKeyForDataVolumeBitlocker")
+    def rotate_key_for_data_volume_bitlocker(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of RotateKeyForDataVolumeBitlocker
+        """
+        return pulumi.get(self, "rotate_key_for_data_volume_bitlocker")
+
+    @property
+    @pulumi.getter(name="rotateKeysForSedDrivesSerialized")
+    def rotate_keys_for_sed_drives_serialized(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of RotateKeysForSedDrivesSerialized
+        """
+        return pulumi.get(self, "rotate_keys_for_sed_drives_serialized")
+
+    @property
+    @pulumi.getter(name="sedEncryptionExternalKey")
+    def sed_encryption_external_key(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of SEDEncryptionExternalKey
+        """
+        return pulumi.get(self, "sed_encryption_external_key")
+
+    @property
+    @pulumi.getter(name="sedEncryptionExternalKeyId")
+    def sed_encryption_external_key_id(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of SEDEncryptionExternalKeyId
+        """
+        return pulumi.get(self, "sed_encryption_external_key_id")
+
+    @property
+    @pulumi.getter(name="systemVolumeBitLockerRecoveryKey")
+    def system_volume_bit_locker_recovery_key(self) -> Optional['outputs.SecretResponse']:
+        """
+        Keyvault Id of SystemVolumeBitLockerRecoveryKey
+        """
+        return pulumi.get(self, "system_volume_bit_locker_recovery_key")
 
 
 @pulumi.output_type

@@ -8,7 +8,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupPeriodicTimerEventTrigger(ctx *pulumi.Context, args *LookupPeriodicTimerEventTriggerArgs, opts ...pulumi.InvokeOption) (*LookupPeriodicTimerEventTriggerResult, error) {
 	var rv LookupPeriodicTimerEventTriggerResult
 	err := ctx.Invoke("azure-native:databoxedge:getPeriodicTimerEventTrigger", args, &rv, opts...)

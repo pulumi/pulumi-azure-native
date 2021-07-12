@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetKubernetesRole
     {
         /// <summary>
-        /// Kubernetes role, Currently it's in Private Preview
-        /// API Version: 2021-02-01.
+        /// Kubernetes role.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithVersion());

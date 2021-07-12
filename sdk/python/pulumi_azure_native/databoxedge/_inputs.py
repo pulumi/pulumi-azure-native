@@ -17,7 +17,6 @@ __all__ = [
     'ClientAccessRightArgs',
     'ComputeResourceArgs',
     'ContactDetailsArgs',
-    'DataResidencyArgs',
     'FileSourceInfoArgs',
     'ImageRepositoryCredentialArgs',
     'IoTDeviceInfoArgs',
@@ -432,30 +431,6 @@ class ContactDetailsArgs:
     @phone.setter
     def phone(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone", value)
-
-
-@pulumi.input_type
-class DataResidencyArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'DataResidencyType']]] = None):
-        """
-        Wraps data-residency related information for edge-resource and this should be used with ARM layer.
-        :param pulumi.Input[Union[str, 'DataResidencyType']] type: DataResidencyType enum
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'DataResidencyType']]]:
-        """
-        DataResidencyType enum
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'DataResidencyType']]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

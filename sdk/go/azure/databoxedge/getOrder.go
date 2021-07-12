@@ -8,7 +8,7 @@ import (
 )
 
 // The order details.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupOrder(ctx *pulumi.Context, args *LookupOrderArgs, opts ...pulumi.InvokeOption) (*LookupOrderResult, error) {
 	var rv LookupOrderResult
 	err := ctx.Invoke("azure-native:databoxedge:getOrder", args, &rv, opts...)
@@ -47,8 +47,6 @@ type LookupOrderResult struct {
 	ShipmentType *string `pulumi:"shipmentType"`
 	// The shipping address.
 	ShippingAddress *AddressResponse `pulumi:"shippingAddress"`
-	// Order configured on ASE resource
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

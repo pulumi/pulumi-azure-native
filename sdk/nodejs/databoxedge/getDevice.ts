@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
@@ -50,10 +50,6 @@ export interface GetDeviceResult {
      * The status of the Data Box Edge/Gateway device.
      */
     readonly dataBoxEdgeDeviceStatus?: string;
-    /**
-     * The details of data-residency related properties for this resource
-     */
-    readonly dataResidency?: outputs.databoxedge.DataResidencyResponse;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
@@ -99,9 +95,9 @@ export interface GetDeviceResult {
      */
     readonly identity?: outputs.databoxedge.ResourceIdentityResponse;
     /**
-     * The kind of the device.
+     * The etag for the devices.
      */
-    readonly kind?: string;
+    readonly kind: string;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */

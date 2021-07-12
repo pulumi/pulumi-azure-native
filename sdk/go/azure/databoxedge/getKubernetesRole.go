@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Kubernetes role, Currently it's in Private Preview
-// API Version: 2021-02-01.
+// Kubernetes role.
+// API Version: 2020-12-01.
 func LookupKubernetesRole(ctx *pulumi.Context, args *LookupKubernetesRoleArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesRoleResult, error) {
 	var rv LookupKubernetesRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getKubernetesRole", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupKubernetesRoleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Kubernetes role, Currently it's in Private Preview
+// Kubernetes role.
 type LookupKubernetesRoleResult struct {
 	// Host OS supported by the Kubernetes role.
 	HostPlatform string `pulumi:"hostPlatform"`

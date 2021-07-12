@@ -134,39 +134,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
     }
 
     /// <summary>
-    /// The kind of the device.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataBoxEdgeDeviceKind : IEquatable<DataBoxEdgeDeviceKind>
-    {
-        private readonly string _value;
-
-        private DataBoxEdgeDeviceKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataBoxEdgeDeviceKind AzureDataBoxGateway { get; } = new DataBoxEdgeDeviceKind("AzureDataBoxGateway");
-        public static DataBoxEdgeDeviceKind AzureStackEdge { get; } = new DataBoxEdgeDeviceKind("AzureStackEdge");
-        public static DataBoxEdgeDeviceKind AzureStackHub { get; } = new DataBoxEdgeDeviceKind("AzureStackHub");
-        public static DataBoxEdgeDeviceKind AzureModularDataCentre { get; } = new DataBoxEdgeDeviceKind("AzureModularDataCentre");
-
-        public static bool operator ==(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => left.Equals(right);
-        public static bool operator !=(DataBoxEdgeDeviceKind left, DataBoxEdgeDeviceKind right) => !left.Equals(right);
-
-        public static explicit operator string(DataBoxEdgeDeviceKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataBoxEdgeDeviceKind other && Equals(other);
-        public bool Equals(DataBoxEdgeDeviceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The status of the Data Box Edge/Gateway device.
     /// </summary>
     [EnumType]
@@ -226,37 +193,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataPolicy other && Equals(other);
         public bool Equals(DataPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// DataResidencyType enum
-    /// </summary>
-    [EnumType]
-    public readonly struct DataResidencyType : IEquatable<DataResidencyType>
-    {
-        private readonly string _value;
-
-        private DataResidencyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataResidencyType GeoZoneReplication { get; } = new DataResidencyType("GeoZoneReplication");
-        public static DataResidencyType ZoneReplication { get; } = new DataResidencyType("ZoneReplication");
-
-        public static bool operator ==(DataResidencyType left, DataResidencyType right) => left.Equals(right);
-        public static bool operator !=(DataResidencyType left, DataResidencyType right) => !left.Equals(right);
-
-        public static explicit operator string(DataResidencyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataResidencyType other && Equals(other);
-        public bool Equals(DataResidencyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -680,14 +616,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public static SkuName EdgeP_High { get; } = new SkuName("EdgeP_High");
         public static SkuName EdgePR_Base { get; } = new SkuName("EdgePR_Base");
         public static SkuName EdgePR_Base_UPS { get; } = new SkuName("EdgePR_Base_UPS");
-        public static SkuName EP2_64_1VPU_W { get; } = new SkuName("EP2_64_1VPU_W");
-        public static SkuName EP2_128_1T4_Mx1_W { get; } = new SkuName("EP2_128_1T4_Mx1_W");
-        public static SkuName EP2_256_2T4_W { get; } = new SkuName("EP2_256_2T4_W");
         public static SkuName EdgeMR_Mini { get; } = new SkuName("EdgeMR_Mini");
         public static SkuName RCA_Small { get; } = new SkuName("RCA_Small");
         public static SkuName RCA_Large { get; } = new SkuName("RCA_Large");
         public static SkuName RDC { get; } = new SkuName("RDC");
-        public static SkuName Management { get; } = new SkuName("Management");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);

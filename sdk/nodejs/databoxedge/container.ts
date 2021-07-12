@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class Container extends pulumi.CustomResource {
     /**

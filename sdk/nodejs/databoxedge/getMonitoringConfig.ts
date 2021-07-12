@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The metric setting details for the role
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
     if (!opts) {
@@ -55,10 +55,6 @@ export interface GetMonitoringConfigResult {
      * The object name.
      */
     readonly name: string;
-    /**
-     * MonitoringConfiguration on ASE device
-     */
-    readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

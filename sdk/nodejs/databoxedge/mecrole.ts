@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * MEC role.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class MECRole extends pulumi.CustomResource {
     /**
@@ -41,10 +41,6 @@ export class MECRole extends pulumi.CustomResource {
      */
     public readonly connectionString!: pulumi.Output<outputs.databoxedge.AsymmetricEncryptedSecretResponse | undefined>;
     /**
-     * Controller Endpoint.
-     */
-    public readonly controllerEndpoint!: pulumi.Output<string | undefined>;
-    /**
      * Role type.
      * Expected value is 'MEC'.
      */
@@ -53,10 +49,6 @@ export class MECRole extends pulumi.CustomResource {
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Unique Id of the Resource.
-     */
-    public readonly resourceUniqueId!: pulumi.Output<string | undefined>;
     /**
      * Role status.
      */
@@ -94,21 +86,17 @@ export class MECRole extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleStatus'");
             }
             inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["controllerEndpoint"] = args ? args.controllerEndpoint : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["kind"] = "MEC";
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceUniqueId"] = args ? args.resourceUniqueId : undefined;
             inputs["roleStatus"] = args ? args.roleStatus : undefined;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["connectionString"] = undefined /*out*/;
-            inputs["controllerEndpoint"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["resourceUniqueId"] = undefined /*out*/;
             inputs["roleStatus"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -131,10 +119,6 @@ export interface MECRoleArgs {
      */
     connectionString?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs>;
     /**
-     * Controller Endpoint.
-     */
-    controllerEndpoint?: pulumi.Input<string>;
-    /**
      * The device name.
      */
     deviceName: pulumi.Input<string>;
@@ -151,10 +135,6 @@ export interface MECRoleArgs {
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Unique Id of the Resource.
-     */
-    resourceUniqueId?: pulumi.Input<string>;
     /**
      * Role status.
      */

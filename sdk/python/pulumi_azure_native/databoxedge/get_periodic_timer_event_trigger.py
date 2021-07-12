@@ -134,7 +134,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeriodicTimerEventTriggerResult:
     """
     Trigger details.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

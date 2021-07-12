@@ -92,7 +92,7 @@ class GetDeviceExtendedInformationResult:
 
     @property
     @pulumi.getter(name="deviceSecrets")
-    def device_secrets(self) -> Mapping[str, 'outputs.SecretResponse']:
+    def device_secrets(self) -> 'outputs.DeviceSecretsResponse':
         """
         Device secrets, will be returned only with ODataFilter $expand=deviceSecrets
         """
@@ -180,7 +180,7 @@ def get_device_extended_information(device_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceExtendedInformationResult:
     """
     The extended Info of the Data Box Edge/Gateway device.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

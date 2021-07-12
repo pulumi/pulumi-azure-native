@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Trigger details.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class FileEventTrigger extends pulumi.CustomResource {
     /**

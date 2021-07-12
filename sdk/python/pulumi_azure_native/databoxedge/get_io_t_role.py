@@ -194,7 +194,7 @@ def get_io_t_role(device_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIoTRoleResult:
     """
     Compute role.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

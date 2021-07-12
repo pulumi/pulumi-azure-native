@@ -20,7 +20,7 @@ class GetMonitoringConfigResult:
     """
     The metric setting details for the role
     """
-    def __init__(__self__, id=None, metric_configurations=None, name=None, system_data=None, type=None):
+    def __init__(__self__, id=None, metric_configurations=None, name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -30,9 +30,6 @@ class GetMonitoringConfigResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -62,14 +59,6 @@ class GetMonitoringConfigResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        MonitoringConfiguration on ASE device
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -87,7 +76,6 @@ class AwaitableGetMonitoringConfigResult(GetMonitoringConfigResult):
             id=self.id,
             metric_configurations=self.metric_configurations,
             name=self.name,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -97,7 +85,7 @@ def get_monitoring_config(device_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringConfigResult:
     """
     The metric setting details for the role
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.
@@ -118,5 +106,4 @@ def get_monitoring_config(device_name: Optional[str] = None,
         id=__ret__.id,
         metric_configurations=__ret__.metric_configurations,
         name=__ret__.name,
-        system_data=__ret__.system_data,
         type=__ret__.type)

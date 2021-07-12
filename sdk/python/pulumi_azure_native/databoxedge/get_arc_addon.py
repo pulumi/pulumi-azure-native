@@ -195,7 +195,7 @@ def get_arc_addon(addon_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcAddonResult:
     """
     Arc Addon.
-    API Version: 2021-02-01.
+    API Version: 2020-12-01.
 
 
     :param str addon_name: The addon name.

@@ -12,7 +12,7 @@ import (
 )
 
 // Trigger details.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 //
 // Deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.
 type Trigger struct {

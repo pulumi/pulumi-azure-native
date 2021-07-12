@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// MEC role.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MECRole")]
     public partial class MECRole : Pulumi.CustomResource
@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("connectionString")]
         public Output<Outputs.AsymmetricEncryptedSecretResponse?> ConnectionString { get; private set; } = null!;
-
-        /// <summary>
-        /// Controller Endpoint.
-        /// </summary>
-        [Output("controllerEndpoint")]
-        public Output<string?> ControllerEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// Role type.
@@ -40,12 +34,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Unique Id of the Resource.
-        /// </summary>
-        [Output("resourceUniqueId")]
-        public Output<string?> ResourceUniqueId { get; private set; } = null!;
 
         /// <summary>
         /// Role status.
@@ -146,12 +134,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Input<Inputs.AsymmetricEncryptedSecretArgs>? ConnectionString { get; set; }
 
         /// <summary>
-        /// Controller Endpoint.
-        /// </summary>
-        [Input("controllerEndpoint")]
-        public Input<string>? ControllerEndpoint { get; set; }
-
-        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -175,12 +157,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Unique Id of the Resource.
-        /// </summary>
-        [Input("resourceUniqueId")]
-        public Input<string>? ResourceUniqueId { get; set; }
 
         /// <summary>
         /// Role status.

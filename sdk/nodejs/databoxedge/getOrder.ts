@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
     if (!opts) {
@@ -78,10 +78,6 @@ export interface GetOrderResult {
      * The shipping address.
      */
     readonly shippingAddress?: outputs.databoxedge.AddressResponse;
-    /**
-     * Order configured on ASE resource
-     */
-    readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
      * The hierarchical type of the object.
      */

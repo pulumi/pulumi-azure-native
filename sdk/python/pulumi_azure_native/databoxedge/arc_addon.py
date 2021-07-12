@@ -158,7 +158,7 @@ class ArcAddon(pulumi.CustomResource):
                  __props__=None):
         """
         Arc Addon.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +180,7 @@ class ArcAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Addon.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param ArcAddonArgs args: The arguments to use to populate this resource's properties.

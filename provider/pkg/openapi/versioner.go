@@ -103,6 +103,7 @@ var cutoffProviderVersions = map[string]string{
 	"containerservice":        "v20210301",
 	"costmanagement":          "v20200601",
 	"databox":                 "v20201101",
+	"databoxedge":             "v20201201",
 	"dbforpostgresql":         "v20171201",
 	"desktopvirtualization":   "v20210201preview",
 	"devices":                 "v20200831",

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The order details.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetOrderResult> InvokeAsync(GetOrderArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderResult>("azure-native:databoxedge:getOrder", args ?? new GetOrderArgs(), options.WithVersion());
@@ -84,10 +84,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly Outputs.AddressResponse? ShippingAddress;
         /// <summary>
-        /// Order configured on ASE resource
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
@@ -114,8 +110,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             Outputs.AddressResponse? shippingAddress,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             ContactInformation = contactInformation;
@@ -128,7 +122,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
             SerialNumber = serialNumber;
             ShipmentType = shipmentType;
             ShippingAddress = shippingAddress;
-            SystemData = systemData;
             Type = type;
         }
     }

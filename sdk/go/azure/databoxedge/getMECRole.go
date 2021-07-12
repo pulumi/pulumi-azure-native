@@ -8,7 +8,7 @@ import (
 )
 
 // MEC role.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupMECRole(ctx *pulumi.Context, args *LookupMECRoleArgs, opts ...pulumi.InvokeOption) (*LookupMECRoleResult, error) {
 	var rv LookupMECRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getMECRole", args, &rv, opts...)
@@ -31,8 +31,6 @@ type LookupMECRoleArgs struct {
 type LookupMECRoleResult struct {
 	// Activation key of the MEC.
 	ConnectionString *AsymmetricEncryptedSecretResponse `pulumi:"connectionString"`
-	// Controller Endpoint.
-	ControllerEndpoint *string `pulumi:"controllerEndpoint"`
 	// The path ID that uniquely identifies the object.
 	Id string `pulumi:"id"`
 	// Role type.
@@ -40,8 +38,6 @@ type LookupMECRoleResult struct {
 	Kind string `pulumi:"kind"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// Unique Id of the Resource.
-	ResourceUniqueId *string `pulumi:"resourceUniqueId"`
 	// Role status.
 	RoleStatus string `pulumi:"roleStatus"`
 	// Role configured on ASE resource

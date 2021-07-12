@@ -8,7 +8,7 @@ import (
 )
 
 // IoT Addon.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupIoTAddon(ctx *pulumi.Context, args *LookupIoTAddonArgs, opts ...pulumi.InvokeOption) (*LookupIoTAddonResult, error) {
 	var rv LookupIoTAddonResult
 	err := ctx.Invoke("azure-native:databoxedge:getIoTAddon", args, &rv, opts...)

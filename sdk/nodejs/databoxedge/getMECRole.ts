@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * MEC role.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getMECRole(args: GetMECRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetMECRoleResult> {
     if (!opts) {
@@ -48,10 +48,6 @@ export interface GetMECRoleResult {
      */
     readonly connectionString?: outputs.databoxedge.AsymmetricEncryptedSecretResponse;
     /**
-     * Controller Endpoint.
-     */
-    readonly controllerEndpoint?: string;
-    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -64,10 +60,6 @@ export interface GetMECRoleResult {
      * The object name.
      */
     readonly name: string;
-    /**
-     * Unique Id of the Resource.
-     */
-    readonly resourceUniqueId?: string;
     /**
      * Role status.
      */

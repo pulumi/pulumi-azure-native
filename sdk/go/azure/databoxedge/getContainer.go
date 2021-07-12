@@ -8,7 +8,7 @@ import (
 )
 
 // Represents a container on the  Data Box Edge/Gateway device.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupContainer(ctx *pulumi.Context, args *LookupContainerArgs, opts ...pulumi.InvokeOption) (*LookupContainerResult, error) {
 	var rv LookupContainerResult
 	err := ctx.Invoke("azure-native:databoxedge:getContainer", args, &rv, opts...)

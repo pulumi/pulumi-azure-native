@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
-    /// Kubernetes role, Currently it's in Private Preview
-    /// API Version: 2021-02-01.
+    /// Kubernetes role.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:KubernetesRole")]
     public partial class KubernetesRole : Pulumi.CustomResource

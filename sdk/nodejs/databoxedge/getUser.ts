@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     if (!opts) {

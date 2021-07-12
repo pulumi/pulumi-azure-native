@@ -12,7 +12,7 @@ import (
 )
 
 // The metric setting details for the role
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 type MonitoringConfig struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type MonitoringConfig struct {
 	MetricConfigurations MetricConfigurationResponseArrayOutput `pulumi:"metricConfigurations"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// MonitoringConfiguration on ASE device
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -107,8 +105,6 @@ type monitoringConfigState struct {
 	MetricConfigurations []MetricConfigurationResponse `pulumi:"metricConfigurations"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// MonitoringConfiguration on ASE device
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -118,8 +114,6 @@ type MonitoringConfigState struct {
 	MetricConfigurations MetricConfigurationResponseArrayInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// MonitoringConfiguration on ASE device
-	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

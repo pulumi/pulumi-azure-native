@@ -8,7 +8,7 @@ import (
 )
 
 // Compute role.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupIoTRole(ctx *pulumi.Context, args *LookupIoTRoleArgs, opts ...pulumi.InvokeOption) (*LookupIoTRoleResult, error) {
 	var rv LookupIoTRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getIoTRole", args, &rv, opts...)

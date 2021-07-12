@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class Order extends pulumi.CustomResource {
     /**
@@ -73,10 +73,6 @@ export class Order extends pulumi.CustomResource {
      */
     public readonly shippingAddress!: pulumi.Output<outputs.databoxedge.AddressResponse | undefined>;
     /**
-     * Order configured on ASE resource
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
-    /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -112,7 +108,6 @@ export class Order extends pulumi.CustomResource {
             inputs["orderHistory"] = undefined /*out*/;
             inputs["returnTrackingInfo"] = undefined /*out*/;
             inputs["serialNumber"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["contactInformation"] = undefined /*out*/;
@@ -124,7 +119,6 @@ export class Order extends pulumi.CustomResource {
             inputs["serialNumber"] = undefined /*out*/;
             inputs["shipmentType"] = undefined /*out*/;
             inputs["shippingAddress"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

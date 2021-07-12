@@ -12,7 +12,7 @@ import (
 )
 
 // Represents a share on the  Data Box Edge/Gateway device.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 type Share struct {
 	pulumi.CustomResourceState
 

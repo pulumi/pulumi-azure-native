@@ -11,8 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CloudEdgeManagementRole role, Currently It's in Private Preview
-// API Version: 2021-02-01.
+// CloudEdgeManagementRole role.
+// API Version: 2020-12-01.
 type CloudEdgeManagementRole struct {
 	pulumi.CustomResourceState
 

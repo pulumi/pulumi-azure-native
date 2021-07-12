@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// The Data Box Edge/Gateway device.
-        /// API Version: 2021-02-01.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:databoxedge:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
@@ -55,10 +55,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
         public readonly string? DataBoxEdgeDeviceStatus;
-        /// <summary>
-        /// The details of data-residency related properties for this resource
-        /// </summary>
-        public readonly Outputs.DataResidencyResponse? DataResidency;
         /// <summary>
         /// The Description of the Data Box Edge/Gateway device.
         /// </summary>
@@ -104,9 +100,9 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
-        /// The kind of the device.
+        /// The etag for the devices.
         /// </summary>
-        public readonly string? Kind;
+        public readonly string Kind;
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         /// </summary>
@@ -160,8 +156,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string? dataBoxEdgeDeviceStatus,
 
-            Outputs.DataResidencyResponse? dataResidency,
-
             string description,
 
             string deviceHcsVersion,
@@ -184,7 +178,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             Outputs.ResourceIdentityResponse? identity,
 
-            string? kind,
+            string kind,
 
             string location,
 
@@ -211,7 +205,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
             ConfiguredRoleTypes = configuredRoleTypes;
             Culture = culture;
             DataBoxEdgeDeviceStatus = dataBoxEdgeDeviceStatus;
-            DataResidency = dataResidency;
             Description = description;
             DeviceHcsVersion = deviceHcsVersion;
             DeviceLocalCapacity = deviceLocalCapacity;

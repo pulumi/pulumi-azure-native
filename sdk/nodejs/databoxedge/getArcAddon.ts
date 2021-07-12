@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Arc Addon.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export function getArcAddon(args: GetArcAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetArcAddonResult> {
     if (!opts) {

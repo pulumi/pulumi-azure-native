@@ -124,36 +124,6 @@ func (e ClientPermissionType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The kind of the device.
-type DataBoxEdgeDeviceKind pulumi.String
-
-const (
-	DataBoxEdgeDeviceKindAzureDataBoxGateway    = DataBoxEdgeDeviceKind("AzureDataBoxGateway")
-	DataBoxEdgeDeviceKindAzureStackEdge         = DataBoxEdgeDeviceKind("AzureStackEdge")
-	DataBoxEdgeDeviceKindAzureStackHub          = DataBoxEdgeDeviceKind("AzureStackHub")
-	DataBoxEdgeDeviceKindAzureModularDataCentre = DataBoxEdgeDeviceKind("AzureModularDataCentre")
-)
-
-func (DataBoxEdgeDeviceKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataBoxEdgeDeviceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The status of the Data Box Edge/Gateway device.
 type DataBoxEdgeDeviceStatus pulumi.String
 
@@ -212,34 +182,6 @@ func (e DataPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e DataPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// DataResidencyType enum
-type DataResidencyType pulumi.String
-
-const (
-	DataResidencyTypeGeoZoneReplication = DataResidencyType("GeoZoneReplication")
-	DataResidencyTypeZoneReplication    = DataResidencyType("ZoneReplication")
-)
-
-func (DataResidencyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e DataResidencyType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataResidencyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataResidencyType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataResidencyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -616,14 +558,10 @@ const (
 	SkuName_EdgeP_High           = SkuName("EdgeP_High")
 	SkuName_EdgePR_Base          = SkuName("EdgePR_Base")
 	SkuName_EdgePR_Base_UPS      = SkuName("EdgePR_Base_UPS")
-	SkuName_EP2_64_1VPU_W        = SkuName("EP2_64_1VPU_W")
-	SkuName_EP2_128_1T4_Mx1_W    = SkuName("EP2_128_1T4_Mx1_W")
-	SkuName_EP2_256_2T4_W        = SkuName("EP2_256_2T4_W")
 	SkuName_EdgeMR_Mini          = SkuName("EdgeMR_Mini")
 	SkuName_RCA_Small            = SkuName("RCA_Small")
 	SkuName_RCA_Large            = SkuName("RCA_Large")
 	SkuNameRDC                   = SkuName("RDC")
-	SkuNameManagement            = SkuName("Management")
 )
 
 func (SkuName) ElementType() reflect.Type {

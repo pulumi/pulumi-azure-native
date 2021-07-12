@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The order details.
-    /// API Version: 2021-02-01.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Order")]
     public partial class Order : Pulumi.CustomResource
@@ -69,12 +69,6 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// </summary>
         [Output("shippingAddress")]
         public Output<Outputs.AddressResponse?> ShippingAddress { get; private set; } = null!;
-
-        /// <summary>
-        /// Order configured on ASE resource
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

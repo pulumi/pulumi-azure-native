@@ -109,7 +109,7 @@ class Container(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class Container(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.

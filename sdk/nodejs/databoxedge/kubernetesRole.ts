@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Kubernetes role, Currently it's in Private Preview
- * API Version: 2021-02-01.
+ * Kubernetes role.
+ * API Version: 2020-12-01.
  */
 export class KubernetesRole extends pulumi.CustomResource {
     /**

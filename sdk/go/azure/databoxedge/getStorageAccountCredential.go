@@ -8,7 +8,7 @@ import (
 )
 
 // The storage account credential.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 func LookupStorageAccountCredential(ctx *pulumi.Context, args *LookupStorageAccountCredentialArgs, opts ...pulumi.InvokeOption) (*LookupStorageAccountCredentialResult, error) {
 	var rv LookupStorageAccountCredentialResult
 	err := ctx.Invoke("azure-native:databoxedge:getStorageAccountCredential", args, &rv, opts...)

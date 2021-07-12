@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public static class GetCloudEdgeManagementRole
     {
         /// <summary>
-        /// CloudEdgeManagementRole role, Currently It's in Private Preview
-        /// API Version: 2021-02-01.
+        /// CloudEdgeManagementRole role.
+        /// API Version: 2020-12-01.
         /// </summary>
         public static Task<GetCloudEdgeManagementRoleResult> InvokeAsync(GetCloudEdgeManagementRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudEdgeManagementRoleResult>("azure-native:databoxedge:getCloudEdgeManagementRole", args ?? new GetCloudEdgeManagementRoleArgs(), options.WithVersion());

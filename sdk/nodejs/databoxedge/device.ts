@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * API Version: 2021-02-01.
+ * API Version: 2020-12-01.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -49,10 +49,6 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string | undefined>;
     /**
-     * The details of data-residency related properties for this resource
-     */
-    public readonly dataResidency!: pulumi.Output<outputs.databoxedge.DataResidencyResponse | undefined>;
-    /**
      * The Description of the Data Box Edge/Gateway device.
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
@@ -93,9 +89,9 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.databoxedge.ResourceIdentityResponse | undefined>;
     /**
-     * The kind of the device.
+     * The etag for the devices.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
@@ -156,11 +152,9 @@ export class Device extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
-            inputs["dataResidency"] = args ? args.dataResidency : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -175,6 +169,7 @@ export class Device extends pulumi.CustomResource {
             inputs["deviceType"] = undefined /*out*/;
             inputs["edgeProfile"] = undefined /*out*/;
             inputs["friendlyName"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["modelDescription"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nodeCount"] = undefined /*out*/;
@@ -187,7 +182,6 @@ export class Device extends pulumi.CustomResource {
             inputs["configuredRoleTypes"] = undefined /*out*/;
             inputs["culture"] = undefined /*out*/;
             inputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
-            inputs["dataResidency"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["deviceHcsVersion"] = undefined /*out*/;
             inputs["deviceLocalCapacity"] = undefined /*out*/;
@@ -229,10 +223,6 @@ export interface DeviceArgs {
      */
     dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.DataBoxEdgeDeviceStatus>;
     /**
-     * The details of data-residency related properties for this resource
-     */
-    dataResidency?: pulumi.Input<inputs.databoxedge.DataResidencyArgs>;
-    /**
      * The device name.
      */
     deviceName?: pulumi.Input<string>;
@@ -244,10 +234,6 @@ export interface DeviceArgs {
      * Msi identity of the resource
      */
     identity?: pulumi.Input<inputs.databoxedge.ResourceIdentityArgs>;
-    /**
-     * The kind of the device.
-     */
-    kind?: pulumi.Input<string | enums.databoxedge.DataBoxEdgeDeviceKind>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */

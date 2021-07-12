@@ -18,11 +18,9 @@ class DeviceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
-                 data_residency: Optional[pulumi.Input['DataResidencyArgs']] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -30,11 +28,9 @@ class DeviceArgs:
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
-        :param pulumi.Input['DataResidencyArgs'] data_residency: The details of data-residency related properties for this resource
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] etag: The etag for the devices.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
-        :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']] kind: The kind of the device.
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input['SkuArgs'] sku: The SKU type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
@@ -42,16 +38,12 @@ class DeviceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_box_edge_device_status is not None:
             pulumi.set(__self__, "data_box_edge_device_status", data_box_edge_device_status)
-        if data_residency is not None:
-            pulumi.set(__self__, "data_residency", data_residency)
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sku is not None:
@@ -82,18 +74,6 @@ class DeviceArgs:
     @data_box_edge_device_status.setter
     def data_box_edge_device_status(self, value: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]]):
         pulumi.set(self, "data_box_edge_device_status", value)
-
-    @property
-    @pulumi.getter(name="dataResidency")
-    def data_residency(self) -> Optional[pulumi.Input['DataResidencyArgs']]:
-        """
-        The details of data-residency related properties for this resource
-        """
-        return pulumi.get(self, "data_residency")
-
-    @data_residency.setter
-    def data_residency(self, value: Optional[pulumi.Input['DataResidencyArgs']]):
-        pulumi.set(self, "data_residency", value)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -130,18 +110,6 @@ class DeviceArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]]:
-        """
-        The kind of the device.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]]):
-        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -186,11 +154,9 @@ class Device(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
-                 data_residency: Optional[pulumi.Input[pulumi.InputType['DataResidencyArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -198,16 +164,14 @@ class Device(pulumi.CustomResource):
                  __props__=None):
         """
         The Data Box Edge/Gateway device.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
-        :param pulumi.Input[pulumi.InputType['DataResidencyArgs']] data_residency: The details of data-residency related properties for this resource
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] etag: The etag for the devices.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Msi identity of the resource
-        :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']] kind: The kind of the device.
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU type.
@@ -221,7 +185,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Data Box Edge/Gateway device.
-        API Version: 2021-02-01.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
@@ -239,11 +203,9 @@ class Device(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_box_edge_device_status: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']]] = None,
-                 data_residency: Optional[pulumi.Input[pulumi.InputType['DataResidencyArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[Union[str, 'DataBoxEdgeDeviceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -261,11 +223,9 @@ class Device(pulumi.CustomResource):
             __props__ = DeviceArgs.__new__(DeviceArgs)
 
             __props__.__dict__["data_box_edge_device_status"] = data_box_edge_device_status
-            __props__.__dict__["data_residency"] = data_residency
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["etag"] = etag
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -282,6 +242,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["device_type"] = None
             __props__.__dict__["edge_profile"] = None
             __props__.__dict__["friendly_name"] = None
+            __props__.__dict__["kind"] = None
             __props__.__dict__["model_description"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["node_count"] = None
@@ -317,7 +278,6 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["configured_role_types"] = None
         __props__.__dict__["culture"] = None
         __props__.__dict__["data_box_edge_device_status"] = None
-        __props__.__dict__["data_residency"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["device_hcs_version"] = None
         __props__.__dict__["device_local_capacity"] = None
@@ -365,14 +325,6 @@ class Device(pulumi.CustomResource):
         The status of the Data Box Edge/Gateway device.
         """
         return pulumi.get(self, "data_box_edge_device_status")
-
-    @property
-    @pulumi.getter(name="dataResidency")
-    def data_residency(self) -> pulumi.Output[Optional['outputs.DataResidencyResponse']]:
-        """
-        The details of data-residency related properties for this resource
-        """
-        return pulumi.get(self, "data_residency")
 
     @property
     @pulumi.getter
@@ -456,9 +408,9 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kind(self) -> pulumi.Output[Optional[str]]:
+    def kind(self) -> pulumi.Output[str]:
         """
-        The kind of the device.
+        The etag for the devices.
         """
         return pulumi.get(self, "kind")
 

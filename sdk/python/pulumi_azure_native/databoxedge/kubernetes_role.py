@@ -159,8 +159,8 @@ class KubernetesRole(pulumi.CustomResource):
                  role_status: Optional[pulumi.Input[Union[str, 'RoleStatus']]] = None,
                  __props__=None):
         """
-        Kubernetes role, Currently it's in Private Preview
-        API Version: 2021-02-01.
+        Kubernetes role.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -181,8 +181,8 @@ class KubernetesRole(pulumi.CustomResource):
                  args: KubernetesRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Kubernetes role, Currently it's in Private Preview
-        API Version: 2021-02-01.
+        Kubernetes role.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param KubernetesRoleArgs args: The arguments to use to populate this resource's properties.

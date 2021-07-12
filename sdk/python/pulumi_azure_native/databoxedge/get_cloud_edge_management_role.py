@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetCloudEdgeManagementRoleResult:
     """
-    CloudEdgeManagementRole role, Currently It's in Private Preview
+    CloudEdgeManagementRole role.
     """
     def __init__(__self__, edge_profile=None, id=None, kind=None, local_management_status=None, name=None, role_status=None, system_data=None, type=None):
         if edge_profile and not isinstance(edge_profile, dict):
@@ -133,8 +133,8 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
                                    resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudEdgeManagementRoleResult:
     """
-    CloudEdgeManagementRole role, Currently It's in Private Preview
-    API Version: 2021-02-01.
+    CloudEdgeManagementRole role.
+    API Version: 2020-12-01.
 
 
     :param str device_name: The device name.

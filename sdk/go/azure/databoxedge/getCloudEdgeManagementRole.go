@@ -7,8 +7,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// CloudEdgeManagementRole role, Currently It's in Private Preview
-// API Version: 2021-02-01.
+// CloudEdgeManagementRole role.
+// API Version: 2020-12-01.
 func LookupCloudEdgeManagementRole(ctx *pulumi.Context, args *LookupCloudEdgeManagementRoleArgs, opts ...pulumi.InvokeOption) (*LookupCloudEdgeManagementRoleResult, error) {
 	var rv LookupCloudEdgeManagementRoleResult
 	err := ctx.Invoke("azure-native:databoxedge:getCloudEdgeManagementRole", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupCloudEdgeManagementRoleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// CloudEdgeManagementRole role, Currently It's in Private Preview
+// CloudEdgeManagementRole role.
 type LookupCloudEdgeManagementRoleResult struct {
 	// Edge Profile of the resource
 	EdgeProfile EdgeProfileResponse `pulumi:"edgeProfile"`

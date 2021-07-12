@@ -12,7 +12,7 @@ import (
 )
 
 // The order details.
-// API Version: 2021-02-01.
+// API Version: 2020-12-01.
 type Order struct {
 	pulumi.CustomResourceState
 
@@ -34,8 +34,6 @@ type Order struct {
 	ShipmentType pulumi.StringPtrOutput `pulumi:"shipmentType"`
 	// The shipping address.
 	ShippingAddress AddressResponsePtrOutput `pulumi:"shippingAddress"`
-	// Order configured on ASE resource
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -156,8 +154,6 @@ type orderState struct {
 	ShipmentType *string `pulumi:"shipmentType"`
 	// The shipping address.
 	ShippingAddress *AddressResponse `pulumi:"shippingAddress"`
-	// Order configured on ASE resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
@@ -181,8 +177,6 @@ type OrderState struct {
 	ShipmentType pulumi.StringPtrInput
 	// The shipping address.
 	ShippingAddress AddressResponsePtrInput
-	// Order configured on ASE resource
-	SystemData SystemDataResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }
