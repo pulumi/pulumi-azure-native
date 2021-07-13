@@ -94,7 +94,8 @@ generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION} && \
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak '15i\'$$'\n''    <UseSharedCompilation>false</UseSharedCompilation>' Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak
+	rm Pulumi.AzureNative.csproj.bak && \
+	cat Pulumi.AzureNative.csproj
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
