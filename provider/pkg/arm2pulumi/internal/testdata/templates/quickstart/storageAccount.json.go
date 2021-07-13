@@ -31,7 +31,7 @@ func main() {
 			Kind:              pulumi.String("StorageV2"),
 			Location:          pulumi.String(locationParam),
 			ResourceGroupName: pulumi.String(resourceGroupNameParam),
-			Sku: &storage.SkuArgs{
+			Sku: &storagev20190401.SkuArgs{
 				Name: pulumi.String(storageAccountTypeParam),
 			},
 		})
