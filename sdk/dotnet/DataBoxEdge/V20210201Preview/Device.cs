@@ -207,6 +207,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Device"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Device"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Device"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Device"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:Device"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

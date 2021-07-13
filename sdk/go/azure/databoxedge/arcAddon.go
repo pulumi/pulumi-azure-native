@@ -95,6 +95,12 @@ func NewArcAddon(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:ArcAddon"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20210201:ArcAddon"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:ArcAddon"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:ArcAddon"),
 		},
 		{

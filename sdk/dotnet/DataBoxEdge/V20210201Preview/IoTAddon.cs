@@ -117,6 +117,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:IoTAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:IoTAddon"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:IoTAddon"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:IoTAddon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

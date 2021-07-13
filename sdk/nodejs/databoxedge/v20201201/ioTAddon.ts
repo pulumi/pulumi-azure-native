@@ -135,7 +135,7 @@ export class IoTAddon extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge:IoTAddon" }, { type: "azure-nextgen:databoxedge:IoTAddon" }, { type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20210201preview:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20210201preview:IoTAddon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge:IoTAddon" }, { type: "azure-nextgen:databoxedge:IoTAddon" }, { type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20210201:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20210201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201preview:IoTAddon" }, { type: "azure-nextgen:databoxedge/v20210201preview:IoTAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTAddon.__pulumiType, name, inputs, opts);
     }

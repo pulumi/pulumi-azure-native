@@ -83,6 +83,12 @@ func NewContainer(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Container"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20210201:Container"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Container"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Container"),
 		},
 		{

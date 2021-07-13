@@ -91,13 +91,17 @@ build_python::
 	cd ./bin && python3 setup.py build sdist
 
 generate_dotnet::
-	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION} && \
+	cd ${PACKDIR}/dotnet/ && \
+	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
+	rm Pulumi.AzureNative.csproj.bak && \
+	cat Pulumi.AzureNative.csproj
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
-		echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
-		dotnet build /p:Version=${DOTNET_VERSION}
+	echo "azure-native\n${DOTNET_VERSION}" >version.txt && \
+	dotnet build /p:Version=${DOTNET_VERSION}
 
 generate_go::
 	$(WORKING_DIR)/bin/$(CODEGEN) go ${VERSION}

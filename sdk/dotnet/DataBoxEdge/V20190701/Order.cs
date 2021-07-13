@@ -109,6 +109,8 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190701
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Order"},
+                    new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Order"},
+                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:Order"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Order"},
                     new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:Order"},
                 },

@@ -119,6 +119,12 @@ func NewKubernetesRole(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:KubernetesRole"),
 		},
+		{
+			Type: pulumi.String("azure-native:databoxedge/v20210201:KubernetesRole"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:KubernetesRole"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource KubernetesRole

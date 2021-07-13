@@ -4200,6 +4200,33 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "databoxedge/v20210201",
+  "fqn": "pulumi_azure_native.databoxedge.v20210201",
+  "classes": {
+   "azure-native:databoxedge/v20210201:Addon": "Addon",
+   "azure-native:databoxedge/v20210201:ArcAddon": "ArcAddon",
+   "azure-native:databoxedge/v20210201:BandwidthSchedule": "BandwidthSchedule",
+   "azure-native:databoxedge/v20210201:CloudEdgeManagementRole": "CloudEdgeManagementRole",
+   "azure-native:databoxedge/v20210201:Container": "Container",
+   "azure-native:databoxedge/v20210201:Device": "Device",
+   "azure-native:databoxedge/v20210201:FileEventTrigger": "FileEventTrigger",
+   "azure-native:databoxedge/v20210201:IoTAddon": "IoTAddon",
+   "azure-native:databoxedge/v20210201:IoTRole": "IoTRole",
+   "azure-native:databoxedge/v20210201:KubernetesRole": "KubernetesRole",
+   "azure-native:databoxedge/v20210201:MECRole": "MECRole",
+   "azure-native:databoxedge/v20210201:MonitoringConfig": "MonitoringConfig",
+   "azure-native:databoxedge/v20210201:Order": "Order",
+   "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger": "PeriodicTimerEventTrigger",
+   "azure-native:databoxedge/v20210201:Role": "Role",
+   "azure-native:databoxedge/v20210201:Share": "Share",
+   "azure-native:databoxedge/v20210201:StorageAccount": "StorageAccount",
+   "azure-native:databoxedge/v20210201:StorageAccountCredential": "StorageAccountCredential",
+   "azure-native:databoxedge/v20210201:Trigger": "Trigger",
+   "azure-native:databoxedge/v20210201:User": "User"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "databoxedge/v20210201preview",
   "fqn": "pulumi_azure_native.databoxedge.v20210201preview",
   "classes": {

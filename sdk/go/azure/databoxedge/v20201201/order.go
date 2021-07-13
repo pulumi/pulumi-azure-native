@@ -100,6 +100,12 @@ func NewOrder(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Order"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20210201:Order"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Order"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Order"),
 		},
 		{

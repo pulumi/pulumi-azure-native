@@ -119,6 +119,12 @@ func NewIoTRole(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:IoTRole"),
 		},
 		{
+			Type: pulumi.String("azure-native:databoxedge/v20210201:IoTRole"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:IoTRole"),
+		},
+		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:IoTRole"),
 		},
 		{
