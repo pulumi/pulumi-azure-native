@@ -93,7 +93,7 @@ build_python::
 generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION} && \
 	cd ${PACKDIR}/dotnet/ && \
-	sed -i.bak '15i\'$'\n''    <UseSharedCompilation>false</UseSharedCompilation>' Pulumi.AzureNative.csproj && \
+	sed -i.bak -e "s/\<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
 	rm Pulumi.AzureNative.csproj.bak && \
 	cat Pulumi.AzureNative.csproj
 
