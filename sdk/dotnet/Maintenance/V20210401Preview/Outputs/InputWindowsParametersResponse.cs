@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ClassificationsToInclude;
         /// <summary>
+        /// Exclude patches which need reboot
+        /// </summary>
+        public readonly bool? ExcludeKbsRequiringReboot;
+        /// <summary>
         /// Windows KBID to be excluded for patching.
         /// </summary>
         public readonly ImmutableArray<string> KbNumbersToExclude;
@@ -30,11 +34,14 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Outputs
         private InputWindowsParametersResponse(
             ImmutableArray<string> classificationsToInclude,
 
+            bool? excludeKbsRequiringReboot,
+
             ImmutableArray<string> kbNumbersToExclude,
 
             ImmutableArray<string> kbNumbersToInclude)
         {
             ClassificationsToInclude = classificationsToInclude;
+            ExcludeKbsRequiringReboot = excludeKbsRequiringReboot;
             KbNumbersToExclude = kbNumbersToExclude;
             KbNumbersToInclude = kbNumbersToInclude;
         }

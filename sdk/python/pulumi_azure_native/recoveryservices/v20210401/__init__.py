@@ -21,6 +21,7 @@ from .get_replication_recovery_plan import *
 from .get_replication_recovery_services_provider import *
 from .get_replication_storage_classification_mapping import *
 from .get_replicationv_center import *
+from .get_vault import *
 from .private_endpoint_connection import *
 from .protected_item import *
 from .protection_container import *
@@ -36,5 +37,6 @@ from .replication_recovery_plan import *
 from .replication_recovery_services_provider import *
 from .replication_storage_classification_mapping import *
 from .replicationv_center import *
+from .vault import *
 from ._inputs import *
 from . import outputs

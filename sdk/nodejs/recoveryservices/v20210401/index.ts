@@ -20,6 +20,7 @@ export * from "./getReplicationRecoveryPlan";
 export * from "./getReplicationRecoveryServicesProvider";
 export * from "./getReplicationStorageClassificationMapping";
 export * from "./getReplicationvCenter";
+export * from "./getVault";
 export * from "./privateEndpointConnection";
 export * from "./protectedItem";
 export * from "./protectionContainer";
@@ -35,6 +36,7 @@ export * from "./replicationRecoveryPlan";
 export * from "./replicationRecoveryServicesProvider";
 export * from "./replicationStorageClassificationMapping";
 export * from "./replicationvCenter";
+export * from "./vault";
 
 // Export enums:
 export * from "../../types/enums/recoveryservices/v20210401";
@@ -55,6 +57,7 @@ import { ReplicationRecoveryPlan } from "./replicationRecoveryPlan";
 import { ReplicationRecoveryServicesProvider } from "./replicationRecoveryServicesProvider";
 import { ReplicationStorageClassificationMapping } from "./replicationStorageClassificationMapping";
 import { ReplicationvCenter } from "./replicationvCenter";
+import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),
@@ -90,6 +93,8 @@ const _module = {
                 return new ReplicationStorageClassificationMapping(name, <any>undefined, { urn })
             case "azure-native:recoveryservices/v20210401:ReplicationvCenter":
                 return new ReplicationvCenter(name, <any>undefined, { urn })
+            case "azure-native:recoveryservices/v20210401:Vault":
+                return new Vault(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

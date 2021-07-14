@@ -10,6 +10,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The encoding profile to be used when encoding audio with AAC.
+type AacAudioProfile pulumi.String
+
+const (
+	// Specifies that the output audio is to be encoded into AAC Low Complexity profile (AAC-LC).
+	AacAudioProfileAacLc = AacAudioProfile("AacLc")
+	// Specifies that the output audio is to be encoded into HE-AAC v1 profile.
+	AacAudioProfileHeAacV1 = AacAudioProfile("HeAacV1")
+	// Specifies that the output audio is to be encoded into HE-AAC v2 profile.
+	AacAudioProfileHeAacV2 = AacAudioProfile("HeAacV2")
+)
+
+func (AacAudioProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AacAudioProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AacAudioProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AacAudioProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AacAudioProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The type of key used to encrypt the Account Key.
 type AccountEncryptionKeyType pulumi.String
 
@@ -37,6 +69,34 @@ func (e AccountEncryptionKeyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e AccountEncryptionKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+type AnalysisResolution pulumi.String
+
+const (
+	AnalysisResolutionSourceResolution   = AnalysisResolution("SourceResolution")
+	AnalysisResolutionStandardDefinition = AnalysisResolution("StandardDefinition")
+)
+
+func (AnalysisResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AnalysisResolution) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisResolution) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisResolution) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisResolution) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -69,6 +129,180 @@ func (e AssetContainerPermission) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e AssetContainerPermission) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+type AttributeFilter pulumi.String
+
+const (
+	// All tracks will be included.
+	AttributeFilterAll = AttributeFilter("All")
+	// The first track will be included when the attribute is sorted in descending order.  Generally used to select the largest bitrate.
+	AttributeFilterTop = AttributeFilter("Top")
+	// The first track will be included when the attribute is sorted in ascending order.  Generally used to select the smallest bitrate.
+	AttributeFilterBottom = AttributeFilter("Bottom")
+	// Any tracks that have an attribute equal to the value given will be included.
+	AttributeFilterValueEquals = AttributeFilter("ValueEquals")
+)
+
+func (AttributeFilter) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AttributeFilter) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AttributeFilter) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AttributeFilter) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AttributeFilter) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+type AudioAnalysisMode pulumi.String
+
+const (
+	// Performs all operations included in the Basic mode, additionally performing language detection and speaker diarization.
+	AudioAnalysisModeStandard = AudioAnalysisMode("Standard")
+	// This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode.
+	AudioAnalysisModeBasic = AudioAnalysisMode("Basic")
+)
+
+func (AudioAnalysisMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e AudioAnalysisMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AudioAnalysisMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AudioAnalysisMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AudioAnalysisMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Blur type
+type BlurType pulumi.String
+
+const (
+	// Box: debug filter, bounding box only
+	BlurTypeBox = BlurType("Box")
+	// Low: box-car blur filter
+	BlurTypeLow = BlurType("Low")
+	// Med: Gaussian blur filter
+	BlurTypeMed = BlurType("Med")
+	// High: Confuse blur filter
+	BlurTypeHigh = BlurType("High")
+	// Black: Black out filter
+	BlurTypeBlack = BlurType("Black")
+)
+
+func (BlurType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e BlurType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlurType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlurType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BlurType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+type ChannelMapping pulumi.String
+
+const (
+	// The Front Left Channel.
+	ChannelMappingFrontLeft = ChannelMapping("FrontLeft")
+	// The Front Right Channel.
+	ChannelMappingFrontRight = ChannelMapping("FrontRight")
+	// The Center Channel.
+	ChannelMappingCenter = ChannelMapping("Center")
+	// Low Frequency Effects Channel.  Sometimes referred to as the Subwoofer.
+	ChannelMappingLowFrequencyEffects = ChannelMapping("LowFrequencyEffects")
+	// The Back Left Channel.  Sometimes referred to as the Left Surround Channel.
+	ChannelMappingBackLeft = ChannelMapping("BackLeft")
+	// The Back Right Channel.  Sometimes referred to as the Right Surround Channel.
+	ChannelMappingBackRight = ChannelMapping("BackRight")
+	// The Left Stereo channel.  Sometimes referred to as Down Mix Left.
+	ChannelMappingStereoLeft = ChannelMapping("StereoLeft")
+	// The Right Stereo channel.  Sometimes referred to as Down Mix Right.
+	ChannelMappingStereoRight = ChannelMapping("StereoRight")
+)
+
+func (ChannelMapping) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ChannelMapping) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMapping) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMapping) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMapping) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+type Complexity pulumi.String
+
+const (
+	// Configures the encoder to use settings optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+	ComplexitySpeed = Complexity("Speed")
+	// Configures the encoder to use settings that achieve a balance between speed and quality.
+	ComplexityBalanced = Complexity("Balanced")
+	// Configures the encoder to use settings optimized to produce higher quality output at the expense of slower overall encode time.
+	ComplexityQuality = Complexity("Quality")
+)
+
+func (Complexity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Complexity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Complexity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Complexity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Complexity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -270,6 +504,188 @@ func (e DefaultAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The deinterlacing mode. Defaults to AutoPixelAdaptive.
+type DeinterlaceMode pulumi.String
+
+const (
+	// Disables de-interlacing of the source video.
+	DeinterlaceModeOff = DeinterlaceMode("Off")
+	// Apply automatic pixel adaptive de-interlacing on each frame in the input video.
+	DeinterlaceModeAutoPixelAdaptive = DeinterlaceMode("AutoPixelAdaptive")
+)
+
+func (DeinterlaceMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DeinterlaceMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeinterlaceMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeinterlaceMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeinterlaceMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The field parity for de-interlacing, defaults to Auto.
+type DeinterlaceParity pulumi.String
+
+const (
+	// Automatically detect the order of fields
+	DeinterlaceParityAuto = DeinterlaceParity("Auto")
+	// Apply top field first processing of input video.
+	DeinterlaceParityTopFieldFirst = DeinterlaceParity("TopFieldFirst")
+	// Apply bottom field first processing of input video.
+	DeinterlaceParityBottomFieldFirst = DeinterlaceParity("BottomFieldFirst")
+)
+
+func (DeinterlaceParity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e DeinterlaceParity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeinterlaceParity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeinterlaceParity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeinterlaceParity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The built-in preset to be used for encoding videos.
+type EncoderNamedPreset pulumi.String
+
+const (
+	// Produces an MP4 file where the video is encoded with H.264 codec at 2200 kbps and a picture height of 480 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+	EncoderNamedPresetH264SingleBitrateSD = EncoderNamedPreset("H264SingleBitrateSD")
+	// Produces an MP4 file where the video is encoded with H.264 codec at 4500 kbps and a picture height of 720 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+	EncoderNamedPresetH264SingleBitrate720p = EncoderNamedPreset("H264SingleBitrate720p")
+	// Produces an MP4 file where the video is encoded with H.264 codec at 6750 kbps and a picture height of 1080 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+	EncoderNamedPresetH264SingleBitrate1080p = EncoderNamedPreset("H264SingleBitrate1080p")
+	// Produces a set of GOP aligned MP4 files with H.264 video and stereo AAC audio. Auto-generates a bitrate ladder based on the input resolution, bitrate and frame rate. The auto-generated preset will never exceed the input resolution. For example, if the input is 720p, output will remain 720p at best.
+	EncoderNamedPresetAdaptiveStreaming = EncoderNamedPreset("AdaptiveStreaming")
+	// Produces a single MP4 file containing only stereo audio encoded at 192 kbps.
+	EncoderNamedPresetAACGoodQualityAudio = EncoderNamedPreset("AACGoodQualityAudio")
+	// Exposes an experimental preset for content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved.
+	EncoderNamedPresetContentAwareEncodingExperimental = EncoderNamedPreset("ContentAwareEncodingExperimental")
+	// Produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved.
+	EncoderNamedPresetContentAwareEncoding = EncoderNamedPreset("ContentAwareEncoding")
+	// Copy all video and audio streams from the input asset as non-interleaved video and audio output files. This preset can be used to clip an existing asset or convert a group of key frame (GOP) aligned MP4 files as an asset that can be streamed.
+	EncoderNamedPresetCopyAllBitrateNonInterleaved = EncoderNamedPreset("CopyAllBitrateNonInterleaved")
+	// Produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 180p.
+	EncoderNamedPresetH264MultipleBitrate1080p = EncoderNamedPreset("H264MultipleBitrate1080p")
+	// Produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 180p.
+	EncoderNamedPresetH264MultipleBitrate720p = EncoderNamedPreset("H264MultipleBitrate720p")
+	// Produces a set of 5 GOP-aligned MP4 files, ranging from 1900kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 240p.
+	EncoderNamedPresetH264MultipleBitrateSD = EncoderNamedPreset("H264MultipleBitrateSD")
+	// Produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved.
+	EncoderNamedPresetH265ContentAwareEncoding = EncoderNamedPreset("H265ContentAwareEncoding")
+	// Produces a set of GOP aligned MP4 files with H.265 video and stereo AAC audio. Auto-generates a bitrate ladder based on the input resolution, bitrate and frame rate. The auto-generated preset will never exceed the input resolution. For example, if the input is 720p, output will remain 720p at best.
+	EncoderNamedPresetH265AdaptiveStreaming = EncoderNamedPreset("H265AdaptiveStreaming")
+	// Produces an MP4 file where the video is encoded with H.265 codec at 1800 kbps and a picture height of 720 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+	EncoderNamedPresetH265SingleBitrate720p = EncoderNamedPreset("H265SingleBitrate720p")
+	// Produces an MP4 file where the video is encoded with H.265 codec at 3500 kbps and a picture height of 1080 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+	EncoderNamedPresetH265SingleBitrate1080p = EncoderNamedPreset("H265SingleBitrate1080p")
+	// Produces an MP4 file where the video is encoded with H.265 codec at 9500 kbps and a picture height of 2160 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+	EncoderNamedPresetH265SingleBitrate4K = EncoderNamedPreset("H265SingleBitrate4K")
+)
+
+func (EncoderNamedPreset) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EncoderNamedPreset) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncoderNamedPreset) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EncoderNamedPreset) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EncoderNamedPreset) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+type EntropyMode pulumi.String
+
+const (
+	// Context Adaptive Binary Arithmetic Coder (CABAC) entropy encoding.
+	EntropyModeCabac = EntropyMode("Cabac")
+	// Context Adaptive Variable Length Coder (CAVLC) entropy encoding.
+	EntropyModeCavlc = EntropyMode("Cavlc")
+)
+
+func (EntropyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EntropyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntropyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EntropyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EntropyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+type FaceRedactorMode pulumi.String
+
+const (
+	// Analyze mode detects faces and outputs a metadata file with the results. Allows editing of the metadata file before faces are blurred with Redact mode.
+	FaceRedactorModeAnalyze = FaceRedactorMode("Analyze")
+	// Redact mode consumes the metadata file from Analyze mode and redacts the faces found.
+	FaceRedactorModeRedact = FaceRedactorMode("Redact")
+	// Combined mode does the Analyze and Redact steps in one pass when editing the analyzed faces is not desired.
+	FaceRedactorModeCombined = FaceRedactorMode("Combined")
+)
+
+func (FaceRedactorMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e FaceRedactorMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FaceRedactorMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FaceRedactorMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FaceRedactorMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // The track property condition operation.
 type FilterTrackPropertyCompareOperation pulumi.String
 
@@ -335,6 +751,200 @@ func (e FilterTrackPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e FilterTrackPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Tells the encoder how to choose its encoding settings. The default value is Balanced.
+type H264Complexity pulumi.String
+
+const (
+	// Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+	H264ComplexitySpeed = H264Complexity("Speed")
+	// Tells the encoder to use settings that achieve a balance between speed and quality.
+	H264ComplexityBalanced = H264Complexity("Balanced")
+	// Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+	H264ComplexityQuality = H264Complexity("Quality")
+)
+
+func (H264Complexity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e H264Complexity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264Complexity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264Complexity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e H264Complexity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// We currently support Baseline, Main, High, High422, High444. Default is Auto.
+type H264VideoProfile pulumi.String
+
+const (
+	// Tells the encoder to automatically determine the appropriate H.264 profile.
+	H264VideoProfileAuto = H264VideoProfile("Auto")
+	// Baseline profile
+	H264VideoProfileBaseline = H264VideoProfile("Baseline")
+	// Main profile
+	H264VideoProfileMain = H264VideoProfile("Main")
+	// High profile.
+	H264VideoProfileHigh = H264VideoProfile("High")
+	// High 4:2:2 profile.
+	H264VideoProfileHigh422 = H264VideoProfile("High422")
+	// High 4:4:4 predictive profile.
+	H264VideoProfileHigh444 = H264VideoProfile("High444")
+)
+
+func (H264VideoProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e H264VideoProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264VideoProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H264VideoProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e H264VideoProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+type H265Complexity pulumi.String
+
+const (
+	// Tells the encoder to use settings that are optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+	H265ComplexitySpeed = H265Complexity("Speed")
+	// Tells the encoder to use settings that achieve a balance between speed and quality.
+	H265ComplexityBalanced = H265Complexity("Balanced")
+	// Tells the encoder to use settings that are optimized to produce higher quality output at the expense of slower overall encode time.
+	H265ComplexityQuality = H265Complexity("Quality")
+)
+
+func (H265Complexity) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e H265Complexity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H265Complexity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H265Complexity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e H265Complexity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// We currently support Main. Default is Auto.
+type H265VideoProfile pulumi.String
+
+const (
+	// Tells the encoder to automatically determine the appropriate H.265 profile.
+	H265VideoProfileAuto = H265VideoProfile("Auto")
+	// Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
+	H265VideoProfileMain = H265VideoProfile("Main")
+)
+
+func (H265VideoProfile) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e H265VideoProfile) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H265VideoProfile) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e H265VideoProfile) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e H265VideoProfile) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+type InsightsType pulumi.String
+
+const (
+	// Generate audio only insights. Ignore video even if present. Fails if no audio is present.
+	InsightsTypeAudioInsightsOnly = InsightsType("AudioInsightsOnly")
+	// Generate video only insights. Ignore audio if present. Fails if no video is present.
+	InsightsTypeVideoInsightsOnly = InsightsType("VideoInsightsOnly")
+	// Generate both audio and video insights. Fails if either audio or video Insights fail.
+	InsightsTypeAllInsights = InsightsType("AllInsights")
+)
+
+func (InsightsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e InsightsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InsightsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InsightsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+type InterleaveOutput pulumi.String
+
+const (
+	// The output is video-only or audio-only.
+	InterleaveOutputNonInterleavedOutput = InterleaveOutput("NonInterleavedOutput")
+	// The output includes both audio and video.
+	InterleaveOutputInterleavedOutput = InterleaveOutput("InterleavedOutput")
+)
+
+func (InterleaveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e InterleaveOutput) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InterleaveOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InterleaveOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InterleaveOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -404,6 +1014,68 @@ func (e LiveEventInputProtocol) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+type OnErrorType pulumi.String
+
+const (
+	// Tells the service that if this TransformOutput fails, then any other incomplete TransformOutputs can be stopped.
+	OnErrorTypeStopProcessingJob = OnErrorType("StopProcessingJob")
+	// Tells the service that if this TransformOutput fails, then allow any other TransformOutput to continue.
+	OnErrorTypeContinueJob = OnErrorType("ContinueJob")
+)
+
+func (OnErrorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e OnErrorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnErrorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OnErrorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OnErrorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+type Priority pulumi.String
+
+const (
+	// Used for TransformOutputs that can be generated after Normal and High priority TransformOutputs.
+	PriorityLow = Priority("Low")
+	// Used for TransformOutputs that can be generated at Normal priority.
+	PriorityNormal = Priority("Normal")
+	// Used for TransformOutputs that should take precedence over others.
+	PriorityHigh = Priority("High")
+)
+
+func (Priority) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Priority) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Priority) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Priority) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Priority) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 type PrivateEndpointServiceConnectionStatus pulumi.String
 
@@ -460,6 +1132,44 @@ func (e PublicNetworkAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+type Rotation pulumi.String
+
+const (
+	// Automatically detect and rotate as needed.
+	RotationAuto = Rotation("Auto")
+	// Do not rotate the video.  If the output format supports it, any metadata about rotation is kept intact.
+	RotationNone = Rotation("None")
+	// Do not rotate the video but remove any metadata about the rotation.
+	RotationRotate0 = Rotation("Rotate0")
+	// Rotate 90 degrees clockwise.
+	RotationRotate90 = Rotation("Rotate90")
+	// Rotate 180 degrees clockwise.
+	RotationRotate180 = Rotation("Rotate180")
+	// Rotate 270 degrees clockwise.
+	RotationRotate270 = Rotation("Rotate270")
+)
+
+func (Rotation) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e Rotation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Rotation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Rotation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Rotation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -551,11 +1261,11 @@ func (e StreamOptionsFlag) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
 type StretchMode pulumi.String
 
 const (
-	// Strictly respects the output resolution specified in the encoding preset without considering the pixel aspect ratio or display aspect ratio of the input video.
+	// Strictly respect the output resolution without considering the pixel aspect ratio or display aspect ratio of the input video.
 	StretchModeNone = StretchMode("None")
 	// Override the output resolution, and change it to match the display aspect ratio of the input, without padding. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the value in the preset is overridden, and the output will be at 1280x720, which maintains the input aspect ratio of 16:9.
 	StretchModeAutoSize = StretchMode("AutoSize")
@@ -580,6 +1290,36 @@ func (e StretchMode) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e StretchMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The TrackAttribute to filter the tracks by.
+type TrackAttribute pulumi.String
+
+const (
+	// The bitrate of the track.
+	TrackAttributeBitrate = TrackAttribute("Bitrate")
+	// The language of the track.
+	TrackAttributeLanguage = TrackAttribute("Language")
+)
+
+func (TrackAttribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e TrackAttribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrackAttribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TrackAttribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TrackAttribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
@@ -640,5 +1380,39 @@ func (e TrackPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e TrackPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The Video Sync Mode
+type VideoSyncMode pulumi.String
+
+const (
+	// This is the default method. Chooses between Cfr and Vfr depending on muxer capabilities. For output format MP4, the default mode is Cfr.
+	VideoSyncModeAuto = VideoSyncMode("Auto")
+	// The presentation timestamps on frames are passed through from the input file to the output file writer. Recommended when the input source has variable frame rate, and are attempting to produce multiple layers for adaptive streaming in the output which have aligned GOP boundaries. Note: if two or more frames in the input have duplicate timestamps, then the output will also have the same behavior
+	VideoSyncModePassthrough = VideoSyncMode("Passthrough")
+	// Input frames will be repeated and/or dropped as needed to achieve exactly the requested constant frame rate. Recommended when the output frame rate is explicitly set at a specified value
+	VideoSyncModeCfr = VideoSyncMode("Cfr")
+	// Similar to the Passthrough mode, but if the input has frames that have duplicate timestamps, then only one frame is passed through to the output, and others are dropped. Recommended when the number of output frames is expected to be equal to the number of input frames. For example, the output is used to calculate a quality metric like PSNR against the input
+	VideoSyncModeVfr = VideoSyncMode("Vfr")
+)
+
+func (VideoSyncMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e VideoSyncMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VideoSyncMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VideoSyncMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VideoSyncMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

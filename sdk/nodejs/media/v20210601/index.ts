@@ -15,6 +15,7 @@ export * from "./getAssetEncryptionKey";
 export * from "./getAssetFilter";
 export * from "./getContentKeyPolicy";
 export * from "./getContentKeyPolicyPropertiesWithSecrets";
+export * from "./getJob";
 export * from "./getLiveEvent";
 export * from "./getLiveOutput";
 export * from "./getMediaService";
@@ -22,6 +23,8 @@ export * from "./getPrivateEndpointConnection";
 export * from "./getStreamingEndpoint";
 export * from "./getStreamingLocator";
 export * from "./getStreamingPolicy";
+export * from "./getTransform";
+export * from "./job";
 export * from "./listAssetContainerSas";
 export * from "./listAssetStreamingLocators";
 export * from "./listMediaServiceEdgePolicies";
@@ -34,6 +37,7 @@ export * from "./privateEndpointConnection";
 export * from "./streamingEndpoint";
 export * from "./streamingLocator";
 export * from "./streamingPolicy";
+export * from "./transform";
 
 // Export enums:
 export * from "../../types/enums/media/v20210601";
@@ -43,6 +47,7 @@ import { AccountFilter } from "./accountFilter";
 import { Asset } from "./asset";
 import { AssetFilter } from "./assetFilter";
 import { ContentKeyPolicy } from "./contentKeyPolicy";
+import { Job } from "./job";
 import { LiveEvent } from "./liveEvent";
 import { LiveOutput } from "./liveOutput";
 import { MediaService } from "./mediaService";
@@ -50,6 +55,7 @@ import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { StreamingEndpoint } from "./streamingEndpoint";
 import { StreamingLocator } from "./streamingLocator";
 import { StreamingPolicy } from "./streamingPolicy";
+import { Transform } from "./transform";
 
 const _module = {
     version: utilities.getVersion(),
@@ -63,6 +69,8 @@ const _module = {
                 return new AssetFilter(name, <any>undefined, { urn })
             case "azure-native:media/v20210601:ContentKeyPolicy":
                 return new ContentKeyPolicy(name, <any>undefined, { urn })
+            case "azure-native:media/v20210601:Job":
+                return new Job(name, <any>undefined, { urn })
             case "azure-native:media/v20210601:LiveEvent":
                 return new LiveEvent(name, <any>undefined, { urn })
             case "azure-native:media/v20210601:LiveOutput":
@@ -77,6 +85,8 @@ const _module = {
                 return new StreamingLocator(name, <any>undefined, { urn })
             case "azure-native:media/v20210601:StreamingPolicy":
                 return new StreamingPolicy(name, <any>undefined, { urn })
+            case "azure-native:media/v20210601:Transform":
+                return new Transform(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

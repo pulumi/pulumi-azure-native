@@ -192,6 +192,8 @@ class InputWindowsParametersResponse(dict):
         suggest = None
         if key == "classificationsToInclude":
             suggest = "classifications_to_include"
+        elif key == "excludeKbsRequiringReboot":
+            suggest = "exclude_kbs_requiring_reboot"
         elif key == "kbNumbersToExclude":
             suggest = "kb_numbers_to_exclude"
         elif key == "kbNumbersToInclude":
@@ -210,16 +212,20 @@ class InputWindowsParametersResponse(dict):
 
     def __init__(__self__, *,
                  classifications_to_include: Optional[Sequence[str]] = None,
+                 exclude_kbs_requiring_reboot: Optional[bool] = None,
                  kb_numbers_to_exclude: Optional[Sequence[str]] = None,
                  kb_numbers_to_include: Optional[Sequence[str]] = None):
         """
         Input properties for patching a Windows machine.
         :param Sequence[str] classifications_to_include: Classification category of patches to be patched
+        :param bool exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param Sequence[str] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
         :param Sequence[str] kb_numbers_to_include: Windows KBID to be included for patching.
         """
         if classifications_to_include is not None:
             pulumi.set(__self__, "classifications_to_include", classifications_to_include)
+        if exclude_kbs_requiring_reboot is not None:
+            pulumi.set(__self__, "exclude_kbs_requiring_reboot", exclude_kbs_requiring_reboot)
         if kb_numbers_to_exclude is not None:
             pulumi.set(__self__, "kb_numbers_to_exclude", kb_numbers_to_exclude)
         if kb_numbers_to_include is not None:
@@ -232,6 +238,14 @@ class InputWindowsParametersResponse(dict):
         Classification category of patches to be patched
         """
         return pulumi.get(self, "classifications_to_include")
+
+    @property
+    @pulumi.getter(name="excludeKbsRequiringReboot")
+    def exclude_kbs_requiring_reboot(self) -> Optional[bool]:
+        """
+        Exclude patches which need reboot
+        """
+        return pulumi.get(self, "exclude_kbs_requiring_reboot")
 
     @property
     @pulumi.getter(name="kbNumbersToExclude")

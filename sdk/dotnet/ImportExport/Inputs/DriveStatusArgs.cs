@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.ImportExport.Inputs
 
         public DriveStatusArgs()
         {
+            State = "Specified";
         }
     }
 }

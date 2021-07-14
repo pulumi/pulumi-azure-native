@@ -127,6 +127,8 @@ namespace Pulumi.AzureNative.Media.V20200501
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:Job"},
                     new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:Job"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20210601:Job"},
+                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

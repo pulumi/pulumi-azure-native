@@ -230,6 +230,8 @@ class DriveStatusResponse(dict):
             pulumi.set(__self__, "manifest_uri", manifest_uri)
         if percent_complete is not None:
             pulumi.set(__self__, "percent_complete", percent_complete)
+        if state is None:
+            state = 'Specified'
         if state is not None:
             pulumi.set(__self__, "state", state)
         if verbose_log_uri is not None:
@@ -628,8 +630,12 @@ class JobDetailsResponse(dict):
         :param str state: Current state of the job.
         :param str storage_account_id: The resource identifier of the storage account where data will be imported to or exported from.
         """
+        if backup_drive_manifest is None:
+            backup_drive_manifest = False
         if backup_drive_manifest is not None:
             pulumi.set(__self__, "backup_drive_manifest", backup_drive_manifest)
+        if cancel_requested is None:
+            cancel_requested = False
         if cancel_requested is not None:
             pulumi.set(__self__, "cancel_requested", cancel_requested)
         if delivery_package is not None:
@@ -660,6 +666,8 @@ class JobDetailsResponse(dict):
             pulumi.set(__self__, "return_shipping", return_shipping)
         if shipping_information is not None:
             pulumi.set(__self__, "shipping_information", shipping_information)
+        if state is None:
+            state = 'Creating'
         if state is not None:
             pulumi.set(__self__, "state", state)
         if storage_account_id is not None:

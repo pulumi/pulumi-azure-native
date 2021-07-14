@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AssetFilter{}
 	case "azure-native:media/v20210601:ContentKeyPolicy":
 		r = &ContentKeyPolicy{}
+	case "azure-native:media/v20210601:Job":
+		r = &Job{}
 	case "azure-native:media/v20210601:LiveEvent":
 		r = &LiveEvent{}
 	case "azure-native:media/v20210601:LiveOutput":
@@ -43,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StreamingLocator{}
 	case "azure-native:media/v20210601:StreamingPolicy":
 		r = &StreamingPolicy{}
+	case "azure-native:media/v20210601:Transform":
+		r = &Transform{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

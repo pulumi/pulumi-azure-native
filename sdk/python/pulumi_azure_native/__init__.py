@@ -8771,13 +8771,15 @@ _utilities.register(
    "azure-native:media/v20210601:Asset": "Asset",
    "azure-native:media/v20210601:AssetFilter": "AssetFilter",
    "azure-native:media/v20210601:ContentKeyPolicy": "ContentKeyPolicy",
+   "azure-native:media/v20210601:Job": "Job",
    "azure-native:media/v20210601:LiveEvent": "LiveEvent",
    "azure-native:media/v20210601:LiveOutput": "LiveOutput",
    "azure-native:media/v20210601:MediaService": "MediaService",
    "azure-native:media/v20210601:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:media/v20210601:StreamingEndpoint": "StreamingEndpoint",
    "azure-native:media/v20210601:StreamingLocator": "StreamingLocator",
-   "azure-native:media/v20210601:StreamingPolicy": "StreamingPolicy"
+   "azure-native:media/v20210601:StreamingPolicy": "StreamingPolicy",
+   "azure-native:media/v20210601:Transform": "Transform"
   }
  },
  {
@@ -12072,7 +12074,8 @@ _utilities.register(
    "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
    "azure-native:recoveryservices/v20210401:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
    "azure-native:recoveryservices/v20210401:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
-   "azure-native:recoveryservices/v20210401:ReplicationvCenter": "ReplicationvCenter"
+   "azure-native:recoveryservices/v20210401:ReplicationvCenter": "ReplicationvCenter",
+   "azure-native:recoveryservices/v20210401:Vault": "Vault"
   }
  },
  {

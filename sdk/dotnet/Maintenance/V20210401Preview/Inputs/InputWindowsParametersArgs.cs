@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Inputs
             set => _classificationsToInclude = value;
         }
 
+        /// <summary>
+        /// Exclude patches which need reboot
+        /// </summary>
+        [Input("excludeKbsRequiringReboot")]
+        public Input<bool>? ExcludeKbsRequiringReboot { get; set; }
+
         [Input("kbNumbersToExclude")]
         private InputList<string>? _kbNumbersToExclude;
 

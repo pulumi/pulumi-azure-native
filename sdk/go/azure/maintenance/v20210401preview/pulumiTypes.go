@@ -778,6 +778,8 @@ func (o InputPatchConfigurationResponsePtrOutput) WindowsParameters() InputWindo
 type InputWindowsParameters struct {
 	// Classification category of patches to be patched
 	ClassificationsToInclude []string `pulumi:"classificationsToInclude"`
+	// Exclude patches which need reboot
+	ExcludeKbsRequiringReboot *bool `pulumi:"excludeKbsRequiringReboot"`
 	// Windows KBID to be excluded for patching.
 	KbNumbersToExclude []string `pulumi:"kbNumbersToExclude"`
 	// Windows KBID to be included for patching.
@@ -799,6 +801,8 @@ type InputWindowsParametersInput interface {
 type InputWindowsParametersArgs struct {
 	// Classification category of patches to be patched
 	ClassificationsToInclude pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
+	// Exclude patches which need reboot
+	ExcludeKbsRequiringReboot pulumi.BoolPtrInput `pulumi:"excludeKbsRequiringReboot"`
 	// Windows KBID to be excluded for patching.
 	KbNumbersToExclude pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
 	// Windows KBID to be included for patching.
@@ -888,6 +892,11 @@ func (o InputWindowsParametersOutput) ClassificationsToInclude() pulumi.StringAr
 	return o.ApplyT(func(v InputWindowsParameters) []string { return v.ClassificationsToInclude }).(pulumi.StringArrayOutput)
 }
 
+// Exclude patches which need reboot
+func (o InputWindowsParametersOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InputWindowsParameters) *bool { return v.ExcludeKbsRequiringReboot }).(pulumi.BoolPtrOutput)
+}
+
 // Windows KBID to be excluded for patching.
 func (o InputWindowsParametersOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParameters) []string { return v.KbNumbersToExclude }).(pulumi.StringArrayOutput)
@@ -926,6 +935,16 @@ func (o InputWindowsParametersPtrOutput) ClassificationsToInclude() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
+// Exclude patches which need reboot
+func (o InputWindowsParametersPtrOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InputWindowsParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeKbsRequiringReboot
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Windows KBID to be excluded for patching.
 func (o InputWindowsParametersPtrOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InputWindowsParameters) []string {
@@ -950,6 +969,8 @@ func (o InputWindowsParametersPtrOutput) KbNumbersToInclude() pulumi.StringArray
 type InputWindowsParametersResponse struct {
 	// Classification category of patches to be patched
 	ClassificationsToInclude []string `pulumi:"classificationsToInclude"`
+	// Exclude patches which need reboot
+	ExcludeKbsRequiringReboot *bool `pulumi:"excludeKbsRequiringReboot"`
 	// Windows KBID to be excluded for patching.
 	KbNumbersToExclude []string `pulumi:"kbNumbersToExclude"`
 	// Windows KBID to be included for patching.
@@ -971,6 +992,8 @@ type InputWindowsParametersResponseInput interface {
 type InputWindowsParametersResponseArgs struct {
 	// Classification category of patches to be patched
 	ClassificationsToInclude pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
+	// Exclude patches which need reboot
+	ExcludeKbsRequiringReboot pulumi.BoolPtrInput `pulumi:"excludeKbsRequiringReboot"`
 	// Windows KBID to be excluded for patching.
 	KbNumbersToExclude pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
 	// Windows KBID to be included for patching.
@@ -1060,6 +1083,11 @@ func (o InputWindowsParametersResponseOutput) ClassificationsToInclude() pulumi.
 	return o.ApplyT(func(v InputWindowsParametersResponse) []string { return v.ClassificationsToInclude }).(pulumi.StringArrayOutput)
 }
 
+// Exclude patches which need reboot
+func (o InputWindowsParametersResponseOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InputWindowsParametersResponse) *bool { return v.ExcludeKbsRequiringReboot }).(pulumi.BoolPtrOutput)
+}
+
 // Windows KBID to be excluded for patching.
 func (o InputWindowsParametersResponseOutput) KbNumbersToExclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InputWindowsParametersResponse) []string { return v.KbNumbersToExclude }).(pulumi.StringArrayOutput)
@@ -1096,6 +1124,16 @@ func (o InputWindowsParametersResponsePtrOutput) ClassificationsToInclude() pulu
 		}
 		return v.ClassificationsToInclude
 	}).(pulumi.StringArrayOutput)
+}
+
+// Exclude patches which need reboot
+func (o InputWindowsParametersResponsePtrOutput) ExcludeKbsRequiringReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InputWindowsParametersResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeKbsRequiringReboot
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Windows KBID to be excluded for patching.

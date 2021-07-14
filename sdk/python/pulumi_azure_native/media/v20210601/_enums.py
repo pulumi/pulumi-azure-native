@@ -5,27 +5,59 @@
 from enum import Enum
 
 __all__ = [
+    'AacAudioProfile',
     'AccountEncryptionKeyType',
+    'AnalysisResolution',
     'AssetContainerPermission',
+    'AttributeFilter',
+    'AudioAnalysisMode',
+    'BlurType',
+    'ChannelMapping',
+    'Complexity',
     'ContentKeyPolicyFairPlayRentalAndLeaseKeyType',
     'ContentKeyPolicyPlayReadyContentType',
     'ContentKeyPolicyPlayReadyLicenseType',
     'ContentKeyPolicyPlayReadyUnknownOutputPassingOption',
     'ContentKeyPolicyRestrictionTokenType',
     'DefaultAction',
+    'DeinterlaceMode',
+    'DeinterlaceParity',
+    'EncoderNamedPreset',
+    'EntropyMode',
+    'FaceRedactorMode',
     'FilterTrackPropertyCompareOperation',
     'FilterTrackPropertyType',
+    'H264Complexity',
+    'H264VideoProfile',
+    'H265Complexity',
+    'H265VideoProfile',
+    'InsightsType',
+    'InterleaveOutput',
     'LiveEventEncodingType',
     'LiveEventInputProtocol',
+    'OnErrorType',
+    'Priority',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'Rotation',
     'StorageAccountType',
     'StorageAuthentication',
     'StreamOptionsFlag',
     'StretchMode',
+    'TrackAttribute',
     'TrackPropertyCompareOperation',
     'TrackPropertyType',
+    'VideoSyncMode',
 ]
+
+
+class AacAudioProfile(str, Enum):
+    """
+    The encoding profile to be used when encoding audio with AAC.
+    """
+    AAC_LC = "AacLc"
+    HE_AAC_V1 = "HeAacV1"
+    HE_AAC_V2 = "HeAacV2"
 
 
 class AccountEncryptionKeyType(str, Enum):
@@ -36,6 +68,14 @@ class AccountEncryptionKeyType(str, Enum):
     CUSTOMER_KEY = "CustomerKey"
 
 
+class AnalysisResolution(str, Enum):
+    """
+    Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+    """
+    SOURCE_RESOLUTION = "SourceResolution"
+    STANDARD_DEFINITION = "StandardDefinition"
+
+
 class AssetContainerPermission(str, Enum):
     """
     The permissions to set on the SAS URL.
@@ -43,6 +83,58 @@ class AssetContainerPermission(str, Enum):
     READ = "Read"
     READ_WRITE = "ReadWrite"
     READ_WRITE_DELETE = "ReadWriteDelete"
+
+
+class AttributeFilter(str, Enum):
+    """
+    The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+    """
+    ALL = "All"
+    TOP = "Top"
+    BOTTOM = "Bottom"
+    VALUE_EQUALS = "ValueEquals"
+
+
+class AudioAnalysisMode(str, Enum):
+    """
+    Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+    """
+    STANDARD = "Standard"
+    BASIC = "Basic"
+
+
+class BlurType(str, Enum):
+    """
+    Blur type
+    """
+    BOX = "Box"
+    LOW = "Low"
+    MED = "Med"
+    HIGH = "High"
+    BLACK = "Black"
+
+
+class ChannelMapping(str, Enum):
+    """
+    Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+    """
+    FRONT_LEFT = "FrontLeft"
+    FRONT_RIGHT = "FrontRight"
+    CENTER = "Center"
+    LOW_FREQUENCY_EFFECTS = "LowFrequencyEffects"
+    BACK_LEFT = "BackLeft"
+    BACK_RIGHT = "BackRight"
+    STEREO_LEFT = "StereoLeft"
+    STEREO_RIGHT = "StereoRight"
+
+
+class Complexity(str, Enum):
+    """
+    Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+    """
+    SPEED = "Speed"
+    BALANCED = "Balanced"
+    QUALITY = "Quality"
 
 
 class ContentKeyPolicyFairPlayRentalAndLeaseKeyType(str, Enum):
@@ -102,6 +194,62 @@ class DefaultAction(str, Enum):
     DENY = "Deny"
 
 
+class DeinterlaceMode(str, Enum):
+    """
+    The deinterlacing mode. Defaults to AutoPixelAdaptive.
+    """
+    OFF = "Off"
+    AUTO_PIXEL_ADAPTIVE = "AutoPixelAdaptive"
+
+
+class DeinterlaceParity(str, Enum):
+    """
+    The field parity for de-interlacing, defaults to Auto.
+    """
+    AUTO = "Auto"
+    TOP_FIELD_FIRST = "TopFieldFirst"
+    BOTTOM_FIELD_FIRST = "BottomFieldFirst"
+
+
+class EncoderNamedPreset(str, Enum):
+    """
+    The built-in preset to be used for encoding videos.
+    """
+    H264_SINGLE_BITRATE_SD = "H264SingleBitrateSD"
+    H264_SINGLE_BITRATE720P = "H264SingleBitrate720p"
+    H264_SINGLE_BITRATE1080P = "H264SingleBitrate1080p"
+    ADAPTIVE_STREAMING = "AdaptiveStreaming"
+    AAC_GOOD_QUALITY_AUDIO = "AACGoodQualityAudio"
+    CONTENT_AWARE_ENCODING_EXPERIMENTAL = "ContentAwareEncodingExperimental"
+    CONTENT_AWARE_ENCODING = "ContentAwareEncoding"
+    COPY_ALL_BITRATE_NON_INTERLEAVED = "CopyAllBitrateNonInterleaved"
+    H264_MULTIPLE_BITRATE1080P = "H264MultipleBitrate1080p"
+    H264_MULTIPLE_BITRATE720P = "H264MultipleBitrate720p"
+    H264_MULTIPLE_BITRATE_SD = "H264MultipleBitrateSD"
+    H265_CONTENT_AWARE_ENCODING = "H265ContentAwareEncoding"
+    H265_ADAPTIVE_STREAMING = "H265AdaptiveStreaming"
+    H265_SINGLE_BITRATE720P = "H265SingleBitrate720p"
+    H265_SINGLE_BITRATE1080P = "H265SingleBitrate1080p"
+    H265_SINGLE_BITRATE4_K = "H265SingleBitrate4K"
+
+
+class EntropyMode(str, Enum):
+    """
+    The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+    """
+    CABAC = "Cabac"
+    CAVLC = "Cavlc"
+
+
+class FaceRedactorMode(str, Enum):
+    """
+    This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+    """
+    ANALYZE = "Analyze"
+    REDACT = "Redact"
+    COMBINED = "Combined"
+
+
 class FilterTrackPropertyCompareOperation(str, Enum):
     """
     The track property condition operation.
@@ -120,6 +268,61 @@ class FilterTrackPropertyType(str, Enum):
     LANGUAGE = "Language"
     FOUR_CC = "FourCC"
     BITRATE = "Bitrate"
+
+
+class H264Complexity(str, Enum):
+    """
+    Tells the encoder how to choose its encoding settings. The default value is Balanced.
+    """
+    SPEED = "Speed"
+    BALANCED = "Balanced"
+    QUALITY = "Quality"
+
+
+class H264VideoProfile(str, Enum):
+    """
+    We currently support Baseline, Main, High, High422, High444. Default is Auto.
+    """
+    AUTO = "Auto"
+    BASELINE = "Baseline"
+    MAIN = "Main"
+    HIGH = "High"
+    HIGH422 = "High422"
+    HIGH444 = "High444"
+
+
+class H265Complexity(str, Enum):
+    """
+    Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+    """
+    SPEED = "Speed"
+    BALANCED = "Balanced"
+    QUALITY = "Quality"
+
+
+class H265VideoProfile(str, Enum):
+    """
+    We currently support Main. Default is Auto.
+    """
+    AUTO = "Auto"
+    MAIN = "Main"
+
+
+class InsightsType(str, Enum):
+    """
+    Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+    """
+    AUDIO_INSIGHTS_ONLY = "AudioInsightsOnly"
+    VIDEO_INSIGHTS_ONLY = "VideoInsightsOnly"
+    ALL_INSIGHTS = "AllInsights"
+
+
+class InterleaveOutput(str, Enum):
+    """
+    Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+    """
+    NON_INTERLEAVED_OUTPUT = "NonInterleavedOutput"
+    INTERLEAVED_OUTPUT = "InterleavedOutput"
 
 
 class LiveEventEncodingType(str, Enum):
@@ -141,6 +344,23 @@ class LiveEventInputProtocol(str, Enum):
     RTMP = "RTMP"
 
 
+class OnErrorType(str, Enum):
+    """
+    A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+    """
+    STOP_PROCESSING_JOB = "StopProcessingJob"
+    CONTINUE_JOB = "ContinueJob"
+
+
+class Priority(str, Enum):
+    """
+    Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+    """
+    LOW = "Low"
+    NORMAL = "Normal"
+    HIGH = "High"
+
+
 class PrivateEndpointServiceConnectionStatus(str, Enum):
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -156,6 +376,18 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class Rotation(str, Enum):
+    """
+    The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+    """
+    AUTO = "Auto"
+    NONE = "None"
+    ROTATE0 = "Rotate0"
+    ROTATE90 = "Rotate90"
+    ROTATE180 = "Rotate180"
+    ROTATE270 = "Rotate270"
 
 
 class StorageAccountType(str, Enum):
@@ -178,11 +410,19 @@ class StreamOptionsFlag(str, Enum):
 
 class StretchMode(str, Enum):
     """
-    Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+    The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
     """
     NONE = "None"
     AUTO_SIZE = "AutoSize"
     AUTO_FIT = "AutoFit"
+
+
+class TrackAttribute(str, Enum):
+    """
+    The TrackAttribute to filter the tracks by.
+    """
+    BITRATE = "Bitrate"
+    LANGUAGE = "Language"
 
 
 class TrackPropertyCompareOperation(str, Enum):
@@ -199,3 +439,13 @@ class TrackPropertyType(str, Enum):
     """
     UNKNOWN = "Unknown"
     FOUR_CC = "FourCC"
+
+
+class VideoSyncMode(str, Enum):
+    """
+    The Video Sync Mode
+    """
+    AUTO = "Auto"
+    PASSTHROUGH = "Passthrough"
+    CFR = "Cfr"
+    VFR = "Vfr"

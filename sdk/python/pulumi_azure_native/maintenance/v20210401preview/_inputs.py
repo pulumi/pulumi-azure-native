@@ -164,16 +164,20 @@ class InputPatchConfigurationArgs:
 class InputWindowsParametersArgs:
     def __init__(__self__, *,
                  classifications_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 exclude_kbs_requiring_reboot: Optional[pulumi.Input[bool]] = None,
                  kb_numbers_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kb_numbers_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties for patching a Windows machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_to_include: Classification category of patches to be patched
+        :param pulumi.Input[bool] exclude_kbs_requiring_reboot: Exclude patches which need reboot
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_exclude: Windows KBID to be excluded for patching.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kb_numbers_to_include: Windows KBID to be included for patching.
         """
         if classifications_to_include is not None:
             pulumi.set(__self__, "classifications_to_include", classifications_to_include)
+        if exclude_kbs_requiring_reboot is not None:
+            pulumi.set(__self__, "exclude_kbs_requiring_reboot", exclude_kbs_requiring_reboot)
         if kb_numbers_to_exclude is not None:
             pulumi.set(__self__, "kb_numbers_to_exclude", kb_numbers_to_exclude)
         if kb_numbers_to_include is not None:
@@ -190,6 +194,18 @@ class InputWindowsParametersArgs:
     @classifications_to_include.setter
     def classifications_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "classifications_to_include", value)
+
+    @property
+    @pulumi.getter(name="excludeKbsRequiringReboot")
+    def exclude_kbs_requiring_reboot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Exclude patches which need reboot
+        """
+        return pulumi.get(self, "exclude_kbs_requiring_reboot")
+
+    @exclude_kbs_requiring_reboot.setter
+    def exclude_kbs_requiring_reboot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_kbs_requiring_reboot", value)
 
     @property
     @pulumi.getter(name="kbNumbersToExclude")

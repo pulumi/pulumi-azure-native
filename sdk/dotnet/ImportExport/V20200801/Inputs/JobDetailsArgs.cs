@@ -131,6 +131,9 @@ namespace Pulumi.AzureNative.ImportExport.V20200801.Inputs
 
         public JobDetailsArgs()
         {
+            BackupDriveManifest = false;
+            CancelRequested = false;
+            State = "Creating";
         }
     }
 }
