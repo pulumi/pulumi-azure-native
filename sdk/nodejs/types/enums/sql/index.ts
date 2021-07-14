@@ -434,12 +434,12 @@ export const SyncMemberDbType = {
  */
 export type SyncMemberDbType = (typeof SyncMemberDbType)[keyof typeof SyncMemberDbType];
 
-export const TransparentDataEncryptionState = {
+export const TransparentDataEncryptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Specifies the state of the transparent data encryption.
+ * The status of the database transparent data encryption.
  */
-export type TransparentDataEncryptionState = (typeof TransparentDataEncryptionState)[keyof typeof TransparentDataEncryptionState];
+export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];

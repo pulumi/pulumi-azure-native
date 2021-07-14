@@ -233,6 +233,9 @@ var lockedTypeVersions = map[string]string{
 	"network:getVirtualNetworkGatewayVpnclientConnectionHealth": "v20201101",
 	"network:getVirtualNetworkGatewayVpnclientIpsecParameters":  "v20201101",
 
+	"sql:TransparentDataEncryption":    "v20140401",
+	"sql:getTransparentDataEncryption": "v20140401",
+
 	"web:WebAppSwiftVirtualNetworkConnection": "v20201001",
 }
 

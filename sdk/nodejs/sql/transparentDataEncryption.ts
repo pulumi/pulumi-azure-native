@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * A logical database transparent data encryption state.
- * API Version: 2020-11-01-preview.
+ * Represents a database transparent data encryption configuration.
+ * API Version: 2014-04-01.
  */
 export class TransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -37,13 +37,17 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
     }
 
     /**
+     * Resource location.
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the state of the transparent data encryption.
+     * The status of the database transparent data encryption.
      */
-    public readonly state!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -69,19 +73,18 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'state'");
-            }
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["tdeName"] = args ? args.tdeName : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -98,7 +101,7 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
  */
 export interface TransparentDataEncryptionArgs {
     /**
-     * The name of the logical database for which the security alert policy is defined.
+     * The name of the database for which setting the transparent data encryption applies.
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -110,11 +113,11 @@ export interface TransparentDataEncryptionArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * Specifies the state of the transparent data encryption.
+     * The status of the database transparent data encryption.
      */
-    state: pulumi.Input<enums.sql.TransparentDataEncryptionState>;
+    status?: pulumi.Input<string | enums.sql.TransparentDataEncryptionStatus>;
     /**
      * The name of the transparent data encryption configuration.
      */
-    tdeName?: pulumi.Input<string>;
+    transparentDataEncryptionName?: pulumi.Input<string>;
 }

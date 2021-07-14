@@ -1086,30 +1086,30 @@ func (e SyncMemberDbType) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Specifies the state of the transparent data encryption.
-type TransparentDataEncryptionStateEnum pulumi.String
+// The status of the database transparent data encryption.
+type TransparentDataEncryptionStatus pulumi.String
 
 const (
-	TransparentDataEncryptionStateEnumEnabled  = TransparentDataEncryptionStateEnum("Enabled")
-	TransparentDataEncryptionStateEnumDisabled = TransparentDataEncryptionStateEnum("Disabled")
+	TransparentDataEncryptionStatusEnabled  = TransparentDataEncryptionStatus("Enabled")
+	TransparentDataEncryptionStatusDisabled = TransparentDataEncryptionStatus("Disabled")
 )
 
-func (TransparentDataEncryptionStateEnum) ElementType() reflect.Type {
+func (TransparentDataEncryptionStatus) ElementType() reflect.Type {
 	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
-func (e TransparentDataEncryptionStateEnum) ToStringOutput() pulumi.StringOutput {
+func (e TransparentDataEncryptionStatus) ToStringOutput() pulumi.StringOutput {
 	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TransparentDataEncryptionStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+func (e TransparentDataEncryptionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
 	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
 }
 
-func (e TransparentDataEncryptionStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+func (e TransparentDataEncryptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
 }
 
-func (e TransparentDataEncryptionStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+func (e TransparentDataEncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

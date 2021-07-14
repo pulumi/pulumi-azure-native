@@ -12,8 +12,8 @@ namespace Pulumi.AzureNative.Sql
     public static class GetTransparentDataEncryption
     {
         /// <summary>
-        /// A logical database transparent data encryption state.
-        /// API Version: 2020-11-01-preview.
+        /// Represents a database transparent data encryption configuration.
+        /// API Version: 2014-04-01.
         /// </summary>
         public static Task<GetTransparentDataEncryptionResult> InvokeAsync(GetTransparentDataEncryptionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransparentDataEncryptionResult>("azure-native:sql:getTransparentDataEncryption", args ?? new GetTransparentDataEncryptionArgs(), options.WithVersion());
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetTransparentDataEncryptionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the logical database for which the transparent data encryption is defined.
+        /// The name of the database for which the transparent data encryption applies.
         /// </summary>
         [Input("databaseName", required: true)]
         public string DatabaseName { get; set; } = null!;
@@ -43,8 +43,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("tdeName", required: true)]
-        public string TdeName { get; set; } = null!;
+        [Input("transparentDataEncryptionName", required: true)]
+        public string TransparentDataEncryptionName { get; set; } = null!;
 
         public GetTransparentDataEncryptionArgs()
         {
@@ -60,13 +60,17 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Resource location.
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the state of the transparent data encryption.
+        /// The status of the database transparent data encryption.
         /// </summary>
-        public readonly string State;
+        public readonly string? Status;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -76,15 +80,18 @@ namespace Pulumi.AzureNative.Sql
         private GetTransparentDataEncryptionResult(
             string id,
 
+            string location,
+
             string name,
 
-            string state,
+            string? status,
 
             string type)
         {
             Id = id;
+            Location = location;
             Name = name;
-            State = state;
+            Status = status;
             Type = type;
         }
     }

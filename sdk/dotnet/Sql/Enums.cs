@@ -1193,29 +1193,29 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// Specifies the state of the transparent data encryption.
+    /// The status of the database transparent data encryption.
     /// </summary>
     [EnumType]
-    public readonly struct TransparentDataEncryptionState : IEquatable<TransparentDataEncryptionState>
+    public readonly struct TransparentDataEncryptionStatus : IEquatable<TransparentDataEncryptionStatus>
     {
         private readonly string _value;
 
-        private TransparentDataEncryptionState(string value)
+        private TransparentDataEncryptionStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TransparentDataEncryptionState Enabled { get; } = new TransparentDataEncryptionState("Enabled");
-        public static TransparentDataEncryptionState Disabled { get; } = new TransparentDataEncryptionState("Disabled");
+        public static TransparentDataEncryptionStatus Enabled { get; } = new TransparentDataEncryptionStatus("Enabled");
+        public static TransparentDataEncryptionStatus Disabled { get; } = new TransparentDataEncryptionStatus("Disabled");
 
-        public static bool operator ==(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => left.Equals(right);
-        public static bool operator !=(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => !left.Equals(right);
+        public static bool operator ==(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => left.Equals(right);
+        public static bool operator !=(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => !left.Equals(right);
 
-        public static explicit operator string(TransparentDataEncryptionState value) => value._value;
+        public static explicit operator string(TransparentDataEncryptionStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TransparentDataEncryptionState other && Equals(other);
-        public bool Equals(TransparentDataEncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TransparentDataEncryptionStatus other && Equals(other);
+        public bool Equals(TransparentDataEncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

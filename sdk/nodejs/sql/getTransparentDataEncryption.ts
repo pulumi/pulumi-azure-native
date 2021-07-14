@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * A logical database transparent data encryption state.
- * API Version: 2020-11-01-preview.
+ * Represents a database transparent data encryption configuration.
+ * API Version: 2014-04-01.
  */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
     if (!opts) {
@@ -21,13 +21,13 @@ export function getTransparentDataEncryption(args: GetTransparentDataEncryptionA
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
-        "tdeName": args.tdeName,
+        "transparentDataEncryptionName": args.transparentDataEncryptionName,
     }, opts);
 }
 
 export interface GetTransparentDataEncryptionArgs {
     /**
-     * The name of the logical database for which the transparent data encryption is defined.
+     * The name of the database for which the transparent data encryption applies.
      */
     databaseName: string;
     /**
@@ -41,11 +41,11 @@ export interface GetTransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    tdeName: string;
+    transparentDataEncryptionName: string;
 }
 
 /**
- * A logical database transparent data encryption state.
+ * Represents a database transparent data encryption configuration.
  */
 export interface GetTransparentDataEncryptionResult {
     /**
@@ -53,13 +53,17 @@ export interface GetTransparentDataEncryptionResult {
      */
     readonly id: string;
     /**
+     * Resource location.
+     */
+    readonly location: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Specifies the state of the transparent data encryption.
+     * The status of the database transparent data encryption.
      */
-    readonly state: string;
+    readonly status?: string;
     /**
      * Resource type.
      */

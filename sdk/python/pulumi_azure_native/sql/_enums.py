@@ -42,7 +42,7 @@ __all__ = [
     'SyncConflictResolutionPolicy',
     'SyncDirection',
     'SyncMemberDbType',
-    'TransparentDataEncryptionState',
+    'TransparentDataEncryptionStatus',
 ]
 
 
@@ -380,9 +380,9 @@ class SyncMemberDbType(str, Enum):
     SQL_SERVER_DATABASE = "SqlServerDatabase"
 
 
-class TransparentDataEncryptionState(str, Enum):
+class TransparentDataEncryptionStatus(str, Enum):
     """
-    Specifies the state of the transparent data encryption.
+    The status of the database transparent data encryption.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
