@@ -233,6 +233,9 @@ var lockedTypeVersions = map[string]string{
 	"network:getVirtualNetworkGatewayVpnclientConnectionHealth": "v20201101",
 	"network:getVirtualNetworkGatewayVpnclientIpsecParameters":  "v20201101",
 
+	"servicebus:PrivateEndpointConnection":    "v20180101preview",
+	"servicebus:getPrivateEndpointConnection": "v20180101preview",
+
 	"sql:TransparentDataEncryption":    "v20140401",
 	"sql:getTransparentDataEncryption": "v20140401",
 

@@ -33,10 +33,16 @@ ensure:: init_submodules
 
 local_generate_code:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
+	cd ${PACKDIR}/dotnet/ && \
+	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
+	rm Pulumi.AzureNative.csproj.bak
 	echo "Finished generating."
 
 local_generate:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,docs,nodejs,dotnet,python,go ${VERSION}
+	cd ${PACKDIR}/dotnet/ && \
+	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
+	rm Pulumi.AzureNative.csproj.bak
 	echo "Finished generating."
 
 generate_schema::
@@ -94,8 +100,7 @@ generate_dotnet::
 	$(WORKING_DIR)/bin/$(CODEGEN) dotnet ${VERSION} && \
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak && \
-	cat Pulumi.AzureNative.csproj
+	rm Pulumi.AzureNative.csproj.bak
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet::
