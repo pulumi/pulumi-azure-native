@@ -14,7 +14,7 @@ CHANGELOG
 
 ---
 
-## 1.16.0 (2020-07-06)
+## 1.16.0 (2021-07-06)
 
 #### New Resources
 
@@ -35,7 +35,7 @@ CHANGELOG
 
 - `elastic` resources and functions updated from `2020-07-01-preview` to `2020-07-01`
 
-## 1.15.0 (2020-07-01)
+## 1.15.0 (2021-07-01)
 
 #### New Resources
 
@@ -57,7 +57,7 @@ CHANGELOG
 - `iotspaces` resource provider was removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13993))
 
-## 1.14.0 (2020-06-23)
+## 1.14.0 (2021-06-23)
 
 #### New Resources
 
@@ -76,7 +76,7 @@ CHANGELOG
 - Type `compute.PublicIPAddressSku` changed the properties `publicIPAddressSkuName` to `name` and `tier`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14782))
 
-## 1.13.0 (2020-06-17)
+## 1.13.0 (2021-06-17)
 
 #### Bug Fixes
 
@@ -105,7 +105,7 @@ CHANGELOG
 - `batchai` resource provider was deprecated and removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14788))
 
-## 1.12.0 (2020-06-15)
+## 1.12.0 (2021-06-15)
 
 #### New Resources
 
@@ -132,7 +132,7 @@ CHANGELOG
   instead. See [#882](https://github.com/pulumi/pulumi-azure-native/issues/882).
 
 
-## 1.11.0 (2020-06-09)
+## 1.11.0 (2021-06-09)
 
 #### New Resources
 
@@ -148,7 +148,7 @@ CHANGELOG
 - `azurearcdata.getSqlManagedInstance`
 - `azurearcdata.getSqlServerInstance`
 
-## 1.10.0 (2020-06-08)
+## 1.10.0 (2021-06-08)
 
 #### New Resources
 
@@ -168,7 +168,7 @@ CHANGELOG
 - `securityinsights:getEntityQuery`
 - `testbase:getCustomerEvent`
 
-## 1.9.0 (2020-05-31)
+## 1.9.0 (2021-05-31)
 
 #### New Resources
 
@@ -219,7 +219,7 @@ CHANGELOG
 - `securityinsights.listSourceControlRepositories`
 - `sql.getOutboundFirewallRule`
 
-## 1.8.0 (2020-05-25)
+## 1.8.0 (2021-05-25)
 
 #### New Resources
 
@@ -237,7 +237,7 @@ CHANGELOG
 - Azure now indicates that the version `2021-01-01-preview` of `servicebus.PrivateEndpointConnection`
   isn't supported yet, so we switched it to the older supported version `2018-01-01-preview`
 
-## 1.7.0 (2020-05-19)
+## 1.7.0 (2021-05-19)
 
 #### Improvements
 
@@ -434,7 +434,7 @@ The following resources are now deprecated in favor of their specialized variant
 - `sql` resource provider renamed the type `ResourceIdentityWithUserAssignedIdentities` to `ResourceIdentity`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14439))
 
-## 1.6.0 (2020-05-17)
+## 1.6.0 (2021-05-17)
 
 #### New Features
 
@@ -477,7 +477,7 @@ The following resources are now deprecated in favor of their specialized variant
 - `devtestlab:ScheduleCreationParameter`'s `location` property is now read-only
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14294))
 
-## 1.5.0 (2020-05-08)
+## 1.5.0 (2021-05-08)
 
 #### New Resources
 
@@ -494,7 +494,7 @@ The following resources are now deprecated in favor of their specialized variant
 - Don't set auto-location of LoadBalancerBackendAddressPool as the service doesn't expect it
   [#819](https://github.com/pulumi/pulumi-azure-native/issues/819)
 
-## 1.4.0 (2020-05-05)
+## 1.4.0 (2021-05-05)
 
 #### New Resources
 
@@ -514,7 +514,7 @@ The following resources are now deprecated in favor of their specialized variant
 - Allow 204 as a valid response for a non-existing resource
   [#808](https://github.com/pulumi/pulumi-azure-native/issues/808)
 
-## 1.3.0 (2020-04-30)
+## 1.3.0 (2021-04-30)
 
 #### New Resources
 
@@ -539,7 +539,7 @@ The following resources are now deprecated in favor of their specialized variant
   `AdminRule`, `UserRule`, `SecurityAdminConfigurations`, `ConnectivityConfiguration`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13827))
 
-## 1.2.0 (2020-04-28)
+## 1.2.0 (2021-04-28)
 
 #### New Resources
 
@@ -600,7 +600,7 @@ New module for Test Base management:
 - `security.AssessmentMetadataInSubscription` fixed the property name, changing from `category` to `categories`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/13883))
 
-## 1.1.0 (2020-04-20)
+## 1.1.0 (2021-04-20)
 
 #### New Resources
 
@@ -608,12 +608,12 @@ New module for Test Base management:
   [#711](https://github.com/pulumi/pulumi-azure-native/issues/711)
 
 
-## 1.0.1 (2020-04-19)
+## 1.0.1 (2021-04-19)
 
 - Fix SDK regression for .NET, Python and Typescript introduced in [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
   [#pulumi/6811](https://github.com/pulumi/pulumi/pull/6811)
 
-## 1.0.0 (2020-04-19)
+## 1.0.0 (2021-04-19)
 
 The native Azure provider for Pulumi is now generally available.
 
@@ -625,7 +625,7 @@ transitively reachable from resources or functions. Many input type names have c
 across Node.js, .NET, and Python SDKs
   [#pulumi/6686](https://github.com/pulumi/pulumi/pull/6686)
 
-## 0.9.0 (2020-04-16)
+## 0.9.0 (2021-04-16)
 
 #### Breaking Changes
 
@@ -646,7 +646,7 @@ across Node.js, .NET, and Python SDKs
 - Use the `2019-06-01-preview` version for the `containerregistry.Task` resource
   [#736](https://github.com/pulumi/pulumi-azure-native/issues/736)
 
-## 0.8.0 (2020-04-02)
+## 0.8.0 (2021-04-02)
 
 #### Breaking Changes
 
@@ -691,11 +691,11 @@ across Node.js, .NET, and Python SDKs
 - Do not auto-populate the `location` of the `Deployment` resource.
   [#643](https://github.com/pulumi/pulumi-azure-native/issues/643)
 
-## 0.7.1 (2020-03-02)
+## 0.7.1 (2021-03-02)
 
 Fixed the aliases for smooth migration from `azure-nextgen` to `azure-native`.
 
-## 0.7.0 (2020-02-27)
+## 0.7.0 (2021-02-27)
 
 ### Azure NextGen is renamed to Azure-Native
 
@@ -760,14 +760,14 @@ const blob = new storage.Blob("wwwroot", {
 
 - Relax the enum check to accomodate irregularities like in [#294](https://github.com/pulumi/pulumi-azure-nextgen/issues/294)
 
-## 0.6.1 (2020-02-11)
+## 0.6.1 (2021-02-11)
 
 New features:
 
 - Automatic location propagation ([#6](https://github.com/pulumi/pulumi-azure-nextgen/issues/6))
 - New resource: `Storage.Blob` ([#13](https://github.com/pulumi/pulumi-azure-nextgen/issues/13))
 
-## 0.6.0 (2020-02-02)
+## 0.6.0 (2021-02-02)
 
 #### Breaking changes in SDKs
 
