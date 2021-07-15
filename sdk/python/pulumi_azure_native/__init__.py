@@ -6802,6 +6802,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "healthbot/v20210610",
+  "fqn": "pulumi_azure_native.healthbot.v20210610",
+  "classes": {
+   "azure-native:healthbot/v20210610:Bot": "Bot"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "healthcareapis",
   "fqn": "pulumi_azure_native.healthcareapis",
   "classes": {
@@ -11790,6 +11798,22 @@ _utilities.register(
    "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeFirst": "SkusNestedResourceTypeFirst",
    "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond": "SkusNestedResourceTypeSecond",
    "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeThird": "SkusNestedResourceTypeThird"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "providerhub/v20210601preview",
+  "fqn": "pulumi_azure_native.providerhub.v20210601preview",
+  "classes": {
+   "azure-native:providerhub/v20210601preview:DefaultRollout": "DefaultRollout",
+   "azure-native:providerhub/v20210601preview:NotificationRegistration": "NotificationRegistration",
+   "azure-native:providerhub/v20210601preview:OperationByProviderRegistration": "OperationByProviderRegistration",
+   "azure-native:providerhub/v20210601preview:ProviderRegistration": "ProviderRegistration",
+   "azure-native:providerhub/v20210601preview:ResourceTypeRegistration": "ResourceTypeRegistration",
+   "azure-native:providerhub/v20210601preview:Skus": "Skus",
+   "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeFirst": "SkusNestedResourceTypeFirst",
+   "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeSecond": "SkusNestedResourceTypeSecond",
+   "azure-native:providerhub/v20210601preview:SkusNestedResourceTypeThird": "SkusNestedResourceTypeThird"
   }
  },
  {

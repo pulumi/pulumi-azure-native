@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._inputs import *
 
 __all__ = [
     'GetFactoryGitHubAccessTokenResult',
@@ -46,6 +47,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
                                      git_hub_access_code: Optional[str] = None,
                                      git_hub_access_token_base_url: Optional[str] = None,
                                      git_hub_client_id: Optional[str] = None,
+                                     git_hub_client_secret: Optional[pulumi.InputType['GitHubClientSecret']] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryGitHubAccessTokenResult:
     """
@@ -57,6 +59,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
     :param str git_hub_access_code: GitHub access code.
     :param str git_hub_access_token_base_url: GitHub access token base URL.
     :param str git_hub_client_id: GitHub application client ID.
+    :param pulumi.InputType['GitHubClientSecret'] git_hub_client_secret: GitHub bring your own app client secret information.
     :param str resource_group_name: The resource group name.
     """
     __args__ = dict()
@@ -64,6 +67,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
     __args__['gitHubAccessCode'] = git_hub_access_code
     __args__['gitHubAccessTokenBaseUrl'] = git_hub_access_token_base_url
     __args__['gitHubClientId'] = git_hub_client_id
+    __args__['gitHubClientSecret'] = git_hub_client_secret
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()

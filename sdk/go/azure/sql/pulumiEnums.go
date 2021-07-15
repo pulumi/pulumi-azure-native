@@ -289,9 +289,10 @@ func (e GeoBackupPolicyStateEnum) ToStringPtrOutputWithContext(ctx context.Conte
 type IdentityType pulumi.String
 
 const (
-	IdentityTypeNone           = IdentityType("None")
-	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
-	IdentityTypeUserAssigned   = IdentityType("UserAssigned")
+	IdentityTypeNone                         = IdentityType("None")
+	IdentityTypeSystemAssigned               = IdentityType("SystemAssigned")
+	IdentityTypeUserAssigned                 = IdentityType("UserAssigned")
+	IdentityType_SystemAssigned_UserAssigned = IdentityType("SystemAssigned,UserAssigned")
 )
 
 func (IdentityType) ElementType() reflect.Type {

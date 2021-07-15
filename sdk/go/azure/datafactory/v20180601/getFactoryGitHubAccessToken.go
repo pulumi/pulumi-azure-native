@@ -26,6 +26,8 @@ type GetFactoryGitHubAccessTokenArgs struct {
 	GitHubAccessTokenBaseUrl string `pulumi:"gitHubAccessTokenBaseUrl"`
 	// GitHub application client ID.
 	GitHubClientId *string `pulumi:"gitHubClientId"`
+	// GitHub bring your own app client secret information.
+	GitHubClientSecret *GitHubClientSecret `pulumi:"gitHubClientSecret"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }

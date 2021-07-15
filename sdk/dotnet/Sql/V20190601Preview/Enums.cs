@@ -201,6 +201,7 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
         public static IdentityType None { get; } = new IdentityType("None");
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
         public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
         public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);

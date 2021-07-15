@@ -30,7 +30,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.providerhub.v20201120 as v20201120
     import pulumi_azure_native.providerhub.v20210501preview as v20210501preview
+    import pulumi_azure_native.providerhub.v20210601preview as v20210601preview
 else:
     v20201120 = _utilities.lazy_import('pulumi_azure_native.providerhub.v20201120')
     v20210501preview = _utilities.lazy_import('pulumi_azure_native.providerhub.v20210501preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.providerhub.v20210601preview')
 

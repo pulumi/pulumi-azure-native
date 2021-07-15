@@ -21,6 +21,7 @@ export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArg
         "gitHubAccessCode": args.gitHubAccessCode,
         "gitHubAccessTokenBaseUrl": args.gitHubAccessTokenBaseUrl,
         "gitHubClientId": args.gitHubClientId,
+        "gitHubClientSecret": args.gitHubClientSecret,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -42,6 +43,10 @@ export interface GetFactoryGitHubAccessTokenArgs {
      * GitHub application client ID.
      */
     gitHubClientId?: string;
+    /**
+     * GitHub bring your own app client secret information.
+     */
+    gitHubClientSecret?: inputs.datafactory.v20180601.GitHubClientSecret;
     /**
      * The resource group name.
      */

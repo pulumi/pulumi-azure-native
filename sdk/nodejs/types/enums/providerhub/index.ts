@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20201120 from "./v20201120";
 import * as v20210501preview from "./v20210501preview";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20201120,
     v20210501preview,
+    v20210601preview,
 };
 
 export const ExtensionCategory = {

@@ -63,6 +63,8 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20210501preview:DefaultRollout"},
                     new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210501preview:DefaultRollout"},
+                    new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:DefaultRollout"},
+                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210601preview:DefaultRollout"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

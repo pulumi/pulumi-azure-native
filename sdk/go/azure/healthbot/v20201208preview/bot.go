@@ -69,6 +69,12 @@ func NewBot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201208:Bot"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthbot/v20210610:Bot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:healthbot/v20210610:Bot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Bot

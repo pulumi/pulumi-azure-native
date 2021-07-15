@@ -225,6 +225,7 @@ __all__ = [
     'FtpServerLinkedServiceArgs',
     'FtpServerLocationArgs',
     'GetMetadataActivityArgs',
+    'GitHubClientSecret',
     'GlobalParameterSpecificationArgs',
     'GoogleAdWordsLinkedServiceArgs',
     'GoogleAdWordsObjectDatasetArgs',
@@ -31422,6 +31423,46 @@ class GetMetadataActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
+
+
+@pulumi.input_type
+class GitHubClientSecret:
+    def __init__(__self__, *,
+                 byoa_secret_akv_url: Optional[str] = None,
+                 byoa_secret_name: Optional[str] = None):
+        """
+        Client secret information for factory's bring your own app repository configuration.
+        :param str byoa_secret_akv_url: Bring your own app client secret AKV URL.
+        :param str byoa_secret_name: Bring your own app client secret name in AKV.
+        """
+        if byoa_secret_akv_url is not None:
+            pulumi.set(__self__, "byoa_secret_akv_url", byoa_secret_akv_url)
+        if byoa_secret_name is not None:
+            pulumi.set(__self__, "byoa_secret_name", byoa_secret_name)
+
+    @property
+    @pulumi.getter(name="byoaSecretAkvUrl")
+    def byoa_secret_akv_url(self) -> Optional[str]:
+        """
+        Bring your own app client secret AKV URL.
+        """
+        return pulumi.get(self, "byoa_secret_akv_url")
+
+    @byoa_secret_akv_url.setter
+    def byoa_secret_akv_url(self, value: Optional[str]):
+        pulumi.set(self, "byoa_secret_akv_url", value)
+
+    @property
+    @pulumi.getter(name="byoaSecretName")
+    def byoa_secret_name(self) -> Optional[str]:
+        """
+        Bring your own app client secret name in AKV.
+        """
+        return pulumi.get(self, "byoa_secret_name")
+
+    @byoa_secret_name.setter
+    def byoa_secret_name(self, value: Optional[str]):
+        pulumi.set(self, "byoa_secret_name", value)
 
 
 @pulumi.input_type

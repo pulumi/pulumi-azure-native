@@ -47,6 +47,12 @@ namespace Pulumi.AzureNative.DataFactory
         public string? GitHubClientId { get; set; }
 
         /// <summary>
+        /// GitHub bring your own app client secret information.
+        /// </summary>
+        [Input("gitHubClientSecret")]
+        public Inputs.GitHubClientSecret? GitHubClientSecret { get; set; }
+
+        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
