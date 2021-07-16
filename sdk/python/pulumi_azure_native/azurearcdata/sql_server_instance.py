@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlServerInstanceArgs', 'SqlServerInstance']
@@ -113,7 +112,7 @@ class SqlServerInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A SqlServerInstance.
-        API Version: 2021-08-01.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +130,7 @@ class SqlServerInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlServerInstance.
-        API Version: 2021-08-01.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SqlServerInstanceArgs args: The arguments to use to populate this resource's properties.

@@ -17,7 +17,6 @@ __all__ = [
     'AutomaticRepairsPolicyArgs',
     'BillingProfileArgs',
     'BootDiagnosticsArgs',
-    'CapacityReservationProfileArgs',
     'CloudServiceExtensionProfileArgs',
     'CloudServiceExtensionPropertiesArgs',
     'CloudServiceNetworkProfileArgs',
@@ -96,7 +95,6 @@ __all__ = [
     'SkuArgs',
     'SnapshotSkuArgs',
     'SourceVaultArgs',
-    'SpotRestorePolicyArgs',
     'SshConfigurationArgs',
     'SshPublicKeyArgs',
     'StorageProfileArgs',
@@ -404,30 +402,6 @@ class BootDiagnosticsArgs:
     @storage_uri.setter
     def storage_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_uri", value)
-
-
-@pulumi.input_type
-class CapacityReservationProfileArgs:
-    def __init__(__self__, *,
-                 capacity_reservation_group: Optional[pulumi.Input['SubResourceArgs']] = None):
-        """
-        The parameters of a capacity reservation Profile.
-        :param pulumi.Input['SubResourceArgs'] capacity_reservation_group: Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-        """
-        if capacity_reservation_group is not None:
-            pulumi.set(__self__, "capacity_reservation_group", capacity_reservation_group)
-
-    @property
-    @pulumi.getter(name="capacityReservationGroup")
-    def capacity_reservation_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-        """
-        return pulumi.get(self, "capacity_reservation_group")
-
-    @capacity_reservation_group.setter
-    def capacity_reservation_group(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "capacity_reservation_group", value)
 
 
 @pulumi.input_type
@@ -3555,7 +3529,7 @@ class ManagedDiskParametersArgs:
         The parameters of a managed disk.
         :param pulumi.Input['DiskEncryptionSetParametersArgs'] disk_encryption_set: Specifies the customer managed disk encryption set resource id for the managed disk.
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[Union[str, 'StorageAccountTypes']] storage_account_type: Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        :param pulumi.Input[Union[str, 'StorageAccountTypes']] storage_account_type: Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         """
         if disk_encryption_set is not None:
             pulumi.set(__self__, "disk_encryption_set", disk_encryption_set)
@@ -3592,7 +3566,7 @@ class ManagedDiskParametersArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]:
         """
-        Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -4856,46 +4830,6 @@ class SourceVaultArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class SpotRestorePolicyArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 restore_timeout: Optional[pulumi.Input[str]] = None):
-        """
-        Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-        :param pulumi.Input[bool] enabled: Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-        :param pulumi.Input[str] restore_timeout: Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if restore_timeout is not None:
-            pulumi.set(__self__, "restore_timeout", restore_timeout)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="restoreTimeout")
-    def restore_timeout(self) -> Optional[pulumi.Input[str]]:
-        """
-        Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-        """
-        return pulumi.get(self, "restore_timeout")
-
-    @restore_timeout.setter
-    def restore_timeout(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "restore_timeout", value)
 
 
 @pulumi.input_type
@@ -7582,7 +7516,6 @@ class VirtualMachineScaleSetVMNetworkProfileConfigurationArgs:
 class VirtualMachineScaleSetVMProfileArgs:
     def __init__(__self__, *,
                  billing_profile: Optional[pulumi.Input['BillingProfileArgs']] = None,
-                 capacity_reservation: Optional[pulumi.Input['CapacityReservationProfileArgs']] = None,
                  diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
                  extension_profile: Optional[pulumi.Input['VirtualMachineScaleSetExtensionProfileArgs']] = None,
@@ -7597,7 +7530,6 @@ class VirtualMachineScaleSetVMProfileArgs:
         """
         Describes a virtual machine scale set virtual machine profile.
         :param pulumi.Input['BillingProfileArgs'] billing_profile: Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
-        :param pulumi.Input['CapacityReservationProfileArgs'] capacity_reservation: Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         :param pulumi.Input['VirtualMachineScaleSetExtensionProfileArgs'] extension_profile: Specifies a collection of settings for extensions installed on virtual machines in the scale set.
@@ -7612,8 +7544,6 @@ class VirtualMachineScaleSetVMProfileArgs:
         """
         if billing_profile is not None:
             pulumi.set(__self__, "billing_profile", billing_profile)
-        if capacity_reservation is not None:
-            pulumi.set(__self__, "capacity_reservation", capacity_reservation)
         if diagnostics_profile is not None:
             pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
         if eviction_policy is not None:
@@ -7648,18 +7578,6 @@ class VirtualMachineScaleSetVMProfileArgs:
     @billing_profile.setter
     def billing_profile(self, value: Optional[pulumi.Input['BillingProfileArgs']]):
         pulumi.set(self, "billing_profile", value)
-
-    @property
-    @pulumi.getter(name="capacityReservation")
-    def capacity_reservation(self) -> Optional[pulumi.Input['CapacityReservationProfileArgs']]:
-        """
-        Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-        """
-        return pulumi.get(self, "capacity_reservation")
-
-    @capacity_reservation.setter
-    def capacity_reservation(self, value: Optional[pulumi.Input['CapacityReservationProfileArgs']]):
-        pulumi.set(self, "capacity_reservation", value)
 
     @property
     @pulumi.getter(name="diagnosticsProfile")

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVMRunCommand")]
     public partial class VirtualMachineScaleSetVMRunCommand : Pulumi.CustomResource

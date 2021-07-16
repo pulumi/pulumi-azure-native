@@ -8,7 +8,7 @@ import (
 )
 
 // Restore Point details.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 func LookupRestorePoint(ctx *pulumi.Context, args *LookupRestorePointArgs, opts ...pulumi.InvokeOption) (*LookupRestorePointResult, error) {
 	var rv LookupRestorePointResult
 	err := ctx.Invoke("azure-native:compute:getRestorePoint", args, &rv, opts...)

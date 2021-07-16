@@ -20,7 +20,6 @@ class VirtualMachineArgs:
                  additional_capabilities: Optional[pulumi.Input['AdditionalCapabilitiesArgs']] = None,
                  availability_set: Optional[pulumi.Input['SubResourceArgs']] = None,
                  billing_profile: Optional[pulumi.Input['BillingProfileArgs']] = None,
-                 capacity_reservation: Optional[pulumi.Input['CapacityReservationProfileArgs']] = None,
                  diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
@@ -51,7 +50,6 @@ class VirtualMachineArgs:
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
         :param pulumi.Input['SubResourceArgs'] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         :param pulumi.Input['BillingProfileArgs'] billing_profile: Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
-        :param pulumi.Input['CapacityReservationProfileArgs'] capacity_reservation: Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the Virtual Machine.
@@ -84,8 +82,6 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "availability_set", availability_set)
         if billing_profile is not None:
             pulumi.set(__self__, "billing_profile", billing_profile)
-        if capacity_reservation is not None:
-            pulumi.set(__self__, "capacity_reservation", capacity_reservation)
         if diagnostics_profile is not None:
             pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
         if eviction_policy is not None:
@@ -182,18 +178,6 @@ class VirtualMachineArgs:
     @billing_profile.setter
     def billing_profile(self, value: Optional[pulumi.Input['BillingProfileArgs']]):
         pulumi.set(self, "billing_profile", value)
-
-    @property
-    @pulumi.getter(name="capacityReservation")
-    def capacity_reservation(self) -> Optional[pulumi.Input['CapacityReservationProfileArgs']]:
-        """
-        Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-        """
-        return pulumi.get(self, "capacity_reservation")
-
-    @capacity_reservation.setter
-    def capacity_reservation(self, value: Optional[pulumi.Input['CapacityReservationProfileArgs']]):
-        pulumi.set(self, "capacity_reservation", value)
 
     @property
     @pulumi.getter(name="diagnosticsProfile")
@@ -492,7 +476,6 @@ class VirtualMachine(pulumi.CustomResource):
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']]] = None,
                  availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  billing_profile: Optional[pulumi.Input[pulumi.InputType['BillingProfileArgs']]] = None,
-                 capacity_reservation: Optional[pulumi.Input[pulumi.InputType['CapacityReservationProfileArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
@@ -521,14 +504,13 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine.
-        API Version: 2021-04-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         :param pulumi.Input[pulumi.InputType['BillingProfileArgs']] billing_profile: Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
-        :param pulumi.Input[pulumi.InputType['CapacityReservationProfileArgs']] capacity_reservation: Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
         :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
         :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the Virtual Machine.
@@ -563,7 +545,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine.
-        API Version: 2021-04-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -583,7 +565,6 @@ class VirtualMachine(pulumi.CustomResource):
                  additional_capabilities: Optional[pulumi.Input[pulumi.InputType['AdditionalCapabilitiesArgs']]] = None,
                  availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  billing_profile: Optional[pulumi.Input[pulumi.InputType['BillingProfileArgs']]] = None,
-                 capacity_reservation: Optional[pulumi.Input[pulumi.InputType['CapacityReservationProfileArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
                  eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
@@ -624,7 +605,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["availability_set"] = availability_set
             __props__.__dict__["billing_profile"] = billing_profile
-            __props__.__dict__["capacity_reservation"] = capacity_reservation
             __props__.__dict__["diagnostics_profile"] = diagnostics_profile
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extended_location"] = extended_location
@@ -685,7 +665,6 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["availability_set"] = None
         __props__.__dict__["billing_profile"] = None
-        __props__.__dict__["capacity_reservation"] = None
         __props__.__dict__["diagnostics_profile"] = None
         __props__.__dict__["eviction_policy"] = None
         __props__.__dict__["extended_location"] = None
@@ -740,14 +719,6 @@ class VirtualMachine(pulumi.CustomResource):
         Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
         """
         return pulumi.get(self, "billing_profile")
-
-    @property
-    @pulumi.getter(name="capacityReservation")
-    def capacity_reservation(self) -> pulumi.Output[Optional['outputs.CapacityReservationProfileResponse']]:
-        """
-        Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-        """
-        return pulumi.get(self, "capacity_reservation")
 
     @property
     @pulumi.getter(name="diagnosticsProfile")

@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.BillingProfileArgs>? BillingProfile { get; set; }
 
         /// <summary>
-        /// Specifies the capacity reservation related details of a scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
-        /// </summary>
-        [Input("capacityReservation")]
-        public Input<Inputs.CapacityReservationProfileArgs>? CapacityReservation { get; set; }
-
-        /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
         [Input("diagnosticsProfile")]

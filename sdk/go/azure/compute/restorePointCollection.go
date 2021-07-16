@@ -12,7 +12,7 @@ import (
 )
 
 // Create or update Restore Point collection parameters.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 type RestorePointCollection struct {
 	pulumi.CustomResourceState
 

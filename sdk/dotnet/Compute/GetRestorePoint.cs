@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Restore Point details.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetRestorePointResult> InvokeAsync(GetRestorePointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestorePointResult>("azure-native:compute:getRestorePoint", args ?? new GetRestorePointArgs(), options.WithVersion());

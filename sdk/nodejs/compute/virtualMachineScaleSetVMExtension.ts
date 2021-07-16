@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a VMSS VM Extension.
- * API Version: 2021-04-01.
+ * API Version: 2021-03-01.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**

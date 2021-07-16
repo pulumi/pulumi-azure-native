@@ -3619,10 +3619,6 @@ func (o SqlManagedInstanceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 
 // Properties of SqlServerInstance.
 type SqlServerInstanceProperties struct {
-	// Status of Azure Defender.
-	AzureDefenderStatus *string `pulumi:"azureDefenderStatus"`
-	// Timestamp of last Azure Defender status update.
-	AzureDefenderStatusLastUpdated *string `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation *string `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -3664,10 +3660,6 @@ type SqlServerInstancePropertiesInput interface {
 
 // Properties of SqlServerInstance.
 type SqlServerInstancePropertiesArgs struct {
-	// Status of Azure Defender.
-	AzureDefenderStatus pulumi.StringPtrInput `pulumi:"azureDefenderStatus"`
-	// Timestamp of last Azure Defender status update.
-	AzureDefenderStatusLastUpdated pulumi.StringPtrInput `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation pulumi.StringPtrInput `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -3774,16 +3766,6 @@ func (o SqlServerInstancePropertiesOutput) ToSqlServerInstancePropertiesPtrOutpu
 	}).(SqlServerInstancePropertiesPtrOutput)
 }
 
-// Status of Azure Defender.
-func (o SqlServerInstancePropertiesOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.AzureDefenderStatus }).(pulumi.StringPtrOutput)
-}
-
-// Timestamp of last Azure Defender status update.
-func (o SqlServerInstancePropertiesOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.AzureDefenderStatusLastUpdated }).(pulumi.StringPtrOutput)
-}
-
 // SQL Server collation.
 func (o SqlServerInstancePropertiesOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstanceProperties) *string { return v.Collation }).(pulumi.StringPtrOutput)
@@ -3865,26 +3847,6 @@ func (o SqlServerInstancePropertiesPtrOutput) ToSqlServerInstancePropertiesPtrOu
 
 func (o SqlServerInstancePropertiesPtrOutput) Elem() SqlServerInstancePropertiesOutput {
 	return o.ApplyT(func(v *SqlServerInstanceProperties) SqlServerInstanceProperties { return *v }).(SqlServerInstancePropertiesOutput)
-}
-
-// Status of Azure Defender.
-func (o SqlServerInstancePropertiesPtrOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureDefenderStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Timestamp of last Azure Defender status update.
-func (o SqlServerInstancePropertiesPtrOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureDefenderStatusLastUpdated
-	}).(pulumi.StringPtrOutput)
 }
 
 // SQL Server collation.
@@ -4019,10 +3981,6 @@ func (o SqlServerInstancePropertiesPtrOutput) Version() pulumi.StringPtrOutput {
 
 // Properties of SqlServerInstance.
 type SqlServerInstancePropertiesResponse struct {
-	// Status of Azure Defender.
-	AzureDefenderStatus *string `pulumi:"azureDefenderStatus"`
-	// Timestamp of last Azure Defender status update.
-	AzureDefenderStatusLastUpdated *string `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation *string `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -4067,10 +4025,6 @@ type SqlServerInstancePropertiesResponseInput interface {
 
 // Properties of SqlServerInstance.
 type SqlServerInstancePropertiesResponseArgs struct {
-	// Status of Azure Defender.
-	AzureDefenderStatus pulumi.StringPtrInput `pulumi:"azureDefenderStatus"`
-	// Timestamp of last Azure Defender status update.
-	AzureDefenderStatusLastUpdated pulumi.StringPtrInput `pulumi:"azureDefenderStatusLastUpdated"`
 	// SQL Server collation.
 	Collation pulumi.StringPtrInput `pulumi:"collation"`
 	// ARM Resource id of the container resource (Azure Arc for Servers).
@@ -4180,16 +4134,6 @@ func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstanceProperties
 	}).(SqlServerInstancePropertiesResponsePtrOutput)
 }
 
-// Status of Azure Defender.
-func (o SqlServerInstancePropertiesResponseOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.AzureDefenderStatus }).(pulumi.StringPtrOutput)
-}
-
-// Timestamp of last Azure Defender status update.
-func (o SqlServerInstancePropertiesResponseOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.AzureDefenderStatusLastUpdated }).(pulumi.StringPtrOutput)
-}
-
 // SQL Server collation.
 func (o SqlServerInstancePropertiesResponseOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Collation }).(pulumi.StringPtrOutput)
@@ -4280,26 +4224,6 @@ func (o SqlServerInstancePropertiesResponsePtrOutput) ToSqlServerInstancePropert
 
 func (o SqlServerInstancePropertiesResponsePtrOutput) Elem() SqlServerInstancePropertiesResponseOutput {
 	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) SqlServerInstancePropertiesResponse { return *v }).(SqlServerInstancePropertiesResponseOutput)
-}
-
-// Status of Azure Defender.
-func (o SqlServerInstancePropertiesResponsePtrOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureDefenderStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Timestamp of last Azure Defender status update.
-func (o SqlServerInstancePropertiesResponsePtrOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureDefenderStatusLastUpdated
-	}).(pulumi.StringPtrOutput)
 }
 
 // SQL Server collation.

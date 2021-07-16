@@ -10,54 +10,6 @@ export {
     v20210801,
 };
 
-export const ArcSqlServerLicenseType = {
-    Paid: "Paid",
-    Free: "Free",
-    HADR: "HADR",
-    Undefined: "Undefined",
-} as const;
-
-/**
- * SQL Server license type.
- */
-export type ArcSqlServerLicenseType = (typeof ArcSqlServerLicenseType)[keyof typeof ArcSqlServerLicenseType];
-
-export const ConnectionStatus = {
-    Connected: "Connected",
-    Disconnected: "Disconnected",
-    Unknown: "Unknown",
-} as const;
-
-/**
- * The cloud connectivity status.
- */
-export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
-
-export const DefenderStatus = {
-    Protected: "Protected",
-    Unprotected: "Unprotected",
-    Unknown: "Unknown",
-} as const;
-
-/**
- * Status of Azure Defender.
- */
-export type DefenderStatus = (typeof DefenderStatus)[keyof typeof DefenderStatus];
-
-export const EditionType = {
-    Evaluation: "Evaluation",
-    Enterprise: "Enterprise",
-    Standard: "Standard",
-    Web: "Web",
-    Developer: "Developer",
-    Express: "Express",
-} as const;
-
-/**
- * SQL Server edition.
- */
-export type EditionType = (typeof EditionType)[keyof typeof EditionType];
-
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
@@ -85,14 +37,3 @@ export const SqlManagedInstanceSkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier.
  */
 export type SqlManagedInstanceSkuTier = (typeof SqlManagedInstanceSkuTier)[keyof typeof SqlManagedInstanceSkuTier];
-
-export const SqlVersion = {
-    SQL_Server_2019: "SQL Server 2019",
-    SQL_Server_2017: "SQL Server 2017",
-    SQL_Server_2016: "SQL Server 2016",
-} as const;
-
-/**
- * SQL Server version.
- */
-export type SqlVersion = (typeof SqlVersion)[keyof typeof SqlVersion];

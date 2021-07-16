@@ -133,7 +133,7 @@ def get_restore_point(resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointResult:
     """
     Restore Point details.
-    API Version: 2021-04-01.
+    API Version: 2021-03-01.
 
 
     :param str resource_group_name: The name of the resource group.

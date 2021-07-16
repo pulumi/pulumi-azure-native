@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type VirtualMachine struct {
 	AvailabilitySet SubResourceResponsePtrOutput `pulumi:"availabilitySet"`
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfileResponsePtrOutput `pulumi:"billingProfile"`
-	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation CapacityReservationProfileResponsePtrOutput `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfileResponsePtrOutput `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -218,8 +216,6 @@ type virtualMachineState struct {
 	AvailabilitySet *SubResourceResponse `pulumi:"availabilitySet"`
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfileResponse `pulumi:"billingProfile"`
-	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation *CapacityReservationProfileResponse `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -287,8 +283,6 @@ type VirtualMachineState struct {
 	AvailabilitySet SubResourceResponsePtrInput
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfileResponsePtrInput
-	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation CapacityReservationProfileResponsePtrInput
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfileResponsePtrInput
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -360,8 +354,6 @@ type virtualMachineArgs struct {
 	AvailabilitySet *SubResource `pulumi:"availabilitySet"`
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfile `pulumi:"billingProfile"`
-	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation *CapacityReservationProfile `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile *DiagnosticsProfile `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -422,8 +414,6 @@ type VirtualMachineArgs struct {
 	AvailabilitySet SubResourcePtrInput
 	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfilePtrInput
-	// Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation CapacityReservationProfilePtrInput
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfilePtrInput
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.

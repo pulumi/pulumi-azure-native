@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 type VirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
@@ -50,8 +50,6 @@ type VirtualMachineScaleSet struct {
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
-	// Specifies the Spot Restore properties for the virtual machine scale set.
-	SpotRestorePolicy SpotRestorePolicyResponsePtrOutput `pulumi:"spotRestorePolicy"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -230,8 +228,6 @@ type virtualMachineScaleSetState struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Specifies the Spot Restore properties for the virtual machine scale set.
-	SpotRestorePolicy *SpotRestorePolicyResponse `pulumi:"spotRestorePolicy"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -283,8 +279,6 @@ type VirtualMachineScaleSetState struct {
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The virtual machine scale set sku.
 	Sku SkuResponsePtrInput
-	// Specifies the Spot Restore properties for the virtual machine scale set.
-	SpotRestorePolicy SpotRestorePolicyResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
@@ -338,8 +332,6 @@ type virtualMachineScaleSetArgs struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku *Sku `pulumi:"sku"`
-	// Specifies the Spot Restore properties for the virtual machine scale set.
-	SpotRestorePolicy *SpotRestorePolicy `pulumi:"spotRestorePolicy"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The upgrade policy.
@@ -388,8 +380,6 @@ type VirtualMachineScaleSetArgs struct {
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The virtual machine scale set sku.
 	Sku SkuPtrInput
-	// Specifies the Spot Restore properties for the virtual machine scale set.
-	SpotRestorePolicy SpotRestorePolicyPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The upgrade policy.

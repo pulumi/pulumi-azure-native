@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set Extension.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 func LookupVirtualMachineScaleSetExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetExtensionResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSetExtension", args, &rv, opts...)

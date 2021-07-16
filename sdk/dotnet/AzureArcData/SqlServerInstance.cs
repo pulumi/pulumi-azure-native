@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// A SqlServerInstance.
-    /// API Version: 2021-08-01.
+    /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerInstance")]
     public partial class SqlServerInstance : Pulumi.CustomResource

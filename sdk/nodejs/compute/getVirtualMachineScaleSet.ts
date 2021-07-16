@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2021-04-01.
+ * API Version: 2021-03-01.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
     if (!opts) {
@@ -115,10 +115,6 @@ export interface GetVirtualMachineScaleSetResult {
      * The virtual machine scale set sku.
      */
     readonly sku?: outputs.compute.SkuResponse;
-    /**
-     * Specifies the Spot Restore properties for the virtual machine scale set.
-     */
-    readonly spotRestorePolicy?: outputs.compute.SpotRestorePolicyResponse;
     /**
      * Resource tags
      */

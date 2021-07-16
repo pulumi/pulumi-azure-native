@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : Pulumi.CustomResource

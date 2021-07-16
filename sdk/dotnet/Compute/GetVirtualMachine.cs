@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Describes a Virtual Machine.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithVersion());
@@ -61,10 +61,6 @@ namespace Pulumi.AzureNative.Compute
         /// Specifies the billing related details of a Azure Spot virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01.
         /// </summary>
         public readonly Outputs.BillingProfileResponse? BillingProfile;
-        /// <summary>
-        /// Specifies information about the capacity reservation that is used to allocate virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
-        /// </summary>
-        public readonly Outputs.CapacityReservationProfileResponse? CapacityReservation;
         /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
@@ -194,8 +190,6 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.BillingProfileResponse? billingProfile,
 
-            Outputs.CapacityReservationProfileResponse? capacityReservation,
-
             Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
 
             string? evictionPolicy,
@@ -259,7 +253,6 @@ namespace Pulumi.AzureNative.Compute
             AdditionalCapabilities = additionalCapabilities;
             AvailabilitySet = availabilitySet;
             BillingProfile = billingProfile;
-            CapacityReservation = capacityReservation;
             DiagnosticsProfile = diagnosticsProfile;
             EvictionPolicy = evictionPolicy;
             ExtendedLocation = extendedLocation;

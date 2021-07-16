@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// A SqlServerInstance.
-        /// API Version: 2021-08-01.
+        /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetSqlServerInstanceResult> InvokeAsync(GetSqlServerInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceResult>("azure-native:azurearcdata:getSqlServerInstance", args ?? new GetSqlServerInstanceArgs(), options.WithVersion());

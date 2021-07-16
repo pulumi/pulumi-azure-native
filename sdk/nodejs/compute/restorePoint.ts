@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Restore Point details.
- * API Version: 2021-04-01.
+ * API Version: 2021-03-01.
  */
 export class RestorePoint extends pulumi.CustomResource {
     /**

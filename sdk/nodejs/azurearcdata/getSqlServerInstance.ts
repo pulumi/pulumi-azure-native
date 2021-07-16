@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SqlServerInstance.
- * API Version: 2021-08-01.
+ * API Version: 2021-06-01-preview.
  */
 export function getSqlServerInstance(args: GetSqlServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerInstanceResult> {
     if (!opts) {

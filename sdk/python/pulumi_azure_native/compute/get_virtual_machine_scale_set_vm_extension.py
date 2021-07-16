@@ -183,7 +183,7 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMExtensionResult:
     """
     Describes a VMSS VM Extension.
-    API Version: 2021-04-01.
+    API Version: 2021-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

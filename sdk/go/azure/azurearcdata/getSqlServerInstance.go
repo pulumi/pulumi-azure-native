@@ -8,7 +8,7 @@ import (
 )
 
 // A SqlServerInstance.
-// API Version: 2021-08-01.
+// API Version: 2021-06-01-preview.
 func LookupSqlServerInstance(ctx *pulumi.Context, args *LookupSqlServerInstanceArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerInstanceResult, error) {
 	var rv LookupSqlServerInstanceResult
 	err := ctx.Invoke("azure-native:azurearcdata:getSqlServerInstance", args, &rv, opts...)

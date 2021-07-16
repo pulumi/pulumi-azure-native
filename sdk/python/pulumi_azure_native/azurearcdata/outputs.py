@@ -741,10 +741,6 @@ class SqlServerInstancePropertiesResponse(dict):
             suggest = "create_time"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "azureDefenderStatus":
-            suggest = "azure_defender_status"
-        elif key == "azureDefenderStatusLastUpdated":
-            suggest = "azure_defender_status_last_updated"
         elif key == "currentVersion":
             suggest = "current_version"
         elif key == "instanceName":
@@ -778,8 +774,6 @@ class SqlServerInstancePropertiesResponse(dict):
                  create_time: str,
                  provisioning_state: str,
                  status: str,
-                 azure_defender_status: Optional[str] = None,
-                 azure_defender_status_last_updated: Optional[str] = None,
                  collation: Optional[str] = None,
                  current_version: Optional[str] = None,
                  edition: Optional[str] = None,
@@ -796,8 +790,6 @@ class SqlServerInstancePropertiesResponse(dict):
         :param str container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
         :param str create_time: The time when the resource was created.
         :param str status: The cloud connectivity status.
-        :param str azure_defender_status: Status of Azure Defender.
-        :param str azure_defender_status_last_updated: Timestamp of last Azure Defender status update.
         :param str collation: SQL Server collation.
         :param str current_version: SQL Server current version.
         :param str edition: SQL Server edition.
@@ -814,10 +806,6 @@ class SqlServerInstancePropertiesResponse(dict):
         pulumi.set(__self__, "create_time", create_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
-        if azure_defender_status is not None:
-            pulumi.set(__self__, "azure_defender_status", azure_defender_status)
-        if azure_defender_status_last_updated is not None:
-            pulumi.set(__self__, "azure_defender_status_last_updated", azure_defender_status_last_updated)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
         if current_version is not None:
@@ -869,22 +857,6 @@ class SqlServerInstancePropertiesResponse(dict):
         The cloud connectivity status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="azureDefenderStatus")
-    def azure_defender_status(self) -> Optional[str]:
-        """
-        Status of Azure Defender.
-        """
-        return pulumi.get(self, "azure_defender_status")
-
-    @property
-    @pulumi.getter(name="azureDefenderStatusLastUpdated")
-    def azure_defender_status_last_updated(self) -> Optional[str]:
-        """
-        Timestamp of last Azure Defender status update.
-        """
-        return pulumi.get(self, "azure_defender_status_last_updated")
 
     @property
     @pulumi.getter

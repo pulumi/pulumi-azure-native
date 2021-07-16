@@ -362,7 +362,7 @@ def get_virtual_machine_scale_set_vm(expand: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScaleSetVMResult:
     """
     Describes a virtual machine scale set virtual machine.
-    API Version: 2021-04-01.
+    API Version: 2021-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.

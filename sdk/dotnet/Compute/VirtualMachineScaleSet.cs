@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set.
-    /// API Version: 2021-04-01.
+    /// API Version: 2021-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSet")]
     public partial class VirtualMachineScaleSet : Pulumi.CustomResource
@@ -117,12 +117,6 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the Spot Restore properties for the virtual machine scale set.
-        /// </summary>
-        [Output("spotRestorePolicy")]
-        public Output<Outputs.SpotRestorePolicyResponse?> SpotRestorePolicy { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -340,12 +334,6 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Specifies the Spot Restore properties for the virtual machine scale set.
-        /// </summary>
-        [Input("spotRestorePolicy")]
-        public Input<Inputs.SpotRestorePolicyArgs>? SpotRestorePolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

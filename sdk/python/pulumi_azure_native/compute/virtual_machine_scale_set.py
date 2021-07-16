@@ -32,7 +32,6 @@ class VirtualMachineScaleSetArgs:
                  scale_in_policy: Optional[pulumi.Input['ScaleInPolicyArgs']] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 spot_restore_policy: Optional[pulumi.Input['SpotRestorePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input['UpgradePolicyArgs']] = None,
                  virtual_machine_profile: Optional[pulumi.Input['VirtualMachineScaleSetVMProfileArgs']] = None,
@@ -57,7 +56,6 @@ class VirtualMachineScaleSetArgs:
         :param pulumi.Input['ScaleInPolicyArgs'] scale_in_policy: Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         :param pulumi.Input['SkuArgs'] sku: The virtual machine scale set sku.
-        :param pulumi.Input['SpotRestorePolicyArgs'] spot_restore_policy: Specifies the Spot Restore properties for the virtual machine scale set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: The upgrade policy.
         :param pulumi.Input['VirtualMachineScaleSetVMProfileArgs'] virtual_machine_profile: The virtual machine profile.
@@ -96,8 +94,6 @@ class VirtualMachineScaleSetArgs:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if spot_restore_policy is not None:
-            pulumi.set(__self__, "spot_restore_policy", spot_restore_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_policy is not None:
@@ -304,18 +300,6 @@ class VirtualMachineScaleSetArgs:
         pulumi.set(self, "sku", value)
 
     @property
-    @pulumi.getter(name="spotRestorePolicy")
-    def spot_restore_policy(self) -> Optional[pulumi.Input['SpotRestorePolicyArgs']]:
-        """
-        Specifies the Spot Restore properties for the virtual machine scale set.
-        """
-        return pulumi.get(self, "spot_restore_policy")
-
-    @spot_restore_policy.setter
-    def spot_restore_policy(self, value: Optional[pulumi.Input['SpotRestorePolicyArgs']]):
-        pulumi.set(self, "spot_restore_policy", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -409,7 +393,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  scale_in_policy: Optional[pulumi.Input[pulumi.InputType['ScaleInPolicyArgs']]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 spot_restore_policy: Optional[pulumi.Input[pulumi.InputType['SpotRestorePolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['UpgradePolicyArgs']]] = None,
                  virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
@@ -419,7 +402,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine Scale Set.
-        API Version: 2021-04-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -439,7 +422,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ScaleInPolicyArgs']] scale_in_policy: Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
         :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The virtual machine scale set sku.
-        :param pulumi.Input[pulumi.InputType['SpotRestorePolicyArgs']] spot_restore_policy: Specifies the Spot Restore properties for the virtual machine scale set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['UpgradePolicyArgs']] upgrade_policy: The upgrade policy.
         :param pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']] virtual_machine_profile: The virtual machine profile.
@@ -455,7 +437,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set.
-        API Version: 2021-04-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetArgs args: The arguments to use to populate this resource's properties.
@@ -488,7 +470,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
                  scale_in_policy: Optional[pulumi.Input[pulumi.InputType['ScaleInPolicyArgs']]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 spot_restore_policy: Optional[pulumi.Input[pulumi.InputType['SpotRestorePolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[pulumi.InputType['UpgradePolicyArgs']]] = None,
                  virtual_machine_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineScaleSetVMProfileArgs']]] = None,
@@ -525,7 +506,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["single_placement_group"] = single_placement_group
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["spot_restore_policy"] = spot_restore_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["virtual_machine_profile"] = virtual_machine_profile
@@ -577,7 +557,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["scale_in_policy"] = None
         __props__.__dict__["single_placement_group"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["spot_restore_policy"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_id"] = None
@@ -722,14 +701,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         The virtual machine scale set sku.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter(name="spotRestorePolicy")
-    def spot_restore_policy(self) -> pulumi.Output[Optional['outputs.SpotRestorePolicyResponse']]:
-        """
-        Specifies the Spot Restore properties for the virtual machine scale set.
-        """
-        return pulumi.get(self, "spot_restore_policy")
 
     @property
     @pulumi.getter

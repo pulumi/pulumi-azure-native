@@ -245,7 +245,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine Scale Set Extension.
-        API Version: 2021-04-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +271,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set Extension.
-        API Version: 2021-04-01.
+        API Version: 2021-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetExtensionArgs args: The arguments to use to populate this resource's properties.

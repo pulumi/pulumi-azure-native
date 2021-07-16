@@ -3,14 +3,25 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-#### New Functions
+#### New resources:
 
+- `compute.CapacityReservation`
+- `compute.CapacityReservationGroup`
+- `network.NetworkSecurityPerimeter`
+
+#### New functions:
+
+- `compute.getCapacityReservation`
+- `compute.getCapacityReservationGroup`
 - `dbformysql.getGetPrivateDnsZoneSuffixExecute`
+- `network.getNetworkSecurityPerimeter`
 
 #### Breaking Changes published by Microsoft
 
 - `maxCapacity` is removed from `operationalinsights.outputs.CapacityReservationPropertiesResponse`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14953))
+- `managedCredential` renamed to `credential` in `datafactory.IntegrationRuntimeSsisProperties`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/14589))
 
 ---
 

@@ -744,44 +744,36 @@ class SqlManagedInstanceSkuArgs:
 class SqlServerInstancePropertiesArgs:
     def __init__(__self__, *,
                  container_resource_id: pulumi.Input[str],
-                 status: pulumi.Input[Union[str, 'ConnectionStatus']],
-                 azure_defender_status: Optional[pulumi.Input[Union[str, 'DefenderStatus']]] = None,
-                 azure_defender_status_last_updated: Optional[pulumi.Input[str]] = None,
+                 status: pulumi.Input[str],
                  collation: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
-                 edition: Optional[pulumi.Input[Union[str, 'EditionType']]] = None,
+                 edition: Optional[pulumi.Input[str]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]] = None,
+                 license_type: Optional[pulumi.Input[str]] = None,
                  patch_level: Optional[pulumi.Input[str]] = None,
                  product_id: Optional[pulumi.Input[str]] = None,
                  tcp_dynamic_ports: Optional[pulumi.Input[str]] = None,
                  tcp_static_ports: Optional[pulumi.Input[str]] = None,
                  v_core: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[Union[str, 'SqlVersion']]] = None):
+                 version: Optional[pulumi.Input[str]] = None):
         """
         Properties of SqlServerInstance.
         :param pulumi.Input[str] container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
-        :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The cloud connectivity status.
-        :param pulumi.Input[Union[str, 'DefenderStatus']] azure_defender_status: Status of Azure Defender.
-        :param pulumi.Input[str] azure_defender_status_last_updated: Timestamp of last Azure Defender status update.
+        :param pulumi.Input[str] status: The cloud connectivity status.
         :param pulumi.Input[str] collation: SQL Server collation.
         :param pulumi.Input[str] current_version: SQL Server current version.
-        :param pulumi.Input[Union[str, 'EditionType']] edition: SQL Server edition.
+        :param pulumi.Input[str] edition: SQL Server edition.
         :param pulumi.Input[str] instance_name: SQL Server instance name.
-        :param pulumi.Input[Union[str, 'ArcSqlServerLicenseType']] license_type: SQL Server license type.
+        :param pulumi.Input[str] license_type: SQL Server license type.
         :param pulumi.Input[str] patch_level: SQL Server update level.
         :param pulumi.Input[str] product_id: SQL Server product ID.
         :param pulumi.Input[str] tcp_dynamic_ports: Dynamic TCP ports used by SQL Server.
         :param pulumi.Input[str] tcp_static_ports: Static TCP ports used by SQL Server.
         :param pulumi.Input[str] v_core: The number of logical processors used by the SQL Server instance.
-        :param pulumi.Input[Union[str, 'SqlVersion']] version: SQL Server version.
+        :param pulumi.Input[str] version: SQL Server version.
         """
         pulumi.set(__self__, "container_resource_id", container_resource_id)
         pulumi.set(__self__, "status", status)
-        if azure_defender_status is not None:
-            pulumi.set(__self__, "azure_defender_status", azure_defender_status)
-        if azure_defender_status_last_updated is not None:
-            pulumi.set(__self__, "azure_defender_status_last_updated", azure_defender_status_last_updated)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
         if current_version is not None:
@@ -819,39 +811,15 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Union[str, 'ConnectionStatus']]:
+    def status(self) -> pulumi.Input[str]:
         """
         The cloud connectivity status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Union[str, 'ConnectionStatus']]):
+    def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="azureDefenderStatus")
-    def azure_defender_status(self) -> Optional[pulumi.Input[Union[str, 'DefenderStatus']]]:
-        """
-        Status of Azure Defender.
-        """
-        return pulumi.get(self, "azure_defender_status")
-
-    @azure_defender_status.setter
-    def azure_defender_status(self, value: Optional[pulumi.Input[Union[str, 'DefenderStatus']]]):
-        pulumi.set(self, "azure_defender_status", value)
-
-    @property
-    @pulumi.getter(name="azureDefenderStatusLastUpdated")
-    def azure_defender_status_last_updated(self) -> Optional[pulumi.Input[str]]:
-        """
-        Timestamp of last Azure Defender status update.
-        """
-        return pulumi.get(self, "azure_defender_status_last_updated")
-
-    @azure_defender_status_last_updated.setter
-    def azure_defender_status_last_updated(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_defender_status_last_updated", value)
 
     @property
     @pulumi.getter
@@ -879,14 +847,14 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[Union[str, 'EditionType']]]:
+    def edition(self) -> Optional[pulumi.Input[str]]:
         """
         SQL Server edition.
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[Union[str, 'EditionType']]]):
+    def edition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "edition", value)
 
     @property
@@ -903,14 +871,14 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]:
+    def license_type(self) -> Optional[pulumi.Input[str]]:
         """
         SQL Server license type.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]):
+    def license_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "license_type", value)
 
     @property
@@ -975,14 +943,14 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[str, 'SqlVersion']]]:
+    def version(self) -> Optional[pulumi.Input[str]]:
         """
         SQL Server version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[str, 'SqlVersion']]]):
+    def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
 

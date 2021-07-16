@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine.
- * API Version: 2021-04-01.
+ * API Version: 2021-03-01.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     if (!opts) {
@@ -55,10 +55,6 @@ export interface GetVirtualMachineResult {
      * Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
      */
     readonly billingProfile?: outputs.compute.BillingProfileResponse;
-    /**
-     * Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-     */
-    readonly capacityReservation?: outputs.compute.CapacityReservationProfileResponse;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */

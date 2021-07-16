@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
- * API Version: 2021-04-01.
+ * API Version: 2021-03-01.
  */
 export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
@@ -105,10 +105,6 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
     /**
-     * Specifies the Spot Restore properties for the virtual machine scale set.
-     */
-    public readonly spotRestorePolicy!: pulumi.Output<outputs.compute.SpotRestorePolicyResponse | undefined>;
-    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -167,7 +163,6 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["spotRestorePolicy"] = args ? args.spotRestorePolicy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
@@ -196,7 +191,6 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["scaleInPolicy"] = undefined /*out*/;
             inputs["singlePlacementGroup"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["spotRestorePolicy"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
@@ -282,10 +276,6 @@ export interface VirtualMachineScaleSetArgs {
      * The virtual machine scale set sku.
      */
     sku?: pulumi.Input<inputs.compute.SkuArgs>;
-    /**
-     * Specifies the Spot Restore properties for the virtual machine scale set.
-     */
-    spotRestorePolicy?: pulumi.Input<inputs.compute.SpotRestorePolicyArgs>;
     /**
      * Resource tags
      */

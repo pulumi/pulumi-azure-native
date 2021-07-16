@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Describes a Virtual Machine Scale Set.
-        /// API Version: 2021-04-01.
+        /// API Version: 2021-03-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetResult> InvokeAsync(GetVirtualMachineScaleSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetResult>("azure-native:compute:getVirtualMachineScaleSet", args ?? new GetVirtualMachineScaleSetArgs(), options.WithVersion());
@@ -122,10 +122,6 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Specifies the Spot Restore properties for the virtual machine scale set.
-        /// </summary>
-        public readonly Outputs.SpotRestorePolicyResponse? SpotRestorePolicy;
-        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -192,8 +188,6 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SkuResponse? sku,
 
-            Outputs.SpotRestorePolicyResponse? spotRestorePolicy,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -226,7 +220,6 @@ namespace Pulumi.AzureNative.Compute
             ScaleInPolicy = scaleInPolicy;
             SinglePlacementGroup = singlePlacementGroup;
             Sku = sku;
-            SpotRestorePolicy = spotRestorePolicy;
             Tags = tags;
             Type = type;
             UniqueId = uniqueId;

@@ -206,7 +206,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineExtensionResult:
     """
     Describes a Virtual Machine Extension.
-    API Version: 2021-04-01.
+    API Version: 2021-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a virtual machine scale set virtual machine.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 func LookupVirtualMachineScaleSetVM(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMResult, error) {
 	var rv LookupVirtualMachineScaleSetVMResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSetVM", args, &rv, opts...)

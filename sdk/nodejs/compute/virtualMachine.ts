@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine.
- * API Version: 2021-04-01.
+ * API Version: 2021-03-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -48,10 +48,6 @@ export class VirtualMachine extends pulumi.CustomResource {
      * Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
      */
     public readonly billingProfile!: pulumi.Output<outputs.compute.BillingProfileResponse | undefined>;
-    /**
-     * Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-     */
-    public readonly capacityReservation!: pulumi.Output<outputs.compute.CapacityReservationProfileResponse | undefined>;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */
@@ -186,7 +182,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             inputs["availabilitySet"] = args ? args.availabilitySet : undefined;
             inputs["billingProfile"] = args ? args.billingProfile : undefined;
-            inputs["capacityReservation"] = args ? args.capacityReservation : undefined;
             inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             inputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
@@ -222,7 +217,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["additionalCapabilities"] = undefined /*out*/;
             inputs["availabilitySet"] = undefined /*out*/;
             inputs["billingProfile"] = undefined /*out*/;
-            inputs["capacityReservation"] = undefined /*out*/;
             inputs["diagnosticsProfile"] = undefined /*out*/;
             inputs["evictionPolicy"] = undefined /*out*/;
             inputs["extendedLocation"] = undefined /*out*/;
@@ -278,10 +272,6 @@ export interface VirtualMachineArgs {
      * Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
      */
     billingProfile?: pulumi.Input<inputs.compute.BillingProfileArgs>;
-    /**
-     * Specifies information about the capacity reservation that is used to allocate virtual machine. <br><br>Minimum api-version: 2021-04-01.
-     */
-    capacityReservation?: pulumi.Input<inputs.compute.CapacityReservationProfileArgs>;
     /**
      * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
      */

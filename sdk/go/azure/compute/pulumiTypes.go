@@ -3255,274 +3255,6 @@ func (o CapacityReservationInstanceViewWithNameResponseArrayOutput) Index(i pulu
 	}).(CapacityReservationInstanceViewWithNameResponseOutput)
 }
 
-// The parameters of a capacity reservation Profile.
-type CapacityReservationProfile struct {
-	// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-	CapacityReservationGroup *SubResource `pulumi:"capacityReservationGroup"`
-}
-
-// CapacityReservationProfileInput is an input type that accepts CapacityReservationProfileArgs and CapacityReservationProfileOutput values.
-// You can construct a concrete instance of `CapacityReservationProfileInput` via:
-//
-//          CapacityReservationProfileArgs{...}
-type CapacityReservationProfileInput interface {
-	pulumi.Input
-
-	ToCapacityReservationProfileOutput() CapacityReservationProfileOutput
-	ToCapacityReservationProfileOutputWithContext(context.Context) CapacityReservationProfileOutput
-}
-
-// The parameters of a capacity reservation Profile.
-type CapacityReservationProfileArgs struct {
-	// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-	CapacityReservationGroup SubResourcePtrInput `pulumi:"capacityReservationGroup"`
-}
-
-func (CapacityReservationProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationProfile)(nil)).Elem()
-}
-
-func (i CapacityReservationProfileArgs) ToCapacityReservationProfileOutput() CapacityReservationProfileOutput {
-	return i.ToCapacityReservationProfileOutputWithContext(context.Background())
-}
-
-func (i CapacityReservationProfileArgs) ToCapacityReservationProfileOutputWithContext(ctx context.Context) CapacityReservationProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationProfileOutput)
-}
-
-func (i CapacityReservationProfileArgs) ToCapacityReservationProfilePtrOutput() CapacityReservationProfilePtrOutput {
-	return i.ToCapacityReservationProfilePtrOutputWithContext(context.Background())
-}
-
-func (i CapacityReservationProfileArgs) ToCapacityReservationProfilePtrOutputWithContext(ctx context.Context) CapacityReservationProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationProfileOutput).ToCapacityReservationProfilePtrOutputWithContext(ctx)
-}
-
-// CapacityReservationProfilePtrInput is an input type that accepts CapacityReservationProfileArgs, CapacityReservationProfilePtr and CapacityReservationProfilePtrOutput values.
-// You can construct a concrete instance of `CapacityReservationProfilePtrInput` via:
-//
-//          CapacityReservationProfileArgs{...}
-//
-//  or:
-//
-//          nil
-type CapacityReservationProfilePtrInput interface {
-	pulumi.Input
-
-	ToCapacityReservationProfilePtrOutput() CapacityReservationProfilePtrOutput
-	ToCapacityReservationProfilePtrOutputWithContext(context.Context) CapacityReservationProfilePtrOutput
-}
-
-type capacityReservationProfilePtrType CapacityReservationProfileArgs
-
-func CapacityReservationProfilePtr(v *CapacityReservationProfileArgs) CapacityReservationProfilePtrInput {
-	return (*capacityReservationProfilePtrType)(v)
-}
-
-func (*capacityReservationProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityReservationProfile)(nil)).Elem()
-}
-
-func (i *capacityReservationProfilePtrType) ToCapacityReservationProfilePtrOutput() CapacityReservationProfilePtrOutput {
-	return i.ToCapacityReservationProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *capacityReservationProfilePtrType) ToCapacityReservationProfilePtrOutputWithContext(ctx context.Context) CapacityReservationProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationProfilePtrOutput)
-}
-
-// The parameters of a capacity reservation Profile.
-type CapacityReservationProfileOutput struct{ *pulumi.OutputState }
-
-func (CapacityReservationProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationProfile)(nil)).Elem()
-}
-
-func (o CapacityReservationProfileOutput) ToCapacityReservationProfileOutput() CapacityReservationProfileOutput {
-	return o
-}
-
-func (o CapacityReservationProfileOutput) ToCapacityReservationProfileOutputWithContext(ctx context.Context) CapacityReservationProfileOutput {
-	return o
-}
-
-func (o CapacityReservationProfileOutput) ToCapacityReservationProfilePtrOutput() CapacityReservationProfilePtrOutput {
-	return o.ToCapacityReservationProfilePtrOutputWithContext(context.Background())
-}
-
-func (o CapacityReservationProfileOutput) ToCapacityReservationProfilePtrOutputWithContext(ctx context.Context) CapacityReservationProfilePtrOutput {
-	return o.ApplyT(func(v CapacityReservationProfile) *CapacityReservationProfile {
-		return &v
-	}).(CapacityReservationProfilePtrOutput)
-}
-
-// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-func (o CapacityReservationProfileOutput) CapacityReservationGroup() SubResourcePtrOutput {
-	return o.ApplyT(func(v CapacityReservationProfile) *SubResource { return v.CapacityReservationGroup }).(SubResourcePtrOutput)
-}
-
-type CapacityReservationProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (CapacityReservationProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityReservationProfile)(nil)).Elem()
-}
-
-func (o CapacityReservationProfilePtrOutput) ToCapacityReservationProfilePtrOutput() CapacityReservationProfilePtrOutput {
-	return o
-}
-
-func (o CapacityReservationProfilePtrOutput) ToCapacityReservationProfilePtrOutputWithContext(ctx context.Context) CapacityReservationProfilePtrOutput {
-	return o
-}
-
-func (o CapacityReservationProfilePtrOutput) Elem() CapacityReservationProfileOutput {
-	return o.ApplyT(func(v *CapacityReservationProfile) CapacityReservationProfile { return *v }).(CapacityReservationProfileOutput)
-}
-
-// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-func (o CapacityReservationProfilePtrOutput) CapacityReservationGroup() SubResourcePtrOutput {
-	return o.ApplyT(func(v *CapacityReservationProfile) *SubResource {
-		if v == nil {
-			return nil
-		}
-		return v.CapacityReservationGroup
-	}).(SubResourcePtrOutput)
-}
-
-// The parameters of a capacity reservation Profile.
-type CapacityReservationProfileResponse struct {
-	// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-	CapacityReservationGroup *SubResourceResponse `pulumi:"capacityReservationGroup"`
-}
-
-// CapacityReservationProfileResponseInput is an input type that accepts CapacityReservationProfileResponseArgs and CapacityReservationProfileResponseOutput values.
-// You can construct a concrete instance of `CapacityReservationProfileResponseInput` via:
-//
-//          CapacityReservationProfileResponseArgs{...}
-type CapacityReservationProfileResponseInput interface {
-	pulumi.Input
-
-	ToCapacityReservationProfileResponseOutput() CapacityReservationProfileResponseOutput
-	ToCapacityReservationProfileResponseOutputWithContext(context.Context) CapacityReservationProfileResponseOutput
-}
-
-// The parameters of a capacity reservation Profile.
-type CapacityReservationProfileResponseArgs struct {
-	// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-	CapacityReservationGroup SubResourceResponsePtrInput `pulumi:"capacityReservationGroup"`
-}
-
-func (CapacityReservationProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationProfileResponse)(nil)).Elem()
-}
-
-func (i CapacityReservationProfileResponseArgs) ToCapacityReservationProfileResponseOutput() CapacityReservationProfileResponseOutput {
-	return i.ToCapacityReservationProfileResponseOutputWithContext(context.Background())
-}
-
-func (i CapacityReservationProfileResponseArgs) ToCapacityReservationProfileResponseOutputWithContext(ctx context.Context) CapacityReservationProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationProfileResponseOutput)
-}
-
-func (i CapacityReservationProfileResponseArgs) ToCapacityReservationProfileResponsePtrOutput() CapacityReservationProfileResponsePtrOutput {
-	return i.ToCapacityReservationProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CapacityReservationProfileResponseArgs) ToCapacityReservationProfileResponsePtrOutputWithContext(ctx context.Context) CapacityReservationProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationProfileResponseOutput).ToCapacityReservationProfileResponsePtrOutputWithContext(ctx)
-}
-
-// CapacityReservationProfileResponsePtrInput is an input type that accepts CapacityReservationProfileResponseArgs, CapacityReservationProfileResponsePtr and CapacityReservationProfileResponsePtrOutput values.
-// You can construct a concrete instance of `CapacityReservationProfileResponsePtrInput` via:
-//
-//          CapacityReservationProfileResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CapacityReservationProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToCapacityReservationProfileResponsePtrOutput() CapacityReservationProfileResponsePtrOutput
-	ToCapacityReservationProfileResponsePtrOutputWithContext(context.Context) CapacityReservationProfileResponsePtrOutput
-}
-
-type capacityReservationProfileResponsePtrType CapacityReservationProfileResponseArgs
-
-func CapacityReservationProfileResponsePtr(v *CapacityReservationProfileResponseArgs) CapacityReservationProfileResponsePtrInput {
-	return (*capacityReservationProfileResponsePtrType)(v)
-}
-
-func (*capacityReservationProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityReservationProfileResponse)(nil)).Elem()
-}
-
-func (i *capacityReservationProfileResponsePtrType) ToCapacityReservationProfileResponsePtrOutput() CapacityReservationProfileResponsePtrOutput {
-	return i.ToCapacityReservationProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *capacityReservationProfileResponsePtrType) ToCapacityReservationProfileResponsePtrOutputWithContext(ctx context.Context) CapacityReservationProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationProfileResponsePtrOutput)
-}
-
-// The parameters of a capacity reservation Profile.
-type CapacityReservationProfileResponseOutput struct{ *pulumi.OutputState }
-
-func (CapacityReservationProfileResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationProfileResponse)(nil)).Elem()
-}
-
-func (o CapacityReservationProfileResponseOutput) ToCapacityReservationProfileResponseOutput() CapacityReservationProfileResponseOutput {
-	return o
-}
-
-func (o CapacityReservationProfileResponseOutput) ToCapacityReservationProfileResponseOutputWithContext(ctx context.Context) CapacityReservationProfileResponseOutput {
-	return o
-}
-
-func (o CapacityReservationProfileResponseOutput) ToCapacityReservationProfileResponsePtrOutput() CapacityReservationProfileResponsePtrOutput {
-	return o.ToCapacityReservationProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CapacityReservationProfileResponseOutput) ToCapacityReservationProfileResponsePtrOutputWithContext(ctx context.Context) CapacityReservationProfileResponsePtrOutput {
-	return o.ApplyT(func(v CapacityReservationProfileResponse) *CapacityReservationProfileResponse {
-		return &v
-	}).(CapacityReservationProfileResponsePtrOutput)
-}
-
-// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-func (o CapacityReservationProfileResponseOutput) CapacityReservationGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v CapacityReservationProfileResponse) *SubResourceResponse { return v.CapacityReservationGroup }).(SubResourceResponsePtrOutput)
-}
-
-type CapacityReservationProfileResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CapacityReservationProfileResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityReservationProfileResponse)(nil)).Elem()
-}
-
-func (o CapacityReservationProfileResponsePtrOutput) ToCapacityReservationProfileResponsePtrOutput() CapacityReservationProfileResponsePtrOutput {
-	return o
-}
-
-func (o CapacityReservationProfileResponsePtrOutput) ToCapacityReservationProfileResponsePtrOutputWithContext(ctx context.Context) CapacityReservationProfileResponsePtrOutput {
-	return o
-}
-
-func (o CapacityReservationProfileResponsePtrOutput) Elem() CapacityReservationProfileResponseOutput {
-	return o.ApplyT(func(v *CapacityReservationProfileResponse) CapacityReservationProfileResponse { return *v }).(CapacityReservationProfileResponseOutput)
-}
-
-// Specifies the capacity reservation group resource id that should be used for allocating the virtual machine or scaleset vm instances provided enough capacity has been reserved. Please refer to https://aka.ms/CapacityReservation for more details.
-func (o CapacityReservationProfileResponsePtrOutput) CapacityReservationGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *CapacityReservationProfileResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CapacityReservationGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
 // Represents the capacity reservation utilization in terms of resources allocated.
 type CapacityReservationUtilizationResponse struct {
 	// A list of all virtual machines resource ids allocated against the capacity reservation.
@@ -23186,7 +22918,7 @@ type ManagedDiskParameters struct {
 	DiskEncryptionSet *DiskEncryptionSetParameters `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id *string `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -23207,7 +22939,7 @@ type ManagedDiskParametersArgs struct {
 	DiskEncryptionSet DiskEncryptionSetParametersPtrInput `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -23299,7 +23031,7 @@ func (o ManagedDiskParametersOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParameters) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParameters) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -23342,7 +23074,7 @@ func (o ManagedDiskParametersPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskParameters) *string {
 		if v == nil {
@@ -23358,7 +23090,7 @@ type ManagedDiskParametersResponse struct {
 	DiskEncryptionSet *DiskEncryptionSetParametersResponse `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id *string `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType *string `pulumi:"storageAccountType"`
 }
 
@@ -23379,7 +23111,7 @@ type ManagedDiskParametersResponseArgs struct {
 	DiskEncryptionSet DiskEncryptionSetParametersResponsePtrInput `pulumi:"diskEncryptionSet"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+	// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
 }
 
@@ -23471,7 +23203,7 @@ func (o ManagedDiskParametersResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParametersResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersResponseOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDiskParametersResponse) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
 }
@@ -23514,7 +23246,7 @@ func (o ManagedDiskParametersResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+// Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 func (o ManagedDiskParametersResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDiskParametersResponse) *string {
 		if v == nil {
@@ -33108,312 +32840,6 @@ func (o SourceVaultResponsePtrOutput) Id() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-type SpotRestorePolicy struct {
-	// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-	Enabled *bool `pulumi:"enabled"`
-	// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-	RestoreTimeout *string `pulumi:"restoreTimeout"`
-}
-
-// SpotRestorePolicyInput is an input type that accepts SpotRestorePolicyArgs and SpotRestorePolicyOutput values.
-// You can construct a concrete instance of `SpotRestorePolicyInput` via:
-//
-//          SpotRestorePolicyArgs{...}
-type SpotRestorePolicyInput interface {
-	pulumi.Input
-
-	ToSpotRestorePolicyOutput() SpotRestorePolicyOutput
-	ToSpotRestorePolicyOutputWithContext(context.Context) SpotRestorePolicyOutput
-}
-
-// Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-type SpotRestorePolicyArgs struct {
-	// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-	RestoreTimeout pulumi.StringPtrInput `pulumi:"restoreTimeout"`
-}
-
-func (SpotRestorePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotRestorePolicy)(nil)).Elem()
-}
-
-func (i SpotRestorePolicyArgs) ToSpotRestorePolicyOutput() SpotRestorePolicyOutput {
-	return i.ToSpotRestorePolicyOutputWithContext(context.Background())
-}
-
-func (i SpotRestorePolicyArgs) ToSpotRestorePolicyOutputWithContext(ctx context.Context) SpotRestorePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotRestorePolicyOutput)
-}
-
-func (i SpotRestorePolicyArgs) ToSpotRestorePolicyPtrOutput() SpotRestorePolicyPtrOutput {
-	return i.ToSpotRestorePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i SpotRestorePolicyArgs) ToSpotRestorePolicyPtrOutputWithContext(ctx context.Context) SpotRestorePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotRestorePolicyOutput).ToSpotRestorePolicyPtrOutputWithContext(ctx)
-}
-
-// SpotRestorePolicyPtrInput is an input type that accepts SpotRestorePolicyArgs, SpotRestorePolicyPtr and SpotRestorePolicyPtrOutput values.
-// You can construct a concrete instance of `SpotRestorePolicyPtrInput` via:
-//
-//          SpotRestorePolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotRestorePolicyPtrInput interface {
-	pulumi.Input
-
-	ToSpotRestorePolicyPtrOutput() SpotRestorePolicyPtrOutput
-	ToSpotRestorePolicyPtrOutputWithContext(context.Context) SpotRestorePolicyPtrOutput
-}
-
-type spotRestorePolicyPtrType SpotRestorePolicyArgs
-
-func SpotRestorePolicyPtr(v *SpotRestorePolicyArgs) SpotRestorePolicyPtrInput {
-	return (*spotRestorePolicyPtrType)(v)
-}
-
-func (*spotRestorePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotRestorePolicy)(nil)).Elem()
-}
-
-func (i *spotRestorePolicyPtrType) ToSpotRestorePolicyPtrOutput() SpotRestorePolicyPtrOutput {
-	return i.ToSpotRestorePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *spotRestorePolicyPtrType) ToSpotRestorePolicyPtrOutputWithContext(ctx context.Context) SpotRestorePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotRestorePolicyPtrOutput)
-}
-
-// Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-type SpotRestorePolicyOutput struct{ *pulumi.OutputState }
-
-func (SpotRestorePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotRestorePolicy)(nil)).Elem()
-}
-
-func (o SpotRestorePolicyOutput) ToSpotRestorePolicyOutput() SpotRestorePolicyOutput {
-	return o
-}
-
-func (o SpotRestorePolicyOutput) ToSpotRestorePolicyOutputWithContext(ctx context.Context) SpotRestorePolicyOutput {
-	return o
-}
-
-func (o SpotRestorePolicyOutput) ToSpotRestorePolicyPtrOutput() SpotRestorePolicyPtrOutput {
-	return o.ToSpotRestorePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SpotRestorePolicyOutput) ToSpotRestorePolicyPtrOutputWithContext(ctx context.Context) SpotRestorePolicyPtrOutput {
-	return o.ApplyT(func(v SpotRestorePolicy) *SpotRestorePolicy {
-		return &v
-	}).(SpotRestorePolicyPtrOutput)
-}
-
-// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-func (o SpotRestorePolicyOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotRestorePolicy) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-func (o SpotRestorePolicyOutput) RestoreTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotRestorePolicy) *string { return v.RestoreTimeout }).(pulumi.StringPtrOutput)
-}
-
-type SpotRestorePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotRestorePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotRestorePolicy)(nil)).Elem()
-}
-
-func (o SpotRestorePolicyPtrOutput) ToSpotRestorePolicyPtrOutput() SpotRestorePolicyPtrOutput {
-	return o
-}
-
-func (o SpotRestorePolicyPtrOutput) ToSpotRestorePolicyPtrOutputWithContext(ctx context.Context) SpotRestorePolicyPtrOutput {
-	return o
-}
-
-func (o SpotRestorePolicyPtrOutput) Elem() SpotRestorePolicyOutput {
-	return o.ApplyT(func(v *SpotRestorePolicy) SpotRestorePolicy { return *v }).(SpotRestorePolicyOutput)
-}
-
-// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-func (o SpotRestorePolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotRestorePolicy) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-func (o SpotRestorePolicyPtrOutput) RestoreTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotRestorePolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RestoreTimeout
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-type SpotRestorePolicyResponse struct {
-	// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-	Enabled *bool `pulumi:"enabled"`
-	// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-	RestoreTimeout *string `pulumi:"restoreTimeout"`
-}
-
-// SpotRestorePolicyResponseInput is an input type that accepts SpotRestorePolicyResponseArgs and SpotRestorePolicyResponseOutput values.
-// You can construct a concrete instance of `SpotRestorePolicyResponseInput` via:
-//
-//          SpotRestorePolicyResponseArgs{...}
-type SpotRestorePolicyResponseInput interface {
-	pulumi.Input
-
-	ToSpotRestorePolicyResponseOutput() SpotRestorePolicyResponseOutput
-	ToSpotRestorePolicyResponseOutputWithContext(context.Context) SpotRestorePolicyResponseOutput
-}
-
-// Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-type SpotRestorePolicyResponseArgs struct {
-	// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-	RestoreTimeout pulumi.StringPtrInput `pulumi:"restoreTimeout"`
-}
-
-func (SpotRestorePolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotRestorePolicyResponse)(nil)).Elem()
-}
-
-func (i SpotRestorePolicyResponseArgs) ToSpotRestorePolicyResponseOutput() SpotRestorePolicyResponseOutput {
-	return i.ToSpotRestorePolicyResponseOutputWithContext(context.Background())
-}
-
-func (i SpotRestorePolicyResponseArgs) ToSpotRestorePolicyResponseOutputWithContext(ctx context.Context) SpotRestorePolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotRestorePolicyResponseOutput)
-}
-
-func (i SpotRestorePolicyResponseArgs) ToSpotRestorePolicyResponsePtrOutput() SpotRestorePolicyResponsePtrOutput {
-	return i.ToSpotRestorePolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SpotRestorePolicyResponseArgs) ToSpotRestorePolicyResponsePtrOutputWithContext(ctx context.Context) SpotRestorePolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotRestorePolicyResponseOutput).ToSpotRestorePolicyResponsePtrOutputWithContext(ctx)
-}
-
-// SpotRestorePolicyResponsePtrInput is an input type that accepts SpotRestorePolicyResponseArgs, SpotRestorePolicyResponsePtr and SpotRestorePolicyResponsePtrOutput values.
-// You can construct a concrete instance of `SpotRestorePolicyResponsePtrInput` via:
-//
-//          SpotRestorePolicyResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SpotRestorePolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToSpotRestorePolicyResponsePtrOutput() SpotRestorePolicyResponsePtrOutput
-	ToSpotRestorePolicyResponsePtrOutputWithContext(context.Context) SpotRestorePolicyResponsePtrOutput
-}
-
-type spotRestorePolicyResponsePtrType SpotRestorePolicyResponseArgs
-
-func SpotRestorePolicyResponsePtr(v *SpotRestorePolicyResponseArgs) SpotRestorePolicyResponsePtrInput {
-	return (*spotRestorePolicyResponsePtrType)(v)
-}
-
-func (*spotRestorePolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotRestorePolicyResponse)(nil)).Elem()
-}
-
-func (i *spotRestorePolicyResponsePtrType) ToSpotRestorePolicyResponsePtrOutput() SpotRestorePolicyResponsePtrOutput {
-	return i.ToSpotRestorePolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *spotRestorePolicyResponsePtrType) ToSpotRestorePolicyResponsePtrOutputWithContext(ctx context.Context) SpotRestorePolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotRestorePolicyResponsePtrOutput)
-}
-
-// Specifies the Spot-Try-Restore properties for the virtual machine scale set. <br><br> With this property customer can enable or disable automatic restore of the evicted Spot VMSS VM instances opportunistically based on capacity availability and pricing constraint.
-type SpotRestorePolicyResponseOutput struct{ *pulumi.OutputState }
-
-func (SpotRestorePolicyResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotRestorePolicyResponse)(nil)).Elem()
-}
-
-func (o SpotRestorePolicyResponseOutput) ToSpotRestorePolicyResponseOutput() SpotRestorePolicyResponseOutput {
-	return o
-}
-
-func (o SpotRestorePolicyResponseOutput) ToSpotRestorePolicyResponseOutputWithContext(ctx context.Context) SpotRestorePolicyResponseOutput {
-	return o
-}
-
-func (o SpotRestorePolicyResponseOutput) ToSpotRestorePolicyResponsePtrOutput() SpotRestorePolicyResponsePtrOutput {
-	return o.ToSpotRestorePolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SpotRestorePolicyResponseOutput) ToSpotRestorePolicyResponsePtrOutputWithContext(ctx context.Context) SpotRestorePolicyResponsePtrOutput {
-	return o.ApplyT(func(v SpotRestorePolicyResponse) *SpotRestorePolicyResponse {
-		return &v
-	}).(SpotRestorePolicyResponsePtrOutput)
-}
-
-// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-func (o SpotRestorePolicyResponseOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SpotRestorePolicyResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-func (o SpotRestorePolicyResponseOutput) RestoreTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SpotRestorePolicyResponse) *string { return v.RestoreTimeout }).(pulumi.StringPtrOutput)
-}
-
-type SpotRestorePolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SpotRestorePolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotRestorePolicyResponse)(nil)).Elem()
-}
-
-func (o SpotRestorePolicyResponsePtrOutput) ToSpotRestorePolicyResponsePtrOutput() SpotRestorePolicyResponsePtrOutput {
-	return o
-}
-
-func (o SpotRestorePolicyResponsePtrOutput) ToSpotRestorePolicyResponsePtrOutputWithContext(ctx context.Context) SpotRestorePolicyResponsePtrOutput {
-	return o
-}
-
-func (o SpotRestorePolicyResponsePtrOutput) Elem() SpotRestorePolicyResponseOutput {
-	return o.ApplyT(func(v *SpotRestorePolicyResponse) SpotRestorePolicyResponse { return *v }).(SpotRestorePolicyResponseOutput)
-}
-
-// Enables the Spot-Try-Restore feature where evicted VMSS SPOT instances will be tried to be restored opportunistically based on capacity availability and pricing constraints
-func (o SpotRestorePolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SpotRestorePolicyResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Timeout value expressed as an ISO 8601 time duration after which the platform will not try to restore the VMSS SPOT instances
-func (o SpotRestorePolicyResponsePtrOutput) RestoreTimeout() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SpotRestorePolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RestoreTimeout
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -48515,8 +47941,6 @@ func (o VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput) Ne
 type VirtualMachineScaleSetVMProfile struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfile `pulumi:"billingProfile"`
-	// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation *CapacityReservationProfile `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile *DiagnosticsProfile `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -48556,8 +47980,6 @@ type VirtualMachineScaleSetVMProfileInput interface {
 type VirtualMachineScaleSetVMProfileArgs struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfilePtrInput `pulumi:"billingProfile"`
-	// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation CapacityReservationProfilePtrInput `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfilePtrInput `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -48665,11 +48087,6 @@ func (o VirtualMachineScaleSetVMProfileOutput) BillingProfile() BillingProfilePt
 	return o.ApplyT(func(v VirtualMachineScaleSetVMProfile) *BillingProfile { return v.BillingProfile }).(BillingProfilePtrOutput)
 }
 
-// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-func (o VirtualMachineScaleSetVMProfileOutput) CapacityReservation() CapacityReservationProfilePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMProfile) *CapacityReservationProfile { return v.CapacityReservation }).(CapacityReservationProfilePtrOutput)
-}
-
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 func (o VirtualMachineScaleSetVMProfileOutput) DiagnosticsProfile() DiagnosticsProfilePtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetVMProfile) *DiagnosticsProfile { return v.DiagnosticsProfile }).(DiagnosticsProfilePtrOutput)
@@ -48753,16 +48170,6 @@ func (o VirtualMachineScaleSetVMProfilePtrOutput) BillingProfile() BillingProfil
 		}
 		return v.BillingProfile
 	}).(BillingProfilePtrOutput)
-}
-
-// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-func (o VirtualMachineScaleSetVMProfilePtrOutput) CapacityReservation() CapacityReservationProfilePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMProfile) *CapacityReservationProfile {
-		if v == nil {
-			return nil
-		}
-		return v.CapacityReservation
-	}).(CapacityReservationProfilePtrOutput)
 }
 
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
@@ -48879,8 +48286,6 @@ func (o VirtualMachineScaleSetVMProfilePtrOutput) UserData() pulumi.StringPtrOut
 type VirtualMachineScaleSetVMProfileResponse struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile *BillingProfileResponse `pulumi:"billingProfile"`
-	// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation *CapacityReservationProfileResponse `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -48920,8 +48325,6 @@ type VirtualMachineScaleSetVMProfileResponseInput interface {
 type VirtualMachineScaleSetVMProfileResponseArgs struct {
 	// Specifies the billing related details of a Azure Spot VMSS. <br><br>Minimum api-version: 2019-03-01.
 	BillingProfile BillingProfileResponsePtrInput `pulumi:"billingProfile"`
-	// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-	CapacityReservation CapacityReservationProfileResponsePtrInput `pulumi:"capacityReservation"`
 	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 	DiagnosticsProfile DiagnosticsProfileResponsePtrInput `pulumi:"diagnosticsProfile"`
 	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
@@ -49029,13 +48432,6 @@ func (o VirtualMachineScaleSetVMProfileResponseOutput) BillingProfile() BillingP
 	return o.ApplyT(func(v VirtualMachineScaleSetVMProfileResponse) *BillingProfileResponse { return v.BillingProfile }).(BillingProfileResponsePtrOutput)
 }
 
-// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-func (o VirtualMachineScaleSetVMProfileResponseOutput) CapacityReservation() CapacityReservationProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMProfileResponse) *CapacityReservationProfileResponse {
-		return v.CapacityReservation
-	}).(CapacityReservationProfileResponsePtrOutput)
-}
-
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
 func (o VirtualMachineScaleSetVMProfileResponseOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetVMProfileResponse) *DiagnosticsProfileResponse {
@@ -49129,16 +48525,6 @@ func (o VirtualMachineScaleSetVMProfileResponsePtrOutput) BillingProfile() Billi
 		}
 		return v.BillingProfile
 	}).(BillingProfileResponsePtrOutput)
-}
-
-// Specifies the capacity reservation related details of a scale set. <br><br>Minimum api-version: 2021-04-01.
-func (o VirtualMachineScaleSetVMProfileResponsePtrOutput) CapacityReservation() CapacityReservationProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMProfileResponse) *CapacityReservationProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CapacityReservation
-	}).(CapacityReservationProfileResponsePtrOutput)
 }
 
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
@@ -50550,10 +49936,6 @@ func init() {
 	pulumi.RegisterOutputType(CapacityReservationInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationInstanceViewWithNameResponseOutput{})
 	pulumi.RegisterOutputType(CapacityReservationInstanceViewWithNameResponseArrayOutput{})
-	pulumi.RegisterOutputType(CapacityReservationProfileOutput{})
-	pulumi.RegisterOutputType(CapacityReservationProfilePtrOutput{})
-	pulumi.RegisterOutputType(CapacityReservationProfileResponseOutput{})
-	pulumi.RegisterOutputType(CapacityReservationProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationUtilizationResponseOutput{})
 	pulumi.RegisterOutputType(CapacityReservationUtilizationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfileOutput{})
@@ -50915,10 +50297,6 @@ func init() {
 	pulumi.RegisterOutputType(SourceVaultPtrOutput{})
 	pulumi.RegisterOutputType(SourceVaultResponseOutput{})
 	pulumi.RegisterOutputType(SourceVaultResponsePtrOutput{})
-	pulumi.RegisterOutputType(SpotRestorePolicyOutput{})
-	pulumi.RegisterOutputType(SpotRestorePolicyPtrOutput{})
-	pulumi.RegisterOutputType(SpotRestorePolicyResponseOutput{})
-	pulumi.RegisterOutputType(SpotRestorePolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SshConfigurationOutput{})
 	pulumi.RegisterOutputType(SshConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SshConfigurationResponseOutput{})

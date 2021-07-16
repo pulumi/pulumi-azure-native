@@ -5,55 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'ArcSqlServerLicenseType',
-    'ConnectionStatus',
-    'DefenderStatus',
-    'EditionType',
     'ExtendedLocationTypes',
     'PostgresInstanceSkuTier',
     'SqlManagedInstanceSkuTier',
-    'SqlVersion',
 ]
-
-
-class ArcSqlServerLicenseType(str, Enum):
-    """
-    SQL Server license type.
-    """
-    PAID = "Paid"
-    FREE = "Free"
-    HADR = "HADR"
-    UNDEFINED = "Undefined"
-
-
-class ConnectionStatus(str, Enum):
-    """
-    The cloud connectivity status.
-    """
-    CONNECTED = "Connected"
-    DISCONNECTED = "Disconnected"
-    UNKNOWN = "Unknown"
-
-
-class DefenderStatus(str, Enum):
-    """
-    Status of Azure Defender.
-    """
-    PROTECTED = "Protected"
-    UNPROTECTED = "Unprotected"
-    UNKNOWN = "Unknown"
-
-
-class EditionType(str, Enum):
-    """
-    SQL Server edition.
-    """
-    EVALUATION = "Evaluation"
-    ENTERPRISE = "Enterprise"
-    STANDARD = "Standard"
-    WEB = "Web"
-    DEVELOPER = "Developer"
-    EXPRESS = "Express"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -76,12 +31,3 @@ class SqlManagedInstanceSkuTier(str, Enum):
     """
     GENERAL_PURPOSE = "GeneralPurpose"
     BUSINESS_CRITICAL = "BusinessCritical"
-
-
-class SqlVersion(str, Enum):
-    """
-    SQL Server version.
-    """
-    SQ_L_SERVER_2019 = "SQL Server 2019"
-    SQ_L_SERVER_2017 = "SQL Server 2017"
-    SQ_L_SERVER_2016 = "SQL Server 2016"

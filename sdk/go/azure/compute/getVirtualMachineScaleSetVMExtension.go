@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a VMSS VM Extension.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 func LookupVirtualMachineScaleSetVMExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetVMExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetVMExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetVMExtensionResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSetVMExtension", args, &rv, opts...)

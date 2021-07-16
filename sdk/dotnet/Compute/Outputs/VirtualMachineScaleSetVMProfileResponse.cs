@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.BillingProfileResponse? BillingProfile;
         /// <summary>
-        /// Specifies the capacity reservation related details of a scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-04-01.
-        /// </summary>
-        public readonly Outputs.CapacityReservationProfileResponse? CapacityReservation;
-        /// <summary>
         /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
         /// </summary>
         public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
@@ -70,8 +66,6 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private VirtualMachineScaleSetVMProfileResponse(
             Outputs.BillingProfileResponse? billingProfile,
 
-            Outputs.CapacityReservationProfileResponse? capacityReservation,
-
             Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
 
             string? evictionPolicy,
@@ -95,7 +89,6 @@ namespace Pulumi.AzureNative.Compute.Outputs
             string? userData)
         {
             BillingProfile = billingProfile;
-            CapacityReservation = capacityReservation;
             DiagnosticsProfile = diagnosticsProfile;
             EvictionPolicy = evictionPolicy;
             ExtensionProfile = extensionProfile;

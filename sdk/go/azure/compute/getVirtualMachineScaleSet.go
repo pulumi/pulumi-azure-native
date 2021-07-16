@@ -8,7 +8,7 @@ import (
 )
 
 // Describes a Virtual Machine Scale Set.
-// API Version: 2021-04-01.
+// API Version: 2021-03-01.
 func LookupVirtualMachineScaleSet(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetResult, error) {
 	var rv LookupVirtualMachineScaleSetResult
 	err := ctx.Invoke("azure-native:compute:getVirtualMachineScaleSet", args, &rv, opts...)
@@ -65,8 +65,6 @@ type LookupVirtualMachineScaleSetResult struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku *SkuResponse `pulumi:"sku"`
-	// Specifies the Spot Restore properties for the virtual machine scale set.
-	SpotRestorePolicy *SpotRestorePolicyResponse `pulumi:"spotRestorePolicy"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
