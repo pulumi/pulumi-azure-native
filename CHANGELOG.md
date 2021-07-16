@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.17.0 (2021-07-16)
+
 #### New resources:
 
 - `compute.CapacityReservation`
@@ -22,8 +28,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14953))
 - `managedCredential` renamed to `credential` in `datafactory.IntegrationRuntimeSsisProperties`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/14589))
-
----
 
 ## 1.16.0 (2021-07-06)
 
