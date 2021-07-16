@@ -26766,6 +26766,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26821,6 +26822,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26875,6 +26877,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26929,6 +26932,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26983,6 +26987,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
