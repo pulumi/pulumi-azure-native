@@ -80,6 +80,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
+     * The hierarchical queue state associated with this account.
+     */
+    public /*out*/ readonly hierarchicalQueueState!: pulumi.Output<string>;
+    /**
      * The list of hiveMetastores associated with this account.
      */
     public /*out*/ readonly hiveMetastores!: pulumi.Output<outputs.datalakeanalytics.v20151001preview.HiveMetastoreResponse[]>;
@@ -180,15 +184,15 @@ export class Account extends pulumi.CustomResource {
             inputs["computePolicies"] = args ? args.computePolicies : undefined;
             inputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
             inputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
-            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            inputs["firewallAllowAzureIps"] = (args ? args.firewallAllowAzureIps : undefined) ?? "Disabled";
             inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["firewallState"] = args ? args.firewallState : undefined;
+            inputs["firewallState"] = (args ? args.firewallState : undefined) ?? "Disabled";
             inputs["location"] = args ? args.location : undefined;
             inputs["maxDegreeOfParallelism"] = args ? args.maxDegreeOfParallelism : undefined;
-            inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
-            inputs["maxJobCount"] = args ? args.maxJobCount : undefined;
+            inputs["maxDegreeOfParallelismPerJob"] = (args ? args.maxDegreeOfParallelismPerJob : undefined) ?? 32;
+            inputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 20;
             inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            inputs["newTier"] = args ? args.newTier : undefined;
+            inputs["newTier"] = (args ? args.newTier : undefined) ?? "Consumption";
             inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
@@ -198,6 +202,7 @@ export class Account extends pulumi.CustomResource {
             inputs["currentTier"] = undefined /*out*/;
             inputs["debugDataAccessLevel"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -220,6 +225,7 @@ export class Account extends pulumi.CustomResource {
             inputs["firewallAllowAzureIps"] = undefined /*out*/;
             inputs["firewallRules"] = undefined /*out*/;
             inputs["firewallState"] = undefined /*out*/;
+            inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

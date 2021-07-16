@@ -15695,6 +15695,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -15803,6 +15804,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -15898,6 +15900,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16132,6 +16135,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16380,6 +16384,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16600,6 +16605,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16695,6 +16701,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16749,6 +16756,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16815,6 +16823,74 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
+          "2021-02-01",
+          "2021-01-01",
+          "2020-11-01",
+          "2020-08-01",
+          "2020-07-01",
+          "2020-06-01",
+          "2020-05-01",
+          "2020-04-01",
+          "2020-03-01",
+          "2020-01-01",
+          "2019-12-01",
+          "2019-11-01",
+          "2019-09-01",
+          "2019-08-01",
+          "2019-07-01",
+          "2019-06-01",
+          "2019-04-01",
+          "2019-02-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2020-03-01",
+        "locationMappings": null,
+        "locations": [
+          "West US",
+          "East US",
+          "North Europe",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "North Central US",
+          "South Central US",
+          "Central US",
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "Brazil South",
+          "Australia East",
+          "Australia Southeast",
+          "Central India",
+          "South India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West Central US",
+          "West US 2",
+          "UK West",
+          "UK South",
+          "Korea Central",
+          "Korea South",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East",
+          "West US 3"
+        ],
+        "properties": null,
+        "resourceType": "privateEndpoints/privateLinkServiceProxies",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16890,6 +16966,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -16998,6 +17075,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17102,6 +17180,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17182,6 +17261,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17259,6 +17339,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17347,6 +17428,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17442,6 +17524,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17666,6 +17749,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17735,6 +17819,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17830,6 +17915,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17910,6 +17996,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -17990,6 +18077,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18083,6 +18171,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18191,6 +18280,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18299,6 +18389,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18394,6 +18485,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18642,6 +18734,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18722,6 +18815,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18795,6 +18889,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18903,6 +18998,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -18998,6 +19094,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19093,6 +19190,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19161,6 +19259,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19256,6 +19355,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19339,6 +19439,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19413,6 +19514,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19479,6 +19581,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19545,6 +19648,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19607,6 +19711,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19672,6 +19777,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19737,6 +19843,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19794,6 +19901,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19851,6 +19959,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19925,6 +20034,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -19977,6 +20087,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -20029,6 +20140,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -20103,6 +20215,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -20177,6 +20290,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -20251,6 +20365,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -20325,6 +20440,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21163,6 +21279,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21258,6 +21375,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21353,6 +21471,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21437,6 +21556,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21519,6 +21639,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21587,6 +21708,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21655,6 +21777,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21723,6 +21846,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21818,6 +21942,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21903,6 +22028,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -21983,6 +22109,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22063,6 +22190,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22123,6 +22251,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22203,6 +22332,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22283,6 +22413,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22353,6 +22484,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22423,6 +22555,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22460,6 +22593,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22531,6 +22665,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22601,6 +22736,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22618,6 +22754,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22647,6 +22784,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22676,6 +22814,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22734,6 +22873,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -22961,6 +23101,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23031,6 +23172,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23101,6 +23243,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23171,6 +23314,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23233,6 +23377,7 @@
           }
         ],
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23309,6 +23454,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23661,6 +23807,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23732,6 +23879,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23867,6 +24015,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -23932,6 +24081,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -24113,6 +24263,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-03-01",
           "2021-02-01",
           "2021-01-01",
           "2020-11-01",
@@ -24129,6 +24280,55 @@
         "locations": [],
         "properties": null,
         "resourceType": "networkVirtualApplianceSkus",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-03-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "West US",
+          "East US",
+          "North Europe",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "North Central US",
+          "South Central US",
+          "Central US",
+          "East US 2",
+          "Japan East",
+          "Japan West",
+          "Brazil South",
+          "Australia East",
+          "Australia Southeast",
+          "Central India",
+          "South India",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "West Central US",
+          "West US 2",
+          "UK West",
+          "UK South",
+          "Korea Central",
+          "Korea South",
+          "France Central",
+          "Australia Central",
+          "South Africa North",
+          "UAE North",
+          "Switzerland North",
+          "Germany West Central",
+          "Norway East",
+          "West US 3"
+        ],
+        "properties": null,
+        "resourceType": "locations/serviceTagDetails",
         "zoneMappings": null
       }
     ]
@@ -26566,7 +26766,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26622,7 +26821,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26677,7 +26875,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26732,7 +26929,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -26787,7 +26983,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-07-01",
           "2021-03-01",
           "2020-09-30",
           "2019-12-01",
@@ -40097,7 +40292,116 @@
         ],
         "properties": null,
         "resourceType": "flexibleServers",
-        "zoneMappings": null
+        "zoneMappings": [
+          {
+            "location": "East US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "CENTRAL US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "WEST EUROPE",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "France Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Southeast Asia",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "West US 2",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "North Europe",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "EAST US",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "UK SOUTH",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "JAPAN EAST",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "AUSTRALIA EAST",
+            "zones": []
+          },
+          {
+            "location": "CANADA CENTRAL",
+            "zones": []
+          },
+          {
+            "location": "Germany West Central",
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
+          },
+          {
+            "location": "Brazil South",
+            "zones": []
+          },
+          {
+            "location": "KOREA CENTRAL",
+            "zones": []
+          },
+          {
+            "location": "Switzerland North",
+            "zones": []
+          }
+        ]
       },
       {
         "aliases": null,

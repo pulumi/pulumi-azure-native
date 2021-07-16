@@ -9815,6 +9815,7 @@ func (o ResourceProviderManifestPropertiesTemplateDeploymentOptionsPtrOutput) Pr
 type ResourceTypeEndpoint struct {
 	ApiVersions      []string                          `pulumi:"apiVersions"`
 	Enabled          *bool                             `pulumi:"enabled"`
+	EndpointType     *string                           `pulumi:"endpointType"`
 	Extensions       []ResourceTypeExtension           `pulumi:"extensions"`
 	FeaturesRule     *ResourceTypeEndpointFeaturesRule `pulumi:"featuresRule"`
 	Locations        []string                          `pulumi:"locations"`
@@ -9836,6 +9837,7 @@ type ResourceTypeEndpointInput interface {
 type ResourceTypeEndpointArgs struct {
 	ApiVersions      pulumi.StringArrayInput                  `pulumi:"apiVersions"`
 	Enabled          pulumi.BoolPtrInput                      `pulumi:"enabled"`
+	EndpointType     pulumi.StringPtrInput                    `pulumi:"endpointType"`
 	Extensions       ResourceTypeExtensionArrayInput          `pulumi:"extensions"`
 	FeaturesRule     ResourceTypeEndpointFeaturesRulePtrInput `pulumi:"featuresRule"`
 	Locations        pulumi.StringArrayInput                  `pulumi:"locations"`
@@ -9900,6 +9902,10 @@ func (o ResourceTypeEndpointOutput) ApiVersions() pulumi.StringArrayOutput {
 
 func (o ResourceTypeEndpointOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceTypeEndpoint) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ResourceTypeEndpointOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceTypeEndpoint) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
 func (o ResourceTypeEndpointOutput) Extensions() ResourceTypeExtensionArrayOutput {
@@ -10071,6 +10077,7 @@ func (o ResourceTypeEndpointFeaturesRulePtrOutput) RequiredFeaturesPolicy() pulu
 type ResourceTypeEndpointResponse struct {
 	ApiVersions      []string                                  `pulumi:"apiVersions"`
 	Enabled          *bool                                     `pulumi:"enabled"`
+	EndpointType     *string                                   `pulumi:"endpointType"`
 	Extensions       []ResourceTypeExtensionResponse           `pulumi:"extensions"`
 	FeaturesRule     *ResourceTypeEndpointResponseFeaturesRule `pulumi:"featuresRule"`
 	Locations        []string                                  `pulumi:"locations"`
@@ -10092,6 +10099,7 @@ type ResourceTypeEndpointResponseInput interface {
 type ResourceTypeEndpointResponseArgs struct {
 	ApiVersions      pulumi.StringArrayInput                          `pulumi:"apiVersions"`
 	Enabled          pulumi.BoolPtrInput                              `pulumi:"enabled"`
+	EndpointType     pulumi.StringPtrInput                            `pulumi:"endpointType"`
 	Extensions       ResourceTypeExtensionResponseArrayInput          `pulumi:"extensions"`
 	FeaturesRule     ResourceTypeEndpointResponseFeaturesRulePtrInput `pulumi:"featuresRule"`
 	Locations        pulumi.StringArrayInput                          `pulumi:"locations"`
@@ -10156,6 +10164,10 @@ func (o ResourceTypeEndpointResponseOutput) ApiVersions() pulumi.StringArrayOutp
 
 func (o ResourceTypeEndpointResponseOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceTypeEndpointResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ResourceTypeEndpointResponseOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceTypeEndpointResponse) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
 }
 
 func (o ResourceTypeEndpointResponseOutput) Extensions() ResourceTypeExtensionResponseArrayOutput {

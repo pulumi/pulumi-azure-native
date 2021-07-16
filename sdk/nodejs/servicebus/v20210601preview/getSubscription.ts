@@ -56,6 +56,10 @@ export interface GetSubscriptionResult {
      */
     readonly autoDeleteOnIdle?: string;
     /**
+     * Properties specific to client affine subscriptions.
+     */
+    readonly clientAffineProperties?: outputs.servicebus.v20210601preview.SBClientAffinePropertiesResponse;
+    /**
      * Message count details
      */
     readonly countDetails: outputs.servicebus.v20210601preview.MessageCountDetailsResponse;
@@ -95,6 +99,10 @@ export interface GetSubscriptionResult {
      * Resource Id
      */
     readonly id: string;
+    /**
+     * Value that indicates whether the subscription has an affinity to the client id.
+     */
+    readonly isClientAffine?: boolean;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */

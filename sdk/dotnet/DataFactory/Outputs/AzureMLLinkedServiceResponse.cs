@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> ApiKey;
         /// <summary>
+        /// Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Authentication;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -69,6 +73,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> apiKey,
 
+            object? authentication,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         {
             Annotations = annotations;
             ApiKey = apiKey;
+            Authentication = authentication;
             ConnectVia = connectVia;
             Description = description;
             EncryptedCredential = encryptedCredential;

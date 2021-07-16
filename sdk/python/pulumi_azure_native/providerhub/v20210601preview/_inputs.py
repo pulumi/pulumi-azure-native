@@ -1495,6 +1495,7 @@ class ResourceTypeEndpointArgs:
     def __init__(__self__, *,
                  api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceTypeExtensionArgs']]]] = None,
                  features_rule: Optional[pulumi.Input['ResourceTypeEndpointFeaturesRuleArgs']] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1504,6 +1505,8 @@ class ResourceTypeEndpointArgs:
             pulumi.set(__self__, "api_versions", api_versions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if features_rule is not None:
@@ -1532,6 +1535,15 @@ class ResourceTypeEndpointArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[pulumi.Input[Union[str, 'EndpointType']]]:
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: Optional[pulumi.Input[Union[str, 'EndpointType']]]):
+        pulumi.set(self, "endpoint_type", value)
 
     @property
     @pulumi.getter

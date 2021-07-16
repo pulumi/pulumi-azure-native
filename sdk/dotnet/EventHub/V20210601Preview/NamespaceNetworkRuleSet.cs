@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
@@ -139,6 +145,12 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.EventHub.V20210601Preview.PublicNetworkAccessFlag>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -164,6 +176,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
 
         public NamespaceNetworkRuleSetArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

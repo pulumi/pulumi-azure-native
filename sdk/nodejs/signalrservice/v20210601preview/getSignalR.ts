@@ -42,7 +42,7 @@ export interface GetSignalRResult {
      */
     readonly cors?: outputs.signalrservice.v20210601preview.SignalRCorsSettingsResponse;
     /**
-     * disableAadAuth
+     * DisableLocalAuth
      * Enable or disable aad auth
      * When set as true, connection with AuthType=aad won't work.
      */

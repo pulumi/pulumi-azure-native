@@ -48,6 +48,10 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The system meta data relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.v20210601preview.SystemDataResponse>;
@@ -84,6 +88,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["ipRules"] = args ? args.ipRules : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["trustedServiceAccessEnabled"] = args ? args.trustedServiceAccessEnabled : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
@@ -94,6 +99,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["defaultAction"] = undefined /*out*/;
             inputs["ipRules"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["trustedServiceAccessEnabled"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -124,6 +130,10 @@ export interface NamespaceNetworkRuleSetArgs {
      * The Namespace name
      */
     namespaceName: pulumi.Input<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.eventhub.v20210601preview.PublicNetworkAccessFlag>;
     /**
      * Name of the resource group within the azure subscription.
      */

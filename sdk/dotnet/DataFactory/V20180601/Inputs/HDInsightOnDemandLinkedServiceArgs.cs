@@ -100,6 +100,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? CoreConfiguration { get; set; }
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Specifies the size of the data node for the HDInsight cluster.
         /// </summary>
         [Input("dataNodeSize")]

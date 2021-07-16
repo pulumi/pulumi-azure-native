@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class WebActivityAuthenticationResponse
     {
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
@@ -28,7 +32,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         /// </summary>
-        public readonly string Type;
+        public readonly string? Type;
         /// <summary>
         /// TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
         /// </summary>
@@ -40,18 +44,21 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private WebActivityAuthenticationResponse(
+            Outputs.CredentialReferenceResponse? credential,
+
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? pfx,
 
             object? resource,
 
-            string type,
+            string? type,
 
             object? userTenant,
 
             object? username)
         {
+            Credential = credential;
             Password = password;
             Pfx = pfx;
             Resource = resource;

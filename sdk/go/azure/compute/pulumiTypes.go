@@ -2843,6 +2843,554 @@ func (o BootDiagnosticsResponsePtrOutput) StorageUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type CapacityReservationGroupInstanceViewResponse struct {
+	// List of instance view of the capacity reservations under the capacity reservation group.
+	CapacityReservations []CapacityReservationInstanceViewWithNameResponse `pulumi:"capacityReservations"`
+}
+
+// CapacityReservationGroupInstanceViewResponseInput is an input type that accepts CapacityReservationGroupInstanceViewResponseArgs and CapacityReservationGroupInstanceViewResponseOutput values.
+// You can construct a concrete instance of `CapacityReservationGroupInstanceViewResponseInput` via:
+//
+//          CapacityReservationGroupInstanceViewResponseArgs{...}
+type CapacityReservationGroupInstanceViewResponseInput interface {
+	pulumi.Input
+
+	ToCapacityReservationGroupInstanceViewResponseOutput() CapacityReservationGroupInstanceViewResponseOutput
+	ToCapacityReservationGroupInstanceViewResponseOutputWithContext(context.Context) CapacityReservationGroupInstanceViewResponseOutput
+}
+
+type CapacityReservationGroupInstanceViewResponseArgs struct {
+	// List of instance view of the capacity reservations under the capacity reservation group.
+	CapacityReservations CapacityReservationInstanceViewWithNameResponseArrayInput `pulumi:"capacityReservations"`
+}
+
+func (CapacityReservationGroupInstanceViewResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationGroupInstanceViewResponse)(nil)).Elem()
+}
+
+func (i CapacityReservationGroupInstanceViewResponseArgs) ToCapacityReservationGroupInstanceViewResponseOutput() CapacityReservationGroupInstanceViewResponseOutput {
+	return i.ToCapacityReservationGroupInstanceViewResponseOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationGroupInstanceViewResponseArgs) ToCapacityReservationGroupInstanceViewResponseOutputWithContext(ctx context.Context) CapacityReservationGroupInstanceViewResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationGroupInstanceViewResponseOutput)
+}
+
+func (i CapacityReservationGroupInstanceViewResponseArgs) ToCapacityReservationGroupInstanceViewResponsePtrOutput() CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return i.ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationGroupInstanceViewResponseArgs) ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationGroupInstanceViewResponseOutput).ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(ctx)
+}
+
+// CapacityReservationGroupInstanceViewResponsePtrInput is an input type that accepts CapacityReservationGroupInstanceViewResponseArgs, CapacityReservationGroupInstanceViewResponsePtr and CapacityReservationGroupInstanceViewResponsePtrOutput values.
+// You can construct a concrete instance of `CapacityReservationGroupInstanceViewResponsePtrInput` via:
+//
+//          CapacityReservationGroupInstanceViewResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CapacityReservationGroupInstanceViewResponsePtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationGroupInstanceViewResponsePtrOutput() CapacityReservationGroupInstanceViewResponsePtrOutput
+	ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(context.Context) CapacityReservationGroupInstanceViewResponsePtrOutput
+}
+
+type capacityReservationGroupInstanceViewResponsePtrType CapacityReservationGroupInstanceViewResponseArgs
+
+func CapacityReservationGroupInstanceViewResponsePtr(v *CapacityReservationGroupInstanceViewResponseArgs) CapacityReservationGroupInstanceViewResponsePtrInput {
+	return (*capacityReservationGroupInstanceViewResponsePtrType)(v)
+}
+
+func (*capacityReservationGroupInstanceViewResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationGroupInstanceViewResponse)(nil)).Elem()
+}
+
+func (i *capacityReservationGroupInstanceViewResponsePtrType) ToCapacityReservationGroupInstanceViewResponsePtrOutput() CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return i.ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationGroupInstanceViewResponsePtrType) ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationGroupInstanceViewResponsePtrOutput)
+}
+
+type CapacityReservationGroupInstanceViewResponseOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationGroupInstanceViewResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationGroupInstanceViewResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationGroupInstanceViewResponseOutput) ToCapacityReservationGroupInstanceViewResponseOutput() CapacityReservationGroupInstanceViewResponseOutput {
+	return o
+}
+
+func (o CapacityReservationGroupInstanceViewResponseOutput) ToCapacityReservationGroupInstanceViewResponseOutputWithContext(ctx context.Context) CapacityReservationGroupInstanceViewResponseOutput {
+	return o
+}
+
+func (o CapacityReservationGroupInstanceViewResponseOutput) ToCapacityReservationGroupInstanceViewResponsePtrOutput() CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return o.ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationGroupInstanceViewResponseOutput) ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return o.ApplyT(func(v CapacityReservationGroupInstanceViewResponse) *CapacityReservationGroupInstanceViewResponse {
+		return &v
+	}).(CapacityReservationGroupInstanceViewResponsePtrOutput)
+}
+
+// List of instance view of the capacity reservations under the capacity reservation group.
+func (o CapacityReservationGroupInstanceViewResponseOutput) CapacityReservations() CapacityReservationInstanceViewWithNameResponseArrayOutput {
+	return o.ApplyT(func(v CapacityReservationGroupInstanceViewResponse) []CapacityReservationInstanceViewWithNameResponse {
+		return v.CapacityReservations
+	}).(CapacityReservationInstanceViewWithNameResponseArrayOutput)
+}
+
+type CapacityReservationGroupInstanceViewResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationGroupInstanceViewResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationGroupInstanceViewResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationGroupInstanceViewResponsePtrOutput) ToCapacityReservationGroupInstanceViewResponsePtrOutput() CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationGroupInstanceViewResponsePtrOutput) ToCapacityReservationGroupInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationGroupInstanceViewResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationGroupInstanceViewResponsePtrOutput) Elem() CapacityReservationGroupInstanceViewResponseOutput {
+	return o.ApplyT(func(v *CapacityReservationGroupInstanceViewResponse) CapacityReservationGroupInstanceViewResponse {
+		return *v
+	}).(CapacityReservationGroupInstanceViewResponseOutput)
+}
+
+// List of instance view of the capacity reservations under the capacity reservation group.
+func (o CapacityReservationGroupInstanceViewResponsePtrOutput) CapacityReservations() CapacityReservationInstanceViewWithNameResponseArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationGroupInstanceViewResponse) []CapacityReservationInstanceViewWithNameResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservations
+	}).(CapacityReservationInstanceViewWithNameResponseArrayOutput)
+}
+
+// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+type CapacityReservationInstanceViewResponse struct {
+	// The resource status information.
+	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
+	// Unutilized capacity of the capacity reservation.
+	UtilizationInfo *CapacityReservationUtilizationResponse `pulumi:"utilizationInfo"`
+}
+
+// CapacityReservationInstanceViewResponseInput is an input type that accepts CapacityReservationInstanceViewResponseArgs and CapacityReservationInstanceViewResponseOutput values.
+// You can construct a concrete instance of `CapacityReservationInstanceViewResponseInput` via:
+//
+//          CapacityReservationInstanceViewResponseArgs{...}
+type CapacityReservationInstanceViewResponseInput interface {
+	pulumi.Input
+
+	ToCapacityReservationInstanceViewResponseOutput() CapacityReservationInstanceViewResponseOutput
+	ToCapacityReservationInstanceViewResponseOutputWithContext(context.Context) CapacityReservationInstanceViewResponseOutput
+}
+
+// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+type CapacityReservationInstanceViewResponseArgs struct {
+	// The resource status information.
+	Statuses InstanceViewStatusResponseArrayInput `pulumi:"statuses"`
+	// Unutilized capacity of the capacity reservation.
+	UtilizationInfo CapacityReservationUtilizationResponsePtrInput `pulumi:"utilizationInfo"`
+}
+
+func (CapacityReservationInstanceViewResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationInstanceViewResponse)(nil)).Elem()
+}
+
+func (i CapacityReservationInstanceViewResponseArgs) ToCapacityReservationInstanceViewResponseOutput() CapacityReservationInstanceViewResponseOutput {
+	return i.ToCapacityReservationInstanceViewResponseOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationInstanceViewResponseArgs) ToCapacityReservationInstanceViewResponseOutputWithContext(ctx context.Context) CapacityReservationInstanceViewResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewResponseOutput)
+}
+
+func (i CapacityReservationInstanceViewResponseArgs) ToCapacityReservationInstanceViewResponsePtrOutput() CapacityReservationInstanceViewResponsePtrOutput {
+	return i.ToCapacityReservationInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationInstanceViewResponseArgs) ToCapacityReservationInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationInstanceViewResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewResponseOutput).ToCapacityReservationInstanceViewResponsePtrOutputWithContext(ctx)
+}
+
+// CapacityReservationInstanceViewResponsePtrInput is an input type that accepts CapacityReservationInstanceViewResponseArgs, CapacityReservationInstanceViewResponsePtr and CapacityReservationInstanceViewResponsePtrOutput values.
+// You can construct a concrete instance of `CapacityReservationInstanceViewResponsePtrInput` via:
+//
+//          CapacityReservationInstanceViewResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CapacityReservationInstanceViewResponsePtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationInstanceViewResponsePtrOutput() CapacityReservationInstanceViewResponsePtrOutput
+	ToCapacityReservationInstanceViewResponsePtrOutputWithContext(context.Context) CapacityReservationInstanceViewResponsePtrOutput
+}
+
+type capacityReservationInstanceViewResponsePtrType CapacityReservationInstanceViewResponseArgs
+
+func CapacityReservationInstanceViewResponsePtr(v *CapacityReservationInstanceViewResponseArgs) CapacityReservationInstanceViewResponsePtrInput {
+	return (*capacityReservationInstanceViewResponsePtrType)(v)
+}
+
+func (*capacityReservationInstanceViewResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationInstanceViewResponse)(nil)).Elem()
+}
+
+func (i *capacityReservationInstanceViewResponsePtrType) ToCapacityReservationInstanceViewResponsePtrOutput() CapacityReservationInstanceViewResponsePtrOutput {
+	return i.ToCapacityReservationInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationInstanceViewResponsePtrType) ToCapacityReservationInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationInstanceViewResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewResponsePtrOutput)
+}
+
+// The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+type CapacityReservationInstanceViewResponseOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationInstanceViewResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationInstanceViewResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationInstanceViewResponseOutput) ToCapacityReservationInstanceViewResponseOutput() CapacityReservationInstanceViewResponseOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewResponseOutput) ToCapacityReservationInstanceViewResponseOutputWithContext(ctx context.Context) CapacityReservationInstanceViewResponseOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewResponseOutput) ToCapacityReservationInstanceViewResponsePtrOutput() CapacityReservationInstanceViewResponsePtrOutput {
+	return o.ToCapacityReservationInstanceViewResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationInstanceViewResponseOutput) ToCapacityReservationInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationInstanceViewResponsePtrOutput {
+	return o.ApplyT(func(v CapacityReservationInstanceViewResponse) *CapacityReservationInstanceViewResponse {
+		return &v
+	}).(CapacityReservationInstanceViewResponsePtrOutput)
+}
+
+// The resource status information.
+func (o CapacityReservationInstanceViewResponseOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v CapacityReservationInstanceViewResponse) []InstanceViewStatusResponse { return v.Statuses }).(InstanceViewStatusResponseArrayOutput)
+}
+
+// Unutilized capacity of the capacity reservation.
+func (o CapacityReservationInstanceViewResponseOutput) UtilizationInfo() CapacityReservationUtilizationResponsePtrOutput {
+	return o.ApplyT(func(v CapacityReservationInstanceViewResponse) *CapacityReservationUtilizationResponse {
+		return v.UtilizationInfo
+	}).(CapacityReservationUtilizationResponsePtrOutput)
+}
+
+type CapacityReservationInstanceViewResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationInstanceViewResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationInstanceViewResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationInstanceViewResponsePtrOutput) ToCapacityReservationInstanceViewResponsePtrOutput() CapacityReservationInstanceViewResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewResponsePtrOutput) ToCapacityReservationInstanceViewResponsePtrOutputWithContext(ctx context.Context) CapacityReservationInstanceViewResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewResponsePtrOutput) Elem() CapacityReservationInstanceViewResponseOutput {
+	return o.ApplyT(func(v *CapacityReservationInstanceViewResponse) CapacityReservationInstanceViewResponse { return *v }).(CapacityReservationInstanceViewResponseOutput)
+}
+
+// The resource status information.
+func (o CapacityReservationInstanceViewResponsePtrOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationInstanceViewResponse) []InstanceViewStatusResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Statuses
+	}).(InstanceViewStatusResponseArrayOutput)
+}
+
+// Unutilized capacity of the capacity reservation.
+func (o CapacityReservationInstanceViewResponsePtrOutput) UtilizationInfo() CapacityReservationUtilizationResponsePtrOutput {
+	return o.ApplyT(func(v *CapacityReservationInstanceViewResponse) *CapacityReservationUtilizationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UtilizationInfo
+	}).(CapacityReservationUtilizationResponsePtrOutput)
+}
+
+// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+type CapacityReservationInstanceViewWithNameResponse struct {
+	// The name of the capacity reservation.
+	Name string `pulumi:"name"`
+	// The resource status information.
+	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
+	// Unutilized capacity of the capacity reservation.
+	UtilizationInfo *CapacityReservationUtilizationResponse `pulumi:"utilizationInfo"`
+}
+
+// CapacityReservationInstanceViewWithNameResponseInput is an input type that accepts CapacityReservationInstanceViewWithNameResponseArgs and CapacityReservationInstanceViewWithNameResponseOutput values.
+// You can construct a concrete instance of `CapacityReservationInstanceViewWithNameResponseInput` via:
+//
+//          CapacityReservationInstanceViewWithNameResponseArgs{...}
+type CapacityReservationInstanceViewWithNameResponseInput interface {
+	pulumi.Input
+
+	ToCapacityReservationInstanceViewWithNameResponseOutput() CapacityReservationInstanceViewWithNameResponseOutput
+	ToCapacityReservationInstanceViewWithNameResponseOutputWithContext(context.Context) CapacityReservationInstanceViewWithNameResponseOutput
+}
+
+// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+type CapacityReservationInstanceViewWithNameResponseArgs struct {
+	// The name of the capacity reservation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource status information.
+	Statuses InstanceViewStatusResponseArrayInput `pulumi:"statuses"`
+	// Unutilized capacity of the capacity reservation.
+	UtilizationInfo CapacityReservationUtilizationResponsePtrInput `pulumi:"utilizationInfo"`
+}
+
+func (CapacityReservationInstanceViewWithNameResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationInstanceViewWithNameResponse)(nil)).Elem()
+}
+
+func (i CapacityReservationInstanceViewWithNameResponseArgs) ToCapacityReservationInstanceViewWithNameResponseOutput() CapacityReservationInstanceViewWithNameResponseOutput {
+	return i.ToCapacityReservationInstanceViewWithNameResponseOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationInstanceViewWithNameResponseArgs) ToCapacityReservationInstanceViewWithNameResponseOutputWithContext(ctx context.Context) CapacityReservationInstanceViewWithNameResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewWithNameResponseOutput)
+}
+
+// CapacityReservationInstanceViewWithNameResponseArrayInput is an input type that accepts CapacityReservationInstanceViewWithNameResponseArray and CapacityReservationInstanceViewWithNameResponseArrayOutput values.
+// You can construct a concrete instance of `CapacityReservationInstanceViewWithNameResponseArrayInput` via:
+//
+//          CapacityReservationInstanceViewWithNameResponseArray{ CapacityReservationInstanceViewWithNameResponseArgs{...} }
+type CapacityReservationInstanceViewWithNameResponseArrayInput interface {
+	pulumi.Input
+
+	ToCapacityReservationInstanceViewWithNameResponseArrayOutput() CapacityReservationInstanceViewWithNameResponseArrayOutput
+	ToCapacityReservationInstanceViewWithNameResponseArrayOutputWithContext(context.Context) CapacityReservationInstanceViewWithNameResponseArrayOutput
+}
+
+type CapacityReservationInstanceViewWithNameResponseArray []CapacityReservationInstanceViewWithNameResponseInput
+
+func (CapacityReservationInstanceViewWithNameResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationInstanceViewWithNameResponse)(nil)).Elem()
+}
+
+func (i CapacityReservationInstanceViewWithNameResponseArray) ToCapacityReservationInstanceViewWithNameResponseArrayOutput() CapacityReservationInstanceViewWithNameResponseArrayOutput {
+	return i.ToCapacityReservationInstanceViewWithNameResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationInstanceViewWithNameResponseArray) ToCapacityReservationInstanceViewWithNameResponseArrayOutputWithContext(ctx context.Context) CapacityReservationInstanceViewWithNameResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationInstanceViewWithNameResponseArrayOutput)
+}
+
+// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+type CapacityReservationInstanceViewWithNameResponseOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationInstanceViewWithNameResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationInstanceViewWithNameResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationInstanceViewWithNameResponseOutput) ToCapacityReservationInstanceViewWithNameResponseOutput() CapacityReservationInstanceViewWithNameResponseOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewWithNameResponseOutput) ToCapacityReservationInstanceViewWithNameResponseOutputWithContext(ctx context.Context) CapacityReservationInstanceViewWithNameResponseOutput {
+	return o
+}
+
+// The name of the capacity reservation.
+func (o CapacityReservationInstanceViewWithNameResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CapacityReservationInstanceViewWithNameResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource status information.
+func (o CapacityReservationInstanceViewWithNameResponseOutput) Statuses() InstanceViewStatusResponseArrayOutput {
+	return o.ApplyT(func(v CapacityReservationInstanceViewWithNameResponse) []InstanceViewStatusResponse {
+		return v.Statuses
+	}).(InstanceViewStatusResponseArrayOutput)
+}
+
+// Unutilized capacity of the capacity reservation.
+func (o CapacityReservationInstanceViewWithNameResponseOutput) UtilizationInfo() CapacityReservationUtilizationResponsePtrOutput {
+	return o.ApplyT(func(v CapacityReservationInstanceViewWithNameResponse) *CapacityReservationUtilizationResponse {
+		return v.UtilizationInfo
+	}).(CapacityReservationUtilizationResponsePtrOutput)
+}
+
+type CapacityReservationInstanceViewWithNameResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationInstanceViewWithNameResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CapacityReservationInstanceViewWithNameResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationInstanceViewWithNameResponseArrayOutput) ToCapacityReservationInstanceViewWithNameResponseArrayOutput() CapacityReservationInstanceViewWithNameResponseArrayOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewWithNameResponseArrayOutput) ToCapacityReservationInstanceViewWithNameResponseArrayOutputWithContext(ctx context.Context) CapacityReservationInstanceViewWithNameResponseArrayOutput {
+	return o
+}
+
+func (o CapacityReservationInstanceViewWithNameResponseArrayOutput) Index(i pulumi.IntInput) CapacityReservationInstanceViewWithNameResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapacityReservationInstanceViewWithNameResponse {
+		return vs[0].([]CapacityReservationInstanceViewWithNameResponse)[vs[1].(int)]
+	}).(CapacityReservationInstanceViewWithNameResponseOutput)
+}
+
+// Represents the capacity reservation utilization in terms of resources allocated.
+type CapacityReservationUtilizationResponse struct {
+	// A list of all virtual machines resource ids allocated against the capacity reservation.
+	VirtualMachinesAllocated []SubResourceReadOnlyResponse `pulumi:"virtualMachinesAllocated"`
+}
+
+// CapacityReservationUtilizationResponseInput is an input type that accepts CapacityReservationUtilizationResponseArgs and CapacityReservationUtilizationResponseOutput values.
+// You can construct a concrete instance of `CapacityReservationUtilizationResponseInput` via:
+//
+//          CapacityReservationUtilizationResponseArgs{...}
+type CapacityReservationUtilizationResponseInput interface {
+	pulumi.Input
+
+	ToCapacityReservationUtilizationResponseOutput() CapacityReservationUtilizationResponseOutput
+	ToCapacityReservationUtilizationResponseOutputWithContext(context.Context) CapacityReservationUtilizationResponseOutput
+}
+
+// Represents the capacity reservation utilization in terms of resources allocated.
+type CapacityReservationUtilizationResponseArgs struct {
+	// A list of all virtual machines resource ids allocated against the capacity reservation.
+	VirtualMachinesAllocated SubResourceReadOnlyResponseArrayInput `pulumi:"virtualMachinesAllocated"`
+}
+
+func (CapacityReservationUtilizationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationUtilizationResponse)(nil)).Elem()
+}
+
+func (i CapacityReservationUtilizationResponseArgs) ToCapacityReservationUtilizationResponseOutput() CapacityReservationUtilizationResponseOutput {
+	return i.ToCapacityReservationUtilizationResponseOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationUtilizationResponseArgs) ToCapacityReservationUtilizationResponseOutputWithContext(ctx context.Context) CapacityReservationUtilizationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationUtilizationResponseOutput)
+}
+
+func (i CapacityReservationUtilizationResponseArgs) ToCapacityReservationUtilizationResponsePtrOutput() CapacityReservationUtilizationResponsePtrOutput {
+	return i.ToCapacityReservationUtilizationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CapacityReservationUtilizationResponseArgs) ToCapacityReservationUtilizationResponsePtrOutputWithContext(ctx context.Context) CapacityReservationUtilizationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationUtilizationResponseOutput).ToCapacityReservationUtilizationResponsePtrOutputWithContext(ctx)
+}
+
+// CapacityReservationUtilizationResponsePtrInput is an input type that accepts CapacityReservationUtilizationResponseArgs, CapacityReservationUtilizationResponsePtr and CapacityReservationUtilizationResponsePtrOutput values.
+// You can construct a concrete instance of `CapacityReservationUtilizationResponsePtrInput` via:
+//
+//          CapacityReservationUtilizationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CapacityReservationUtilizationResponsePtrInput interface {
+	pulumi.Input
+
+	ToCapacityReservationUtilizationResponsePtrOutput() CapacityReservationUtilizationResponsePtrOutput
+	ToCapacityReservationUtilizationResponsePtrOutputWithContext(context.Context) CapacityReservationUtilizationResponsePtrOutput
+}
+
+type capacityReservationUtilizationResponsePtrType CapacityReservationUtilizationResponseArgs
+
+func CapacityReservationUtilizationResponsePtr(v *CapacityReservationUtilizationResponseArgs) CapacityReservationUtilizationResponsePtrInput {
+	return (*capacityReservationUtilizationResponsePtrType)(v)
+}
+
+func (*capacityReservationUtilizationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationUtilizationResponse)(nil)).Elem()
+}
+
+func (i *capacityReservationUtilizationResponsePtrType) ToCapacityReservationUtilizationResponsePtrOutput() CapacityReservationUtilizationResponsePtrOutput {
+	return i.ToCapacityReservationUtilizationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *capacityReservationUtilizationResponsePtrType) ToCapacityReservationUtilizationResponsePtrOutputWithContext(ctx context.Context) CapacityReservationUtilizationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationUtilizationResponsePtrOutput)
+}
+
+// Represents the capacity reservation utilization in terms of resources allocated.
+type CapacityReservationUtilizationResponseOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationUtilizationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityReservationUtilizationResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationUtilizationResponseOutput) ToCapacityReservationUtilizationResponseOutput() CapacityReservationUtilizationResponseOutput {
+	return o
+}
+
+func (o CapacityReservationUtilizationResponseOutput) ToCapacityReservationUtilizationResponseOutputWithContext(ctx context.Context) CapacityReservationUtilizationResponseOutput {
+	return o
+}
+
+func (o CapacityReservationUtilizationResponseOutput) ToCapacityReservationUtilizationResponsePtrOutput() CapacityReservationUtilizationResponsePtrOutput {
+	return o.ToCapacityReservationUtilizationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CapacityReservationUtilizationResponseOutput) ToCapacityReservationUtilizationResponsePtrOutputWithContext(ctx context.Context) CapacityReservationUtilizationResponsePtrOutput {
+	return o.ApplyT(func(v CapacityReservationUtilizationResponse) *CapacityReservationUtilizationResponse {
+		return &v
+	}).(CapacityReservationUtilizationResponsePtrOutput)
+}
+
+// A list of all virtual machines resource ids allocated against the capacity reservation.
+func (o CapacityReservationUtilizationResponseOutput) VirtualMachinesAllocated() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v CapacityReservationUtilizationResponse) []SubResourceReadOnlyResponse {
+		return v.VirtualMachinesAllocated
+	}).(SubResourceReadOnlyResponseArrayOutput)
+}
+
+type CapacityReservationUtilizationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityReservationUtilizationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityReservationUtilizationResponse)(nil)).Elem()
+}
+
+func (o CapacityReservationUtilizationResponsePtrOutput) ToCapacityReservationUtilizationResponsePtrOutput() CapacityReservationUtilizationResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationUtilizationResponsePtrOutput) ToCapacityReservationUtilizationResponsePtrOutputWithContext(ctx context.Context) CapacityReservationUtilizationResponsePtrOutput {
+	return o
+}
+
+func (o CapacityReservationUtilizationResponsePtrOutput) Elem() CapacityReservationUtilizationResponseOutput {
+	return o.ApplyT(func(v *CapacityReservationUtilizationResponse) CapacityReservationUtilizationResponse { return *v }).(CapacityReservationUtilizationResponseOutput)
+}
+
+// A list of all virtual machines resource ids allocated against the capacity reservation.
+func (o CapacityReservationUtilizationResponsePtrOutput) VirtualMachinesAllocated() SubResourceReadOnlyResponseArrayOutput {
+	return o.ApplyT(func(v *CapacityReservationUtilizationResponse) []SubResourceReadOnlyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualMachinesAllocated
+	}).(SubResourceReadOnlyResponseArrayOutput)
+}
+
 // Describes a cloud service extension profile.
 type CloudServiceExtensionProfile struct {
 	// List of extensions for the cloud service.
@@ -49382,6 +49930,14 @@ func init() {
 	pulumi.RegisterOutputType(BootDiagnosticsInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsResponseOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsResponsePtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationGroupInstanceViewResponseOutput{})
+	pulumi.RegisterOutputType(CapacityReservationGroupInstanceViewResponsePtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationInstanceViewResponseOutput{})
+	pulumi.RegisterOutputType(CapacityReservationInstanceViewResponsePtrOutput{})
+	pulumi.RegisterOutputType(CapacityReservationInstanceViewWithNameResponseOutput{})
+	pulumi.RegisterOutputType(CapacityReservationInstanceViewWithNameResponseArrayOutput{})
+	pulumi.RegisterOutputType(CapacityReservationUtilizationResponseOutput{})
+	pulumi.RegisterOutputType(CapacityReservationUtilizationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfileOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfilePtrOutput{})
 	pulumi.RegisterOutputType(CloudServiceExtensionProfileResponseOutput{})

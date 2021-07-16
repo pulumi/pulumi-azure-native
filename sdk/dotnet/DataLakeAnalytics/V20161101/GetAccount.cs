@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// </summary>
         public readonly string? FirewallState;
         /// <summary>
+        /// The hierarchical queue state associated with this account.
+        /// </summary>
+        public readonly string HierarchicalQueueState;
+        /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
         public readonly ImmutableArray<Outputs.HiveMetastoreResponse> HiveMetastores;
@@ -114,6 +118,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The maximum supported jobs running under the account at the same time.
         /// </summary>
         public readonly int? MaxJobCount;
+        /// <summary>
+        /// The maximum supported jobs queued under the account at the same time.
+        /// </summary>
+        public readonly int MaxQueuedJobCountPerUser;
         /// <summary>
         /// The minimum supported priority per job for this account.
         /// </summary>
@@ -191,6 +199,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             string? firewallState,
 
+            string hierarchicalQueueState,
+
             ImmutableArray<Outputs.HiveMetastoreResponse> hiveMetastores,
 
             string id,
@@ -204,6 +214,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
             int? maxDegreeOfParallelismPerJob,
 
             int? maxJobCount,
+
+            int maxQueuedJobCountPerUser,
 
             int minPriorityPerJob,
 
@@ -242,6 +254,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;
             FirewallState = firewallState;
+            HierarchicalQueueState = hierarchicalQueueState;
             HiveMetastores = hiveMetastores;
             Id = id;
             LastModifiedTime = lastModifiedTime;
@@ -249,6 +262,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
             MaxDegreeOfParallelism = maxDegreeOfParallelism;
             MaxDegreeOfParallelismPerJob = maxDegreeOfParallelismPerJob;
             MaxJobCount = maxJobCount;
+            MaxQueuedJobCountPerUser = maxQueuedJobCountPerUser;
             MinPriorityPerJob = minPriorityPerJob;
             Name = name;
             NewTier = newTier;

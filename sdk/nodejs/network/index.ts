@@ -86,6 +86,7 @@ export * from "./getNetworkInterfaceTapConfiguration";
 export * from "./getNetworkManager";
 export * from "./getNetworkProfile";
 export * from "./getNetworkSecurityGroup";
+export * from "./getNetworkSecurityPerimeter";
 export * from "./getNetworkVirtualAppliance";
 export * from "./getNetworkWatcher";
 export * from "./getP2sVpnGateway";
@@ -168,6 +169,7 @@ export * from "./networkInterfaceTapConfiguration";
 export * from "./networkManager";
 export * from "./networkProfile";
 export * from "./networkSecurityGroup";
+export * from "./networkSecurityPerimeter";
 export * from "./networkVirtualAppliance";
 export * from "./networkWatcher";
 export * from "./p2sVpnGateway";
@@ -276,6 +278,7 @@ import * as v20200801 from "./v20200801";
 import * as v20201101 from "./v20201101";
 import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
+import * as v20210301preview from "./v20210301preview";
 
 export {
     v20150501preview,
@@ -329,6 +332,7 @@ export {
     v20201101,
     v20210201,
     v20210201preview,
+    v20210301preview,
 };
 
 // Import resources to register:
@@ -379,6 +383,7 @@ import { NetworkInterfaceTapConfiguration } from "./networkInterfaceTapConfigura
 import { NetworkManager } from "./networkManager";
 import { NetworkProfile } from "./networkProfile";
 import { NetworkSecurityGroup } from "./networkSecurityGroup";
+import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
 import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
 import { NetworkWatcher } from "./networkWatcher";
 import { P2sVpnGateway } from "./p2sVpnGateway";
@@ -530,6 +535,8 @@ const _module = {
                 return new NetworkProfile(name, <any>undefined, { urn })
             case "azure-native:network:NetworkSecurityGroup":
                 return new NetworkSecurityGroup(name, <any>undefined, { urn })
+            case "azure-native:network:NetworkSecurityPerimeter":
+                return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network:NetworkVirtualAppliance":
                 return new NetworkVirtualAppliance(name, <any>undefined, { urn })
             case "azure-native:network:NetworkWatcher":

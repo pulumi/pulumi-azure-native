@@ -59,9 +59,17 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        public readonly bool? TrustedServiceAccessEnabled;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -81,7 +89,11 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
 
             string name,
 
+            string? publicNetworkAccess,
+
             Outputs.SystemDataResponse systemData,
+
+            bool? trustedServiceAccessEnabled,
 
             string type,
 
@@ -91,7 +103,9 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
             Id = id;
             IpRules = ipRules;
             Name = name;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
+            TrustedServiceAccessEnabled = trustedServiceAccessEnabled;
             Type = type;
             VirtualNetworkRules = virtualNetworkRules;
         }

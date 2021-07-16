@@ -22,6 +22,10 @@ __all__ = [
     'BillingProfileResponse',
     'BootDiagnosticsInstanceViewResponse',
     'BootDiagnosticsResponse',
+    'CapacityReservationGroupInstanceViewResponse',
+    'CapacityReservationInstanceViewResponse',
+    'CapacityReservationInstanceViewWithNameResponse',
+    'CapacityReservationUtilizationResponse',
     'CloudServiceExtensionProfileResponse',
     'CloudServiceExtensionPropertiesResponse',
     'CloudServiceNetworkProfileResponse',
@@ -827,6 +831,195 @@ class BootDiagnosticsResponse(dict):
         Uri of the storage account to use for placing the console output and screenshot. <br><br>If storageUri is not specified while enabling boot diagnostics, managed storage will be used.
         """
         return pulumi.get(self, "storage_uri")
+
+
+@pulumi.output_type
+class CapacityReservationGroupInstanceViewResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservations":
+            suggest = "capacity_reservations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationGroupInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationGroupInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationGroupInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservations: Sequence['outputs.CapacityReservationInstanceViewWithNameResponse']):
+        """
+        :param Sequence['CapacityReservationInstanceViewWithNameResponse'] capacity_reservations: List of instance view of the capacity reservations under the capacity reservation group.
+        """
+        pulumi.set(__self__, "capacity_reservations", capacity_reservations)
+
+    @property
+    @pulumi.getter(name="capacityReservations")
+    def capacity_reservations(self) -> Sequence['outputs.CapacityReservationInstanceViewWithNameResponse']:
+        """
+        List of instance view of the capacity reservations under the capacity reservation group.
+        """
+        return pulumi.get(self, "capacity_reservations")
+
+
+@pulumi.output_type
+class CapacityReservationInstanceViewResponse(dict):
+    """
+    The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "utilizationInfo":
+            suggest = "utilization_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
+                 utilization_info: Optional['outputs.CapacityReservationUtilizationResponse'] = None):
+        """
+        The instance view of a capacity reservation that provides as snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param 'CapacityReservationUtilizationResponse' utilization_info: Unutilized capacity of the capacity reservation.
+        """
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+        if utilization_info is not None:
+            pulumi.set(__self__, "utilization_info", utilization_info)
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter(name="utilizationInfo")
+    def utilization_info(self) -> Optional['outputs.CapacityReservationUtilizationResponse']:
+        """
+        Unutilized capacity of the capacity reservation.
+        """
+        return pulumi.get(self, "utilization_info")
+
+
+@pulumi.output_type
+class CapacityReservationInstanceViewWithNameResponse(dict):
+    """
+    The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "utilizationInfo":
+            suggest = "utilization_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationInstanceViewWithNameResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationInstanceViewWithNameResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationInstanceViewWithNameResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 statuses: Optional[Sequence['outputs.InstanceViewStatusResponse']] = None,
+                 utilization_info: Optional['outputs.CapacityReservationUtilizationResponse'] = None):
+        """
+        The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+        :param str name: The name of the capacity reservation.
+        :param Sequence['InstanceViewStatusResponse'] statuses: The resource status information.
+        :param 'CapacityReservationUtilizationResponse' utilization_info: Unutilized capacity of the capacity reservation.
+        """
+        pulumi.set(__self__, "name", name)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+        if utilization_info is not None:
+            pulumi.set(__self__, "utilization_info", utilization_info)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the capacity reservation.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[Sequence['outputs.InstanceViewStatusResponse']]:
+        """
+        The resource status information.
+        """
+        return pulumi.get(self, "statuses")
+
+    @property
+    @pulumi.getter(name="utilizationInfo")
+    def utilization_info(self) -> Optional['outputs.CapacityReservationUtilizationResponse']:
+        """
+        Unutilized capacity of the capacity reservation.
+        """
+        return pulumi.get(self, "utilization_info")
+
+
+@pulumi.output_type
+class CapacityReservationUtilizationResponse(dict):
+    """
+    Represents the capacity reservation utilization in terms of resources allocated.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "virtualMachinesAllocated":
+            suggest = "virtual_machines_allocated"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapacityReservationUtilizationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapacityReservationUtilizationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapacityReservationUtilizationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 virtual_machines_allocated: Sequence['outputs.SubResourceReadOnlyResponse']):
+        """
+        Represents the capacity reservation utilization in terms of resources allocated.
+        :param Sequence['SubResourceReadOnlyResponse'] virtual_machines_allocated: A list of all virtual machines resource ids allocated against the capacity reservation.
+        """
+        pulumi.set(__self__, "virtual_machines_allocated", virtual_machines_allocated)
+
+    @property
+    @pulumi.getter(name="virtualMachinesAllocated")
+    def virtual_machines_allocated(self) -> Sequence['outputs.SubResourceReadOnlyResponse']:
+        """
+        A list of all virtual machines resource ids allocated against the capacity reservation.
+        """
+        return pulumi.get(self, "virtual_machines_allocated")
 
 
 @pulumi.output_type

@@ -28,7 +28,7 @@ type LookupSignalRArgs struct {
 type LookupSignalRResult struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
-	// disableAadAuth
+	// DisableLocalAuth
 	// Enable or disable aad auth
 	// When set as true, connection with AuthType=aad won't work.
 	DisableAadAuth *bool `pulumi:"disableAadAuth"`

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Database name for connection. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Database;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             object database,
 
             string? description,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         {
             Annotations = annotations;
             ConnectVia = connectVia;
+            Credential = credential;
             Database = database;
             Description = description;
             Endpoint = endpoint;

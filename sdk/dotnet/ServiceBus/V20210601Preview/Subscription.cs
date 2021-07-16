@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         public Output<string?> AutoDeleteOnIdle { get; private set; } = null!;
 
         /// <summary>
+        /// Properties specific to client affine subscriptions.
+        /// </summary>
+        [Output("clientAffineProperties")]
+        public Output<Outputs.SBClientAffinePropertiesResponse?> ClientAffineProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Message count details
         /// </summary>
         [Output("countDetails")]
@@ -80,6 +86,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// </summary>
         [Output("forwardTo")]
         public Output<string?> ForwardTo { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether the subscription has an affinity to the client id.
+        /// </summary>
+        [Output("isClientAffine")]
+        public Output<bool?> IsClientAffine { get; private set; } = null!;
 
         /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
@@ -203,6 +215,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
+        /// Properties specific to client affine subscriptions.
+        /// </summary>
+        [Input("clientAffineProperties")]
+        public Input<Inputs.SBClientAffinePropertiesArgs>? ClientAffineProperties { get; set; }
+
+        /// <summary>
         /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         /// </summary>
         [Input("deadLetteringOnFilterEvaluationExceptions")]
@@ -243,6 +261,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether the subscription has an affinity to the client id.
+        /// </summary>
+        [Input("isClientAffine")]
+        public Input<bool>? IsClientAffine { get; set; }
 
         /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.

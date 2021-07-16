@@ -48,9 +48,17 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The system meta data relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.v20210601preview.SystemDataResponse>;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    public readonly trustedServiceAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type
      */
@@ -80,7 +88,9 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["defaultAction"] = args ? args.defaultAction : undefined;
             inputs["ipRules"] = args ? args.ipRules : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["trustedServiceAccessEnabled"] = args ? args.trustedServiceAccessEnabled : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -89,7 +99,9 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             inputs["defaultAction"] = undefined /*out*/;
             inputs["ipRules"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
+            inputs["trustedServiceAccessEnabled"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["virtualNetworkRules"] = undefined /*out*/;
         }
@@ -119,9 +131,17 @@ export interface NamespaceNetworkRuleSetArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.v20210601preview.PublicNetworkAccessFlag>;
+    /**
      * Name of the Resource group within the Azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    trustedServiceAccessEnabled?: pulumi.Input<boolean>;
     /**
      * List VirtualNetwork Rules
      */

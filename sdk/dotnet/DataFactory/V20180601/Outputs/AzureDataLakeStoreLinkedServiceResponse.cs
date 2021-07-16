@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Data Lake Store service URI. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object DataLakeStoreUri;
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             object dataLakeStoreUri,
 
             string? description,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Annotations = annotations;
             AzureCloudType = azureCloudType;
             ConnectVia = connectVia;
+            Credential = credential;
             DataLakeStoreUri = dataLakeStoreUri;
             Description = description;
             EncryptedCredential = encryptedCredential;

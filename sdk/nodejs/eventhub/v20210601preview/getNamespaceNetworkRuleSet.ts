@@ -54,6 +54,10 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly name: string;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * The system meta data relating to this resource.
      */
     readonly systemData: outputs.eventhub.v20210601preview.SystemDataResponse;

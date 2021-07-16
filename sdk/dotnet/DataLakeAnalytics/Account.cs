@@ -83,6 +83,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         public Output<string?> FirewallState { get; private set; } = null!;
 
         /// <summary>
+        /// The hierarchical queue state associated with this account.
+        /// </summary>
+        [Output("hierarchicalQueueState")]
+        public Output<string> HierarchicalQueueState { get; private set; } = null!;
+
+        /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
         [Output("hiveMetastores")]
@@ -117,6 +123,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// </summary>
         [Output("maxJobCount")]
         public Output<int?> MaxJobCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum supported jobs queued under the account at the same time.
+        /// </summary>
+        [Output("maxQueuedJobCountPerUser")]
+        public Output<int> MaxQueuedJobCountPerUser { get; private set; } = null!;
 
         /// <summary>
         /// The minimum supported priority per job for this account.
@@ -383,8 +395,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 
         public AccountArgs()
         {
+            FirewallAllowAzureIps = Pulumi.AzureNative.DataLakeAnalytics.FirewallAllowAzureIpsState.Disabled;
+            FirewallState = Pulumi.AzureNative.DataLakeAnalytics.FirewallState.Disabled;
             MaxDegreeOfParallelism = 30;
+            MaxDegreeOfParallelismPerJob = 32;
             MaxJobCount = 3;
+            NewTier = Pulumi.AzureNative.DataLakeAnalytics.TierType.Consumption;
             QueryStoreRetention = 30;
         }
     }

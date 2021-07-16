@@ -18,9 +18,17 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Authentication;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
+        /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -42,6 +50,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
         /// <summary>
+        /// Allowed token audiences for azure function.
+        /// </summary>
+        public readonly object? ResourceId;
+        /// <summary>
         /// Type of linked service.
         /// Expected value is 'AzureFunction'.
         /// </summary>
@@ -51,7 +63,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private AzureFunctionLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            object? authentication,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
+
+            Outputs.CredentialReferenceResponse? credential,
 
             string? description,
 
@@ -63,15 +79,20 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
+            object? resourceId,
+
             string type)
         {
             Annotations = annotations;
+            Authentication = authentication;
             ConnectVia = connectVia;
+            Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;
             FunctionAppUrl = functionAppUrl;
             FunctionKey = functionKey;
             Parameters = parameters;
+            ResourceId = resourceId;
             Type = type;
         }
     }

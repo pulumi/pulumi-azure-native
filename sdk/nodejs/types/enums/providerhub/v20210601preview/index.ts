@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const EndpointType = {
+    NotSpecified: "NotSpecified",
+    Canary: "Canary",
+    Production: "Production",
+    TestInProduction: "TestInProduction",
+} as const;
+
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
 export const ExtensionCategory = {
     NotSpecified: "NotSpecified",
     ResourceCreationValidate: "ResourceCreationValidate",

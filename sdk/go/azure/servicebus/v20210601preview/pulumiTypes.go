@@ -3394,6 +3394,350 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Properties specific to client affine subscriptions.
+type SBClientAffineProperties struct {
+	// Indicates the Client ID of the application that created the client-affine subscription.
+	ClientId *string `pulumi:"clientId"`
+	// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+	IsDurable *bool `pulumi:"isDurable"`
+	// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+	IsShared *bool `pulumi:"isShared"`
+}
+
+// SBClientAffinePropertiesInput is an input type that accepts SBClientAffinePropertiesArgs and SBClientAffinePropertiesOutput values.
+// You can construct a concrete instance of `SBClientAffinePropertiesInput` via:
+//
+//          SBClientAffinePropertiesArgs{...}
+type SBClientAffinePropertiesInput interface {
+	pulumi.Input
+
+	ToSBClientAffinePropertiesOutput() SBClientAffinePropertiesOutput
+	ToSBClientAffinePropertiesOutputWithContext(context.Context) SBClientAffinePropertiesOutput
+}
+
+// Properties specific to client affine subscriptions.
+type SBClientAffinePropertiesArgs struct {
+	// Indicates the Client ID of the application that created the client-affine subscription.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+	IsDurable pulumi.BoolPtrInput `pulumi:"isDurable"`
+	// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+	IsShared pulumi.BoolPtrInput `pulumi:"isShared"`
+}
+
+func (SBClientAffinePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SBClientAffineProperties)(nil)).Elem()
+}
+
+func (i SBClientAffinePropertiesArgs) ToSBClientAffinePropertiesOutput() SBClientAffinePropertiesOutput {
+	return i.ToSBClientAffinePropertiesOutputWithContext(context.Background())
+}
+
+func (i SBClientAffinePropertiesArgs) ToSBClientAffinePropertiesOutputWithContext(ctx context.Context) SBClientAffinePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBClientAffinePropertiesOutput)
+}
+
+func (i SBClientAffinePropertiesArgs) ToSBClientAffinePropertiesPtrOutput() SBClientAffinePropertiesPtrOutput {
+	return i.ToSBClientAffinePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SBClientAffinePropertiesArgs) ToSBClientAffinePropertiesPtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBClientAffinePropertiesOutput).ToSBClientAffinePropertiesPtrOutputWithContext(ctx)
+}
+
+// SBClientAffinePropertiesPtrInput is an input type that accepts SBClientAffinePropertiesArgs, SBClientAffinePropertiesPtr and SBClientAffinePropertiesPtrOutput values.
+// You can construct a concrete instance of `SBClientAffinePropertiesPtrInput` via:
+//
+//          SBClientAffinePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SBClientAffinePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSBClientAffinePropertiesPtrOutput() SBClientAffinePropertiesPtrOutput
+	ToSBClientAffinePropertiesPtrOutputWithContext(context.Context) SBClientAffinePropertiesPtrOutput
+}
+
+type sbclientAffinePropertiesPtrType SBClientAffinePropertiesArgs
+
+func SBClientAffinePropertiesPtr(v *SBClientAffinePropertiesArgs) SBClientAffinePropertiesPtrInput {
+	return (*sbclientAffinePropertiesPtrType)(v)
+}
+
+func (*sbclientAffinePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SBClientAffineProperties)(nil)).Elem()
+}
+
+func (i *sbclientAffinePropertiesPtrType) ToSBClientAffinePropertiesPtrOutput() SBClientAffinePropertiesPtrOutput {
+	return i.ToSBClientAffinePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sbclientAffinePropertiesPtrType) ToSBClientAffinePropertiesPtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBClientAffinePropertiesPtrOutput)
+}
+
+// Properties specific to client affine subscriptions.
+type SBClientAffinePropertiesOutput struct{ *pulumi.OutputState }
+
+func (SBClientAffinePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SBClientAffineProperties)(nil)).Elem()
+}
+
+func (o SBClientAffinePropertiesOutput) ToSBClientAffinePropertiesOutput() SBClientAffinePropertiesOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesOutput) ToSBClientAffinePropertiesOutputWithContext(ctx context.Context) SBClientAffinePropertiesOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesOutput) ToSBClientAffinePropertiesPtrOutput() SBClientAffinePropertiesPtrOutput {
+	return o.ToSBClientAffinePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SBClientAffinePropertiesOutput) ToSBClientAffinePropertiesPtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesPtrOutput {
+	return o.ApplyT(func(v SBClientAffineProperties) *SBClientAffineProperties {
+		return &v
+	}).(SBClientAffinePropertiesPtrOutput)
+}
+
+// Indicates the Client ID of the application that created the client-affine subscription.
+func (o SBClientAffinePropertiesOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SBClientAffineProperties) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+func (o SBClientAffinePropertiesOutput) IsDurable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SBClientAffineProperties) *bool { return v.IsDurable }).(pulumi.BoolPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+func (o SBClientAffinePropertiesOutput) IsShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SBClientAffineProperties) *bool { return v.IsShared }).(pulumi.BoolPtrOutput)
+}
+
+type SBClientAffinePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SBClientAffinePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SBClientAffineProperties)(nil)).Elem()
+}
+
+func (o SBClientAffinePropertiesPtrOutput) ToSBClientAffinePropertiesPtrOutput() SBClientAffinePropertiesPtrOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesPtrOutput) ToSBClientAffinePropertiesPtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesPtrOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesPtrOutput) Elem() SBClientAffinePropertiesOutput {
+	return o.ApplyT(func(v *SBClientAffineProperties) SBClientAffineProperties { return *v }).(SBClientAffinePropertiesOutput)
+}
+
+// Indicates the Client ID of the application that created the client-affine subscription.
+func (o SBClientAffinePropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SBClientAffineProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+func (o SBClientAffinePropertiesPtrOutput) IsDurable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SBClientAffineProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsDurable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+func (o SBClientAffinePropertiesPtrOutput) IsShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SBClientAffineProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsShared
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Properties specific to client affine subscriptions.
+type SBClientAffinePropertiesResponse struct {
+	// Indicates the Client ID of the application that created the client-affine subscription.
+	ClientId *string `pulumi:"clientId"`
+	// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+	IsDurable *bool `pulumi:"isDurable"`
+	// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+	IsShared *bool `pulumi:"isShared"`
+}
+
+// SBClientAffinePropertiesResponseInput is an input type that accepts SBClientAffinePropertiesResponseArgs and SBClientAffinePropertiesResponseOutput values.
+// You can construct a concrete instance of `SBClientAffinePropertiesResponseInput` via:
+//
+//          SBClientAffinePropertiesResponseArgs{...}
+type SBClientAffinePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSBClientAffinePropertiesResponseOutput() SBClientAffinePropertiesResponseOutput
+	ToSBClientAffinePropertiesResponseOutputWithContext(context.Context) SBClientAffinePropertiesResponseOutput
+}
+
+// Properties specific to client affine subscriptions.
+type SBClientAffinePropertiesResponseArgs struct {
+	// Indicates the Client ID of the application that created the client-affine subscription.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+	IsDurable pulumi.BoolPtrInput `pulumi:"isDurable"`
+	// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+	IsShared pulumi.BoolPtrInput `pulumi:"isShared"`
+}
+
+func (SBClientAffinePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SBClientAffinePropertiesResponse)(nil)).Elem()
+}
+
+func (i SBClientAffinePropertiesResponseArgs) ToSBClientAffinePropertiesResponseOutput() SBClientAffinePropertiesResponseOutput {
+	return i.ToSBClientAffinePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SBClientAffinePropertiesResponseArgs) ToSBClientAffinePropertiesResponseOutputWithContext(ctx context.Context) SBClientAffinePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBClientAffinePropertiesResponseOutput)
+}
+
+func (i SBClientAffinePropertiesResponseArgs) ToSBClientAffinePropertiesResponsePtrOutput() SBClientAffinePropertiesResponsePtrOutput {
+	return i.ToSBClientAffinePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SBClientAffinePropertiesResponseArgs) ToSBClientAffinePropertiesResponsePtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBClientAffinePropertiesResponseOutput).ToSBClientAffinePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SBClientAffinePropertiesResponsePtrInput is an input type that accepts SBClientAffinePropertiesResponseArgs, SBClientAffinePropertiesResponsePtr and SBClientAffinePropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SBClientAffinePropertiesResponsePtrInput` via:
+//
+//          SBClientAffinePropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SBClientAffinePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSBClientAffinePropertiesResponsePtrOutput() SBClientAffinePropertiesResponsePtrOutput
+	ToSBClientAffinePropertiesResponsePtrOutputWithContext(context.Context) SBClientAffinePropertiesResponsePtrOutput
+}
+
+type sbclientAffinePropertiesResponsePtrType SBClientAffinePropertiesResponseArgs
+
+func SBClientAffinePropertiesResponsePtr(v *SBClientAffinePropertiesResponseArgs) SBClientAffinePropertiesResponsePtrInput {
+	return (*sbclientAffinePropertiesResponsePtrType)(v)
+}
+
+func (*sbclientAffinePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SBClientAffinePropertiesResponse)(nil)).Elem()
+}
+
+func (i *sbclientAffinePropertiesResponsePtrType) ToSBClientAffinePropertiesResponsePtrOutput() SBClientAffinePropertiesResponsePtrOutput {
+	return i.ToSBClientAffinePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sbclientAffinePropertiesResponsePtrType) ToSBClientAffinePropertiesResponsePtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SBClientAffinePropertiesResponsePtrOutput)
+}
+
+// Properties specific to client affine subscriptions.
+type SBClientAffinePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SBClientAffinePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SBClientAffinePropertiesResponse)(nil)).Elem()
+}
+
+func (o SBClientAffinePropertiesResponseOutput) ToSBClientAffinePropertiesResponseOutput() SBClientAffinePropertiesResponseOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesResponseOutput) ToSBClientAffinePropertiesResponseOutputWithContext(ctx context.Context) SBClientAffinePropertiesResponseOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesResponseOutput) ToSBClientAffinePropertiesResponsePtrOutput() SBClientAffinePropertiesResponsePtrOutput {
+	return o.ToSBClientAffinePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SBClientAffinePropertiesResponseOutput) ToSBClientAffinePropertiesResponsePtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SBClientAffinePropertiesResponse) *SBClientAffinePropertiesResponse {
+		return &v
+	}).(SBClientAffinePropertiesResponsePtrOutput)
+}
+
+// Indicates the Client ID of the application that created the client-affine subscription.
+func (o SBClientAffinePropertiesResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SBClientAffinePropertiesResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+func (o SBClientAffinePropertiesResponseOutput) IsDurable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SBClientAffinePropertiesResponse) *bool { return v.IsDurable }).(pulumi.BoolPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+func (o SBClientAffinePropertiesResponseOutput) IsShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SBClientAffinePropertiesResponse) *bool { return v.IsShared }).(pulumi.BoolPtrOutput)
+}
+
+type SBClientAffinePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SBClientAffinePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SBClientAffinePropertiesResponse)(nil)).Elem()
+}
+
+func (o SBClientAffinePropertiesResponsePtrOutput) ToSBClientAffinePropertiesResponsePtrOutput() SBClientAffinePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesResponsePtrOutput) ToSBClientAffinePropertiesResponsePtrOutputWithContext(ctx context.Context) SBClientAffinePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SBClientAffinePropertiesResponsePtrOutput) Elem() SBClientAffinePropertiesResponseOutput {
+	return o.ApplyT(func(v *SBClientAffinePropertiesResponse) SBClientAffinePropertiesResponse { return *v }).(SBClientAffinePropertiesResponseOutput)
+}
+
+// Indicates the Client ID of the application that created the client-affine subscription.
+func (o SBClientAffinePropertiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SBClientAffinePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+func (o SBClientAffinePropertiesResponsePtrOutput) IsDurable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SBClientAffinePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsDurable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+func (o SBClientAffinePropertiesResponsePtrOutput) IsShared() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SBClientAffinePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsShared
+	}).(pulumi.BoolPtrOutput)
+}
+
 // SKU of the namespace.
 type SBSku struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
@@ -4993,6 +5337,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(SBClientAffinePropertiesOutput{})
+	pulumi.RegisterOutputType(SBClientAffinePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SBClientAffinePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SBClientAffinePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SBSkuOutput{})
 	pulumi.RegisterOutputType(SBSkuPtrOutput{})
 	pulumi.RegisterOutputType(SBSkuResponseOutput{})

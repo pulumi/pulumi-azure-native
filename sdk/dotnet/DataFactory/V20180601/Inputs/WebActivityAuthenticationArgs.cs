@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class WebActivityAuthenticationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         /// </summary>
         [Input("password")]
@@ -36,8 +42,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// <summary>
         /// Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         /// <summary>
         /// TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).

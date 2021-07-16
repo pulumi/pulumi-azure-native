@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:compute:AvailabilitySet":
 		r = &AvailabilitySet{}
+	case "azure-native:compute:CapacityReservation":
+		r = &CapacityReservation{}
+	case "azure-native:compute:CapacityReservationGroup":
+		r = &CapacityReservationGroup{}
 	case "azure-native:compute:CloudService":
 		r = &CloudService{}
 	case "azure-native:compute:DedicatedHost":

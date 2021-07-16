@@ -62,6 +62,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? CoreConfiguration;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Specifies the size of the data node for the HDInsight cluster.
         /// </summary>
         public readonly object? DataNodeSize;
@@ -193,6 +197,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? coreConfiguration,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             object? dataNodeSize,
 
             string? description,
@@ -257,6 +263,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ClusterUserName = clusterUserName;
             ConnectVia = connectVia;
             CoreConfiguration = coreConfiguration;
+            Credential = credential;
             DataNodeSize = dataNodeSize;
             Description = description;
             EncryptedCredential = encryptedCredential;

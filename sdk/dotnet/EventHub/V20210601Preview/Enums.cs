@@ -298,6 +298,37 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
     }
 
     /// <summary>
+    /// This determines if traffic is allowed over public network. By default it is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessFlag : IEquatable<PublicNetworkAccessFlag>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessFlag Enabled { get; } = new PublicNetworkAccessFlag("Enabled");
+        public static PublicNetworkAccessFlag Disabled { get; } = new PublicNetworkAccessFlag("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessFlag other && Equals(other);
+        public bool Equals(PublicNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Name of this SKU.
     /// </summary>
     [EnumType]

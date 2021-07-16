@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.Compute.V20210301
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20210301:RestorePoint"},
                     new Pulumi.Alias { Type = "azure-native:compute:RestorePoint"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:RestorePoint"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210401:RestorePoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

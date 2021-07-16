@@ -103,6 +103,16 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
+
 export const SkuName = {
     Basic: "Basic",
     Standard: "Standard",

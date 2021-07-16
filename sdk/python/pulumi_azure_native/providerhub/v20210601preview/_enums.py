@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'EndpointType',
     'ExtensionCategory',
     'ExtensionOptionType',
     'FeaturesPolicy',
@@ -30,6 +31,13 @@ __all__ = [
     'ThrottlingMetricType',
     'TrafficRegionCategory',
 ]
+
+
+class EndpointType(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    CANARY = "Canary"
+    PRODUCTION = "Production"
+    TEST_IN_PRODUCTION = "TestInProduction"
 
 
 class ExtensionCategory(str, Enum):

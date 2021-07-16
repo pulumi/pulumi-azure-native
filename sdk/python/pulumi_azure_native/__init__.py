@@ -1846,6 +1846,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "azurearcdata/v20210801",
+  "fqn": "pulumi_azure_native.azurearcdata.v20210801",
+  "classes": {
+   "azure-native:azurearcdata/v20210801:DataController": "DataController",
+   "azure-native:azurearcdata/v20210801:SqlManagedInstance": "SqlManagedInstance",
+   "azure-native:azurearcdata/v20210801:SqlServerInstance": "SqlServerInstance"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "azuredata",
   "fqn": "pulumi_azure_native.azuredata",
   "classes": {
@@ -2705,6 +2715,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.compute",
   "classes": {
    "azure-native:compute:AvailabilitySet": "AvailabilitySet",
+   "azure-native:compute:CapacityReservation": "CapacityReservation",
+   "azure-native:compute:CapacityReservationGroup": "CapacityReservationGroup",
    "azure-native:compute:CloudService": "CloudService",
    "azure-native:compute:DedicatedHost": "DedicatedHost",
    "azure-native:compute:DedicatedHostGroup": "DedicatedHostGroup",
@@ -3059,6 +3071,31 @@ _utilities.register(
    "azure-native:compute/v20210301:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
    "azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
    "azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "compute/v20210401",
+  "fqn": "pulumi_azure_native.compute.v20210401",
+  "classes": {
+   "azure-native:compute/v20210401:AvailabilitySet": "AvailabilitySet",
+   "azure-native:compute/v20210401:CapacityReservation": "CapacityReservation",
+   "azure-native:compute/v20210401:CapacityReservationGroup": "CapacityReservationGroup",
+   "azure-native:compute/v20210401:DedicatedHost": "DedicatedHost",
+   "azure-native:compute/v20210401:DedicatedHostGroup": "DedicatedHostGroup",
+   "azure-native:compute/v20210401:Image": "Image",
+   "azure-native:compute/v20210401:ProximityPlacementGroup": "ProximityPlacementGroup",
+   "azure-native:compute/v20210401:RestorePoint": "RestorePoint",
+   "azure-native:compute/v20210401:RestorePointCollection": "RestorePointCollection",
+   "azure-native:compute/v20210401:SshPublicKey": "SshPublicKey",
+   "azure-native:compute/v20210401:VirtualMachine": "VirtualMachine",
+   "azure-native:compute/v20210401:VirtualMachineExtension": "VirtualMachineExtension",
+   "azure-native:compute/v20210401:VirtualMachineRunCommandByVirtualMachine": "VirtualMachineRunCommandByVirtualMachine",
+   "azure-native:compute/v20210401:VirtualMachineScaleSet": "VirtualMachineScaleSet",
+   "azure-native:compute/v20210401:VirtualMachineScaleSetExtension": "VirtualMachineScaleSetExtension",
+   "azure-native:compute/v20210401:VirtualMachineScaleSetVM": "VirtualMachineScaleSetVM",
+   "azure-native:compute/v20210401:VirtualMachineScaleSetVMExtension": "VirtualMachineScaleSetVMExtension",
+   "azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand": "VirtualMachineScaleSetVMRunCommand"
   }
  },
  {
@@ -5264,6 +5301,19 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20210513preview:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization/v20210513preview:SessionHostConfiguration": "SessionHostConfiguration",
    "azure-native:desktopvirtualization/v20210513preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "desktopvirtualization/v20210712",
+  "fqn": "pulumi_azure_native.desktopvirtualization.v20210712",
+  "classes": {
+   "azure-native:desktopvirtualization/v20210712:Application": "Application",
+   "azure-native:desktopvirtualization/v20210712:ApplicationGroup": "ApplicationGroup",
+   "azure-native:desktopvirtualization/v20210712:HostPool": "HostPool",
+   "azure-native:desktopvirtualization/v20210712:MSIXPackage": "MSIXPackage",
+   "azure-native:desktopvirtualization/v20210712:ScalingPlan": "ScalingPlan",
+   "azure-native:desktopvirtualization/v20210712:Workspace": "Workspace"
   }
  },
  {
@@ -9238,6 +9288,7 @@ _utilities.register(
    "azure-native:network:NetworkManager": "NetworkManager",
    "azure-native:network:NetworkProfile": "NetworkProfile",
    "azure-native:network:NetworkSecurityGroup": "NetworkSecurityGroup",
+   "azure-native:network:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
    "azure-native:network:NetworkVirtualAppliance": "NetworkVirtualAppliance",
    "azure-native:network:NetworkWatcher": "NetworkWatcher",
    "azure-native:network:P2sVpnGateway": "P2sVpnGateway",
@@ -11270,6 +11321,14 @@ _utilities.register(
    "azure-native:network/v20210201preview:SecurityUserConfiguration": "SecurityUserConfiguration",
    "azure-native:network/v20210201preview:UserRule": "UserRule",
    "azure-native:network/v20210201preview:UserRuleCollection": "UserRuleCollection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "network/v20210301preview",
+  "fqn": "pulumi_azure_native.network.v20210301preview",
+  "classes": {
+   "azure-native:network/v20210301preview:NetworkSecurityPerimeter": "NetworkSecurityPerimeter"
   }
  },
  {

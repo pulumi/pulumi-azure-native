@@ -143,6 +143,12 @@ func NewApplicationGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210513preview:ApplicationGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:ApplicationGroup"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:ApplicationGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationGroup

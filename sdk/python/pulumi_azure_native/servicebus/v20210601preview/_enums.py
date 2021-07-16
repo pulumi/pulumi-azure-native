@@ -14,6 +14,7 @@ __all__ = [
     'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'PublicNetworkAccessFlag',
     'SkuName',
     'SkuTier',
 ]
@@ -100,6 +101,14 @@ class PrivateLinkConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccessFlag(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SkuName(str, Enum):

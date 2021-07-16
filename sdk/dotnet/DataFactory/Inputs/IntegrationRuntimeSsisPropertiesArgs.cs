@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.IntegrationRuntimeSsisCatalogInfoArgs>? CatalogInfo { get; set; }
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Custom setup script properties for a managed dedicated integration runtime.
         /// </summary>
         [Input("customSetupScriptProperties")]
@@ -56,12 +62,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("licenseType")]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
-
-        /// <summary>
-        /// The user-assigned managed identity reference.
-        /// </summary>
-        [Input("managedCredential")]
-        public Input<Inputs.EntityReferenceArgs>? ManagedCredential { get; set; }
 
         [Input("packageStores")]
         private InputList<Inputs.PackageStoreArgs>? _packageStores;

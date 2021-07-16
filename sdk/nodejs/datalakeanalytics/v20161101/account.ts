@@ -80,6 +80,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
+     * The hierarchical queue state associated with this account.
+     */
+    public /*out*/ readonly hierarchicalQueueState!: pulumi.Output<string>;
+    /**
      * The list of hiveMetastores associated with this account.
      */
     public /*out*/ readonly hiveMetastores!: pulumi.Output<outputs.datalakeanalytics.v20161101.HiveMetastoreResponse[]>;
@@ -103,6 +107,10 @@ export class Account extends pulumi.CustomResource {
      * The maximum supported jobs running under the account at the same time.
      */
     public readonly maxJobCount!: pulumi.Output<number | undefined>;
+    /**
+     * The maximum supported jobs queued under the account at the same time.
+     */
+    public /*out*/ readonly maxQueuedJobCountPerUser!: pulumi.Output<number>;
     /**
      * The minimum supported priority per job for this account.
      */
@@ -180,15 +188,15 @@ export class Account extends pulumi.CustomResource {
             inputs["computePolicies"] = args ? args.computePolicies : undefined;
             inputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
             inputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
-            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            inputs["firewallAllowAzureIps"] = (args ? args.firewallAllowAzureIps : undefined) ?? "Disabled";
             inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["firewallState"] = args ? args.firewallState : undefined;
+            inputs["firewallState"] = (args ? args.firewallState : undefined) ?? "Disabled";
             inputs["location"] = args ? args.location : undefined;
             inputs["maxDegreeOfParallelism"] = (args ? args.maxDegreeOfParallelism : undefined) ?? 30;
-            inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
+            inputs["maxDegreeOfParallelismPerJob"] = (args ? args.maxDegreeOfParallelismPerJob : undefined) ?? 32;
             inputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 3;
             inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            inputs["newTier"] = args ? args.newTier : undefined;
+            inputs["newTier"] = (args ? args.newTier : undefined) ?? "Consumption";
             inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
@@ -198,8 +206,10 @@ export class Account extends pulumi.CustomResource {
             inputs["currentTier"] = undefined /*out*/;
             inputs["debugDataAccessLevel"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
@@ -220,12 +230,14 @@ export class Account extends pulumi.CustomResource {
             inputs["firewallAllowAzureIps"] = undefined /*out*/;
             inputs["firewallRules"] = undefined /*out*/;
             inputs["firewallState"] = undefined /*out*/;
+            inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maxDegreeOfParallelism"] = undefined /*out*/;
             inputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
             inputs["maxJobCount"] = undefined /*out*/;
+            inputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
             inputs["minPriorityPerJob"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["newTier"] = undefined /*out*/;

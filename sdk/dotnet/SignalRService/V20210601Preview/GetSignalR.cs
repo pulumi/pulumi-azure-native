@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210601Preview
         /// </summary>
         public readonly Outputs.SignalRCorsSettingsResponse? Cors;
         /// <summary>
-        /// disableAadAuth
+        /// DisableLocalAuth
         /// Enable or disable aad auth
         /// When set as true, connection with AuthType=aad won't work.
         /// </summary>

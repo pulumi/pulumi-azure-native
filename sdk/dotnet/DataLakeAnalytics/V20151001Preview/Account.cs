@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
         public Output<string?> FirewallState { get; private set; } = null!;
 
         /// <summary>
+        /// The hierarchical queue state associated with this account.
+        /// </summary>
+        [Output("hierarchicalQueueState")]
+        public Output<string> HierarchicalQueueState { get; private set; } = null!;
+
+        /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
         [Output("hiveMetastores")]
@@ -382,6 +388,11 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview
 
         public AccountArgs()
         {
+            FirewallAllowAzureIps = Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.FirewallAllowAzureIpsState.Disabled;
+            FirewallState = Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.FirewallState.Disabled;
+            MaxDegreeOfParallelismPerJob = 32;
+            MaxJobCount = 20;
+            NewTier = Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.TierType.Consumption;
             QueryStoreRetention = 30;
         }
     }

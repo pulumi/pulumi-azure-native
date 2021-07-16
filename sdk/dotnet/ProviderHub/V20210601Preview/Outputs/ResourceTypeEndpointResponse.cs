@@ -15,6 +15,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
     {
         public readonly ImmutableArray<string> ApiVersions;
         public readonly bool? Enabled;
+        public readonly string? EndpointType;
         public readonly ImmutableArray<Outputs.ResourceTypeExtensionResponse> Extensions;
         public readonly Outputs.ResourceTypeEndpointResponseFeaturesRule? FeaturesRule;
         public readonly ImmutableArray<string> Locations;
@@ -26,6 +27,8 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
             ImmutableArray<string> apiVersions,
 
             bool? enabled,
+
+            string? endpointType,
 
             ImmutableArray<Outputs.ResourceTypeExtensionResponse> extensions,
 
@@ -39,6 +42,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
         {
             ApiVersions = apiVersions;
             Enabled = enabled;
+            EndpointType = endpointType;
             Extensions = extensions;
             FeaturesRule = featuresRule;
             Locations = locations;

@@ -109,7 +109,7 @@ class GetSignalRResult:
     @pulumi.getter(name="disableAadAuth")
     def disable_aad_auth(self) -> Optional[bool]:
         """
-        disableAadAuth
+        DisableLocalAuth
         Enable or disable aad auth
         When set as true, connection with AuthType=aad won't work.
         """

@@ -34,10 +34,22 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        [Output("trustedServiceAccessEnabled")]
+        public Output<bool?> TrustedServiceAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -133,10 +145,22 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20210601Preview.PublicNetworkAccessFlag>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Trusted Service Access is Enabled or not.
+        /// </summary>
+        [Input("trustedServiceAccessEnabled")]
+        public Input<bool>? TrustedServiceAccessEnabled { get; set; }
 
         [Input("virtualNetworkRules")]
         private InputList<Inputs.NWRuleSetVirtualNetworkRulesArgs>? _virtualNetworkRules;
@@ -152,6 +176,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
 
         public NamespaceNetworkRuleSetArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

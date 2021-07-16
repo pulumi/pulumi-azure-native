@@ -23,6 +23,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("endpointType")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20210601Preview.EndpointType>? EndpointType { get; set; }
+
         [Input("extensions")]
         private InputList<Inputs.ResourceTypeExtensionArgs>? _extensions;
         public InputList<Inputs.ResourceTypeExtensionArgs> Extensions

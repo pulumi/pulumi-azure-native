@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./availabilitySet";
+export * from "./capacityReservation";
+export * from "./capacityReservationGroup";
 export * from "./cloudService";
 export * from "./dedicatedHost";
 export * from "./dedicatedHostGroup";
@@ -19,6 +21,8 @@ export * from "./galleryApplicationVersion";
 export * from "./galleryImage";
 export * from "./galleryImageVersion";
 export * from "./getAvailabilitySet";
+export * from "./getCapacityReservation";
+export * from "./getCapacityReservationGroup";
 export * from "./getCloudService";
 export * from "./getDedicatedHost";
 export * from "./getDedicatedHostGroup";
@@ -86,6 +90,7 @@ import * as v20200930 from "./v20200930";
 import * as v20201001preview from "./v20201001preview";
 import * as v20201201 from "./v20201201";
 import * as v20210301 from "./v20210301";
+import * as v20210401 from "./v20210401";
 
 export {
     v20150615,
@@ -108,10 +113,13 @@ export {
     v20201001preview,
     v20201201,
     v20210301,
+    v20210401,
 };
 
 // Import resources to register:
 import { AvailabilitySet } from "./availabilitySet";
+import { CapacityReservation } from "./capacityReservation";
+import { CapacityReservationGroup } from "./capacityReservationGroup";
 import { CloudService } from "./cloudService";
 import { DedicatedHost } from "./dedicatedHost";
 import { DedicatedHostGroup } from "./dedicatedHostGroup";
@@ -145,6 +153,10 @@ const _module = {
         switch (type) {
             case "azure-native:compute:AvailabilitySet":
                 return new AvailabilitySet(name, <any>undefined, { urn })
+            case "azure-native:compute:CapacityReservation":
+                return new CapacityReservation(name, <any>undefined, { urn })
+            case "azure-native:compute:CapacityReservationGroup":
+                return new CapacityReservationGroup(name, <any>undefined, { urn })
             case "azure-native:compute:CloudService":
                 return new CloudService(name, <any>undefined, { urn })
             case "azure-native:compute:DedicatedHost":

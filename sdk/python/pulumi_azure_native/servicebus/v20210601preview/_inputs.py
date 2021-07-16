@@ -20,6 +20,7 @@ __all__ = [
     'NWRuleSetVirtualNetworkRulesArgs',
     'PrivateEndpointArgs',
     'PrivateEndpointConnectionArgs',
+    'SBClientAffinePropertiesArgs',
     'SBSkuArgs',
     'SqlFilterArgs',
     'SubnetArgs',
@@ -620,6 +621,62 @@ class PrivateEndpointConnectionArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
+class SBClientAffinePropertiesArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 is_durable: Optional[pulumi.Input[bool]] = None,
+                 is_shared: Optional[pulumi.Input[bool]] = None):
+        """
+        Properties specific to client affine subscriptions.
+        :param pulumi.Input[str] client_id: Indicates the Client ID of the application that created the client-affine subscription.
+        :param pulumi.Input[bool] is_durable: For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+        :param pulumi.Input[bool] is_shared: For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if is_durable is not None:
+            pulumi.set(__self__, "is_durable", is_durable)
+        if is_shared is not None:
+            pulumi.set(__self__, "is_shared", is_shared)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the Client ID of the application that created the client-affine subscription.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="isDurable")
+    def is_durable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+        """
+        return pulumi.get(self, "is_durable")
+
+    @is_durable.setter
+    def is_durable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_durable", value)
+
+    @property
+    @pulumi.getter(name="isShared")
+    def is_shared(self) -> Optional[pulumi.Input[bool]]:
+        """
+        For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+        """
+        return pulumi.get(self, "is_shared")
+
+    @is_shared.setter
+    def is_shared(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_shared", value)
 
 
 @pulumi.input_type

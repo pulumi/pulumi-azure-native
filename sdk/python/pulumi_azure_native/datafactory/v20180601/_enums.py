@@ -302,7 +302,6 @@ class IntegrationRuntimeEntityReferenceType(str, Enum):
     """
     INTEGRATION_RUNTIME_REFERENCE = "IntegrationRuntimeReference"
     LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
-    CREDENTIAL_REFERENCE = "CredentialReference"
 
 
 class IntegrationRuntimeLicenseType(str, Enum):

@@ -17,7 +17,7 @@ type SignalR struct {
 
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors SignalRCorsSettingsResponsePtrOutput `pulumi:"cors"`
-	// disableAadAuth
+	// DisableLocalAuth
 	// Enable or disable aad auth
 	// When set as true, connection with AuthType=aad won't work.
 	DisableAadAuth pulumi.BoolPtrOutput `pulumi:"disableAadAuth"`
@@ -161,7 +161,7 @@ func GetSignalR(ctx *pulumi.Context,
 type signalRState struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
-	// disableAadAuth
+	// DisableLocalAuth
 	// Enable or disable aad auth
 	// When set as true, connection with AuthType=aad won't work.
 	DisableAadAuth *bool `pulumi:"disableAadAuth"`
@@ -223,7 +223,7 @@ type signalRState struct {
 type SignalRState struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors SignalRCorsSettingsResponsePtrInput
-	// disableAadAuth
+	// DisableLocalAuth
 	// Enable or disable aad auth
 	// When set as true, connection with AuthType=aad won't work.
 	DisableAadAuth pulumi.BoolPtrInput
@@ -289,7 +289,7 @@ func (SignalRState) ElementType() reflect.Type {
 type signalRArgs struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors *SignalRCorsSettings `pulumi:"cors"`
-	// disableAadAuth
+	// DisableLocalAuth
 	// Enable or disable aad auth
 	// When set as true, connection with AuthType=aad won't work.
 	DisableAadAuth *bool `pulumi:"disableAadAuth"`
@@ -334,7 +334,7 @@ type signalRArgs struct {
 type SignalRArgs struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors SignalRCorsSettingsPtrInput
-	// disableAadAuth
+	// DisableLocalAuth
 	// Enable or disable aad auth
 	// When set as true, connection with AuthType=aad won't work.
 	DisableAadAuth pulumi.BoolPtrInput

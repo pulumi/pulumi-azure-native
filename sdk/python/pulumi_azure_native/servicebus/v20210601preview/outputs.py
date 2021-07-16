@@ -22,6 +22,7 @@ __all__ = [
     'NWRuleSetVirtualNetworkRulesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'SBClientAffinePropertiesResponse',
     'SBSkuResponse',
     'SqlFilterResponse',
     'SubnetResponse',
@@ -853,6 +854,74 @@ class PrivateEndpointResponse(dict):
         The ARM identifier for Private Endpoint.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SBClientAffinePropertiesResponse(dict):
+    """
+    Properties specific to client affine subscriptions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "isDurable":
+            suggest = "is_durable"
+        elif key == "isShared":
+            suggest = "is_shared"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SBClientAffinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SBClientAffinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SBClientAffinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 is_durable: Optional[bool] = None,
+                 is_shared: Optional[bool] = None):
+        """
+        Properties specific to client affine subscriptions.
+        :param str client_id: Indicates the Client ID of the application that created the client-affine subscription.
+        :param bool is_durable: For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+        :param bool is_shared: For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if is_durable is not None:
+            pulumi.set(__self__, "is_durable", is_durable)
+        if is_shared is not None:
+            pulumi.set(__self__, "is_shared", is_shared)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Indicates the Client ID of the application that created the client-affine subscription.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="isDurable")
+    def is_durable(self) -> Optional[bool]:
+        """
+        For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+        """
+        return pulumi.get(self, "is_durable")
+
+    @property
+    @pulumi.getter(name="isShared")
+    def is_shared(self) -> Optional[bool]:
+        """
+        For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+        """
+        return pulumi.get(self, "is_shared")
 
 
 @pulumi.output_type

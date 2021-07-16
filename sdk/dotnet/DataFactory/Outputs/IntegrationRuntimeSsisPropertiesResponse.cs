@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeSsisCatalogInfoResponse? CatalogInfo;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Custom setup script properties for a managed dedicated integration runtime.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeCustomSetupScriptPropertiesResponse? CustomSetupScriptProperties;
@@ -38,10 +42,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
-        /// The user-assigned managed identity reference.
-        /// </summary>
-        public readonly Outputs.EntityReferenceResponse? ManagedCredential;
-        /// <summary>
         /// Package stores for the SSIS Integration Runtime.
         /// </summary>
         public readonly ImmutableArray<Outputs.PackageStoreResponse> PackageStores;
@@ -49,6 +49,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         [OutputConstructor]
         private IntegrationRuntimeSsisPropertiesResponse(
             Outputs.IntegrationRuntimeSsisCatalogInfoResponse? catalogInfo,
+
+            Outputs.CredentialReferenceResponse? credential,
 
             Outputs.IntegrationRuntimeCustomSetupScriptPropertiesResponse? customSetupScriptProperties,
 
@@ -60,17 +62,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? licenseType,
 
-            Outputs.EntityReferenceResponse? managedCredential,
-
             ImmutableArray<Outputs.PackageStoreResponse> packageStores)
         {
             CatalogInfo = catalogInfo;
+            Credential = credential;
             CustomSetupScriptProperties = customSetupScriptProperties;
             DataProxyProperties = dataProxyProperties;
             Edition = edition;
             ExpressCustomSetupProperties = expressCustomSetupProperties;
             LicenseType = licenseType;
-            ManagedCredential = managedCredential;
             PackageStores = packageStores;
         }
     }

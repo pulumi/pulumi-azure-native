@@ -115,6 +115,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkProfile{}
 	case "azure-native:network:NetworkSecurityGroup":
 		r = &NetworkSecurityGroup{}
+	case "azure-native:network:NetworkSecurityPerimeter":
+		r = &NetworkSecurityPerimeter{}
 	case "azure-native:network:NetworkVirtualAppliance":
 		r = &NetworkVirtualAppliance{}
 	case "azure-native:network:NetworkWatcher":

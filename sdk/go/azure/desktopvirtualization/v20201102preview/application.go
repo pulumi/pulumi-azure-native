@@ -139,6 +139,12 @@ func NewApplication(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210513preview:Application"),
 		},
+		{
+			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:Application"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:Application"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Application

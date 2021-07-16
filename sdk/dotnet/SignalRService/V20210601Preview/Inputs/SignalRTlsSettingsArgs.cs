@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210601Preview.Inputs
 
         public SignalRTlsSettingsArgs()
         {
+            ClientCertEnabled = true;
         }
     }
 }

@@ -83,6 +83,10 @@ export interface GetAccountResult {
      */
     readonly firewallState?: string;
     /**
+     * The hierarchical queue state associated with this account.
+     */
+    readonly hierarchicalQueueState: string;
+    /**
      * The list of hiveMetastores associated with this account.
      */
     readonly hiveMetastores: outputs.datalakeanalytics.HiveMetastoreResponse[];
@@ -110,6 +114,10 @@ export interface GetAccountResult {
      * The maximum supported jobs running under the account at the same time.
      */
     readonly maxJobCount?: number;
+    /**
+     * The maximum supported jobs queued under the account at the same time.
+     */
+    readonly maxQueuedJobCountPerUser: number;
     /**
      * The minimum supported priority per job for this account.
      */

@@ -37,6 +37,8 @@ type Account struct {
 	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrOutput `pulumi:"firewallState"`
+	// The hierarchical queue state associated with this account.
+	HierarchicalQueueState pulumi.StringOutput `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores HiveMetastoreResponseArrayOutput `pulumi:"hiveMetastores"`
 	// The account last modified time.
@@ -92,6 +94,24 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.FirewallAllowAzureIps == nil {
+		e := FirewallAllowAzureIpsState("Disabled")
+		args.FirewallAllowAzureIps = &e
+	}
+	if args.FirewallState == nil {
+		e := FirewallState("Disabled")
+		args.FirewallState = &e
+	}
+	if args.MaxDegreeOfParallelismPerJob == nil {
+		args.MaxDegreeOfParallelismPerJob = pulumi.IntPtr(32)
+	}
+	if args.MaxJobCount == nil {
+		args.MaxJobCount = pulumi.IntPtr(20)
+	}
+	if args.NewTier == nil {
+		e := TierType("Consumption")
+		args.NewTier = &e
 	}
 	if args.QueryStoreRetention == nil {
 		args.QueryStoreRetention = pulumi.IntPtr(30)
@@ -158,6 +178,8 @@ type accountState struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
+	// The hierarchical queue state associated with this account.
+	HierarchicalQueueState *string `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
 	// The account last modified time.
@@ -221,6 +243,8 @@ type AccountState struct {
 	FirewallRules FirewallRuleResponseArrayInput
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrInput
+	// The hierarchical queue state associated with this account.
+	HierarchicalQueueState pulumi.StringPtrInput
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores HiveMetastoreResponseArrayInput
 	// The account last modified time.

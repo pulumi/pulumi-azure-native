@@ -28,10 +28,22 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("authentication")]
+        public Input<object>? Authentication { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
+
+        /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
 
         /// <summary>
         /// Linked service description.
@@ -68,6 +80,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
             get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterSpecificationArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Allowed token audiences for azure function.
+        /// </summary>
+        [Input("resourceId")]
+        public Input<object>? ResourceId { get; set; }
 
         /// <summary>
         /// Type of linked service.

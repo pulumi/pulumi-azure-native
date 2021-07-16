@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]

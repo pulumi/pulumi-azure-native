@@ -34,6 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object ConnectionString;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -79,6 +83,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object connectionString,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             string? description,
 
             object? encryptedCredential,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AzureCloudType = azureCloudType;
             ConnectVia = connectVia;
             ConnectionString = connectionString;
+            Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;

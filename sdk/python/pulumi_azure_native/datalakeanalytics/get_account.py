@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hierarchical_queue_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -54,6 +54,9 @@ class GetAccountResult:
         if firewall_state and not isinstance(firewall_state, str):
             raise TypeError("Expected argument 'firewall_state' to be a str")
         pulumi.set(__self__, "firewall_state", firewall_state)
+        if hierarchical_queue_state and not isinstance(hierarchical_queue_state, str):
+            raise TypeError("Expected argument 'hierarchical_queue_state' to be a str")
+        pulumi.set(__self__, "hierarchical_queue_state", hierarchical_queue_state)
         if hive_metastores and not isinstance(hive_metastores, list):
             raise TypeError("Expected argument 'hive_metastores' to be a list")
         pulumi.set(__self__, "hive_metastores", hive_metastores)
@@ -75,6 +78,9 @@ class GetAccountResult:
         if max_job_count and not isinstance(max_job_count, int):
             raise TypeError("Expected argument 'max_job_count' to be a int")
         pulumi.set(__self__, "max_job_count", max_job_count)
+        if max_queued_job_count_per_user and not isinstance(max_queued_job_count_per_user, int):
+            raise TypeError("Expected argument 'max_queued_job_count_per_user' to be a int")
+        pulumi.set(__self__, "max_queued_job_count_per_user", max_queued_job_count_per_user)
         if min_priority_per_job and not isinstance(min_priority_per_job, int):
             raise TypeError("Expected argument 'min_priority_per_job' to be a int")
         pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
@@ -204,6 +210,14 @@ class GetAccountResult:
         return pulumi.get(self, "firewall_state")
 
     @property
+    @pulumi.getter(name="hierarchicalQueueState")
+    def hierarchical_queue_state(self) -> str:
+        """
+        The hierarchical queue state associated with this account.
+        """
+        return pulumi.get(self, "hierarchical_queue_state")
+
+    @property
     @pulumi.getter(name="hiveMetastores")
     def hive_metastores(self) -> Sequence['outputs.HiveMetastoreResponse']:
         """
@@ -258,6 +272,14 @@ class GetAccountResult:
         The maximum supported jobs running under the account at the same time.
         """
         return pulumi.get(self, "max_job_count")
+
+    @property
+    @pulumi.getter(name="maxQueuedJobCountPerUser")
+    def max_queued_job_count_per_user(self) -> int:
+        """
+        The maximum supported jobs queued under the account at the same time.
+        """
+        return pulumi.get(self, "max_queued_job_count_per_user")
 
     @property
     @pulumi.getter(name="minPriorityPerJob")
@@ -381,6 +403,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             firewall_allow_azure_ips=self.firewall_allow_azure_ips,
             firewall_rules=self.firewall_rules,
             firewall_state=self.firewall_state,
+            hierarchical_queue_state=self.hierarchical_queue_state,
             hive_metastores=self.hive_metastores,
             id=self.id,
             last_modified_time=self.last_modified_time,
@@ -388,6 +411,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             max_degree_of_parallelism=self.max_degree_of_parallelism,
             max_degree_of_parallelism_per_job=self.max_degree_of_parallelism_per_job,
             max_job_count=self.max_job_count,
+            max_queued_job_count_per_user=self.max_queued_job_count_per_user,
             min_priority_per_job=self.min_priority_per_job,
             name=self.name,
             new_tier=self.new_tier,
@@ -435,6 +459,7 @@ def get_account(account_name: Optional[str] = None,
         firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
         firewall_rules=__ret__.firewall_rules,
         firewall_state=__ret__.firewall_state,
+        hierarchical_queue_state=__ret__.hierarchical_queue_state,
         hive_metastores=__ret__.hive_metastores,
         id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
@@ -442,6 +467,7 @@ def get_account(account_name: Optional[str] = None,
         max_degree_of_parallelism=__ret__.max_degree_of_parallelism,
         max_degree_of_parallelism_per_job=__ret__.max_degree_of_parallelism_per_job,
         max_job_count=__ret__.max_job_count,
+        max_queued_job_count_per_user=__ret__.max_queued_job_count_per_user,
         min_priority_per_job=__ret__.min_priority_per_job,
         name=__ret__.name,
         new_tier=__ret__.new_tier,

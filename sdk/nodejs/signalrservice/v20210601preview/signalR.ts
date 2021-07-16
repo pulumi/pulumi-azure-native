@@ -40,7 +40,7 @@ export class SignalR extends pulumi.CustomResource {
      */
     public readonly cors!: pulumi.Output<outputs.signalrservice.v20210601preview.SignalRCorsSettingsResponse | undefined>;
     /**
-     * disableAadAuth
+     * DisableLocalAuth
      * Enable or disable aad auth
      * When set as true, connection with AuthType=aad won't work.
      */
@@ -227,7 +227,7 @@ export interface SignalRArgs {
      */
     cors?: pulumi.Input<inputs.signalrservice.v20210601preview.SignalRCorsSettingsArgs>;
     /**
-     * disableAadAuth
+     * DisableLocalAuth
      * Enable or disable aad auth
      * When set as true, connection with AuthType=aad won't work.
      */

@@ -63,6 +63,10 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// </summary>
         public readonly string? AutoDeleteOnIdle;
         /// <summary>
+        /// Properties specific to client affine subscriptions.
+        /// </summary>
+        public readonly Outputs.SBClientAffinePropertiesResponse? ClientAffineProperties;
+        /// <summary>
         /// Message count details
         /// </summary>
         public readonly Outputs.MessageCountDetailsResponse CountDetails;
@@ -102,6 +106,10 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Value that indicates whether the subscription has an affinity to the client id.
+        /// </summary>
+        public readonly bool? IsClientAffine;
         /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         /// </summary>
@@ -145,6 +153,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
 
             string? autoDeleteOnIdle,
 
+            Outputs.SBClientAffinePropertiesResponse? clientAffineProperties,
+
             Outputs.MessageCountDetailsResponse countDetails,
 
             string createdAt,
@@ -164,6 +174,8 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
             string? forwardTo,
 
             string id,
+
+            bool? isClientAffine,
 
             string? lockDuration,
 
@@ -185,6 +197,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
         {
             AccessedAt = accessedAt;
             AutoDeleteOnIdle = autoDeleteOnIdle;
+            ClientAffineProperties = clientAffineProperties;
             CountDetails = countDetails;
             CreatedAt = createdAt;
             DeadLetteringOnFilterEvaluationExceptions = deadLetteringOnFilterEvaluationExceptions;
@@ -195,6 +208,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
             Id = id;
+            IsClientAffine = isClientAffine;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
             MessageCount = messageCount;

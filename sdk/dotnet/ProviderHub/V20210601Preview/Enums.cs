@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 {
     [EnumType]
+    public readonly struct EndpointType : IEquatable<EndpointType>
+    {
+        private readonly string _value;
+
+        private EndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EndpointType NotSpecified { get; } = new EndpointType("NotSpecified");
+        public static EndpointType Canary { get; } = new EndpointType("Canary");
+        public static EndpointType Production { get; } = new EndpointType("Production");
+        public static EndpointType TestInProduction { get; } = new EndpointType("TestInProduction");
+
+        public static bool operator ==(EndpointType left, EndpointType right) => left.Equals(right);
+        public static bool operator !=(EndpointType left, EndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(EndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EndpointType other && Equals(other);
+        public bool Equals(EndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ExtensionCategory : IEquatable<ExtensionCategory>
     {
         private readonly string _value;

@@ -35,7 +35,7 @@ class SignalRArgs:
         The set of arguments for constructing a SignalR resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input['SignalRCorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param pulumi.Input[bool] disable_aad_auth: disableAadAuth
+        :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
                Enable or disable aad auth
                When set as true, connection with AuthType=aad won't work.
         :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
@@ -124,7 +124,7 @@ class SignalRArgs:
     @pulumi.getter(name="disableAadAuth")
     def disable_aad_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        disableAadAuth
+        DisableLocalAuth
         Enable or disable aad auth
         When set as true, connection with AuthType=aad won't work.
         """
@@ -315,7 +315,7 @@ class SignalR(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']] cors: Cross-Origin Resource Sharing (CORS) settings.
-        :param pulumi.Input[bool] disable_aad_auth: disableAadAuth
+        :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
                Enable or disable aad auth
                When set as true, connection with AuthType=aad won't work.
         :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
@@ -488,7 +488,7 @@ class SignalR(pulumi.CustomResource):
     @pulumi.getter(name="disableAadAuth")
     def disable_aad_auth(self) -> pulumi.Output[Optional[bool]]:
         """
-        disableAadAuth
+        DisableLocalAuth
         Enable or disable aad auth
         When set as true, connection with AuthType=aad won't work.
         """

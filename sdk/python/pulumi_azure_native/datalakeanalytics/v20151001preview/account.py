@@ -60,22 +60,32 @@ class AccountArgs:
             pulumi.set(__self__, "account_name", account_name)
         if compute_policies is not None:
             pulumi.set(__self__, "compute_policies", compute_policies)
+        if firewall_allow_azure_ips is None:
+            firewall_allow_azure_ips = 'Disabled'
         if firewall_allow_azure_ips is not None:
             pulumi.set(__self__, "firewall_allow_azure_ips", firewall_allow_azure_ips)
         if firewall_rules is not None:
             pulumi.set(__self__, "firewall_rules", firewall_rules)
+        if firewall_state is None:
+            firewall_state = 'Disabled'
         if firewall_state is not None:
             pulumi.set(__self__, "firewall_state", firewall_state)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if max_degree_of_parallelism is not None:
             pulumi.set(__self__, "max_degree_of_parallelism", max_degree_of_parallelism)
+        if max_degree_of_parallelism_per_job is None:
+            max_degree_of_parallelism_per_job = 32
         if max_degree_of_parallelism_per_job is not None:
             pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
+        if max_job_count is None:
+            max_job_count = 20
         if max_job_count is not None:
             pulumi.set(__self__, "max_job_count", max_job_count)
         if min_priority_per_job is not None:
             pulumi.set(__self__, "min_priority_per_job", min_priority_per_job)
+        if new_tier is None:
+            new_tier = 'Consumption'
         if new_tier is not None:
             pulumi.set(__self__, "new_tier", new_tier)
         if query_store_retention is None:
@@ -399,14 +409,24 @@ class Account(pulumi.CustomResource):
             if default_data_lake_store_account is None and not opts.urn:
                 raise TypeError("Missing required property 'default_data_lake_store_account'")
             __props__.__dict__["default_data_lake_store_account"] = default_data_lake_store_account
+            if firewall_allow_azure_ips is None:
+                firewall_allow_azure_ips = 'Disabled'
             __props__.__dict__["firewall_allow_azure_ips"] = firewall_allow_azure_ips
             __props__.__dict__["firewall_rules"] = firewall_rules
+            if firewall_state is None:
+                firewall_state = 'Disabled'
             __props__.__dict__["firewall_state"] = firewall_state
             __props__.__dict__["location"] = location
             __props__.__dict__["max_degree_of_parallelism"] = max_degree_of_parallelism
+            if max_degree_of_parallelism_per_job is None:
+                max_degree_of_parallelism_per_job = 32
             __props__.__dict__["max_degree_of_parallelism_per_job"] = max_degree_of_parallelism_per_job
+            if max_job_count is None:
+                max_job_count = 20
             __props__.__dict__["max_job_count"] = max_job_count
             __props__.__dict__["min_priority_per_job"] = min_priority_per_job
+            if new_tier is None:
+                new_tier = 'Consumption'
             __props__.__dict__["new_tier"] = new_tier
             if query_store_retention is None:
                 query_store_retention = 30
@@ -421,6 +441,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["current_tier"] = None
             __props__.__dict__["debug_data_access_level"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["hierarchical_queue_state"] = None
             __props__.__dict__["hive_metastores"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
@@ -466,6 +487,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["firewall_allow_azure_ips"] = None
         __props__.__dict__["firewall_rules"] = None
         __props__.__dict__["firewall_state"] = None
+        __props__.__dict__["hierarchical_queue_state"] = None
         __props__.__dict__["hive_metastores"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["location"] = None
@@ -574,6 +596,14 @@ class Account(pulumi.CustomResource):
         The current state of the IP address firewall for this account.
         """
         return pulumi.get(self, "firewall_state")
+
+    @property
+    @pulumi.getter(name="hierarchicalQueueState")
+    def hierarchical_queue_state(self) -> pulumi.Output[str]:
+        """
+        The hierarchical queue state associated with this account.
+        """
+        return pulumi.get(self, "hierarchical_queue_state")
 
     @property
     @pulumi.getter(name="hiveMetastores")

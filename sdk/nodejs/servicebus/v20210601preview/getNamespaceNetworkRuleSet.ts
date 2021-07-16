@@ -54,9 +54,17 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly name: string;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * The system meta data relating to this resource.
      */
     readonly systemData: outputs.servicebus.v20210601preview.SystemDataResponse;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    readonly trustedServiceAccessEnabled?: boolean;
     /**
      * Resource type
      */

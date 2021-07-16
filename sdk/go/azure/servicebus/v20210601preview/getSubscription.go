@@ -34,6 +34,8 @@ type LookupSubscriptionResult struct {
 	AccessedAt string `pulumi:"accessedAt"`
 	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
 	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Properties specific to client affine subscriptions.
+	ClientAffineProperties *SBClientAffinePropertiesResponse `pulumi:"clientAffineProperties"`
 	// Message count details
 	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
 	// Exact time the message was created.
@@ -54,6 +56,8 @@ type LookupSubscriptionResult struct {
 	ForwardTo *string `pulumi:"forwardTo"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// Value that indicates whether the subscription has an affinity to the client id.
+	IsClientAffine *bool `pulumi:"isClientAffine"`
 	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// Number of maximum deliveries.

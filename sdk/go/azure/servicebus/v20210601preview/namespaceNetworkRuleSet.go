@@ -21,8 +21,12 @@ type NamespaceNetworkRuleSet struct {
 	IpRules NWRuleSetIpRulesResponseArrayOutput `pulumi:"ipRules"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled pulumi.BoolPtrOutput `pulumi:"trustedServiceAccessEnabled"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// List VirtualNetwork Rules
@@ -41,6 +45,9 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.PublicNetworkAccess == nil {
+		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -100,8 +107,12 @@ type namespaceNetworkRuleSetState struct {
 	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
 	// Resource name
 	Name *string `pulumi:"name"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The system meta data relating to this resource.
 	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// Resource type
 	Type *string `pulumi:"type"`
 	// List VirtualNetwork Rules
@@ -115,8 +126,12 @@ type NamespaceNetworkRuleSetState struct {
 	IpRules NWRuleSetIpRulesResponseArrayInput
 	// Resource name
 	Name pulumi.StringPtrInput
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponsePtrInput
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled pulumi.BoolPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 	// List VirtualNetwork Rules
@@ -134,8 +149,12 @@ type namespaceNetworkRuleSetArgs struct {
 	IpRules []NWRuleSetIpRules `pulumi:"ipRules"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// List VirtualNetwork Rules
 	VirtualNetworkRules []NWRuleSetVirtualNetworkRules `pulumi:"virtualNetworkRules"`
 }
@@ -148,8 +167,12 @@ type NamespaceNetworkRuleSetArgs struct {
 	IpRules NWRuleSetIpRulesArrayInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled pulumi.BoolPtrInput
 	// List VirtualNetwork Rules
 	VirtualNetworkRules NWRuleSetVirtualNetworkRulesArrayInput
 }

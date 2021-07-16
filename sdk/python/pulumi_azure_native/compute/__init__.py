@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .availability_set import *
+from .capacity_reservation import *
+from .capacity_reservation_group import *
 from .cloud_service import *
 from .dedicated_host import *
 from .dedicated_host_group import *
@@ -20,6 +22,8 @@ from .gallery_application_version import *
 from .gallery_image import *
 from .gallery_image_version import *
 from .get_availability_set import *
+from .get_capacity_reservation import *
+from .get_capacity_reservation_group import *
 from .get_cloud_service import *
 from .get_dedicated_host import *
 from .get_dedicated_host_group import *
@@ -87,6 +91,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.compute.v20201001preview as v20201001preview
     import pulumi_azure_native.compute.v20201201 as v20201201
     import pulumi_azure_native.compute.v20210301 as v20210301
+    import pulumi_azure_native.compute.v20210401 as v20210401
 else:
     v20150615 = _utilities.lazy_import('pulumi_azure_native.compute.v20150615')
     v20160330 = _utilities.lazy_import('pulumi_azure_native.compute.v20160330')
@@ -108,4 +113,5 @@ else:
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.compute.v20201001preview')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.compute.v20201201')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.compute.v20210301')
+    v20210401 = _utilities.lazy_import('pulumi_azure_native.compute.v20210401')
 

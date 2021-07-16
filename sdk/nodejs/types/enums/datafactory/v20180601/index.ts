@@ -284,7 +284,6 @@ export type IntegrationRuntimeEdition = (typeof IntegrationRuntimeEdition)[keyof
 export const IntegrationRuntimeEntityReferenceType = {
     IntegrationRuntimeReference: "IntegrationRuntimeReference",
     LinkedServiceReference: "LinkedServiceReference",
-    CredentialReference: "CredentialReference",
 } as const;
 
 /**

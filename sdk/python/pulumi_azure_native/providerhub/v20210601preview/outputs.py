@@ -1710,6 +1710,8 @@ class ResourceTypeEndpointResponse(dict):
         suggest = None
         if key == "apiVersions":
             suggest = "api_versions"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
         elif key == "featuresRule":
             suggest = "features_rule"
         elif key == "requiredFeatures":
@@ -1729,6 +1731,7 @@ class ResourceTypeEndpointResponse(dict):
     def __init__(__self__, *,
                  api_versions: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None,
+                 endpoint_type: Optional[str] = None,
                  extensions: Optional[Sequence['outputs.ResourceTypeExtensionResponse']] = None,
                  features_rule: Optional['outputs.ResourceTypeEndpointResponseFeaturesRule'] = None,
                  locations: Optional[Sequence[str]] = None,
@@ -1738,6 +1741,8 @@ class ResourceTypeEndpointResponse(dict):
             pulumi.set(__self__, "api_versions", api_versions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if features_rule is not None:
@@ -1758,6 +1763,11 @@ class ResourceTypeEndpointResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[str]:
+        return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter

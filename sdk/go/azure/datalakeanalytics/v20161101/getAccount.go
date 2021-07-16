@@ -48,6 +48,8 @@ type LookupAccountResult struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
+	// The hierarchical queue state associated with this account.
+	HierarchicalQueueState string `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
 	// The resource identifier.
@@ -62,6 +64,8 @@ type LookupAccountResult struct {
 	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
 	MaxJobCount *int `pulumi:"maxJobCount"`
+	// The maximum supported jobs queued under the account at the same time.
+	MaxQueuedJobCountPerUser int `pulumi:"maxQueuedJobCountPerUser"`
 	// The minimum supported priority per job for this account.
 	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
 	// The resource name.

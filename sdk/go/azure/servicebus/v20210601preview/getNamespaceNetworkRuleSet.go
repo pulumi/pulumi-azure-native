@@ -34,8 +34,12 @@ type LookupNamespaceNetworkRuleSetResult struct {
 	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
 	// Resource name
 	Name string `pulumi:"name"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The system meta data relating to this resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Value that indicates whether Trusted Service Access is Enabled or not.
+	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// Resource type
 	Type string `pulumi:"type"`
 	// List VirtualNetwork Rules

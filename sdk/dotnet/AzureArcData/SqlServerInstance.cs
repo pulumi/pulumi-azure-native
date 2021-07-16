@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.AzureArcData
                     new Pulumi.Alias { Type = "azure-nextgen:azurearcdata:SqlServerInstance"},
                     new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210601preview:SqlServerInstance"},
                     new Pulumi.Alias { Type = "azure-nextgen:azurearcdata/v20210601preview:SqlServerInstance"},
+                    new Pulumi.Alias { Type = "azure-native:azurearcdata/v20210801:SqlServerInstance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:azurearcdata/v20210801:SqlServerInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

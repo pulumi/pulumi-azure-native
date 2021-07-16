@@ -20,7 +20,7 @@ class GetNamespaceNetworkRuleSetResult:
     """
     Description of NetworkRuleSet resource.
     """
-    def __init__(__self__, default_action=None, id=None, ip_rules=None, name=None, system_data=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, default_action=None, id=None, ip_rules=None, name=None, public_network_access=None, system_data=None, trusted_service_access_enabled=None, type=None, virtual_network_rules=None):
         if default_action and not isinstance(default_action, str):
             raise TypeError("Expected argument 'default_action' to be a str")
         pulumi.set(__self__, "default_action", default_action)
@@ -33,9 +33,15 @@ class GetNamespaceNetworkRuleSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if trusted_service_access_enabled and not isinstance(trusted_service_access_enabled, bool):
+            raise TypeError("Expected argument 'trusted_service_access_enabled' to be a bool")
+        pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -76,12 +82,28 @@ class GetNamespaceNetworkRuleSetResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
         The system meta data relating to this resource.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="trustedServiceAccessEnabled")
+    def trusted_service_access_enabled(self) -> Optional[bool]:
+        """
+        Value that indicates whether Trusted Service Access is Enabled or not.
+        """
+        return pulumi.get(self, "trusted_service_access_enabled")
 
     @property
     @pulumi.getter
@@ -110,7 +132,9 @@ class AwaitableGetNamespaceNetworkRuleSetResult(GetNamespaceNetworkRuleSetResult
             id=self.id,
             ip_rules=self.ip_rules,
             name=self.name,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
+            trusted_service_access_enabled=self.trusted_service_access_enabled,
             type=self.type,
             virtual_network_rules=self.virtual_network_rules)
 
@@ -139,6 +163,8 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
         id=__ret__.id,
         ip_rules=__ret__.ip_rules,
         name=__ret__.name,
+        public_network_access=__ret__.public_network_access,
         system_data=__ret__.system_data,
+        trusted_service_access_enabled=__ret__.trusted_service_access_enabled,
         type=__ret__.type,
         virtual_network_rules=__ret__.virtual_network_rules)

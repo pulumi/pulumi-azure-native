@@ -59,6 +59,10 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -85,6 +89,8 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
 
             string name,
 
+            string? publicNetworkAccess,
+
             Outputs.SystemDataResponse systemData,
 
             bool? trustedServiceAccessEnabled,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
             Id = id;
             IpRules = ipRules;
             Name = name;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             TrustedServiceAccessEnabled = trustedServiceAccessEnabled;
             Type = type;

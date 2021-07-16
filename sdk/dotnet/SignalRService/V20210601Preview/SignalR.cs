@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210601Preview
         public Output<Outputs.SignalRCorsSettingsResponse?> Cors { get; private set; } = null!;
 
         /// <summary>
-        /// disableAadAuth
+        /// DisableLocalAuth
         /// Enable or disable aad auth
         /// When set as true, connection with AuthType=aad won't work.
         /// </summary>
@@ -238,7 +238,7 @@ namespace Pulumi.AzureNative.SignalRService.V20210601Preview
         public Input<Inputs.SignalRCorsSettingsArgs>? Cors { get; set; }
 
         /// <summary>
-        /// disableAadAuth
+        /// DisableLocalAuth
         /// Enable or disable aad auth
         /// When set as true, connection with AuthType=aad won't work.
         /// </summary>

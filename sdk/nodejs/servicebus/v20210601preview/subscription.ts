@@ -44,6 +44,10 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
     /**
+     * Properties specific to client affine subscriptions.
+     */
+    public readonly clientAffineProperties!: pulumi.Output<outputs.servicebus.v20210601preview.SBClientAffinePropertiesResponse | undefined>;
+    /**
      * Message count details
      */
     public /*out*/ readonly countDetails!: pulumi.Output<outputs.servicebus.v20210601preview.MessageCountDetailsResponse>;
@@ -79,6 +83,10 @@ export class Subscription extends pulumi.CustomResource {
      * Queue/Topic name to forward the messages
      */
     public readonly forwardTo!: pulumi.Output<string | undefined>;
+    /**
+     * Value that indicates whether the subscription has an affinity to the client id.
+     */
+    public readonly isClientAffine!: pulumi.Output<boolean | undefined>;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
@@ -137,6 +145,7 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            inputs["clientAffineProperties"] = args ? args.clientAffineProperties : undefined;
             inputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
             inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
@@ -144,6 +153,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
             inputs["forwardTo"] = args ? args.forwardTo : undefined;
+            inputs["isClientAffine"] = args ? args.isClientAffine : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
             inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -163,6 +173,7 @@ export class Subscription extends pulumi.CustomResource {
         } else {
             inputs["accessedAt"] = undefined /*out*/;
             inputs["autoDeleteOnIdle"] = undefined /*out*/;
+            inputs["clientAffineProperties"] = undefined /*out*/;
             inputs["countDetails"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["deadLetteringOnFilterEvaluationExceptions"] = undefined /*out*/;
@@ -172,6 +183,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["enableBatchedOperations"] = undefined /*out*/;
             inputs["forwardDeadLetteredMessagesTo"] = undefined /*out*/;
             inputs["forwardTo"] = undefined /*out*/;
+            inputs["isClientAffine"] = undefined /*out*/;
             inputs["lockDuration"] = undefined /*out*/;
             inputs["maxDeliveryCount"] = undefined /*out*/;
             inputs["messageCount"] = undefined /*out*/;
@@ -200,6 +212,10 @@ export interface SubscriptionArgs {
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
     /**
+     * Properties specific to client affine subscriptions.
+     */
+    clientAffineProperties?: pulumi.Input<inputs.servicebus.v20210601preview.SBClientAffinePropertiesArgs>;
+    /**
      * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
      */
     deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
@@ -227,6 +243,10 @@ export interface SubscriptionArgs {
      * Queue/Topic name to forward the messages
      */
     forwardTo?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether the subscription has an affinity to the client id.
+     */
+    isClientAffine?: pulumi.Input<boolean>;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */

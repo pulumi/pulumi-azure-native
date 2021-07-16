@@ -10,6 +10,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type EndpointType pulumi.String
+
+const (
+	EndpointTypeNotSpecified     = EndpointType("NotSpecified")
+	EndpointTypeCanary           = EndpointType("Canary")
+	EndpointTypeProduction       = EndpointType("Production")
+	EndpointTypeTestInProduction = EndpointType("TestInProduction")
+)
+
+func (EndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e EndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 type ExtensionCategory pulumi.String
 
 const (

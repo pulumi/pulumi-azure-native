@@ -144,6 +144,7 @@ __all__ = [
     'CouchbaseLinkedServiceArgs',
     'CouchbaseSourceArgs',
     'CouchbaseTableDatasetArgs',
+    'CredentialReferenceArgs',
     'CustomActivityArgs',
     'CustomActivityReferenceObjectArgs',
     'CustomDataSourceLinkedServiceArgs',
@@ -3742,6 +3743,7 @@ class AzureBatchLinkedServiceArgs:
                  access_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
@@ -3756,6 +3758,7 @@ class AzureBatchLinkedServiceArgs:
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] access_key: The Azure Batch account access key.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -3771,6 +3774,8 @@ class AzureBatchLinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -3874,6 +3879,18 @@ class AzureBatchLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -4369,6 +4386,7 @@ class AzureBlobFSLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -4384,6 +4402,7 @@ class AzureBlobFSLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -4401,6 +4420,8 @@ class AzureBlobFSLinkedServiceArgs:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -4486,6 +4507,18 @@ class AzureBlobFSLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -5223,6 +5256,7 @@ class AzureBlobStorageLinkedServiceArgs:
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[Any] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -5242,6 +5276,7 @@ class AzureBlobStorageLinkedServiceArgs:
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -5265,6 +5300,8 @@ class AzureBlobStorageLinkedServiceArgs:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -5368,6 +5405,18 @@ class AzureBlobStorageLinkedServiceArgs:
     @connection_string.setter
     def connection_string(self, value: Optional[Any]):
         pulumi.set(self, "connection_string", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -6016,6 +6065,7 @@ class AzureDataExplorerLinkedServiceArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  service_principal_id: Optional[Any] = None,
@@ -6029,6 +6079,7 @@ class AzureDataExplorerLinkedServiceArgs:
                Expected value is 'AzureDataExplorer'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure Data Explorer. Type: string (or Expression with resultType string).
@@ -6042,6 +6093,8 @@ class AzureDataExplorerLinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if parameters is not None:
@@ -6113,6 +6166,18 @@ class AzureDataExplorerLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -7072,6 +7137,7 @@ class AzureDataLakeStoreLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -7089,6 +7155,7 @@ class AzureDataLakeStoreLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -7108,6 +7175,8 @@ class AzureDataLakeStoreLinkedServiceArgs:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -7197,6 +7266,18 @@ class AzureDataLakeStoreLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -8649,6 +8730,7 @@ class AzureDatabricksLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  authentication: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  existing_cluster_id: Optional[Any] = None,
@@ -8675,6 +8757,7 @@ class AzureDatabricksLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any authentication: Required to specify MSI, if using Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Any existing_cluster_id: The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
@@ -8703,6 +8786,8 @@ class AzureDatabricksLinkedServiceArgs:
             pulumi.set(__self__, "authentication", authentication)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -8810,6 +8895,18 @@ class AzureDatabricksLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -9800,29 +9897,39 @@ class AzureFunctionLinkedServiceArgs:
                  function_app_url: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  function_key: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 resource_id: Optional[Any] = None):
         """
         Azure Function linked service.
         :param Any function_app_url: The endpoint of the Azure Function App. URL will be in the format https://<accountName>.azurewebsites.net.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureFunction'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication: Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] function_key: Function or Host key for Azure Function App.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param Any resource_id: Allowed token audiences for azure function.
         """
         pulumi.set(__self__, "function_app_url", function_app_url)
         pulumi.set(__self__, "type", 'AzureFunction')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -9831,6 +9938,8 @@ class AzureFunctionLinkedServiceArgs:
             pulumi.set(__self__, "function_key", function_key)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="functionAppUrl")
@@ -9870,6 +9979,18 @@ class AzureFunctionLinkedServiceArgs:
         pulumi.set(self, "annotations", value)
 
     @property
+    @pulumi.getter
+    def authentication(self) -> Optional[Any]:
+        """
+        Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[Any]):
+        pulumi.set(self, "authentication", value)
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
         """
@@ -9880,6 +10001,18 @@ class AzureFunctionLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -9929,6 +10062,18 @@ class AzureFunctionLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
 
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[Any]:
+        """
+        Allowed token audiences for azure function.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[Any]):
+        pulumi.set(self, "resource_id", value)
+
 
 @pulumi.input_type
 class AzureKeyVaultLinkedServiceArgs:
@@ -9937,6 +10082,7 @@ class AzureKeyVaultLinkedServiceArgs:
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
@@ -9946,6 +10092,7 @@ class AzureKeyVaultLinkedServiceArgs:
                Expected value is 'AzureKeyVault'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
@@ -9955,6 +10102,8 @@ class AzureKeyVaultLinkedServiceArgs:
             pulumi.set(__self__, "annotations", annotations)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if parameters is not None:
@@ -10008,6 +10157,18 @@ class AzureKeyVaultLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -10528,6 +10689,7 @@ class AzureMLLinkedServiceArgs:
                  ml_endpoint: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 authentication: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -10543,6 +10705,7 @@ class AzureMLLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'AzureML'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication: Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -10557,6 +10720,8 @@ class AzureMLLinkedServiceArgs:
         pulumi.set(__self__, "type", 'AzureML')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
@@ -10622,6 +10787,18 @@ class AzureMLLinkedServiceArgs:
     @annotations.setter
     def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
         pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[Any]:
+        """
+        Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[Any]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="connectVia")
@@ -13257,6 +13434,7 @@ class AzureSqlDWLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -13272,6 +13450,7 @@ class AzureSqlDWLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -13288,6 +13467,8 @@ class AzureSqlDWLinkedServiceArgs:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -13363,6 +13544,18 @@ class AzureSqlDWLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -13626,6 +13819,7 @@ class AzureSqlDatabaseLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -13642,6 +13836,7 @@ class AzureSqlDatabaseLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -13660,6 +13855,8 @@ class AzureSqlDatabaseLinkedServiceArgs:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -13747,6 +13944,18 @@ class AzureSqlDatabaseLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -13842,6 +14051,7 @@ class AzureSqlMILinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
@@ -13858,6 +14068,7 @@ class AzureSqlMILinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
@@ -13876,6 +14087,8 @@ class AzureSqlMILinkedServiceArgs:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -13963,6 +14176,18 @@ class AzureSqlMILinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -20940,6 +21165,44 @@ class CouchbaseTableDatasetArgs:
     @table_name.setter
     def table_name(self, value: Optional[Any]):
         pulumi.set(self, "table_name", value)
+
+
+@pulumi.input_type
+class CredentialReferenceArgs:
+    def __init__(__self__, *,
+                 reference_name: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        Credential reference type.
+        :param pulumi.Input[str] reference_name: Reference credential name.
+        :param pulumi.Input[str] type: Credential reference type.
+        """
+        pulumi.set(__self__, "reference_name", reference_name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> pulumi.Input[str]:
+        """
+        Reference credential name.
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "reference_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Credential reference type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -34838,6 +35101,7 @@ class HDInsightOnDemandLinkedServiceArgs:
                  cluster_user_name: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  core_configuration: Optional[Any] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  data_node_size: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -34879,6 +35143,7 @@ class HDInsightOnDemandLinkedServiceArgs:
         :param Any cluster_user_name: The username to access the cluster. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param Any core_configuration: Specifies the core configuration parameters (as in core-site.xml) for the HDInsight cluster to be created.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param Any data_node_size: Specifies the size of the data node for the HDInsight cluster.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -34928,6 +35193,8 @@ class HDInsightOnDemandLinkedServiceArgs:
             pulumi.set(__self__, "connect_via", connect_via)
         if core_configuration is not None:
             pulumi.set(__self__, "core_configuration", core_configuration)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if data_node_size is not None:
             pulumi.set(__self__, "data_node_size", data_node_size)
         if description is not None:
@@ -35185,6 +35452,18 @@ class HDInsightOnDemandLinkedServiceArgs:
     @core_configuration.setter
     def core_configuration(self, value: Optional[Any]):
         pulumi.set(self, "core_configuration", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="dataNodeSize")
@@ -40442,26 +40721,28 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
 class IntegrationRuntimeSsisPropertiesArgs:
     def __init__(__self__, *,
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
                  data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
                  edition: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]] = None,
                  express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]] = None,
-                 managed_credential: Optional[pulumi.Input['EntityReferenceArgs']] = None,
                  package_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]]] = None):
         """
         SSIS properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: Catalog information for managed dedicated integration runtime.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs'] custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs'] data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
         :param pulumi.Input[Union[str, 'IntegrationRuntimeEdition']] edition: The edition for the SSIS Integration Runtime
         :param pulumi.Input[Sequence[pulumi.Input[Union['AzPowerShellSetupArgs', 'CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
         :param pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']] license_type: License type for bringing your own license scenario.
-        :param pulumi.Input['EntityReferenceArgs'] managed_credential: The user-assigned managed identity reference.
         :param pulumi.Input[Sequence[pulumi.Input['PackageStoreArgs']]] package_stores: Package stores for the SSIS Integration Runtime.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if custom_setup_script_properties is not None:
             pulumi.set(__self__, "custom_setup_script_properties", custom_setup_script_properties)
         if data_proxy_properties is not None:
@@ -40472,8 +40753,6 @@ class IntegrationRuntimeSsisPropertiesArgs:
             pulumi.set(__self__, "express_custom_setup_properties", express_custom_setup_properties)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
-        if managed_credential is not None:
-            pulumi.set(__self__, "managed_credential", managed_credential)
         if package_stores is not None:
             pulumi.set(__self__, "package_stores", package_stores)
 
@@ -40488,6 +40767,18 @@ class IntegrationRuntimeSsisPropertiesArgs:
     @catalog_info.setter
     def catalog_info(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']]):
         pulumi.set(self, "catalog_info", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter(name="customSetupScriptProperties")
@@ -40548,18 +40839,6 @@ class IntegrationRuntimeSsisPropertiesArgs:
     @license_type.setter
     def license_type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]):
         pulumi.set(self, "license_type", value)
-
-    @property
-    @pulumi.getter(name="managedCredential")
-    def managed_credential(self) -> Optional[pulumi.Input['EntityReferenceArgs']]:
-        """
-        The user-assigned managed identity reference.
-        """
-        return pulumi.get(self, "managed_credential")
-
-    @managed_credential.setter
-    def managed_credential(self, value: Optional[pulumi.Input['EntityReferenceArgs']]):
-        pulumi.set(self, "managed_credential", value)
 
     @property
     @pulumi.getter(name="packageStores")
@@ -56184,6 +56463,7 @@ class RestServiceLinkedServiceArgs:
                  auth_headers: Optional[Any] = None,
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_server_certificate_validation: Optional[Any] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -56204,6 +56484,7 @@ class RestServiceLinkedServiceArgs:
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[str] description: Linked service description.
         :param Any enable_server_certificate_validation: Whether to validate server side SSL certificate when connecting to the endpoint.The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -56227,6 +56508,8 @@ class RestServiceLinkedServiceArgs:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_server_certificate_validation is not None:
@@ -56342,6 +56625,18 @@ class RestServiceLinkedServiceArgs:
     @connect_via.setter
     def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
         pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -72825,28 +73120,33 @@ class WebActivityArgs:
 @pulumi.input_type
 class WebActivityAuthenticationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  pfx: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  resource: Optional[Any] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  user_tenant: Optional[Any] = None,
                  username: Optional[Any] = None):
         """
         Web activity authentication properties.
-        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
         :param Any resource: Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
         :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
         :param Any username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
         """
-        pulumi.set(__self__, "type", type)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if pfx is not None:
             pulumi.set(__self__, "pfx", pfx)
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
         if user_tenant is not None:
             pulumi.set(__self__, "user_tenant", user_tenant)
         if username is not None:
@@ -72854,15 +73154,15 @@ class WebActivityAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
         """
-        Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
+        The credential reference containing authentication information.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "credential")
 
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
 
     @property
     @pulumi.getter
@@ -72899,6 +73199,18 @@ class WebActivityAuthenticationArgs:
     @resource.setter
     def resource(self, value: Optional[Any]):
         pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="userTenant")

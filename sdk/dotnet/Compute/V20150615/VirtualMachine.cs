@@ -159,6 +159,8 @@ namespace Pulumi.AzureNative.Compute.V20150615
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210301:VirtualMachine"},
                     new Pulumi.Alias { Type = "azure-nextgen:compute/v20210301:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:compute/v20210401:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210401:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

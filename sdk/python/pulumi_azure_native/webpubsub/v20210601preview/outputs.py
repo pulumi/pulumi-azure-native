@@ -1150,6 +1150,8 @@ class WebPubSubTlsSettingsResponse(dict):
         TLS settings for the resource
         :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled
         """
+        if client_cert_enabled is None:
+            client_cert_enabled = True
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
 

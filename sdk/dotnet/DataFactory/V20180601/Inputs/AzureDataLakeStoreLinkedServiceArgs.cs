@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
 
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
+
+        /// <summary>
         /// Data Lake Store service URI. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("dataLakeStoreUri", required: true)]

@@ -30,6 +30,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
         /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
+        /// <summary>
         /// Linked service description.
         /// </summary>
         public readonly string? Description;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
+            Outputs.CredentialReferenceResponse? credential,
+
             string? description,
 
             object domain,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Annotations = annotations;
             Authentication = authentication;
             ConnectVia = connectVia;
+            Credential = credential;
             Description = description;
             Domain = domain;
             EncryptedCredential = encryptedCredential;

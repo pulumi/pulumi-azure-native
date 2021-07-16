@@ -23,6 +23,7 @@ namespace Pulumi.AzureNative.WebPubSub.Inputs
 
         public WebPubSubTlsSettingsArgs()
         {
+            ClientCertEnabled = true;
         }
     }
 }
