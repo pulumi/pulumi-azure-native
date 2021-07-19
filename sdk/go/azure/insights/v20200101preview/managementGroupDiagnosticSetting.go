@@ -85,45 +85,9 @@ func GetManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementGroupDiagnosticSetting resources.
 type managementGroupDiagnosticSettingState struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName *string `pulumi:"eventHubName"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The list of logs settings.
-	Logs []ManagementGroupLogSettingsResponse `pulumi:"logs"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type ManagementGroupDiagnosticSettingState struct {
-	// The resource Id for the event hub authorization rule.
-	EventHubAuthorizationRuleId pulumi.StringPtrInput
-	// The name of the event hub. If none is specified, the default event hub will be selected.
-	EventHubName pulumi.StringPtrInput
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The list of logs settings.
-	Logs ManagementGroupLogSettingsResponseArrayInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-	ServiceBusRuleId pulumi.StringPtrInput
-	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
-	StorageAccountId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
-	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (ManagementGroupDiagnosticSettingState) ElementType() reflect.Type {

@@ -110,29 +110,9 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint *PrivateEndpointPropertyResponse `pulumi:"privateEndpoint"`
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
-	// State of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Private endpoint which the connection belongs to.
-	PrivateEndpoint PrivateEndpointPropertyResponsePtrInput
-	// Connection state of the private endpoint connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionState) ElementType() reflect.Type {

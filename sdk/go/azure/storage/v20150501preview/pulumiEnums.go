@@ -11,7 +11,7 @@ import (
 )
 
 // Gets or sets the account type.
-type AccountType pulumi.String
+type AccountType string
 
 const (
 	AccountType_Standard_LRS   = AccountType("Standard_LRS")
@@ -22,7 +22,23 @@ const (
 )
 
 func (AccountType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*AccountType)(nil)).Elem()
+}
+
+func (e AccountType) ToAccountTypeOutput() AccountTypeOutput {
+	return pulumi.ToOutput(e).(AccountTypeOutput)
+}
+
+func (e AccountType) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccountTypeOutput)
+}
+
+func (e AccountType) ToAccountTypePtrOutput() AccountTypePtrOutput {
+	return e.ToAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccountType) ToAccountTypePtrOutputWithContext(ctx context.Context) AccountTypePtrOutput {
+	return AccountType(e).ToAccountTypeOutputWithContext(ctx).ToAccountTypePtrOutputWithContext(ctx)
 }
 
 func (e AccountType) ToStringOutput() pulumi.StringOutput {
@@ -39,4 +55,130 @@ func (e AccountType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e AccountType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccountTypeOutput struct{ *pulumi.OutputState }
+
+func (AccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountType)(nil)).Elem()
+}
+
+func (o AccountTypeOutput) ToAccountTypeOutput() AccountTypeOutput {
+	return o
+}
+
+func (o AccountTypeOutput) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
+	return o
+}
+
+func (o AccountTypeOutput) ToAccountTypePtrOutput() AccountTypePtrOutput {
+	return o.ToAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccountTypeOutput) ToAccountTypePtrOutputWithContext(ctx context.Context) AccountTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountType) *AccountType {
+		return &v
+	}).(AccountTypePtrOutput)
+}
+
+func (o AccountTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccountTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccountTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountTypePtrOutput) ElementType() reflect.Type {
+	return accountTypePtrType
+}
+
+func (o AccountTypePtrOutput) ToAccountTypePtrOutput() AccountTypePtrOutput {
+	return o
+}
+
+func (o AccountTypePtrOutput) ToAccountTypePtrOutputWithContext(ctx context.Context) AccountTypePtrOutput {
+	return o
+}
+
+func (o AccountTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AccountTypePtrOutput) Elem() AccountTypeOutput {
+	return o.ApplyT(func(v *AccountType) AccountType {
+		var ret AccountType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(AccountTypeOutput)
+}
+
+// AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
+// You can construct a concrete instance of `AccountTypeInput` via:
+//
+//          AccountTypeArgs{...}
+type AccountTypeInput interface {
+	pulumi.Input
+
+	ToAccountTypeOutput() AccountTypeOutput
+	ToAccountTypeOutputWithContext(context.Context) AccountTypeOutput
+}
+
+var accountTypePtrType = reflect.TypeOf((**AccountType)(nil)).Elem()
+
+type AccountTypePtrInput interface {
+	pulumi.Input
+
+	ToAccountTypePtrOutput() AccountTypePtrOutput
+	ToAccountTypePtrOutputWithContext(context.Context) AccountTypePtrOutput
+}
+
+type accountTypePtr string
+
+func AccountTypePtr(v string) AccountTypePtrInput {
+	return (*accountTypePtr)(&v)
+}
+
+func (*accountTypePtr) ElementType() reflect.Type {
+	return accountTypePtrType
+}
+
+func (in *accountTypePtr) ToAccountTypePtrOutput() AccountTypePtrOutput {
+	return pulumi.ToOutput(in).(AccountTypePtrOutput)
+}
+
+func (in *accountTypePtr) ToAccountTypePtrOutputWithContext(ctx context.Context) AccountTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccountTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(AccountTypeOutput{})
+	pulumi.RegisterOutputType(AccountTypePtrOutput{})
 }

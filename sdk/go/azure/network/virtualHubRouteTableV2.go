@@ -135,29 +135,9 @@ func GetVirtualHubRouteTableV2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHubRouteTableV2 resources.
 type virtualHubRouteTableV2State struct {
-	// List of all connections attached to this route table v2.
-	AttachedConnections []string `pulumi:"attachedConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the virtual hub route table v2 resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// List of all routes.
-	Routes []VirtualHubRouteV2Response `pulumi:"routes"`
 }
 
 type VirtualHubRouteTableV2State struct {
-	// List of all connections attached to this route table v2.
-	AttachedConnections pulumi.StringArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the virtual hub route table v2 resource.
-	ProvisioningState pulumi.StringPtrInput
-	// List of all routes.
-	Routes VirtualHubRouteV2ResponseArrayInput
 }
 
 func (VirtualHubRouteTableV2State) ElementType() reflect.Type {

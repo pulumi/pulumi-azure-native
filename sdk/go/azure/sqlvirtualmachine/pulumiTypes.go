@@ -931,7 +931,7 @@ func (o AutoBackupSettingsResponsePtrOutput) StorageAccountUrl() pulumi.StringPt
 // Set a patching window during which Windows and SQL patches will be applied.
 type AutoPatchingSettings struct {
 	// Day of week to apply the patch on.
-	DayOfWeek *string `pulumi:"dayOfWeek"`
+	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
 	// Enable or disable autopatching on SQL virtual machine.
 	Enable *bool `pulumi:"enable"`
 	// Duration of patching.
@@ -954,7 +954,7 @@ type AutoPatchingSettingsInput interface {
 // Set a patching window during which Windows and SQL patches will be applied.
 type AutoPatchingSettingsArgs struct {
 	// Day of week to apply the patch on.
-	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeekPtrInput `pulumi:"dayOfWeek"`
 	// Enable or disable autopatching on SQL virtual machine.
 	Enable pulumi.BoolPtrInput `pulumi:"enable"`
 	// Duration of patching.
@@ -1042,8 +1042,8 @@ func (o AutoPatchingSettingsOutput) ToAutoPatchingSettingsPtrOutputWithContext(c
 }
 
 // Day of week to apply the patch on.
-func (o AutoPatchingSettingsOutput) DayOfWeek() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoPatchingSettings) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+func (o AutoPatchingSettingsOutput) DayOfWeek() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v AutoPatchingSettings) *DayOfWeek { return v.DayOfWeek }).(DayOfWeekPtrOutput)
 }
 
 // Enable or disable autopatching on SQL virtual machine.
@@ -1080,13 +1080,13 @@ func (o AutoPatchingSettingsPtrOutput) Elem() AutoPatchingSettingsOutput {
 }
 
 // Day of week to apply the patch on.
-func (o AutoPatchingSettingsPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoPatchingSettings) *string {
+func (o AutoPatchingSettingsPtrOutput) DayOfWeek() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v *AutoPatchingSettings) *DayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.DayOfWeek
-	}).(pulumi.StringPtrOutput)
+	}).(DayOfWeekPtrOutput)
 }
 
 // Enable or disable autopatching on SQL virtual machine.

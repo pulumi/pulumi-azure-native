@@ -15,7 +15,7 @@ type AutoscaleNotification struct {
 	// the email notification.
 	Email *EmailNotification `pulumi:"email"`
 	// the operation associated with the notification and its value must be "scale"
-	Operation string `pulumi:"operation"`
+	Operation OperationType `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks []WebhookNotification `pulumi:"webhooks"`
 }
@@ -36,7 +36,7 @@ type AutoscaleNotificationArgs struct {
 	// the email notification.
 	Email EmailNotificationPtrInput `pulumi:"email"`
 	// the operation associated with the notification and its value must be "scale"
-	Operation OperationType `pulumi:"operation"`
+	Operation OperationTypeInput `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks WebhookNotificationArrayInput `pulumi:"webhooks"`
 }
@@ -99,8 +99,8 @@ func (o AutoscaleNotificationOutput) Email() EmailNotificationPtrOutput {
 }
 
 // the operation associated with the notification and its value must be "scale"
-func (o AutoscaleNotificationOutput) Operation() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleNotification) string { return v.Operation }).(pulumi.StringOutput)
+func (o AutoscaleNotificationOutput) Operation() OperationTypeOutput {
+	return o.ApplyT(func(v AutoscaleNotification) OperationType { return v.Operation }).(OperationTypeOutput)
 }
 
 // the collection of webhook notifications.
@@ -877,13 +877,13 @@ type MetricTrigger struct {
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri string `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
-	Operator string `pulumi:"operator"`
+	Operator ComparisonOperationType `pulumi:"operator"`
 	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic string `pulumi:"statistic"`
+	Statistic MetricStatisticType `pulumi:"statistic"`
 	// the threshold of the metric that triggers the scale action.
 	Threshold float64 `pulumi:"threshold"`
 	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation string `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationType `pulumi:"timeAggregation"`
 	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 	TimeGrain string `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
@@ -916,13 +916,13 @@ type MetricTriggerArgs struct {
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
-	Operator ComparisonOperationType `pulumi:"operator"`
+	Operator ComparisonOperationTypeInput `pulumi:"operator"`
 	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic MetricStatisticType `pulumi:"statistic"`
+	Statistic MetricStatisticTypeInput `pulumi:"statistic"`
 	// the threshold of the metric that triggers the scale action.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation TimeAggregationType `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationTypeInput `pulumi:"timeAggregation"`
 	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
@@ -987,13 +987,13 @@ func (o MetricTriggerOutput) MetricResourceUri() pulumi.StringOutput {
 }
 
 // the operator that is used to compare the metric data and the threshold.
-func (o MetricTriggerOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.Operator }).(pulumi.StringOutput)
+func (o MetricTriggerOutput) Operator() ComparisonOperationTypeOutput {
+	return o.ApplyT(func(v MetricTrigger) ComparisonOperationType { return v.Operator }).(ComparisonOperationTypeOutput)
 }
 
 // the metric statistic type. How the metrics from multiple instances are combined.
-func (o MetricTriggerOutput) Statistic() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.Statistic }).(pulumi.StringOutput)
+func (o MetricTriggerOutput) Statistic() MetricStatisticTypeOutput {
+	return o.ApplyT(func(v MetricTrigger) MetricStatisticType { return v.Statistic }).(MetricStatisticTypeOutput)
 }
 
 // the threshold of the metric that triggers the scale action.
@@ -1002,8 +1002,8 @@ func (o MetricTriggerOutput) Threshold() pulumi.Float64Output {
 }
 
 // time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-func (o MetricTriggerOutput) TimeAggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricTrigger) string { return v.TimeAggregation }).(pulumi.StringOutput)
+func (o MetricTriggerOutput) TimeAggregation() TimeAggregationTypeOutput {
+	return o.ApplyT(func(v MetricTrigger) TimeAggregationType { return v.TimeAggregation }).(TimeAggregationTypeOutput)
 }
 
 // the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
@@ -1173,7 +1173,7 @@ func (o MetricTriggerResponseOutput) TimeWindow() pulumi.StringOutput {
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type Recurrence struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency string `pulumi:"frequency"`
+	Frequency RecurrenceFrequency `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentSchedule `pulumi:"schedule"`
 }
@@ -1192,7 +1192,7 @@ type RecurrenceInput interface {
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type RecurrenceArgs struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency RecurrenceFrequency `pulumi:"frequency"`
+	Frequency RecurrenceFrequencyInput `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentScheduleInput `pulumi:"schedule"`
 }
@@ -1276,8 +1276,8 @@ func (o RecurrenceOutput) ToRecurrencePtrOutputWithContext(ctx context.Context) 
 }
 
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrenceOutput) Frequency() pulumi.StringOutput {
-	return o.ApplyT(func(v Recurrence) string { return v.Frequency }).(pulumi.StringOutput)
+func (o RecurrenceOutput) Frequency() RecurrenceFrequencyOutput {
+	return o.ApplyT(func(v Recurrence) RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyOutput)
 }
 
 // the scheduling constraints for when the profile begins.
@@ -1304,13 +1304,13 @@ func (o RecurrencePtrOutput) Elem() RecurrenceOutput {
 }
 
 // the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-func (o RecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Recurrence) *string {
+func (o RecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
+	return o.ApplyT(func(v *Recurrence) *RecurrenceFrequency {
 		if v == nil {
 			return nil
 		}
 		return &v.Frequency
-	}).(pulumi.StringPtrOutput)
+	}).(RecurrenceFrequencyPtrOutput)
 }
 
 // the scheduling constraints for when the profile begins.
@@ -1863,9 +1863,9 @@ type ScaleAction struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown string `pulumi:"cooldown"`
 	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction string `pulumi:"direction"`
+	Direction ScaleDirection `pulumi:"direction"`
 	// the type of action that should occur when the scale rule fires.
-	Type string `pulumi:"type"`
+	Type ScaleType `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value *string `pulumi:"value"`
 }
@@ -1886,9 +1886,9 @@ type ScaleActionArgs struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown pulumi.StringInput `pulumi:"cooldown"`
 	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction ScaleDirection `pulumi:"direction"`
+	Direction ScaleDirectionInput `pulumi:"direction"`
 	// the type of action that should occur when the scale rule fires.
-	Type ScaleType `pulumi:"type"`
+	Type ScaleTypeInput `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -1926,13 +1926,13 @@ func (o ScaleActionOutput) Cooldown() pulumi.StringOutput {
 }
 
 // the scale direction. Whether the scaling action increases or decreases the number of instances.
-func (o ScaleActionOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Direction }).(pulumi.StringOutput)
+func (o ScaleActionOutput) Direction() ScaleDirectionOutput {
+	return o.ApplyT(func(v ScaleAction) ScaleDirection { return v.Direction }).(ScaleDirectionOutput)
 }
 
 // the type of action that should occur when the scale rule fires.
-func (o ScaleActionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ScaleAction) string { return v.Type }).(pulumi.StringOutput)
+func (o ScaleActionOutput) Type() ScaleTypeOutput {
+	return o.ApplyT(func(v ScaleAction) ScaleType { return v.Type }).(ScaleTypeOutput)
 }
 
 // the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.

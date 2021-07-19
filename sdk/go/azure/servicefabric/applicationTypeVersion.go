@@ -129,41 +129,9 @@ func GetApplicationTypeVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationTypeVersion resources.
 type applicationTypeVersionState struct {
-	// The URL to the application package
-	AppPackageUrl *string `pulumi:"appPackageUrl"`
-	// List of application type parameters that can be overridden when creating or updating the application.
-	DefaultParameterList map[string]string `pulumi:"defaultParameterList"`
-	// Azure resource etag.
-	Etag *string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name *string `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ApplicationTypeVersionState struct {
-	// The URL to the application package
-	AppPackageUrl pulumi.StringPtrInput
-	// List of application type parameters that can be overridden when creating or updating the application.
-	DefaultParameterList pulumi.StringMapInput
-	// Azure resource etag.
-	Etag pulumi.StringPtrInput
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput
-	// Azure resource name.
-	Name pulumi.StringPtrInput
-	// The current deployment or provisioning state, which only appears in the response
-	ProvisioningState pulumi.StringPtrInput
-	// Azure resource tags.
-	Tags pulumi.StringMapInput
-	// Azure resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ApplicationTypeVersionState) ElementType() reflect.Type {

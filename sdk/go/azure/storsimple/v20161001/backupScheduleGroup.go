@@ -70,21 +70,9 @@ func GetBackupScheduleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupScheduleGroup resources.
 type backupScheduleGroupState struct {
-	// The name.
-	Name *string `pulumi:"name"`
-	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-	StartTime *TimeResponse `pulumi:"startTime"`
-	// The type.
-	Type *string `pulumi:"type"`
 }
 
 type BackupScheduleGroupState struct {
-	// The name.
-	Name pulumi.StringPtrInput
-	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
-	StartTime TimeResponsePtrInput
-	// The type.
-	Type pulumi.StringPtrInput
 }
 
 func (BackupScheduleGroupState) ElementType() reflect.Type {

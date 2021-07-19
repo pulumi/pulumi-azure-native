@@ -118,33 +118,9 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// Runtime connection string to cache
-	ConnectionString *string `pulumi:"connectionString"`
-	// Cache description
-	Description *string `pulumi:"description"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Original uri of entity in external system cache points to
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation *string `pulumi:"useFromLocation"`
 }
 
 type CacheState struct {
-	// Runtime connection string to cache
-	ConnectionString pulumi.StringPtrInput
-	// Cache description
-	Description pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Original uri of entity in external system cache points to
-	ResourceId pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
-	UseFromLocation pulumi.StringPtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {

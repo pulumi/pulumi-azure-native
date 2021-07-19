@@ -90,65 +90,9 @@ func GetHanaInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HanaInstance resources.
 type hanaInstanceState struct {
-	// Specifies the HANA instance unique ID.
-	HanaInstanceId *string `pulumi:"hanaInstanceId"`
-	// Specifies the hardware settings for the HANA instance.
-	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
-	// Hardware revision of a HANA instance
-	HwRevision *string `pulumi:"hwRevision"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Specifies the network settings for the HANA instance.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// Specifies the operating system settings for the HANA instance.
-	OsProfile *OSProfileResponse `pulumi:"osProfile"`
-	// ARM ID of another HanaInstance that will share a network with this HanaInstance
-	PartnerNodeId *string `pulumi:"partnerNodeId"`
-	// Resource power state
-	PowerState *string `pulumi:"powerState"`
-	// State of provisioning of the HanaInstance
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource proximity placement group
-	ProximityPlacementGroup *string `pulumi:"proximityPlacementGroup"`
-	// Specifies the storage settings for the HANA instance disks.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type HanaInstanceState struct {
-	// Specifies the HANA instance unique ID.
-	HanaInstanceId pulumi.StringPtrInput
-	// Specifies the hardware settings for the HANA instance.
-	HardwareProfile HardwareProfileResponsePtrInput
-	// Hardware revision of a HANA instance
-	HwRevision pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Specifies the network settings for the HANA instance.
-	NetworkProfile NetworkProfileResponsePtrInput
-	// Specifies the operating system settings for the HANA instance.
-	OsProfile OSProfileResponsePtrInput
-	// ARM ID of another HanaInstance that will share a network with this HanaInstance
-	PartnerNodeId pulumi.StringPtrInput
-	// Resource power state
-	PowerState pulumi.StringPtrInput
-	// State of provisioning of the HanaInstance
-	ProvisioningState pulumi.StringPtrInput
-	// Resource proximity placement group
-	ProximityPlacementGroup pulumi.StringPtrInput
-	// Specifies the storage settings for the HANA instance disks.
-	StorageProfile StorageProfileResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (HanaInstanceState) ElementType() reflect.Type {

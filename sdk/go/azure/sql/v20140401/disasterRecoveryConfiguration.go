@@ -84,49 +84,9 @@ func GetDisasterRecoveryConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DisasterRecoveryConfiguration resources.
 type disasterRecoveryConfigurationState struct {
-	// Whether or not failover can be done automatically.
-	AutoFailover *string `pulumi:"autoFailover"`
-	// How aggressive the automatic failover should be.
-	FailoverPolicy *string `pulumi:"failoverPolicy"`
-	// Location of the server that contains this disaster recovery configuration.
-	Location *string `pulumi:"location"`
-	// Logical name of the server.
-	LogicalServerName *string `pulumi:"logicalServerName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Logical name of the partner server.
-	PartnerLogicalServerName *string `pulumi:"partnerLogicalServerName"`
-	// Id of the partner server.
-	PartnerServerId *string `pulumi:"partnerServerId"`
-	// The role of the current server in the disaster recovery configuration.
-	Role *string `pulumi:"role"`
-	// The status of the disaster recovery configuration.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DisasterRecoveryConfigurationState struct {
-	// Whether or not failover can be done automatically.
-	AutoFailover pulumi.StringPtrInput
-	// How aggressive the automatic failover should be.
-	FailoverPolicy pulumi.StringPtrInput
-	// Location of the server that contains this disaster recovery configuration.
-	Location pulumi.StringPtrInput
-	// Logical name of the server.
-	LogicalServerName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Logical name of the partner server.
-	PartnerLogicalServerName pulumi.StringPtrInput
-	// Id of the partner server.
-	PartnerServerId pulumi.StringPtrInput
-	// The role of the current server in the disaster recovery configuration.
-	Role pulumi.StringPtrInput
-	// The status of the disaster recovery configuration.
-	Status pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DisasterRecoveryConfigurationState) ElementType() reflect.Type {

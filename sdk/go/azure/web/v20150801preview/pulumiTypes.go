@@ -3653,7 +3653,7 @@ type ConnectionParameter struct {
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *string `pulumi:"type"`
+	Type *ConnectionParameterType `pulumi:"type"`
 	// UI definitions
 	UiDefinition interface{} `pulumi:"uiDefinition"`
 }
@@ -3676,7 +3676,7 @@ type ConnectionParameterArgs struct {
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
+	Type ConnectionParameterTypePtrInput `pulumi:"type"`
 	// UI definitions
 	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 }
@@ -3744,8 +3744,8 @@ func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 }
 
 // Type of the parameter
-func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
 }
 
 // UI definitions
@@ -4251,7 +4251,7 @@ type ConsentLinkInputParameter struct {
 	// Name of the parameter in the connection provider's oauthSettings
 	ParameterName *string `pulumi:"parameterName"`
 	// Principal type
-	PrincipalType *string `pulumi:"principalType"`
+	PrincipalType *PrincipalType `pulumi:"principalType"`
 	// Name of the parameter in the connection provider's oauthSettings
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Tenant Id
@@ -4276,7 +4276,7 @@ type ConsentLinkInputParameterArgs struct {
 	// Name of the parameter in the connection provider's oauthSettings
 	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
 	// Principal type
-	PrincipalType *PrincipalType `pulumi:"principalType"`
+	PrincipalType PrincipalTypePtrInput `pulumi:"principalType"`
 	// Name of the parameter in the connection provider's oauthSettings
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// Tenant Id
@@ -4346,8 +4346,8 @@ func (o ConsentLinkInputParameterOutput) ParameterName() pulumi.StringPtrOutput 
 }
 
 // Principal type
-func (o ConsentLinkInputParameterOutput) PrincipalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
+func (o ConsentLinkInputParameterOutput) PrincipalType() PrincipalTypePtrOutput {
+	return o.ApplyT(func(v ConsentLinkInputParameter) *PrincipalType { return v.PrincipalType }).(PrincipalTypePtrOutput)
 }
 
 // Name of the parameter in the connection provider's oauthSettings

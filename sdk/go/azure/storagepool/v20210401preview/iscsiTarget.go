@@ -95,53 +95,9 @@ func GetIscsiTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IscsiTarget resources.
 type iscsiTargetState struct {
-	// Mode for Target connectivity.
-	AclMode *string `pulumi:"aclMode"`
-	// List of private IPv4 addresses to connect to the iSCSI Target.
-	Endpoints []string `pulumi:"endpoints"`
-	// List of LUNs to be exposed through iSCSI Target.
-	Luns []IscsiLunResponse `pulumi:"luns"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The port used by iSCSI Target portal group.
-	Port *int `pulumi:"port"`
-	// State of the operation on the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-	StaticAcls []AclResponse `pulumi:"staticAcls"`
-	// Operational status of the iSCSI Target.
-	Status *string `pulumi:"status"`
-	// Resource metadata required by ARM RPC
-	SystemData *SystemMetadataResponse `pulumi:"systemData"`
-	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn *string `pulumi:"targetIqn"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type IscsiTargetState struct {
-	// Mode for Target connectivity.
-	AclMode pulumi.StringPtrInput
-	// List of private IPv4 addresses to connect to the iSCSI Target.
-	Endpoints pulumi.StringArrayInput
-	// List of LUNs to be exposed through iSCSI Target.
-	Luns IscsiLunResponseArrayInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The port used by iSCSI Target portal group.
-	Port pulumi.IntPtrInput
-	// State of the operation on the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
-	StaticAcls AclResponseArrayInput
-	// Operational status of the iSCSI Target.
-	Status pulumi.StringPtrInput
-	// Resource metadata required by ARM RPC
-	SystemData SystemMetadataResponsePtrInput
-	// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (IscsiTargetState) ElementType() reflect.Type {

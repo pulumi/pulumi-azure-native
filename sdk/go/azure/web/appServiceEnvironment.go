@@ -160,91 +160,9 @@ func GetAppServiceEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppServiceEnvironment resources.
 type appServiceEnvironmentState struct {
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings []NameValuePairResponse `pulumi:"clusterSettings"`
-	// Dedicated Host Count
-	DedicatedHostCount *int `pulumi:"dedicatedHostCount"`
-	// DNS suffix of the App Service Environment.
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Scale factor for front-ends.
-	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
-	// Flag that displays whether an ASE has linux workers or not
-	HasLinuxWorkers *bool `pulumi:"hasLinuxWorkers"`
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location *string `pulumi:"location"`
-	// Maximum number of VMs in the App Service Environment.
-	MaximumNumberOfMachines *int `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances.
-	MultiRoleCount *int `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize *string `pulumi:"multiSize"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Provisioning state of the App Service Environment.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Current status of the App Service Environment.
-	Status *string `pulumi:"status"`
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended *bool `pulumi:"suspended"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
-	// Description of the Virtual Network.
-	VirtualNetwork *VirtualNetworkProfileResponse `pulumi:"virtualNetwork"`
 }
 
 type AppServiceEnvironmentState struct {
-	// Custom settings for changing the behavior of the App Service Environment.
-	ClusterSettings NameValuePairResponseArrayInput
-	// Dedicated Host Count
-	DedicatedHostCount pulumi.IntPtrInput
-	// DNS suffix of the App Service Environment.
-	DnsSuffix pulumi.StringPtrInput
-	// Scale factor for front-ends.
-	FrontEndScaleFactor pulumi.IntPtrInput
-	// Flag that displays whether an ASE has linux workers or not
-	HasLinuxWorkers pulumi.BoolPtrInput
-	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-	InternalLoadBalancingMode pulumi.StringPtrInput
-	// Number of IP SSL addresses reserved for the App Service Environment.
-	IpsslAddressCount pulumi.IntPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Location.
-	Location pulumi.StringPtrInput
-	// Maximum number of VMs in the App Service Environment.
-	MaximumNumberOfMachines pulumi.IntPtrInput
-	// Number of front-end instances.
-	MultiRoleCount pulumi.IntPtrInput
-	// Front-end VM size, e.g. "Medium", "Large".
-	MultiSize pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Provisioning state of the App Service Environment.
-	ProvisioningState pulumi.StringPtrInput
-	// Current status of the App Service Environment.
-	Status pulumi.StringPtrInput
-	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-	//  (most likely because NSG blocked the incoming traffic).
-	Suspended pulumi.BoolPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// User added ip ranges to whitelist on ASE db
-	UserWhitelistedIpRanges pulumi.StringArrayInput
-	// Description of the Virtual Network.
-	VirtualNetwork VirtualNetworkProfileResponsePtrInput
 }
 
 func (AppServiceEnvironmentState) ElementType() reflect.Type {

@@ -83,45 +83,9 @@ func GetTestBaseAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TestBaseAccount resources.
 type testBaseAccountState struct {
-	// The access level of the Test Base Account.
-	AccessLevel *string `pulumi:"accessLevel"`
-	// Resource Etag.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the Test Base Account.
-	Sku *TestBaseAccountSKUResponse `pulumi:"sku"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type TestBaseAccountState struct {
-	// The access level of the Test Base Account.
-	AccessLevel pulumi.StringPtrInput
-	// Resource Etag.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the Test Base Account.
-	Sku TestBaseAccountSKUResponsePtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (TestBaseAccountState) ElementType() reflect.Type {

@@ -156,49 +156,9 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Email address.
-	Email *string `pulumi:"email"`
-	// First name.
-	FirstName *string `pulumi:"firstName"`
-	// Collection of groups user is part of.
-	Groups []GroupContractResponse `pulumi:"groups"`
-	// Collection of user identities.
-	Identities []UserIdentityContractResponse `pulumi:"identities"`
-	// Last name.
-	LastName *string `pulumi:"lastName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Optional note about a user set by the administrator.
-	Note *string `pulumi:"note"`
-	// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	RegistrationDate *string `pulumi:"registrationDate"`
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State *string `pulumi:"state"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type UserState struct {
-	// Email address.
-	Email pulumi.StringPtrInput
-	// First name.
-	FirstName pulumi.StringPtrInput
-	// Collection of groups user is part of.
-	Groups GroupContractResponseArrayInput
-	// Collection of user identities.
-	Identities UserIdentityContractResponseArrayInput
-	// Last name.
-	LastName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Optional note about a user set by the administrator.
-	Note pulumi.StringPtrInput
-	// Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	RegistrationDate pulumi.StringPtrInput
-	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
-	State pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {

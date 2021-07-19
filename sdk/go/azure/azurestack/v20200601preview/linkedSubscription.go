@@ -95,65 +95,9 @@ func GetLinkedSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedSubscription resources.
 type linkedSubscriptionState struct {
-	// The status of the remote management connection of the Azure Stack device.
-	DeviceConnectionStatus *string `pulumi:"deviceConnectionStatus"`
-	// The identifier of the Azure Stack device for remote management.
-	DeviceId *string `pulumi:"deviceId"`
-	// The connection state of the Azure Stack device.
-	DeviceLinkState *string `pulumi:"deviceLinkState"`
-	// The object identifier associated with the Azure Stack device connecting to Azure.
-	DeviceObjectId *string `pulumi:"deviceObjectId"`
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// The last remote management connection time for the Azure Stack device connected to the linked subscription resource.
-	LastConnectedTime *string `pulumi:"lastConnectedTime"`
-	// The identifier associated with the device subscription.
-	LinkedSubscriptionId *string `pulumi:"linkedSubscriptionId"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the resource.
-	Name *string `pulumi:"name"`
-	// The identifier associated with the device registration.
-	RegistrationResourceId *string `pulumi:"registrationResourceId"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Custom tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of Resource.
-	Type *string `pulumi:"type"`
 }
 
 type LinkedSubscriptionState struct {
-	// The status of the remote management connection of the Azure Stack device.
-	DeviceConnectionStatus pulumi.StringPtrInput
-	// The identifier of the Azure Stack device for remote management.
-	DeviceId pulumi.StringPtrInput
-	// The connection state of the Azure Stack device.
-	DeviceLinkState pulumi.StringPtrInput
-	// The object identifier associated with the Azure Stack device connecting to Azure.
-	DeviceObjectId pulumi.StringPtrInput
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput
-	// The kind of the resource.
-	Kind pulumi.StringPtrInput
-	// The last remote management connection time for the Azure Stack device connected to the linked subscription resource.
-	LastConnectedTime pulumi.StringPtrInput
-	// The identifier associated with the device subscription.
-	LinkedSubscriptionId pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the resource.
-	Name pulumi.StringPtrInput
-	// The identifier associated with the device registration.
-	RegistrationResourceId pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Custom tags for the resource.
-	Tags pulumi.StringMapInput
-	// Type of Resource.
-	Type pulumi.StringPtrInput
 }
 
 func (LinkedSubscriptionState) ElementType() reflect.Type {

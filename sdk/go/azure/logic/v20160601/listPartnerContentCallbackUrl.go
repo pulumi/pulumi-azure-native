@@ -21,7 +21,7 @@ type ListPartnerContentCallbackUrlArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The key type.
-	KeyType *string `pulumi:"keyType"`
+	KeyType *KeyType `pulumi:"keyType"`
 	// The expiry time.
 	NotAfter *string `pulumi:"notAfter"`
 	// The integration account partner name.

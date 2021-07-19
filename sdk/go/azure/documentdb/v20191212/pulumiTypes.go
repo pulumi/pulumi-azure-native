@@ -2473,7 +2473,7 @@ func (o ConflictResolutionPolicyResponsePtrOutput) Mode() pulumi.StringPtrOutput
 // The consistency policy for the Cosmos DB database account.
 type ConsistencyPolicy struct {
 	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel string `pulumi:"defaultConsistencyLevel"`
+	DefaultConsistencyLevel DefaultConsistencyLevel `pulumi:"defaultConsistencyLevel"`
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -2494,7 +2494,7 @@ type ConsistencyPolicyInput interface {
 // The consistency policy for the Cosmos DB database account.
 type ConsistencyPolicyArgs struct {
 	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel DefaultConsistencyLevel `pulumi:"defaultConsistencyLevel"`
+	DefaultConsistencyLevel DefaultConsistencyLevelInput `pulumi:"defaultConsistencyLevel"`
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -2580,8 +2580,8 @@ func (o ConsistencyPolicyOutput) ToConsistencyPolicyPtrOutputWithContext(ctx con
 }
 
 // The default consistency level and configuration settings of the Cosmos DB account.
-func (o ConsistencyPolicyOutput) DefaultConsistencyLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v ConsistencyPolicy) string { return v.DefaultConsistencyLevel }).(pulumi.StringOutput)
+func (o ConsistencyPolicyOutput) DefaultConsistencyLevel() DefaultConsistencyLevelOutput {
+	return o.ApplyT(func(v ConsistencyPolicy) DefaultConsistencyLevel { return v.DefaultConsistencyLevel }).(DefaultConsistencyLevelOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -2613,13 +2613,13 @@ func (o ConsistencyPolicyPtrOutput) Elem() ConsistencyPolicyOutput {
 }
 
 // The default consistency level and configuration settings of the Cosmos DB account.
-func (o ConsistencyPolicyPtrOutput) DefaultConsistencyLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConsistencyPolicy) *string {
+func (o ConsistencyPolicyPtrOutput) DefaultConsistencyLevel() DefaultConsistencyLevelPtrOutput {
+	return o.ApplyT(func(v *ConsistencyPolicy) *DefaultConsistencyLevel {
 		if v == nil {
 			return nil
 		}
 		return &v.DefaultConsistencyLevel
-	}).(pulumi.StringPtrOutput)
+	}).(DefaultConsistencyLevelPtrOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -10502,6 +10502,96 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkRuleResponse {
 		return vs[0].([]VirtualNetworkRuleResponse)[vs[1].(int)]
 	}).(VirtualNetworkRuleResponseOutput)
+}
+
+type CompositePathResponseArgsArrayArray []CompositePathResponseArgsArrayInput
+
+func (CompositePathResponseArgsArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponseArgsArray)(nil)).Elem()
+}
+
+func (i CompositePathResponseArgsArrayArray) ToCompositePathResponseArgsArrayArrayOutput() CompositePathResponseArgsArrayArrayOutput {
+	return i.ToCompositePathResponseArgsArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathResponseArgsArrayArray) ToCompositePathResponseArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathResponseArgsArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathResponseArgsArrayArrayOutput)
+}
+
+type CompositePathResponseArgsArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathResponseArgsArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponseArgsArray)(nil)).Elem()
+}
+
+func (o CompositePathResponseArgsArrayArrayOutput) ToCompositePathResponseArgsArrayArrayOutput() CompositePathResponseArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArgsArrayArrayOutput) ToCompositePathResponseArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathResponseArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArgsArrayArrayOutput) Index(i pulumi.IntInput) CompositePathResponseArgsArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathResponseArgsArray {
+		return vs[0].([]CompositePathResponseArgsArray)[vs[1].(int)]
+	}).(CompositePathResponseArgsArrayOutput)
+}
+
+// CompositePathResponseArgsArrayArrayInput is an input type that accepts CompositePathResponseArgsArrayArray and CompositePathResponseArgsArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathResponseArgsArrayArrayInput` via:
+//
+//          CompositePathResponseArgsArrayArray{ CompositePathResponseArgsArray{ CompositePathResponseArgsArgs{...} } }
+type CompositePathResponseArgsArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathResponseArgsArrayArrayOutput() CompositePathResponseArgsArrayArrayOutput
+	ToCompositePathResponseArgsArrayArrayOutputWithContext(context.Context) CompositePathResponseArgsArrayArrayOutput
+}
+
+type CompositePathArgsArrayArray []CompositePathArgsArrayInput
+
+func (CompositePathArgsArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArgsArray)(nil)).Elem()
+}
+
+func (i CompositePathArgsArrayArray) ToCompositePathArgsArrayArrayOutput() CompositePathArgsArrayArrayOutput {
+	return i.ToCompositePathArgsArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathArgsArrayArray) ToCompositePathArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathArgsArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathArgsArrayArrayOutput)
+}
+
+type CompositePathArgsArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathArgsArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArgsArray)(nil)).Elem()
+}
+
+func (o CompositePathArgsArrayArrayOutput) ToCompositePathArgsArrayArrayOutput() CompositePathArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArgsArrayArrayOutput) ToCompositePathArgsArrayArrayOutputWithContext(ctx context.Context) CompositePathArgsArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArgsArrayArrayOutput) Index(i pulumi.IntInput) CompositePathArgsArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathArgsArray {
+		return vs[0].([]CompositePathArgsArray)[vs[1].(int)]
+	}).(CompositePathArgsArrayOutput)
+}
+
+// CompositePathArgsArrayArrayInput is an input type that accepts CompositePathArgsArrayArray and CompositePathArgsArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathArgsArrayArrayInput` via:
+//
+//          CompositePathArgsArrayArray{ CompositePathArgsArray{ CompositePathArgsArgs{...} } }
+type CompositePathArgsArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathArgsArrayArrayOutput() CompositePathArgsArrayArrayOutput
+	ToCompositePathArgsArrayArrayOutputWithContext(context.Context) CompositePathArgsArrayArrayOutput
 }
 
 type CompositePathArrayArray []CompositePathArrayInput

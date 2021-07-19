@@ -1433,7 +1433,7 @@ type AS2MdnSettings struct {
 	// The MDN text.
 	MdnText *string `pulumi:"mdnText"`
 	// The signing or hashing algorithm.
-	MicHashingAlgorithm string `pulumi:"micHashingAlgorithm"`
+	MicHashingAlgorithm HashingAlgorithm `pulumi:"micHashingAlgorithm"`
 	// The value indicating whether to send or request a MDN.
 	NeedMdn bool `pulumi:"needMdn"`
 	// The receipt delivery URL.
@@ -1466,7 +1466,7 @@ type AS2MdnSettingsArgs struct {
 	// The MDN text.
 	MdnText pulumi.StringPtrInput `pulumi:"mdnText"`
 	// The signing or hashing algorithm.
-	MicHashingAlgorithm HashingAlgorithm `pulumi:"micHashingAlgorithm"`
+	MicHashingAlgorithm HashingAlgorithmInput `pulumi:"micHashingAlgorithm"`
 	// The value indicating whether to send or request a MDN.
 	NeedMdn pulumi.BoolInput `pulumi:"needMdn"`
 	// The receipt delivery URL.
@@ -1570,8 +1570,8 @@ func (o AS2MdnSettingsOutput) MdnText() pulumi.StringPtrOutput {
 }
 
 // The signing or hashing algorithm.
-func (o AS2MdnSettingsOutput) MicHashingAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v AS2MdnSettings) string { return v.MicHashingAlgorithm }).(pulumi.StringOutput)
+func (o AS2MdnSettingsOutput) MicHashingAlgorithm() HashingAlgorithmOutput {
+	return o.ApplyT(func(v AS2MdnSettings) HashingAlgorithm { return v.MicHashingAlgorithm }).(HashingAlgorithmOutput)
 }
 
 // The value indicating whether to send or request a MDN.
@@ -1643,13 +1643,13 @@ func (o AS2MdnSettingsPtrOutput) MdnText() pulumi.StringPtrOutput {
 }
 
 // The signing or hashing algorithm.
-func (o AS2MdnSettingsPtrOutput) MicHashingAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AS2MdnSettings) *string {
+func (o AS2MdnSettingsPtrOutput) MicHashingAlgorithm() HashingAlgorithmPtrOutput {
+	return o.ApplyT(func(v *AS2MdnSettings) *HashingAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.MicHashingAlgorithm
-	}).(pulumi.StringPtrOutput)
+	}).(HashingAlgorithmPtrOutput)
 }
 
 // The value indicating whether to send or request a MDN.
@@ -3849,7 +3849,7 @@ type AS2ValidationSettings struct {
 	// The value indicating whether the message has to be encrypted.
 	EncryptMessage bool `pulumi:"encryptMessage"`
 	// The encryption algorithm.
-	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
 	// The number of days to look back for duplicate interchange.
 	InterchangeDuplicatesValidityDays int `pulumi:"interchangeDuplicatesValidityDays"`
 	// The value indicating whether to override incoming message properties with those in agreement.
@@ -3884,7 +3884,7 @@ type AS2ValidationSettingsArgs struct {
 	// The value indicating whether the message has to be encrypted.
 	EncryptMessage pulumi.BoolInput `pulumi:"encryptMessage"`
 	// The encryption algorithm.
-	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
 	// The number of days to look back for duplicate interchange.
 	InterchangeDuplicatesValidityDays pulumi.IntInput `pulumi:"interchangeDuplicatesValidityDays"`
 	// The value indicating whether to override incoming message properties with those in agreement.
@@ -3999,8 +3999,8 @@ func (o AS2ValidationSettingsOutput) EncryptMessage() pulumi.BoolOutput {
 }
 
 // The encryption algorithm.
-func (o AS2ValidationSettingsOutput) EncryptionAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v AS2ValidationSettings) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
+func (o AS2ValidationSettingsOutput) EncryptionAlgorithm() EncryptionAlgorithmOutput {
+	return o.ApplyT(func(v AS2ValidationSettings) EncryptionAlgorithm { return v.EncryptionAlgorithm }).(EncryptionAlgorithmOutput)
 }
 
 // The number of days to look back for duplicate interchange.
@@ -4092,13 +4092,13 @@ func (o AS2ValidationSettingsPtrOutput) EncryptMessage() pulumi.BoolPtrOutput {
 }
 
 // The encryption algorithm.
-func (o AS2ValidationSettingsPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AS2ValidationSettings) *string {
+func (o AS2ValidationSettingsPtrOutput) EncryptionAlgorithm() EncryptionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *AS2ValidationSettings) *EncryptionAlgorithm {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionAlgorithm
-	}).(pulumi.StringPtrOutput)
+	}).(EncryptionAlgorithmPtrOutput)
 }
 
 // The number of days to look back for duplicate interchange.
@@ -8708,7 +8708,7 @@ type EdifactDelimiterOverride struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -8724,7 +8724,7 @@ type EdifactDelimiterOverride struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -8747,7 +8747,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -8763,7 +8763,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -8831,8 +8831,8 @@ func (o EdifactDelimiterOverrideOutput) DataElementSeparator() pulumi.IntOutput 
 }
 
 // The decimal point indicator.
-func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
 // The message association assigned code.
@@ -8871,8 +8871,8 @@ func (o EdifactDelimiterOverrideOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -11344,13 +11344,13 @@ type EdifactFramingSettings struct {
 	// The character encoding.
 	CharacterEncoding *string `pulumi:"characterEncoding"`
 	// The EDIFACT frame setting characterSet.
-	CharacterSet string `pulumi:"characterSet"`
+	CharacterSet EdifactCharacterSet `pulumi:"characterSet"`
 	// The component separator.
 	ComponentSeparator int `pulumi:"componentSeparator"`
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion int `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -11360,7 +11360,7 @@ type EdifactFramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -11381,13 +11381,13 @@ type EdifactFramingSettingsArgs struct {
 	// The character encoding.
 	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
 	// The EDIFACT frame setting characterSet.
-	CharacterSet EdifactCharacterSet `pulumi:"characterSet"`
+	CharacterSet EdifactCharacterSetInput `pulumi:"characterSet"`
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -11397,7 +11397,7 @@ type EdifactFramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -11486,8 +11486,8 @@ func (o EdifactFramingSettingsOutput) CharacterEncoding() pulumi.StringPtrOutput
 }
 
 // The EDIFACT frame setting characterSet.
-func (o EdifactFramingSettingsOutput) CharacterSet() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.CharacterSet }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) CharacterSet() EdifactCharacterSetOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) EdifactCharacterSet { return v.CharacterSet }).(EdifactCharacterSetOutput)
 }
 
 // The component separator.
@@ -11501,8 +11501,8 @@ func (o EdifactFramingSettingsOutput) DataElementSeparator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
 // The protocol version.
@@ -11526,8 +11526,8 @@ func (o EdifactFramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The service code list directory version.
@@ -11564,13 +11564,13 @@ func (o EdifactFramingSettingsPtrOutput) CharacterEncoding() pulumi.StringPtrOut
 }
 
 // The EDIFACT frame setting characterSet.
-func (o EdifactFramingSettingsPtrOutput) CharacterSet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) CharacterSet() EdifactCharacterSetPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *EdifactCharacterSet {
 		if v == nil {
 			return nil
 		}
 		return &v.CharacterSet
-	}).(pulumi.StringPtrOutput)
+	}).(EdifactCharacterSetPtrOutput)
 }
 
 // The component separator.
@@ -11594,13 +11594,13 @@ func (o EdifactFramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOut
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() EdifactDecimalIndicatorPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *EdifactDecimalIndicator {
 		if v == nil {
 			return nil
 		}
 		return &v.DecimalPointIndicator
-	}).(pulumi.StringPtrOutput)
+	}).(EdifactDecimalIndicatorPtrOutput)
 }
 
 // The protocol version.
@@ -11644,13 +11644,13 @@ func (o EdifactFramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
 // The service code list directory version.
@@ -11990,7 +11990,7 @@ func (o EdifactFramingSettingsResponsePtrOutput) ServiceCodeListDirectoryVersion
 // The Edifact message filter for odata query.
 type EdifactMessageFilter struct {
 	// The message filter type.
-	MessageFilterType string `pulumi:"messageFilterType"`
+	MessageFilterType MessageFilterType `pulumi:"messageFilterType"`
 }
 
 // EdifactMessageFilterInput is an input type that accepts EdifactMessageFilterArgs and EdifactMessageFilterOutput values.
@@ -12007,7 +12007,7 @@ type EdifactMessageFilterInput interface {
 // The Edifact message filter for odata query.
 type EdifactMessageFilterArgs struct {
 	// The message filter type.
-	MessageFilterType MessageFilterType `pulumi:"messageFilterType"`
+	MessageFilterType MessageFilterTypeInput `pulumi:"messageFilterType"`
 }
 
 func (EdifactMessageFilterArgs) ElementType() reflect.Type {
@@ -12089,8 +12089,8 @@ func (o EdifactMessageFilterOutput) ToEdifactMessageFilterPtrOutputWithContext(c
 }
 
 // The message filter type.
-func (o EdifactMessageFilterOutput) MessageFilterType() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactMessageFilter) string { return v.MessageFilterType }).(pulumi.StringOutput)
+func (o EdifactMessageFilterOutput) MessageFilterType() MessageFilterTypeOutput {
+	return o.ApplyT(func(v EdifactMessageFilter) MessageFilterType { return v.MessageFilterType }).(MessageFilterTypeOutput)
 }
 
 type EdifactMessageFilterPtrOutput struct{ *pulumi.OutputState }
@@ -12112,13 +12112,13 @@ func (o EdifactMessageFilterPtrOutput) Elem() EdifactMessageFilterOutput {
 }
 
 // The message filter type.
-func (o EdifactMessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactMessageFilter) *string {
+func (o EdifactMessageFilterPtrOutput) MessageFilterType() MessageFilterTypePtrOutput {
+	return o.ApplyT(func(v *EdifactMessageFilter) *MessageFilterType {
 		if v == nil {
 			return nil
 		}
 		return &v.MessageFilterType
-	}).(pulumi.StringPtrOutput)
+	}).(MessageFilterTypePtrOutput)
 }
 
 // The Edifact message filter for odata query.
@@ -14190,7 +14190,7 @@ type EdifactValidationOverride struct {
 	// The message id on which the validation settings has to be applied.
 	MessageId string `pulumi:"messageId"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate EDI types.
@@ -14219,7 +14219,7 @@ type EdifactValidationOverrideArgs struct {
 	// The message id on which the validation settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicyInput `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate EDI types.
@@ -14296,8 +14296,8 @@ func (o EdifactValidationOverrideOutput) MessageId() pulumi.StringOutput {
 }
 
 // The trailing separator policy.
-func (o EdifactValidationOverrideOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactValidationOverride) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+func (o EdifactValidationOverrideOutput) TrailingSeparatorPolicy() TrailingSeparatorPolicyOutput {
+	return o.ApplyT(func(v EdifactValidationOverride) TrailingSeparatorPolicy { return v.TrailingSeparatorPolicy }).(TrailingSeparatorPolicyOutput)
 }
 
 // The value indicating whether to trim leading and trailing spaces and zeroes.
@@ -14502,7 +14502,7 @@ type EdifactValidationSettings struct {
 	// The validity period of interchange control number.
 	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character set in the message.
@@ -14537,7 +14537,7 @@ type EdifactValidationSettingsArgs struct {
 	// The validity period of interchange control number.
 	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicyInput `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character set in the message.
@@ -14652,8 +14652,8 @@ func (o EdifactValidationSettingsOutput) InterchangeControlNumberValidityDays() 
 }
 
 // The trailing separator policy.
-func (o EdifactValidationSettingsOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactValidationSettings) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+func (o EdifactValidationSettingsOutput) TrailingSeparatorPolicy() TrailingSeparatorPolicyOutput {
+	return o.ApplyT(func(v EdifactValidationSettings) TrailingSeparatorPolicy { return v.TrailingSeparatorPolicy }).(TrailingSeparatorPolicyOutput)
 }
 
 // The value indicating whether to trim leading and trailing spaces and zeroes.
@@ -14745,13 +14745,13 @@ func (o EdifactValidationSettingsPtrOutput) InterchangeControlNumberValidityDays
 }
 
 // The trailing separator policy.
-func (o EdifactValidationSettingsPtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactValidationSettings) *string {
+func (o EdifactValidationSettingsPtrOutput) TrailingSeparatorPolicy() TrailingSeparatorPolicyPtrOutput {
+	return o.ApplyT(func(v *EdifactValidationSettings) *TrailingSeparatorPolicy {
 		if v == nil {
 			return nil
 		}
 		return &v.TrailingSeparatorPolicy
-	}).(pulumi.StringPtrOutput)
+	}).(TrailingSeparatorPolicyPtrOutput)
 }
 
 // The value indicating whether to trim leading and trailing spaces and zeroes.
@@ -15613,7 +15613,7 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Ref() 
 // The integration account sku.
 type IntegrationAccountSku struct {
 	// The sku name.
-	Name string `pulumi:"name"`
+	Name IntegrationAccountSkuName `pulumi:"name"`
 }
 
 // IntegrationAccountSkuInput is an input type that accepts IntegrationAccountSkuArgs and IntegrationAccountSkuOutput values.
@@ -15630,7 +15630,7 @@ type IntegrationAccountSkuInput interface {
 // The integration account sku.
 type IntegrationAccountSkuArgs struct {
 	// The sku name.
-	Name IntegrationAccountSkuName `pulumi:"name"`
+	Name IntegrationAccountSkuNameInput `pulumi:"name"`
 }
 
 func (IntegrationAccountSkuArgs) ElementType() reflect.Type {
@@ -15712,8 +15712,8 @@ func (o IntegrationAccountSkuOutput) ToIntegrationAccountSkuPtrOutputWithContext
 }
 
 // The sku name.
-func (o IntegrationAccountSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountSku) string { return v.Name }).(pulumi.StringOutput)
+func (o IntegrationAccountSkuOutput) Name() IntegrationAccountSkuNameOutput {
+	return o.ApplyT(func(v IntegrationAccountSku) IntegrationAccountSkuName { return v.Name }).(IntegrationAccountSkuNameOutput)
 }
 
 type IntegrationAccountSkuPtrOutput struct{ *pulumi.OutputState }
@@ -15735,13 +15735,13 @@ func (o IntegrationAccountSkuPtrOutput) Elem() IntegrationAccountSkuOutput {
 }
 
 // The sku name.
-func (o IntegrationAccountSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountSku) *string {
+func (o IntegrationAccountSkuPtrOutput) Name() IntegrationAccountSkuNamePtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountSku) *IntegrationAccountSkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(IntegrationAccountSkuNamePtrOutput)
 }
 
 // The integration account sku.
@@ -17143,7 +17143,7 @@ type RecurrenceSchedule struct {
 	// The monthly occurrences.
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays []DaysOfWeek `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -17270,8 +17270,8 @@ func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurre
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -17333,19 +17333,19 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []string {
+func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(pulumi.StringArrayOutput)
+	}).(DaysOfWeekArrayOutput)
 }
 
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
-	Day *string `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -17364,7 +17364,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
+	Day DayOfWeekPtrInput `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -17422,8 +17422,8 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 }
 
 // The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
 }
 
 // The occurrence.
@@ -18255,7 +18255,7 @@ func (o RosettaNetPipAcknowledgmentOfReceiptSettingsResponsePtrOutput) TimeToAck
 // The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehavior struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
-	ActionType string `pulumi:"actionType"`
+	ActionType RosettaNetActionType `pulumi:"actionType"`
 	// The value indicating whether authorization is required.
 	IsAuthorizationRequired bool `pulumi:"isAuthorizationRequired"`
 	// The value indicating whether secured transport is required.
@@ -18263,9 +18263,9 @@ type RosettaNetPipActivityBehavior struct {
 	// The value indicating whether non-repudiation is for origin and content.
 	NonRepudiationOfOriginAndContent bool `pulumi:"nonRepudiationOfOriginAndContent"`
 	// The persistent confidentiality encryption scope.
-	PersistentConfidentialityScope string `pulumi:"persistentConfidentialityScope"`
+	PersistentConfidentialityScope RosettaNetPipConfidentialityScope `pulumi:"persistentConfidentialityScope"`
 	// The value indicating whether the RosettaNet PIP communication is synchronous.
-	ResponseType string `pulumi:"responseType"`
+	ResponseType RosettaNetResponseType `pulumi:"responseType"`
 	// The value indicating retry count.
 	RetryCount int `pulumi:"retryCount"`
 	// The time to perform in seconds.
@@ -18286,7 +18286,7 @@ type RosettaNetPipActivityBehaviorInput interface {
 // The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
-	ActionType RosettaNetActionType `pulumi:"actionType"`
+	ActionType RosettaNetActionTypeInput `pulumi:"actionType"`
 	// The value indicating whether authorization is required.
 	IsAuthorizationRequired pulumi.BoolInput `pulumi:"isAuthorizationRequired"`
 	// The value indicating whether secured transport is required.
@@ -18294,9 +18294,9 @@ type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether non-repudiation is for origin and content.
 	NonRepudiationOfOriginAndContent pulumi.BoolInput `pulumi:"nonRepudiationOfOriginAndContent"`
 	// The persistent confidentiality encryption scope.
-	PersistentConfidentialityScope RosettaNetPipConfidentialityScope `pulumi:"persistentConfidentialityScope"`
+	PersistentConfidentialityScope RosettaNetPipConfidentialityScopeInput `pulumi:"persistentConfidentialityScope"`
 	// The value indicating whether the RosettaNet PIP communication is synchronous.
-	ResponseType RosettaNetResponseType `pulumi:"responseType"`
+	ResponseType RosettaNetResponseTypeInput `pulumi:"responseType"`
 	// The value indicating retry count.
 	RetryCount pulumi.IntInput `pulumi:"retryCount"`
 	// The time to perform in seconds.
@@ -18382,8 +18382,8 @@ func (o RosettaNetPipActivityBehaviorOutput) ToRosettaNetPipActivityBehaviorPtrO
 }
 
 // The value indicating whether the RosettaNet PIP is used for a single action.
-func (o RosettaNetPipActivityBehaviorOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v RosettaNetPipActivityBehavior) string { return v.ActionType }).(pulumi.StringOutput)
+func (o RosettaNetPipActivityBehaviorOutput) ActionType() RosettaNetActionTypeOutput {
+	return o.ApplyT(func(v RosettaNetPipActivityBehavior) RosettaNetActionType { return v.ActionType }).(RosettaNetActionTypeOutput)
 }
 
 // The value indicating whether authorization is required.
@@ -18402,13 +18402,15 @@ func (o RosettaNetPipActivityBehaviorOutput) NonRepudiationOfOriginAndContent() 
 }
 
 // The persistent confidentiality encryption scope.
-func (o RosettaNetPipActivityBehaviorOutput) PersistentConfidentialityScope() pulumi.StringOutput {
-	return o.ApplyT(func(v RosettaNetPipActivityBehavior) string { return v.PersistentConfidentialityScope }).(pulumi.StringOutput)
+func (o RosettaNetPipActivityBehaviorOutput) PersistentConfidentialityScope() RosettaNetPipConfidentialityScopeOutput {
+	return o.ApplyT(func(v RosettaNetPipActivityBehavior) RosettaNetPipConfidentialityScope {
+		return v.PersistentConfidentialityScope
+	}).(RosettaNetPipConfidentialityScopeOutput)
 }
 
 // The value indicating whether the RosettaNet PIP communication is synchronous.
-func (o RosettaNetPipActivityBehaviorOutput) ResponseType() pulumi.StringOutput {
-	return o.ApplyT(func(v RosettaNetPipActivityBehavior) string { return v.ResponseType }).(pulumi.StringOutput)
+func (o RosettaNetPipActivityBehaviorOutput) ResponseType() RosettaNetResponseTypeOutput {
+	return o.ApplyT(func(v RosettaNetPipActivityBehavior) RosettaNetResponseType { return v.ResponseType }).(RosettaNetResponseTypeOutput)
 }
 
 // The value indicating retry count.
@@ -18440,13 +18442,13 @@ func (o RosettaNetPipActivityBehaviorPtrOutput) Elem() RosettaNetPipActivityBeha
 }
 
 // The value indicating whether the RosettaNet PIP is used for a single action.
-func (o RosettaNetPipActivityBehaviorPtrOutput) ActionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *string {
+func (o RosettaNetPipActivityBehaviorPtrOutput) ActionType() RosettaNetActionTypePtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *RosettaNetActionType {
 		if v == nil {
 			return nil
 		}
 		return &v.ActionType
-	}).(pulumi.StringPtrOutput)
+	}).(RosettaNetActionTypePtrOutput)
 }
 
 // The value indicating whether authorization is required.
@@ -18480,23 +18482,23 @@ func (o RosettaNetPipActivityBehaviorPtrOutput) NonRepudiationOfOriginAndContent
 }
 
 // The persistent confidentiality encryption scope.
-func (o RosettaNetPipActivityBehaviorPtrOutput) PersistentConfidentialityScope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *string {
+func (o RosettaNetPipActivityBehaviorPtrOutput) PersistentConfidentialityScope() RosettaNetPipConfidentialityScopePtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *RosettaNetPipConfidentialityScope {
 		if v == nil {
 			return nil
 		}
 		return &v.PersistentConfidentialityScope
-	}).(pulumi.StringPtrOutput)
+	}).(RosettaNetPipConfidentialityScopePtrOutput)
 }
 
 // The value indicating whether the RosettaNet PIP communication is synchronous.
-func (o RosettaNetPipActivityBehaviorPtrOutput) ResponseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *string {
+func (o RosettaNetPipActivityBehaviorPtrOutput) ResponseType() RosettaNetResponseTypePtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *RosettaNetResponseType {
 		if v == nil {
 			return nil
 		}
 		return &v.ResponseType
-	}).(pulumi.StringPtrOutput)
+	}).(RosettaNetResponseTypePtrOutput)
 }
 
 // The value indicating retry count.
@@ -18793,7 +18795,7 @@ type RosettaNetPipActivitySettings struct {
 	// The RosettaNet ProcessConfiguration activity behavior.
 	ActivityBehavior RosettaNetPipActivityBehavior `pulumi:"activityBehavior"`
 	// The RosettaNet ProcessConfiguration activity type.
-	ActivityType string `pulumi:"activityType"`
+	ActivityType RosettaNetPipActivityType `pulumi:"activityType"`
 }
 
 // RosettaNetPipActivitySettingsInput is an input type that accepts RosettaNetPipActivitySettingsArgs and RosettaNetPipActivitySettingsOutput values.
@@ -18814,7 +18816,7 @@ type RosettaNetPipActivitySettingsArgs struct {
 	// The RosettaNet ProcessConfiguration activity behavior.
 	ActivityBehavior RosettaNetPipActivityBehaviorInput `pulumi:"activityBehavior"`
 	// The RosettaNet ProcessConfiguration activity type.
-	ActivityType RosettaNetPipActivityType `pulumi:"activityType"`
+	ActivityType RosettaNetPipActivityTypeInput `pulumi:"activityType"`
 }
 
 func (RosettaNetPipActivitySettingsArgs) ElementType() reflect.Type {
@@ -18908,8 +18910,8 @@ func (o RosettaNetPipActivitySettingsOutput) ActivityBehavior() RosettaNetPipAct
 }
 
 // The RosettaNet ProcessConfiguration activity type.
-func (o RosettaNetPipActivitySettingsOutput) ActivityType() pulumi.StringOutput {
-	return o.ApplyT(func(v RosettaNetPipActivitySettings) string { return v.ActivityType }).(pulumi.StringOutput)
+func (o RosettaNetPipActivitySettingsOutput) ActivityType() RosettaNetPipActivityTypeOutput {
+	return o.ApplyT(func(v RosettaNetPipActivitySettings) RosettaNetPipActivityType { return v.ActivityType }).(RosettaNetPipActivityTypeOutput)
 }
 
 type RosettaNetPipActivitySettingsPtrOutput struct{ *pulumi.OutputState }
@@ -18951,13 +18953,13 @@ func (o RosettaNetPipActivitySettingsPtrOutput) ActivityBehavior() RosettaNetPip
 }
 
 // The RosettaNet ProcessConfiguration activity type.
-func (o RosettaNetPipActivitySettingsPtrOutput) ActivityType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivitySettings) *string {
+func (o RosettaNetPipActivitySettingsPtrOutput) ActivityType() RosettaNetPipActivityTypePtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivitySettings) *RosettaNetPipActivityType {
 		if v == nil {
 			return nil
 		}
 		return &v.ActivityType
-	}).(pulumi.StringPtrOutput)
+	}).(RosettaNetPipActivityTypePtrOutput)
 }
 
 // The integration account RosettaNet ProcessConfiguration activity settings.
@@ -19491,7 +19493,7 @@ type RosettaNetPipRoleSettings struct {
 	// The role name.
 	Role string `pulumi:"role"`
 	// The RosettaNet ProcessConfiguration role type.
-	RoleType string `pulumi:"roleType"`
+	RoleType RosettaNetPipRoleType `pulumi:"roleType"`
 	// The service name.
 	Service string `pulumi:"service"`
 	// The service classification name.
@@ -19520,7 +19522,7 @@ type RosettaNetPipRoleSettingsArgs struct {
 	// The role name.
 	Role pulumi.StringInput `pulumi:"role"`
 	// The RosettaNet ProcessConfiguration role type.
-	RoleType RosettaNetPipRoleType `pulumi:"roleType"`
+	RoleType RosettaNetPipRoleTypeInput `pulumi:"roleType"`
 	// The service name.
 	Service pulumi.StringInput `pulumi:"service"`
 	// The service classification name.
@@ -19626,8 +19628,8 @@ func (o RosettaNetPipRoleSettingsOutput) Role() pulumi.StringOutput {
 }
 
 // The RosettaNet ProcessConfiguration role type.
-func (o RosettaNetPipRoleSettingsOutput) RoleType() pulumi.StringOutput {
-	return o.ApplyT(func(v RosettaNetPipRoleSettings) string { return v.RoleType }).(pulumi.StringOutput)
+func (o RosettaNetPipRoleSettingsOutput) RoleType() RosettaNetPipRoleTypeOutput {
+	return o.ApplyT(func(v RosettaNetPipRoleSettings) RosettaNetPipRoleType { return v.RoleType }).(RosettaNetPipRoleTypeOutput)
 }
 
 // The service name.
@@ -19699,13 +19701,13 @@ func (o RosettaNetPipRoleSettingsPtrOutput) Role() pulumi.StringPtrOutput {
 }
 
 // The RosettaNet ProcessConfiguration role type.
-func (o RosettaNetPipRoleSettingsPtrOutput) RoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipRoleSettings) *string {
+func (o RosettaNetPipRoleSettingsPtrOutput) RoleType() RosettaNetPipRoleTypePtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipRoleSettings) *RosettaNetPipRoleType {
 		if v == nil {
 			return nil
 		}
 		return &v.RoleType
-	}).(pulumi.StringPtrOutput)
+	}).(RosettaNetPipRoleTypePtrOutput)
 }
 
 // The service name.
@@ -19981,7 +19983,7 @@ func (o RosettaNetPipRoleSettingsResponsePtrOutput) ServiceClassification() pulu
 // The sku type.
 type Sku struct {
 	// The name.
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -19998,7 +20000,7 @@ type SkuInput interface {
 // The sku type.
 type SkuArgs struct {
 	// The name.
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -20080,8 +20082,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // The name.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -20103,13 +20105,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // The name.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // The sku type.
@@ -20272,7 +20274,7 @@ type WorkflowParameter struct {
 	// The metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// The type.
-	Type *string `pulumi:"type"`
+	Type *ParameterType `pulumi:"type"`
 	// The value.
 	Value interface{} `pulumi:"value"`
 }
@@ -20295,7 +20297,7 @@ type WorkflowParameterArgs struct {
 	// The metadata.
 	Metadata pulumi.Input `pulumi:"metadata"`
 	// The type.
-	Type *ParameterType `pulumi:"type"`
+	Type ParameterTypePtrInput `pulumi:"type"`
 	// The value.
 	Value pulumi.Input `pulumi:"value"`
 }
@@ -20363,8 +20365,8 @@ func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
 }
 
 // The type.
-func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o WorkflowParameterOutput) Type() ParameterTypePtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
 }
 
 // The value.
@@ -20615,7 +20617,7 @@ type WorkflowTriggerRecurrence struct {
 	// The end time.
 	EndTime *string `pulumi:"endTime"`
 	// The frequency.
-	Frequency *string `pulumi:"frequency"`
+	Frequency *RecurrenceFrequency `pulumi:"frequency"`
 	// The interval.
 	Interval *int `pulumi:"interval"`
 	// The recurrence schedule.
@@ -20642,7 +20644,7 @@ type WorkflowTriggerRecurrenceArgs struct {
 	// The end time.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency.
-	Frequency *RecurrenceFrequency `pulumi:"frequency"`
+	Frequency RecurrenceFrequencyPtrInput `pulumi:"frequency"`
 	// The interval.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// The recurrence schedule.
@@ -20737,8 +20739,8 @@ func (o WorkflowTriggerRecurrenceOutput) EndTime() pulumi.StringPtrOutput {
 }
 
 // The frequency.
-func (o WorkflowTriggerRecurrenceOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerRecurrence) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+func (o WorkflowTriggerRecurrenceOutput) Frequency() RecurrenceFrequencyPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerRecurrence) *RecurrenceFrequency { return v.Frequency }).(RecurrenceFrequencyPtrOutput)
 }
 
 // The interval.
@@ -20790,13 +20792,13 @@ func (o WorkflowTriggerRecurrencePtrOutput) EndTime() pulumi.StringPtrOutput {
 }
 
 // The frequency.
-func (o WorkflowTriggerRecurrencePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *string {
+func (o WorkflowTriggerRecurrencePtrOutput) Frequency() RecurrenceFrequencyPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerRecurrence) *RecurrenceFrequency {
 		if v == nil {
 			return nil
 		}
 		return v.Frequency
-	}).(pulumi.StringPtrOutput)
+	}).(RecurrenceFrequencyPtrOutput)
 }
 
 // The interval.
@@ -22191,7 +22193,7 @@ type X12DelimiterOverrides struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -22224,7 +22226,7 @@ type X12DelimiterOverridesArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -22317,8 +22319,8 @@ func (o X12DelimiterOverridesOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12DelimiterOverrides) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12DelimiterOverrides) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -22521,7 +22523,7 @@ func (o X12DelimiterOverridesResponseArrayOutput) Index(i pulumi.IntInput) X12De
 // The X12 envelope override settings.
 type X12EnvelopeOverride struct {
 	// The date format.
-	DateFormat string `pulumi:"dateFormat"`
+	DateFormat X12DateFormat `pulumi:"dateFormat"`
 	// The functional identifier code.
 	FunctionalIdentifierCode *string `pulumi:"functionalIdentifierCode"`
 	// The header version.
@@ -22539,7 +22541,7 @@ type X12EnvelopeOverride struct {
 	// The target namespace on which this envelope settings has to be applied.
 	TargetNamespace string `pulumi:"targetNamespace"`
 	// The time format.
-	TimeFormat string `pulumi:"timeFormat"`
+	TimeFormat X12TimeFormat `pulumi:"timeFormat"`
 }
 
 // X12EnvelopeOverrideInput is an input type that accepts X12EnvelopeOverrideArgs and X12EnvelopeOverrideOutput values.
@@ -22556,7 +22558,7 @@ type X12EnvelopeOverrideInput interface {
 // The X12 envelope override settings.
 type X12EnvelopeOverrideArgs struct {
 	// The date format.
-	DateFormat X12DateFormat `pulumi:"dateFormat"`
+	DateFormat X12DateFormatInput `pulumi:"dateFormat"`
 	// The functional identifier code.
 	FunctionalIdentifierCode pulumi.StringPtrInput `pulumi:"functionalIdentifierCode"`
 	// The header version.
@@ -22574,7 +22576,7 @@ type X12EnvelopeOverrideArgs struct {
 	// The target namespace on which this envelope settings has to be applied.
 	TargetNamespace pulumi.StringInput `pulumi:"targetNamespace"`
 	// The time format.
-	TimeFormat X12TimeFormat `pulumi:"timeFormat"`
+	TimeFormat X12TimeFormatInput `pulumi:"timeFormat"`
 }
 
 func (X12EnvelopeOverrideArgs) ElementType() reflect.Type {
@@ -22630,8 +22632,8 @@ func (o X12EnvelopeOverrideOutput) ToX12EnvelopeOverrideOutputWithContext(ctx co
 }
 
 // The date format.
-func (o X12EnvelopeOverrideOutput) DateFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.DateFormat }).(pulumi.StringOutput)
+func (o X12EnvelopeOverrideOutput) DateFormat() X12DateFormatOutput {
+	return o.ApplyT(func(v X12EnvelopeOverride) X12DateFormat { return v.DateFormat }).(X12DateFormatOutput)
 }
 
 // The functional identifier code.
@@ -22675,8 +22677,8 @@ func (o X12EnvelopeOverrideOutput) TargetNamespace() pulumi.StringOutput {
 }
 
 // The time format.
-func (o X12EnvelopeOverrideOutput) TimeFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v X12EnvelopeOverride) string { return v.TimeFormat }).(pulumi.StringOutput)
+func (o X12EnvelopeOverrideOutput) TimeFormat() X12TimeFormatOutput {
+	return o.ApplyT(func(v X12EnvelopeOverride) X12TimeFormat { return v.TimeFormat }).(X12TimeFormatOutput)
 }
 
 type X12EnvelopeOverrideArrayOutput struct{ *pulumi.OutputState }
@@ -22897,9 +22899,9 @@ type X12EnvelopeSettings struct {
 	// The group header agency code.
 	GroupHeaderAgencyCode string `pulumi:"groupHeaderAgencyCode"`
 	// The group header date format.
-	GroupHeaderDateFormat string `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderDateFormat X12DateFormat `pulumi:"groupHeaderDateFormat"`
 	// The group header time format.
-	GroupHeaderTimeFormat string `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderTimeFormat X12TimeFormat `pulumi:"groupHeaderTimeFormat"`
 	// The group header version.
 	GroupHeaderVersion string `pulumi:"groupHeaderVersion"`
 	// The interchange  control number lower bound.
@@ -22927,7 +22929,7 @@ type X12EnvelopeSettings struct {
 	// The transaction set control number upper bound.
 	TransactionSetControlNumberUpperBound int `pulumi:"transactionSetControlNumberUpperBound"`
 	// The usage indicator.
-	UsageIndicator string `pulumi:"usageIndicator"`
+	UsageIndicator UsageIndicator `pulumi:"usageIndicator"`
 	// The value indicating whether to use control standards id as repetition character.
 	UseControlStandardsIdAsRepetitionCharacter bool `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
@@ -22960,9 +22962,9 @@ type X12EnvelopeSettingsArgs struct {
 	// The group header agency code.
 	GroupHeaderAgencyCode pulumi.StringInput `pulumi:"groupHeaderAgencyCode"`
 	// The group header date format.
-	GroupHeaderDateFormat X12DateFormat `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderDateFormat X12DateFormatInput `pulumi:"groupHeaderDateFormat"`
 	// The group header time format.
-	GroupHeaderTimeFormat X12TimeFormat `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderTimeFormat X12TimeFormatInput `pulumi:"groupHeaderTimeFormat"`
 	// The group header version.
 	GroupHeaderVersion pulumi.StringInput `pulumi:"groupHeaderVersion"`
 	// The interchange  control number lower bound.
@@ -22990,7 +22992,7 @@ type X12EnvelopeSettingsArgs struct {
 	// The transaction set control number upper bound.
 	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
 	// The usage indicator.
-	UsageIndicator UsageIndicator `pulumi:"usageIndicator"`
+	UsageIndicator UsageIndicatorInput `pulumi:"usageIndicator"`
 	// The value indicating whether to use control standards id as repetition character.
 	UseControlStandardsIdAsRepetitionCharacter pulumi.BoolInput `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
@@ -23109,13 +23111,13 @@ func (o X12EnvelopeSettingsOutput) GroupHeaderAgencyCode() pulumi.StringOutput {
 }
 
 // The group header date format.
-func (o X12EnvelopeSettingsOutput) GroupHeaderDateFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.GroupHeaderDateFormat }).(pulumi.StringOutput)
+func (o X12EnvelopeSettingsOutput) GroupHeaderDateFormat() X12DateFormatOutput {
+	return o.ApplyT(func(v X12EnvelopeSettings) X12DateFormat { return v.GroupHeaderDateFormat }).(X12DateFormatOutput)
 }
 
 // The group header time format.
-func (o X12EnvelopeSettingsOutput) GroupHeaderTimeFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.GroupHeaderTimeFormat }).(pulumi.StringOutput)
+func (o X12EnvelopeSettingsOutput) GroupHeaderTimeFormat() X12TimeFormatOutput {
+	return o.ApplyT(func(v X12EnvelopeSettings) X12TimeFormat { return v.GroupHeaderTimeFormat }).(X12TimeFormatOutput)
 }
 
 // The group header version.
@@ -23184,8 +23186,8 @@ func (o X12EnvelopeSettingsOutput) TransactionSetControlNumberUpperBound() pulum
 }
 
 // The usage indicator.
-func (o X12EnvelopeSettingsOutput) UsageIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v X12EnvelopeSettings) string { return v.UsageIndicator }).(pulumi.StringOutput)
+func (o X12EnvelopeSettingsOutput) UsageIndicator() UsageIndicatorOutput {
+	return o.ApplyT(func(v X12EnvelopeSettings) UsageIndicator { return v.UsageIndicator }).(UsageIndicatorOutput)
 }
 
 // The value indicating whether to use control standards id as repetition character.
@@ -23282,23 +23284,23 @@ func (o X12EnvelopeSettingsPtrOutput) GroupHeaderAgencyCode() pulumi.StringPtrOu
 }
 
 // The group header date format.
-func (o X12EnvelopeSettingsPtrOutput) GroupHeaderDateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
+func (o X12EnvelopeSettingsPtrOutput) GroupHeaderDateFormat() X12DateFormatPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettings) *X12DateFormat {
 		if v == nil {
 			return nil
 		}
 		return &v.GroupHeaderDateFormat
-	}).(pulumi.StringPtrOutput)
+	}).(X12DateFormatPtrOutput)
 }
 
 // The group header time format.
-func (o X12EnvelopeSettingsPtrOutput) GroupHeaderTimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
+func (o X12EnvelopeSettingsPtrOutput) GroupHeaderTimeFormat() X12TimeFormatPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettings) *X12TimeFormat {
 		if v == nil {
 			return nil
 		}
 		return &v.GroupHeaderTimeFormat
-	}).(pulumi.StringPtrOutput)
+	}).(X12TimeFormatPtrOutput)
 }
 
 // The group header version.
@@ -23432,13 +23434,13 @@ func (o X12EnvelopeSettingsPtrOutput) TransactionSetControlNumberUpperBound() pu
 }
 
 // The usage indicator.
-func (o X12EnvelopeSettingsPtrOutput) UsageIndicator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettings) *string {
+func (o X12EnvelopeSettingsPtrOutput) UsageIndicator() UsageIndicatorPtrOutput {
+	return o.ApplyT(func(v *X12EnvelopeSettings) *UsageIndicator {
 		if v == nil {
 			return nil
 		}
 		return &v.UsageIndicator
-	}).(pulumi.StringPtrOutput)
+	}).(UsageIndicatorPtrOutput)
 }
 
 // The value indicating whether to use control standards id as repetition character.
@@ -24025,7 +24027,7 @@ func (o X12EnvelopeSettingsResponsePtrOutput) UseControlStandardsIdAsRepetitionC
 // The X12 agreement framing settings.
 type X12FramingSettings struct {
 	// The X12 character set.
-	CharacterSet string `pulumi:"characterSet"`
+	CharacterSet X12CharacterSet `pulumi:"characterSet"`
 	// The component separator.
 	ComponentSeparator int `pulumi:"componentSeparator"`
 	// The data element separator.
@@ -24037,7 +24039,7 @@ type X12FramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 // X12FramingSettingsInput is an input type that accepts X12FramingSettingsArgs and X12FramingSettingsOutput values.
@@ -24054,7 +24056,7 @@ type X12FramingSettingsInput interface {
 // The X12 agreement framing settings.
 type X12FramingSettingsArgs struct {
 	// The X12 character set.
-	CharacterSet X12CharacterSet `pulumi:"characterSet"`
+	CharacterSet X12CharacterSetInput `pulumi:"characterSet"`
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
 	// The data element separator.
@@ -24066,7 +24068,7 @@ type X12FramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {
@@ -24148,8 +24150,8 @@ func (o X12FramingSettingsOutput) ToX12FramingSettingsPtrOutputWithContext(ctx c
 }
 
 // The X12 character set.
-func (o X12FramingSettingsOutput) CharacterSet() pulumi.StringOutput {
-	return o.ApplyT(func(v X12FramingSettings) string { return v.CharacterSet }).(pulumi.StringOutput)
+func (o X12FramingSettingsOutput) CharacterSet() X12CharacterSetOutput {
+	return o.ApplyT(func(v X12FramingSettings) X12CharacterSet { return v.CharacterSet }).(X12CharacterSetOutput)
 }
 
 // The component separator.
@@ -24178,8 +24180,8 @@ func (o X12FramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12FramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12FramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 type X12FramingSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -24201,13 +24203,13 @@ func (o X12FramingSettingsPtrOutput) Elem() X12FramingSettingsOutput {
 }
 
 // The X12 character set.
-func (o X12FramingSettingsPtrOutput) CharacterSet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12FramingSettings) *string {
+func (o X12FramingSettingsPtrOutput) CharacterSet() X12CharacterSetPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettings) *X12CharacterSet {
 		if v == nil {
 			return nil
 		}
 		return &v.CharacterSet
-	}).(pulumi.StringPtrOutput)
+	}).(X12CharacterSetPtrOutput)
 }
 
 // The component separator.
@@ -24261,13 +24263,13 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12FramingSettings) *string {
+func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
 // The X12 agreement framing settings.
@@ -24521,7 +24523,7 @@ func (o X12FramingSettingsResponsePtrOutput) SegmentTerminatorSuffix() pulumi.St
 // The X12 message filter for odata query.
 type X12MessageFilter struct {
 	// The message filter type.
-	MessageFilterType string `pulumi:"messageFilterType"`
+	MessageFilterType MessageFilterType `pulumi:"messageFilterType"`
 }
 
 // X12MessageFilterInput is an input type that accepts X12MessageFilterArgs and X12MessageFilterOutput values.
@@ -24538,7 +24540,7 @@ type X12MessageFilterInput interface {
 // The X12 message filter for odata query.
 type X12MessageFilterArgs struct {
 	// The message filter type.
-	MessageFilterType MessageFilterType `pulumi:"messageFilterType"`
+	MessageFilterType MessageFilterTypeInput `pulumi:"messageFilterType"`
 }
 
 func (X12MessageFilterArgs) ElementType() reflect.Type {
@@ -24620,8 +24622,8 @@ func (o X12MessageFilterOutput) ToX12MessageFilterPtrOutputWithContext(ctx conte
 }
 
 // The message filter type.
-func (o X12MessageFilterOutput) MessageFilterType() pulumi.StringOutput {
-	return o.ApplyT(func(v X12MessageFilter) string { return v.MessageFilterType }).(pulumi.StringOutput)
+func (o X12MessageFilterOutput) MessageFilterType() MessageFilterTypeOutput {
+	return o.ApplyT(func(v X12MessageFilter) MessageFilterType { return v.MessageFilterType }).(MessageFilterTypeOutput)
 }
 
 type X12MessageFilterPtrOutput struct{ *pulumi.OutputState }
@@ -24643,13 +24645,13 @@ func (o X12MessageFilterPtrOutput) Elem() X12MessageFilterOutput {
 }
 
 // The message filter type.
-func (o X12MessageFilterPtrOutput) MessageFilterType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12MessageFilter) *string {
+func (o X12MessageFilterPtrOutput) MessageFilterType() MessageFilterTypePtrOutput {
+	return o.ApplyT(func(v *X12MessageFilter) *MessageFilterType {
 		if v == nil {
 			return nil
 		}
 		return &v.MessageFilterType
-	}).(pulumi.StringPtrOutput)
+	}).(MessageFilterTypePtrOutput)
 }
 
 // The X12 message filter for odata query.
@@ -27119,7 +27121,7 @@ type X12ValidationOverride struct {
 	// The message id on which the validation settings has to be applied.
 	MessageId string `pulumi:"messageId"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character Set.
@@ -27148,7 +27150,7 @@ type X12ValidationOverrideArgs struct {
 	// The message id on which the validation settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicyInput `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character Set.
@@ -27222,8 +27224,8 @@ func (o X12ValidationOverrideOutput) MessageId() pulumi.StringOutput {
 }
 
 // The trailing separator policy.
-func (o X12ValidationOverrideOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v X12ValidationOverride) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+func (o X12ValidationOverrideOutput) TrailingSeparatorPolicy() TrailingSeparatorPolicyOutput {
+	return o.ApplyT(func(v X12ValidationOverride) TrailingSeparatorPolicy { return v.TrailingSeparatorPolicy }).(TrailingSeparatorPolicyOutput)
 }
 
 // The value indicating whether to trim leading and trailing spaces and zeroes.
@@ -27433,7 +27435,7 @@ type X12ValidationSettings struct {
 	// The validity period of interchange control number.
 	InterchangeControlNumberValidityDays int `pulumi:"interchangeControlNumberValidityDays"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy string `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes bool `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character set in the message.
@@ -27468,7 +27470,7 @@ type X12ValidationSettingsArgs struct {
 	// The validity period of interchange control number.
 	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicyInput `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character set in the message.
@@ -27583,8 +27585,8 @@ func (o X12ValidationSettingsOutput) InterchangeControlNumberValidityDays() pulu
 }
 
 // The trailing separator policy.
-func (o X12ValidationSettingsOutput) TrailingSeparatorPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v X12ValidationSettings) string { return v.TrailingSeparatorPolicy }).(pulumi.StringOutput)
+func (o X12ValidationSettingsOutput) TrailingSeparatorPolicy() TrailingSeparatorPolicyOutput {
+	return o.ApplyT(func(v X12ValidationSettings) TrailingSeparatorPolicy { return v.TrailingSeparatorPolicy }).(TrailingSeparatorPolicyOutput)
 }
 
 // The value indicating whether to trim leading and trailing spaces and zeroes.
@@ -27676,13 +27678,13 @@ func (o X12ValidationSettingsPtrOutput) InterchangeControlNumberValidityDays() p
 }
 
 // The trailing separator policy.
-func (o X12ValidationSettingsPtrOutput) TrailingSeparatorPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12ValidationSettings) *string {
+func (o X12ValidationSettingsPtrOutput) TrailingSeparatorPolicy() TrailingSeparatorPolicyPtrOutput {
+	return o.ApplyT(func(v *X12ValidationSettings) *TrailingSeparatorPolicy {
 		if v == nil {
 			return nil
 		}
 		return &v.TrailingSeparatorPolicy
-	}).(pulumi.StringPtrOutput)
+	}).(TrailingSeparatorPolicyPtrOutput)
 }
 
 // The value indicating whether to trim leading and trailing spaces and zeroes.

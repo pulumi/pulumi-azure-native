@@ -201,7 +201,7 @@ func (o ImageTemplateFileCustomizerResponseOutput) Type() pulumi.StringOutput {
 // Identity for the image template.
 type ImageTemplateIdentity struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -220,7 +220,7 @@ type ImageTemplateIdentityInput interface {
 // Identity for the image template.
 type ImageTemplateIdentityArgs struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -304,8 +304,8 @@ func (o ImageTemplateIdentityOutput) ToImageTemplateIdentityPtrOutputWithContext
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-func (o ImageTemplateIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ImageTemplateIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ImageTemplateIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -332,13 +332,13 @@ func (o ImageTemplateIdentityPtrOutput) Elem() ImageTemplateIdentityOutput {
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-func (o ImageTemplateIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentity) *string {
+func (o ImageTemplateIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ImageTemplateIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.

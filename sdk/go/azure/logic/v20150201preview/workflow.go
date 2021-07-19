@@ -108,69 +108,9 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
-	// Gets the access endpoint.
-	AccessEndpoint *string `pulumi:"accessEndpoint"`
-	// Gets the changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// Gets the created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Gets or sets the definition.
-	Definition interface{} `pulumi:"definition"`
-	// Gets or sets the link to definition.
-	DefinitionLink *ContentLinkResponse `pulumi:"definitionLink"`
-	// Gets or sets the resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the parameters.
-	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
-	// Gets or sets the link to parameters.
-	ParametersLink *ContentLinkResponse `pulumi:"parametersLink"`
-	// Gets the provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the sku.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Gets or sets the state.
-	State *string `pulumi:"state"`
-	// Gets or sets the resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
-	// Gets the version.
-	Version *string `pulumi:"version"`
 }
 
 type WorkflowState struct {
-	// Gets the access endpoint.
-	AccessEndpoint pulumi.StringPtrInput
-	// Gets the changed time.
-	ChangedTime pulumi.StringPtrInput
-	// Gets the created time.
-	CreatedTime pulumi.StringPtrInput
-	// Gets or sets the definition.
-	Definition pulumi.Input
-	// Gets or sets the link to definition.
-	DefinitionLink ContentLinkResponsePtrInput
-	// Gets or sets the resource location.
-	Location pulumi.StringPtrInput
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// Gets or sets the parameters.
-	Parameters WorkflowParameterResponseMapInput
-	// Gets or sets the link to parameters.
-	ParametersLink ContentLinkResponsePtrInput
-	// Gets the provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets the sku.
-	Sku SkuResponsePtrInput
-	// Gets or sets the state.
-	State pulumi.StringPtrInput
-	// Gets or sets the resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
-	// Gets the version.
-	Version pulumi.StringPtrInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {
@@ -197,7 +137,7 @@ type workflowArgs struct {
 	// Gets or sets the sku.
 	Sku *Sku `pulumi:"sku"`
 	// Gets or sets the state.
-	State *string `pulumi:"state"`
+	State *WorkflowStateEnum `pulumi:"state"`
 	// Gets or sets the resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
@@ -227,7 +167,7 @@ type WorkflowArgs struct {
 	// Gets or sets the sku.
 	Sku SkuPtrInput
 	// Gets or sets the state.
-	State *WorkflowStateEnum
+	State WorkflowStateEnumPtrInput
 	// Gets or sets the resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.

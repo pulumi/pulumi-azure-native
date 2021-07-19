@@ -78,41 +78,9 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// API host name.
-	HostName *string `pulumi:"hostName"`
-	// The type of identity used for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
-	// API host name.
-	HostName pulumi.StringPtrInput
-	// The type of identity used for the resource.
-	Identity IdentityResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {

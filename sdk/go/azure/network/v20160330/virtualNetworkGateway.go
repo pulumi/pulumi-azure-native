@@ -301,69 +301,9 @@ func GetVirtualNetworkGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkGateway resources.
 type virtualNetworkGatewayState struct {
-	// Virtual network gateway's BGP speaker settings
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// EnableBgp Flag
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
-	// The type of this virtual network gateway.
-	GatewayType *string `pulumi:"gatewayType"`
-	// IpConfigurations for Virtual network gateway.
-	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets or sets Provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets resource GUID property of the VirtualNetworkGateway resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-	Sku *VirtualNetworkGatewaySkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
-	// The type of this virtual network gateway.
-	VpnType *string `pulumi:"vpnType"`
 }
 
 type VirtualNetworkGatewayState struct {
-	// Virtual network gateway's BGP speaker settings
-	BgpSettings BgpSettingsResponsePtrInput
-	// EnableBgp Flag
-	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
-	GatewayDefaultSite SubResourceResponsePtrInput
-	// The type of this virtual network gateway.
-	GatewayType pulumi.StringPtrInput
-	// IpConfigurations for Virtual network gateway.
-	IpConfigurations VirtualNetworkGatewayIPConfigurationResponseArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets or sets Provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets resource GUID property of the VirtualNetworkGateway resource
-	ResourceGuid pulumi.StringPtrInput
-	// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
-	Sku VirtualNetworkGatewaySkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-	VpnClientConfiguration VpnClientConfigurationResponsePtrInput
-	// The type of this virtual network gateway.
-	VpnType pulumi.StringPtrInput
 }
 
 func (VirtualNetworkGatewayState) ElementType() reflect.Type {

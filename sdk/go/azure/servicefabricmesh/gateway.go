@@ -94,61 +94,9 @@ func GetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gateway resources.
 type gatewayState struct {
-	// User readable description of the gateway.
-	Description *string `pulumi:"description"`
-	// Network that the Application is using.
-	DestinationNetwork *NetworkRefResponse `pulumi:"destinationNetwork"`
-	// Configuration for http connectivity for this gateway.
-	Http []HttpConfigResponse `pulumi:"http"`
-	// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Network the gateway should listen on for requests.
-	SourceNetwork *NetworkRefResponse `pulumi:"sourceNetwork"`
-	// Status of the resource.
-	Status *string `pulumi:"status"`
-	// Gives additional information about the current status of the gateway.
-	StatusDetails *string `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Configuration for tcp connectivity for this gateway.
-	Tcp []TcpConfigResponse `pulumi:"tcp"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type GatewayState struct {
-	// User readable description of the gateway.
-	Description pulumi.StringPtrInput
-	// Network that the Application is using.
-	DestinationNetwork NetworkRefResponsePtrInput
-	// Configuration for http connectivity for this gateway.
-	Http HttpConfigResponseArrayInput
-	// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
-	IpAddress pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// State of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Network the gateway should listen on for requests.
-	SourceNetwork NetworkRefResponsePtrInput
-	// Status of the resource.
-	Status pulumi.StringPtrInput
-	// Gives additional information about the current status of the gateway.
-	StatusDetails pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Configuration for tcp connectivity for this gateway.
-	Tcp TcpConfigResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (GatewayState) ElementType() reflect.Type {

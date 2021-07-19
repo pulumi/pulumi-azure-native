@@ -81,37 +81,9 @@ func GetReportByResourceGroupName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReportByResourceGroupName resources.
 type reportByResourceGroupNameState struct {
-	// Has definition for the report.
-	Definition *ReportDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the report.
-	DeliveryInfo *ReportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Has schedule information for the report.
-	Schedule *ReportScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ReportByResourceGroupNameState struct {
-	// Has definition for the report.
-	Definition ReportDefinitionResponsePtrInput
-	// Has delivery information for the report.
-	DeliveryInfo ReportDeliveryInfoResponsePtrInput
-	// The format of the report being delivered.
-	Format pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Has schedule information for the report.
-	Schedule ReportScheduleResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ReportByResourceGroupNameState) ElementType() reflect.Type {

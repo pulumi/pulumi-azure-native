@@ -13,7 +13,7 @@ import (
 // Input for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskInput struct {
 	// Permission group for validations
-	CheckPermissionsGroup *string `pulumi:"checkPermissionsGroup"`
+	CheckPermissionsGroup *ServerLevelPermissionsGroup `pulumi:"checkPermissionsGroup"`
 	// Connection information for Source SQL Server
 	SourceConnectionInfo SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 }
@@ -32,7 +32,7 @@ type ConnectToSourceSqlServerTaskInputInput interface {
 // Input for the task that validates connection to SQL Server and also validates source server requirements
 type ConnectToSourceSqlServerTaskInputArgs struct {
 	// Permission group for validations
-	CheckPermissionsGroup *ServerLevelPermissionsGroup `pulumi:"checkPermissionsGroup"`
+	CheckPermissionsGroup ServerLevelPermissionsGroupPtrInput `pulumi:"checkPermissionsGroup"`
 	// Connection information for Source SQL Server
 	SourceConnectionInfo SqlConnectionInfoInput `pulumi:"sourceConnectionInfo"`
 }
@@ -116,8 +116,8 @@ func (o ConnectToSourceSqlServerTaskInputOutput) ToConnectToSourceSqlServerTaskI
 }
 
 // Permission group for validations
-func (o ConnectToSourceSqlServerTaskInputOutput) CheckPermissionsGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *string { return v.CheckPermissionsGroup }).(pulumi.StringPtrOutput)
+func (o ConnectToSourceSqlServerTaskInputOutput) CheckPermissionsGroup() ServerLevelPermissionsGroupPtrOutput {
+	return o.ApplyT(func(v ConnectToSourceSqlServerTaskInput) *ServerLevelPermissionsGroup { return v.CheckPermissionsGroup }).(ServerLevelPermissionsGroupPtrOutput)
 }
 
 // Connection information for Source SQL Server
@@ -144,13 +144,13 @@ func (o ConnectToSourceSqlServerTaskInputPtrOutput) Elem() ConnectToSourceSqlSer
 }
 
 // Permission group for validations
-func (o ConnectToSourceSqlServerTaskInputPtrOutput) CheckPermissionsGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) *string {
+func (o ConnectToSourceSqlServerTaskInputPtrOutput) CheckPermissionsGroup() ServerLevelPermissionsGroupPtrOutput {
+	return o.ApplyT(func(v *ConnectToSourceSqlServerTaskInput) *ServerLevelPermissionsGroup {
 		if v == nil {
 			return nil
 		}
 		return v.CheckPermissionsGroup
-	}).(pulumi.StringPtrOutput)
+	}).(ServerLevelPermissionsGroupPtrOutput)
 }
 
 // Connection information for Source SQL Server
@@ -5428,7 +5428,7 @@ type SqlConnectionInfo struct {
 	// Additional connection settings
 	AdditionalSettings *string `pulumi:"additionalSettings"`
 	// Authentication type to use for connection
-	Authentication *string `pulumi:"authentication"`
+	Authentication *AuthenticationType `pulumi:"authentication"`
 	// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
 	DataSource string `pulumi:"dataSource"`
 	// Whether to encrypt the connection
@@ -5460,7 +5460,7 @@ type SqlConnectionInfoArgs struct {
 	// Additional connection settings
 	AdditionalSettings pulumi.StringPtrInput `pulumi:"additionalSettings"`
 	// Authentication type to use for connection
-	Authentication *AuthenticationType `pulumi:"authentication"`
+	Authentication AuthenticationTypePtrInput `pulumi:"authentication"`
 	// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Whether to encrypt the connection
@@ -5560,8 +5560,8 @@ func (o SqlConnectionInfoOutput) AdditionalSettings() pulumi.StringPtrOutput {
 }
 
 // Authentication type to use for connection
-func (o SqlConnectionInfoOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlConnectionInfo) *string { return v.Authentication }).(pulumi.StringPtrOutput)
+func (o SqlConnectionInfoOutput) Authentication() AuthenticationTypePtrOutput {
+	return o.ApplyT(func(v SqlConnectionInfo) *AuthenticationType { return v.Authentication }).(AuthenticationTypePtrOutput)
 }
 
 // Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
@@ -5624,13 +5624,13 @@ func (o SqlConnectionInfoPtrOutput) AdditionalSettings() pulumi.StringPtrOutput 
 }
 
 // Authentication type to use for connection
-func (o SqlConnectionInfoPtrOutput) Authentication() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlConnectionInfo) *string {
+func (o SqlConnectionInfoPtrOutput) Authentication() AuthenticationTypePtrOutput {
+	return o.ApplyT(func(v *SqlConnectionInfo) *AuthenticationType {
 		if v == nil {
 			return nil
 		}
 		return v.Authentication
-	}).(pulumi.StringPtrOutput)
+	}).(AuthenticationTypePtrOutput)
 }
 
 // Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
@@ -5963,6 +5963,51 @@ func (o SqlConnectionInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 		}
 		return v.UserName
 	}).(pulumi.StringPtrOutput)
+}
+
+type DatabaseTableResponseArgsArrayMap map[string]DatabaseTableResponseArgsArrayInput
+
+func (DatabaseTableResponseArgsArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArgsArray)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArgsArrayMap) ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput {
+	return i.ToDatabaseTableResponseArgsArrayMapOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArgsArrayMap) ToDatabaseTableResponseArgsArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArgsArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseArgsArrayMapOutput)
+}
+
+type DatabaseTableResponseArgsArrayMapOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseArgsArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArgsArray)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) ToDatabaseTableResponseArgsArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArgsArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) MapIndex(k pulumi.StringInput) DatabaseTableResponseArgsArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseTableResponseArgsArray {
+		return vs[0].(map[string]DatabaseTableResponseArgsArray)[vs[1].(string)]
+	}).(DatabaseTableResponseArgsArrayOutput)
+}
+
+// DatabaseTableResponseArgsArrayMapInput is an input type that accepts DatabaseTableResponseArgsArrayMap and DatabaseTableResponseArgsArrayMapOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseArgsArrayMapInput` via:
+//
+//          DatabaseTableResponseArgsArrayMap{ "key": DatabaseTableResponseArgsArray{ DatabaseTableResponseArgsArgs{...} } }
+type DatabaseTableResponseArgsArrayMapInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput
+	ToDatabaseTableResponseArgsArrayMapOutputWithContext(context.Context) DatabaseTableResponseArgsArrayMapOutput
 }
 
 type DatabaseTableResponseArrayMap map[string]DatabaseTableResponseArrayInput

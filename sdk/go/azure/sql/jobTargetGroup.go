@@ -101,21 +101,9 @@ func GetJobTargetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobTargetGroup resources.
 type jobTargetGroupState struct {
-	// Members of the target group.
-	Members []JobTargetResponse `pulumi:"members"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type JobTargetGroupState struct {
-	// Members of the target group.
-	Members JobTargetResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (JobTargetGroupState) ElementType() reflect.Type {

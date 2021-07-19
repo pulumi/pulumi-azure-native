@@ -177,49 +177,9 @@ func GetWebApplicationFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebApplicationFirewallPolicy resources.
 type webApplicationFirewallPolicyState struct {
-	// A collection of references to application gateways.
-	ApplicationGateways []ApplicationGatewayResponse `pulumi:"applicationGateways"`
-	// Describes custom rules inside the policy
-	CustomRules []WebApplicationFirewallCustomRuleResponse `pulumi:"customRules"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Describes  policySettings for policy
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource status of the policy.
-	ResourceState *string `pulumi:"resourceState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebApplicationFirewallPolicyState struct {
-	// A collection of references to application gateways.
-	ApplicationGateways ApplicationGatewayResponseArrayInput
-	// Describes custom rules inside the policy
-	CustomRules WebApplicationFirewallCustomRuleResponseArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Describes  policySettings for policy
-	PolicySettings PolicySettingsResponsePtrInput
-	// Provisioning state of the WebApplicationFirewallPolicy.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource status of the policy.
-	ResourceState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebApplicationFirewallPolicyState) ElementType() reflect.Type {

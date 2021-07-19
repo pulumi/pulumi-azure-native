@@ -107,41 +107,9 @@ func GetContentKeyPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContentKeyPolicy resources.
 type contentKeyPolicyState struct {
-	// The creation date of the Policy
-	Created *string `pulumi:"created"`
-	// A description for the Policy.
-	Description *string `pulumi:"description"`
-	// The last modified date of the Policy
-	LastModified *string `pulumi:"lastModified"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The Key Policy options.
-	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
-	// The legacy Policy ID.
-	PolicyId *string `pulumi:"policyId"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ContentKeyPolicyState struct {
-	// The creation date of the Policy
-	Created pulumi.StringPtrInput
-	// A description for the Policy.
-	Description pulumi.StringPtrInput
-	// The last modified date of the Policy
-	LastModified pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The Key Policy options.
-	Options ContentKeyPolicyOptionResponseArrayInput
-	// The legacy Policy ID.
-	PolicyId pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ContentKeyPolicyState) ElementType() reflect.Type {

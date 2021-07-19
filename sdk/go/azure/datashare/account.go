@@ -103,49 +103,9 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// Time at which the account was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Identity Info on the Account
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Location of the azure resource.
-	Location *string `pulumi:"location"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the Account
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags on the azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail *string `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName *string `pulumi:"userName"`
 }
 
 type AccountState struct {
-	// Time at which the account was created.
-	CreatedAt pulumi.StringPtrInput
-	// Identity Info on the Account
-	Identity IdentityResponsePtrInput
-	// Location of the azure resource.
-	Location pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the Account
-	ProvisioningState pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags on the azure resource.
-	Tags pulumi.StringMapInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
-	// Email of the user who created the resource
-	UserEmail pulumi.StringPtrInput
-	// Name of the user who created the resource
-	UserName pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {

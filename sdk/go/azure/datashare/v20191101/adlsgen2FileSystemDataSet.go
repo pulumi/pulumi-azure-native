@@ -118,43 +118,9 @@ func GetADLSGen2FileSystemDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ADLSGen2FileSystemDataSet resources.
 type adlsgen2FileSystemDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// The file system name.
-	FileSystem *string `pulumi:"fileSystem"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2FileSystem'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type ADLSGen2FileSystemDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// The file system name.
-	FileSystem pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'AdlsGen2FileSystem'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Resource group of storage account
-	ResourceGroup pulumi.StringPtrInput
-	// Storage account name of the source data set
-	StorageAccountName pulumi.StringPtrInput
-	// Subscription id of storage account
-	SubscriptionId pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (ADLSGen2FileSystemDataSetState) ElementType() reflect.Type {

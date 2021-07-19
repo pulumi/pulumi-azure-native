@@ -113,41 +113,9 @@ func GetInstanceFailoverGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceFailoverGroup resources.
 type instanceFailoverGroupState struct {
-	// List of managed instance pairs in the failover group.
-	ManagedInstancePairs []ManagedInstancePairInfoResponse `pulumi:"managedInstancePairs"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Partner region information for the failover group.
-	PartnerRegions []PartnerRegionInfoResponse `pulumi:"partnerRegions"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *InstanceFailoverGroupReadOnlyEndpointResponse `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint *InstanceFailoverGroupReadWriteEndpointResponse `pulumi:"readWriteEndpoint"`
-	// Local replication role of the failover group instance.
-	ReplicationRole *string `pulumi:"replicationRole"`
-	// Replication state of the failover group instance.
-	ReplicationState *string `pulumi:"replicationState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type InstanceFailoverGroupState struct {
-	// List of managed instance pairs in the failover group.
-	ManagedInstancePairs ManagedInstancePairInfoResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Partner region information for the failover group.
-	PartnerRegions PartnerRegionInfoResponseArrayInput
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint InstanceFailoverGroupReadOnlyEndpointResponsePtrInput
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint InstanceFailoverGroupReadWriteEndpointResponsePtrInput
-	// Local replication role of the failover group instance.
-	ReplicationRole pulumi.StringPtrInput
-	// Replication state of the failover group instance.
-	ReplicationState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (InstanceFailoverGroupState) ElementType() reflect.Type {

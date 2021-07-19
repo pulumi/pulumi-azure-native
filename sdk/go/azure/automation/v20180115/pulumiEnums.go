@@ -11,7 +11,7 @@ import (
 )
 
 // Gets or sets the content source type.
-type ContentSourceType pulumi.String
+type ContentSourceType string
 
 const (
 	ContentSourceTypeEmbeddedContent = ContentSourceType("embeddedContent")
@@ -19,7 +19,23 @@ const (
 )
 
 func (ContentSourceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContentSourceType)(nil)).Elem()
+}
+
+func (e ContentSourceType) ToContentSourceTypeOutput() ContentSourceTypeOutput {
+	return pulumi.ToOutput(e).(ContentSourceTypeOutput)
+}
+
+func (e ContentSourceType) ToContentSourceTypeOutputWithContext(ctx context.Context) ContentSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContentSourceTypeOutput)
+}
+
+func (e ContentSourceType) ToContentSourceTypePtrOutput() ContentSourceTypePtrOutput {
+	return e.ToContentSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContentSourceType) ToContentSourceTypePtrOutputWithContext(ctx context.Context) ContentSourceTypePtrOutput {
+	return ContentSourceType(e).ToContentSourceTypeOutputWithContext(ctx).ToContentSourceTypePtrOutputWithContext(ctx)
 }
 
 func (e ContentSourceType) ToStringOutput() pulumi.StringOutput {
@@ -36,4 +52,130 @@ func (e ContentSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ContentSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContentSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (ContentSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentSourceType)(nil)).Elem()
+}
+
+func (o ContentSourceTypeOutput) ToContentSourceTypeOutput() ContentSourceTypeOutput {
+	return o
+}
+
+func (o ContentSourceTypeOutput) ToContentSourceTypeOutputWithContext(ctx context.Context) ContentSourceTypeOutput {
+	return o
+}
+
+func (o ContentSourceTypeOutput) ToContentSourceTypePtrOutput() ContentSourceTypePtrOutput {
+	return o.ToContentSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContentSourceTypeOutput) ToContentSourceTypePtrOutputWithContext(ctx context.Context) ContentSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentSourceType) *ContentSourceType {
+		return &v
+	}).(ContentSourceTypePtrOutput)
+}
+
+func (o ContentSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContentSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContentSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContentSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContentSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContentSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContentSourceTypePtrOutput) ElementType() reflect.Type {
+	return contentSourceTypePtrType
+}
+
+func (o ContentSourceTypePtrOutput) ToContentSourceTypePtrOutput() ContentSourceTypePtrOutput {
+	return o
+}
+
+func (o ContentSourceTypePtrOutput) ToContentSourceTypePtrOutputWithContext(ctx context.Context) ContentSourceTypePtrOutput {
+	return o
+}
+
+func (o ContentSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContentSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContentSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContentSourceTypePtrOutput) Elem() ContentSourceTypeOutput {
+	return o.ApplyT(func(v *ContentSourceType) ContentSourceType {
+		var ret ContentSourceType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ContentSourceTypeOutput)
+}
+
+// ContentSourceTypeInput is an input type that accepts ContentSourceTypeArgs and ContentSourceTypeOutput values.
+// You can construct a concrete instance of `ContentSourceTypeInput` via:
+//
+//          ContentSourceTypeArgs{...}
+type ContentSourceTypeInput interface {
+	pulumi.Input
+
+	ToContentSourceTypeOutput() ContentSourceTypeOutput
+	ToContentSourceTypeOutputWithContext(context.Context) ContentSourceTypeOutput
+}
+
+var contentSourceTypePtrType = reflect.TypeOf((**ContentSourceType)(nil)).Elem()
+
+type ContentSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToContentSourceTypePtrOutput() ContentSourceTypePtrOutput
+	ToContentSourceTypePtrOutputWithContext(context.Context) ContentSourceTypePtrOutput
+}
+
+type contentSourceTypePtr string
+
+func ContentSourceTypePtr(v string) ContentSourceTypePtrInput {
+	return (*contentSourceTypePtr)(&v)
+}
+
+func (*contentSourceTypePtr) ElementType() reflect.Type {
+	return contentSourceTypePtrType
+}
+
+func (in *contentSourceTypePtr) ToContentSourceTypePtrOutput() ContentSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(ContentSourceTypePtrOutput)
+}
+
+func (in *contentSourceTypePtr) ToContentSourceTypePtrOutputWithContext(ctx context.Context) ContentSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContentSourceTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContentSourceTypeOutput{})
+	pulumi.RegisterOutputType(ContentSourceTypePtrOutput{})
 }

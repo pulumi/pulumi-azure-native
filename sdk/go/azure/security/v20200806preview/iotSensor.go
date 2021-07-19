@@ -87,61 +87,9 @@ func GetIotSensor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotSensor resources.
 type iotSensorState struct {
-	// Last connectivity time of the IoT sensor
-	ConnectivityTime *string `pulumi:"connectivityTime"`
-	// Creation time of the IoT sensor
-	CreationTime *string `pulumi:"creationTime"`
-	// Dynamic mode status of the IoT sensor
-	DynamicLearning *bool `pulumi:"dynamicLearning"`
-	// Learning mode status of the IoT sensor
-	LearningMode *bool `pulumi:"learningMode"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Status of the IoT sensor
-	SensorStatus *string `pulumi:"sensorStatus"`
-	// Type of sensor
-	SensorType *string `pulumi:"sensorType"`
-	// Version of the IoT sensor
-	SensorVersion *string `pulumi:"sensorVersion"`
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates *bool `pulumi:"tiAutomaticUpdates"`
-	// TI Status of the IoT sensor
-	TiStatus *string `pulumi:"tiStatus"`
-	// TI Version of the IoT sensor
-	TiVersion *string `pulumi:"tiVersion"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Zone of the IoT sensor
-	Zone *string `pulumi:"zone"`
 }
 
 type IotSensorState struct {
-	// Last connectivity time of the IoT sensor
-	ConnectivityTime pulumi.StringPtrInput
-	// Creation time of the IoT sensor
-	CreationTime pulumi.StringPtrInput
-	// Dynamic mode status of the IoT sensor
-	DynamicLearning pulumi.BoolPtrInput
-	// Learning mode status of the IoT sensor
-	LearningMode pulumi.BoolPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Status of the IoT sensor
-	SensorStatus pulumi.StringPtrInput
-	// Type of sensor
-	SensorType pulumi.StringPtrInput
-	// Version of the IoT sensor
-	SensorVersion pulumi.StringPtrInput
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates pulumi.BoolPtrInput
-	// TI Status of the IoT sensor
-	TiStatus pulumi.StringPtrInput
-	// TI Version of the IoT sensor
-	TiVersion pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Zone of the IoT sensor
-	Zone pulumi.StringPtrInput
 }
 
 func (IotSensorState) ElementType() reflect.Type {

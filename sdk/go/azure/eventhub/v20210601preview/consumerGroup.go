@@ -109,33 +109,9 @@ func GetConsumerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConsumerGroup resources.
 type consumerGroupState struct {
-	// Exact time the message was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 type ConsumerGroupState struct {
-	// Exact time the message was created.
-	CreatedAt pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringPtrInput
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrInput
 }
 
 func (ConsumerGroupState) ElementType() reflect.Type {

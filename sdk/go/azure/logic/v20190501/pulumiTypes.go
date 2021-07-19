@@ -10419,7 +10419,7 @@ type EdifactDelimiterOverride struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -10435,7 +10435,7 @@ type EdifactDelimiterOverride struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -10458,7 +10458,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -10474,7 +10474,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -10542,8 +10542,8 @@ func (o EdifactDelimiterOverrideOutput) DataElementSeparator() pulumi.IntOutput 
 }
 
 // The decimal point indicator.
-func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
 // The message association assigned code.
@@ -10582,8 +10582,8 @@ func (o EdifactDelimiterOverrideOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -13061,7 +13061,7 @@ type EdifactFramingSettings struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion int `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -13071,7 +13071,7 @@ type EdifactFramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -13098,7 +13098,7 @@ type EdifactFramingSettingsArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -13108,7 +13108,7 @@ type EdifactFramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -13212,8 +13212,8 @@ func (o EdifactFramingSettingsOutput) DataElementSeparator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
 // The protocol version.
@@ -13237,8 +13237,8 @@ func (o EdifactFramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The service code list directory version.
@@ -13305,13 +13305,13 @@ func (o EdifactFramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOut
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() EdifactDecimalIndicatorPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *EdifactDecimalIndicator {
 		if v == nil {
 			return nil
 		}
 		return &v.DecimalPointIndicator
-	}).(pulumi.StringPtrOutput)
+	}).(EdifactDecimalIndicatorPtrOutput)
 }
 
 // The protocol version.
@@ -13355,13 +13355,13 @@ func (o EdifactFramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
 // The service code list directory version.
@@ -23763,7 +23763,7 @@ type RecurrenceSchedule struct {
 	// The monthly occurrences.
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays []DaysOfWeek `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -23890,8 +23890,8 @@ func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurre
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -23953,19 +23953,19 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []string {
+func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(pulumi.StringArrayOutput)
+	}).(DaysOfWeekArrayOutput)
 }
 
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
-	Day *string `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -23984,7 +23984,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
+	Day DayOfWeekPtrInput `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -24042,8 +24042,8 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 }
 
 // The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
 }
 
 // The occurrence.
@@ -27018,7 +27018,7 @@ type X12DelimiterOverrides struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -27051,7 +27051,7 @@ type X12DelimiterOverridesArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -27144,8 +27144,8 @@ func (o X12DelimiterOverridesOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12DelimiterOverrides) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12DelimiterOverrides) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -28864,7 +28864,7 @@ type X12FramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 // X12FramingSettingsInput is an input type that accepts X12FramingSettingsArgs and X12FramingSettingsOutput values.
@@ -28893,7 +28893,7 @@ type X12FramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {
@@ -29005,8 +29005,8 @@ func (o X12FramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12FramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12FramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 type X12FramingSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -29088,13 +29088,13 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12FramingSettings) *string {
+func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
 // The X12 agreement framing settings.

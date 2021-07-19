@@ -108,25 +108,9 @@ func GetEventHubAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHubAuthorizationRule resources.
 type eventHubAuthorizationRuleState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type EventHubAuthorizationRuleState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EventHubAuthorizationRuleState) ElementType() reflect.Type {
@@ -147,7 +131,7 @@ type eventHubAuthorizationRuleArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	Rights []AccessRights `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a EventHubAuthorizationRule resource.

@@ -96,61 +96,9 @@ func GetAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assignment resources.
 type assignmentState struct {
-	// ID of the published version of a blueprint definition.
-	BlueprintId *string `pulumi:"blueprintId"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Managed identity for this blueprint assignment.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// The location of this blueprint assignment.
-	Location *string `pulumi:"location"`
-	// Defines how resources deployed by a blueprint assignment are locked.
-	Locks *AssignmentLockSettingsResponse `pulumi:"locks"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Blueprint assignment parameter values.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
-	// State of the blueprint assignment.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Names and locations of resource group placeholders.
-	ResourceGroups map[string]ResourceGroupValueResponse `pulumi:"resourceGroups"`
-	// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
-	Scope *string `pulumi:"scope"`
-	// Status of blueprint assignment. This field is readonly.
-	Status *AssignmentStatusResponse `pulumi:"status"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type AssignmentState struct {
-	// ID of the published version of a blueprint definition.
-	BlueprintId pulumi.StringPtrInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Managed identity for this blueprint assignment.
-	Identity ManagedServiceIdentityResponsePtrInput
-	// The location of this blueprint assignment.
-	Location pulumi.StringPtrInput
-	// Defines how resources deployed by a blueprint assignment are locked.
-	Locks AssignmentLockSettingsResponsePtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Blueprint assignment parameter values.
-	Parameters ParameterValueResponseMapInput
-	// State of the blueprint assignment.
-	ProvisioningState pulumi.StringPtrInput
-	// Names and locations of resource group placeholders.
-	ResourceGroups ResourceGroupValueResponseMapInput
-	// The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
-	Scope pulumi.StringPtrInput
-	// Status of blueprint assignment. This field is readonly.
-	Status AssignmentStatusResponsePtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (AssignmentState) ElementType() reflect.Type {

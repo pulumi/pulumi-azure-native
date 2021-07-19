@@ -103,73 +103,9 @@ func GetEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Environment resources.
 type environmentState struct {
-	// The name or email address of the user who has claimed the environment
-	ClaimedByUserName *string `pulumi:"claimedByUserName"`
-	// The AAD object Id of the user who has claimed the environment
-	ClaimedByUserObjectId *string `pulumi:"claimedByUserObjectId"`
-	// The user principal Id of the user who has claimed the environment
-	ClaimedByUserPrincipalId *string `pulumi:"claimedByUserPrincipalId"`
-	// Is the environment claimed or not
-	IsClaimed *bool `pulumi:"isClaimed"`
-	// Last known power state of the environment
-	LastKnownPowerState *string `pulumi:"lastKnownPowerState"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Network details of the environment
-	NetworkInterface *NetworkInterfaceResponse `pulumi:"networkInterface"`
-	// When the password was last reset on the environment.
-	PasswordLastReset *string `pulumi:"passwordLastReset"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The set of a VM and the setting id it was created for
-	ResourceSets *ResourceSetResponse `pulumi:"resourceSets"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// How long the environment has been used by a lab user
-	TotalUsage *string `pulumi:"totalUsage"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type EnvironmentState struct {
-	// The name or email address of the user who has claimed the environment
-	ClaimedByUserName pulumi.StringPtrInput
-	// The AAD object Id of the user who has claimed the environment
-	ClaimedByUserObjectId pulumi.StringPtrInput
-	// The user principal Id of the user who has claimed the environment
-	ClaimedByUserPrincipalId pulumi.StringPtrInput
-	// Is the environment claimed or not
-	IsClaimed pulumi.BoolPtrInput
-	// Last known power state of the environment
-	LastKnownPowerState pulumi.StringPtrInput
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponsePtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Network details of the environment
-	NetworkInterface NetworkInterfaceResponsePtrInput
-	// When the password was last reset on the environment.
-	PasswordLastReset pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The set of a VM and the setting id it was created for
-	ResourceSets ResourceSetResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// How long the environment has been used by a lab user
-	TotalUsage pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (EnvironmentState) ElementType() reflect.Type {

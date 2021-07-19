@@ -119,77 +119,9 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// The size of this Cache, in GB.
-	CacheSizeGB *int `pulumi:"cacheSizeGB"`
-	// Specifies Directory Services settings of the cache.
-	DirectoryServicesSettings *CacheDirectorySettingsResponse `pulumi:"directoryServicesSettings"`
-	// Specifies encryption settings of the cache.
-	EncryptionSettings *CacheEncryptionSettingsResponse `pulumi:"encryptionSettings"`
-	// Health of the Cache.
-	Health *CacheHealthResponse `pulumi:"health"`
-	// The identity of the cache, if configured.
-	Identity *CacheIdentityResponse `pulumi:"identity"`
-	// Region name string.
-	Location *string `pulumi:"location"`
-	// Array of IP addresses that can be used by clients mounting this Cache.
-	MountAddresses []string `pulumi:"mountAddresses"`
-	// Name of Cache.
-	Name *string `pulumi:"name"`
-	// Specifies network settings of the cache.
-	NetworkSettings *CacheNetworkSettingsResponse `pulumi:"networkSettings"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies security settings of the cache.
-	SecuritySettings *CacheSecuritySettingsResponse `pulumi:"securitySettings"`
-	// SKU for the Cache.
-	Sku *CacheResponseSku `pulumi:"sku"`
-	// Subnet used for the Cache.
-	Subnet *string `pulumi:"subnet"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the Cache; Microsoft.StorageCache/Cache
-	Type *string `pulumi:"type"`
-	// Upgrade status of the Cache.
-	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
 }
 
 type CacheState struct {
-	// The size of this Cache, in GB.
-	CacheSizeGB pulumi.IntPtrInput
-	// Specifies Directory Services settings of the cache.
-	DirectoryServicesSettings CacheDirectorySettingsResponsePtrInput
-	// Specifies encryption settings of the cache.
-	EncryptionSettings CacheEncryptionSettingsResponsePtrInput
-	// Health of the Cache.
-	Health CacheHealthResponsePtrInput
-	// The identity of the cache, if configured.
-	Identity CacheIdentityResponsePtrInput
-	// Region name string.
-	Location pulumi.StringPtrInput
-	// Array of IP addresses that can be used by clients mounting this Cache.
-	MountAddresses pulumi.StringArrayInput
-	// Name of Cache.
-	Name pulumi.StringPtrInput
-	// Specifies network settings of the cache.
-	NetworkSettings CacheNetworkSettingsResponsePtrInput
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrInput
-	// Specifies security settings of the cache.
-	SecuritySettings CacheSecuritySettingsResponsePtrInput
-	// SKU for the Cache.
-	Sku CacheResponseSkuPtrInput
-	// Subnet used for the Cache.
-	Subnet pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Type of the Cache; Microsoft.StorageCache/Cache
-	Type pulumi.StringPtrInput
-	// Upgrade status of the Cache.
-	UpgradeStatus CacheUpgradeStatusResponsePtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {

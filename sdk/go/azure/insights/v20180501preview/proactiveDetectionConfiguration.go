@@ -86,41 +86,9 @@ func GetProactiveDetectionConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProactiveDetectionConfiguration resources.
 type proactiveDetectionConfigurationState struct {
-	// Custom email addresses for this rule notifications
-	CustomEmails []string `pulumi:"customEmails"`
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled *bool `pulumi:"enabled"`
-	// The last time this rule was updated
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The rule name
-	Name *string `pulumi:"name"`
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions *ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions `pulumi:"ruleDefinitions"`
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
-	SendEmailsToSubscriptionOwners *bool `pulumi:"sendEmailsToSubscriptionOwners"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ProactiveDetectionConfigurationState struct {
-	// Custom email addresses for this rule notifications
-	CustomEmails pulumi.StringArrayInput
-	// A flag that indicates whether this rule is enabled by the user
-	Enabled pulumi.BoolPtrInput
-	// The last time this rule was updated
-	LastUpdatedTime pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The rule name
-	Name pulumi.StringPtrInput
-	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
-	RuleDefinitions ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitionsPtrInput
-	// A flag that indicated whether notifications on this rule should be sent to subscription owners
-	SendEmailsToSubscriptionOwners pulumi.BoolPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ProactiveDetectionConfigurationState) ElementType() reflect.Type {

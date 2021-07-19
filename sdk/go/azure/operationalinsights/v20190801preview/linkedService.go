@@ -90,25 +90,9 @@ func GetLinkedService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedService resources.
 type linkedServiceState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
 }
 
 type LinkedServiceState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-	WriteAccessResourceId pulumi.StringPtrInput
 }
 
 func (LinkedServiceState) ElementType() reflect.Type {

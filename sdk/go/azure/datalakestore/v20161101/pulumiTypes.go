@@ -351,7 +351,7 @@ type EncryptionConfig struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo *KeyVaultMetaInfo `pulumi:"keyVaultMetaInfo"`
 	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-	Type string `pulumi:"type"`
+	Type EncryptionConfigType `pulumi:"type"`
 }
 
 // EncryptionConfigInput is an input type that accepts EncryptionConfigArgs and EncryptionConfigOutput values.
@@ -370,7 +370,7 @@ type EncryptionConfigArgs struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo KeyVaultMetaInfoPtrInput `pulumi:"keyVaultMetaInfo"`
 	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-	Type EncryptionConfigType `pulumi:"type"`
+	Type EncryptionConfigTypeInput `pulumi:"type"`
 }
 
 func (EncryptionConfigArgs) ElementType() reflect.Type {
@@ -457,8 +457,8 @@ func (o EncryptionConfigOutput) KeyVaultMetaInfo() KeyVaultMetaInfoPtrOutput {
 }
 
 // The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-func (o EncryptionConfigOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EncryptionConfig) string { return v.Type }).(pulumi.StringOutput)
+func (o EncryptionConfigOutput) Type() EncryptionConfigTypeOutput {
+	return o.ApplyT(func(v EncryptionConfig) EncryptionConfigType { return v.Type }).(EncryptionConfigTypeOutput)
 }
 
 type EncryptionConfigPtrOutput struct{ *pulumi.OutputState }
@@ -490,13 +490,13 @@ func (o EncryptionConfigPtrOutput) KeyVaultMetaInfo() KeyVaultMetaInfoPtrOutput 
 }
 
 // The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-func (o EncryptionConfigPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionConfig) *string {
+func (o EncryptionConfigPtrOutput) Type() EncryptionConfigTypePtrOutput {
+	return o.ApplyT(func(v *EncryptionConfig) *EncryptionConfigType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(EncryptionConfigTypePtrOutput)
 }
 
 // The encryption configuration for the account.
@@ -655,7 +655,7 @@ func (o EncryptionConfigResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // The encryption identity properties.
 type EncryptionIdentity struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-	Type string `pulumi:"type"`
+	Type EncryptionIdentityType `pulumi:"type"`
 }
 
 // EncryptionIdentityInput is an input type that accepts EncryptionIdentityArgs and EncryptionIdentityOutput values.
@@ -672,7 +672,7 @@ type EncryptionIdentityInput interface {
 // The encryption identity properties.
 type EncryptionIdentityArgs struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-	Type EncryptionIdentityType `pulumi:"type"`
+	Type EncryptionIdentityTypeInput `pulumi:"type"`
 }
 
 func (EncryptionIdentityArgs) ElementType() reflect.Type {
@@ -754,8 +754,8 @@ func (o EncryptionIdentityOutput) ToEncryptionIdentityPtrOutputWithContext(ctx c
 }
 
 // The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-func (o EncryptionIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EncryptionIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o EncryptionIdentityOutput) Type() EncryptionIdentityTypeOutput {
+	return o.ApplyT(func(v EncryptionIdentity) EncryptionIdentityType { return v.Type }).(EncryptionIdentityTypeOutput)
 }
 
 type EncryptionIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -777,13 +777,13 @@ func (o EncryptionIdentityPtrOutput) Elem() EncryptionIdentityOutput {
 }
 
 // The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-func (o EncryptionIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionIdentity) *string {
+func (o EncryptionIdentityPtrOutput) Type() EncryptionIdentityTypePtrOutput {
+	return o.ApplyT(func(v *EncryptionIdentity) *EncryptionIdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(EncryptionIdentityTypePtrOutput)
 }
 
 // The encryption identity properties.

@@ -104,41 +104,9 @@ func GetStreamingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingPolicy resources.
 type streamingPolicyState struct {
-	// Configuration of CommonEncryptionCbcs
-	CommonEncryptionCbcs *CommonEncryptionCbcsResponse `pulumi:"commonEncryptionCbcs"`
-	// Configuration of CommonEncryptionCenc
-	CommonEncryptionCenc *CommonEncryptionCencResponse `pulumi:"commonEncryptionCenc"`
-	// Creation time of Streaming Policy
-	Created *string `pulumi:"created"`
-	// Default ContentKey used by current Streaming Policy
-	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
-	// Configuration of EnvelopeEncryption
-	EnvelopeEncryption *EnvelopeEncryptionResponse `pulumi:"envelopeEncryption"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Configuration of NoEncryption
-	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type StreamingPolicyState struct {
-	// Configuration of CommonEncryptionCbcs
-	CommonEncryptionCbcs CommonEncryptionCbcsResponsePtrInput
-	// Configuration of CommonEncryptionCenc
-	CommonEncryptionCenc CommonEncryptionCencResponsePtrInput
-	// Creation time of Streaming Policy
-	Created pulumi.StringPtrInput
-	// Default ContentKey used by current Streaming Policy
-	DefaultContentKeyPolicyName pulumi.StringPtrInput
-	// Configuration of EnvelopeEncryption
-	EnvelopeEncryption EnvelopeEncryptionResponsePtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Configuration of NoEncryption
-	NoEncryption NoEncryptionResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (StreamingPolicyState) ElementType() reflect.Type {

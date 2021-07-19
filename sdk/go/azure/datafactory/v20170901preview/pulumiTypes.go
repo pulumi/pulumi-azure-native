@@ -21155,7 +21155,7 @@ func (o ExpressionResponseOutput) Value() pulumi.StringOutput {
 // Identity properties of the factory resource.
 type FactoryIdentity struct {
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
-	Type string `pulumi:"type"`
+	Type FactoryIdentityType `pulumi:"type"`
 }
 
 // FactoryIdentityInput is an input type that accepts FactoryIdentityArgs and FactoryIdentityOutput values.
@@ -21172,7 +21172,7 @@ type FactoryIdentityInput interface {
 // Identity properties of the factory resource.
 type FactoryIdentityArgs struct {
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
-	Type FactoryIdentityType `pulumi:"type"`
+	Type FactoryIdentityTypeInput `pulumi:"type"`
 }
 
 func (FactoryIdentityArgs) ElementType() reflect.Type {
@@ -21254,8 +21254,8 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 }
 
 // The identity type. Currently the only supported type is 'SystemAssigned'.
-func (o FactoryIdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryIdentity) string { return v.Type }).(pulumi.StringOutput)
+func (o FactoryIdentityOutput) Type() FactoryIdentityTypeOutput {
+	return o.ApplyT(func(v FactoryIdentity) FactoryIdentityType { return v.Type }).(FactoryIdentityTypeOutput)
 }
 
 type FactoryIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -21277,13 +21277,13 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 }
 
 // The identity type. Currently the only supported type is 'SystemAssigned'.
-func (o FactoryIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FactoryIdentity) *string {
+func (o FactoryIdentityPtrOutput) Type() FactoryIdentityTypePtrOutput {
+	return o.ApplyT(func(v *FactoryIdentity) *FactoryIdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(FactoryIdentityTypePtrOutput)
 }
 
 // Identity properties of the factory resource.
@@ -47978,7 +47978,7 @@ type RecurrenceSchedule struct {
 	// The monthly occurrences.
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays []DaysOfWeek `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -48105,8 +48105,8 @@ func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurre
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -48168,19 +48168,19 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []string {
+func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(pulumi.StringArrayOutput)
+	}).(DaysOfWeekArrayOutput)
 }
 
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
-	Day *string `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -48199,7 +48199,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
+	Day DayOfWeekPtrInput `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -48257,8 +48257,8 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 }
 
 // The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
 }
 
 // The occurrence.
@@ -68431,6 +68431,96 @@ func (o ZohoSourceResponseOutput) SourceRetryWait() pulumi.AnyOutput {
 // Expected value is 'ZohoSource'.
 func (o ZohoSourceResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ZohoSourceResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SSISExecutionParameterResponseArgsMapMap map[string]SSISExecutionParameterResponseArgsMapInput
+
+func (SSISExecutionParameterResponseArgsMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterResponseArgsMap)(nil)).Elem()
+}
+
+func (i SSISExecutionParameterResponseArgsMapMap) ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput {
+	return i.ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(context.Background())
+}
+
+func (i SSISExecutionParameterResponseArgsMapMap) ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterResponseArgsMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SSISExecutionParameterResponseArgsMapMapOutput)
+}
+
+type SSISExecutionParameterResponseArgsMapMapOutput struct{ *pulumi.OutputState }
+
+func (SSISExecutionParameterResponseArgsMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterResponseArgsMap)(nil)).Elem()
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterResponseArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterResponseArgsMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterResponseArgsMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterResponseArgsMap {
+		return vs[0].(map[string]SSISExecutionParameterResponseArgsMap)[vs[1].(string)]
+	}).(SSISExecutionParameterResponseArgsMapOutput)
+}
+
+// SSISExecutionParameterResponseArgsMapMapInput is an input type that accepts SSISExecutionParameterResponseArgsMapMap and SSISExecutionParameterResponseArgsMapMapOutput values.
+// You can construct a concrete instance of `SSISExecutionParameterResponseArgsMapMapInput` via:
+//
+//          SSISExecutionParameterResponseArgsMapMap{ "key": SSISExecutionParameterResponseArgsMap{ "key": SSISExecutionParameterResponseArgsArgs{...} } }
+type SSISExecutionParameterResponseArgsMapMapInput interface {
+	pulumi.Input
+
+	ToSSISExecutionParameterResponseArgsMapMapOutput() SSISExecutionParameterResponseArgsMapMapOutput
+	ToSSISExecutionParameterResponseArgsMapMapOutputWithContext(context.Context) SSISExecutionParameterResponseArgsMapMapOutput
+}
+
+type SSISExecutionParameterArgsMapMap map[string]SSISExecutionParameterArgsMapInput
+
+func (SSISExecutionParameterArgsMapMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterArgsMap)(nil)).Elem()
+}
+
+func (i SSISExecutionParameterArgsMapMap) ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput {
+	return i.ToSSISExecutionParameterArgsMapMapOutputWithContext(context.Background())
+}
+
+func (i SSISExecutionParameterArgsMapMap) ToSSISExecutionParameterArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterArgsMapMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SSISExecutionParameterArgsMapMapOutput)
+}
+
+type SSISExecutionParameterArgsMapMapOutput struct{ *pulumi.OutputState }
+
+func (SSISExecutionParameterArgsMapMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SSISExecutionParameterArgsMap)(nil)).Elem()
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) ToSSISExecutionParameterArgsMapMapOutputWithContext(ctx context.Context) SSISExecutionParameterArgsMapMapOutput {
+	return o
+}
+
+func (o SSISExecutionParameterArgsMapMapOutput) MapIndex(k pulumi.StringInput) SSISExecutionParameterArgsMapOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SSISExecutionParameterArgsMap {
+		return vs[0].(map[string]SSISExecutionParameterArgsMap)[vs[1].(string)]
+	}).(SSISExecutionParameterArgsMapOutput)
+}
+
+// SSISExecutionParameterArgsMapMapInput is an input type that accepts SSISExecutionParameterArgsMapMap and SSISExecutionParameterArgsMapMapOutput values.
+// You can construct a concrete instance of `SSISExecutionParameterArgsMapMapInput` via:
+//
+//          SSISExecutionParameterArgsMapMap{ "key": SSISExecutionParameterArgsMap{ "key": SSISExecutionParameterArgsArgs{...} } }
+type SSISExecutionParameterArgsMapMapInput interface {
+	pulumi.Input
+
+	ToSSISExecutionParameterArgsMapMapOutput() SSISExecutionParameterArgsMapMapOutput
+	ToSSISExecutionParameterArgsMapMapOutputWithContext(context.Context) SSISExecutionParameterArgsMapMapOutput
 }
 
 type SSISExecutionParameterMapMap map[string]SSISExecutionParameterMapInput

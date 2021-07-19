@@ -144,61 +144,9 @@ func GetMSIXPackage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MSIXPackage resources.
 type msixpackageState struct {
-	// User friendly Name to be displayed in the portal.
-	DisplayName *string `pulumi:"displayName"`
-	// VHD/CIM image path on Network Share.
-	ImagePath *string `pulumi:"imagePath"`
-	// Make this version of the package the active one across the hostpool.
-	IsActive *bool `pulumi:"isActive"`
-	// Specifies how to register Package in feed.
-	IsRegularRegistration *bool `pulumi:"isRegularRegistration"`
-	// Date Package was last updated, found in the appxmanifest.xml.
-	LastUpdated *string `pulumi:"lastUpdated"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// List of package applications.
-	PackageApplications []MsixPackageApplicationsResponse `pulumi:"packageApplications"`
-	// List of package dependencies.
-	PackageDependencies []MsixPackageDependenciesResponse `pulumi:"packageDependencies"`
-	// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
-	PackageFamilyName *string `pulumi:"packageFamilyName"`
-	// Package Name from appxmanifest.xml.
-	PackageName *string `pulumi:"packageName"`
-	// Relative Path to the package inside the image.
-	PackageRelativePath *string `pulumi:"packageRelativePath"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Package Version found in the appxmanifest.xml.
-	Version *string `pulumi:"version"`
 }
 
 type MSIXPackageState struct {
-	// User friendly Name to be displayed in the portal.
-	DisplayName pulumi.StringPtrInput
-	// VHD/CIM image path on Network Share.
-	ImagePath pulumi.StringPtrInput
-	// Make this version of the package the active one across the hostpool.
-	IsActive pulumi.BoolPtrInput
-	// Specifies how to register Package in feed.
-	IsRegularRegistration pulumi.BoolPtrInput
-	// Date Package was last updated, found in the appxmanifest.xml.
-	LastUpdated pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// List of package applications.
-	PackageApplications MsixPackageApplicationsResponseArrayInput
-	// List of package dependencies.
-	PackageDependencies MsixPackageDependenciesResponseArrayInput
-	// Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.
-	PackageFamilyName pulumi.StringPtrInput
-	// Package Name from appxmanifest.xml.
-	PackageName pulumi.StringPtrInput
-	// Relative Path to the package inside the image.
-	PackageRelativePath pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Package Version found in the appxmanifest.xml.
-	Version pulumi.StringPtrInput
 }
 
 func (MSIXPackageState) ElementType() reflect.Type {

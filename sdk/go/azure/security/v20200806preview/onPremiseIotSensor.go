@@ -61,17 +61,9 @@ func GetOnPremiseIotSensor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OnPremiseIotSensor resources.
 type onPremiseIotSensorState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type OnPremiseIotSensorState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (OnPremiseIotSensorState) ElementType() reflect.Type {

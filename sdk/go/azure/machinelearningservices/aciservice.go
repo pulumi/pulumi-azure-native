@@ -118,41 +118,9 @@ func GetACIService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ACIService resources.
 type aciserviceState struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name *string `pulumi:"name"`
-	// Service properties
-	Properties interface{} `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ACIServiceState struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Specifies the name of the resource.
-	Name pulumi.StringPtrInput
-	// Service properties
-	Properties pulumi.Input
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// Specifies the type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ACIServiceState) ElementType() reflect.Type {

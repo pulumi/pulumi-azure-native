@@ -39,6 +39,9 @@ func NewEventSource(ctx *pulumi.Context,
 	if args.EnvironmentName == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -94,29 +97,9 @@ func GetEventSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSource resources.
 type eventSourceState struct {
-	// The kind of the event source.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type EventSourceState struct {
-	// The kind of the event source.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EventSourceState) ElementType() reflect.Type {
@@ -129,7 +112,7 @@ type eventSourceArgs struct {
 	// Name of the event source.
 	EventSourceName *string `pulumi:"eventSourceName"`
 	// The kind of the event source.
-	Kind string `pulumi:"kind"`
+	Kind Kind `pulumi:"kind"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of an Azure Resource group.
@@ -145,7 +128,7 @@ type EventSourceArgs struct {
 	// Name of the event source.
 	EventSourceName pulumi.StringPtrInput
 	// The kind of the event source.
-	Kind Kind
+	Kind KindInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of an Azure Resource group.

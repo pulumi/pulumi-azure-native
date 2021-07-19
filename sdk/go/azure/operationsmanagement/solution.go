@@ -74,33 +74,9 @@ func GetSolution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Solution resources.
 type solutionState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan *SolutionPlanResponse `pulumi:"plan"`
-	// Properties for solution object supported by the OperationsManagement resource provider.
-	Properties *SolutionPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SolutionState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Plan for solution object supported by the OperationsManagement resource provider.
-	Plan SolutionPlanResponsePtrInput
-	// Properties for solution object supported by the OperationsManagement resource provider.
-	Properties SolutionPropertiesResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SolutionState) ElementType() reflect.Type {

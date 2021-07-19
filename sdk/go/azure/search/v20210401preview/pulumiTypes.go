@@ -13,7 +13,7 @@ import (
 // Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOption struct {
 	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
-	AadAuthFailureMode *string `pulumi:"aadAuthFailureMode"`
+	AadAuthFailureMode *AadAuthFailureMode `pulumi:"aadAuthFailureMode"`
 }
 
 // DataPlaneAadOrApiKeyAuthOptionInput is an input type that accepts DataPlaneAadOrApiKeyAuthOptionArgs and DataPlaneAadOrApiKeyAuthOptionOutput values.
@@ -30,7 +30,7 @@ type DataPlaneAadOrApiKeyAuthOptionInput interface {
 // Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
 type DataPlaneAadOrApiKeyAuthOptionArgs struct {
 	// Describes what response the data plane API of a Search service would send for requests that failed authentication.
-	AadAuthFailureMode *AadAuthFailureMode `pulumi:"aadAuthFailureMode"`
+	AadAuthFailureMode AadAuthFailureModePtrInput `pulumi:"aadAuthFailureMode"`
 }
 
 func (DataPlaneAadOrApiKeyAuthOptionArgs) ElementType() reflect.Type {
@@ -112,8 +112,8 @@ func (o DataPlaneAadOrApiKeyAuthOptionOutput) ToDataPlaneAadOrApiKeyAuthOptionPt
 }
 
 // Describes what response the data plane API of a Search service would send for requests that failed authentication.
-func (o DataPlaneAadOrApiKeyAuthOptionOutput) AadAuthFailureMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOption) *string { return v.AadAuthFailureMode }).(pulumi.StringPtrOutput)
+func (o DataPlaneAadOrApiKeyAuthOptionOutput) AadAuthFailureMode() AadAuthFailureModePtrOutput {
+	return o.ApplyT(func(v DataPlaneAadOrApiKeyAuthOption) *AadAuthFailureMode { return v.AadAuthFailureMode }).(AadAuthFailureModePtrOutput)
 }
 
 type DataPlaneAadOrApiKeyAuthOptionPtrOutput struct{ *pulumi.OutputState }
@@ -135,13 +135,13 @@ func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) Elem() DataPlaneAadOrApiKeyAuth
 }
 
 // Describes what response the data plane API of a Search service would send for requests that failed authentication.
-func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) AadAuthFailureMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOption) *string {
+func (o DataPlaneAadOrApiKeyAuthOptionPtrOutput) AadAuthFailureMode() AadAuthFailureModePtrOutput {
+	return o.ApplyT(func(v *DataPlaneAadOrApiKeyAuthOption) *AadAuthFailureMode {
 		if v == nil {
 			return nil
 		}
 		return v.AadAuthFailureMode
-	}).(pulumi.StringPtrOutput)
+	}).(AadAuthFailureModePtrOutput)
 }
 
 // Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
@@ -587,7 +587,7 @@ func (o DataPlaneAuthOptionsResponsePtrOutput) ApiKeyOnly() pulumi.AnyOutput {
 // Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmk struct {
 	// Describes how a search service should enforce having one or more non customer encrypted resources.
-	Enforcement *string `pulumi:"enforcement"`
+	Enforcement *SearchEncryptionWithCmk `pulumi:"enforcement"`
 }
 
 // EncryptionWithCmkInput is an input type that accepts EncryptionWithCmkArgs and EncryptionWithCmkOutput values.
@@ -604,7 +604,7 @@ type EncryptionWithCmkInput interface {
 // Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
 type EncryptionWithCmkArgs struct {
 	// Describes how a search service should enforce having one or more non customer encrypted resources.
-	Enforcement *SearchEncryptionWithCmk `pulumi:"enforcement"`
+	Enforcement SearchEncryptionWithCmkPtrInput `pulumi:"enforcement"`
 }
 
 func (EncryptionWithCmkArgs) ElementType() reflect.Type {
@@ -686,8 +686,8 @@ func (o EncryptionWithCmkOutput) ToEncryptionWithCmkPtrOutputWithContext(ctx con
 }
 
 // Describes how a search service should enforce having one or more non customer encrypted resources.
-func (o EncryptionWithCmkOutput) Enforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EncryptionWithCmk) *string { return v.Enforcement }).(pulumi.StringPtrOutput)
+func (o EncryptionWithCmkOutput) Enforcement() SearchEncryptionWithCmkPtrOutput {
+	return o.ApplyT(func(v EncryptionWithCmk) *SearchEncryptionWithCmk { return v.Enforcement }).(SearchEncryptionWithCmkPtrOutput)
 }
 
 type EncryptionWithCmkPtrOutput struct{ *pulumi.OutputState }
@@ -709,13 +709,13 @@ func (o EncryptionWithCmkPtrOutput) Elem() EncryptionWithCmkOutput {
 }
 
 // Describes how a search service should enforce having one or more non customer encrypted resources.
-func (o EncryptionWithCmkPtrOutput) Enforcement() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionWithCmk) *string {
+func (o EncryptionWithCmkPtrOutput) Enforcement() SearchEncryptionWithCmkPtrOutput {
+	return o.ApplyT(func(v *EncryptionWithCmk) *SearchEncryptionWithCmk {
 		if v == nil {
 			return nil
 		}
 		return v.Enforcement
-	}).(pulumi.StringPtrOutput)
+	}).(SearchEncryptionWithCmkPtrOutput)
 }
 
 // Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
@@ -2023,7 +2023,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState struct
 	// The description for the private link service connection state.
 	Description *string `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *string `pulumi:"status"`
+	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
 }
 
 // PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
@@ -2044,7 +2044,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs st
 	// The description for the private link service connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
+	Status PrivateLinkServiceConnectionStatusPtrInput `pulumi:"status"`
 }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -2140,8 +2140,10 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutp
 }
 
 // Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
+		return v.Status
+	}).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
@@ -2185,13 +2187,13 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 }
 
 // Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(pulumi.StringPtrOutput)
+	}).(PrivateLinkServiceConnectionStatusPtrOutput)
 }
 
 // Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.

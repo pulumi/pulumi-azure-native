@@ -82,45 +82,9 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
-	// The ETag value to implement optimistic concurrency.
-	ETag *string `pulumi:"eTag"`
-	// Extension api docs link.
-	ExtensionApiDocsLink *string `pulumi:"extensionApiDocsLink"`
-	// Extension auth link.
-	ExtensionAuthLink *string `pulumi:"extensionAuthLink"`
-	// Extension category. e.g. weather/sensor/satellite.
-	ExtensionCategory *string `pulumi:"extensionCategory"`
-	// Extension Id.
-	ExtensionId *string `pulumi:"extensionId"`
-	// Installed extension version.
-	InstalledExtensionVersion *string `pulumi:"installedExtensionVersion"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ExtensionState struct {
-	// The ETag value to implement optimistic concurrency.
-	ETag pulumi.StringPtrInput
-	// Extension api docs link.
-	ExtensionApiDocsLink pulumi.StringPtrInput
-	// Extension auth link.
-	ExtensionAuthLink pulumi.StringPtrInput
-	// Extension category. e.g. weather/sensor/satellite.
-	ExtensionCategory pulumi.StringPtrInput
-	// Extension Id.
-	ExtensionId pulumi.StringPtrInput
-	// Installed extension version.
-	InstalledExtensionVersion pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {

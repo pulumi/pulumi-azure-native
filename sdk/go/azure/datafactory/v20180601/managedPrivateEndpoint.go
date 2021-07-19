@@ -78,25 +78,9 @@ func GetManagedPrivateEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
 type managedPrivateEndpointState struct {
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Managed private endpoint properties.
-	Properties *ManagedPrivateEndpointResponse `pulumi:"properties"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedPrivateEndpointState struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Managed private endpoint properties.
-	Properties ManagedPrivateEndpointResponsePtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedPrivateEndpointState) ElementType() reflect.Type {

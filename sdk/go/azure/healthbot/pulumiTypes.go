@@ -166,7 +166,7 @@ func (o HealthBotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringP
 // The resource model definition representing SKU
 type Sku struct {
 	// The name of the HealthBot SKU
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -183,7 +183,7 @@ type SkuInput interface {
 // The resource model definition representing SKU
 type SkuArgs struct {
 	// The name of the HealthBot SKU
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -265,8 +265,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // The name of the HealthBot SKU
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -288,13 +288,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // The name of the HealthBot SKU
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // The resource model definition representing SKU

@@ -5958,7 +5958,7 @@ func (o GeoReplicationStatsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 // IP rule with specific IP or IP range in CIDR format.
 type IPRule struct {
 	// The action of IP ACL rule.
-	Action *string `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
 }
@@ -5977,7 +5977,7 @@ type IPRuleInput interface {
 // IP rule with specific IP or IP range in CIDR format.
 type IPRuleArgs struct {
 	// The action of IP ACL rule.
-	Action *Action `pulumi:"action"`
+	Action ActionPtrInput `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
@@ -6035,8 +6035,8 @@ func (o IPRuleOutput) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutpu
 }
 
 // The action of IP ACL rule.
-func (o IPRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IPRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o IPRuleOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v IPRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 // Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
@@ -6176,7 +6176,7 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type string `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -6193,7 +6193,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type IdentityTypeInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -6275,8 +6275,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
+func (o IdentityOutput) Type() IdentityTypeOutput {
+	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -6298,13 +6298,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(IdentityTypePtrOutput)
 }
 
 // Identity for the resource.
@@ -9821,7 +9821,7 @@ type NetworkRuleSet struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 	Bypass *string `pulumi:"bypass"`
 	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction string `pulumi:"defaultAction"`
+	DefaultAction DefaultAction `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules []IPRule `pulumi:"ipRules"`
 	// Sets the virtual network rules
@@ -9844,7 +9844,7 @@ type NetworkRuleSetArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction DefaultAction `pulumi:"defaultAction"`
+	DefaultAction DefaultActionInput `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules IPRuleArrayInput `pulumi:"ipRules"`
 	// Sets the virtual network rules
@@ -9935,8 +9935,8 @@ func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 }
 
 // Specifies the default action of allow or deny when no other rules match.
-func (o NetworkRuleSetOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkRuleSet) string { return v.DefaultAction }).(pulumi.StringOutput)
+func (o NetworkRuleSetOutput) DefaultAction() DefaultActionOutput {
+	return o.ApplyT(func(v NetworkRuleSet) DefaultAction { return v.DefaultAction }).(DefaultActionOutput)
 }
 
 // Sets the IP ACL rules
@@ -9978,13 +9978,13 @@ func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 }
 
 // Specifies the default action of allow or deny when no other rules match.
-func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) *string {
+func (o NetworkRuleSetPtrOutput) DefaultAction() DefaultActionPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSet) *DefaultAction {
 		if v == nil {
 			return nil
 		}
 		return &v.DefaultAction
-	}).(pulumi.StringPtrOutput)
+	}).(DefaultActionPtrOutput)
 }
 
 // Sets the IP ACL rules
@@ -13647,9 +13647,9 @@ func (o UpdateHistoryPropertyResponseArrayOutput) Index(i pulumi.IntInput) Updat
 // Virtual Network rule.
 type VirtualNetworkRule struct {
 	// The action of virtual network rule.
-	Action *string `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
+	State *State `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
 }
@@ -13668,9 +13668,9 @@ type VirtualNetworkRuleInput interface {
 // Virtual Network rule.
 type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
-	Action *Action `pulumi:"action"`
+	Action ActionPtrInput `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State *State `pulumi:"state"`
+	State StatePtrInput `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
@@ -13728,13 +13728,13 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 }
 
 // The action of virtual network rule.
-func (o VirtualNetworkRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkRuleOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 // Gets the state of virtual network rule.
-func (o VirtualNetworkRuleOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.State }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkRuleOutput) State() StatePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *State { return v.State }).(StatePtrOutput)
 }
 
 // Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.

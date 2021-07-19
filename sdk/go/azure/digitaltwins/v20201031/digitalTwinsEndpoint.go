@@ -85,21 +85,9 @@ func GetDigitalTwinsEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DigitalTwinsEndpoint resources.
 type digitalTwinsEndpointState struct {
-	// Extension resource name.
-	Name *string `pulumi:"name"`
-	// DigitalTwinsInstance endpoint resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DigitalTwinsEndpointState struct {
-	// Extension resource name.
-	Name pulumi.StringPtrInput
-	// DigitalTwinsInstance endpoint resource properties.
-	Properties pulumi.Input
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DigitalTwinsEndpointState) ElementType() reflect.Type {

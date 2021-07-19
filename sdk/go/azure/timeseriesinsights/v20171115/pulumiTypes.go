@@ -673,7 +673,7 @@ type ReferenceDataSetKeyProperty struct {
 	// The name of the key property.
 	Name *string `pulumi:"name"`
 	// The type of the key property.
-	Type *string `pulumi:"type"`
+	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
 }
 
 // ReferenceDataSetKeyPropertyInput is an input type that accepts ReferenceDataSetKeyPropertyArgs and ReferenceDataSetKeyPropertyOutput values.
@@ -692,7 +692,7 @@ type ReferenceDataSetKeyPropertyArgs struct {
 	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of the key property.
-	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
+	Type ReferenceDataKeyPropertyTypePtrInput `pulumi:"type"`
 }
 
 func (ReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
@@ -753,8 +753,8 @@ func (o ReferenceDataSetKeyPropertyOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of the key property.
-func (o ReferenceDataSetKeyPropertyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ReferenceDataSetKeyPropertyOutput) Type() ReferenceDataKeyPropertyTypePtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *ReferenceDataKeyPropertyType { return v.Type }).(ReferenceDataKeyPropertyTypePtrOutput)
 }
 
 type ReferenceDataSetKeyPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -891,7 +891,7 @@ type Sku struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity int `pulumi:"capacity"`
 	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -910,7 +910,7 @@ type SkuArgs struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of this SKU.
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -997,8 +997,8 @@ func (o SkuOutput) Capacity() pulumi.IntOutput {
 }
 
 // The name of this SKU.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1030,13 +1030,13 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // The name of this SKU.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.

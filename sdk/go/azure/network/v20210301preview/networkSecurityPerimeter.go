@@ -77,41 +77,9 @@ func GetNetworkSecurityPerimeter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkSecurityPerimeter resources.
 type networkSecurityPerimeterState struct {
-	// A description of the network security perimeter.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network security perimeter.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type NetworkSecurityPerimeterState struct {
-	// A description of the network security perimeter.
-	Description pulumi.StringPtrInput
-	// A friendly name for the network security perimeter.
-	DisplayName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (NetworkSecurityPerimeterState) ElementType() reflect.Type {

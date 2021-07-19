@@ -71,21 +71,9 @@ func GetNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceVirtualNetworkRule resources.
 type namespaceVirtualNetworkRuleState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Resource ID of Virtual Network Subnet
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type NamespaceVirtualNetworkRuleState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Resource ID of Virtual Network Subnet
-	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (NamespaceVirtualNetworkRuleState) ElementType() reflect.Type {

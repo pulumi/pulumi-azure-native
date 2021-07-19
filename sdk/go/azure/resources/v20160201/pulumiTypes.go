@@ -470,7 +470,7 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 // Deployment properties.
 type DeploymentProperties struct {
 	// The deployment mode.
-	Mode string `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
 	Parameters interface{} `pulumi:"parameters"`
 	// The parameters URI. Use only one of Parameters or ParametersLink.
@@ -495,7 +495,7 @@ type DeploymentPropertiesInput interface {
 // Deployment properties.
 type DeploymentPropertiesArgs struct {
 	// The deployment mode.
-	Mode DeploymentMode `pulumi:"mode"`
+	Mode DeploymentModeInput `pulumi:"mode"`
 	// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
 	Parameters pulumi.Input `pulumi:"parameters"`
 	// The parameters URI. Use only one of Parameters or ParametersLink.
@@ -585,8 +585,8 @@ func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(c
 }
 
 // The deployment mode.
-func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
+func (o DeploymentPropertiesOutput) Mode() DeploymentModeOutput {
+	return o.ApplyT(func(v DeploymentProperties) DeploymentMode { return v.Mode }).(DeploymentModeOutput)
 }
 
 // Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
@@ -628,13 +628,13 @@ func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
 }
 
 // The deployment mode.
-func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
+func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
 		if v == nil {
 			return nil
 		}
 		return &v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(DeploymentModePtrOutput)
 }
 
 // Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
@@ -1004,7 +1004,7 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Timestamp() pulumi.String
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1021,7 +1021,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1103,8 +1103,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1126,13 +1126,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the resource.

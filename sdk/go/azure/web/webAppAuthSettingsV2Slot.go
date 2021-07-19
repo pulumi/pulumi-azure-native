@@ -114,41 +114,9 @@ func GetWebAppAuthSettingsV2Slot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppAuthSettingsV2Slot resources.
 type webAppAuthSettingsV2SlotState struct {
-	// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-	GlobalValidation *GlobalValidationResponse `pulumi:"globalValidation"`
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-	HttpSettings *HttpSettingsResponse `pulumi:"httpSettings"`
-	// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-	IdentityProviders *IdentityProvidersResponse `pulumi:"identityProviders"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// The configuration settings of the login flow of users using App Service Authentication/Authorization.
-	Login *LoginResponse `pulumi:"login"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// The configuration settings of the platform of App Service Authentication/Authorization.
-	Platform *AuthPlatformResponse `pulumi:"platform"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppAuthSettingsV2SlotState struct {
-	// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
-	GlobalValidation GlobalValidationResponsePtrInput
-	// The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
-	HttpSettings HttpSettingsResponsePtrInput
-	// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
-	IdentityProviders IdentityProvidersResponsePtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// The configuration settings of the login flow of users using App Service Authentication/Authorization.
-	Login LoginResponsePtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// The configuration settings of the platform of App Service Authentication/Authorization.
-	Platform AuthPlatformResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppAuthSettingsV2SlotState) ElementType() reflect.Type {

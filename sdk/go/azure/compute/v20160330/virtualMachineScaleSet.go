@@ -165,49 +165,9 @@ func GetVirtualMachineScaleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineScaleSet resources.
 type virtualMachineScaleSetState struct {
-	// The identity of the virtual machine scale set, if configured.
-	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	OverProvision *bool `pulumi:"overProvision"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The virtual machine scale set sku.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The upgrade policy.
-	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
-	// The virtual machine profile.
-	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
 }
 
 type VirtualMachineScaleSetState struct {
-	// The identity of the virtual machine scale set, if configured.
-	Identity VirtualMachineScaleSetIdentityResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	OverProvision pulumi.BoolPtrInput
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// The virtual machine scale set sku.
-	Sku SkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The upgrade policy.
-	UpgradePolicy UpgradePolicyResponsePtrInput
-	// The virtual machine profile.
-	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrInput
 }
 
 func (VirtualMachineScaleSetState) ElementType() reflect.Type {

@@ -1173,7 +1173,7 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrO
 // Profile for Orchestrator
 type ContainerServiceOrchestratorProfile struct {
 	// Specifies what orchestrator will be used to manage container cluster resources.
-	OrchestratorType *string `pulumi:"orchestratorType"`
+	OrchestratorType *ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
 }
 
 // ContainerServiceOrchestratorProfileInput is an input type that accepts ContainerServiceOrchestratorProfileArgs and ContainerServiceOrchestratorProfileOutput values.
@@ -1190,7 +1190,7 @@ type ContainerServiceOrchestratorProfileInput interface {
 // Profile for Orchestrator
 type ContainerServiceOrchestratorProfileArgs struct {
 	// Specifies what orchestrator will be used to manage container cluster resources.
-	OrchestratorType *ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypesPtrInput `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {
@@ -1272,8 +1272,10 @@ func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestrato
 }
 
 // Specifies what orchestrator will be used to manage container cluster resources.
-func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) *string { return v.OrchestratorType }).(pulumi.StringPtrOutput)
+func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() ContainerServiceOchestratorTypesPtrOutput {
+	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) *ContainerServiceOchestratorTypes {
+		return v.OrchestratorType
+	}).(ContainerServiceOchestratorTypesPtrOutput)
 }
 
 type ContainerServiceOrchestratorProfilePtrOutput struct{ *pulumi.OutputState }
@@ -1295,13 +1297,13 @@ func (o ContainerServiceOrchestratorProfilePtrOutput) Elem() ContainerServiceOrc
 }
 
 // Specifies what orchestrator will be used to manage container cluster resources.
-func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *string {
+func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() ContainerServiceOchestratorTypesPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *ContainerServiceOchestratorTypes {
 		if v == nil {
 			return nil
 		}
 		return v.OrchestratorType
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerServiceOchestratorTypesPtrOutput)
 }
 
 // Profile for Orchestrator

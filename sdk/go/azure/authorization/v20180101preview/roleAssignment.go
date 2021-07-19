@@ -121,33 +121,9 @@ func GetRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleAssignment resources.
 type roleAssignmentState struct {
-	// The Delegation flag for the role assignment
-	CanDelegate *bool `pulumi:"canDelegate"`
-	// The role assignment name.
-	Name *string `pulumi:"name"`
-	// The principal ID.
-	PrincipalId *string `pulumi:"principalId"`
-	// The role definition ID.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role assignment scope.
-	Scope *string `pulumi:"scope"`
-	// The role assignment type.
-	Type *string `pulumi:"type"`
 }
 
 type RoleAssignmentState struct {
-	// The Delegation flag for the role assignment
-	CanDelegate pulumi.BoolPtrInput
-	// The role assignment name.
-	Name pulumi.StringPtrInput
-	// The principal ID.
-	PrincipalId pulumi.StringPtrInput
-	// The role definition ID.
-	RoleDefinitionId pulumi.StringPtrInput
-	// The role assignment scope.
-	Scope pulumi.StringPtrInput
-	// The role assignment type.
-	Type pulumi.StringPtrInput
 }
 
 func (RoleAssignmentState) ElementType() reflect.Type {

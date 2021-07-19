@@ -81,8 +81,7 @@ func NewApiManagementService(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	if args.VpnType == nil {
-		e := VirtualNetworkType("None")
-		args.VpnType = &e
+		args.VpnType = VirtualNetworkType("None")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -178,97 +177,9 @@ func GetApiManagementService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiManagementService resources.
 type apiManagementServiceState struct {
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations []AdditionalRegionResponse `pulumi:"additionalLocations"`
-	// Addresser email.
-	AddresserEmail *string `pulumi:"addresserEmail"`
-	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	CreatedAtUtc *string `pulumi:"createdAtUtc"`
-	// Custom properties of the API Management service, like disabling TLS 1.0.
-	CustomProperties map[string]string `pulumi:"customProperties"`
-	// ETag of the resource.
-	Etag *string `pulumi:"etag"`
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations []HostnameConfigurationResponse `pulumi:"hostnameConfigurations"`
-	// Datacenter location of the API Management service.
-	Location *string `pulumi:"location"`
-	// Management API endpoint URL of the API Management service.
-	ManagementApiUrl *string `pulumi:"managementApiUrl"`
-	// Name of the API Management service.
-	Name *string `pulumi:"name"`
-	// Publisher portal endpoint Url of the API Management service.
-	PortalUrl *string `pulumi:"portalUrl"`
-	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Publisher email.
-	PublisherEmail *string `pulumi:"publisherEmail"`
-	// Publisher name.
-	PublisherName *string `pulumi:"publisherName"`
-	// Proxy endpoint URL of the API Management service.
-	RuntimeUrl *string `pulumi:"runtimeUrl"`
-	// SCM endpoint URL of the API Management service.
-	ScmUrl *string `pulumi:"scmUrl"`
-	// SKU properties of the API Management service.
-	Sku *ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
-	// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
-	StaticIPs []string `pulumi:"staticIPs"`
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags map[string]string `pulumi:"tags"`
-	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-	TargetProvisioningState *string `pulumi:"targetProvisioningState"`
-	// Resource type of the API Management service.
-	Type *string `pulumi:"type"`
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType *string `pulumi:"vpnType"`
-	// Virtual network configuration of the API Management service.
-	Vpnconfiguration *VirtualNetworkConfigurationResponse `pulumi:"vpnconfiguration"`
 }
 
 type ApiManagementServiceState struct {
-	// Additional datacenter locations of the API Management service.
-	AdditionalLocations AdditionalRegionResponseArrayInput
-	// Addresser email.
-	AddresserEmail pulumi.StringPtrInput
-	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	CreatedAtUtc pulumi.StringPtrInput
-	// Custom properties of the API Management service, like disabling TLS 1.0.
-	CustomProperties pulumi.StringMapInput
-	// ETag of the resource.
-	Etag pulumi.StringPtrInput
-	// Custom hostname configuration of the API Management service.
-	HostnameConfigurations HostnameConfigurationResponseArrayInput
-	// Datacenter location of the API Management service.
-	Location pulumi.StringPtrInput
-	// Management API endpoint URL of the API Management service.
-	ManagementApiUrl pulumi.StringPtrInput
-	// Name of the API Management service.
-	Name pulumi.StringPtrInput
-	// Publisher portal endpoint Url of the API Management service.
-	PortalUrl pulumi.StringPtrInput
-	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-	ProvisioningState pulumi.StringPtrInput
-	// Publisher email.
-	PublisherEmail pulumi.StringPtrInput
-	// Publisher name.
-	PublisherName pulumi.StringPtrInput
-	// Proxy endpoint URL of the API Management service.
-	RuntimeUrl pulumi.StringPtrInput
-	// SCM endpoint URL of the API Management service.
-	ScmUrl pulumi.StringPtrInput
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponsePtrInput
-	// Static IP addresses of the API Management service virtual machines. Available only for Standard and Premium SKU.
-	StaticIPs pulumi.StringArrayInput
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags pulumi.StringMapInput
-	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-	TargetProvisioningState pulumi.StringPtrInput
-	// Resource type of the API Management service.
-	Type pulumi.StringPtrInput
-	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType pulumi.StringPtrInput
-	// Virtual network configuration of the API Management service.
-	Vpnconfiguration VirtualNetworkConfigurationResponsePtrInput
 }
 
 func (ApiManagementServiceState) ElementType() reflect.Type {
@@ -301,7 +212,7 @@ type apiManagementServiceArgs struct {
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
 	Tags map[string]string `pulumi:"tags"`
 	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType *string `pulumi:"vpnType"`
+	VpnType *VirtualNetworkType `pulumi:"vpnType"`
 	// Virtual network configuration of the API Management service.
 	Vpnconfiguration *VirtualNetworkConfiguration `pulumi:"vpnconfiguration"`
 }
@@ -333,7 +244,7 @@ type ApiManagementServiceArgs struct {
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
 	Tags pulumi.StringMapInput
 	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-	VpnType *VirtualNetworkType
+	VpnType VirtualNetworkTypePtrInput
 	// Virtual network configuration of the API Management service.
 	Vpnconfiguration VirtualNetworkConfigurationPtrInput
 }

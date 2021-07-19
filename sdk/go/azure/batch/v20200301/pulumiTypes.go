@@ -1167,9 +1167,9 @@ func (o AutoStoragePropertiesResponsePtrOutput) StorageAccountId() pulumi.String
 
 type AutoUserSpecification struct {
 	// The default value is nonAdmin.
-	ElevationLevel *string `pulumi:"elevationLevel"`
+	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
 	// The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
-	Scope *string `pulumi:"scope"`
+	Scope *AutoUserScope `pulumi:"scope"`
 }
 
 // AutoUserSpecificationInput is an input type that accepts AutoUserSpecificationArgs and AutoUserSpecificationOutput values.
@@ -1185,9 +1185,9 @@ type AutoUserSpecificationInput interface {
 
 type AutoUserSpecificationArgs struct {
 	// The default value is nonAdmin.
-	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
+	ElevationLevel ElevationLevelPtrInput `pulumi:"elevationLevel"`
 	// The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
-	Scope *AutoUserScope `pulumi:"scope"`
+	Scope AutoUserScopePtrInput `pulumi:"scope"`
 }
 
 func (AutoUserSpecificationArgs) ElementType() reflect.Type {
@@ -1268,13 +1268,13 @@ func (o AutoUserSpecificationOutput) ToAutoUserSpecificationPtrOutputWithContext
 }
 
 // The default value is nonAdmin.
-func (o AutoUserSpecificationOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoUserSpecification) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+func (o AutoUserSpecificationOutput) ElevationLevel() ElevationLevelPtrOutput {
+	return o.ApplyT(func(v AutoUserSpecification) *ElevationLevel { return v.ElevationLevel }).(ElevationLevelPtrOutput)
 }
 
 // The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
-func (o AutoUserSpecificationOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoUserSpecification) *string { return v.Scope }).(pulumi.StringPtrOutput)
+func (o AutoUserSpecificationOutput) Scope() AutoUserScopePtrOutput {
+	return o.ApplyT(func(v AutoUserSpecification) *AutoUserScope { return v.Scope }).(AutoUserScopePtrOutput)
 }
 
 type AutoUserSpecificationPtrOutput struct{ *pulumi.OutputState }
@@ -1296,23 +1296,23 @@ func (o AutoUserSpecificationPtrOutput) Elem() AutoUserSpecificationOutput {
 }
 
 // The default value is nonAdmin.
-func (o AutoUserSpecificationPtrOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoUserSpecification) *string {
+func (o AutoUserSpecificationPtrOutput) ElevationLevel() ElevationLevelPtrOutput {
+	return o.ApplyT(func(v *AutoUserSpecification) *ElevationLevel {
 		if v == nil {
 			return nil
 		}
 		return v.ElevationLevel
-	}).(pulumi.StringPtrOutput)
+	}).(ElevationLevelPtrOutput)
 }
 
 // The default value is Pool. If the pool is running Windows a value of Task should be specified if stricter isolation between tasks is required. For example, if the task mutates the registry in a way which could impact other tasks, or if certificates have been specified on the pool which should not be accessible by normal tasks but should be accessible by start tasks.
-func (o AutoUserSpecificationPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoUserSpecification) *string {
+func (o AutoUserSpecificationPtrOutput) Scope() AutoUserScopePtrOutput {
+	return o.ApplyT(func(v *AutoUserSpecification) *AutoUserScope {
 		if v == nil {
 			return nil
 		}
 		return v.Scope
-	}).(pulumi.StringPtrOutput)
+	}).(AutoUserScopePtrOutput)
 }
 
 type AutoUserSpecificationResponse struct {
@@ -2690,10 +2690,10 @@ func (o CIFSMountConfigurationResponsePtrOutput) Username() pulumi.StringPtrOutp
 type CertificateReference struct {
 	Id string `pulumi:"id"`
 	// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	StoreLocation *string `pulumi:"storeLocation"`
+	StoreLocation *CertificateStoreLocation `pulumi:"storeLocation"`
 	// This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
-	StoreName  *string  `pulumi:"storeName"`
-	Visibility []string `pulumi:"visibility"`
+	StoreName  *string                 `pulumi:"storeName"`
+	Visibility []CertificateVisibility `pulumi:"visibility"`
 }
 
 // CertificateReferenceInput is an input type that accepts CertificateReferenceArgs and CertificateReferenceOutput values.
@@ -2710,7 +2710,7 @@ type CertificateReferenceInput interface {
 type CertificateReferenceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	StoreLocation *CertificateStoreLocation `pulumi:"storeLocation"`
+	StoreLocation CertificateStoreLocationPtrInput `pulumi:"storeLocation"`
 	// This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
 	StoreName  pulumi.StringPtrInput           `pulumi:"storeName"`
 	Visibility CertificateVisibilityArrayInput `pulumi:"visibility"`
@@ -2772,8 +2772,8 @@ func (o CertificateReferenceOutput) Id() pulumi.StringOutput {
 }
 
 // The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-func (o CertificateReferenceOutput) StoreLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateReference) *string { return v.StoreLocation }).(pulumi.StringPtrOutput)
+func (o CertificateReferenceOutput) StoreLocation() CertificateStoreLocationPtrOutput {
+	return o.ApplyT(func(v CertificateReference) *CertificateStoreLocation { return v.StoreLocation }).(CertificateStoreLocationPtrOutput)
 }
 
 // This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
@@ -2781,8 +2781,8 @@ func (o CertificateReferenceOutput) StoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateReference) *string { return v.StoreName }).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateReferenceOutput) Visibility() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateReference) []string { return v.Visibility }).(pulumi.StringArrayOutput)
+func (o CertificateReferenceOutput) Visibility() CertificateVisibilityArrayOutput {
+	return o.ApplyT(func(v CertificateReference) []CertificateVisibility { return v.Visibility }).(CertificateVisibilityArrayOutput)
 }
 
 type CertificateReferenceArrayOutput struct{ *pulumi.OutputState }
@@ -3228,7 +3228,7 @@ type ContainerConfiguration struct {
 	ContainerImageNames []string `pulumi:"containerImageNames"`
 	// If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
 	ContainerRegistries []ContainerRegistry `pulumi:"containerRegistries"`
-	Type                string              `pulumi:"type"`
+	Type                ContainerType       `pulumi:"type"`
 }
 
 // ContainerConfigurationInput is an input type that accepts ContainerConfigurationArgs and ContainerConfigurationOutput values.
@@ -3247,7 +3247,7 @@ type ContainerConfigurationArgs struct {
 	ContainerImageNames pulumi.StringArrayInput `pulumi:"containerImageNames"`
 	// If any images must be downloaded from a private registry which requires credentials, then those credentials must be provided here.
 	ContainerRegistries ContainerRegistryArrayInput `pulumi:"containerRegistries"`
-	Type                ContainerType               `pulumi:"type"`
+	Type                ContainerTypeInput          `pulumi:"type"`
 }
 
 func (ContainerConfigurationArgs) ElementType() reflect.Type {
@@ -3337,8 +3337,8 @@ func (o ContainerConfigurationOutput) ContainerRegistries() ContainerRegistryArr
 	return o.ApplyT(func(v ContainerConfiguration) []ContainerRegistry { return v.ContainerRegistries }).(ContainerRegistryArrayOutput)
 }
 
-func (o ContainerConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerConfiguration) string { return v.Type }).(pulumi.StringOutput)
+func (o ContainerConfigurationOutput) Type() ContainerTypeOutput {
+	return o.ApplyT(func(v ContainerConfiguration) ContainerType { return v.Type }).(ContainerTypeOutput)
 }
 
 type ContainerConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3379,13 +3379,13 @@ func (o ContainerConfigurationPtrOutput) ContainerRegistries() ContainerRegistry
 	}).(ContainerRegistryArrayOutput)
 }
 
-func (o ContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerConfiguration) *string {
+func (o ContainerConfigurationPtrOutput) Type() ContainerTypePtrOutput {
+	return o.ApplyT(func(v *ContainerConfiguration) *ContainerType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerTypePtrOutput)
 }
 
 type ContainerConfigurationResponse struct {
@@ -3972,15 +3972,15 @@ type DataDisk struct {
 	//  readWrite - The caching mode for the disk is read and write.
 	//
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-	Caching    *string `pulumi:"caching"`
-	DiskSizeGB int     `pulumi:"diskSizeGB"`
+	Caching    *CachingType `pulumi:"caching"`
+	DiskSizeGB int          `pulumi:"diskSizeGB"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
 	Lun int `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
 	//  Standard_LRS - The data disk should use standard locally redundant storage.
 	//  Premium_LRS - The data disk should use premium locally redundant storage.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	StorageAccountType *StorageAccountType `pulumi:"storageAccountType"`
 }
 
 // DataDiskInput is an input type that accepts DataDiskArgs and DataDiskOutput values.
@@ -4003,15 +4003,15 @@ type DataDiskArgs struct {
 	//  readWrite - The caching mode for the disk is read and write.
 	//
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-	Caching    *CachingType    `pulumi:"caching"`
-	DiskSizeGB pulumi.IntInput `pulumi:"diskSizeGB"`
+	Caching    CachingTypePtrInput `pulumi:"caching"`
+	DiskSizeGB pulumi.IntInput     `pulumi:"diskSizeGB"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
 	//  Standard_LRS - The data disk should use standard locally redundant storage.
 	//  Premium_LRS - The data disk should use premium locally redundant storage.
-	StorageAccountType *StorageAccountType `pulumi:"storageAccountType"`
+	StorageAccountType StorageAccountTypePtrInput `pulumi:"storageAccountType"`
 }
 
 func (DataDiskArgs) ElementType() reflect.Type {
@@ -4073,8 +4073,8 @@ func (o DataDiskOutput) ToDataDiskOutputWithContext(ctx context.Context) DataDis
 //  readWrite - The caching mode for the disk is read and write.
 //
 //  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-func (o DataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o DataDiskOutput) Caching() CachingTypePtrOutput {
+	return o.ApplyT(func(v DataDisk) *CachingType { return v.Caching }).(CachingTypePtrOutput)
 }
 
 func (o DataDiskOutput) DiskSizeGB() pulumi.IntOutput {
@@ -4090,8 +4090,8 @@ func (o DataDiskOutput) Lun() pulumi.IntOutput {
 //
 //  Standard_LRS - The data disk should use standard locally redundant storage.
 //  Premium_LRS - The data disk should use premium locally redundant storage.
-func (o DataDiskOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisk) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+func (o DataDiskOutput) StorageAccountType() StorageAccountTypePtrOutput {
+	return o.ApplyT(func(v DataDisk) *StorageAccountType { return v.StorageAccountType }).(StorageAccountTypePtrOutput)
 }
 
 type DataDiskArrayOutput struct{ *pulumi.OutputState }
@@ -4808,7 +4808,7 @@ func (o DeploymentConfigurationResponsePtrOutput) VirtualMachineConfiguration() 
 // The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
 type DiskEncryptionConfiguration struct {
 	// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
-	Targets []string `pulumi:"targets"`
+	Targets []DiskEncryptionTarget `pulumi:"targets"`
 }
 
 // DiskEncryptionConfigurationInput is an input type that accepts DiskEncryptionConfigurationArgs and DiskEncryptionConfigurationOutput values.
@@ -4907,8 +4907,8 @@ func (o DiskEncryptionConfigurationOutput) ToDiskEncryptionConfigurationPtrOutpu
 }
 
 // On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
-func (o DiskEncryptionConfigurationOutput) Targets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DiskEncryptionConfiguration) []string { return v.Targets }).(pulumi.StringArrayOutput)
+func (o DiskEncryptionConfigurationOutput) Targets() DiskEncryptionTargetArrayOutput {
+	return o.ApplyT(func(v DiskEncryptionConfiguration) []DiskEncryptionTarget { return v.Targets }).(DiskEncryptionTargetArrayOutput)
 }
 
 type DiskEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -4930,13 +4930,13 @@ func (o DiskEncryptionConfigurationPtrOutput) Elem() DiskEncryptionConfiguration
 }
 
 // On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
-func (o DiskEncryptionConfigurationPtrOutput) Targets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DiskEncryptionConfiguration) []string {
+func (o DiskEncryptionConfigurationPtrOutput) Targets() DiskEncryptionTargetArrayOutput {
+	return o.ApplyT(func(v *DiskEncryptionConfiguration) []DiskEncryptionTarget {
 		if v == nil {
 			return nil
 		}
 		return v.Targets
-	}).(pulumi.StringArrayOutput)
+	}).(DiskEncryptionTargetArrayOutput)
 }
 
 // The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
@@ -5075,7 +5075,7 @@ func (o DiskEncryptionConfigurationResponsePtrOutput) Targets() pulumi.StringArr
 
 type EncryptionProperties struct {
 	// Type of the key source.
-	KeySource *string `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Additional details when using Microsoft.KeyVault
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 }
@@ -5093,7 +5093,7 @@ type EncryptionPropertiesInput interface {
 
 type EncryptionPropertiesArgs struct {
 	// Type of the key source.
-	KeySource *KeySource `pulumi:"keySource"`
+	KeySource KeySourcePtrInput `pulumi:"keySource"`
 	// Additional details when using Microsoft.KeyVault
 	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
 }
@@ -5176,8 +5176,8 @@ func (o EncryptionPropertiesOutput) ToEncryptionPropertiesPtrOutputWithContext(c
 }
 
 // Type of the key source.
-func (o EncryptionPropertiesOutput) KeySource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EncryptionProperties) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+func (o EncryptionPropertiesOutput) KeySource() KeySourcePtrOutput {
+	return o.ApplyT(func(v EncryptionProperties) *KeySource { return v.KeySource }).(KeySourcePtrOutput)
 }
 
 // Additional details when using Microsoft.KeyVault
@@ -5204,13 +5204,13 @@ func (o EncryptionPropertiesPtrOutput) Elem() EncryptionPropertiesOutput {
 }
 
 // Type of the key source.
-func (o EncryptionPropertiesPtrOutput) KeySource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionProperties) *string {
+func (o EncryptionPropertiesPtrOutput) KeySource() KeySourcePtrOutput {
+	return o.ApplyT(func(v *EncryptionProperties) *KeySource {
 		if v == nil {
 			return nil
 		}
 		return v.KeySource
-	}).(pulumi.StringPtrOutput)
+	}).(KeySourcePtrOutput)
 }
 
 // Additional details when using Microsoft.KeyVault
@@ -5575,7 +5575,7 @@ func (o EnvironmentSettingResponseArrayOutput) Index(i pulumi.IntInput) Environm
 
 type FixedScaleSettings struct {
 	// If omitted, the default value is Requeue.
-	NodeDeallocationOption *string `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption *ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
 	// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 	ResizeTimeout *string `pulumi:"resizeTimeout"`
 	// At least one of targetDedicatedNodes, targetLowPriorityNodes must be set.
@@ -5597,7 +5597,7 @@ type FixedScaleSettingsInput interface {
 
 type FixedScaleSettingsArgs struct {
 	// If omitted, the default value is Requeue.
-	NodeDeallocationOption *ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption ComputeNodeDeallocationOptionPtrInput `pulumi:"nodeDeallocationOption"`
 	// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
 	// At least one of targetDedicatedNodes, targetLowPriorityNodes must be set.
@@ -5684,8 +5684,8 @@ func (o FixedScaleSettingsOutput) ToFixedScaleSettingsPtrOutputWithContext(ctx c
 }
 
 // If omitted, the default value is Requeue.
-func (o FixedScaleSettingsOutput) NodeDeallocationOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FixedScaleSettings) *string { return v.NodeDeallocationOption }).(pulumi.StringPtrOutput)
+func (o FixedScaleSettingsOutput) NodeDeallocationOption() ComputeNodeDeallocationOptionPtrOutput {
+	return o.ApplyT(func(v FixedScaleSettings) *ComputeNodeDeallocationOption { return v.NodeDeallocationOption }).(ComputeNodeDeallocationOptionPtrOutput)
 }
 
 // The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
@@ -5722,13 +5722,13 @@ func (o FixedScaleSettingsPtrOutput) Elem() FixedScaleSettingsOutput {
 }
 
 // If omitted, the default value is Requeue.
-func (o FixedScaleSettingsPtrOutput) NodeDeallocationOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FixedScaleSettings) *string {
+func (o FixedScaleSettingsPtrOutput) NodeDeallocationOption() ComputeNodeDeallocationOptionPtrOutput {
+	return o.ApplyT(func(v *FixedScaleSettings) *ComputeNodeDeallocationOption {
 		if v == nil {
 			return nil
 		}
 		return v.NodeDeallocationOption
-	}).(pulumi.StringPtrOutput)
+	}).(ComputeNodeDeallocationOptionPtrOutput)
 }
 
 // The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
@@ -6374,7 +6374,7 @@ type InboundNatPool struct {
 	Name string `pulumi:"name"`
 	// The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
 	NetworkSecurityGroupRules []NetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
-	Protocol                  string                     `pulumi:"protocol"`
+	Protocol                  InboundEndpointProtocol    `pulumi:"protocol"`
 }
 
 // InboundNatPoolInput is an input type that accepts InboundNatPoolArgs and InboundNatPoolOutput values.
@@ -6399,7 +6399,7 @@ type InboundNatPoolArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
 	NetworkSecurityGroupRules NetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
-	Protocol                  InboundEndpointProtocol            `pulumi:"protocol"`
+	Protocol                  InboundEndpointProtocolInput       `pulumi:"protocol"`
 }
 
 func (InboundNatPoolArgs) ElementType() reflect.Type {
@@ -6478,8 +6478,8 @@ func (o InboundNatPoolOutput) NetworkSecurityGroupRules() NetworkSecurityGroupRu
 	return o.ApplyT(func(v InboundNatPool) []NetworkSecurityGroupRule { return v.NetworkSecurityGroupRules }).(NetworkSecurityGroupRuleArrayOutput)
 }
 
-func (o InboundNatPoolOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v InboundNatPool) string { return v.Protocol }).(pulumi.StringOutput)
+func (o InboundNatPoolOutput) Protocol() InboundEndpointProtocolOutput {
+	return o.ApplyT(func(v InboundNatPool) InboundEndpointProtocol { return v.Protocol }).(InboundEndpointProtocolOutput)
 }
 
 type InboundNatPoolArrayOutput struct{ *pulumi.OutputState }
@@ -8686,7 +8686,7 @@ func (o NetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPtrOutput
 }
 
 type NetworkSecurityGroupRule struct {
-	Access string `pulumi:"access"`
+	Access NetworkSecurityGroupRuleAccess `pulumi:"access"`
 	// Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
 	Priority int `pulumi:"priority"`
 	// Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
@@ -8707,7 +8707,7 @@ type NetworkSecurityGroupRuleInput interface {
 }
 
 type NetworkSecurityGroupRuleArgs struct {
-	Access NetworkSecurityGroupRuleAccess `pulumi:"access"`
+	Access NetworkSecurityGroupRuleAccessInput `pulumi:"access"`
 	// Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
@@ -8767,8 +8767,8 @@ func (o NetworkSecurityGroupRuleOutput) ToNetworkSecurityGroupRuleOutputWithCont
 	return o
 }
 
-func (o NetworkSecurityGroupRuleOutput) Access() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkSecurityGroupRule) string { return v.Access }).(pulumi.StringOutput)
+func (o NetworkSecurityGroupRuleOutput) Access() NetworkSecurityGroupRuleAccessOutput {
+	return o.ApplyT(func(v NetworkSecurityGroupRule) NetworkSecurityGroupRuleAccess { return v.Access }).(NetworkSecurityGroupRuleAccessOutput)
 }
 
 // Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 4096. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
@@ -9637,7 +9637,7 @@ type PublicIPAddressConfiguration struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds []string `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
-	Provision *string `pulumi:"provision"`
+	Provision *IPAddressProvisioningType `pulumi:"provision"`
 }
 
 // PublicIPAddressConfigurationInput is an input type that accepts PublicIPAddressConfigurationArgs and PublicIPAddressConfigurationOutput values.
@@ -9656,7 +9656,7 @@ type PublicIPAddressConfigurationArgs struct {
 	// The number of IPs specified here limits the maximum size of the Pool - 50 dedicated nodes or 20 low-priority nodes can be allocated for each public IP. For example, a pool needing 150 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
 	IpAddressIds pulumi.StringArrayInput `pulumi:"ipAddressIds"`
 	// The default value is BatchManaged
-	Provision *IPAddressProvisioningType `pulumi:"provision"`
+	Provision IPAddressProvisioningTypePtrInput `pulumi:"provision"`
 }
 
 func (PublicIPAddressConfigurationArgs) ElementType() reflect.Type {
@@ -9743,8 +9743,8 @@ func (o PublicIPAddressConfigurationOutput) IpAddressIds() pulumi.StringArrayOut
 }
 
 // The default value is BatchManaged
-func (o PublicIPAddressConfigurationOutput) Provision() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicIPAddressConfiguration) *string { return v.Provision }).(pulumi.StringPtrOutput)
+func (o PublicIPAddressConfigurationOutput) Provision() IPAddressProvisioningTypePtrOutput {
+	return o.ApplyT(func(v PublicIPAddressConfiguration) *IPAddressProvisioningType { return v.Provision }).(IPAddressProvisioningTypePtrOutput)
 }
 
 type PublicIPAddressConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -9776,13 +9776,13 @@ func (o PublicIPAddressConfigurationPtrOutput) IpAddressIds() pulumi.StringArray
 }
 
 // The default value is BatchManaged
-func (o PublicIPAddressConfigurationPtrOutput) Provision() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicIPAddressConfiguration) *string {
+func (o PublicIPAddressConfigurationPtrOutput) Provision() IPAddressProvisioningTypePtrOutput {
+	return o.ApplyT(func(v *PublicIPAddressConfiguration) *IPAddressProvisioningType {
 		if v == nil {
 			return nil
 		}
 		return v.Provision
-	}).(pulumi.StringPtrOutput)
+	}).(IPAddressProvisioningTypePtrOutput)
 }
 
 // The public IP Address configuration of the networking configuration of a Pool.
@@ -11343,8 +11343,8 @@ type TaskContainerSettings struct {
 	// This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName string `pulumi:"imageName"`
 	// This setting can be omitted if was already provided at pool creation.
-	Registry         *ContainerRegistry `pulumi:"registry"`
-	WorkingDirectory *string            `pulumi:"workingDirectory"`
+	Registry         *ContainerRegistry         `pulumi:"registry"`
+	WorkingDirectory *ContainerWorkingDirectory `pulumi:"workingDirectory"`
 }
 
 // TaskContainerSettingsInput is an input type that accepts TaskContainerSettingsArgs and TaskContainerSettingsOutput values.
@@ -11364,8 +11364,8 @@ type TaskContainerSettingsArgs struct {
 	// This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
 	ImageName pulumi.StringInput `pulumi:"imageName"`
 	// This setting can be omitted if was already provided at pool creation.
-	Registry         ContainerRegistryPtrInput  `pulumi:"registry"`
-	WorkingDirectory *ContainerWorkingDirectory `pulumi:"workingDirectory"`
+	Registry         ContainerRegistryPtrInput         `pulumi:"registry"`
+	WorkingDirectory ContainerWorkingDirectoryPtrInput `pulumi:"workingDirectory"`
 }
 
 func (TaskContainerSettingsArgs) ElementType() reflect.Type {
@@ -11460,8 +11460,8 @@ func (o TaskContainerSettingsOutput) Registry() ContainerRegistryPtrOutput {
 	return o.ApplyT(func(v TaskContainerSettings) *ContainerRegistry { return v.Registry }).(ContainerRegistryPtrOutput)
 }
 
-func (o TaskContainerSettingsOutput) WorkingDirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskContainerSettings) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+func (o TaskContainerSettingsOutput) WorkingDirectory() ContainerWorkingDirectoryPtrOutput {
+	return o.ApplyT(func(v TaskContainerSettings) *ContainerWorkingDirectory { return v.WorkingDirectory }).(ContainerWorkingDirectoryPtrOutput)
 }
 
 type TaskContainerSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -11512,13 +11512,13 @@ func (o TaskContainerSettingsPtrOutput) Registry() ContainerRegistryPtrOutput {
 	}).(ContainerRegistryPtrOutput)
 }
 
-func (o TaskContainerSettingsPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskContainerSettings) *string {
+func (o TaskContainerSettingsPtrOutput) WorkingDirectory() ContainerWorkingDirectoryPtrOutput {
+	return o.ApplyT(func(v *TaskContainerSettings) *ContainerWorkingDirectory {
 		if v == nil {
 			return nil
 		}
 		return v.WorkingDirectory
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerWorkingDirectoryPtrOutput)
 }
 
 type TaskContainerSettingsResponse struct {
@@ -11706,7 +11706,7 @@ func (o TaskContainerSettingsResponsePtrOutput) WorkingDirectory() pulumi.String
 }
 
 type TaskSchedulingPolicy struct {
-	NodeFillType string `pulumi:"nodeFillType"`
+	NodeFillType ComputeNodeFillType `pulumi:"nodeFillType"`
 }
 
 // TaskSchedulingPolicyInput is an input type that accepts TaskSchedulingPolicyArgs and TaskSchedulingPolicyOutput values.
@@ -11721,7 +11721,7 @@ type TaskSchedulingPolicyInput interface {
 }
 
 type TaskSchedulingPolicyArgs struct {
-	NodeFillType ComputeNodeFillType `pulumi:"nodeFillType"`
+	NodeFillType ComputeNodeFillTypeInput `pulumi:"nodeFillType"`
 }
 
 func (TaskSchedulingPolicyArgs) ElementType() reflect.Type {
@@ -11800,8 +11800,8 @@ func (o TaskSchedulingPolicyOutput) ToTaskSchedulingPolicyPtrOutputWithContext(c
 		return &v
 	}).(TaskSchedulingPolicyPtrOutput)
 }
-func (o TaskSchedulingPolicyOutput) NodeFillType() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskSchedulingPolicy) string { return v.NodeFillType }).(pulumi.StringOutput)
+func (o TaskSchedulingPolicyOutput) NodeFillType() ComputeNodeFillTypeOutput {
+	return o.ApplyT(func(v TaskSchedulingPolicy) ComputeNodeFillType { return v.NodeFillType }).(ComputeNodeFillTypeOutput)
 }
 
 type TaskSchedulingPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -11822,13 +11822,13 @@ func (o TaskSchedulingPolicyPtrOutput) Elem() TaskSchedulingPolicyOutput {
 	return o.ApplyT(func(v *TaskSchedulingPolicy) TaskSchedulingPolicy { return *v }).(TaskSchedulingPolicyOutput)
 }
 
-func (o TaskSchedulingPolicyPtrOutput) NodeFillType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskSchedulingPolicy) *string {
+func (o TaskSchedulingPolicyPtrOutput) NodeFillType() ComputeNodeFillTypePtrOutput {
+	return o.ApplyT(func(v *TaskSchedulingPolicy) *ComputeNodeFillType {
 		if v == nil {
 			return nil
 		}
 		return &v.NodeFillType
-	}).(pulumi.StringPtrOutput)
+	}).(ComputeNodeFillTypePtrOutput)
 }
 
 type TaskSchedulingPolicyResponse struct {
@@ -11959,7 +11959,7 @@ func (o TaskSchedulingPolicyResponsePtrOutput) NodeFillType() pulumi.StringPtrOu
 
 type UserAccount struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel *string `pulumi:"elevationLevel"`
+	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
 	// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfiguration *LinuxUserConfiguration `pulumi:"linuxUserConfiguration"`
 	Name                   string                  `pulumi:"name"`
@@ -11981,7 +11981,7 @@ type UserAccountInput interface {
 
 type UserAccountArgs struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel *ElevationLevel `pulumi:"elevationLevel"`
+	ElevationLevel ElevationLevelPtrInput `pulumi:"elevationLevel"`
 	// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfiguration LinuxUserConfigurationPtrInput `pulumi:"linuxUserConfiguration"`
 	Name                   pulumi.StringInput             `pulumi:"name"`
@@ -12042,8 +12042,8 @@ func (o UserAccountOutput) ToUserAccountOutputWithContext(ctx context.Context) U
 }
 
 // nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-func (o UserAccountOutput) ElevationLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserAccount) *string { return v.ElevationLevel }).(pulumi.StringPtrOutput)
+func (o UserAccountOutput) ElevationLevel() ElevationLevelPtrOutput {
+	return o.ApplyT(func(v UserAccount) *ElevationLevel { return v.ElevationLevel }).(ElevationLevelPtrOutput)
 }
 
 // This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
@@ -13402,7 +13402,7 @@ func (o WindowsConfigurationResponsePtrOutput) EnableAutomaticUpdates() pulumi.B
 
 type WindowsUserConfiguration struct {
 	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-	LoginMode *string `pulumi:"loginMode"`
+	LoginMode *LoginMode `pulumi:"loginMode"`
 }
 
 // WindowsUserConfigurationInput is an input type that accepts WindowsUserConfigurationArgs and WindowsUserConfigurationOutput values.
@@ -13418,7 +13418,7 @@ type WindowsUserConfigurationInput interface {
 
 type WindowsUserConfigurationArgs struct {
 	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-	LoginMode *LoginMode `pulumi:"loginMode"`
+	LoginMode LoginModePtrInput `pulumi:"loginMode"`
 }
 
 func (WindowsUserConfigurationArgs) ElementType() reflect.Type {
@@ -13499,8 +13499,8 @@ func (o WindowsUserConfigurationOutput) ToWindowsUserConfigurationPtrOutputWithC
 }
 
 // Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-func (o WindowsUserConfigurationOutput) LoginMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WindowsUserConfiguration) *string { return v.LoginMode }).(pulumi.StringPtrOutput)
+func (o WindowsUserConfigurationOutput) LoginMode() LoginModePtrOutput {
+	return o.ApplyT(func(v WindowsUserConfiguration) *LoginMode { return v.LoginMode }).(LoginModePtrOutput)
 }
 
 type WindowsUserConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -13522,13 +13522,13 @@ func (o WindowsUserConfigurationPtrOutput) Elem() WindowsUserConfigurationOutput
 }
 
 // Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
-func (o WindowsUserConfigurationPtrOutput) LoginMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsUserConfiguration) *string {
+func (o WindowsUserConfigurationPtrOutput) LoginMode() LoginModePtrOutput {
+	return o.ApplyT(func(v *WindowsUserConfiguration) *LoginMode {
 		if v == nil {
 			return nil
 		}
 		return v.LoginMode
-	}).(pulumi.StringPtrOutput)
+	}).(LoginModePtrOutput)
 }
 
 type WindowsUserConfigurationResponse struct {

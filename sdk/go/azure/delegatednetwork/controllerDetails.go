@@ -86,45 +86,9 @@ func GetControllerDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ControllerDetails resources.
 type controllerDetailsState struct {
-	// dnc application id should be used by customer to authenticate with dnc gateway.
-	DncAppId *string `pulumi:"dncAppId"`
-	// dnc endpoint url that customers can use to connect to
-	DncEndpoint *string `pulumi:"dncEndpoint"`
-	// tenant id of dnc application id
-	DncTenantId *string `pulumi:"dncTenantId"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The current state of dnc controller resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource guid.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of resource.
-	Type *string `pulumi:"type"`
 }
 
 type ControllerDetailsState struct {
-	// dnc application id should be used by customer to authenticate with dnc gateway.
-	DncAppId pulumi.StringPtrInput
-	// dnc endpoint url that customers can use to connect to
-	DncEndpoint pulumi.StringPtrInput
-	// tenant id of dnc application id
-	DncTenantId pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The current state of dnc controller resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource guid.
-	ResourceGuid pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The type of resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ControllerDetailsState) ElementType() reflect.Type {

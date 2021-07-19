@@ -195,49 +195,9 @@ func GetPrivateEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpoint resources.
 type privateEndpointState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"manualPrivateLinkServiceConnections"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Gets an array of references to the network interfaces created for this private endpoint.
-	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
-	// A grouping of information about the connection to the remote resource.
-	PrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"privateLinkServiceConnections"`
-	// The provisioning state of the private endpoint.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet *SubnetResponse `pulumi:"subnet"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
-	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Gets an array of references to the network interfaces created for this private endpoint.
-	NetworkInterfaces NetworkInterfaceResponseArrayInput
-	// A grouping of information about the connection to the remote resource.
-	PrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayInput
-	// The provisioning state of the private endpoint.
-	ProvisioningState pulumi.StringPtrInput
-	// The ID of the subnet from which the private IP will be allocated.
-	Subnet SubnetResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointState) ElementType() reflect.Type {
