@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.18.0 (2021-07-19)
+
 #### New resources:
 
 - `authorization.ResourceManagementPrivateLink`
@@ -12,8 +18,6 @@ CHANGELOG
 
 - `authorization.getResourceManagementPrivateLink`
 - `securityinsights.getAnomalies`
-
----
 
 ## 1.17.0 (2021-07-16)
 
