@@ -97,45 +97,9 @@ func GetCognitiveServicesAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CognitiveServicesAccount resources.
 type cognitiveServicesAccountState struct {
-	// Endpoint of the created account
-	Endpoint *string `pulumi:"endpoint"`
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Type of cognitive service account.
-	Kind *string `pulumi:"kind"`
-	// The location of the resource
-	Location *string `pulumi:"location"`
-	// The name of the created account
-	Name *string `pulumi:"name"`
-	// Gets the status of the cognitive services account at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the cognitive services account.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type CognitiveServicesAccountState struct {
-	// Endpoint of the created account
-	Endpoint pulumi.StringPtrInput
-	// Entity Tag
-	Etag pulumi.StringPtrInput
-	// Type of cognitive service account.
-	Kind pulumi.StringPtrInput
-	// The location of the resource
-	Location pulumi.StringPtrInput
-	// The name of the created account
-	Name pulumi.StringPtrInput
-	// Gets the status of the cognitive services account at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the cognitive services account.
-	Sku SkuResponsePtrInput
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (CognitiveServicesAccountState) ElementType() reflect.Type {

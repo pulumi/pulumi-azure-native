@@ -93,35 +93,9 @@ func GetMDATPDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MDATPDataConnector resources.
 type mdatpdataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'MicrosoftDefenderAdvancedThreatProtection'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type MDATPDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes AlertsDataTypeOfDataConnectorResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'MicrosoftDefenderAdvancedThreatProtection'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MDATPDataConnectorState) ElementType() reflect.Type {

@@ -104,29 +104,9 @@ func GetFileServiceProperties(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileServiceProperties resources.
 type fileServicePropertiesState struct {
-	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors *CorsRulesResponse `pulumi:"cors"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The file service properties for share soft delete.
-	ShareDeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"shareDeleteRetentionPolicy"`
-	// Sku name and tier.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type FileServicePropertiesState struct {
-	// Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
-	Cors CorsRulesResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The file service properties for share soft delete.
-	ShareDeleteRetentionPolicy DeleteRetentionPolicyResponsePtrInput
-	// Sku name and tier.
-	Sku SkuResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (FileServicePropertiesState) ElementType() reflect.Type {

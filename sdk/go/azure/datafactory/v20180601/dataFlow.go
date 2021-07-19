@@ -75,25 +75,9 @@ func GetDataFlow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataFlow resources.
 type dataFlowState struct {
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Data flow properties.
-	Properties *MappingDataFlowResponse `pulumi:"properties"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DataFlowState struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Data flow properties.
-	Properties MappingDataFlowResponsePtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DataFlowState) ElementType() reflect.Type {

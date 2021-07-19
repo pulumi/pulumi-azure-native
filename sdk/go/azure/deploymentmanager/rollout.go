@@ -98,45 +98,9 @@ func GetRollout(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rollout resources.
 type rolloutState struct {
-	// The reference to the artifact source resource Id where the payload is located.
-	ArtifactSourceId *string `pulumi:"artifactSourceId"`
-	// The version of the build being deployed.
-	BuildVersion *string `pulumi:"buildVersion"`
-	// Identity for the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The list of step groups that define the orchestration.
-	StepGroups []StepGroupResponse `pulumi:"stepGroups"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-	TargetServiceTopologyId *string `pulumi:"targetServiceTopologyId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type RolloutState struct {
-	// The reference to the artifact source resource Id where the payload is located.
-	ArtifactSourceId pulumi.StringPtrInput
-	// The version of the build being deployed.
-	BuildVersion pulumi.StringPtrInput
-	// Identity for the resource.
-	Identity IdentityResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The list of step groups that define the orchestration.
-	StepGroups StepGroupResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The resource Id of the service topology from which service units are being referenced in step groups to be deployed.
-	TargetServiceTopologyId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (RolloutState) ElementType() reflect.Type {

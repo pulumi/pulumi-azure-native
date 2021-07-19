@@ -100,21 +100,9 @@ func GetTagAtScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagAtScope resources.
 type tagAtScopeState struct {
-	// The name of the tags wrapper resource.
-	Name *string `pulumi:"name"`
-	// The set of tags.
-	Properties *TagsResponse `pulumi:"properties"`
-	// The type of the tags wrapper resource.
-	Type *string `pulumi:"type"`
 }
 
 type TagAtScopeState struct {
-	// The name of the tags wrapper resource.
-	Name pulumi.StringPtrInput
-	// The set of tags.
-	Properties TagsResponsePtrInput
-	// The type of the tags wrapper resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TagAtScopeState) ElementType() reflect.Type {

@@ -116,63 +116,9 @@ func GetIotHubDataConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotHubDataConnection resources.
 type iotHubDataConnectionState struct {
-	// The iot hub consumer group.
-	ConsumerGroup *string `pulumi:"consumerGroup"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat *string `pulumi:"dataFormat"`
-	// System properties of the iot hub
-	EventSystemProperties []string `pulumi:"eventSystemProperties"`
-	// The resource ID of the Iot hub to be used to create a data connection.
-	IotHubResourceId *string `pulumi:"iotHubResourceId"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'IotHub'.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName *string `pulumi:"mappingRuleName"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the share access policy
-	SharedAccessPolicyName *string `pulumi:"sharedAccessPolicyName"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName *string `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type IotHubDataConnectionState struct {
-	// The iot hub consumer group.
-	ConsumerGroup pulumi.StringPtrInput
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrInput
-	// System properties of the iot hub
-	EventSystemProperties pulumi.StringArrayInput
-	// The resource ID of the Iot hub to be used to create a data connection.
-	IotHubResourceId pulumi.StringPtrInput
-	// Kind of the endpoint for the data connection
-	// Expected value is 'IotHub'.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the share access policy
-	SharedAccessPolicyName pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (IotHubDataConnectionState) ElementType() reflect.Type {

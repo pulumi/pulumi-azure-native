@@ -121,49 +121,9 @@ func GetLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LoadBalancerBackendAddressPool resources.
 type loadBalancerBackendAddressPoolState struct {
-	// An array of references to IP addresses defined in network interfaces.
-	BackendIPConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfigurations"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// An array of backend addresses.
-	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
-	// An array of references to load balancing rules that use this backend address pool.
-	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// The location of the backend address pool.
-	Location *string `pulumi:"location"`
-	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// A reference to an outbound rule that uses this backend address pool.
-	OutboundRule *SubResourceResponse `pulumi:"outboundRule"`
-	// An array of references to outbound rules that use this backend address pool.
-	OutboundRules []SubResourceResponse `pulumi:"outboundRules"`
-	// The provisioning state of the backend address pool resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type LoadBalancerBackendAddressPoolState struct {
-	// An array of references to IP addresses defined in network interfaces.
-	BackendIPConfigurations NetworkInterfaceIPConfigurationResponseArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// An array of backend addresses.
-	LoadBalancerBackendAddresses LoadBalancerBackendAddressResponseArrayInput
-	// An array of references to load balancing rules that use this backend address pool.
-	LoadBalancingRules SubResourceResponseArrayInput
-	// The location of the backend address pool.
-	Location pulumi.StringPtrInput
-	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// A reference to an outbound rule that uses this backend address pool.
-	OutboundRule SubResourceResponsePtrInput
-	// An array of references to outbound rules that use this backend address pool.
-	OutboundRules SubResourceResponseArrayInput
-	// The provisioning state of the backend address pool resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (LoadBalancerBackendAddressPoolState) ElementType() reflect.Type {

@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['BackupPolicyArgs', 'BackupPolicy']
+__all__ = ['BackupPolicyInitArgs', 'BackupPolicy']
 
 @pulumi.input_type
-class BackupPolicyArgs:
+class BackupPolicyInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
@@ -108,19 +108,19 @@ class BackupPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupPolicyArgs,
+                 args: BackupPolicyInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BaseBackupPolicy resource
         API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
-        :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param BackupPolicyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupPolicyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -143,7 +143,7 @@ class BackupPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
+            __props__ = BackupPolicyInitArgs.__new__(BackupPolicyInitArgs)
 
             __props__.__dict__["backup_policy_name"] = backup_policy_name
             __props__.__dict__["properties"] = properties
@@ -178,7 +178,7 @@ class BackupPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
+        __props__ = BackupPolicyInitArgs.__new__(BackupPolicyInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

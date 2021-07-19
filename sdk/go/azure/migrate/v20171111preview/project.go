@@ -87,61 +87,9 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp *string `pulumi:"createdTimestamp"`
-	// ARM ID of the Service Map workspace created by user.
-	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
-	// Reports whether project is under discovery.
-	DiscoveryStatus *string `pulumi:"discoveryStatus"`
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the project.
-	Name *string `pulumi:"name"`
-	// Number of assessments created in the project.
-	NumberOfAssessments *int `pulumi:"numberOfAssessments"`
-	// Number of groups created in the project.
-	NumberOfGroups *int `pulumi:"numberOfGroups"`
-	// Number of machines in the project.
-	NumberOfMachines *int `pulumi:"numberOfMachines"`
-	// Provisioning state of the project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Tags provided by Azure Tagging service.
-	Tags interface{} `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type *string `pulumi:"type"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp *string `pulumi:"updatedTimestamp"`
 }
 
 type ProjectState struct {
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringPtrInput
-	// ARM ID of the Service Map workspace created by user.
-	CustomerWorkspaceId pulumi.StringPtrInput
-	// Reports whether project is under discovery.
-	DiscoveryStatus pulumi.StringPtrInput
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which project is created.
-	Location pulumi.StringPtrInput
-	// Name of the project.
-	Name pulumi.StringPtrInput
-	// Number of assessments created in the project.
-	NumberOfAssessments pulumi.IntPtrInput
-	// Number of groups created in the project.
-	NumberOfGroups pulumi.IntPtrInput
-	// Number of machines in the project.
-	NumberOfMachines pulumi.IntPtrInput
-	// Provisioning state of the project.
-	ProvisioningState pulumi.StringPtrInput
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.Input
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type pulumi.StringPtrInput
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {

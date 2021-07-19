@@ -95,45 +95,9 @@ func GetVirtualNetworkLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkLink resources.
 type virtualNetworkLinkState struct {
-	// The ETag of the virtual network link.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type *string `pulumi:"type"`
-	// The reference of the virtual network.
-	VirtualNetwork *SubResourceResponse `pulumi:"virtualNetwork"`
-	// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
-	VirtualNetworkLinkState *string `pulumi:"virtualNetworkLinkState"`
 }
 
 type VirtualNetworkLinkState struct {
-	// The ETag of the virtual network link.
-	Etag pulumi.StringPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
-	ProvisioningState pulumi.StringPtrInput
-	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-	RegistrationEnabled pulumi.BoolPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type pulumi.StringPtrInput
-	// The reference of the virtual network.
-	VirtualNetwork SubResourceResponsePtrInput
-	// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
-	VirtualNetworkLinkState pulumi.StringPtrInput
 }
 
 func (VirtualNetworkLinkState) ElementType() reflect.Type {

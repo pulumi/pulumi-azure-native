@@ -15,7 +15,7 @@ type AFDDomainHttpsParameters struct {
 	// Defines the source of the SSL certificate.
 	CertificateType string `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https
-	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
+	MinimumTlsVersion *AfdMinimumTlsVersion `pulumi:"minimumTlsVersion"`
 	// Resource reference to the secret. ie. subs/rg/profile/secret
 	Secret *ResourceReference `pulumi:"secret"`
 }
@@ -36,7 +36,7 @@ type AFDDomainHttpsParametersArgs struct {
 	// Defines the source of the SSL certificate.
 	CertificateType pulumi.StringInput `pulumi:"certificateType"`
 	// TLS protocol version that will be used for Https
-	MinimumTlsVersion *AfdMinimumTlsVersion `pulumi:"minimumTlsVersion"`
+	MinimumTlsVersion AfdMinimumTlsVersionPtrInput `pulumi:"minimumTlsVersion"`
 	// Resource reference to the secret. ie. subs/rg/profile/secret
 	Secret ResourceReferencePtrInput `pulumi:"secret"`
 }
@@ -125,8 +125,8 @@ func (o AFDDomainHttpsParametersOutput) CertificateType() pulumi.StringOutput {
 }
 
 // TLS protocol version that will be used for Https
-func (o AFDDomainHttpsParametersOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AFDDomainHttpsParameters) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+func (o AFDDomainHttpsParametersOutput) MinimumTlsVersion() AfdMinimumTlsVersionPtrOutput {
+	return o.ApplyT(func(v AFDDomainHttpsParameters) *AfdMinimumTlsVersion { return v.MinimumTlsVersion }).(AfdMinimumTlsVersionPtrOutput)
 }
 
 // Resource reference to the secret. ie. subs/rg/profile/secret
@@ -163,13 +163,13 @@ func (o AFDDomainHttpsParametersPtrOutput) CertificateType() pulumi.StringPtrOut
 }
 
 // TLS protocol version that will be used for Https
-func (o AFDDomainHttpsParametersPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AFDDomainHttpsParameters) *string {
+func (o AFDDomainHttpsParametersPtrOutput) MinimumTlsVersion() AfdMinimumTlsVersionPtrOutput {
+	return o.ApplyT(func(v *AFDDomainHttpsParameters) *AfdMinimumTlsVersion {
 		if v == nil {
 			return nil
 		}
 		return v.MinimumTlsVersion
-	}).(pulumi.StringPtrOutput)
+	}).(AfdMinimumTlsVersionPtrOutput)
 }
 
 // Resource reference to the secret. ie. subs/rg/profile/secret
@@ -6028,7 +6028,7 @@ func (o EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrOut
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilter struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
+	Action GeoFilterActions `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes []string `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -6049,7 +6049,7 @@ type GeoFilterInput interface {
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilterArgs struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActions `pulumi:"action"`
+	Action GeoFilterActionsInput `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -6109,8 +6109,8 @@ func (o GeoFilterOutput) ToGeoFilterOutputWithContext(ctx context.Context) GeoFi
 }
 
 // Action of the geo filter, i.e. allow or block access.
-func (o GeoFilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GeoFilter) string { return v.Action }).(pulumi.StringOutput)
+func (o GeoFilterOutput) Action() GeoFilterActionsOutput {
+	return o.ApplyT(func(v GeoFilter) GeoFilterActions { return v.Action }).(GeoFilterActionsOutput)
 }
 
 // Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
@@ -6426,9 +6426,9 @@ type HealthProbeParameters struct {
 	// The path relative to the origin that is used to determine the health of the origin.
 	ProbePath *string `pulumi:"probePath"`
 	// Protocol to use for health probe.
-	ProbeProtocol *string `pulumi:"probeProtocol"`
+	ProbeProtocol *ProbeProtocol `pulumi:"probeProtocol"`
 	// The type of health probe request that is made.
-	ProbeRequestType *string `pulumi:"probeRequestType"`
+	ProbeRequestType *HealthProbeRequestType `pulumi:"probeRequestType"`
 }
 
 // HealthProbeParametersInput is an input type that accepts HealthProbeParametersArgs and HealthProbeParametersOutput values.
@@ -6449,9 +6449,9 @@ type HealthProbeParametersArgs struct {
 	// The path relative to the origin that is used to determine the health of the origin.
 	ProbePath pulumi.StringPtrInput `pulumi:"probePath"`
 	// Protocol to use for health probe.
-	ProbeProtocol *ProbeProtocol `pulumi:"probeProtocol"`
+	ProbeProtocol ProbeProtocolPtrInput `pulumi:"probeProtocol"`
 	// The type of health probe request that is made.
-	ProbeRequestType *HealthProbeRequestType `pulumi:"probeRequestType"`
+	ProbeRequestType HealthProbeRequestTypePtrInput `pulumi:"probeRequestType"`
 }
 
 func (HealthProbeParametersArgs) ElementType() reflect.Type {
@@ -6543,13 +6543,13 @@ func (o HealthProbeParametersOutput) ProbePath() pulumi.StringPtrOutput {
 }
 
 // Protocol to use for health probe.
-func (o HealthProbeParametersOutput) ProbeProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeParameters) *string { return v.ProbeProtocol }).(pulumi.StringPtrOutput)
+func (o HealthProbeParametersOutput) ProbeProtocol() ProbeProtocolPtrOutput {
+	return o.ApplyT(func(v HealthProbeParameters) *ProbeProtocol { return v.ProbeProtocol }).(ProbeProtocolPtrOutput)
 }
 
 // The type of health probe request that is made.
-func (o HealthProbeParametersOutput) ProbeRequestType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HealthProbeParameters) *string { return v.ProbeRequestType }).(pulumi.StringPtrOutput)
+func (o HealthProbeParametersOutput) ProbeRequestType() HealthProbeRequestTypePtrOutput {
+	return o.ApplyT(func(v HealthProbeParameters) *HealthProbeRequestType { return v.ProbeRequestType }).(HealthProbeRequestTypePtrOutput)
 }
 
 type HealthProbeParametersPtrOutput struct{ *pulumi.OutputState }
@@ -6591,23 +6591,23 @@ func (o HealthProbeParametersPtrOutput) ProbePath() pulumi.StringPtrOutput {
 }
 
 // Protocol to use for health probe.
-func (o HealthProbeParametersPtrOutput) ProbeProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeParameters) *string {
+func (o HealthProbeParametersPtrOutput) ProbeProtocol() ProbeProtocolPtrOutput {
+	return o.ApplyT(func(v *HealthProbeParameters) *ProbeProtocol {
 		if v == nil {
 			return nil
 		}
 		return v.ProbeProtocol
-	}).(pulumi.StringPtrOutput)
+	}).(ProbeProtocolPtrOutput)
 }
 
 // The type of health probe request that is made.
-func (o HealthProbeParametersPtrOutput) ProbeRequestType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HealthProbeParameters) *string {
+func (o HealthProbeParametersPtrOutput) ProbeRequestType() HealthProbeRequestTypePtrOutput {
+	return o.ApplyT(func(v *HealthProbeParameters) *HealthProbeRequestType {
 		if v == nil {
 			return nil
 		}
 		return v.ProbeRequestType
-	}).(pulumi.StringPtrOutput)
+	}).(HealthProbeRequestTypePtrOutput)
 }
 
 // The JSON object that contains the properties to send health probes to origin.
@@ -12298,7 +12298,7 @@ type ResponseBasedOriginErrorDetectionParameters struct {
 	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
 	HttpErrorRanges []HttpErrorRangeParameters `pulumi:"httpErrorRanges"`
 	// Type of response errors for real user requests for which origin will be deemed unhealthy
-	ResponseBasedDetectedErrorTypes *string `pulumi:"responseBasedDetectedErrorTypes"`
+	ResponseBasedDetectedErrorTypes *ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
 	// The percentage of failed requests in the sample where failover should trigger.
 	ResponseBasedFailoverThresholdPercentage *int `pulumi:"responseBasedFailoverThresholdPercentage"`
 }
@@ -12319,7 +12319,7 @@ type ResponseBasedOriginErrorDetectionParametersArgs struct {
 	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
 	HttpErrorRanges HttpErrorRangeParametersArrayInput `pulumi:"httpErrorRanges"`
 	// Type of response errors for real user requests for which origin will be deemed unhealthy
-	ResponseBasedDetectedErrorTypes *ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
+	ResponseBasedDetectedErrorTypes ResponseBasedDetectedErrorTypesPtrInput `pulumi:"responseBasedDetectedErrorTypes"`
 	// The percentage of failed requests in the sample where failover should trigger.
 	ResponseBasedFailoverThresholdPercentage pulumi.IntPtrInput `pulumi:"responseBasedFailoverThresholdPercentage"`
 }
@@ -12410,8 +12410,10 @@ func (o ResponseBasedOriginErrorDetectionParametersOutput) HttpErrorRanges() Htt
 }
 
 // Type of response errors for real user requests for which origin will be deemed unhealthy
-func (o ResponseBasedOriginErrorDetectionParametersOutput) ResponseBasedDetectedErrorTypes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResponseBasedOriginErrorDetectionParameters) *string { return v.ResponseBasedDetectedErrorTypes }).(pulumi.StringPtrOutput)
+func (o ResponseBasedOriginErrorDetectionParametersOutput) ResponseBasedDetectedErrorTypes() ResponseBasedDetectedErrorTypesPtrOutput {
+	return o.ApplyT(func(v ResponseBasedOriginErrorDetectionParameters) *ResponseBasedDetectedErrorTypes {
+		return v.ResponseBasedDetectedErrorTypes
+	}).(ResponseBasedDetectedErrorTypesPtrOutput)
 }
 
 // The percentage of failed requests in the sample where failover should trigger.
@@ -12452,13 +12454,13 @@ func (o ResponseBasedOriginErrorDetectionParametersPtrOutput) HttpErrorRanges() 
 }
 
 // Type of response errors for real user requests for which origin will be deemed unhealthy
-func (o ResponseBasedOriginErrorDetectionParametersPtrOutput) ResponseBasedDetectedErrorTypes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResponseBasedOriginErrorDetectionParameters) *string {
+func (o ResponseBasedOriginErrorDetectionParametersPtrOutput) ResponseBasedDetectedErrorTypes() ResponseBasedDetectedErrorTypesPtrOutput {
+	return o.ApplyT(func(v *ResponseBasedOriginErrorDetectionParameters) *ResponseBasedDetectedErrorTypes {
 		if v == nil {
 			return nil
 		}
 		return v.ResponseBasedDetectedErrorTypes
-	}).(pulumi.StringPtrOutput)
+	}).(ResponseBasedDetectedErrorTypesPtrOutput)
 }
 
 // The percentage of failed requests in the sample where failover should trigger.
@@ -13244,7 +13246,7 @@ type SharedPrivateLinkResourceProperties struct {
 	// The request message for requesting approval of the shared private link resource.
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-	Status *string `pulumi:"status"`
+	Status *SharedPrivateLinkResourceStatus `pulumi:"status"`
 }
 
 // SharedPrivateLinkResourcePropertiesInput is an input type that accepts SharedPrivateLinkResourcePropertiesArgs and SharedPrivateLinkResourcePropertiesOutput values.
@@ -13269,7 +13271,7 @@ type SharedPrivateLinkResourcePropertiesArgs struct {
 	// The request message for requesting approval of the shared private link resource.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
 	// Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-	Status *SharedPrivateLinkResourceStatus `pulumi:"status"`
+	Status SharedPrivateLinkResourceStatusPtrInput `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourcePropertiesArgs) ElementType() reflect.Type {
@@ -13345,8 +13347,8 @@ func (o SharedPrivateLinkResourcePropertiesOutput) RequestMessage() pulumi.Strin
 }
 
 // Status of the shared private link resource. Can be Pending, Approved, Rejected, Disconnected, or Timeout.
-func (o SharedPrivateLinkResourcePropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o SharedPrivateLinkResourcePropertiesOutput) Status() SharedPrivateLinkResourceStatusPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResourceProperties) *SharedPrivateLinkResourceStatus { return v.Status }).(SharedPrivateLinkResourceStatusPtrOutput)
 }
 
 type SharedPrivateLinkResourcePropertiesArrayOutput struct{ *pulumi.OutputState }

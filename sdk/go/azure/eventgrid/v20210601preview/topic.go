@@ -178,81 +178,9 @@ func GetTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
-	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Endpoint for the topic.
-	Endpoint *string `pulumi:"endpoint"`
-	// Extended location of the resource.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// Identity information for the resource.
-	Identity *IdentityInfoResponse `pulumi:"identity"`
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
-	// This determines the format that Event Grid should expect for incoming events published to the topic.
-	InputSchema *string `pulumi:"inputSchema"`
-	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
-	// Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Metric resource id for the topic.
-	MetricResourceId *string `pulumi:"metricResourceId"`
-	// Name of the resource.
-	Name                       *string                             `pulumi:"name"`
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the topic.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The Sku pricing tier for the topic.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// The system metadata relating to Topic resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type TopicState struct {
-	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// Endpoint for the topic.
-	Endpoint pulumi.StringPtrInput
-	// Extended location of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// Identity information for the resource.
-	Identity IdentityInfoResponsePtrInput
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules InboundIpRuleResponseArrayInput
-	// This determines the format that Event Grid should expect for incoming events published to the topic.
-	InputSchema pulumi.StringPtrInput
-	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping JsonInputSchemaMappingResponsePtrInput
-	// Kind of the resource.
-	Kind pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Metric resource id for the topic.
-	MetricResourceId pulumi.StringPtrInput
-	// Name of the resource.
-	Name                       pulumi.StringPtrInput
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Provisioning state of the topic.
-	ProvisioningState pulumi.StringPtrInput
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The Sku pricing tier for the topic.
-	Sku ResourceSkuResponsePtrInput
-	// The system metadata relating to Topic resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TopicState) ElementType() reflect.Type {

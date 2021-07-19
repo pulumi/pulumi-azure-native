@@ -11,7 +11,7 @@ import (
 )
 
 // The kind of the service.
-type Kind pulumi.String
+type Kind string
 
 const (
 	KindFhir       = Kind("fhir")
@@ -20,7 +20,23 @@ const (
 )
 
 func (Kind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Kind)(nil)).Elem()
+}
+
+func (e Kind) ToKindOutput() KindOutput {
+	return pulumi.ToOutput(e).(KindOutput)
+}
+
+func (e Kind) ToKindOutputWithContext(ctx context.Context) KindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KindOutput)
+}
+
+func (e Kind) ToKindPtrOutput() KindPtrOutput {
+	return e.ToKindPtrOutputWithContext(context.Background())
+}
+
+func (e Kind) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return Kind(e).ToKindOutputWithContext(ctx).ToKindPtrOutputWithContext(ctx)
 }
 
 func (e Kind) ToStringOutput() pulumi.StringOutput {
@@ -39,8 +55,129 @@ func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtr
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type KindOutput struct{ *pulumi.OutputState }
+
+func (KindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Kind)(nil)).Elem()
+}
+
+func (o KindOutput) ToKindOutput() KindOutput {
+	return o
+}
+
+func (o KindOutput) ToKindOutputWithContext(ctx context.Context) KindOutput {
+	return o
+}
+
+func (o KindOutput) ToKindPtrOutput() KindPtrOutput {
+	return o.ToKindPtrOutputWithContext(context.Background())
+}
+
+func (o KindOutput) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Kind) *Kind {
+		return &v
+	}).(KindPtrOutput)
+}
+
+func (o KindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Kind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Kind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KindPtrOutput struct{ *pulumi.OutputState }
+
+func (KindPtrOutput) ElementType() reflect.Type {
+	return kindPtrType
+}
+
+func (o KindPtrOutput) ToKindPtrOutput() KindPtrOutput {
+	return o
+}
+
+func (o KindPtrOutput) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return o
+}
+
+func (o KindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Kind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KindPtrOutput) Elem() KindOutput {
+	return o.ApplyT(func(v *Kind) Kind {
+		var ret Kind
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KindOutput)
+}
+
+// KindInput is an input type that accepts KindArgs and KindOutput values.
+// You can construct a concrete instance of `KindInput` via:
+//
+//          KindArgs{...}
+type KindInput interface {
+	pulumi.Input
+
+	ToKindOutput() KindOutput
+	ToKindOutputWithContext(context.Context) KindOutput
+}
+
+var kindPtrType = reflect.TypeOf((**Kind)(nil)).Elem()
+
+type KindPtrInput interface {
+	pulumi.Input
+
+	ToKindPtrOutput() KindPtrOutput
+	ToKindPtrOutputWithContext(context.Context) KindPtrOutput
+}
+
+type kindPtr string
+
+func KindPtr(v string) KindPtrInput {
+	return (*kindPtr)(&v)
+}
+
+func (*kindPtr) ElementType() reflect.Type {
+	return kindPtrType
+}
+
+func (in *kindPtr) ToKindPtrOutput() KindPtrOutput {
+	return pulumi.ToOutput(in).(KindPtrOutput)
+}
+
+func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
+}
+
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-type ManagedServiceIdentityType pulumi.String
+type ManagedServiceIdentityType string
 
 const (
 	ManagedServiceIdentityTypeSystemAssigned = ManagedServiceIdentityType("SystemAssigned")
@@ -48,7 +185,23 @@ const (
 )
 
 func (ManagedServiceIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ManagedServiceIdentityType)(nil)).Elem()
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypeOutput() ManagedServiceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ManagedServiceIdentityTypeOutput)
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypeOutputWithContext(ctx context.Context) ManagedServiceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedServiceIdentityTypeOutput)
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return e.ToManagedServiceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ManagedServiceIdentityType) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return ManagedServiceIdentityType(e).ToManagedServiceIdentityTypeOutputWithContext(ctx).ToManagedServiceIdentityTypePtrOutputWithContext(ctx)
 }
 
 func (e ManagedServiceIdentityType) ToStringOutput() pulumi.StringOutput {
@@ -65,4 +218,132 @@ func (e ManagedServiceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ManagedServiceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ManagedServiceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedServiceIdentityType)(nil)).Elem()
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypeOutput() ManagedServiceIdentityTypeOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypeOutputWithContext(ctx context.Context) ManagedServiceIdentityTypeOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return o.ToManagedServiceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityType) *ManagedServiceIdentityType {
+		return &v
+	}).(ManagedServiceIdentityTypePtrOutput)
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedServiceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedServiceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedServiceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedServiceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return managedServiceIdentityTypePtrType
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedServiceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedServiceIdentityTypePtrOutput) Elem() ManagedServiceIdentityTypeOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentityType) ManagedServiceIdentityType {
+		var ret ManagedServiceIdentityType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ManagedServiceIdentityTypeOutput)
+}
+
+// ManagedServiceIdentityTypeInput is an input type that accepts ManagedServiceIdentityTypeArgs and ManagedServiceIdentityTypeOutput values.
+// You can construct a concrete instance of `ManagedServiceIdentityTypeInput` via:
+//
+//          ManagedServiceIdentityTypeArgs{...}
+type ManagedServiceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityTypeOutput() ManagedServiceIdentityTypeOutput
+	ToManagedServiceIdentityTypeOutputWithContext(context.Context) ManagedServiceIdentityTypeOutput
+}
+
+var managedServiceIdentityTypePtrType = reflect.TypeOf((**ManagedServiceIdentityType)(nil)).Elem()
+
+type ManagedServiceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput
+	ToManagedServiceIdentityTypePtrOutputWithContext(context.Context) ManagedServiceIdentityTypePtrOutput
+}
+
+type managedServiceIdentityTypePtr string
+
+func ManagedServiceIdentityTypePtr(v string) ManagedServiceIdentityTypePtrInput {
+	return (*managedServiceIdentityTypePtr)(&v)
+}
+
+func (*managedServiceIdentityTypePtr) ElementType() reflect.Type {
+	return managedServiceIdentityTypePtrType
+}
+
+func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutput() ManagedServiceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ManagedServiceIdentityTypePtrOutput)
+}
+
+func (in *managedServiceIdentityTypePtr) ToManagedServiceIdentityTypePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedServiceIdentityTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(KindOutput{})
+	pulumi.RegisterOutputType(KindPtrOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ManagedServiceIdentityTypePtrOutput{})
 }

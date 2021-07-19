@@ -91,21 +91,9 @@ func GetRegistrationAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistrationAssignment resources.
 type registrationAssignmentState struct {
-	// Name of the registration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of a registration assignment.
-	Properties *RegistrationAssignmentPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type RegistrationAssignmentState struct {
-	// Name of the registration assignment.
-	Name pulumi.StringPtrInput
-	// Properties of a registration assignment.
-	Properties RegistrationAssignmentPropertiesResponsePtrInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (RegistrationAssignmentState) ElementType() reflect.Type {

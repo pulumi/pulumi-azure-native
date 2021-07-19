@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// Excel store settings.
         /// </summary>
         [Input("storeSettings")]
-        public Input<object>? StoreSettings { get; set; }
+        public object? StoreSettings { get; set; }
 
         /// <summary>
         /// Copy source type.

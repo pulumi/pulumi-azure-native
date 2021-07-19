@@ -321,97 +321,9 @@ func GetApplicationGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationGateway resources.
 type applicationGatewayState struct {
-	// Authentication certificates of the application gateway resource.
-	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificateResponse `pulumi:"authenticationCertificates"`
-	// Backend address pool of the application gateway resource.
-	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
-	// Backend http settings of the application gateway resource.
-	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Frontend IP addresses of the application gateway resource.
-	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
-	// Frontend ports of the application gateway resource.
-	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
-	// Subnets of application the gateway resource.
-	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
-	// Http listeners of the application gateway resource.
-	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Operational state of the application gateway resource.
-	OperationalState *string `pulumi:"operationalState"`
-	// Probes of the application gateway resource.
-	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
-	// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Request routing rules of the application gateway resource.
-	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
-	// Resource GUID property of the application gateway resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// SKU of the application gateway resource.
-	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
-	// SSL certificates of the application gateway resource.
-	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
-	// SSL policy of the application gateway resource.
-	SslPolicy *ApplicationGatewaySslPolicyResponse `pulumi:"sslPolicy"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// URL path map of the application gateway resource.
-	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
-	// Web application firewall configuration.
-	WebApplicationFirewallConfiguration *ApplicationGatewayWebApplicationFirewallConfigurationResponse `pulumi:"webApplicationFirewallConfiguration"`
 }
 
 type ApplicationGatewayState struct {
-	// Authentication certificates of the application gateway resource.
-	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateResponseArrayInput
-	// Backend address pool of the application gateway resource.
-	BackendAddressPools ApplicationGatewayBackendAddressPoolResponseArrayInput
-	// Backend http settings of the application gateway resource.
-	BackendHttpSettingsCollection ApplicationGatewayBackendHttpSettingsResponseArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Frontend IP addresses of the application gateway resource.
-	FrontendIPConfigurations ApplicationGatewayFrontendIPConfigurationResponseArrayInput
-	// Frontend ports of the application gateway resource.
-	FrontendPorts ApplicationGatewayFrontendPortResponseArrayInput
-	// Subnets of application the gateway resource.
-	GatewayIPConfigurations ApplicationGatewayIPConfigurationResponseArrayInput
-	// Http listeners of the application gateway resource.
-	HttpListeners ApplicationGatewayHttpListenerResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Operational state of the application gateway resource.
-	OperationalState pulumi.StringPtrInput
-	// Probes of the application gateway resource.
-	Probes ApplicationGatewayProbeResponseArrayInput
-	// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrInput
-	// Request routing rules of the application gateway resource.
-	RequestRoutingRules ApplicationGatewayRequestRoutingRuleResponseArrayInput
-	// Resource GUID property of the application gateway resource.
-	ResourceGuid pulumi.StringPtrInput
-	// SKU of the application gateway resource.
-	Sku ApplicationGatewaySkuResponsePtrInput
-	// SSL certificates of the application gateway resource.
-	SslCertificates ApplicationGatewaySslCertificateResponseArrayInput
-	// SSL policy of the application gateway resource.
-	SslPolicy ApplicationGatewaySslPolicyResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// URL path map of the application gateway resource.
-	UrlPathMaps ApplicationGatewayUrlPathMapResponseArrayInput
-	// Web application firewall configuration.
-	WebApplicationFirewallConfiguration ApplicationGatewayWebApplicationFirewallConfigurationResponsePtrInput
 }
 
 func (ApplicationGatewayState) ElementType() reflect.Type {

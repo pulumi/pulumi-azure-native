@@ -99,25 +99,9 @@ func GetTransparentDataEncryption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransparentDataEncryption resources.
 type transparentDataEncryptionState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type TransparentDataEncryptionState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (TransparentDataEncryptionState) ElementType() reflect.Type {

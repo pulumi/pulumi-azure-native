@@ -16,8 +16,8 @@ __all__ = [
     'CacheSecuritySettingsArgs',
     'CacheSkuArgs',
     'ClfsTargetArgs',
-    'KeyVaultKeyReferenceArgs',
     'KeyVaultKeyReferenceSourceVaultArgs',
+    'KeyVaultKeyReferenceArgs',
     'NamespaceJunctionArgs',
     'Nfs3TargetArgs',
     'UnknownTargetArgs',
@@ -170,6 +170,30 @@ class ClfsTargetArgs:
 
 
 @pulumi.input_type
+class KeyVaultKeyReferenceSourceVaultArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a resource Id to source Key Vault.
+        :param pulumi.Input[str] id: Resource Id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class KeyVaultKeyReferenceArgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
@@ -205,30 +229,6 @@ class KeyVaultKeyReferenceArgs:
     @source_vault.setter
     def source_vault(self, value: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs']):
         pulumi.set(self, "source_vault", value)
-
-
-@pulumi.input_type
-class KeyVaultKeyReferenceSourceVaultArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a resource Id to source Key Vault.
-        :param pulumi.Input[str] id: Resource Id.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

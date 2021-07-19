@@ -131,53 +131,9 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate *string `pulumi:"creationDate"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The URL that can be used to log into the container registry.
-	LoginServer *string `pulumi:"loginServer"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the container registry at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the container registry.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The status of the container registry at the time the operation was called.
-	Status *StatusResponse `pulumi:"status"`
-	// The properties of the storage account for the container registry. Only applicable to Basic SKU.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type RegistryState struct {
-	// The value that indicates whether the admin user is enabled.
-	AdminUserEnabled pulumi.BoolPtrInput
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The URL that can be used to log into the container registry.
-	LoginServer pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the container registry at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the container registry.
-	Sku SkuResponsePtrInput
-	// The status of the container registry at the time the operation was called.
-	Status StatusResponsePtrInput
-	// The properties of the storage account for the container registry. Only applicable to Basic SKU.
-	StorageAccount StorageAccountPropertiesResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (RegistryState) ElementType() reflect.Type {

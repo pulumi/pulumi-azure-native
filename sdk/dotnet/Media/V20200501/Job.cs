@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.Media.V20200501
         /// The inputs for the Job.
         /// </summary>
         [Input("input", required: true)]
-        public Input<object> Input { get; set; } = null!;
+        public object Input { get; set; } = null!;
 
         /// <summary>
         /// The Job name.

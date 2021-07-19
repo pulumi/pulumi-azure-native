@@ -85,37 +85,9 @@ func GetSqlServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlServer resources.
 type sqlServerState struct {
-	// Cores of the Sql Server.
-	Cores *int `pulumi:"cores"`
-	// Sql Server Edition.
-	Edition *string `pulumi:"edition"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Sql Server Json Property Bag.
-	PropertyBag *string `pulumi:"propertyBag"`
-	// ID for Parent Sql Server Registration.
-	RegistrationID *string `pulumi:"registrationID"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
-	// Version of the Sql Server.
-	Version *string `pulumi:"version"`
 }
 
 type SqlServerState struct {
-	// Cores of the Sql Server.
-	Cores pulumi.IntPtrInput
-	// Sql Server Edition.
-	Edition pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Sql Server Json Property Bag.
-	PropertyBag pulumi.StringPtrInput
-	// ID for Parent Sql Server Registration.
-	RegistrationID pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
-	// Version of the Sql Server.
-	Version pulumi.StringPtrInput
 }
 
 func (SqlServerState) ElementType() reflect.Type {

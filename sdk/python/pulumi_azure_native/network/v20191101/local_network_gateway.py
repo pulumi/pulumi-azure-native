@@ -10,10 +10,10 @@ from ... import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocalNetworkGatewayArgs', 'LocalNetworkGateway']
+__all__ = ['LocalNetworkGatewayInitArgs', 'LocalNetworkGateway']
 
 @pulumi.input_type
-class LocalNetworkGatewayArgs:
+class LocalNetworkGatewayInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  bgp_settings: Optional[pulumi.Input['BgpSettingsArgs']] = None,
@@ -179,18 +179,18 @@ class LocalNetworkGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalNetworkGatewayArgs,
+                 args: LocalNetworkGatewayInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
 
         :param str resource_name: The name of the resource.
-        :param LocalNetworkGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param LocalNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -217,7 +217,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalNetworkGatewayArgs.__new__(LocalNetworkGatewayArgs)
+            __props__ = LocalNetworkGatewayInitArgs.__new__(LocalNetworkGatewayInitArgs)
 
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["gateway_ip_address"] = gateway_ip_address
@@ -256,7 +256,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LocalNetworkGatewayArgs.__new__(LocalNetworkGatewayArgs)
+        __props__ = LocalNetworkGatewayInitArgs.__new__(LocalNetworkGatewayInitArgs)
 
         __props__.__dict__["bgp_settings"] = None
         __props__.__dict__["etag"] = None

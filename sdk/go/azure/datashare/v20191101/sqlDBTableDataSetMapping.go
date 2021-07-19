@@ -125,51 +125,9 @@ func GetSqlDBTableDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlDBTableDataSetMapping resources.
 type sqlDBTableDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// DatabaseName name of the sink data set
-	DatabaseName *string `pulumi:"databaseName"`
-	// Kind of data set mapping.
-	// Expected value is 'SqlDBTable'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Schema of the table. Default value is dbo.
-	SchemaName *string `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId *string `pulumi:"sqlServerResourceId"`
-	// SQL DB table name.
-	TableName *string `pulumi:"tableName"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type SqlDBTableDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// DatabaseName name of the sink data set
-	DatabaseName pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'SqlDBTable'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringPtrInput
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringPtrInput
-	// SQL DB table name.
-	TableName pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (SqlDBTableDataSetMappingState) ElementType() reflect.Type {

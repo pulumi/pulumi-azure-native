@@ -78,19 +78,9 @@ func GetNotificationRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationRegistration resources.
 type notificationRegistrationState struct {
-	// The name of the resource
-	Name       *string                                     `pulumi:"name"`
-	Properties *NotificationRegistrationResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type NotificationRegistrationState struct {
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Properties NotificationRegistrationResponsePropertiesPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (NotificationRegistrationState) ElementType() reflect.Type {

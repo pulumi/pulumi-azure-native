@@ -80,6 +80,7 @@ class ScheduleFrequency(str, Enum):
     WEEK = "Week"
     MONTH = "Month"
     MINUTE = "Minute"
+    """The minimum allowed interval for Minute schedules is 15 minutes."""
 
 
 class SkuNameEnum(str, Enum):

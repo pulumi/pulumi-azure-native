@@ -113,29 +113,9 @@ func GetWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppSwiftVirtualNetworkConnectionSlot resources.
 type webAppSwiftVirtualNetworkConnectionSlotState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-	SubnetResourceId *string `pulumi:"subnetResourceId"`
-	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
-	SwiftSupported *bool `pulumi:"swiftSupported"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppSwiftVirtualNetworkConnectionSlotState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-	SubnetResourceId pulumi.StringPtrInput
-	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
-	SwiftSupported pulumi.BoolPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppSwiftVirtualNetworkConnectionSlotState) ElementType() reflect.Type {

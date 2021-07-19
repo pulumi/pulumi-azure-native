@@ -11,7 +11,7 @@ import (
 )
 
 // The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-type ContainerServiceOrchestratorTypes pulumi.String
+type ContainerServiceOrchestratorTypes string
 
 const (
 	ContainerServiceOrchestratorTypesSwarm      = ContainerServiceOrchestratorTypes("Swarm")
@@ -21,7 +21,23 @@ const (
 )
 
 func (ContainerServiceOrchestratorTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContainerServiceOrchestratorTypes)(nil)).Elem()
+}
+
+func (e ContainerServiceOrchestratorTypes) ToContainerServiceOrchestratorTypesOutput() ContainerServiceOrchestratorTypesOutput {
+	return pulumi.ToOutput(e).(ContainerServiceOrchestratorTypesOutput)
+}
+
+func (e ContainerServiceOrchestratorTypes) ToContainerServiceOrchestratorTypesOutputWithContext(ctx context.Context) ContainerServiceOrchestratorTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerServiceOrchestratorTypesOutput)
+}
+
+func (e ContainerServiceOrchestratorTypes) ToContainerServiceOrchestratorTypesPtrOutput() ContainerServiceOrchestratorTypesPtrOutput {
+	return e.ToContainerServiceOrchestratorTypesPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerServiceOrchestratorTypes) ToContainerServiceOrchestratorTypesPtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorTypesPtrOutput {
+	return ContainerServiceOrchestratorTypes(e).ToContainerServiceOrchestratorTypesOutputWithContext(ctx).ToContainerServiceOrchestratorTypesPtrOutputWithContext(ctx)
 }
 
 func (e ContainerServiceOrchestratorTypes) ToStringOutput() pulumi.StringOutput {
@@ -40,8 +56,129 @@ func (e ContainerServiceOrchestratorTypes) ToStringPtrOutputWithContext(ctx cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ContainerServiceOrchestratorTypesOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceOrchestratorTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceOrchestratorTypes)(nil)).Elem()
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToContainerServiceOrchestratorTypesOutput() ContainerServiceOrchestratorTypesOutput {
+	return o
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToContainerServiceOrchestratorTypesOutputWithContext(ctx context.Context) ContainerServiceOrchestratorTypesOutput {
+	return o
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToContainerServiceOrchestratorTypesPtrOutput() ContainerServiceOrchestratorTypesPtrOutput {
+	return o.ToContainerServiceOrchestratorTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToContainerServiceOrchestratorTypesPtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceOrchestratorTypes) *ContainerServiceOrchestratorTypes {
+		return &v
+	}).(ContainerServiceOrchestratorTypesPtrOutput)
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceOrchestratorTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceOrchestratorTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceOrchestratorTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerServiceOrchestratorTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceOrchestratorTypesPtrOutput) ElementType() reflect.Type {
+	return containerServiceOrchestratorTypesPtrType
+}
+
+func (o ContainerServiceOrchestratorTypesPtrOutput) ToContainerServiceOrchestratorTypesPtrOutput() ContainerServiceOrchestratorTypesPtrOutput {
+	return o
+}
+
+func (o ContainerServiceOrchestratorTypesPtrOutput) ToContainerServiceOrchestratorTypesPtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorTypesPtrOutput {
+	return o
+}
+
+func (o ContainerServiceOrchestratorTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceOrchestratorTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerServiceOrchestratorTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerServiceOrchestratorTypesPtrOutput) Elem() ContainerServiceOrchestratorTypesOutput {
+	return o.ApplyT(func(v *ContainerServiceOrchestratorTypes) ContainerServiceOrchestratorTypes {
+		var ret ContainerServiceOrchestratorTypes
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ContainerServiceOrchestratorTypesOutput)
+}
+
+// ContainerServiceOrchestratorTypesInput is an input type that accepts ContainerServiceOrchestratorTypesArgs and ContainerServiceOrchestratorTypesOutput values.
+// You can construct a concrete instance of `ContainerServiceOrchestratorTypesInput` via:
+//
+//          ContainerServiceOrchestratorTypesArgs{...}
+type ContainerServiceOrchestratorTypesInput interface {
+	pulumi.Input
+
+	ToContainerServiceOrchestratorTypesOutput() ContainerServiceOrchestratorTypesOutput
+	ToContainerServiceOrchestratorTypesOutputWithContext(context.Context) ContainerServiceOrchestratorTypesOutput
+}
+
+var containerServiceOrchestratorTypesPtrType = reflect.TypeOf((**ContainerServiceOrchestratorTypes)(nil)).Elem()
+
+type ContainerServiceOrchestratorTypesPtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceOrchestratorTypesPtrOutput() ContainerServiceOrchestratorTypesPtrOutput
+	ToContainerServiceOrchestratorTypesPtrOutputWithContext(context.Context) ContainerServiceOrchestratorTypesPtrOutput
+}
+
+type containerServiceOrchestratorTypesPtr string
+
+func ContainerServiceOrchestratorTypesPtr(v string) ContainerServiceOrchestratorTypesPtrInput {
+	return (*containerServiceOrchestratorTypesPtr)(&v)
+}
+
+func (*containerServiceOrchestratorTypesPtr) ElementType() reflect.Type {
+	return containerServiceOrchestratorTypesPtrType
+}
+
+func (in *containerServiceOrchestratorTypesPtr) ToContainerServiceOrchestratorTypesPtrOutput() ContainerServiceOrchestratorTypesPtrOutput {
+	return pulumi.ToOutput(in).(ContainerServiceOrchestratorTypesPtrOutput)
+}
+
+func (in *containerServiceOrchestratorTypesPtr) ToContainerServiceOrchestratorTypesPtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerServiceOrchestratorTypesPtrOutput)
+}
+
 // Size of agent VMs.
-type ContainerServiceVMSizeTypes pulumi.String
+type ContainerServiceVMSizeTypes string
 
 const (
 	ContainerServiceVMSizeTypes_Standard_A0     = ContainerServiceVMSizeTypes("Standard_A0")
@@ -94,7 +231,23 @@ const (
 )
 
 func (ContainerServiceVMSizeTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ContainerServiceVMSizeTypes)(nil)).Elem()
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput {
+	return pulumi.ToOutput(e).(ContainerServiceVMSizeTypesOutput)
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerServiceVMSizeTypesOutput)
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return e.ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return ContainerServiceVMSizeTypes(e).ToContainerServiceVMSizeTypesOutputWithContext(ctx).ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx)
 }
 
 func (e ContainerServiceVMSizeTypes) ToStringOutput() pulumi.StringOutput {
@@ -111,4 +264,132 @@ func (e ContainerServiceVMSizeTypes) ToStringPtrOutput() pulumi.StringPtrOutput 
 
 func (e ContainerServiceVMSizeTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerServiceVMSizeTypesOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceVMSizeTypesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceVMSizeTypes)(nil)).Elem()
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return o.ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMSizeTypes) *ContainerServiceVMSizeTypes {
+		return &v
+	}).(ContainerServiceVMSizeTypesPtrOutput)
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceVMSizeTypes) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceVMSizeTypes) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerServiceVMSizeTypesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceVMSizeTypesPtrOutput) ElementType() reflect.Type {
+	return containerServiceVMSizeTypesPtrType
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return o
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerServiceVMSizeTypes) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ContainerServiceVMSizeTypesPtrOutput) Elem() ContainerServiceVMSizeTypesOutput {
+	return o.ApplyT(func(v *ContainerServiceVMSizeTypes) ContainerServiceVMSizeTypes {
+		var ret ContainerServiceVMSizeTypes
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ContainerServiceVMSizeTypesOutput)
+}
+
+// ContainerServiceVMSizeTypesInput is an input type that accepts ContainerServiceVMSizeTypesArgs and ContainerServiceVMSizeTypesOutput values.
+// You can construct a concrete instance of `ContainerServiceVMSizeTypesInput` via:
+//
+//          ContainerServiceVMSizeTypesArgs{...}
+type ContainerServiceVMSizeTypesInput interface {
+	pulumi.Input
+
+	ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput
+	ToContainerServiceVMSizeTypesOutputWithContext(context.Context) ContainerServiceVMSizeTypesOutput
+}
+
+var containerServiceVMSizeTypesPtrType = reflect.TypeOf((**ContainerServiceVMSizeTypes)(nil)).Elem()
+
+type ContainerServiceVMSizeTypesPtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput
+	ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Context) ContainerServiceVMSizeTypesPtrOutput
+}
+
+type containerServiceVMSizeTypesPtr string
+
+func ContainerServiceVMSizeTypesPtr(v string) ContainerServiceVMSizeTypesPtrInput {
+	return (*containerServiceVMSizeTypesPtr)(&v)
+}
+
+func (*containerServiceVMSizeTypesPtr) ElementType() reflect.Type {
+	return containerServiceVMSizeTypesPtrType
+}
+
+func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
+	return pulumi.ToOutput(in).(ContainerServiceVMSizeTypesPtrOutput)
+}
+
+func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerServiceVMSizeTypesPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ContainerServiceOrchestratorTypesOutput{})
+	pulumi.RegisterOutputType(ContainerServiceOrchestratorTypesPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesOutput{})
+	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesPtrOutput{})
 }

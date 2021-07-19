@@ -76,25 +76,9 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Name of the private endpoint endpoint connection.
-	Name *string `pulumi:"name"`
-	// Properties of the private endpoint endpoint connection.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
-	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Name of the private endpoint endpoint connection.
-	Name pulumi.StringPtrInput
-	// Properties of the private endpoint endpoint connection.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/privateEndpointConnections].
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionState) ElementType() reflect.Type {

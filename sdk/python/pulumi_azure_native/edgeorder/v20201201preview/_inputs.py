@@ -18,8 +18,8 @@ __all__ = [
     'CustomerSubscriptionRegisteredFeatures',
     'EncryptionPreferencesArgs',
     'FilterableProperty',
-    'HierarchyInformationArgs',
     'HierarchyInformation',
+    'HierarchyInformationArgs',
     'ManagementResourcePreferencesArgs',
     'NotificationPreferenceArgs',
     'OrderItemDetailsArgs',
@@ -375,78 +375,6 @@ class FilterableProperty:
 
 
 @pulumi.input_type
-class HierarchyInformationArgs:
-    def __init__(__self__, *,
-                 configuration_name: Optional[pulumi.Input[str]] = None,
-                 product_family_name: Optional[pulumi.Input[str]] = None,
-                 product_line_name: Optional[pulumi.Input[str]] = None,
-                 product_name: Optional[pulumi.Input[str]] = None):
-        """
-        Holds details about product hierarchy information
-        :param pulumi.Input[str] configuration_name: Represents configuration name that uniquely identifies configuration
-        :param pulumi.Input[str] product_family_name: Represents product family name that uniquely identifies product family
-        :param pulumi.Input[str] product_line_name: Represents product line name that uniquely identifies product line
-        :param pulumi.Input[str] product_name: Represents product name that uniquely identifies product
-        """
-        if configuration_name is not None:
-            pulumi.set(__self__, "configuration_name", configuration_name)
-        if product_family_name is not None:
-            pulumi.set(__self__, "product_family_name", product_family_name)
-        if product_line_name is not None:
-            pulumi.set(__self__, "product_line_name", product_line_name)
-        if product_name is not None:
-            pulumi.set(__self__, "product_name", product_name)
-
-    @property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Represents configuration name that uniquely identifies configuration
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "configuration_name", value)
-
-    @property
-    @pulumi.getter(name="productFamilyName")
-    def product_family_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Represents product family name that uniquely identifies product family
-        """
-        return pulumi.get(self, "product_family_name")
-
-    @product_family_name.setter
-    def product_family_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product_family_name", value)
-
-    @property
-    @pulumi.getter(name="productLineName")
-    def product_line_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Represents product line name that uniquely identifies product line
-        """
-        return pulumi.get(self, "product_line_name")
-
-    @product_line_name.setter
-    def product_line_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product_line_name", value)
-
-    @property
-    @pulumi.getter(name="productName")
-    def product_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Represents product name that uniquely identifies product
-        """
-        return pulumi.get(self, "product_name")
-
-    @product_name.setter
-    def product_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product_name", value)
-
-
-@pulumi.input_type
 class HierarchyInformation:
     def __init__(__self__, *,
                  configuration_name: Optional[str] = None,
@@ -515,6 +443,78 @@ class HierarchyInformation:
 
     @product_name.setter
     def product_name(self, value: Optional[str]):
+        pulumi.set(self, "product_name", value)
+
+
+@pulumi.input_type
+class HierarchyInformationArgs:
+    def __init__(__self__, *,
+                 configuration_name: Optional[pulumi.Input[str]] = None,
+                 product_family_name: Optional[pulumi.Input[str]] = None,
+                 product_line_name: Optional[pulumi.Input[str]] = None,
+                 product_name: Optional[pulumi.Input[str]] = None):
+        """
+        Holds details about product hierarchy information
+        :param pulumi.Input[str] configuration_name: Represents configuration name that uniquely identifies configuration
+        :param pulumi.Input[str] product_family_name: Represents product family name that uniquely identifies product family
+        :param pulumi.Input[str] product_line_name: Represents product line name that uniquely identifies product line
+        :param pulumi.Input[str] product_name: Represents product name that uniquely identifies product
+        """
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
+        if product_family_name is not None:
+            pulumi.set(__self__, "product_family_name", product_family_name)
+        if product_line_name is not None:
+            pulumi.set(__self__, "product_line_name", product_line_name)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
+
+    @property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents configuration name that uniquely identifies configuration
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_name", value)
+
+    @property
+    @pulumi.getter(name="productFamilyName")
+    def product_family_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents product family name that uniquely identifies product family
+        """
+        return pulumi.get(self, "product_family_name")
+
+    @product_family_name.setter
+    def product_family_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_family_name", value)
+
+    @property
+    @pulumi.getter(name="productLineName")
+    def product_line_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents product line name that uniquely identifies product line
+        """
+        return pulumi.get(self, "product_line_name")
+
+    @product_line_name.setter
+    def product_line_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "product_line_name", value)
+
+    @property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Represents product name that uniquely identifies product
+        """
+        return pulumi.get(self, "product_name")
+
+    @product_name.setter
+    def product_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "product_name", value)
 
 

@@ -72,29 +72,9 @@ func GetMasterSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MasterSite resources.
 type masterSiteState struct {
-	// eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which Sites is created.
-	Location *string `pulumi:"location"`
-	// Name of the Master site.
-	Name *string `pulumi:"name"`
-	// Nested properties of Master site.
-	Properties *MasterSitePropertiesResponse `pulumi:"properties"`
-	// Type of resource. Type = Microsoft.OffAzure/MasterSites.
-	Type *string `pulumi:"type"`
 }
 
 type MasterSiteState struct {
-	// eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Azure location in which Sites is created.
-	Location pulumi.StringPtrInput
-	// Name of the Master site.
-	Name pulumi.StringPtrInput
-	// Nested properties of Master site.
-	Properties MasterSitePropertiesResponsePtrInput
-	// Type of resource. Type = Microsoft.OffAzure/MasterSites.
-	Type pulumi.StringPtrInput
 }
 
 func (MasterSiteState) ElementType() reflect.Type {

@@ -74,21 +74,9 @@ func GetTrustedIdProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustedIdProvider resources.
 type trustedIdProviderState struct {
-	// The URL of this trusted identity provider.
-	IdProvider *string `pulumi:"idProvider"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type TrustedIdProviderState struct {
-	// The URL of this trusted identity provider.
-	IdProvider pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (TrustedIdProviderState) ElementType() reflect.Type {

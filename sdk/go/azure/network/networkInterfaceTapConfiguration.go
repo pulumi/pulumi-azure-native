@@ -189,29 +189,9 @@ func GetNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterfaceTapConfiguration resources.
 type networkInterfaceTapConfigurationState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the network interface tap configuration resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Sub Resource type.
-	Type *string `pulumi:"type"`
-	// The reference to the Virtual Network Tap resource.
-	VirtualNetworkTap *VirtualNetworkTapResponse `pulumi:"virtualNetworkTap"`
 }
 
 type NetworkInterfaceTapConfigurationState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the network interface tap configuration resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Sub Resource type.
-	Type pulumi.StringPtrInput
-	// The reference to the Virtual Network Tap resource.
-	VirtualNetworkTap VirtualNetworkTapResponsePtrInput
 }
 
 func (NetworkInterfaceTapConfigurationState) ElementType() reflect.Type {

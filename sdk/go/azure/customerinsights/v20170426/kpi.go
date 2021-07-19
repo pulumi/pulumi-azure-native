@@ -66,11 +66,20 @@ func NewKpi(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CalculationWindow == nil {
+		return nil, errors.New("invalid value for required argument 'CalculationWindow'")
+	}
+	if args.EntityType == nil {
+		return nil, errors.New("invalid value for required argument 'EntityType'")
+	}
 	if args.EntityTypeName == nil {
 		return nil, errors.New("invalid value for required argument 'EntityTypeName'")
 	}
 	if args.Expression == nil {
 		return nil, errors.New("invalid value for required argument 'Expression'")
+	}
+	if args.Function == nil {
+		return nil, errors.New("invalid value for required argument 'Function'")
 	}
 	if args.HubName == nil {
 		return nil, errors.New("invalid value for required argument 'HubName'")
@@ -118,93 +127,9 @@ func GetKpi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Kpi resources.
 type kpiState struct {
-	// The aliases.
-	Aliases []KpiAliasResponse `pulumi:"aliases"`
-	// The calculation window.
-	CalculationWindow *string `pulumi:"calculationWindow"`
-	// Name of calculation window field.
-	CalculationWindowFieldName *string `pulumi:"calculationWindowFieldName"`
-	// Localized description for the KPI.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the KPI.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The mapping entity type.
-	EntityType *string `pulumi:"entityType"`
-	// The mapping entity name.
-	EntityTypeName *string `pulumi:"entityTypeName"`
-	// The computation expression for the KPI.
-	Expression *string `pulumi:"expression"`
-	// The KPI extracts.
-	Extracts []KpiExtractResponse `pulumi:"extracts"`
-	// The filter expression for the KPI.
-	Filter *string `pulumi:"filter"`
-	// The computation function for the KPI.
-	Function *string `pulumi:"function"`
-	// the group by properties for the KPI.
-	GroupBy []string `pulumi:"groupBy"`
-	// The KPI GroupByMetadata.
-	GroupByMetadata []KpiGroupByMetadataResponse `pulumi:"groupByMetadata"`
-	// The KPI name.
-	KpiName *string `pulumi:"kpiName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The participant profiles.
-	ParticipantProfilesMetadata []KpiParticipantProfilesMetadataResponse `pulumi:"participantProfilesMetadata"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The hub name.
-	TenantId *string `pulumi:"tenantId"`
-	// The KPI thresholds.
-	ThresHolds *KpiThresholdsResponse `pulumi:"thresHolds"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The unit of measurement for the KPI.
-	Unit *string `pulumi:"unit"`
 }
 
 type KpiState struct {
-	// The aliases.
-	Aliases KpiAliasResponseArrayInput
-	// The calculation window.
-	CalculationWindow pulumi.StringPtrInput
-	// Name of calculation window field.
-	CalculationWindowFieldName pulumi.StringPtrInput
-	// Localized description for the KPI.
-	Description pulumi.StringMapInput
-	// Localized display name for the KPI.
-	DisplayName pulumi.StringMapInput
-	// The mapping entity type.
-	EntityType pulumi.StringPtrInput
-	// The mapping entity name.
-	EntityTypeName pulumi.StringPtrInput
-	// The computation expression for the KPI.
-	Expression pulumi.StringPtrInput
-	// The KPI extracts.
-	Extracts KpiExtractResponseArrayInput
-	// The filter expression for the KPI.
-	Filter pulumi.StringPtrInput
-	// The computation function for the KPI.
-	Function pulumi.StringPtrInput
-	// the group by properties for the KPI.
-	GroupBy pulumi.StringArrayInput
-	// The KPI GroupByMetadata.
-	GroupByMetadata KpiGroupByMetadataResponseArrayInput
-	// The KPI name.
-	KpiName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The participant profiles.
-	ParticipantProfilesMetadata KpiParticipantProfilesMetadataResponseArrayInput
-	// Provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The hub name.
-	TenantId pulumi.StringPtrInput
-	// The KPI thresholds.
-	ThresHolds KpiThresholdsResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The unit of measurement for the KPI.
-	Unit pulumi.StringPtrInput
 }
 
 func (KpiState) ElementType() reflect.Type {
@@ -215,7 +140,7 @@ type kpiArgs struct {
 	// The aliases.
 	Aliases []KpiAlias `pulumi:"aliases"`
 	// The calculation window.
-	CalculationWindow string `pulumi:"calculationWindow"`
+	CalculationWindow CalculationWindowTypes `pulumi:"calculationWindow"`
 	// Name of calculation window field.
 	CalculationWindowFieldName *string `pulumi:"calculationWindowFieldName"`
 	// Localized description for the KPI.
@@ -223,7 +148,7 @@ type kpiArgs struct {
 	// Localized display name for the KPI.
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The mapping entity type.
-	EntityType string `pulumi:"entityType"`
+	EntityType EntityTypes `pulumi:"entityType"`
 	// The mapping entity name.
 	EntityTypeName string `pulumi:"entityTypeName"`
 	// The computation expression for the KPI.
@@ -233,7 +158,7 @@ type kpiArgs struct {
 	// The filter expression for the KPI.
 	Filter *string `pulumi:"filter"`
 	// The computation function for the KPI.
-	Function string `pulumi:"function"`
+	Function KpiFunctions `pulumi:"function"`
 	// the group by properties for the KPI.
 	GroupBy []string `pulumi:"groupBy"`
 	// The name of the hub.
@@ -253,7 +178,7 @@ type KpiArgs struct {
 	// The aliases.
 	Aliases KpiAliasArrayInput
 	// The calculation window.
-	CalculationWindow CalculationWindowTypes
+	CalculationWindow CalculationWindowTypesInput
 	// Name of calculation window field.
 	CalculationWindowFieldName pulumi.StringPtrInput
 	// Localized description for the KPI.
@@ -261,7 +186,7 @@ type KpiArgs struct {
 	// Localized display name for the KPI.
 	DisplayName pulumi.StringMapInput
 	// The mapping entity type.
-	EntityType EntityTypes
+	EntityType EntityTypesInput
 	// The mapping entity name.
 	EntityTypeName pulumi.StringInput
 	// The computation expression for the KPI.
@@ -271,7 +196,7 @@ type KpiArgs struct {
 	// The filter expression for the KPI.
 	Filter pulumi.StringPtrInput
 	// The computation function for the KPI.
-	Function KpiFunctions
+	Function KpiFunctionsInput
 	// the group by properties for the KPI.
 	GroupBy pulumi.StringArrayInput
 	// The name of the hub.

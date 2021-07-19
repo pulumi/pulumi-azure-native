@@ -11,7 +11,7 @@ import (
 )
 
 // Type of application being monitored.
-type ApplicationType pulumi.String
+type ApplicationType string
 
 const (
 	ApplicationTypeWeb   = ApplicationType("web")
@@ -19,7 +19,23 @@ const (
 )
 
 func (ApplicationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (e ApplicationType) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return pulumi.ToOutput(e).(ApplicationTypeOutput)
+}
+
+func (e ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationTypeOutput)
+}
+
+func (e ApplicationType) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return e.ToApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationType) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return ApplicationType(e).ToApplicationTypeOutputWithContext(ctx).ToApplicationTypePtrOutputWithContext(ctx)
 }
 
 func (e ApplicationType) ToStringOutput() pulumi.StringOutput {
@@ -38,15 +54,152 @@ func (e ApplicationType) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
+	return o
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return o.ToApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypeOutput) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationType) *ApplicationType {
+		return &v
+	}).(ApplicationTypePtrOutput)
+}
+
+func (o ApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTypePtrOutput) ElementType() reflect.Type {
+	return applicationTypePtrType
+}
+
+func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return o
+}
+
+func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return o
+}
+
+func (o ApplicationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationTypePtrOutput) Elem() ApplicationTypeOutput {
+	return o.ApplyT(func(v *ApplicationType) ApplicationType {
+		var ret ApplicationType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ApplicationTypeOutput)
+}
+
+// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
+// You can construct a concrete instance of `ApplicationTypeInput` via:
+//
+//          ApplicationTypeArgs{...}
+type ApplicationTypeInput interface {
+	pulumi.Input
+
+	ToApplicationTypeOutput() ApplicationTypeOutput
+	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
+}
+
+var applicationTypePtrType = reflect.TypeOf((**ApplicationType)(nil)).Elem()
+
+type ApplicationTypePtrInput interface {
+	pulumi.Input
+
+	ToApplicationTypePtrOutput() ApplicationTypePtrOutput
+	ToApplicationTypePtrOutputWithContext(context.Context) ApplicationTypePtrOutput
+}
+
+type applicationTypePtr string
+
+func ApplicationTypePtr(v string) ApplicationTypePtrInput {
+	return (*applicationTypePtr)(&v)
+}
+
+func (*applicationTypePtr) ElementType() reflect.Type {
+	return applicationTypePtrType
+}
+
+func (in *applicationTypePtr) ToApplicationTypePtrOutput() ApplicationTypePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationTypePtrOutput)
+}
+
+func (in *applicationTypePtr) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationTypePtrOutput)
+}
+
 // Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-type FlowType pulumi.String
+type FlowType string
 
 const (
 	FlowTypeBluefield = FlowType("Bluefield")
 )
 
 func (FlowType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*FlowType)(nil)).Elem()
+}
+
+func (e FlowType) ToFlowTypeOutput() FlowTypeOutput {
+	return pulumi.ToOutput(e).(FlowTypeOutput)
+}
+
+func (e FlowType) ToFlowTypeOutputWithContext(ctx context.Context) FlowTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FlowTypeOutput)
+}
+
+func (e FlowType) ToFlowTypePtrOutput() FlowTypePtrOutput {
+	return e.ToFlowTypePtrOutputWithContext(context.Background())
+}
+
+func (e FlowType) ToFlowTypePtrOutputWithContext(ctx context.Context) FlowTypePtrOutput {
+	return FlowType(e).ToFlowTypeOutputWithContext(ctx).ToFlowTypePtrOutputWithContext(ctx)
 }
 
 func (e FlowType) ToStringOutput() pulumi.StringOutput {
@@ -65,8 +218,129 @@ func (e FlowType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type FlowTypeOutput struct{ *pulumi.OutputState }
+
+func (FlowTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowType)(nil)).Elem()
+}
+
+func (o FlowTypeOutput) ToFlowTypeOutput() FlowTypeOutput {
+	return o
+}
+
+func (o FlowTypeOutput) ToFlowTypeOutputWithContext(ctx context.Context) FlowTypeOutput {
+	return o
+}
+
+func (o FlowTypeOutput) ToFlowTypePtrOutput() FlowTypePtrOutput {
+	return o.ToFlowTypePtrOutputWithContext(context.Background())
+}
+
+func (o FlowTypeOutput) ToFlowTypePtrOutputWithContext(ctx context.Context) FlowTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowType) *FlowType {
+		return &v
+	}).(FlowTypePtrOutput)
+}
+
+func (o FlowTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FlowTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FlowTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FlowType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowTypePtrOutput) ElementType() reflect.Type {
+	return flowTypePtrType
+}
+
+func (o FlowTypePtrOutput) ToFlowTypePtrOutput() FlowTypePtrOutput {
+	return o
+}
+
+func (o FlowTypePtrOutput) ToFlowTypePtrOutputWithContext(ctx context.Context) FlowTypePtrOutput {
+	return o
+}
+
+func (o FlowTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FlowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FlowType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FlowTypePtrOutput) Elem() FlowTypeOutput {
+	return o.ApplyT(func(v *FlowType) FlowType {
+		var ret FlowType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(FlowTypeOutput)
+}
+
+// FlowTypeInput is an input type that accepts FlowTypeArgs and FlowTypeOutput values.
+// You can construct a concrete instance of `FlowTypeInput` via:
+//
+//          FlowTypeArgs{...}
+type FlowTypeInput interface {
+	pulumi.Input
+
+	ToFlowTypeOutput() FlowTypeOutput
+	ToFlowTypeOutputWithContext(context.Context) FlowTypeOutput
+}
+
+var flowTypePtrType = reflect.TypeOf((**FlowType)(nil)).Elem()
+
+type FlowTypePtrInput interface {
+	pulumi.Input
+
+	ToFlowTypePtrOutput() FlowTypePtrOutput
+	ToFlowTypePtrOutputWithContext(context.Context) FlowTypePtrOutput
+}
+
+type flowTypePtr string
+
+func FlowTypePtr(v string) FlowTypePtrInput {
+	return (*flowTypePtr)(&v)
+}
+
+func (*flowTypePtr) ElementType() reflect.Type {
+	return flowTypePtrType
+}
+
+func (in *flowTypePtr) ToFlowTypePtrOutput() FlowTypePtrOutput {
+	return pulumi.ToOutput(in).(FlowTypePtrOutput)
+}
+
+func (in *flowTypePtr) ToFlowTypePtrOutputWithContext(ctx context.Context) FlowTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FlowTypePtrOutput)
+}
+
 // Indicates the flow of the ingestion.
-type IngestionMode pulumi.String
+type IngestionMode string
 
 const (
 	IngestionModeApplicationInsights                       = IngestionMode("ApplicationInsights")
@@ -75,7 +349,23 @@ const (
 )
 
 func (IngestionMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*IngestionMode)(nil)).Elem()
+}
+
+func (e IngestionMode) ToIngestionModeOutput() IngestionModeOutput {
+	return pulumi.ToOutput(e).(IngestionModeOutput)
+}
+
+func (e IngestionMode) ToIngestionModeOutputWithContext(ctx context.Context) IngestionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IngestionModeOutput)
+}
+
+func (e IngestionMode) ToIngestionModePtrOutput() IngestionModePtrOutput {
+	return e.ToIngestionModePtrOutputWithContext(context.Background())
+}
+
+func (e IngestionMode) ToIngestionModePtrOutputWithContext(ctx context.Context) IngestionModePtrOutput {
+	return IngestionMode(e).ToIngestionModeOutputWithContext(ctx).ToIngestionModePtrOutputWithContext(ctx)
 }
 
 func (e IngestionMode) ToStringOutput() pulumi.StringOutput {
@@ -94,8 +384,129 @@ func (e IngestionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type IngestionModeOutput struct{ *pulumi.OutputState }
+
+func (IngestionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngestionMode)(nil)).Elem()
+}
+
+func (o IngestionModeOutput) ToIngestionModeOutput() IngestionModeOutput {
+	return o
+}
+
+func (o IngestionModeOutput) ToIngestionModeOutputWithContext(ctx context.Context) IngestionModeOutput {
+	return o
+}
+
+func (o IngestionModeOutput) ToIngestionModePtrOutput() IngestionModePtrOutput {
+	return o.ToIngestionModePtrOutputWithContext(context.Background())
+}
+
+func (o IngestionModeOutput) ToIngestionModePtrOutputWithContext(ctx context.Context) IngestionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngestionMode) *IngestionMode {
+		return &v
+	}).(IngestionModePtrOutput)
+}
+
+func (o IngestionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IngestionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngestionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IngestionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngestionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngestionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngestionModePtrOutput struct{ *pulumi.OutputState }
+
+func (IngestionModePtrOutput) ElementType() reflect.Type {
+	return ingestionModePtrType
+}
+
+func (o IngestionModePtrOutput) ToIngestionModePtrOutput() IngestionModePtrOutput {
+	return o
+}
+
+func (o IngestionModePtrOutput) ToIngestionModePtrOutputWithContext(ctx context.Context) IngestionModePtrOutput {
+	return o
+}
+
+func (o IngestionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngestionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IngestionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IngestionModePtrOutput) Elem() IngestionModeOutput {
+	return o.ApplyT(func(v *IngestionMode) IngestionMode {
+		var ret IngestionMode
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(IngestionModeOutput)
+}
+
+// IngestionModeInput is an input type that accepts IngestionModeArgs and IngestionModeOutput values.
+// You can construct a concrete instance of `IngestionModeInput` via:
+//
+//          IngestionModeArgs{...}
+type IngestionModeInput interface {
+	pulumi.Input
+
+	ToIngestionModeOutput() IngestionModeOutput
+	ToIngestionModeOutputWithContext(context.Context) IngestionModeOutput
+}
+
+var ingestionModePtrType = reflect.TypeOf((**IngestionMode)(nil)).Elem()
+
+type IngestionModePtrInput interface {
+	pulumi.Input
+
+	ToIngestionModePtrOutput() IngestionModePtrOutput
+	ToIngestionModePtrOutputWithContext(context.Context) IngestionModePtrOutput
+}
+
+type ingestionModePtr string
+
+func IngestionModePtr(v string) IngestionModePtrInput {
+	return (*ingestionModePtr)(&v)
+}
+
+func (*ingestionModePtr) ElementType() reflect.Type {
+	return ingestionModePtrType
+}
+
+func (in *ingestionModePtr) ToIngestionModePtrOutput() IngestionModePtrOutput {
+	return pulumi.ToOutput(in).(IngestionModePtrOutput)
+}
+
+func (in *ingestionModePtr) ToIngestionModePtrOutputWithContext(ctx context.Context) IngestionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IngestionModePtrOutput)
+}
+
 // The network access type for accessing Application Insights query.
-type PublicNetworkAccessType pulumi.String
+type PublicNetworkAccessType string
 
 const (
 	// Enables connectivity to Application Insights through public DNS.
@@ -105,7 +516,23 @@ const (
 )
 
 func (PublicNetworkAccessType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PublicNetworkAccessType)(nil)).Elem()
+}
+
+func (e PublicNetworkAccessType) ToPublicNetworkAccessTypeOutput() PublicNetworkAccessTypeOutput {
+	return pulumi.ToOutput(e).(PublicNetworkAccessTypeOutput)
+}
+
+func (e PublicNetworkAccessType) ToPublicNetworkAccessTypeOutputWithContext(ctx context.Context) PublicNetworkAccessTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PublicNetworkAccessTypeOutput)
+}
+
+func (e PublicNetworkAccessType) ToPublicNetworkAccessTypePtrOutput() PublicNetworkAccessTypePtrOutput {
+	return e.ToPublicNetworkAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (e PublicNetworkAccessType) ToPublicNetworkAccessTypePtrOutputWithContext(ctx context.Context) PublicNetworkAccessTypePtrOutput {
+	return PublicNetworkAccessType(e).ToPublicNetworkAccessTypeOutputWithContext(ctx).ToPublicNetworkAccessTypePtrOutputWithContext(ctx)
 }
 
 func (e PublicNetworkAccessType) ToStringOutput() pulumi.StringOutput {
@@ -124,15 +551,152 @@ func (e PublicNetworkAccessType) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type PublicNetworkAccessTypeOutput struct{ *pulumi.OutputState }
+
+func (PublicNetworkAccessTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublicNetworkAccessType)(nil)).Elem()
+}
+
+func (o PublicNetworkAccessTypeOutput) ToPublicNetworkAccessTypeOutput() PublicNetworkAccessTypeOutput {
+	return o
+}
+
+func (o PublicNetworkAccessTypeOutput) ToPublicNetworkAccessTypeOutputWithContext(ctx context.Context) PublicNetworkAccessTypeOutput {
+	return o
+}
+
+func (o PublicNetworkAccessTypeOutput) ToPublicNetworkAccessTypePtrOutput() PublicNetworkAccessTypePtrOutput {
+	return o.ToPublicNetworkAccessTypePtrOutputWithContext(context.Background())
+}
+
+func (o PublicNetworkAccessTypeOutput) ToPublicNetworkAccessTypePtrOutputWithContext(ctx context.Context) PublicNetworkAccessTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicNetworkAccessType) *PublicNetworkAccessType {
+		return &v
+	}).(PublicNetworkAccessTypePtrOutput)
+}
+
+func (o PublicNetworkAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PublicNetworkAccessTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublicNetworkAccessType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PublicNetworkAccessTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PublicNetworkAccessTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublicNetworkAccessType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PublicNetworkAccessTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PublicNetworkAccessTypePtrOutput) ElementType() reflect.Type {
+	return publicNetworkAccessTypePtrType
+}
+
+func (o PublicNetworkAccessTypePtrOutput) ToPublicNetworkAccessTypePtrOutput() PublicNetworkAccessTypePtrOutput {
+	return o
+}
+
+func (o PublicNetworkAccessTypePtrOutput) ToPublicNetworkAccessTypePtrOutputWithContext(ctx context.Context) PublicNetworkAccessTypePtrOutput {
+	return o
+}
+
+func (o PublicNetworkAccessTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PublicNetworkAccessTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PublicNetworkAccessType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PublicNetworkAccessTypePtrOutput) Elem() PublicNetworkAccessTypeOutput {
+	return o.ApplyT(func(v *PublicNetworkAccessType) PublicNetworkAccessType {
+		var ret PublicNetworkAccessType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(PublicNetworkAccessTypeOutput)
+}
+
+// PublicNetworkAccessTypeInput is an input type that accepts PublicNetworkAccessTypeArgs and PublicNetworkAccessTypeOutput values.
+// You can construct a concrete instance of `PublicNetworkAccessTypeInput` via:
+//
+//          PublicNetworkAccessTypeArgs{...}
+type PublicNetworkAccessTypeInput interface {
+	pulumi.Input
+
+	ToPublicNetworkAccessTypeOutput() PublicNetworkAccessTypeOutput
+	ToPublicNetworkAccessTypeOutputWithContext(context.Context) PublicNetworkAccessTypeOutput
+}
+
+var publicNetworkAccessTypePtrType = reflect.TypeOf((**PublicNetworkAccessType)(nil)).Elem()
+
+type PublicNetworkAccessTypePtrInput interface {
+	pulumi.Input
+
+	ToPublicNetworkAccessTypePtrOutput() PublicNetworkAccessTypePtrOutput
+	ToPublicNetworkAccessTypePtrOutputWithContext(context.Context) PublicNetworkAccessTypePtrOutput
+}
+
+type publicNetworkAccessTypePtr string
+
+func PublicNetworkAccessTypePtr(v string) PublicNetworkAccessTypePtrInput {
+	return (*publicNetworkAccessTypePtr)(&v)
+}
+
+func (*publicNetworkAccessTypePtr) ElementType() reflect.Type {
+	return publicNetworkAccessTypePtrType
+}
+
+func (in *publicNetworkAccessTypePtr) ToPublicNetworkAccessTypePtrOutput() PublicNetworkAccessTypePtrOutput {
+	return pulumi.ToOutput(in).(PublicNetworkAccessTypePtrOutput)
+}
+
+func (in *publicNetworkAccessTypePtr) ToPublicNetworkAccessTypePtrOutputWithContext(ctx context.Context) PublicNetworkAccessTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessTypePtrOutput)
+}
+
 // Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-type RequestSource pulumi.String
+type RequestSource string
 
 const (
 	RequestSourceRest = RequestSource("rest")
 )
 
 func (RequestSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*RequestSource)(nil)).Elem()
+}
+
+func (e RequestSource) ToRequestSourceOutput() RequestSourceOutput {
+	return pulumi.ToOutput(e).(RequestSourceOutput)
+}
+
+func (e RequestSource) ToRequestSourceOutputWithContext(ctx context.Context) RequestSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RequestSourceOutput)
+}
+
+func (e RequestSource) ToRequestSourcePtrOutput() RequestSourcePtrOutput {
+	return e.ToRequestSourcePtrOutputWithContext(context.Background())
+}
+
+func (e RequestSource) ToRequestSourcePtrOutputWithContext(ctx context.Context) RequestSourcePtrOutput {
+	return RequestSource(e).ToRequestSourceOutputWithContext(ctx).ToRequestSourcePtrOutputWithContext(ctx)
 }
 
 func (e RequestSource) ToStringOutput() pulumi.StringOutput {
@@ -149,4 +713,138 @@ func (e RequestSource) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e RequestSource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RequestSourceOutput struct{ *pulumi.OutputState }
+
+func (RequestSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RequestSource)(nil)).Elem()
+}
+
+func (o RequestSourceOutput) ToRequestSourceOutput() RequestSourceOutput {
+	return o
+}
+
+func (o RequestSourceOutput) ToRequestSourceOutputWithContext(ctx context.Context) RequestSourceOutput {
+	return o
+}
+
+func (o RequestSourceOutput) ToRequestSourcePtrOutput() RequestSourcePtrOutput {
+	return o.ToRequestSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RequestSourceOutput) ToRequestSourcePtrOutputWithContext(ctx context.Context) RequestSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestSource) *RequestSource {
+		return &v
+	}).(RequestSourcePtrOutput)
+}
+
+func (o RequestSourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RequestSourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RequestSource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RequestSourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RequestSourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RequestSource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RequestSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RequestSourcePtrOutput) ElementType() reflect.Type {
+	return requestSourcePtrType
+}
+
+func (o RequestSourcePtrOutput) ToRequestSourcePtrOutput() RequestSourcePtrOutput {
+	return o
+}
+
+func (o RequestSourcePtrOutput) ToRequestSourcePtrOutputWithContext(ctx context.Context) RequestSourcePtrOutput {
+	return o
+}
+
+func (o RequestSourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RequestSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RequestSource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RequestSourcePtrOutput) Elem() RequestSourceOutput {
+	return o.ApplyT(func(v *RequestSource) RequestSource {
+		var ret RequestSource
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(RequestSourceOutput)
+}
+
+// RequestSourceInput is an input type that accepts RequestSourceArgs and RequestSourceOutput values.
+// You can construct a concrete instance of `RequestSourceInput` via:
+//
+//          RequestSourceArgs{...}
+type RequestSourceInput interface {
+	pulumi.Input
+
+	ToRequestSourceOutput() RequestSourceOutput
+	ToRequestSourceOutputWithContext(context.Context) RequestSourceOutput
+}
+
+var requestSourcePtrType = reflect.TypeOf((**RequestSource)(nil)).Elem()
+
+type RequestSourcePtrInput interface {
+	pulumi.Input
+
+	ToRequestSourcePtrOutput() RequestSourcePtrOutput
+	ToRequestSourcePtrOutputWithContext(context.Context) RequestSourcePtrOutput
+}
+
+type requestSourcePtr string
+
+func RequestSourcePtr(v string) RequestSourcePtrInput {
+	return (*requestSourcePtr)(&v)
+}
+
+func (*requestSourcePtr) ElementType() reflect.Type {
+	return requestSourcePtrType
+}
+
+func (in *requestSourcePtr) ToRequestSourcePtrOutput() RequestSourcePtrOutput {
+	return pulumi.ToOutput(in).(RequestSourcePtrOutput)
+}
+
+func (in *requestSourcePtr) ToRequestSourcePtrOutputWithContext(ctx context.Context) RequestSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RequestSourcePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApplicationTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationTypePtrOutput{})
+	pulumi.RegisterOutputType(FlowTypeOutput{})
+	pulumi.RegisterOutputType(FlowTypePtrOutput{})
+	pulumi.RegisterOutputType(IngestionModeOutput{})
+	pulumi.RegisterOutputType(IngestionModePtrOutput{})
+	pulumi.RegisterOutputType(PublicNetworkAccessTypeOutput{})
+	pulumi.RegisterOutputType(PublicNetworkAccessTypePtrOutput{})
+	pulumi.RegisterOutputType(RequestSourceOutput{})
+	pulumi.RegisterOutputType(RequestSourcePtrOutput{})
 }

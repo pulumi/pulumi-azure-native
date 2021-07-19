@@ -151,57 +151,9 @@ func GetContainerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerGroup resources.
 type containerGroupState struct {
-	// The containers within the container group.
-	Containers []ContainerResponse `pulumi:"containers"`
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
-	// The IP address type of the container group.
-	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The operating system type required by the containers in the container group.
-	OsType *string `pulumi:"osType"`
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Restart policy for all containers within the container group. Currently the only available option is `always`.
-	RestartPolicy *string `pulumi:"restartPolicy"`
-	// The current state of the container group. This is only valid for the response.
-	State *string `pulumi:"state"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []VolumeResponse `pulumi:"volumes"`
 }
 
 type ContainerGroupState struct {
-	// The containers within the container group.
-	Containers ContainerResponseArrayInput
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials ImageRegistryCredentialResponseArrayInput
-	// The IP address type of the container group.
-	IpAddress IpAddressResponsePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The operating system type required by the containers in the container group.
-	OsType pulumi.StringPtrInput
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Restart policy for all containers within the container group. Currently the only available option is `always`.
-	RestartPolicy pulumi.StringPtrInput
-	// The current state of the container group. This is only valid for the response.
-	State pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes VolumeResponseArrayInput
 }
 
 func (ContainerGroupState) ElementType() reflect.Type {

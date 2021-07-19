@@ -123,73 +123,9 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// The time the namespace was created
-	CreatedAt *string `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
-	// Properties of BYOK Identity description
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The Geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Identifier for Azure Insights metrics
-	MetricId *string `pulumi:"metricId"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
-	// Properties of SKU
-	Sku *SBSkuResponse `pulumi:"sku"`
-	// Status of the namespace.
-	Status *string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type NamespaceState struct {
-	// The time the namespace was created
-	CreatedAt pulumi.StringPtrInput
-	// Properties of BYOK Encryption description
-	Encryption EncryptionResponsePtrInput
-	// Properties of BYOK Identity description
-	Identity IdentityResponsePtrInput
-	// The Geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Identifier for Azure Insights metrics
-	MetricId pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// List of private endpoint connections.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Provisioning state of the namespace.
-	ProvisioningState pulumi.StringPtrInput
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringPtrInput
-	// Properties of SKU
-	Sku SBSkuResponsePtrInput
-	// Status of the namespace.
-	Status pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringPtrInput
-	// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

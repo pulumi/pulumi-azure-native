@@ -105,37 +105,9 @@ func GetJobAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobAgent resources.
 type jobAgentState struct {
-	// Resource ID of the database to store job metadata in.
-	DatabaseId *string `pulumi:"databaseId"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The name and tier of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The state of the job agent.
-	State *string `pulumi:"state"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type JobAgentState struct {
-	// Resource ID of the database to store job metadata in.
-	DatabaseId pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The name and tier of the SKU.
-	Sku SkuResponsePtrInput
-	// The state of the job agent.
-	State pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (JobAgentState) ElementType() reflect.Type {

@@ -2201,7 +2201,7 @@ type PostgresInstanceSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
+	Tier *PostgresInstanceSkuTier `pulumi:"tier"`
 }
 
 // PostgresInstanceSkuInput is an input type that accepts PostgresInstanceSkuArgs and PostgresInstanceSkuOutput values.
@@ -2228,7 +2228,7 @@ type PostgresInstanceSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *PostgresInstanceSkuTier `pulumi:"tier"`
+	Tier PostgresInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
 func (PostgresInstanceSkuArgs) ElementType() reflect.Type {
@@ -2335,8 +2335,8 @@ func (o PostgresInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PostgresInstanceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o PostgresInstanceSkuOutput) Tier() PostgresInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v PostgresInstanceSku) *PostgresInstanceSkuTier { return v.Tier }).(PostgresInstanceSkuTierPtrOutput)
 }
 
 type PostgresInstanceSkuPtrOutput struct{ *pulumi.OutputState }
@@ -2408,13 +2408,13 @@ func (o PostgresInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o PostgresInstanceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceSku) *string {
+func (o PostgresInstanceSkuPtrOutput) Tier() PostgresInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v *PostgresInstanceSku) *PostgresInstanceSkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(PostgresInstanceSkuTierPtrOutput)
 }
 
 // The resource model definition representing SKU for Azure Database for PostgresSQL - Azure Arc
@@ -3172,7 +3172,7 @@ type SqlManagedInstanceSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *string `pulumi:"tier"`
+	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
 }
 
 // SqlManagedInstanceSkuInput is an input type that accepts SqlManagedInstanceSkuArgs and SqlManagedInstanceSkuOutput values.
@@ -3199,7 +3199,7 @@ type SqlManagedInstanceSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier.
-	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
+	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
 }
 
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
@@ -3306,8 +3306,8 @@ func (o SqlManagedInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o SqlManagedInstanceSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o SqlManagedInstanceSkuOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceSku) *SqlManagedInstanceSkuTier { return v.Tier }).(SqlManagedInstanceSkuTierPtrOutput)
 }
 
 type SqlManagedInstanceSkuPtrOutput struct{ *pulumi.OutputState }
@@ -3379,13 +3379,13 @@ func (o SqlManagedInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier.
-func (o SqlManagedInstanceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
+func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceSku) *SqlManagedInstanceSkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(SqlManagedInstanceSkuTierPtrOutput)
 }
 
 // The resource model definition representing SKU for Azure Managed Instance - Azure Arc

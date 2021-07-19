@@ -237,157 +237,9 @@ func GetStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccount resources.
 type storageAccountState struct {
-	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *string `pulumi:"accessTier"`
-	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
-	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
-	AllowSharedKeyAccess *bool `pulumi:"allowSharedKeyAccess"`
-	// Provides the identity based authentication settings for Azure Files.
-	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
-	// Blob restore status
-	BlobRestoreStatus *BlobRestoreStatusResponse `pulumi:"blobRestoreStatus"`
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets the custom domain the user assigned to this storage account.
-	CustomDomain *CustomDomainResponse `pulumi:"customDomain"`
-	// Allows https traffic only to storage service if sets to true.
-	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
-	// NFS 3.0 protocol support enabled if set to true.
-	EnableNfsV3 *bool `pulumi:"enableNfsV3"`
-	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-	Encryption *EncryptionResponse `pulumi:"encryption"`
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// If the failover is in progress, the value will be true, otherwise, it will be null.
-	FailoverInProgress *bool `pulumi:"failoverInProgress"`
-	// Geo Replication Stats
-	GeoReplicationStats *GeoReplicationStatsResponse `pulumi:"geoReplicationStats"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Account HierarchicalNamespace enabled if sets to true.
-	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Storage account keys creation time.
-	KeyCreationTime *KeyCreationTimeResponse `pulumi:"keyCreationTime"`
-	// KeyPolicy assigned to the storage account.
-	KeyPolicy *KeyPolicyResponse `pulumi:"keyPolicy"`
-	// Gets the Kind.
-	Kind *string `pulumi:"kind"`
-	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-	LargeFileSharesState *string `pulumi:"largeFileSharesState"`
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	LastGeoFailoverTime *string `pulumi:"lastGeoFailoverTime"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Network rule set
-	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-	PrimaryEndpoints *EndpointsResponse `pulumi:"primaryEndpoints"`
-	// Gets the location of the primary data center for the storage account.
-	PrimaryLocation *string `pulumi:"primaryLocation"`
-	// List of private endpoint connection associated with the specified storage account
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Maintains information about the network routing choice opted by the user for data transfer
-	RoutingPreference *RoutingPreferenceResponse `pulumi:"routingPreference"`
-	// SasPolicy assigned to the storage account.
-	SasPolicy *SasPolicyResponse `pulumi:"sasPolicy"`
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-	SecondaryEndpoints *EndpointsResponse `pulumi:"secondaryEndpoints"`
-	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	SecondaryLocation *string `pulumi:"secondaryLocation"`
-	// Gets the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary *string `pulumi:"statusOfPrimary"`
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-	StatusOfSecondary *string `pulumi:"statusOfSecondary"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type StorageAccountState struct {
-	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier pulumi.StringPtrInput
-	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-	AllowBlobPublicAccess pulumi.BoolPtrInput
-	// Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
-	AllowSharedKeyAccess pulumi.BoolPtrInput
-	// Provides the identity based authentication settings for Azure Files.
-	AzureFilesIdentityBasedAuthentication AzureFilesIdentityBasedAuthenticationResponsePtrInput
-	// Blob restore status
-	BlobRestoreStatus BlobRestoreStatusResponsePtrInput
-	// Gets the creation date and time of the storage account in UTC.
-	CreationTime pulumi.StringPtrInput
-	// Gets the custom domain the user assigned to this storage account.
-	CustomDomain CustomDomainResponsePtrInput
-	// Allows https traffic only to storage service if sets to true.
-	EnableHttpsTrafficOnly pulumi.BoolPtrInput
-	// NFS 3.0 protocol support enabled if set to true.
-	EnableNfsV3 pulumi.BoolPtrInput
-	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-	Encryption EncryptionResponsePtrInput
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// If the failover is in progress, the value will be true, otherwise, it will be null.
-	FailoverInProgress pulumi.BoolPtrInput
-	// Geo Replication Stats
-	GeoReplicationStats GeoReplicationStatsResponsePtrInput
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// Account HierarchicalNamespace enabled if sets to true.
-	IsHnsEnabled pulumi.BoolPtrInput
-	// Storage account keys creation time.
-	KeyCreationTime KeyCreationTimeResponsePtrInput
-	// KeyPolicy assigned to the storage account.
-	KeyPolicy KeyPolicyResponsePtrInput
-	// Gets the Kind.
-	Kind pulumi.StringPtrInput
-	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-	LargeFileSharesState pulumi.StringPtrInput
-	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	LastGeoFailoverTime pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-	MinimumTlsVersion pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Network rule set
-	NetworkRuleSet NetworkRuleSetResponsePtrInput
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
-	PrimaryEndpoints EndpointsResponsePtrInput
-	// Gets the location of the primary data center for the storage account.
-	PrimaryLocation pulumi.StringPtrInput
-	// List of private endpoint connection associated with the specified storage account
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Gets the status of the storage account at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput
-	// Maintains information about the network routing choice opted by the user for data transfer
-	RoutingPreference RoutingPreferenceResponsePtrInput
-	// SasPolicy assigned to the storage account.
-	SasPolicy SasPolicyResponsePtrInput
-	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-	SecondaryEndpoints EndpointsResponsePtrInput
-	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-	SecondaryLocation pulumi.StringPtrInput
-	// Gets the SKU.
-	Sku SkuResponsePtrInput
-	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
-	StatusOfPrimary pulumi.StringPtrInput
-	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-	StatusOfSecondary pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountState) ElementType() reflect.Type {
@@ -396,7 +248,7 @@ func (StorageAccountState) ElementType() reflect.Type {
 
 type storageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *string `pulumi:"accessTier"`
+	AccessTier *AccessTier `pulumi:"accessTier"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName *string `pulumi:"accountName"`
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
@@ -446,7 +298,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *AccessTier
+	AccessTier AccessTierPtrInput
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringPtrInput
 	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.

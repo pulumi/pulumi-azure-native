@@ -82,45 +82,9 @@ func GetConnectionMonitorTest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectionMonitorTest resources.
 type connectionMonitorTestState struct {
-	// The Connection Monitor test destination
-	Destination *string `pulumi:"destination"`
-	// The Connection Monitor test destination port
-	DestinationPort *int `pulumi:"destinationPort"`
-	// The flag that indicates if the Connection Monitor test is successful or not.
-	IsTestSuccessful *bool `pulumi:"isTestSuccessful"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The path representing the Connection Monitor test.
-	Path []string `pulumi:"path"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The Connection Monitor test source agent
-	SourceAgent *string `pulumi:"sourceAgent"`
-	// The Connection Monitor test frequency in seconds
-	TestFrequencyInSec *int `pulumi:"testFrequencyInSec"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ConnectionMonitorTestState struct {
-	// The Connection Monitor test destination
-	Destination pulumi.StringPtrInput
-	// The Connection Monitor test destination port
-	DestinationPort pulumi.IntPtrInput
-	// The flag that indicates if the Connection Monitor test is successful or not.
-	IsTestSuccessful pulumi.BoolPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The path representing the Connection Monitor test.
-	Path pulumi.StringArrayInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The Connection Monitor test source agent
-	SourceAgent pulumi.StringPtrInput
-	// The Connection Monitor test frequency in seconds
-	TestFrequencyInSec pulumi.IntPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectionMonitorTestState) ElementType() reflect.Type {

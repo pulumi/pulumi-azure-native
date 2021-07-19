@@ -10,20 +10,92 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AKSArgs',
     'AKSPropertiesArgs',
-    'BatchAIArgs',
+    'AKSArgs',
     'BatchAIPropertiesArgs',
+    'BatchAIArgs',
     'DataFactoryArgs',
-    'HDInsightArgs',
     'HDInsightPropertiesArgs',
+    'HDInsightArgs',
     'IdentityArgs',
     'ScaleSettingsArgs',
     'SslConfigurationArgs',
-    'VirtualMachineArgs',
     'VirtualMachinePropertiesArgs',
     'VirtualMachineSshCredentialsArgs',
+    'VirtualMachineArgs',
 ]
+
+@pulumi.input_type
+class AKSPropertiesArgs:
+    def __init__(__self__, *,
+                 agent_count: Optional[pulumi.Input[int]] = None,
+                 agent_vm_size: Optional[pulumi.Input[str]] = None,
+                 cluster_fqdn: Optional[pulumi.Input[str]] = None,
+                 ssl_configuration: Optional[pulumi.Input['SslConfigurationArgs']] = None):
+        """
+        AKS properties
+        :param pulumi.Input[int] agent_count: Number of agents
+        :param pulumi.Input[str] agent_vm_size: Agent virtual machine size
+        :param pulumi.Input[str] cluster_fqdn: Cluster full qualified domain name
+        :param pulumi.Input['SslConfigurationArgs'] ssl_configuration: SSL configuration
+        """
+        if agent_count is not None:
+            pulumi.set(__self__, "agent_count", agent_count)
+        if agent_vm_size is not None:
+            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
+        if cluster_fqdn is not None:
+            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
+        if ssl_configuration is not None:
+            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+
+    @property
+    @pulumi.getter(name="agentCount")
+    def agent_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of agents
+        """
+        return pulumi.get(self, "agent_count")
+
+    @agent_count.setter
+    def agent_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "agent_count", value)
+
+    @property
+    @pulumi.getter(name="agentVMSize")
+    def agent_vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Agent virtual machine size
+        """
+        return pulumi.get(self, "agent_vm_size")
+
+    @agent_vm_size.setter
+    def agent_vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_vm_size", value)
+
+    @property
+    @pulumi.getter(name="clusterFqdn")
+    def cluster_fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster full qualified domain name
+        """
+        return pulumi.get(self, "cluster_fqdn")
+
+    @cluster_fqdn.setter
+    def cluster_fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_fqdn", value)
+
+    @property
+    @pulumi.getter(name="sslConfiguration")
+    def ssl_configuration(self) -> Optional[pulumi.Input['SslConfigurationArgs']]:
+        """
+        SSL configuration
+        """
+        return pulumi.get(self, "ssl_configuration")
+
+    @ssl_configuration.setter
+    def ssl_configuration(self, value: Optional[pulumi.Input['SslConfigurationArgs']]):
+        pulumi.set(self, "ssl_configuration", value)
+
 
 @pulumi.input_type
 class AKSArgs:
@@ -115,75 +187,59 @@ class AKSArgs:
 
 
 @pulumi.input_type
-class AKSPropertiesArgs:
+class BatchAIPropertiesArgs:
     def __init__(__self__, *,
-                 agent_count: Optional[pulumi.Input[int]] = None,
-                 agent_vm_size: Optional[pulumi.Input[str]] = None,
-                 cluster_fqdn: Optional[pulumi.Input[str]] = None,
-                 ssl_configuration: Optional[pulumi.Input['SslConfigurationArgs']] = None):
+                 scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
+                 vm_priority: Optional[pulumi.Input[str]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None):
         """
-        AKS properties
-        :param pulumi.Input[int] agent_count: Number of agents
-        :param pulumi.Input[str] agent_vm_size: Agent virtual machine size
-        :param pulumi.Input[str] cluster_fqdn: Cluster full qualified domain name
-        :param pulumi.Input['SslConfigurationArgs'] ssl_configuration: SSL configuration
+        BatchAI properties
+        :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for BatchAI
+        :param pulumi.Input[str] vm_priority: Virtual Machine priority
+        :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
-        if agent_count is not None:
-            pulumi.set(__self__, "agent_count", agent_count)
-        if agent_vm_size is not None:
-            pulumi.set(__self__, "agent_vm_size", agent_vm_size)
-        if cluster_fqdn is not None:
-            pulumi.set(__self__, "cluster_fqdn", cluster_fqdn)
-        if ssl_configuration is not None:
-            pulumi.set(__self__, "ssl_configuration", ssl_configuration)
+        if scale_settings is not None:
+            pulumi.set(__self__, "scale_settings", scale_settings)
+        if vm_priority is not None:
+            pulumi.set(__self__, "vm_priority", vm_priority)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
 
     @property
-    @pulumi.getter(name="agentCount")
-    def agent_count(self) -> Optional[pulumi.Input[int]]:
+    @pulumi.getter(name="scaleSettings")
+    def scale_settings(self) -> Optional[pulumi.Input['ScaleSettingsArgs']]:
         """
-        Number of agents
+        Scale settings for BatchAI
         """
-        return pulumi.get(self, "agent_count")
+        return pulumi.get(self, "scale_settings")
 
-    @agent_count.setter
-    def agent_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "agent_count", value)
-
-    @property
-    @pulumi.getter(name="agentVMSize")
-    def agent_vm_size(self) -> Optional[pulumi.Input[str]]:
-        """
-        Agent virtual machine size
-        """
-        return pulumi.get(self, "agent_vm_size")
-
-    @agent_vm_size.setter
-    def agent_vm_size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "agent_vm_size", value)
+    @scale_settings.setter
+    def scale_settings(self, value: Optional[pulumi.Input['ScaleSettingsArgs']]):
+        pulumi.set(self, "scale_settings", value)
 
     @property
-    @pulumi.getter(name="clusterFqdn")
-    def cluster_fqdn(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="vmPriority")
+    def vm_priority(self) -> Optional[pulumi.Input[str]]:
         """
-        Cluster full qualified domain name
+        Virtual Machine priority
         """
-        return pulumi.get(self, "cluster_fqdn")
+        return pulumi.get(self, "vm_priority")
 
-    @cluster_fqdn.setter
-    def cluster_fqdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cluster_fqdn", value)
+    @vm_priority.setter
+    def vm_priority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_priority", value)
 
     @property
-    @pulumi.getter(name="sslConfiguration")
-    def ssl_configuration(self) -> Optional[pulumi.Input['SslConfigurationArgs']]:
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
-        SSL configuration
+        Virtual Machine Size
         """
-        return pulumi.get(self, "ssl_configuration")
+        return pulumi.get(self, "vm_size")
 
-    @ssl_configuration.setter
-    def ssl_configuration(self, value: Optional[pulumi.Input['SslConfigurationArgs']]):
-        pulumi.set(self, "ssl_configuration", value)
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
 
 
 @pulumi.input_type
@@ -276,62 +332,6 @@ class BatchAIArgs:
 
 
 @pulumi.input_type
-class BatchAIPropertiesArgs:
-    def __init__(__self__, *,
-                 scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
-                 vm_priority: Optional[pulumi.Input[str]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None):
-        """
-        BatchAI properties
-        :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for BatchAI
-        :param pulumi.Input[str] vm_priority: Virtual Machine priority
-        :param pulumi.Input[str] vm_size: Virtual Machine Size
-        """
-        if scale_settings is not None:
-            pulumi.set(__self__, "scale_settings", scale_settings)
-        if vm_priority is not None:
-            pulumi.set(__self__, "vm_priority", vm_priority)
-        if vm_size is not None:
-            pulumi.set(__self__, "vm_size", vm_size)
-
-    @property
-    @pulumi.getter(name="scaleSettings")
-    def scale_settings(self) -> Optional[pulumi.Input['ScaleSettingsArgs']]:
-        """
-        Scale settings for BatchAI
-        """
-        return pulumi.get(self, "scale_settings")
-
-    @scale_settings.setter
-    def scale_settings(self, value: Optional[pulumi.Input['ScaleSettingsArgs']]):
-        pulumi.set(self, "scale_settings", value)
-
-    @property
-    @pulumi.getter(name="vmPriority")
-    def vm_priority(self) -> Optional[pulumi.Input[str]]:
-        """
-        Virtual Machine priority
-        """
-        return pulumi.get(self, "vm_priority")
-
-    @vm_priority.setter
-    def vm_priority(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_priority", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[str]]:
-        """
-        Virtual Machine Size
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_size", value)
-
-
-@pulumi.input_type
 class DataFactoryArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[str],
@@ -402,6 +402,61 @@ class DataFactoryArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
+class HDInsightPropertiesArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
+        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public IP address of the master node of the cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
+        """
+        Admin credentials for master node of the cluster
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @administrator_account.setter
+    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
+        pulumi.set(self, "administrator_account", value)
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @ssh_port.setter
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ssh_port", value)
 
 
 @pulumi.input_type
@@ -487,61 +542,6 @@ class HDInsightArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
-class HDInsightPropertiesArgs:
-    def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None,
-                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
-        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
-        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
-        if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Public IP address of the master node of the cluster.
-        """
-        return pulumi.get(self, "address")
-
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
-
-    @property
-    @pulumi.getter(name="administratorAccount")
-    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
-        """
-        Admin credentials for master node of the cluster
-        """
-        return pulumi.get(self, "administrator_account")
-
-    @administrator_account.setter
-    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
-        pulumi.set(self, "administrator_account", value)
-
-    @property
-    @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Port open for ssh connections on the master node of the cluster.
-        """
-        return pulumi.get(self, "ssh_port")
-
-    @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "ssh_port", value)
 
 
 @pulumi.input_type
@@ -697,91 +697,6 @@ class SslConfigurationArgs:
 
 
 @pulumi.input_type
-class VirtualMachineArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A Machine Learning compute based on Azure Virtual Machines.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'VirtualMachine'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[str] resource_id: ARM resource id of the compute
-        """
-        pulumi.set(__self__, "compute_type", 'VirtualMachine')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'VirtualMachine'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
 class VirtualMachinePropertiesArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
@@ -922,5 +837,90 @@ class VirtualMachineSshCredentialsArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class VirtualMachineArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'VirtualMachine'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the compute
+        """
+        pulumi.set(__self__, "compute_type", 'VirtualMachine')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'VirtualMachine'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 

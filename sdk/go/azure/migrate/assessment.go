@@ -79,25 +79,9 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Unique name of an assessment.
-	Name *string `pulumi:"name"`
-	// Properties of the assessment.
-	Properties *AssessmentPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
-	Type *string `pulumi:"type"`
 }
 
 type AssessmentState struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Unique name of an assessment.
-	Name pulumi.StringPtrInput
-	// Properties of the assessment.
-	Properties AssessmentPropertiesResponsePtrInput
-	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups/assessments].
-	Type pulumi.StringPtrInput
 }
 
 func (AssessmentState) ElementType() reflect.Type {

@@ -83,41 +83,9 @@ func GetDataCollectionRuleAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCollectionRuleAssociation resources.
 type dataCollectionRuleAssociationState struct {
-	// The resource ID of the data collection endpoint that is to be associated.
-	DataCollectionEndpointId *string `pulumi:"dataCollectionEndpointId"`
-	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId *string `pulumi:"dataCollectionRuleId"`
-	// Description of the association.
-	Description *string `pulumi:"description"`
-	// Resource entity tag (ETag).
-	Etag *string `pulumi:"etag"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The resource provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData `pulumi:"systemData"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type DataCollectionRuleAssociationState struct {
-	// The resource ID of the data collection endpoint that is to be associated.
-	DataCollectionEndpointId pulumi.StringPtrInput
-	// The resource ID of the data collection rule that is to be associated.
-	DataCollectionRuleId pulumi.StringPtrInput
-	// Description of the association.
-	Description pulumi.StringPtrInput
-	// Resource entity tag (ETag).
-	Etag pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The resource provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DataCollectionRuleAssociationState) ElementType() reflect.Type {

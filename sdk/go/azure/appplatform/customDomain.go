@@ -92,21 +92,9 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Properties of the custom domain resource.
-	Properties *CustomDomainPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type CustomDomainState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Properties of the custom domain resource.
-	Properties CustomDomainPropertiesResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CustomDomainState) ElementType() reflect.Type {

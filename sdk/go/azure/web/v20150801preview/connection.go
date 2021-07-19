@@ -99,73 +99,9 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// expanded connection provider name
-	Api *ExpandedParentApiEntityResponse `pulumi:"api"`
-	// Timestamp of last connection change.
-	ChangedTime *string `pulumi:"changedTime"`
-	// Timestamp of the connection creation
-	CreatedTime *string `pulumi:"createdTime"`
-	// Custom login setting values.
-	CustomParameterValues map[string]ParameterCustomLoginSettingValuesResponse `pulumi:"customParameterValues"`
-	// display name
-	DisplayName *string `pulumi:"displayName"`
-	// Time in UTC when the first expiration of OAuth tokens
-	FirstExpirationTime *string `pulumi:"firstExpirationTime"`
-	// List of Keywords that tag the acl
-	Keywords []string `pulumi:"keywords"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string     `pulumi:"location"`
-	Metadata interface{} `pulumi:"metadata"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Tokens/Claim
-	NonSecretParameterValues map[string]interface{} `pulumi:"nonSecretParameterValues"`
-	// Tokens/Claim
-	ParameterValues map[string]interface{} `pulumi:"parameterValues"`
-	// Status of the connection
-	Statuses []ConnectionStatusResponse `pulumi:"statuses"`
-	// Resource tags
-	Tags     map[string]string `pulumi:"tags"`
-	TenantId *string           `pulumi:"tenantId"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ConnectionState struct {
-	// expanded connection provider name
-	Api ExpandedParentApiEntityResponsePtrInput
-	// Timestamp of last connection change.
-	ChangedTime pulumi.StringPtrInput
-	// Timestamp of the connection creation
-	CreatedTime pulumi.StringPtrInput
-	// Custom login setting values.
-	CustomParameterValues ParameterCustomLoginSettingValuesResponseMapInput
-	// display name
-	DisplayName pulumi.StringPtrInput
-	// Time in UTC when the first expiration of OAuth tokens
-	FirstExpirationTime pulumi.StringPtrInput
-	// List of Keywords that tag the acl
-	Keywords pulumi.StringArrayInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	Metadata pulumi.Input
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Tokens/Claim
-	NonSecretParameterValues pulumi.MapInput
-	// Tokens/Claim
-	ParameterValues pulumi.MapInput
-	// Status of the connection
-	Statuses ConnectionStatusResponseArrayInput
-	// Resource tags
-	Tags     pulumi.StringMapInput
-	TenantId pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {

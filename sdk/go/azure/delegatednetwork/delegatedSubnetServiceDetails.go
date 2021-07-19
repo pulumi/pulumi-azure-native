@@ -84,41 +84,9 @@ func GetDelegatedSubnetServiceDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DelegatedSubnetServiceDetails resources.
 type delegatedSubnetServiceDetailsState struct {
-	// Properties of the controller.
-	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The current state of dnc delegated subnet resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource guid.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// subnet details
-	SubnetDetails *SubnetDetailsResponse `pulumi:"subnetDetails"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of resource.
-	Type *string `pulumi:"type"`
 }
 
 type DelegatedSubnetServiceDetailsState struct {
-	// Properties of the controller.
-	ControllerDetails ControllerDetailsResponsePtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The current state of dnc delegated subnet resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource guid.
-	ResourceGuid pulumi.StringPtrInput
-	// subnet details
-	SubnetDetails SubnetDetailsResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The type of resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DelegatedSubnetServiceDetailsState) ElementType() reflect.Type {

@@ -100,45 +100,9 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
-	// Time at which the share was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Share description.
-	Description *string `pulumi:"description"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Share kind.
-	ShareKind *string `pulumi:"shareKind"`
-	// Share terms.
-	Terms *string `pulumi:"terms"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
-	// Email of the user who created the resource
-	UserEmail *string `pulumi:"userEmail"`
-	// Name of the user who created the resource
-	UserName *string `pulumi:"userName"`
 }
 
 type ShareState struct {
-	// Time at which the share was created.
-	CreatedAt pulumi.StringPtrInput
-	// Share description.
-	Description pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Gets or sets the provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// Share kind.
-	ShareKind pulumi.StringPtrInput
-	// Share terms.
-	Terms pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
-	// Email of the user who created the resource
-	UserEmail pulumi.StringPtrInput
-	// Name of the user who created the resource
-	UserName pulumi.StringPtrInput
 }
 
 func (ShareState) ElementType() reflect.Type {

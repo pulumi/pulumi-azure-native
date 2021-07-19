@@ -280,7 +280,7 @@ func (o ControllerDetailsResponsePtrOutput) Id() pulumi.StringPtrOutput {
 
 type OrchestratorIdentity struct {
 	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // OrchestratorIdentityInput is an input type that accepts OrchestratorIdentityArgs and OrchestratorIdentityOutput values.
@@ -296,7 +296,7 @@ type OrchestratorIdentityInput interface {
 
 type OrchestratorIdentityArgs struct {
 	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (OrchestratorIdentityArgs) ElementType() reflect.Type {
@@ -377,8 +377,8 @@ func (o OrchestratorIdentityOutput) ToOrchestratorIdentityPtrOutputWithContext(c
 }
 
 // The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-func (o OrchestratorIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OrchestratorIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o OrchestratorIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v OrchestratorIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type OrchestratorIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -400,13 +400,13 @@ func (o OrchestratorIdentityPtrOutput) Elem() OrchestratorIdentityOutput {
 }
 
 // The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-func (o OrchestratorIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OrchestratorIdentity) *string {
+func (o OrchestratorIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *OrchestratorIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 type OrchestratorIdentityResponse struct {

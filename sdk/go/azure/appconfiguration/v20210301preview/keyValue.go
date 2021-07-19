@@ -94,57 +94,9 @@ func GetKeyValue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyValue resources.
 type keyValueState struct {
-	// The content type of the key-value's value.
-	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-	ContentType *string `pulumi:"contentType"`
-	// An ETag indicating the state of a key-value within a configuration store.
-	ETag *string `pulumi:"eTag"`
-	// The primary identifier of a key-value.
-	// The key is used in unison with the label to uniquely identify a key-value.
-	Key *string `pulumi:"key"`
-	// A value used to group key-values.
-	// The label is used in unison with the key to uniquely identify a key-value.
-	Label *string `pulumi:"label"`
-	// The last time a modifying operation was performed on the given key-value.
-	LastModified *string `pulumi:"lastModified"`
-	// A value indicating whether the key-value is locked.
-	// A locked key-value may not be modified until it is unlocked.
-	Locked *bool `pulumi:"locked"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// A dictionary of tags that can help identify what a key-value may be applicable for.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The value of the key-value.
-	Value *string `pulumi:"value"`
 }
 
 type KeyValueState struct {
-	// The content type of the key-value's value.
-	// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
-	ContentType pulumi.StringPtrInput
-	// An ETag indicating the state of a key-value within a configuration store.
-	ETag pulumi.StringPtrInput
-	// The primary identifier of a key-value.
-	// The key is used in unison with the label to uniquely identify a key-value.
-	Key pulumi.StringPtrInput
-	// A value used to group key-values.
-	// The label is used in unison with the key to uniquely identify a key-value.
-	Label pulumi.StringPtrInput
-	// The last time a modifying operation was performed on the given key-value.
-	LastModified pulumi.StringPtrInput
-	// A value indicating whether the key-value is locked.
-	// A locked key-value may not be modified until it is unlocked.
-	Locked pulumi.BoolPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// A dictionary of tags that can help identify what a key-value may be applicable for.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The value of the key-value.
-	Value pulumi.StringPtrInput
 }
 
 func (KeyValueState) ElementType() reflect.Type {

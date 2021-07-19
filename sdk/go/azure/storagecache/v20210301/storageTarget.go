@@ -113,53 +113,9 @@ func GetStorageTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageTarget resources.
 type storageTargetState struct {
-	// Properties when targetType is blobNfs.
-	BlobNfs *BlobNfsTargetResponse `pulumi:"blobNfs"`
-	// Properties when targetType is clfs.
-	Clfs *ClfsTargetResponse `pulumi:"clfs"`
-	// List of Cache namespace junctions to target for namespace associations.
-	Junctions []NamespaceJunctionResponse `pulumi:"junctions"`
-	// Region name string.
-	Location *string `pulumi:"location"`
-	// Name of the Storage Target.
-	Name *string `pulumi:"name"`
-	// Properties when targetType is nfs3.
-	Nfs3 *Nfs3TargetResponse `pulumi:"nfs3"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the Storage Target.
-	TargetType *string `pulumi:"targetType"`
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type *string `pulumi:"type"`
-	// Properties when targetType is unknown.
-	Unknown *UnknownTargetResponse `pulumi:"unknown"`
 }
 
 type StorageTargetState struct {
-	// Properties when targetType is blobNfs.
-	BlobNfs BlobNfsTargetResponsePtrInput
-	// Properties when targetType is clfs.
-	Clfs ClfsTargetResponsePtrInput
-	// List of Cache namespace junctions to target for namespace associations.
-	Junctions NamespaceJunctionResponseArrayInput
-	// Region name string.
-	Location pulumi.StringPtrInput
-	// Name of the Storage Target.
-	Name pulumi.StringPtrInput
-	// Properties when targetType is nfs3.
-	Nfs3 Nfs3TargetResponsePtrInput
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the Storage Target.
-	TargetType pulumi.StringPtrInput
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type pulumi.StringPtrInput
-	// Properties when targetType is unknown.
-	Unknown UnknownTargetResponsePtrInput
 }
 
 func (StorageTargetState) ElementType() reflect.Type {

@@ -44,8 +44,11 @@ class HostPoolType(str, Enum):
     HostPool type for desktop.
     """
     PERSONAL = "Personal"
+    """Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost."""
     POOLED = "Pooled"
+    """Users get a new (random) SessionHost every time it connects to the HostPool."""
     BYO_DESKTOP = "BYODesktop"
+    """Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct."""
 
 
 class LoadBalancerType(str, Enum):
@@ -62,10 +65,15 @@ class Operation(str, Enum):
     The type of operation for migration.
     """
     START = "Start"
+    """Start the migration."""
     REVOKE = "Revoke"
+    """Revoke the migration."""
     COMPLETE = "Complete"
+    """Complete the migration."""
     HIDE = "Hide"
+    """Hide the hostpool."""
     UNHIDE = "Unhide"
+    """Unhide the hostpool."""
 
 
 class PersonalDesktopAssignmentType(str, Enum):

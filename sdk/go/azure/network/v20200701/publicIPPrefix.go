@@ -217,81 +217,9 @@ func GetPublicIPPrefix(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicIPPrefix resources.
 type publicIPPrefixState struct {
-	// The customIpPrefix that this prefix is associated with.
-	CustomIPPrefix *SubResourceResponse `pulumi:"customIPPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The extended location of the public ip address.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The allocated Prefix.
-	IpPrefix *string `pulumi:"ipPrefix"`
-	// The list of tags associated with the public IP prefix.
-	IpTags []IpTagResponse `pulumi:"ipTags"`
-	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
-	LoadBalancerFrontendIpConfiguration *SubResourceResponse `pulumi:"loadBalancerFrontendIpConfiguration"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// NatGateway of Public IP Prefix.
-	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
-	// The Length of the Public IP Prefix.
-	PrefixLength *int `pulumi:"prefixLength"`
-	// The provisioning state of the public IP prefix resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The public IP address version.
-	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
-	// The list of all referenced PublicIPAddresses.
-	PublicIPAddresses []ReferencedPublicIpAddressResponse `pulumi:"publicIPAddresses"`
-	// The resource GUID property of the public IP prefix resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The public IP prefix SKU.
-	Sku *PublicIPPrefixSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones []string `pulumi:"zones"`
 }
 
 type PublicIPPrefixState struct {
-	// The customIpPrefix that this prefix is associated with.
-	CustomIPPrefix SubResourceResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The extended location of the public ip address.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// The allocated Prefix.
-	IpPrefix pulumi.StringPtrInput
-	// The list of tags associated with the public IP prefix.
-	IpTags IpTagResponseArrayInput
-	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
-	LoadBalancerFrontendIpConfiguration SubResourceResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// NatGateway of Public IP Prefix.
-	NatGateway NatGatewayResponsePtrInput
-	// The Length of the Public IP Prefix.
-	PrefixLength pulumi.IntPtrInput
-	// The provisioning state of the public IP prefix resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The public IP address version.
-	PublicIPAddressVersion pulumi.StringPtrInput
-	// The list of all referenced PublicIPAddresses.
-	PublicIPAddresses ReferencedPublicIpAddressResponseArrayInput
-	// The resource GUID property of the public IP prefix resource.
-	ResourceGuid pulumi.StringPtrInput
-	// The public IP prefix SKU.
-	Sku PublicIPPrefixSkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones pulumi.StringArrayInput
 }
 
 func (PublicIPPrefixState) ElementType() reflect.Type {

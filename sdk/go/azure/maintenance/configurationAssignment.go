@@ -83,33 +83,9 @@ func GetConfigurationAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationAssignment resources.
 type configurationAssignmentState struct {
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// The maintenance configuration Id
-	MaintenanceConfigurationId *string `pulumi:"maintenanceConfigurationId"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// The unique resourceId
-	ResourceId *string `pulumi:"resourceId"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type ConfigurationAssignmentState struct {
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// The maintenance configuration Id
-	MaintenanceConfigurationId pulumi.StringPtrInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// The unique resourceId
-	ResourceId pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationAssignmentState) ElementType() reflect.Type {

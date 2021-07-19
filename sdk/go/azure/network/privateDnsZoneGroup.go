@@ -115,25 +115,9 @@ func GetPrivateDnsZoneGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateDnsZoneGroup resources.
 type privateDnsZoneGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// A collection of private dns zone configurations of the private dns zone group.
-	PrivateDnsZoneConfigs []PrivateDnsZoneConfigResponse `pulumi:"privateDnsZoneConfigs"`
-	// The provisioning state of the private dns zone group resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 type PrivateDnsZoneGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// A collection of private dns zone configurations of the private dns zone group.
-	PrivateDnsZoneConfigs PrivateDnsZoneConfigResponseArrayInput
-	// The provisioning state of the private dns zone group resource.
-	ProvisioningState pulumi.StringPtrInput
 }
 
 func (PrivateDnsZoneGroupState) ElementType() reflect.Type {

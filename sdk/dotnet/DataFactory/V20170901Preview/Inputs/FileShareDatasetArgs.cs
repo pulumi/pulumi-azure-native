@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The data compression method used for the file system.
         /// </summary>
         [Input("compression")]
-        public Input<object>? Compression { get; set; }
+        public object? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The format of the files.
         /// </summary>
         [Input("format")]
-        public Input<object>? Format { get; set; }
+        public object? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.

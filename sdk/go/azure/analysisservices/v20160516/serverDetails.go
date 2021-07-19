@@ -112,57 +112,9 @@ func GetServerDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerDetails resources.
 type serverDetailsState struct {
-	// A collection of AS server administrators
-	AsAdministrators *ServerAdministratorsResponse `pulumi:"asAdministrators"`
-	// The container URI of backup blob.
-	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
-	// Location of the Analysis Services resource.
-	Location *string `pulumi:"location"`
-	// The managed mode of the server (0 = not managed, 1 = managed).
-	ManagedMode *int `pulumi:"managedMode"`
-	// The name of the Analysis Services resource.
-	Name *string `pulumi:"name"`
-	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The full name of the Analysis Services resource.
-	ServerFullName *string `pulumi:"serverFullName"`
-	// The server monitor mode for AS server
-	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
-	// The SKU of the Analysis Services resource.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
-	State *string `pulumi:"state"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the Analysis Services resource.
-	Type *string `pulumi:"type"`
 }
 
 type ServerDetailsState struct {
-	// A collection of AS server administrators
-	AsAdministrators ServerAdministratorsResponsePtrInput
-	// The container URI of backup blob.
-	BackupBlobContainerUri pulumi.StringPtrInput
-	// Location of the Analysis Services resource.
-	Location pulumi.StringPtrInput
-	// The managed mode of the server (0 = not managed, 1 = managed).
-	ManagedMode pulumi.IntPtrInput
-	// The name of the Analysis Services resource.
-	Name pulumi.StringPtrInput
-	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// The full name of the Analysis Services resource.
-	ServerFullName pulumi.StringPtrInput
-	// The server monitor mode for AS server
-	ServerMonitorMode pulumi.IntPtrInput
-	// The SKU of the Analysis Services resource.
-	Sku ResourceSkuResponsePtrInput
-	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
-	State pulumi.StringPtrInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
-	// The type of the Analysis Services resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ServerDetailsState) ElementType() reflect.Type {

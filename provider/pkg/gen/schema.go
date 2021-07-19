@@ -1719,7 +1719,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
-		Enum: []*pschema.EnumValueSpec{},
+		Enum: []pschema.EnumValueSpec{},
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: description,
 			Type:        "string", // This provider only has string enums
@@ -1728,7 +1728,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	if values, ok := enumExtension["values"].([]interface{}); ok {
 		for _, val := range values {
 			if val, ok := val.(map[string]interface{}); ok {
-				enumVal := &pschema.EnumValueSpec{
+				enumVal := pschema.EnumValueSpec{
 					Value: fmt.Sprintf("%v", val["value"]),
 				}
 				if name, ok := val["name"].(string); ok {
@@ -1742,7 +1742,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 		}
 	} else {
 		for _, val := range resolvedSchema.Enum {
-			enumVal := &pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
+			enumVal := pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
 			enumSpec.Enum = append(enumSpec.Enum, enumVal)
 		}
 	}

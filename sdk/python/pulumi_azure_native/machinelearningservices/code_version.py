@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CodeVersionArgs', 'CodeVersion']
+__all__ = ['CodeVersionInitArgs', 'CodeVersion']
 
 @pulumi.input_type
-class CodeVersionArgs:
+class CodeVersionInitArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  properties: pulumi.Input['CodeVersionArgs'],
@@ -123,19 +123,19 @@ class CodeVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CodeVersionArgs,
+                 args: CodeVersionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
         API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
-        :param CodeVersionArgs args: The arguments to use to populate this resource's properties.
+        :param CodeVersionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CodeVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CodeVersionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -159,7 +159,7 @@ class CodeVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CodeVersionArgs.__new__(CodeVersionArgs)
+            __props__ = CodeVersionInitArgs.__new__(CodeVersionInitArgs)
 
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -198,7 +198,7 @@ class CodeVersion(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CodeVersionArgs.__new__(CodeVersionArgs)
+        __props__ = CodeVersionInitArgs.__new__(CodeVersionInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

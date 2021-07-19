@@ -19,15 +19,15 @@ __all__ = [
     'PivotPropertiesArgs',
     'QueryAggregationArgs',
     'QueryComparisonExpressionArgs',
-    'QueryDatasetArgs',
     'QueryDatasetConfigurationArgs',
+    'QueryDatasetArgs',
     'QueryFilterArgs',
     'QueryGroupingArgs',
     'QueryTimePeriodArgs',
     'ReportConfigAggregationArgs',
     'ReportConfigComparisonExpressionArgs',
-    'ReportConfigDatasetArgs',
     'ReportConfigDatasetConfigurationArgs',
+    'ReportConfigDatasetArgs',
     'ReportConfigFilterArgs',
     'ReportConfigGroupingArgs',
     'ReportConfigSortingArgs',
@@ -464,6 +464,30 @@ class QueryComparisonExpressionArgs:
 
 
 @pulumi.input_type
+class QueryDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration of dataset in the query.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
+
+
+@pulumi.input_type
 class QueryDatasetArgs:
     def __init__(__self__, *,
                  aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgs']]]] = None,
@@ -549,30 +573,6 @@ class QueryDatasetArgs:
     @grouping.setter
     def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]]]):
         pulumi.set(self, "grouping", value)
-
-
-@pulumi.input_type
-class QueryDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The configuration of dataset in the query.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type
@@ -815,6 +815,30 @@ class ReportConfigComparisonExpressionArgs:
 
 
 @pulumi.input_type
+class ReportConfigDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration of dataset in the report.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
+
+
+@pulumi.input_type
 class ReportConfigDatasetArgs:
     def __init__(__self__, *,
                  aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]] = None,
@@ -916,30 +940,6 @@ class ReportConfigDatasetArgs:
     @sorting.setter
     def sorting(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]):
         pulumi.set(self, "sorting", value)
-
-
-@pulumi.input_type
-class ReportConfigDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The configuration of dataset in the report.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type

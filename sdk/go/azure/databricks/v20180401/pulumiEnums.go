@@ -11,7 +11,7 @@ import (
 )
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
-type KeySource pulumi.String
+type KeySource string
 
 const (
 	KeySourceDefault             = KeySource("Default")
@@ -19,7 +19,23 @@ const (
 )
 
 func (KeySource) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KeySource)(nil)).Elem()
+}
+
+func (e KeySource) ToKeySourceOutput() KeySourceOutput {
+	return pulumi.ToOutput(e).(KeySourceOutput)
+}
+
+func (e KeySource) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KeySourceOutput)
+}
+
+func (e KeySource) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return e.ToKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (e KeySource) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return KeySource(e).ToKeySourceOutputWithContext(ctx).ToKeySourcePtrOutputWithContext(ctx)
 }
 
 func (e KeySource) ToStringOutput() pulumi.StringOutput {
@@ -36,4 +52,130 @@ func (e KeySource) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e KeySource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KeySourceOutput struct{ *pulumi.OutputState }
+
+func (KeySourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeySource)(nil)).Elem()
+}
+
+func (o KeySourceOutput) ToKeySourceOutput() KeySourceOutput {
+	return o
+}
+
+func (o KeySourceOutput) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
+	return o
+}
+
+func (o KeySourceOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return o.ToKeySourcePtrOutputWithContext(context.Background())
+}
+
+func (o KeySourceOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeySource) *KeySource {
+		return &v
+	}).(KeySourcePtrOutput)
+}
+
+func (o KeySourceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KeySourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KeySourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeySourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeySourcePtrOutput struct{ *pulumi.OutputState }
+
+func (KeySourcePtrOutput) ElementType() reflect.Type {
+	return keySourcePtrType
+}
+
+func (o KeySourcePtrOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return o
+}
+
+func (o KeySourcePtrOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return o
+}
+
+func (o KeySourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeySource) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeySourcePtrOutput) Elem() KeySourceOutput {
+	return o.ApplyT(func(v *KeySource) KeySource {
+		var ret KeySource
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KeySourceOutput)
+}
+
+// KeySourceInput is an input type that accepts KeySourceArgs and KeySourceOutput values.
+// You can construct a concrete instance of `KeySourceInput` via:
+//
+//          KeySourceArgs{...}
+type KeySourceInput interface {
+	pulumi.Input
+
+	ToKeySourceOutput() KeySourceOutput
+	ToKeySourceOutputWithContext(context.Context) KeySourceOutput
+}
+
+var keySourcePtrType = reflect.TypeOf((**KeySource)(nil)).Elem()
+
+type KeySourcePtrInput interface {
+	pulumi.Input
+
+	ToKeySourcePtrOutput() KeySourcePtrOutput
+	ToKeySourcePtrOutputWithContext(context.Context) KeySourcePtrOutput
+}
+
+type keySourcePtr string
+
+func KeySourcePtr(v string) KeySourcePtrInput {
+	return (*keySourcePtr)(&v)
+}
+
+func (*keySourcePtr) ElementType() reflect.Type {
+	return keySourcePtrType
+}
+
+func (in *keySourcePtr) ToKeySourcePtrOutput() KeySourcePtrOutput {
+	return pulumi.ToOutput(in).(KeySourcePtrOutput)
+}
+
+func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(KeySourceOutput{})
+	pulumi.RegisterOutputType(KeySourcePtrOutput{})
 }

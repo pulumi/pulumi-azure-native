@@ -111,61 +111,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId *string `pulumi:"customerId"`
-	// The ETag of the workspace.
-	ETag *string `pulumi:"eTag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// List of linked private link scope resources.
-	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"privateLinkScopedResources"`
-	// The provisioning state of the workspace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The network access type for accessing Log Analytics ingestion.
-	PublicNetworkAccessForIngestion *string `pulumi:"publicNetworkAccessForIngestion"`
-	// The network access type for accessing Log Analytics query.
-	PublicNetworkAccessForQuery *string `pulumi:"publicNetworkAccessForQuery"`
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays *int `pulumi:"retentionInDays"`
-	// The SKU of the workspace.
-	Sku *WorkspaceSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The daily volume cap for ingestion.
-	WorkspaceCapping *WorkspaceCappingResponse `pulumi:"workspaceCapping"`
 }
 
 type WorkspaceState struct {
-	// This is a read-only property. Represents the ID associated with the workspace.
-	CustomerId pulumi.StringPtrInput
-	// The ETag of the workspace.
-	ETag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// List of linked private link scope resources.
-	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayInput
-	// The provisioning state of the workspace.
-	ProvisioningState pulumi.StringPtrInput
-	// The network access type for accessing Log Analytics ingestion.
-	PublicNetworkAccessForIngestion pulumi.StringPtrInput
-	// The network access type for accessing Log Analytics query.
-	PublicNetworkAccessForQuery pulumi.StringPtrInput
-	// The workspace data retention in days. -1 means Unlimited retention for the Unlimited Sku. 730 days is the maximum allowed for all other Skus.
-	RetentionInDays pulumi.IntPtrInput
-	// The SKU of the workspace.
-	Sku WorkspaceSkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The daily volume cap for ingestion.
-	WorkspaceCapping WorkspaceCappingResponsePtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

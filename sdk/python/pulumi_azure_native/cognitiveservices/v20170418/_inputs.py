@@ -17,8 +17,8 @@ __all__ = [
     'IpRuleArgs',
     'KeyVaultPropertiesArgs',
     'NetworkRuleSetArgs',
-    'PrivateEndpointConnectionArgs',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
     'UserAssignedIdentityArgs',
@@ -532,6 +532,45 @@ class NetworkRuleSetArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Properties of the PrivateEndpointConnectProperties.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The private link resource group ids.
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The private link resource group ids.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
@@ -569,45 +608,6 @@ class PrivateEndpointConnectionArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Properties of the PrivateEndpointConnectProperties.
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The private link resource group ids.
-        """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
-        """
-        A collection of information about the state of the connection between service consumer and provider.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The private link resource group ids.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "group_ids", value)
 
 
 @pulumi.input_type

@@ -13,8 +13,8 @@ __all__ = [
     'EventHubEventSubscriptionDestinationArgs',
     'EventSubscriptionFilterArgs',
     'HybridConnectionEventSubscriptionDestinationArgs',
-    'JsonFieldArgs',
     'JsonFieldWithDefaultArgs',
+    'JsonFieldArgs',
     'JsonInputSchemaMappingArgs',
     'RetryPolicyArgs',
     'StorageBlobDeadLetterDestinationArgs',
@@ -189,30 +189,6 @@ class HybridConnectionEventSubscriptionDestinationArgs:
 
 
 @pulumi.input_type
-class JsonFieldArgs:
-    def __init__(__self__, *,
-                 source_field: Optional[pulumi.Input[str]] = None):
-        """
-        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
-        :param pulumi.Input[str] source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
-        """
-        if source_field is not None:
-            pulumi.set(__self__, "source_field", source_field)
-
-    @property
-    @pulumi.getter(name="sourceField")
-    def source_field(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of a field in the input event schema that's to be used as the source of a mapping.
-        """
-        return pulumi.get(self, "source_field")
-
-    @source_field.setter
-    def source_field(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_field", value)
-
-
-@pulumi.input_type
 class JsonFieldWithDefaultArgs:
     def __init__(__self__, *,
                  default_value: Optional[pulumi.Input[str]] = None,
@@ -238,6 +214,30 @@ class JsonFieldWithDefaultArgs:
     @default_value.setter
     def default_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        return pulumi.get(self, "source_field")
+
+    @source_field.setter
+    def source_field(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_field", value)
+
+
+@pulumi.input_type
+class JsonFieldArgs:
+    def __init__(__self__, *,
+                 source_field: Optional[pulumi.Input[str]] = None):
+        """
+        This is used to express the source of an input schema mapping for a single target field in the Event Grid Event schema. This is currently used in the mappings for the 'id','topic' and 'eventTime' properties. This represents a field in the input event schema.
+        :param pulumi.Input[str] source_field: Name of a field in the input event schema that's to be used as the source of a mapping.
+        """
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
 
     @property
     @pulumi.getter(name="sourceField")

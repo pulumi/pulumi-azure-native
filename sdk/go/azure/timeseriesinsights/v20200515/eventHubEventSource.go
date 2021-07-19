@@ -135,71 +135,9 @@ func GetEventHubEventSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHubEventSource resources.
 type eventHubEventSourceState struct {
-	// The name of the event hub's consumer group that holds the partitions from which events will be read.
-	ConsumerGroupName *string `pulumi:"consumerGroupName"`
-	// The time the resource was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// The name of the event hub.
-	EventHubName *string `pulumi:"eventHubName"`
-	// The resource id of the event source in Azure Resource Manager.
-	EventSourceResourceId *string `pulumi:"eventSourceResourceId"`
-	// The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
-	KeyName *string `pulumi:"keyName"`
-	// The kind of the event source.
-	// Expected value is 'Microsoft.EventHub'.
-	Kind *string `pulumi:"kind"`
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp *LocalTimestampResponse `pulumi:"localTimestamp"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the service bus that contains the event hub.
-	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-	Time *string `pulumi:"time"`
-	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-	TimestampPropertyName *string `pulumi:"timestampPropertyName"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type EventHubEventSourceState struct {
-	// The name of the event hub's consumer group that holds the partitions from which events will be read.
-	ConsumerGroupName pulumi.StringPtrInput
-	// The time the resource was created.
-	CreationTime pulumi.StringPtrInput
-	// The name of the event hub.
-	EventHubName pulumi.StringPtrInput
-	// The resource id of the event source in Azure Resource Manager.
-	EventSourceResourceId pulumi.StringPtrInput
-	// The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
-	KeyName pulumi.StringPtrInput
-	// The kind of the event source.
-	// Expected value is 'Microsoft.EventHub'.
-	Kind pulumi.StringPtrInput
-	// An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-	LocalTimestamp LocalTimestampResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the service bus that contains the event hub.
-	ServiceBusNamespace pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
-	Time pulumi.StringPtrInput
-	// The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
-	TimestampPropertyName pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EventHubEventSourceState) ElementType() reflect.Type {

@@ -1681,7 +1681,7 @@ type JobSchedule struct {
 	// Schedule start time.
 	StartTime *string `pulumi:"startTime"`
 	// Schedule interval type
-	Type *string `pulumi:"type"`
+	Type *JobScheduleType `pulumi:"type"`
 }
 
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
@@ -1706,7 +1706,7 @@ type JobScheduleArgs struct {
 	// Schedule start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Schedule interval type
-	Type *JobScheduleType `pulumi:"type"`
+	Type JobScheduleTypePtrInput `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -1808,8 +1808,8 @@ func (o JobScheduleOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule interval type
-func (o JobScheduleOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobSchedule) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JobScheduleOutput) Type() JobScheduleTypePtrOutput {
+	return o.ApplyT(func(v JobSchedule) *JobScheduleType { return v.Type }).(JobScheduleTypePtrOutput)
 }
 
 type JobSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -1871,13 +1871,13 @@ func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule interval type
-func (o JobSchedulePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobSchedule) *string {
+func (o JobSchedulePtrOutput) Type() JobScheduleTypePtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *JobScheduleType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(JobScheduleTypePtrOutput)
 }
 
 // Scheduling properties of a job.
@@ -3395,7 +3395,7 @@ type JobTarget struct {
 	// The target elastic pool name.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType *string `pulumi:"membershipType"`
+	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential *string `pulumi:"refreshCredential"`
 	// The target server name.
@@ -3424,7 +3424,7 @@ type JobTargetArgs struct {
 	// The target elastic pool name.
 	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
+	MembershipType JobTargetGroupMembershipTypePtrInput `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
 	// The target server name.
@@ -3498,8 +3498,8 @@ func (o JobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput {
 }
 
 // Whether the target is included or excluded from the group.
-func (o JobTargetOutput) MembershipType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobTarget) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+func (o JobTargetOutput) MembershipType() JobTargetGroupMembershipTypePtrOutput {
+	return o.ApplyT(func(v JobTarget) *JobTargetGroupMembershipType { return v.MembershipType }).(JobTargetGroupMembershipTypePtrOutput)
 }
 
 // The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.

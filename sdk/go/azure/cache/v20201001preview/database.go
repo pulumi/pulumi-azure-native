@@ -94,45 +94,9 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-	ClientProtocol *string `pulumi:"clientProtocol"`
-	// Clustering policy - default is OSSCluster. Specified at create time.
-	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
-	// Redis eviction policy - default is VolatileLRU
-	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules []ModuleResponse `pulumi:"modules"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-	Port *int `pulumi:"port"`
-	// Current provisioning status of the database
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Current resource status of the database
-	ResourceState *string `pulumi:"resourceState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DatabaseState struct {
-	// Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-	ClientProtocol pulumi.StringPtrInput
-	// Clustering policy - default is OSSCluster. Specified at create time.
-	ClusteringPolicy pulumi.StringPtrInput
-	// Redis eviction policy - default is VolatileLRU
-	EvictionPolicy pulumi.StringPtrInput
-	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
-	Modules ModuleResponseArrayInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// TCP port of the database endpoint. Specified at create time. Defaults to an available port.
-	Port pulumi.IntPtrInput
-	// Current provisioning status of the database
-	ProvisioningState pulumi.StringPtrInput
-	// Current resource status of the database
-	ResourceState pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {

@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.Security
         /// Settings for authentication management, these settings are relevant only for the cloud connector.
         /// </summary>
         [Input("authenticationDetails")]
-        public Input<object>? AuthenticationDetails { get; set; }
+        public object? AuthenticationDetails { get; set; }
 
         /// <summary>
         /// Name of the cloud account connector

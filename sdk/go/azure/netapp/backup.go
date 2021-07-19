@@ -147,53 +147,9 @@ func GetBackup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Backup resources.
 type backupState struct {
-	// UUID v4 used to identify the Backup
-	BackupId *string `pulumi:"backupId"`
-	// Type of backup Manual or Scheduled
-	BackupType *string `pulumi:"backupType"`
-	// The creation date of the backup
-	CreationDate *string `pulumi:"creationDate"`
-	// Failure reason
-	FailureReason *string `pulumi:"failureReason"`
-	// Label for backup
-	Label *string `pulumi:"label"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Size of backup
-	Size *float64 `pulumi:"size"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Volume name
-	VolumeName *string `pulumi:"volumeName"`
 }
 
 type BackupState struct {
-	// UUID v4 used to identify the Backup
-	BackupId pulumi.StringPtrInput
-	// Type of backup Manual or Scheduled
-	BackupType pulumi.StringPtrInput
-	// The creation date of the backup
-	CreationDate pulumi.StringPtrInput
-	// Failure reason
-	FailureReason pulumi.StringPtrInput
-	// Label for backup
-	Label pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// Size of backup
-	Size pulumi.Float64PtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Volume name
-	VolumeName pulumi.StringPtrInput
 }
 
 func (BackupState) ElementType() reflect.Type {

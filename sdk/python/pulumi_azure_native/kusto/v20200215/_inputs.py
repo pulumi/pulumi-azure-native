@@ -13,8 +13,8 @@ __all__ = [
     'AzureSkuArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
-    'LanguageExtensionArgs',
     'LanguageExtensionsListArgs',
+    'LanguageExtensionArgs',
     'OptimizedAutoscaleArgs',
     'TrustedExternalTenantArgs',
     'VirtualNetworkConfigurationArgs',
@@ -167,30 +167,6 @@ class KeyVaultPropertiesArgs:
 
 
 @pulumi.input_type
-class LanguageExtensionArgs:
-    def __init__(__self__, *,
-                 language_extension_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]] = None):
-        """
-        The language extension object.
-        :param pulumi.Input[Union[str, 'LanguageExtensionName']] language_extension_name: The language extension name.
-        """
-        if language_extension_name is not None:
-            pulumi.set(__self__, "language_extension_name", language_extension_name)
-
-    @property
-    @pulumi.getter(name="languageExtensionName")
-    def language_extension_name(self) -> Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]:
-        """
-        The language extension name.
-        """
-        return pulumi.get(self, "language_extension_name")
-
-    @language_extension_name.setter
-    def language_extension_name(self, value: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]):
-        pulumi.set(self, "language_extension_name", value)
-
-
-@pulumi.input_type
 class LanguageExtensionsListArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None):
@@ -212,6 +188,30 @@ class LanguageExtensionsListArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LanguageExtensionArgs:
+    def __init__(__self__, *,
+                 language_extension_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]] = None):
+        """
+        The language extension object.
+        :param pulumi.Input[Union[str, 'LanguageExtensionName']] language_extension_name: The language extension name.
+        """
+        if language_extension_name is not None:
+            pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionName")
+    def language_extension_name(self) -> Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]:
+        """
+        The language extension name.
+        """
+        return pulumi.get(self, "language_extension_name")
+
+    @language_extension_name.setter
+    def language_extension_name(self, value: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]):
+        pulumi.set(self, "language_extension_name", value)
 
 
 @pulumi.input_type

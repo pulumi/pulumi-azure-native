@@ -108,25 +108,9 @@ func GetReplicationNetworkMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationNetworkMapping resources.
 type replicationNetworkMappingState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// The Network Mapping Properties.
-	Properties *NetworkMappingPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationNetworkMappingState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// The Network Mapping Properties.
-	Properties NetworkMappingPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationNetworkMappingState) ElementType() reflect.Type {

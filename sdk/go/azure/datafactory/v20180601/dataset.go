@@ -81,25 +81,9 @@ func GetDataset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dataset resources.
 type datasetState struct {
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Dataset properties.
-	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DatasetState struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Dataset properties.
-	Properties pulumi.Input
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DatasetState) ElementType() reflect.Type {

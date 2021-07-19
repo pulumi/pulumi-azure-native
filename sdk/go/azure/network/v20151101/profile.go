@@ -115,45 +115,9 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
-	// Gets or sets the DNS settings of the Traffic Manager profile.
-	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
-	// Gets or sets the list of endpoints in the Traffic Manager profile.
-	Endpoints []EndpointResponse `pulumi:"endpoints"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
-	ProfileStatus *string `pulumi:"profileStatus"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
-	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ProfileState struct {
-	// Gets or sets the DNS settings of the Traffic Manager profile.
-	DnsConfig DnsConfigResponsePtrInput
-	// Gets or sets the list of endpoints in the Traffic Manager profile.
-	Endpoints EndpointResponseArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
-	MonitorConfig MonitorConfigResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
-	ProfileStatus pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
-	TrafficRoutingMethod pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ProfileState) ElementType() reflect.Type {
