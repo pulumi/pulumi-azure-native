@@ -42,9 +42,9 @@ __all__ = [
     'ManagedServiceIdentityArgs',
     'MongoDBCollectionResourceArgs',
     'MongoDBDatabaseResourceArgs',
-    'MongoIndexArgs',
     'MongoIndexKeysArgs',
     'MongoIndexOptionsArgs',
+    'MongoIndexArgs',
     'PeriodicModeBackupPolicyArgs',
     'PeriodicModePropertiesArgs',
     'PermissionArgs',
@@ -60,8 +60,8 @@ __all__ = [
     'SqlTriggerResourceArgs',
     'SqlUserDefinedFunctionResourceArgs',
     'TableResourceArgs',
-    'UniqueKeyArgs',
     'UniqueKeyPolicyArgs',
+    'UniqueKeyArgs',
     'VirtualNetworkRuleArgs',
 ]
 
@@ -2049,46 +2049,6 @@ class MongoDBDatabaseResourceArgs:
 
 
 @pulumi.input_type
-class MongoIndexArgs:
-    def __init__(__self__, *,
-                 key: Optional[pulumi.Input['MongoIndexKeysArgs']] = None,
-                 options: Optional[pulumi.Input['MongoIndexOptionsArgs']] = None):
-        """
-        Cosmos DB MongoDB collection index key
-        :param pulumi.Input['MongoIndexKeysArgs'] key: Cosmos DB MongoDB collection index keys
-        :param pulumi.Input['MongoIndexOptionsArgs'] options: Cosmos DB MongoDB collection index key options
-        """
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['MongoIndexKeysArgs']]:
-        """
-        Cosmos DB MongoDB collection index keys
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: Optional[pulumi.Input['MongoIndexKeysArgs']]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['MongoIndexOptionsArgs']]:
-        """
-        Cosmos DB MongoDB collection index key options
-        """
-        return pulumi.get(self, "options")
-
-    @options.setter
-    def options(self, value: Optional[pulumi.Input['MongoIndexOptionsArgs']]):
-        pulumi.set(self, "options", value)
-
-
-@pulumi.input_type
 class MongoIndexKeysArgs:
     def __init__(__self__, *,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2150,6 +2110,46 @@ class MongoIndexOptionsArgs:
     @unique.setter
     def unique(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unique", value)
+
+
+@pulumi.input_type
+class MongoIndexArgs:
+    def __init__(__self__, *,
+                 key: Optional[pulumi.Input['MongoIndexKeysArgs']] = None,
+                 options: Optional[pulumi.Input['MongoIndexOptionsArgs']] = None):
+        """
+        Cosmos DB MongoDB collection index key
+        :param pulumi.Input['MongoIndexKeysArgs'] key: Cosmos DB MongoDB collection index keys
+        :param pulumi.Input['MongoIndexOptionsArgs'] options: Cosmos DB MongoDB collection index key options
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input['MongoIndexKeysArgs']]:
+        """
+        Cosmos DB MongoDB collection index keys
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input['MongoIndexKeysArgs']]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['MongoIndexOptionsArgs']]:
+        """
+        Cosmos DB MongoDB collection index key options
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['MongoIndexOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
 
 @pulumi.input_type
@@ -3179,30 +3179,6 @@ class TableResourceArgs:
 
 
 @pulumi.input_type
-class UniqueKeyArgs:
-    def __init__(__self__, *,
-                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths must be unique for each document in the Azure Cosmos DB service
-        """
-        if paths is not None:
-            pulumi.set(__self__, "paths", paths)
-
-    @property
-    @pulumi.getter
-    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of paths must be unique for each document in the Azure Cosmos DB service
-        """
-        return pulumi.get(self, "paths")
-
-    @paths.setter
-    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "paths", value)
-
-
-@pulumi.input_type
 class UniqueKeyPolicyArgs:
     def __init__(__self__, *,
                  unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]] = None):
@@ -3224,6 +3200,30 @@ class UniqueKeyPolicyArgs:
     @unique_keys.setter
     def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]]):
         pulumi.set(self, "unique_keys", value)
+
+
+@pulumi.input_type
+class UniqueKeyArgs:
+    def __init__(__self__, *,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "paths", value)
 
 
 @pulumi.input_type

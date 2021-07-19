@@ -16,7 +16,9 @@ class EnforcementMode(str, Enum):
     The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
     """
     DEFAULT = "Default"
+    """The policy effect is enforced during resource creation or update."""
     DO_NOT_ENFORCE = "DoNotEnforce"
+    """The policy effect is not enforced during resource creation or update."""
 
 
 class PolicyType(str, Enum):

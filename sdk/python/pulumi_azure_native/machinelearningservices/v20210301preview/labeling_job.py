@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LabelingJobArgs', 'LabelingJob']
+__all__ = ['LabelingJobInitArgs', 'LabelingJob']
 
 @pulumi.input_type
-class LabelingJobArgs:
+class LabelingJobInitArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['LabelingJobArgs'],
                  resource_group_name: pulumi.Input[str],
@@ -106,18 +106,18 @@ class LabelingJob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LabelingJobArgs,
+                 args: LabelingJobInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
 
         :param str resource_name: The name of the resource.
-        :param LabelingJobArgs args: The arguments to use to populate this resource's properties.
+        :param LabelingJobInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LabelingJobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LabelingJobInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -140,7 +140,7 @@ class LabelingJob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LabelingJobArgs.__new__(LabelingJobArgs)
+            __props__ = LabelingJobInitArgs.__new__(LabelingJobInitArgs)
 
             __props__.__dict__["id"] = id
             if properties is None and not opts.urn:
@@ -177,7 +177,7 @@ class LabelingJob(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LabelingJobArgs.__new__(LabelingJobArgs)
+        __props__ = LabelingJobInitArgs.__new__(LabelingJobInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

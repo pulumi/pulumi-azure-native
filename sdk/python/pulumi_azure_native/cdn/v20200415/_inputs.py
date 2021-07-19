@@ -13,11 +13,10 @@ __all__ = [
     'CacheExpirationActionParametersArgs',
     'CacheKeyQueryStringActionParametersArgs',
     'CookiesMatchConditionParametersArgs',
-    'CustomRuleArgs',
     'CustomRuleListArgs',
-    'DeepCreatedOriginArgs',
+    'CustomRuleArgs',
     'DeepCreatedOriginGroupArgs',
-    'DeliveryRuleArgs',
+    'DeepCreatedOriginArgs',
     'DeliveryRuleCacheExpirationActionArgs',
     'DeliveryRuleCacheKeyQueryStringActionArgs',
     'DeliveryRuleCookiesConditionArgs',
@@ -36,6 +35,7 @@ __all__ = [
     'DeliveryRuleUrlFileExtensionConditionArgs',
     'DeliveryRuleUrlFileNameConditionArgs',
     'DeliveryRuleUrlPathConditionArgs',
+    'DeliveryRuleArgs',
     'EndpointPropertiesUpdateParametersDeliveryPolicyArgs',
     'EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs',
     'GeoFilterArgs',
@@ -47,14 +47,14 @@ __all__ = [
     'KeyVaultSigningKeyParametersArgs',
     'ManagedRuleGroupOverrideArgs',
     'ManagedRuleOverrideArgs',
-    'ManagedRuleSetArgs',
     'ManagedRuleSetListArgs',
+    'ManagedRuleSetArgs',
     'MatchConditionArgs',
     'PolicySettingsArgs',
     'PostArgsMatchConditionParametersArgs',
     'QueryStringMatchConditionParametersArgs',
-    'RateLimitRuleArgs',
     'RateLimitRuleListArgs',
+    'RateLimitRuleArgs',
     'RemoteAddressMatchConditionParametersArgs',
     'RequestBodyMatchConditionParametersArgs',
     'RequestHeaderMatchConditionParametersArgs',
@@ -67,12 +67,12 @@ __all__ = [
     'UrlFileExtensionMatchConditionParametersArgs',
     'UrlFileNameMatchConditionParametersArgs',
     'UrlPathMatchConditionParametersArgs',
-    'UrlRedirectActionArgs',
     'UrlRedirectActionParametersArgs',
-    'UrlRewriteActionArgs',
+    'UrlRedirectActionArgs',
     'UrlRewriteActionParametersArgs',
-    'UrlSigningActionArgs',
+    'UrlRewriteActionArgs',
     'UrlSigningActionParametersArgs',
+    'UrlSigningActionArgs',
     'UrlSigningKeyArgs',
     'UrlSigningParamIdentifierArgs',
 ]
@@ -291,6 +291,30 @@ class CookiesMatchConditionParametersArgs:
 
 
 @pulumi.input_type
+class CustomRuleListArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]] = None):
+        """
+        Defines contents of custom rules
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]] rules: List of rules
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
 class CustomRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[Union[str, 'ActionType']],
@@ -375,27 +399,89 @@ class CustomRuleArgs:
 
 
 @pulumi.input_type
-class CustomRuleListArgs:
+class DeepCreatedOriginGroupArgs:
     def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]] = None):
+                 name: pulumi.Input[str],
+                 origins: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]],
+                 health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
+                 response_based_origin_error_detection_settings: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
+                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None):
         """
-        Defines contents of custom rules
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]] rules: List of rules
+        The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+        :param pulumi.Input[str] name: Origin group name which must be unique within the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
+        :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
+        :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origins", origins)
+        if health_probe_settings is not None:
+            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if response_based_origin_error_detection_settings is not None:
+            pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
+        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
+            pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]:
+    def name(self) -> pulumi.Input[str]:
         """
-        List of rules
+        Origin group name which must be unique within the endpoint.
         """
-        return pulumi.get(self, "rules")
+        return pulumi.get(self, "name")
 
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]:
+        """
+        The source of the content being delivered via CDN within given origin group.
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]):
+        pulumi.set(self, "origins", value)
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional[pulumi.Input['HealthProbeParametersArgs']]:
+        """
+        Health probe settings to the origin that is used to determine the health of the origin.
+        """
+        return pulumi.get(self, "health_probe_settings")
+
+    @health_probe_settings.setter
+    def health_probe_settings(self, value: Optional[pulumi.Input['HealthProbeParametersArgs']]):
+        pulumi.set(self, "health_probe_settings", value)
+
+    @property
+    @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
+    def response_based_origin_error_detection_settings(self) -> Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']]:
+        """
+        The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        """
+        return pulumi.get(self, "response_based_origin_error_detection_settings")
+
+    @response_based_origin_error_detection_settings.setter
+    def response_based_origin_error_detection_settings(self, value: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']]):
+        pulumi.set(self, "response_based_origin_error_detection_settings", value)
+
+    @property
+    @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        """
+        return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
+
+    @traffic_restoration_time_to_healed_or_new_endpoints_in_minutes.setter
+    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
 
 
 @pulumi.input_type
@@ -594,162 +680,6 @@ class DeepCreatedOriginArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
-
-
-@pulumi.input_type
-class DeepCreatedOriginGroupArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 origins: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]],
-                 health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
-                 response_based_origin_error_detection_settings: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
-                 traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None):
-        """
-        The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
-        :param pulumi.Input[str] name: Origin group name which must be unique within the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
-        :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
-        :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-        :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "origins", origins)
-        if health_probe_settings is not None:
-            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
-        if response_based_origin_error_detection_settings is not None:
-            pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
-        if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
-            pulumi.set(__self__, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", traffic_restoration_time_to_healed_or_new_endpoints_in_minutes)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Origin group name which must be unique within the endpoint.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def origins(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]:
-        """
-        The source of the content being delivered via CDN within given origin group.
-        """
-        return pulumi.get(self, "origins")
-
-    @origins.setter
-    def origins(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]):
-        pulumi.set(self, "origins", value)
-
-    @property
-    @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional[pulumi.Input['HealthProbeParametersArgs']]:
-        """
-        Health probe settings to the origin that is used to determine the health of the origin.
-        """
-        return pulumi.get(self, "health_probe_settings")
-
-    @health_probe_settings.setter
-    def health_probe_settings(self, value: Optional[pulumi.Input['HealthProbeParametersArgs']]):
-        pulumi.set(self, "health_probe_settings", value)
-
-    @property
-    @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
-    def response_based_origin_error_detection_settings(self) -> Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']]:
-        """
-        The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-        """
-        return pulumi.get(self, "response_based_origin_error_detection_settings")
-
-    @response_based_origin_error_detection_settings.setter
-    def response_based_origin_error_detection_settings(self, value: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']]):
-        pulumi.set(self, "response_based_origin_error_detection_settings", value)
-
-    @property
-    @pulumi.getter(name="trafficRestorationTimeToHealedOrNewEndpointsInMinutes")
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self) -> Optional[pulumi.Input[int]]:
-        """
-        Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-        """
-        return pulumi.get(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes")
-
-    @traffic_restoration_time_to_healed_or_new_endpoints_in_minutes.setter
-    def traffic_restoration_time_to_healed_or_new_endpoints_in_minutes(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "traffic_restoration_time_to_healed_or_new_endpoints_in_minutes", value)
-
-
-@pulumi.input_type
-class DeliveryRuleArgs:
-    def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]],
-                 order: pulumi.Input[int],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        A rule that specifies a set of actions and conditions
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
-        :param pulumi.Input[str] name: Name of the rule
-        """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "order", order)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]:
-        """
-        A list of actions that are executed when all the conditions of a rule are satisfied.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]):
-        pulumi.set(self, "actions", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[int]:
-        """
-        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[int]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
-        """
-        A list of conditions that must be matched for the actions to be executed
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
-        pulumi.set(self, "conditions", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the rule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -1473,6 +1403,76 @@ class DeliveryRuleUrlPathConditionArgs:
 
 
 @pulumi.input_type
+class DeliveryRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]],
+                 order: pulumi.Input[int],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        A rule that specifies a set of actions and conditions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
+        :param pulumi.Input[str] name: Name of the rule
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "order", order)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]:
+        """
+        A list of actions that are executed when all the conditions of a rule are satisfied.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs', 'UrlSigningActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+        """
+        A list of conditions that must be matched for the actions to be executed
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
     def __init__(__self__, *,
                  rules: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleArgs']]],
@@ -2102,6 +2102,30 @@ class ManagedRuleOverrideArgs:
 
 
 @pulumi.input_type
+class ManagedRuleSetListArgs:
+    def __init__(__self__, *,
+                 managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]] = None):
+        """
+        Defines the list of managed rule sets for the policy.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
+        """
+        if managed_rule_sets is not None:
+            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+
+    @property
+    @pulumi.getter(name="managedRuleSets")
+    def managed_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]:
+        """
+        List of rule sets.
+        """
+        return pulumi.get(self, "managed_rule_sets")
+
+    @managed_rule_sets.setter
+    def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]):
+        pulumi.set(self, "managed_rule_sets", value)
+
+
+@pulumi.input_type
 class ManagedRuleSetArgs:
     def __init__(__self__, *,
                  rule_set_type: pulumi.Input[str],
@@ -2169,30 +2193,6 @@ class ManagedRuleSetArgs:
     @rule_group_overrides.setter
     def rule_group_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleGroupOverrideArgs']]]]):
         pulumi.set(self, "rule_group_overrides", value)
-
-
-@pulumi.input_type
-class ManagedRuleSetListArgs:
-    def __init__(__self__, *,
-                 managed_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]] = None):
-        """
-        Defines the list of managed rule sets for the policy.
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]] managed_rule_sets: List of rule sets.
-        """
-        if managed_rule_sets is not None:
-            pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
-
-    @property
-    @pulumi.getter(name="managedRuleSets")
-    def managed_rule_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]:
-        """
-        List of rule sets.
-        """
-        return pulumi.get(self, "managed_rule_sets")
-
-    @managed_rule_sets.setter
-    def managed_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleSetArgs']]]]):
-        pulumi.set(self, "managed_rule_sets", value)
 
 
 @pulumi.input_type
@@ -2565,6 +2565,30 @@ class QueryStringMatchConditionParametersArgs:
 
 
 @pulumi.input_type
+class RateLimitRuleListArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]] = None):
+        """
+        Defines contents of rate limit rules
+        :param pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]] rules: List of rules
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
 class RateLimitRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[Union[str, 'ActionType']],
@@ -2676,30 +2700,6 @@ class RateLimitRuleArgs:
     @enabled_state.setter
     def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
-
-
-@pulumi.input_type
-class RateLimitRuleListArgs:
-    def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]] = None):
-        """
-        Defines contents of rate limit rules
-        :param pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]] rules: List of rules
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]:
-        """
-        List of rules
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateLimitRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
@@ -3529,46 +3529,6 @@ class UrlPathMatchConditionParametersArgs:
 
 
 @pulumi.input_type
-class UrlRedirectActionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 parameters: pulumi.Input['UrlRedirectActionParametersArgs']):
-        """
-        Defines the url redirect action for the delivery rule.
-        :param pulumi.Input[str] name: The name of the action for the delivery rule.
-               Expected value is 'UrlRedirect'.
-        :param pulumi.Input['UrlRedirectActionParametersArgs'] parameters: Defines the parameters for the action.
-        """
-        pulumi.set(__self__, "name", 'UrlRedirect')
-        pulumi.set(__self__, "parameters", parameters)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the action for the delivery rule.
-        Expected value is 'UrlRedirect'.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> pulumi.Input['UrlRedirectActionParametersArgs']:
-        """
-        Defines the parameters for the action.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: pulumi.Input['UrlRedirectActionParametersArgs']):
-        pulumi.set(self, "parameters", value)
-
-
-@pulumi.input_type
 class UrlRedirectActionParametersArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
@@ -3683,17 +3643,17 @@ class UrlRedirectActionParametersArgs:
 
 
 @pulumi.input_type
-class UrlRewriteActionArgs:
+class UrlRedirectActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 parameters: pulumi.Input['UrlRewriteActionParametersArgs']):
+                 parameters: pulumi.Input['UrlRedirectActionParametersArgs']):
         """
-        Defines the url rewrite action for the delivery rule.
+        Defines the url redirect action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
-               Expected value is 'UrlRewrite'.
-        :param pulumi.Input['UrlRewriteActionParametersArgs'] parameters: Defines the parameters for the action.
+               Expected value is 'UrlRedirect'.
+        :param pulumi.Input['UrlRedirectActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'UrlRewrite')
+        pulumi.set(__self__, "name", 'UrlRedirect')
         pulumi.set(__self__, "parameters", parameters)
 
     @property
@@ -3701,7 +3661,7 @@ class UrlRewriteActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
-        Expected value is 'UrlRewrite'.
+        Expected value is 'UrlRedirect'.
         """
         return pulumi.get(self, "name")
 
@@ -3711,14 +3671,14 @@ class UrlRewriteActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input['UrlRewriteActionParametersArgs']:
+    def parameters(self) -> pulumi.Input['UrlRedirectActionParametersArgs']:
         """
         Defines the parameters for the action.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input['UrlRewriteActionParametersArgs']):
+    def parameters(self, value: pulumi.Input['UrlRedirectActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
 
@@ -3788,17 +3748,17 @@ class UrlRewriteActionParametersArgs:
 
 
 @pulumi.input_type
-class UrlSigningActionArgs:
+class UrlRewriteActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 parameters: pulumi.Input['UrlSigningActionParametersArgs']):
+                 parameters: pulumi.Input['UrlRewriteActionParametersArgs']):
         """
-        Defines the url signing action for the delivery rule.
+        Defines the url rewrite action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
-               Expected value is 'UrlSigning'.
-        :param pulumi.Input['UrlSigningActionParametersArgs'] parameters: Defines the parameters for the action.
+               Expected value is 'UrlRewrite'.
+        :param pulumi.Input['UrlRewriteActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'UrlSigning')
+        pulumi.set(__self__, "name", 'UrlRewrite')
         pulumi.set(__self__, "parameters", parameters)
 
     @property
@@ -3806,7 +3766,7 @@ class UrlSigningActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
-        Expected value is 'UrlSigning'.
+        Expected value is 'UrlRewrite'.
         """
         return pulumi.get(self, "name")
 
@@ -3816,14 +3776,14 @@ class UrlSigningActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input['UrlSigningActionParametersArgs']:
+    def parameters(self) -> pulumi.Input['UrlRewriteActionParametersArgs']:
         """
         Defines the parameters for the action.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input['UrlSigningActionParametersArgs']):
+    def parameters(self, value: pulumi.Input['UrlRewriteActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
 
@@ -3908,6 +3868,46 @@ class UrlSigningActionParametersArgs:
     @parameter_name_override.setter
     def parameter_name_override(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]]]):
         pulumi.set(self, "parameter_name_override", value)
+
+
+@pulumi.input_type
+class UrlSigningActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: pulumi.Input['UrlSigningActionParametersArgs']):
+        """
+        Defines the url signing action for the delivery rule.
+        :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'UrlSigning'.
+        :param pulumi.Input['UrlSigningActionParametersArgs'] parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'UrlSigning')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlSigning'.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input['UrlSigningActionParametersArgs']:
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input['UrlSigningActionParametersArgs']):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

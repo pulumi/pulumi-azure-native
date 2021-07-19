@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ResourceTypeRegistrationArgs', 'ResourceTypeRegistration']
+__all__ = ['ResourceTypeRegistrationInitArgs', 'ResourceTypeRegistration']
 
 @pulumi.input_type
-class ResourceTypeRegistrationArgs:
+class ResourceTypeRegistrationInitArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[str],
                  properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None,
@@ -84,17 +84,17 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceTypeRegistrationArgs,
+                 args: ResourceTypeRegistrationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a ResourceTypeRegistration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param ResourceTypeRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceTypeRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceTypeRegistrationInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -116,7 +116,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceTypeRegistrationArgs.__new__(ResourceTypeRegistrationArgs)
+            __props__ = ResourceTypeRegistrationInitArgs.__new__(ResourceTypeRegistrationInitArgs)
 
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:
@@ -147,7 +147,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ResourceTypeRegistrationArgs.__new__(ResourceTypeRegistrationArgs)
+        __props__ = ResourceTypeRegistrationInitArgs.__new__(ResourceTypeRegistrationInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

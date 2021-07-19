@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['InputArgs', 'Input']
+__all__ = ['InputInitArgs', 'Input']
 
 @pulumi.input_type
-class InputArgs:
+class InputInitArgs:
     def __init__(__self__, *,
                  job_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -126,19 +126,19 @@ class Input(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InputArgs,
+                 args: InputInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
         API Version: 2016-03-01.
 
         :param str resource_name: The name of the resource.
-        :param InputArgs args: The arguments to use to populate this resource's properties.
+        :param InputInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InputArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InputInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -162,7 +162,7 @@ class Input(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InputArgs.__new__(InputArgs)
+            __props__ = InputInitArgs.__new__(InputInitArgs)
 
             __props__.__dict__["input_name"] = input_name
             if job_name is None and not opts.urn:
@@ -196,7 +196,7 @@ class Input(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = InputArgs.__new__(InputArgs)
+        __props__ = InputInitArgs.__new__(InputInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

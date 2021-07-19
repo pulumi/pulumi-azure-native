@@ -10,8 +10,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'CustomRuleArgs',
     'CustomRuleListArgs',
+    'CustomRuleArgs',
     'FrontDoorManagedRuleGroupOverrideArgs',
     'FrontDoorManagedRuleOverrideArgs',
     'FrontDoorManagedRuleSetArgs',
@@ -19,6 +19,30 @@ __all__ = [
     'FrontDoorPolicySettingsArgs',
     'ManagedRuleSetListArgs',
 ]
+
+@pulumi.input_type
+class CustomRuleListArgs:
+    def __init__(__self__, *,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]] = None):
+        """
+        Defines contents of custom rules
+        :param pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]] rules: List of rules
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]:
+        """
+        List of rules
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
 
 @pulumi.input_type
 class CustomRuleArgs:
@@ -150,30 +174,6 @@ class CustomRuleArgs:
     @rate_limit_threshold.setter
     def rate_limit_threshold(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "rate_limit_threshold", value)
-
-
-@pulumi.input_type
-class CustomRuleListArgs:
-    def __init__(__self__, *,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]] = None):
-        """
-        Defines contents of custom rules
-        :param pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]] rules: List of rules
-        """
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]:
-        """
-        List of rules
-        """
-        return pulumi.get(self, "rules")
-
-    @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomRuleArgs']]]]):
-        pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type

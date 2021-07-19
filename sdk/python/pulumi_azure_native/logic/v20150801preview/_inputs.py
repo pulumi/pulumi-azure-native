@@ -38,8 +38,8 @@ __all__ = [
     'EdifactValidationOverrideArgs',
     'EdifactValidationSettingsArgs',
     'IntegrationAccountSkuArgs',
-    'KeyVaultKeyReferenceArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
+    'KeyVaultKeyReferenceArgs',
     'PartnerContentArgs',
     'X12AcknowledgementSettingsArgs',
     'X12AgreementContentArgs',
@@ -3423,6 +3423,30 @@ class IntegrationAccountSkuArgs:
 
 
 @pulumi.input_type
+class KeyVaultKeyReferenceKeyVaultArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault reference.
+        :param pulumi.Input[str] id: The resource id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class KeyVaultKeyReferenceArgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -3475,30 +3499,6 @@ class KeyVaultKeyReferenceArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
-
-
-@pulumi.input_type
-class KeyVaultKeyReferenceKeyVaultArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        The key vault reference.
-        :param pulumi.Input[str] id: The resource id.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

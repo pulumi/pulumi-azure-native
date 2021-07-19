@@ -14,18 +14,18 @@ __all__ = [
     'AlertDetailsOverrideArgs',
     'AlertsDataTypeOfDataConnectorArgs',
     'AvailabilityArgs',
-    'AwsCloudTrailDataConnectorDataTypesArgs',
     'AwsCloudTrailDataConnectorDataTypesLogsArgs',
-    'CodelessUiConnectorConfigPropertiesArgs',
+    'AwsCloudTrailDataConnectorDataTypesArgs',
     'CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs',
     'CodelessUiConnectorConfigPropertiesDataTypesArgs',
     'CodelessUiConnectorConfigPropertiesGraphQueriesArgs',
     'CodelessUiConnectorConfigPropertiesInstructionStepsArgs',
     'CodelessUiConnectorConfigPropertiesSampleQueriesArgs',
+    'CodelessUiConnectorConfigPropertiesArgs',
     'ContentPathMapArgs',
     'DataConnectorDataTypeCommonArgs',
-    'Dynamics365DataConnectorDataTypesArgs',
     'Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs',
+    'Dynamics365DataConnectorDataTypesArgs',
     'EntityMappingArgs',
     'EventGroupingSettingsArgs',
     'FieldMappingArgs',
@@ -35,28 +35,28 @@ __all__ = [
     'IncidentOwnerInfoArgs',
     'InstructionStepsInstructionsArgs',
     'MCASDataConnectorDataTypesArgs',
-    'MSTIDataConnectorDataTypesArgs',
     'MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs',
     'MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs',
-    'MTPDataConnectorDataTypesArgs',
+    'MSTIDataConnectorDataTypesArgs',
     'MTPDataConnectorDataTypesIncidentsArgs',
+    'MTPDataConnectorDataTypesArgs',
     'MetadataAuthorArgs',
     'MetadataDependenciesArgs',
     'MetadataSourceArgs',
     'MetadataSupportArgs',
-    'OfficeDataConnectorDataTypesArgs',
     'OfficeDataConnectorDataTypesExchangeArgs',
     'OfficeDataConnectorDataTypesSharePointArgs',
     'OfficeDataConnectorDataTypesTeamsArgs',
-    'PermissionsArgs',
+    'OfficeDataConnectorDataTypesArgs',
     'PermissionsCustomsArgs',
     'PermissionsResourceProviderArgs',
+    'PermissionsArgs',
     'RepositoryArgs',
     'RequiredPermissionsArgs',
-    'TIDataConnectorDataTypesArgs',
     'TIDataConnectorDataTypesIndicatorsArgs',
-    'TiTaxiiDataConnectorDataTypesArgs',
+    'TIDataConnectorDataTypesArgs',
     'TiTaxiiDataConnectorDataTypesTaxiiClientArgs',
+    'TiTaxiiDataConnectorDataTypesArgs',
     'WatchlistUserInfoArgs',
 ]
 
@@ -220,29 +220,6 @@ class AvailabilityArgs:
 
 
 @pulumi.input_type
-class AwsCloudTrailDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 logs: pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']):
-        """
-        The available data types for Amazon Web Services CloudTrail data connector.
-        :param pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs'] logs: Logs data type.
-        """
-        pulumi.set(__self__, "logs", logs)
-
-    @property
-    @pulumi.getter
-    def logs(self) -> pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']:
-        """
-        Logs data type.
-        """
-        return pulumi.get(self, "logs")
-
-    @logs.setter
-    def logs(self, value: pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']):
-        pulumi.set(self, "logs", value)
-
-
-@pulumi.input_type
 class AwsCloudTrailDataConnectorDataTypesLogsArgs:
     def __init__(__self__, *,
                  state: pulumi.Input[Union[str, 'DataTypeState']]):
@@ -266,192 +243,26 @@ class AwsCloudTrailDataConnectorDataTypesLogsArgs:
 
 
 @pulumi.input_type
-class CodelessUiConnectorConfigPropertiesArgs:
+class AwsCloudTrailDataConnectorDataTypesArgs:
     def __init__(__self__, *,
-                 availability: pulumi.Input['AvailabilityArgs'],
-                 connectivity_criteria: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]],
-                 data_types: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]],
-                 description_markdown: pulumi.Input[str],
-                 graph_queries: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]],
-                 graph_queries_table_name: pulumi.Input[str],
-                 instruction_steps: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]],
-                 permissions: pulumi.Input['PermissionsArgs'],
-                 publisher: pulumi.Input[str],
-                 sample_queries: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]],
-                 title: pulumi.Input[str],
-                 custom_image: Optional[pulumi.Input[str]] = None):
+                 logs: pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']):
         """
-        Config to describe the instructions blade
-        :param pulumi.Input['AvailabilityArgs'] availability: Connector Availability Status
-        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]] connectivity_criteria: Define the way the connector check connectivity
-        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]] data_types: Data types to check for last data received
-        :param pulumi.Input[str] description_markdown: Connector description
-        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]] graph_queries: The graph query to show the current data status
-        :param pulumi.Input[str] graph_queries_table_name: Name of the table the connector will insert the data to
-        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]] instruction_steps: Instruction steps to enable the connector
-        :param pulumi.Input['PermissionsArgs'] permissions: Permissions required for the connector
-        :param pulumi.Input[str] publisher: Connector publisher name
-        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]] sample_queries: The sample queries for the connector
-        :param pulumi.Input[str] title: Connector blade title
-        :param pulumi.Input[str] custom_image: An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
+        The available data types for Amazon Web Services CloudTrail data connector.
+        :param pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs'] logs: Logs data type.
         """
-        pulumi.set(__self__, "availability", availability)
-        pulumi.set(__self__, "connectivity_criteria", connectivity_criteria)
-        pulumi.set(__self__, "data_types", data_types)
-        pulumi.set(__self__, "description_markdown", description_markdown)
-        pulumi.set(__self__, "graph_queries", graph_queries)
-        pulumi.set(__self__, "graph_queries_table_name", graph_queries_table_name)
-        pulumi.set(__self__, "instruction_steps", instruction_steps)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "sample_queries", sample_queries)
-        pulumi.set(__self__, "title", title)
-        if custom_image is not None:
-            pulumi.set(__self__, "custom_image", custom_image)
+        pulumi.set(__self__, "logs", logs)
 
     @property
     @pulumi.getter
-    def availability(self) -> pulumi.Input['AvailabilityArgs']:
+    def logs(self) -> pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']:
         """
-        Connector Availability Status
+        Logs data type.
         """
-        return pulumi.get(self, "availability")
+        return pulumi.get(self, "logs")
 
-    @availability.setter
-    def availability(self, value: pulumi.Input['AvailabilityArgs']):
-        pulumi.set(self, "availability", value)
-
-    @property
-    @pulumi.getter(name="connectivityCriteria")
-    def connectivity_criteria(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]]:
-        """
-        Define the way the connector check connectivity
-        """
-        return pulumi.get(self, "connectivity_criteria")
-
-    @connectivity_criteria.setter
-    def connectivity_criteria(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]]):
-        pulumi.set(self, "connectivity_criteria", value)
-
-    @property
-    @pulumi.getter(name="dataTypes")
-    def data_types(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]]:
-        """
-        Data types to check for last data received
-        """
-        return pulumi.get(self, "data_types")
-
-    @data_types.setter
-    def data_types(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]]):
-        pulumi.set(self, "data_types", value)
-
-    @property
-    @pulumi.getter(name="descriptionMarkdown")
-    def description_markdown(self) -> pulumi.Input[str]:
-        """
-        Connector description
-        """
-        return pulumi.get(self, "description_markdown")
-
-    @description_markdown.setter
-    def description_markdown(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description_markdown", value)
-
-    @property
-    @pulumi.getter(name="graphQueries")
-    def graph_queries(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]]:
-        """
-        The graph query to show the current data status
-        """
-        return pulumi.get(self, "graph_queries")
-
-    @graph_queries.setter
-    def graph_queries(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]]):
-        pulumi.set(self, "graph_queries", value)
-
-    @property
-    @pulumi.getter(name="graphQueriesTableName")
-    def graph_queries_table_name(self) -> pulumi.Input[str]:
-        """
-        Name of the table the connector will insert the data to
-        """
-        return pulumi.get(self, "graph_queries_table_name")
-
-    @graph_queries_table_name.setter
-    def graph_queries_table_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "graph_queries_table_name", value)
-
-    @property
-    @pulumi.getter(name="instructionSteps")
-    def instruction_steps(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]]:
-        """
-        Instruction steps to enable the connector
-        """
-        return pulumi.get(self, "instruction_steps")
-
-    @instruction_steps.setter
-    def instruction_steps(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]]):
-        pulumi.set(self, "instruction_steps", value)
-
-    @property
-    @pulumi.getter
-    def permissions(self) -> pulumi.Input['PermissionsArgs']:
-        """
-        Permissions required for the connector
-        """
-        return pulumi.get(self, "permissions")
-
-    @permissions.setter
-    def permissions(self, value: pulumi.Input['PermissionsArgs']):
-        pulumi.set(self, "permissions", value)
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> pulumi.Input[str]:
-        """
-        Connector publisher name
-        """
-        return pulumi.get(self, "publisher")
-
-    @publisher.setter
-    def publisher(self, value: pulumi.Input[str]):
-        pulumi.set(self, "publisher", value)
-
-    @property
-    @pulumi.getter(name="sampleQueries")
-    def sample_queries(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]]:
-        """
-        The sample queries for the connector
-        """
-        return pulumi.get(self, "sample_queries")
-
-    @sample_queries.setter
-    def sample_queries(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]]):
-        pulumi.set(self, "sample_queries", value)
-
-    @property
-    @pulumi.getter
-    def title(self) -> pulumi.Input[str]:
-        """
-        Connector blade title
-        """
-        return pulumi.get(self, "title")
-
-    @title.setter
-    def title(self, value: pulumi.Input[str]):
-        pulumi.set(self, "title", value)
-
-    @property
-    @pulumi.getter(name="customImage")
-    def custom_image(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
-        """
-        return pulumi.get(self, "custom_image")
-
-    @custom_image.setter
-    def custom_image(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_image", value)
+    @logs.setter
+    def logs(self, value: pulumi.Input['AwsCloudTrailDataConnectorDataTypesLogsArgs']):
+        pulumi.set(self, "logs", value)
 
 
 @pulumi.input_type
@@ -682,6 +493,195 @@ class CodelessUiConnectorConfigPropertiesSampleQueriesArgs:
 
 
 @pulumi.input_type
+class CodelessUiConnectorConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 availability: pulumi.Input['AvailabilityArgs'],
+                 connectivity_criteria: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]],
+                 data_types: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]],
+                 description_markdown: pulumi.Input[str],
+                 graph_queries: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]],
+                 graph_queries_table_name: pulumi.Input[str],
+                 instruction_steps: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]],
+                 permissions: pulumi.Input['PermissionsArgs'],
+                 publisher: pulumi.Input[str],
+                 sample_queries: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]],
+                 title: pulumi.Input[str],
+                 custom_image: Optional[pulumi.Input[str]] = None):
+        """
+        Config to describe the instructions blade
+        :param pulumi.Input['AvailabilityArgs'] availability: Connector Availability Status
+        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]] connectivity_criteria: Define the way the connector check connectivity
+        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]] data_types: Data types to check for last data received
+        :param pulumi.Input[str] description_markdown: Connector description
+        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]] graph_queries: The graph query to show the current data status
+        :param pulumi.Input[str] graph_queries_table_name: Name of the table the connector will insert the data to
+        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]] instruction_steps: Instruction steps to enable the connector
+        :param pulumi.Input['PermissionsArgs'] permissions: Permissions required for the connector
+        :param pulumi.Input[str] publisher: Connector publisher name
+        :param pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]] sample_queries: The sample queries for the connector
+        :param pulumi.Input[str] title: Connector blade title
+        :param pulumi.Input[str] custom_image: An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
+        """
+        pulumi.set(__self__, "availability", availability)
+        pulumi.set(__self__, "connectivity_criteria", connectivity_criteria)
+        pulumi.set(__self__, "data_types", data_types)
+        pulumi.set(__self__, "description_markdown", description_markdown)
+        pulumi.set(__self__, "graph_queries", graph_queries)
+        pulumi.set(__self__, "graph_queries_table_name", graph_queries_table_name)
+        pulumi.set(__self__, "instruction_steps", instruction_steps)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "sample_queries", sample_queries)
+        pulumi.set(__self__, "title", title)
+        if custom_image is not None:
+            pulumi.set(__self__, "custom_image", custom_image)
+
+    @property
+    @pulumi.getter
+    def availability(self) -> pulumi.Input['AvailabilityArgs']:
+        """
+        Connector Availability Status
+        """
+        return pulumi.get(self, "availability")
+
+    @availability.setter
+    def availability(self, value: pulumi.Input['AvailabilityArgs']):
+        pulumi.set(self, "availability", value)
+
+    @property
+    @pulumi.getter(name="connectivityCriteria")
+    def connectivity_criteria(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]]:
+        """
+        Define the way the connector check connectivity
+        """
+        return pulumi.get(self, "connectivity_criteria")
+
+    @connectivity_criteria.setter
+    def connectivity_criteria(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesConnectivityCriteriaArgs']]]):
+        pulumi.set(self, "connectivity_criteria", value)
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]]:
+        """
+        Data types to check for last data received
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesDataTypesArgs']]]):
+        pulumi.set(self, "data_types", value)
+
+    @property
+    @pulumi.getter(name="descriptionMarkdown")
+    def description_markdown(self) -> pulumi.Input[str]:
+        """
+        Connector description
+        """
+        return pulumi.get(self, "description_markdown")
+
+    @description_markdown.setter
+    def description_markdown(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description_markdown", value)
+
+    @property
+    @pulumi.getter(name="graphQueries")
+    def graph_queries(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]]:
+        """
+        The graph query to show the current data status
+        """
+        return pulumi.get(self, "graph_queries")
+
+    @graph_queries.setter
+    def graph_queries(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesGraphQueriesArgs']]]):
+        pulumi.set(self, "graph_queries", value)
+
+    @property
+    @pulumi.getter(name="graphQueriesTableName")
+    def graph_queries_table_name(self) -> pulumi.Input[str]:
+        """
+        Name of the table the connector will insert the data to
+        """
+        return pulumi.get(self, "graph_queries_table_name")
+
+    @graph_queries_table_name.setter
+    def graph_queries_table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "graph_queries_table_name", value)
+
+    @property
+    @pulumi.getter(name="instructionSteps")
+    def instruction_steps(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]]:
+        """
+        Instruction steps to enable the connector
+        """
+        return pulumi.get(self, "instruction_steps")
+
+    @instruction_steps.setter
+    def instruction_steps(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesInstructionStepsArgs']]]):
+        pulumi.set(self, "instruction_steps", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input['PermissionsArgs']:
+        """
+        Permissions required for the connector
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input['PermissionsArgs']):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        Connector publisher name
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter(name="sampleQueries")
+    def sample_queries(self) -> pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]]:
+        """
+        The sample queries for the connector
+        """
+        return pulumi.get(self, "sample_queries")
+
+    @sample_queries.setter
+    def sample_queries(self, value: pulumi.Input[Sequence[pulumi.Input['CodelessUiConnectorConfigPropertiesSampleQueriesArgs']]]):
+        pulumi.set(self, "sample_queries", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[str]:
+        """
+        Connector blade title
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[str]):
+        pulumi.set(self, "title", value)
+
+    @property
+    @pulumi.getter(name="customImage")
+    def custom_image(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional custom image to be used when displaying the connector within Azure Sentinel's connector's gallery
+        """
+        return pulumi.get(self, "custom_image")
+
+    @custom_image.setter
+    def custom_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_image", value)
+
+
+@pulumi.input_type
 class ContentPathMapArgs:
     def __init__(__self__, *,
                  content_type: Optional[pulumi.Input[Union[str, 'ContentType']]] = None,
@@ -745,29 +745,6 @@ class DataConnectorDataTypeCommonArgs:
 
 
 @pulumi.input_type
-class Dynamics365DataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 dynamics365_cds_activities: pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs']):
-        """
-        The available data types for Dynamics365 data connector.
-        :param pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs'] dynamics365_cds_activities: Common Data Service data type connection.
-        """
-        pulumi.set(__self__, "dynamics365_cds_activities", dynamics365_cds_activities)
-
-    @property
-    @pulumi.getter(name="dynamics365CdsActivities")
-    def dynamics365_cds_activities(self) -> pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs']:
-        """
-        Common Data Service data type connection.
-        """
-        return pulumi.get(self, "dynamics365_cds_activities")
-
-    @dynamics365_cds_activities.setter
-    def dynamics365_cds_activities(self, value: pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs']):
-        pulumi.set(self, "dynamics365_cds_activities", value)
-
-
-@pulumi.input_type
 class Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs:
     def __init__(__self__, *,
                  state: pulumi.Input[Union[str, 'DataTypeState']]):
@@ -788,6 +765,29 @@ class Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[str, 'DataTypeState']]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class Dynamics365DataConnectorDataTypesArgs:
+    def __init__(__self__, *,
+                 dynamics365_cds_activities: pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs']):
+        """
+        The available data types for Dynamics365 data connector.
+        :param pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs'] dynamics365_cds_activities: Common Data Service data type connection.
+        """
+        pulumi.set(__self__, "dynamics365_cds_activities", dynamics365_cds_activities)
+
+    @property
+    @pulumi.getter(name="dynamics365CdsActivities")
+    def dynamics365_cds_activities(self) -> pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs']:
+        """
+        Common Data Service data type connection.
+        """
+        return pulumi.get(self, "dynamics365_cds_activities")
+
+    @dynamics365_cds_activities.setter
+    def dynamics365_cds_activities(self, value: pulumi.Input['Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs']):
+        pulumi.set(self, "dynamics365_cds_activities", value)
 
 
 @pulumi.input_type
@@ -1222,44 +1222,6 @@ class MCASDataConnectorDataTypesArgs:
 
 
 @pulumi.input_type
-class MSTIDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 bing_safety_phishing_url: pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs'],
-                 microsoft_emerging_threat_feed: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']):
-        """
-        The available data types for Microsoft Threat Intelligence Platforms data connector.
-        :param pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs'] bing_safety_phishing_url: Data type for Microsoft Threat Intelligence Platforms data connector.
-        :param pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs'] microsoft_emerging_threat_feed: Data type for Microsoft Threat Intelligence Platforms data connector.
-        """
-        pulumi.set(__self__, "bing_safety_phishing_url", bing_safety_phishing_url)
-        pulumi.set(__self__, "microsoft_emerging_threat_feed", microsoft_emerging_threat_feed)
-
-    @property
-    @pulumi.getter(name="bingSafetyPhishingURL")
-    def bing_safety_phishing_url(self) -> pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs']:
-        """
-        Data type for Microsoft Threat Intelligence Platforms data connector.
-        """
-        return pulumi.get(self, "bing_safety_phishing_url")
-
-    @bing_safety_phishing_url.setter
-    def bing_safety_phishing_url(self, value: pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs']):
-        pulumi.set(self, "bing_safety_phishing_url", value)
-
-    @property
-    @pulumi.getter(name="microsoftEmergingThreatFeed")
-    def microsoft_emerging_threat_feed(self) -> pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']:
-        """
-        Data type for Microsoft Threat Intelligence Platforms data connector.
-        """
-        return pulumi.get(self, "microsoft_emerging_threat_feed")
-
-    @microsoft_emerging_threat_feed.setter
-    def microsoft_emerging_threat_feed(self, value: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']):
-        pulumi.set(self, "microsoft_emerging_threat_feed", value)
-
-
-@pulumi.input_type
 class MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs:
     def __init__(__self__, *,
                  lookback_period: pulumi.Input[str],
@@ -1336,26 +1298,41 @@ class MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs:
 
 
 @pulumi.input_type
-class MTPDataConnectorDataTypesArgs:
+class MSTIDataConnectorDataTypesArgs:
     def __init__(__self__, *,
-                 incidents: pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs']):
+                 bing_safety_phishing_url: pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs'],
+                 microsoft_emerging_threat_feed: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']):
         """
-        The available data types for Microsoft Threat Protection Platforms data connector.
-        :param pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs'] incidents: Data type for Microsoft Threat Protection Platforms data connector.
+        The available data types for Microsoft Threat Intelligence Platforms data connector.
+        :param pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs'] bing_safety_phishing_url: Data type for Microsoft Threat Intelligence Platforms data connector.
+        :param pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs'] microsoft_emerging_threat_feed: Data type for Microsoft Threat Intelligence Platforms data connector.
         """
-        pulumi.set(__self__, "incidents", incidents)
+        pulumi.set(__self__, "bing_safety_phishing_url", bing_safety_phishing_url)
+        pulumi.set(__self__, "microsoft_emerging_threat_feed", microsoft_emerging_threat_feed)
 
     @property
-    @pulumi.getter
-    def incidents(self) -> pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs']:
+    @pulumi.getter(name="bingSafetyPhishingURL")
+    def bing_safety_phishing_url(self) -> pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs']:
         """
-        Data type for Microsoft Threat Protection Platforms data connector.
+        Data type for Microsoft Threat Intelligence Platforms data connector.
         """
-        return pulumi.get(self, "incidents")
+        return pulumi.get(self, "bing_safety_phishing_url")
 
-    @incidents.setter
-    def incidents(self, value: pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs']):
-        pulumi.set(self, "incidents", value)
+    @bing_safety_phishing_url.setter
+    def bing_safety_phishing_url(self, value: pulumi.Input['MSTIDataConnectorDataTypesBingSafetyPhishingURLArgs']):
+        pulumi.set(self, "bing_safety_phishing_url", value)
+
+    @property
+    @pulumi.getter(name="microsoftEmergingThreatFeed")
+    def microsoft_emerging_threat_feed(self) -> pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']:
+        """
+        Data type for Microsoft Threat Intelligence Platforms data connector.
+        """
+        return pulumi.get(self, "microsoft_emerging_threat_feed")
+
+    @microsoft_emerging_threat_feed.setter
+    def microsoft_emerging_threat_feed(self, value: pulumi.Input['MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeedArgs']):
+        pulumi.set(self, "microsoft_emerging_threat_feed", value)
 
 
 @pulumi.input_type
@@ -1379,6 +1356,29 @@ class MTPDataConnectorDataTypesIncidentsArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[str, 'DataTypeState']]):
         pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
+class MTPDataConnectorDataTypesArgs:
+    def __init__(__self__, *,
+                 incidents: pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs']):
+        """
+        The available data types for Microsoft Threat Protection Platforms data connector.
+        :param pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs'] incidents: Data type for Microsoft Threat Protection Platforms data connector.
+        """
+        pulumi.set(__self__, "incidents", incidents)
+
+    @property
+    @pulumi.getter
+    def incidents(self) -> pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs']:
+        """
+        Data type for Microsoft Threat Protection Platforms data connector.
+        """
+        return pulumi.get(self, "incidents")
+
+    @incidents.setter
+    def incidents(self, value: pulumi.Input['MTPDataConnectorDataTypesIncidentsArgs']):
+        pulumi.set(self, "incidents", value)
 
 
 @pulumi.input_type
@@ -1668,59 +1668,6 @@ class MetadataSupportArgs:
 
 
 @pulumi.input_type
-class OfficeDataConnectorDataTypesArgs:
-    def __init__(__self__, *,
-                 exchange: pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs'],
-                 share_point: pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs'],
-                 teams: pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']):
-        """
-        The available data types for office data connector.
-        :param pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs'] exchange: Exchange data type connection.
-        :param pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs'] share_point: SharePoint data type connection.
-        :param pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs'] teams: Teams data type connection.
-        """
-        pulumi.set(__self__, "exchange", exchange)
-        pulumi.set(__self__, "share_point", share_point)
-        pulumi.set(__self__, "teams", teams)
-
-    @property
-    @pulumi.getter
-    def exchange(self) -> pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']:
-        """
-        Exchange data type connection.
-        """
-        return pulumi.get(self, "exchange")
-
-    @exchange.setter
-    def exchange(self, value: pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']):
-        pulumi.set(self, "exchange", value)
-
-    @property
-    @pulumi.getter(name="sharePoint")
-    def share_point(self) -> pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']:
-        """
-        SharePoint data type connection.
-        """
-        return pulumi.get(self, "share_point")
-
-    @share_point.setter
-    def share_point(self, value: pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']):
-        pulumi.set(self, "share_point", value)
-
-    @property
-    @pulumi.getter
-    def teams(self) -> pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']:
-        """
-        Teams data type connection.
-        """
-        return pulumi.get(self, "teams")
-
-    @teams.setter
-    def teams(self, value: pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']):
-        pulumi.set(self, "teams", value)
-
-
-@pulumi.input_type
 class OfficeDataConnectorDataTypesExchangeArgs:
     def __init__(__self__, *,
                  state: pulumi.Input[Union[str, 'DataTypeState']]):
@@ -1790,43 +1737,56 @@ class OfficeDataConnectorDataTypesTeamsArgs:
 
 
 @pulumi.input_type
-class PermissionsArgs:
+class OfficeDataConnectorDataTypesArgs:
     def __init__(__self__, *,
-                 customs: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]]] = None,
-                 resource_provider: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]]] = None):
+                 exchange: pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs'],
+                 share_point: pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs'],
+                 teams: pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']):
         """
-        Permissions required for the connector
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]] customs: Customs permissions required for the connector
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]] resource_provider: Resource provider permissions required for the connector
+        The available data types for office data connector.
+        :param pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs'] exchange: Exchange data type connection.
+        :param pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs'] share_point: SharePoint data type connection.
+        :param pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs'] teams: Teams data type connection.
         """
-        if customs is not None:
-            pulumi.set(__self__, "customs", customs)
-        if resource_provider is not None:
-            pulumi.set(__self__, "resource_provider", resource_provider)
+        pulumi.set(__self__, "exchange", exchange)
+        pulumi.set(__self__, "share_point", share_point)
+        pulumi.set(__self__, "teams", teams)
 
     @property
     @pulumi.getter
-    def customs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]]]:
+    def exchange(self) -> pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']:
         """
-        Customs permissions required for the connector
+        Exchange data type connection.
         """
-        return pulumi.get(self, "customs")
+        return pulumi.get(self, "exchange")
 
-    @customs.setter
-    def customs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]]]):
-        pulumi.set(self, "customs", value)
+    @exchange.setter
+    def exchange(self, value: pulumi.Input['OfficeDataConnectorDataTypesExchangeArgs']):
+        pulumi.set(self, "exchange", value)
 
     @property
-    @pulumi.getter(name="resourceProvider")
-    def resource_provider(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]]]:
+    @pulumi.getter(name="sharePoint")
+    def share_point(self) -> pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']:
         """
-        Resource provider permissions required for the connector
+        SharePoint data type connection.
         """
-        return pulumi.get(self, "resource_provider")
+        return pulumi.get(self, "share_point")
 
-    @resource_provider.setter
-    def resource_provider(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]]]):
-        pulumi.set(self, "resource_provider", value)
+    @share_point.setter
+    def share_point(self, value: pulumi.Input['OfficeDataConnectorDataTypesSharePointArgs']):
+        pulumi.set(self, "share_point", value)
+
+    @property
+    @pulumi.getter
+    def teams(self) -> pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']:
+        """
+        Teams data type connection.
+        """
+        return pulumi.get(self, "teams")
+
+    @teams.setter
+    def teams(self, value: pulumi.Input['OfficeDataConnectorDataTypesTeamsArgs']):
+        pulumi.set(self, "teams", value)
 
 
 @pulumi.input_type
@@ -1953,6 +1913,46 @@ class PermissionsResourceProviderArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input[Union[str, 'PermissionProviderScope']]]):
         pulumi.set(self, "scope", value)
+
+
+@pulumi.input_type
+class PermissionsArgs:
+    def __init__(__self__, *,
+                 customs: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]]] = None,
+                 resource_provider: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]]] = None):
+        """
+        Permissions required for the connector
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]] customs: Customs permissions required for the connector
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]] resource_provider: Resource provider permissions required for the connector
+        """
+        if customs is not None:
+            pulumi.set(__self__, "customs", customs)
+        if resource_provider is not None:
+            pulumi.set(__self__, "resource_provider", resource_provider)
+
+    @property
+    @pulumi.getter
+    def customs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]]]:
+        """
+        Customs permissions required for the connector
+        """
+        return pulumi.get(self, "customs")
+
+    @customs.setter
+    def customs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsCustomsArgs']]]]):
+        pulumi.set(self, "customs", value)
+
+    @property
+    @pulumi.getter(name="resourceProvider")
+    def resource_provider(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]]]:
+        """
+        Resource provider permissions required for the connector
+        """
+        return pulumi.get(self, "resource_provider")
+
+    @resource_provider.setter
+    def resource_provider(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PermissionsResourceProviderArgs']]]]):
+        pulumi.set(self, "resource_provider", value)
 
 
 @pulumi.input_type
@@ -2084,6 +2084,29 @@ class RequiredPermissionsArgs:
 
 
 @pulumi.input_type
+class TIDataConnectorDataTypesIndicatorsArgs:
+    def __init__(__self__, *,
+                 state: pulumi.Input[Union[str, 'DataTypeState']]):
+        """
+        Data type for indicators connection.
+        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
+        """
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Union[str, 'DataTypeState']]:
+        """
+        Describe whether this data type connection is enabled or not.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Union[str, 'DataTypeState']]):
+        pulumi.set(self, "state", value)
+
+
+@pulumi.input_type
 class TIDataConnectorDataTypesArgs:
     def __init__(__self__, *,
                  indicators: pulumi.Input['TIDataConnectorDataTypesIndicatorsArgs']):
@@ -2107,11 +2130,11 @@ class TIDataConnectorDataTypesArgs:
 
 
 @pulumi.input_type
-class TIDataConnectorDataTypesIndicatorsArgs:
+class TiTaxiiDataConnectorDataTypesTaxiiClientArgs:
     def __init__(__self__, *,
                  state: pulumi.Input[Union[str, 'DataTypeState']]):
         """
-        Data type for indicators connection.
+        Data type for TAXII connector.
         :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
         """
         pulumi.set(__self__, "state", state)
@@ -2150,29 +2173,6 @@ class TiTaxiiDataConnectorDataTypesArgs:
     @taxii_client.setter
     def taxii_client(self, value: pulumi.Input['TiTaxiiDataConnectorDataTypesTaxiiClientArgs']):
         pulumi.set(self, "taxii_client", value)
-
-
-@pulumi.input_type
-class TiTaxiiDataConnectorDataTypesTaxiiClientArgs:
-    def __init__(__self__, *,
-                 state: pulumi.Input[Union[str, 'DataTypeState']]):
-        """
-        Data type for TAXII connector.
-        :param pulumi.Input[Union[str, 'DataTypeState']] state: Describe whether this data type connection is enabled or not.
-        """
-        pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def state(self) -> pulumi.Input[Union[str, 'DataTypeState']]:
-        """
-        Describe whether this data type connection is enabled or not.
-        """
-        return pulumi.get(self, "state")
-
-    @state.setter
-    def state(self, value: pulumi.Input[Union[str, 'DataTypeState']]):
-        pulumi.set(self, "state", value)
 
 
 @pulumi.input_type

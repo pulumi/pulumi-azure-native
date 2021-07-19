@@ -10,10 +10,10 @@ from ... import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpoint']
+__all__ = ['ManagedPrivateEndpointInitArgs', 'ManagedPrivateEndpoint']
 
 @pulumi.input_type
-class ManagedPrivateEndpointArgs:
+class ManagedPrivateEndpointInitArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[str],
                  managed_virtual_network_name: pulumi.Input[str],
@@ -122,18 +122,18 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedPrivateEndpointArgs,
+                 args: ManagedPrivateEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed private endpoint resource type.
 
         :param str resource_name: The name of the resource.
-        :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedPrivateEndpointInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedPrivateEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedPrivateEndpointInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -157,7 +157,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedPrivateEndpointArgs.__new__(ManagedPrivateEndpointArgs)
+            __props__ = ManagedPrivateEndpointInitArgs.__new__(ManagedPrivateEndpointInitArgs)
 
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
@@ -197,7 +197,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ManagedPrivateEndpointArgs.__new__(ManagedPrivateEndpointArgs)
+        __props__ = ManagedPrivateEndpointInitArgs.__new__(ManagedPrivateEndpointInitArgs)
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None

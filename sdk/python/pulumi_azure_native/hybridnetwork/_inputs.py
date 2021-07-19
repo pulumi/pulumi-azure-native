@@ -16,10 +16,10 @@ __all__ = [
     'LinuxConfigurationArgs',
     'NetworkFunctionRoleConfigurationArgs',
     'NetworkFunctionTemplateArgs',
-    'NetworkFunctionUserConfigurationArgs',
     'NetworkFunctionUserConfigurationOsProfileArgs',
-    'NetworkInterfaceArgs',
+    'NetworkFunctionUserConfigurationArgs',
     'NetworkInterfaceIPConfigurationArgs',
+    'NetworkInterfaceArgs',
     'OsDiskArgs',
     'OsProfileArgs',
     'SshConfigurationArgs',
@@ -398,6 +398,30 @@ class NetworkFunctionTemplateArgs:
 
 
 @pulumi.input_type
+class NetworkFunctionUserConfigurationOsProfileArgs:
+    def __init__(__self__, *,
+                 custom_data: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the operating system settings for the role instance.
+        :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        """
+        return pulumi.get(self, "custom_data")
+
+    @custom_data.setter
+    def custom_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_data", value)
+
+
+@pulumi.input_type
 class NetworkFunctionUserConfigurationArgs:
     def __init__(__self__, *,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
@@ -467,102 +491,6 @@ class NetworkFunctionUserConfigurationArgs:
     @user_data_parameters.setter
     def user_data_parameters(self, value: Optional[Any]):
         pulumi.set(self, "user_data_parameters", value)
-
-
-@pulumi.input_type
-class NetworkFunctionUserConfigurationOsProfileArgs:
-    def __init__(__self__, *,
-                 custom_data: Optional[pulumi.Input[str]] = None):
-        """
-        Specifies the operating system settings for the role instance.
-        :param pulumi.Input[str] custom_data: Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        """
-        if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
-
-    @property
-    @pulumi.getter(name="customData")
-    def custom_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the virtual machine. The maximum length of the binary array is 65535 bytes. <br><br> **Note: Do not pass any secrets or passwords in customData property** <br><br> This property cannot be updated after the VM is created. <br><br> customData is passed to the VM to be saved as a file. For more information see [Custom Data on Azure VMs](https://azure.microsoft.com/en-us/blog/custom-data-and-cloud-init-on-windows-azure/) <br><br> For using cloud-init for your Linux VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-        """
-        return pulumi.get(self, "custom_data")
-
-    @custom_data.setter
-    def custom_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_data", value)
-
-
-@pulumi.input_type
-class NetworkInterfaceArgs:
-    def __init__(__self__, *,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
-                 mac_address: Optional[pulumi.Input[str]] = None,
-                 network_interface_name: Optional[pulumi.Input[str]] = None,
-                 vm_switch_type: Optional[pulumi.Input[Union[str, 'VMSwitchType']]] = None):
-        """
-        Network interface properties.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
-        :param pulumi.Input[str] mac_address: The MAC address of the network interface.
-        :param pulumi.Input[str] network_interface_name: The name of the network interface.
-        :param pulumi.Input[Union[str, 'VMSwitchType']] vm_switch_type: The type of the VM switch.
-        """
-        if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
-        if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
-        if network_interface_name is not None:
-            pulumi.set(__self__, "network_interface_name", network_interface_name)
-        if vm_switch_type is not None:
-            pulumi.set(__self__, "vm_switch_type", vm_switch_type)
-
-    @property
-    @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
-        """
-        A list of IP configurations of the network interface.
-        """
-        return pulumi.get(self, "ip_configurations")
-
-    @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
-        pulumi.set(self, "ip_configurations", value)
-
-    @property
-    @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        The MAC address of the network interface.
-        """
-        return pulumi.get(self, "mac_address")
-
-    @mac_address.setter
-    def mac_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "mac_address", value)
-
-    @property
-    @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the network interface.
-        """
-        return pulumi.get(self, "network_interface_name")
-
-    @network_interface_name.setter
-    def network_interface_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "network_interface_name", value)
-
-    @property
-    @pulumi.getter(name="vmSwitchType")
-    def vm_switch_type(self) -> Optional[pulumi.Input[Union[str, 'VMSwitchType']]]:
-        """
-        The type of the VM switch.
-        """
-        return pulumi.get(self, "vm_switch_type")
-
-    @vm_switch_type.setter
-    def vm_switch_type(self, value: Optional[pulumi.Input[Union[str, 'VMSwitchType']]]):
-        pulumi.set(self, "vm_switch_type", value)
 
 
 @pulumi.input_type
@@ -667,6 +595,78 @@ class NetworkInterfaceIPConfigurationArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class NetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
+                 mac_address: Optional[pulumi.Input[str]] = None,
+                 network_interface_name: Optional[pulumi.Input[str]] = None,
+                 vm_switch_type: Optional[pulumi.Input[Union[str, 'VMSwitchType']]] = None):
+        """
+        Network interface properties.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
+        :param pulumi.Input[str] mac_address: The MAC address of the network interface.
+        :param pulumi.Input[str] network_interface_name: The name of the network interface.
+        :param pulumi.Input[Union[str, 'VMSwitchType']] vm_switch_type: The type of the VM switch.
+        """
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if network_interface_name is not None:
+            pulumi.set(__self__, "network_interface_name", network_interface_name)
+        if vm_switch_type is not None:
+            pulumi.set(__self__, "vm_switch_type", vm_switch_type)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]:
+        """
+        A list of IP configurations of the network interface.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MAC address of the network interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @mac_address.setter
+    def mac_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mac_address", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the network interface.
+        """
+        return pulumi.get(self, "network_interface_name")
+
+    @network_interface_name.setter
+    def network_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_interface_name", value)
+
+    @property
+    @pulumi.getter(name="vmSwitchType")
+    def vm_switch_type(self) -> Optional[pulumi.Input[Union[str, 'VMSwitchType']]]:
+        """
+        The type of the VM switch.
+        """
+        return pulumi.get(self, "vm_switch_type")
+
+    @vm_switch_type.setter
+    def vm_switch_type(self, value: Optional[pulumi.Input[Union[str, 'VMSwitchType']]]):
+        pulumi.set(self, "vm_switch_type", value)
 
 
 @pulumi.input_type

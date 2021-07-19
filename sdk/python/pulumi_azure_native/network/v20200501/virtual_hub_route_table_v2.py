@@ -10,10 +10,10 @@ from ... import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VirtualHubRouteTableV2Args', 'VirtualHubRouteTableV2']
+__all__ = ['VirtualHubRouteTableV2InitArgs', 'VirtualHubRouteTableV2']
 
 @pulumi.input_type
-class VirtualHubRouteTableV2Args:
+class VirtualHubRouteTableV2InitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_hub_name: pulumi.Input[str],
@@ -160,18 +160,18 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualHubRouteTableV2Args,
+                 args: VirtualHubRouteTableV2InitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualHubRouteTableV2 Resource.
 
         :param str resource_name: The name of the resource.
-        :param VirtualHubRouteTableV2Args args: The arguments to use to populate this resource's properties.
+        :param VirtualHubRouteTableV2InitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubRouteTableV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualHubRouteTableV2InitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -197,7 +197,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualHubRouteTableV2Args.__new__(VirtualHubRouteTableV2Args)
+            __props__ = VirtualHubRouteTableV2InitArgs.__new__(VirtualHubRouteTableV2InitArgs)
 
             __props__.__dict__["attached_connections"] = attached_connections
             __props__.__dict__["id"] = id
@@ -234,7 +234,7 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualHubRouteTableV2Args.__new__(VirtualHubRouteTableV2Args)
+        __props__ = VirtualHubRouteTableV2InitArgs.__new__(VirtualHubRouteTableV2InitArgs)
 
         __props__.__dict__["attached_connections"] = None
         __props__.__dict__["etag"] = None

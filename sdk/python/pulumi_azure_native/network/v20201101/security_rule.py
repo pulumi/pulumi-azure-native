@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['SecurityRuleArgs', 'SecurityRule']
+__all__ = ['SecurityRuleInitArgs', 'SecurityRule']
 
 @pulumi.input_type
-class SecurityRuleArgs:
+class SecurityRuleInitArgs:
     def __init__(__self__, *,
                  access: pulumi.Input[Union[str, 'SecurityRuleAccess']],
                  direction: pulumi.Input[Union[str, 'SecurityRuleDirection']],
@@ -410,18 +410,18 @@ class SecurityRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecurityRuleArgs,
+                 args: SecurityRuleInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security rule.
 
         :param str resource_name: The name of the resource.
-        :param SecurityRuleArgs args: The arguments to use to populate this resource's properties.
+        :param SecurityRuleInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecurityRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -461,7 +461,7 @@ class SecurityRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecurityRuleArgs.__new__(SecurityRuleArgs)
+            __props__ = SecurityRuleInitArgs.__new__(SecurityRuleInitArgs)
 
             if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
@@ -518,7 +518,7 @@ class SecurityRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SecurityRuleArgs.__new__(SecurityRuleArgs)
+        __props__ = SecurityRuleInitArgs.__new__(SecurityRuleInitArgs)
 
         __props__.__dict__["access"] = None
         __props__.__dict__["description"] = None

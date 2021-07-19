@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ExpressRouteCircuitPeeringArgs', 'ExpressRouteCircuitPeering']
+__all__ = ['ExpressRouteCircuitPeeringInitArgs', 'ExpressRouteCircuitPeering']
 
 @pulumi.input_type
-class ExpressRouteCircuitPeeringArgs:
+class ExpressRouteCircuitPeeringInitArgs:
     def __init__(__self__, *,
                  circuit_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -377,18 +377,18 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteCircuitPeeringArgs,
+                 args: ExpressRouteCircuitPeeringInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peering in an ExpressRouteCircuit resource.
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteCircuitPeeringArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteCircuitPeeringInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitPeeringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitPeeringInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -426,7 +426,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteCircuitPeeringArgs.__new__(ExpressRouteCircuitPeeringArgs)
+            __props__ = ExpressRouteCircuitPeeringInitArgs.__new__(ExpressRouteCircuitPeeringInitArgs)
 
             __props__.__dict__["azure_asn"] = azure_asn
             if circuit_name is None and not opts.urn:
@@ -473,7 +473,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ExpressRouteCircuitPeeringArgs.__new__(ExpressRouteCircuitPeeringArgs)
+        __props__ = ExpressRouteCircuitPeeringInitArgs.__new__(ExpressRouteCircuitPeeringInitArgs)
 
         __props__.__dict__["azure_asn"] = None
         __props__.__dict__["etag"] = None

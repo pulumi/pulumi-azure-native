@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['NatRuleArgs', 'NatRule']
+__all__ = ['NatRuleInitArgs', 'NatRule']
 
 @pulumi.input_type
-class NatRuleArgs:
+class NatRuleInitArgs:
     def __init__(__self__, *,
                  gateway_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -215,18 +215,18 @@ class NatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NatRuleArgs,
+                 args: NatRuleInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnGatewayNatRule Resource.
 
         :param str resource_name: The name of the resource.
-        :param NatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param NatRuleInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NatRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -255,7 +255,7 @@ class NatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NatRuleArgs.__new__(NatRuleArgs)
+            __props__ = NatRuleInitArgs.__new__(NatRuleInitArgs)
 
             __props__.__dict__["external_mappings"] = external_mappings
             if gateway_name is None and not opts.urn:
@@ -297,7 +297,7 @@ class NatRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = NatRuleArgs.__new__(NatRuleArgs)
+        __props__ = NatRuleInitArgs.__new__(NatRuleInitArgs)
 
         __props__.__dict__["egress_vpn_site_link_connections"] = None
         __props__.__dict__["etag"] = None

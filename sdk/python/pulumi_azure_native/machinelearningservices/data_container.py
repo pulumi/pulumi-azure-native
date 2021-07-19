@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataContainerArgs', 'DataContainer']
+__all__ = ['DataContainerInitArgs', 'DataContainer']
 
 @pulumi.input_type
-class DataContainerArgs:
+class DataContainerInitArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['DataContainerArgs'],
                  resource_group_name: pulumi.Input[str],
@@ -106,19 +106,19 @@ class DataContainer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataContainerArgs,
+                 args: DataContainerInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
         API Version: 2021-03-01-preview.
 
         :param str resource_name: The name of the resource.
-        :param DataContainerArgs args: The arguments to use to populate this resource's properties.
+        :param DataContainerInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataContainerInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -141,7 +141,7 @@ class DataContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataContainerArgs.__new__(DataContainerArgs)
+            __props__ = DataContainerInitArgs.__new__(DataContainerInitArgs)
 
             __props__.__dict__["name"] = name
             if properties is None and not opts.urn:
@@ -177,7 +177,7 @@ class DataContainer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = DataContainerArgs.__new__(DataContainerArgs)
+        __props__ = DataContainerInitArgs.__new__(DataContainerInitArgs)
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None

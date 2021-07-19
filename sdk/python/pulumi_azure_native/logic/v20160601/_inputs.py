@@ -44,12 +44,12 @@ __all__ = [
     'EdifactValidationSettingsArgs',
     'IntegrationAccountMapPropertiesParametersSchemaArgs',
     'IntegrationAccountSkuArgs',
-    'KeyVaultKeyReferenceArgs',
     'KeyVaultKeyReferenceKeyVaultArgs',
+    'KeyVaultKeyReferenceArgs',
     'KeyVaultReference',
     'PartnerContentArgs',
-    'RecurrenceScheduleArgs',
     'RecurrenceScheduleOccurrenceArgs',
+    'RecurrenceScheduleArgs',
     'RosettaNetPipAcknowledgmentOfReceiptSettingsArgs',
     'RosettaNetPipActivityBehaviorArgs',
     'RosettaNetPipActivitySettingsArgs',
@@ -3818,6 +3818,30 @@ class IntegrationAccountSkuArgs:
 
 
 @pulumi.input_type
+class KeyVaultKeyReferenceKeyVaultArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault reference.
+        :param pulumi.Input[str] id: The resource id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class KeyVaultKeyReferenceArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
@@ -3872,30 +3896,6 @@ class KeyVaultKeyReferenceArgs:
 
 
 @pulumi.input_type
-class KeyVaultKeyReferenceKeyVaultArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        The key vault reference.
-        :param pulumi.Input[str] id: The resource id.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class KeyVaultReference:
     def __init__(__self__, *,
                  name: Optional[str] = None):
@@ -3941,6 +3941,46 @@ class PartnerContentArgs:
     @b2b.setter
     def b2b(self, value: Optional[pulumi.Input['B2BPartnerContentArgs']]):
         pulumi.set(self, "b2b", value)
+
+
+@pulumi.input_type
+class RecurrenceScheduleOccurrenceArgs:
+    def __init__(__self__, *,
+                 day: Optional[pulumi.Input['DayOfWeek']] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
+        """
+        The recurrence schedule occurrence.
+        :param pulumi.Input['DayOfWeek'] day: The day of the week.
+        :param pulumi.Input[int] occurrence: The occurrence.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
+        """
+        The day of the week.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        The occurrence.
+        """
+        return pulumi.get(self, "occurrence")
+
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type
@@ -4029,46 +4069,6 @@ class RecurrenceScheduleArgs:
     @week_days.setter
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
         pulumi.set(self, "week_days", value)
-
-
-@pulumi.input_type
-class RecurrenceScheduleOccurrenceArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input['DayOfWeek']] = None,
-                 occurrence: Optional[pulumi.Input[int]] = None):
-        """
-        The recurrence schedule occurrence.
-        :param pulumi.Input['DayOfWeek'] day: The day of the week.
-        :param pulumi.Input[int] occurrence: The occurrence.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[int]]:
-        """
-        The occurrence.
-        """
-        return pulumi.get(self, "occurrence")
-
-    @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type

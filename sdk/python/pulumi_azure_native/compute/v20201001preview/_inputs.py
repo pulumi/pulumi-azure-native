@@ -15,17 +15,17 @@ __all__ = [
     'CloudServiceNetworkProfileArgs',
     'CloudServiceOsProfileArgs',
     'CloudServicePropertiesArgs',
-    'CloudServiceRoleProfileArgs',
     'CloudServiceRoleProfilePropertiesArgs',
+    'CloudServiceRoleProfileArgs',
     'CloudServiceRoleSkuArgs',
     'CloudServiceVaultAndSecretReferenceArgs',
     'CloudServiceVaultCertificateArgs',
     'CloudServiceVaultSecretGroupArgs',
     'ExtensionArgs',
-    'LoadBalancerConfigurationArgs',
     'LoadBalancerConfigurationPropertiesArgs',
-    'LoadBalancerFrontendIPConfigurationArgs',
+    'LoadBalancerConfigurationArgs',
     'LoadBalancerFrontendIPConfigurationPropertiesArgs',
+    'LoadBalancerFrontendIPConfigurationArgs',
     'SubResourceArgs',
 ]
 
@@ -432,30 +432,6 @@ class CloudServicePropertiesArgs:
 
 
 @pulumi.input_type
-class CloudServiceRoleProfileArgs:
-    def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]] = None):
-        """
-        Describes the role profile for the cloud service.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]] roles: List of roles for the cloud service.
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]:
-        """
-        List of roles for the cloud service.
-        """
-        return pulumi.get(self, "roles")
-
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]):
-        pulumi.set(self, "roles", value)
-
-
-@pulumi.input_type
 class CloudServiceRoleProfilePropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -493,6 +469,30 @@ class CloudServiceRoleProfilePropertiesArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['CloudServiceRoleSkuArgs']]):
         pulumi.set(self, "sku", value)
+
+
+@pulumi.input_type
+class CloudServiceRoleProfileArgs:
+    def __init__(__self__, *,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]] = None):
+        """
+        Describes the role profile for the cloud service.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]] roles: List of roles for the cloud service.
+        """
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]:
+        """
+        List of roles for the cloud service.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]):
+        pulumi.set(self, "roles", value)
 
 
 @pulumi.input_type
@@ -685,6 +685,29 @@ class ExtensionArgs:
 
 
 @pulumi.input_type
+class LoadBalancerConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]] frontend_ip_configurations: List of IP
+        """
+        if frontend_ip_configurations is not None:
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]]:
+        """
+        List of IP
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @frontend_ip_configurations.setter
+    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]]):
+        pulumi.set(self, "frontend_ip_configurations", value)
+
+
+@pulumi.input_type
 class LoadBalancerConfigurationArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -717,64 +740,6 @@ class LoadBalancerConfigurationArgs:
 
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['LoadBalancerConfigurationPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
-class LoadBalancerConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]] frontend_ip_configurations: List of IP
-        """
-        if frontend_ip_configurations is not None:
-            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
-
-    @property
-    @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]]:
-        """
-        List of IP
-        """
-        return pulumi.get(self, "frontend_ip_configurations")
-
-    @frontend_ip_configurations.setter
-    def frontend_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]]):
-        pulumi.set(self, "frontend_ip_configurations", value)
-
-
-@pulumi.input_type
-class LoadBalancerFrontendIPConfigurationArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']] = None):
-        """
-        :param pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs'] properties: Describes a cloud service IP Configuration
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']]:
-        """
-        Describes a cloud service IP Configuration
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -824,6 +789,41 @@ class LoadBalancerFrontendIPConfigurationPropertiesArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class LoadBalancerFrontendIPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']] = None):
+        """
+        :param pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs'] properties: Describes a cloud service IP Configuration
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']]:
+        """
+        Describes a cloud service IP Configuration
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
