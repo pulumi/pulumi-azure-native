@@ -114,25 +114,9 @@ func GetRedisFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RedisFirewallRule resources.
 type redisFirewallRuleState struct {
-	// highest IP address included in the range
-	EndIP *string `pulumi:"endIP"`
-	// name of the firewall rule
-	Name *string `pulumi:"name"`
-	// lowest IP address included in the range
-	StartIP *string `pulumi:"startIP"`
-	// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
-	Type *string `pulumi:"type"`
 }
 
 type RedisFirewallRuleState struct {
-	// highest IP address included in the range
-	EndIP pulumi.StringPtrInput
-	// name of the firewall rule
-	Name pulumi.StringPtrInput
-	// lowest IP address included in the range
-	StartIP pulumi.StringPtrInput
-	// type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
-	Type pulumi.StringPtrInput
 }
 
 func (RedisFirewallRuleState) ElementType() reflect.Type {

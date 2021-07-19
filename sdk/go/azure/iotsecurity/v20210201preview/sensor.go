@@ -87,61 +87,9 @@ func GetSensor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Sensor resources.
 type sensorState struct {
-	// Last connectivity time of the IoT sensor
-	ConnectivityTime *string `pulumi:"connectivityTime"`
-	// Dynamic mode status of the IoT sensor
-	DynamicLearning *bool `pulumi:"dynamicLearning"`
-	// Learning mode status of the IoT sensor
-	LearningMode *bool `pulumi:"learningMode"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Status of the IoT sensor
-	SensorStatus *string `pulumi:"sensorStatus"`
-	// Type of sensor
-	SensorType *string `pulumi:"sensorType"`
-	// Version of the IoT sensor
-	SensorVersion *string `pulumi:"sensorVersion"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates *bool `pulumi:"tiAutomaticUpdates"`
-	// TI Status of the IoT sensor
-	TiStatus *string `pulumi:"tiStatus"`
-	// TI Version of the IoT sensor
-	TiVersion *string `pulumi:"tiVersion"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Zone of the IoT sensor
-	Zone *string `pulumi:"zone"`
 }
 
 type SensorState struct {
-	// Last connectivity time of the IoT sensor
-	ConnectivityTime pulumi.StringPtrInput
-	// Dynamic mode status of the IoT sensor
-	DynamicLearning pulumi.BoolPtrInput
-	// Learning mode status of the IoT sensor
-	LearningMode pulumi.BoolPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Status of the IoT sensor
-	SensorStatus pulumi.StringPtrInput
-	// Type of sensor
-	SensorType pulumi.StringPtrInput
-	// Version of the IoT sensor
-	SensorVersion pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// TI Automatic mode status of the IoT sensor
-	TiAutomaticUpdates pulumi.BoolPtrInput
-	// TI Status of the IoT sensor
-	TiStatus pulumi.StringPtrInput
-	// TI Version of the IoT sensor
-	TiVersion pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Zone of the IoT sensor
-	Zone pulumi.StringPtrInput
 }
 
 func (SensorState) ElementType() reflect.Type {

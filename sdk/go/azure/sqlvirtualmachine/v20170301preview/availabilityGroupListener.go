@@ -78,37 +78,9 @@ func GetAvailabilityGroupListener(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AvailabilityGroupListener resources.
 type availabilityGroupListenerState struct {
-	// Name of the availability group.
-	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`
-	// Create a default availability group if it does not exist.
-	CreateDefaultAvailabilityGroupIfNotExist *bool `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
-	// List of load balancer configurations for an availability group listener.
-	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Listener port.
-	Port *int `pulumi:"port"`
-	// Provisioning state to track the async operation status.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AvailabilityGroupListenerState struct {
-	// Name of the availability group.
-	AvailabilityGroupName pulumi.StringPtrInput
-	// Create a default availability group if it does not exist.
-	CreateDefaultAvailabilityGroupIfNotExist pulumi.BoolPtrInput
-	// List of load balancer configurations for an availability group listener.
-	LoadBalancerConfigurations LoadBalancerConfigurationResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Listener port.
-	Port pulumi.IntPtrInput
-	// Provisioning state to track the async operation status.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AvailabilityGroupListenerState) ElementType() reflect.Type {

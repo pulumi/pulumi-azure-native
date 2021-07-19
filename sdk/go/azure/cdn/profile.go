@@ -149,45 +149,9 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
-	// The Id of the frontdoor.
-	FrontdoorId *string `pulumi:"frontdoorId"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Provisioning status of the profile.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource status of the profile.
-	ResourceState *string `pulumi:"resourceState"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ProfileState struct {
-	// The Id of the frontdoor.
-	FrontdoorId pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Provisioning status of the profile.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource status of the profile.
-	ResourceState pulumi.StringPtrInput
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku SkuResponsePtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ProfileState) ElementType() reflect.Type {

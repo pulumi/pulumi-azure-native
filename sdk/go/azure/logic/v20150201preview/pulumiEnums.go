@@ -11,7 +11,7 @@ import (
 )
 
 // Gets or sets the type.
-type ParameterType pulumi.String
+type ParameterType string
 
 const (
 	ParameterTypeNotSpecified = ParameterType("NotSpecified")
@@ -26,7 +26,23 @@ const (
 )
 
 func (ParameterType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ParameterType)(nil)).Elem()
+}
+
+func (e ParameterType) ToParameterTypeOutput() ParameterTypeOutput {
+	return pulumi.ToOutput(e).(ParameterTypeOutput)
+}
+
+func (e ParameterType) ToParameterTypeOutputWithContext(ctx context.Context) ParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ParameterTypeOutput)
+}
+
+func (e ParameterType) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return e.ToParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e ParameterType) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return ParameterType(e).ToParameterTypeOutputWithContext(ctx).ToParameterTypePtrOutputWithContext(ctx)
 }
 
 func (e ParameterType) ToStringOutput() pulumi.StringOutput {
@@ -45,8 +61,129 @@ func (e ParameterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (ParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterType)(nil)).Elem()
+}
+
+func (o ParameterTypeOutput) ToParameterTypeOutput() ParameterTypeOutput {
+	return o
+}
+
+func (o ParameterTypeOutput) ToParameterTypeOutputWithContext(ctx context.Context) ParameterTypeOutput {
+	return o
+}
+
+func (o ParameterTypeOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return o.ToParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterType) *ParameterType {
+		return &v
+	}).(ParameterTypePtrOutput)
+}
+
+func (o ParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterTypePtrOutput) ElementType() reflect.Type {
+	return parameterTypePtrType
+}
+
+func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return o
+}
+
+func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return o
+}
+
+func (o ParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
+	return o.ApplyT(func(v *ParameterType) ParameterType {
+		var ret ParameterType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ParameterTypeOutput)
+}
+
+// ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
+// You can construct a concrete instance of `ParameterTypeInput` via:
+//
+//          ParameterTypeArgs{...}
+type ParameterTypeInput interface {
+	pulumi.Input
+
+	ToParameterTypeOutput() ParameterTypeOutput
+	ToParameterTypeOutputWithContext(context.Context) ParameterTypeOutput
+}
+
+var parameterTypePtrType = reflect.TypeOf((**ParameterType)(nil)).Elem()
+
+type ParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToParameterTypePtrOutput() ParameterTypePtrOutput
+	ToParameterTypePtrOutputWithContext(context.Context) ParameterTypePtrOutput
+}
+
+type parameterTypePtr string
+
+func ParameterTypePtr(v string) ParameterTypePtrInput {
+	return (*parameterTypePtr)(&v)
+}
+
+func (*parameterTypePtr) ElementType() reflect.Type {
+	return parameterTypePtrType
+}
+
+func (in *parameterTypePtr) ToParameterTypePtrOutput() ParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(ParameterTypePtrOutput)
+}
+
+func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ParameterTypePtrOutput)
+}
+
 // Gets or sets the name.
-type SkuName pulumi.String
+type SkuName string
 
 const (
 	SkuNameNotSpecified = SkuName("NotSpecified")
@@ -58,7 +195,23 @@ const (
 )
 
 func (SkuName) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SkuName)(nil)).Elem()
+}
+
+func (e SkuName) ToSkuNameOutput() SkuNameOutput {
+	return pulumi.ToOutput(e).(SkuNameOutput)
+}
+
+func (e SkuName) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuNameOutput)
+}
+
+func (e SkuName) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return e.ToSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (e SkuName) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return SkuName(e).ToSkuNameOutputWithContext(ctx).ToSkuNamePtrOutputWithContext(ctx)
 }
 
 func (e SkuName) ToStringOutput() pulumi.StringOutput {
@@ -77,8 +230,129 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type SkuNameOutput struct{ *pulumi.OutputState }
+
+func (SkuNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuName)(nil)).Elem()
+}
+
+func (o SkuNameOutput) ToSkuNameOutput() SkuNameOutput {
+	return o
+}
+
+func (o SkuNameOutput) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
+	return o
+}
+
+func (o SkuNameOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return o.ToSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuName) *SkuName {
+		return &v
+	}).(SkuNamePtrOutput)
+}
+
+func (o SkuNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SkuNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SkuNamePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuNamePtrOutput) ElementType() reflect.Type {
+	return skuNamePtrType
+}
+
+func (o SkuNamePtrOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return o
+}
+
+func (o SkuNamePtrOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return o
+}
+
+func (o SkuNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkuNamePtrOutput) Elem() SkuNameOutput {
+	return o.ApplyT(func(v *SkuName) SkuName {
+		var ret SkuName
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(SkuNameOutput)
+}
+
+// SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
+// You can construct a concrete instance of `SkuNameInput` via:
+//
+//          SkuNameArgs{...}
+type SkuNameInput interface {
+	pulumi.Input
+
+	ToSkuNameOutput() SkuNameOutput
+	ToSkuNameOutputWithContext(context.Context) SkuNameOutput
+}
+
+var skuNamePtrType = reflect.TypeOf((**SkuName)(nil)).Elem()
+
+type SkuNamePtrInput interface {
+	pulumi.Input
+
+	ToSkuNamePtrOutput() SkuNamePtrOutput
+	ToSkuNamePtrOutputWithContext(context.Context) SkuNamePtrOutput
+}
+
+type skuNamePtr string
+
+func SkuNamePtr(v string) SkuNamePtrInput {
+	return (*skuNamePtr)(&v)
+}
+
+func (*skuNamePtr) ElementType() reflect.Type {
+	return skuNamePtrType
+}
+
+func (in *skuNamePtr) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return pulumi.ToOutput(in).(SkuNamePtrOutput)
+}
+
+func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
+}
+
 // Gets or sets the state.
-type WorkflowStateEnum pulumi.String
+type WorkflowStateEnum string
 
 const (
 	WorkflowStateEnumNotSpecified = WorkflowStateEnum("NotSpecified")
@@ -89,7 +363,23 @@ const (
 )
 
 func (WorkflowStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*WorkflowStateEnum)(nil)).Elem()
+}
+
+func (e WorkflowStateEnum) ToWorkflowStateEnumOutput() WorkflowStateEnumOutput {
+	return pulumi.ToOutput(e).(WorkflowStateEnumOutput)
+}
+
+func (e WorkflowStateEnum) ToWorkflowStateEnumOutputWithContext(ctx context.Context) WorkflowStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowStateEnumOutput)
+}
+
+func (e WorkflowStateEnum) ToWorkflowStateEnumPtrOutput() WorkflowStateEnumPtrOutput {
+	return e.ToWorkflowStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowStateEnum) ToWorkflowStateEnumPtrOutputWithContext(ctx context.Context) WorkflowStateEnumPtrOutput {
+	return WorkflowStateEnum(e).ToWorkflowStateEnumOutputWithContext(ctx).ToWorkflowStateEnumPtrOutputWithContext(ctx)
 }
 
 func (e WorkflowStateEnum) ToStringOutput() pulumi.StringOutput {
@@ -106,4 +396,134 @@ func (e WorkflowStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e WorkflowStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowStateEnumOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowStateEnum)(nil)).Elem()
+}
+
+func (o WorkflowStateEnumOutput) ToWorkflowStateEnumOutput() WorkflowStateEnumOutput {
+	return o
+}
+
+func (o WorkflowStateEnumOutput) ToWorkflowStateEnumOutputWithContext(ctx context.Context) WorkflowStateEnumOutput {
+	return o
+}
+
+func (o WorkflowStateEnumOutput) ToWorkflowStateEnumPtrOutput() WorkflowStateEnumPtrOutput {
+	return o.ToWorkflowStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStateEnumOutput) ToWorkflowStateEnumPtrOutputWithContext(ctx context.Context) WorkflowStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStateEnum) *WorkflowStateEnum {
+		return &v
+	}).(WorkflowStateEnumPtrOutput)
+}
+
+func (o WorkflowStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowStateEnumPtrOutput) ElementType() reflect.Type {
+	return workflowStateEnumPtrType
+}
+
+func (o WorkflowStateEnumPtrOutput) ToWorkflowStateEnumPtrOutput() WorkflowStateEnumPtrOutput {
+	return o
+}
+
+func (o WorkflowStateEnumPtrOutput) ToWorkflowStateEnumPtrOutputWithContext(ctx context.Context) WorkflowStateEnumPtrOutput {
+	return o
+}
+
+func (o WorkflowStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowStateEnumPtrOutput) Elem() WorkflowStateEnumOutput {
+	return o.ApplyT(func(v *WorkflowStateEnum) WorkflowStateEnum {
+		var ret WorkflowStateEnum
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(WorkflowStateEnumOutput)
+}
+
+// WorkflowStateEnumInput is an input type that accepts WorkflowStateEnumArgs and WorkflowStateEnumOutput values.
+// You can construct a concrete instance of `WorkflowStateEnumInput` via:
+//
+//          WorkflowStateEnumArgs{...}
+type WorkflowStateEnumInput interface {
+	pulumi.Input
+
+	ToWorkflowStateEnumOutput() WorkflowStateEnumOutput
+	ToWorkflowStateEnumOutputWithContext(context.Context) WorkflowStateEnumOutput
+}
+
+var workflowStateEnumPtrType = reflect.TypeOf((**WorkflowStateEnum)(nil)).Elem()
+
+type WorkflowStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowStateEnumPtrOutput() WorkflowStateEnumPtrOutput
+	ToWorkflowStateEnumPtrOutputWithContext(context.Context) WorkflowStateEnumPtrOutput
+}
+
+type workflowStateEnumPtr string
+
+func WorkflowStateEnumPtr(v string) WorkflowStateEnumPtrInput {
+	return (*workflowStateEnumPtr)(&v)
+}
+
+func (*workflowStateEnumPtr) ElementType() reflect.Type {
+	return workflowStateEnumPtrType
+}
+
+func (in *workflowStateEnumPtr) ToWorkflowStateEnumPtrOutput() WorkflowStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(WorkflowStateEnumPtrOutput)
+}
+
+func (in *workflowStateEnumPtr) ToWorkflowStateEnumPtrOutputWithContext(ctx context.Context) WorkflowStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowStateEnumPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ParameterTypeOutput{})
+	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(SkuNameOutput{})
+	pulumi.RegisterOutputType(SkuNamePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowStateEnumOutput{})
+	pulumi.RegisterOutputType(WorkflowStateEnumPtrOutput{})
 }

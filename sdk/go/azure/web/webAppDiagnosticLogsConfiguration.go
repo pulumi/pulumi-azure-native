@@ -139,37 +139,9 @@ func GetWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppDiagnosticLogsConfiguration resources.
 type webAppDiagnosticLogsConfigurationState struct {
-	// Application logs configuration.
-	ApplicationLogs *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
-	// Detailed error messages configuration.
-	DetailedErrorMessages *EnabledConfigResponse `pulumi:"detailedErrorMessages"`
-	// Failed requests tracing configuration.
-	FailedRequestsTracing *EnabledConfigResponse `pulumi:"failedRequestsTracing"`
-	// HTTP logs configuration.
-	HttpLogs *HttpLogsConfigResponse `pulumi:"httpLogs"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppDiagnosticLogsConfigurationState struct {
-	// Application logs configuration.
-	ApplicationLogs ApplicationLogsConfigResponsePtrInput
-	// Detailed error messages configuration.
-	DetailedErrorMessages EnabledConfigResponsePtrInput
-	// Failed requests tracing configuration.
-	FailedRequestsTracing EnabledConfigResponsePtrInput
-	// HTTP logs configuration.
-	HttpLogs HttpLogsConfigResponsePtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppDiagnosticLogsConfigurationState) ElementType() reflect.Type {

@@ -122,21 +122,9 @@ func GetNotificationRecipientEmail(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationRecipientEmail resources.
 type notificationRecipientEmailState struct {
-	// User Email subscribed to notification.
-	Email *string `pulumi:"email"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type NotificationRecipientEmailState struct {
-	// User Email subscribed to notification.
-	Email pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (NotificationRecipientEmailState) ElementType() reflect.Type {

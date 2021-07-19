@@ -78,29 +78,9 @@ func GetChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Channel resources.
 type channelState struct {
-	// The functions to be enabled for the channel
-	ChannelFunctions []string `pulumi:"channelFunctions"`
-	// The channel type
-	ChannelType *string `pulumi:"channelType"`
-	// The channel credentials
-	Credentials map[string]string `pulumi:"credentials"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The fully qualified type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type ChannelState struct {
-	// The functions to be enabled for the channel
-	ChannelFunctions pulumi.StringArrayInput
-	// The channel type
-	ChannelType pulumi.StringPtrInput
-	// The channel credentials
-	Credentials pulumi.StringMapInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The fully qualified type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (ChannelState) ElementType() reflect.Type {

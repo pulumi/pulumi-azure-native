@@ -93,29 +93,9 @@ func GetContentType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContentType resources.
 type contentTypeState struct {
-	// Content type description.
-	Description *string `pulumi:"description"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Content type schema.
-	Schema interface{} `pulumi:"schema"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// Content type version.
-	Version *string `pulumi:"version"`
 }
 
 type ContentTypeState struct {
-	// Content type description.
-	Description pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Content type schema.
-	Schema pulumi.Input
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// Content type version.
-	Version pulumi.StringPtrInput
 }
 
 func (ContentTypeState) ElementType() reflect.Type {

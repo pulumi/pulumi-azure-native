@@ -121,21 +121,9 @@ func GetTagByProduct(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagByProduct resources.
 type tagByProductState struct {
-	// Tag name.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type TagByProductState struct {
-	// Tag name.
-	DisplayName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TagByProductState) ElementType() reflect.Type {

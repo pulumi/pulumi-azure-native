@@ -184,33 +184,9 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets or sets the plan of the resource.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Gets or sets the resource properties.
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ResourceState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets or sets the plan of the resource.
-	Plan PlanResponsePtrInput
-	// Gets or sets the resource properties.
-	Properties pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ResourceState) ElementType() reflect.Type {

@@ -94,33 +94,9 @@ func GetSuppression(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Suppression resources.
 type suppressionState struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The GUID of the suppression.
-	SuppressionId *string `pulumi:"suppressionId"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The duration for which the suppression is valid.
-	Ttl *string `pulumi:"ttl"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type SuppressionState struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The GUID of the suppression.
-	SuppressionId pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The duration for which the suppression is valid.
-	Ttl pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (SuppressionState) ElementType() reflect.Type {

@@ -97,49 +97,9 @@ func GetNatRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NatRule resources.
 type natRuleState struct {
-	// List of egress VpnSiteLinkConnections.
-	EgressVpnSiteLinkConnections []SubResourceResponse `pulumi:"egressVpnSiteLinkConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The private IP address external mapping for NAT.
-	ExternalMappings []VpnNatRuleMappingResponse `pulumi:"externalMappings"`
-	// List of ingress VpnSiteLinkConnections.
-	IngressVpnSiteLinkConnections []SubResourceResponse `pulumi:"ingressVpnSiteLinkConnections"`
-	// The private IP address internal mapping for NAT.
-	InternalMappings []VpnNatRuleMappingResponse `pulumi:"internalMappings"`
-	// The IP Configuration ID this NAT rule applies to.
-	IpConfigurationId *string `pulumi:"ipConfigurationId"`
-	// The Source NAT direction of a VPN NAT.
-	Mode *string `pulumi:"mode"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the NAT Rule resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type NatRuleState struct {
-	// List of egress VpnSiteLinkConnections.
-	EgressVpnSiteLinkConnections SubResourceResponseArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The private IP address external mapping for NAT.
-	ExternalMappings VpnNatRuleMappingResponseArrayInput
-	// List of ingress VpnSiteLinkConnections.
-	IngressVpnSiteLinkConnections SubResourceResponseArrayInput
-	// The private IP address internal mapping for NAT.
-	InternalMappings VpnNatRuleMappingResponseArrayInput
-	// The IP Configuration ID this NAT rule applies to.
-	IpConfigurationId pulumi.StringPtrInput
-	// The Source NAT direction of a VPN NAT.
-	Mode pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the NAT Rule resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (NatRuleState) ElementType() reflect.Type {

@@ -11,7 +11,7 @@ import (
 )
 
 // Type of OS for which the key is requested.
-type OsType pulumi.String
+type OsType string
 
 const (
 	OsTypeWindows7            = OsType("Windows7")
@@ -20,7 +20,23 @@ const (
 )
 
 func (OsType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*OsType)(nil)).Elem()
+}
+
+func (e OsType) ToOsTypeOutput() OsTypeOutput {
+	return pulumi.ToOutput(e).(OsTypeOutput)
+}
+
+func (e OsType) ToOsTypeOutputWithContext(ctx context.Context) OsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OsTypeOutput)
+}
+
+func (e OsType) ToOsTypePtrOutput() OsTypePtrOutput {
+	return e.ToOsTypePtrOutputWithContext(context.Background())
+}
+
+func (e OsType) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return OsType(e).ToOsTypeOutputWithContext(ctx).ToOsTypePtrOutputWithContext(ctx)
 }
 
 func (e OsType) ToStringOutput() pulumi.StringOutput {
@@ -39,8 +55,129 @@ func (e OsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type OsTypeOutput struct{ *pulumi.OutputState }
+
+func (OsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OsType)(nil)).Elem()
+}
+
+func (o OsTypeOutput) ToOsTypeOutput() OsTypeOutput {
+	return o
+}
+
+func (o OsTypeOutput) ToOsTypeOutputWithContext(ctx context.Context) OsTypeOutput {
+	return o
+}
+
+func (o OsTypeOutput) ToOsTypePtrOutput() OsTypePtrOutput {
+	return o.ToOsTypePtrOutputWithContext(context.Background())
+}
+
+func (o OsTypeOutput) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OsType) *OsType {
+		return &v
+	}).(OsTypePtrOutput)
+}
+
+func (o OsTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OsType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OsType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OsTypePtrOutput) ElementType() reflect.Type {
+	return osTypePtrType
+}
+
+func (o OsTypePtrOutput) ToOsTypePtrOutput() OsTypePtrOutput {
+	return o
+}
+
+func (o OsTypePtrOutput) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return o
+}
+
+func (o OsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OsType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OsTypePtrOutput) Elem() OsTypeOutput {
+	return o.ApplyT(func(v *OsType) OsType {
+		var ret OsType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(OsTypeOutput)
+}
+
+// OsTypeInput is an input type that accepts OsTypeArgs and OsTypeOutput values.
+// You can construct a concrete instance of `OsTypeInput` via:
+//
+//          OsTypeArgs{...}
+type OsTypeInput interface {
+	pulumi.Input
+
+	ToOsTypeOutput() OsTypeOutput
+	ToOsTypeOutputWithContext(context.Context) OsTypeOutput
+}
+
+var osTypePtrType = reflect.TypeOf((**OsType)(nil)).Elem()
+
+type OsTypePtrInput interface {
+	pulumi.Input
+
+	ToOsTypePtrOutput() OsTypePtrOutput
+	ToOsTypePtrOutputWithContext(context.Context) OsTypePtrOutput
+}
+
+type osTypePtr string
+
+func OsTypePtr(v string) OsTypePtrInput {
+	return (*osTypePtr)(&v)
+}
+
+func (*osTypePtr) ElementType() reflect.Type {
+	return osTypePtrType
+}
+
+func (in *osTypePtr) ToOsTypePtrOutput() OsTypePtrOutput {
+	return pulumi.ToOutput(in).(OsTypePtrOutput)
+}
+
+func (in *osTypePtr) ToOsTypePtrOutputWithContext(ctx context.Context) OsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OsTypePtrOutput)
+}
+
 // Type of support
-type SupportType pulumi.String
+type SupportType string
 
 const (
 	SupportTypeSupplementalServicing = SupportType("SupplementalServicing")
@@ -48,7 +185,23 @@ const (
 )
 
 func (SupportType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SupportType)(nil)).Elem()
+}
+
+func (e SupportType) ToSupportTypeOutput() SupportTypeOutput {
+	return pulumi.ToOutput(e).(SupportTypeOutput)
+}
+
+func (e SupportType) ToSupportTypeOutputWithContext(ctx context.Context) SupportTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SupportTypeOutput)
+}
+
+func (e SupportType) ToSupportTypePtrOutput() SupportTypePtrOutput {
+	return e.ToSupportTypePtrOutputWithContext(context.Background())
+}
+
+func (e SupportType) ToSupportTypePtrOutputWithContext(ctx context.Context) SupportTypePtrOutput {
+	return SupportType(e).ToSupportTypeOutputWithContext(ctx).ToSupportTypePtrOutputWithContext(ctx)
 }
 
 func (e SupportType) ToStringOutput() pulumi.StringOutput {
@@ -65,4 +218,132 @@ func (e SupportType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SupportType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SupportTypeOutput struct{ *pulumi.OutputState }
+
+func (SupportTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SupportType)(nil)).Elem()
+}
+
+func (o SupportTypeOutput) ToSupportTypeOutput() SupportTypeOutput {
+	return o
+}
+
+func (o SupportTypeOutput) ToSupportTypeOutputWithContext(ctx context.Context) SupportTypeOutput {
+	return o
+}
+
+func (o SupportTypeOutput) ToSupportTypePtrOutput() SupportTypePtrOutput {
+	return o.ToSupportTypePtrOutputWithContext(context.Background())
+}
+
+func (o SupportTypeOutput) ToSupportTypePtrOutputWithContext(ctx context.Context) SupportTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SupportType) *SupportType {
+		return &v
+	}).(SupportTypePtrOutput)
+}
+
+func (o SupportTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SupportTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SupportType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SupportTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SupportTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SupportType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SupportTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SupportTypePtrOutput) ElementType() reflect.Type {
+	return supportTypePtrType
+}
+
+func (o SupportTypePtrOutput) ToSupportTypePtrOutput() SupportTypePtrOutput {
+	return o
+}
+
+func (o SupportTypePtrOutput) ToSupportTypePtrOutputWithContext(ctx context.Context) SupportTypePtrOutput {
+	return o
+}
+
+func (o SupportTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SupportTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SupportType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SupportTypePtrOutput) Elem() SupportTypeOutput {
+	return o.ApplyT(func(v *SupportType) SupportType {
+		var ret SupportType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(SupportTypeOutput)
+}
+
+// SupportTypeInput is an input type that accepts SupportTypeArgs and SupportTypeOutput values.
+// You can construct a concrete instance of `SupportTypeInput` via:
+//
+//          SupportTypeArgs{...}
+type SupportTypeInput interface {
+	pulumi.Input
+
+	ToSupportTypeOutput() SupportTypeOutput
+	ToSupportTypeOutputWithContext(context.Context) SupportTypeOutput
+}
+
+var supportTypePtrType = reflect.TypeOf((**SupportType)(nil)).Elem()
+
+type SupportTypePtrInput interface {
+	pulumi.Input
+
+	ToSupportTypePtrOutput() SupportTypePtrOutput
+	ToSupportTypePtrOutputWithContext(context.Context) SupportTypePtrOutput
+}
+
+type supportTypePtr string
+
+func SupportTypePtr(v string) SupportTypePtrInput {
+	return (*supportTypePtr)(&v)
+}
+
+func (*supportTypePtr) ElementType() reflect.Type {
+	return supportTypePtrType
+}
+
+func (in *supportTypePtr) ToSupportTypePtrOutput() SupportTypePtrOutput {
+	return pulumi.ToOutput(in).(SupportTypePtrOutput)
+}
+
+func (in *supportTypePtr) ToSupportTypePtrOutputWithContext(ctx context.Context) SupportTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SupportTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(OsTypeOutput{})
+	pulumi.RegisterOutputType(OsTypePtrOutput{})
+	pulumi.RegisterOutputType(SupportTypeOutput{})
+	pulumi.RegisterOutputType(SupportTypePtrOutput{})
 }

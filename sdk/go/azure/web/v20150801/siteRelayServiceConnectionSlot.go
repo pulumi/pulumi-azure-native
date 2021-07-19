@@ -144,43 +144,9 @@ func GetSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteRelayServiceConnectionSlot resources.
 type siteRelayServiceConnectionSlotState struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name                     *string `pulumi:"name"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	ResourceType             *string `pulumi:"resourceType"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SiteRelayServiceConnectionSlotState struct {
-	BiztalkUri             pulumi.StringPtrInput
-	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringPtrInput
-	Hostname               pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name                     pulumi.StringPtrInput
-	Port                     pulumi.IntPtrInput
-	ResourceConnectionString pulumi.StringPtrInput
-	ResourceType             pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SiteRelayServiceConnectionSlotState) ElementType() reflect.Type {

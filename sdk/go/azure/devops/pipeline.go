@@ -90,41 +90,9 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// Configuration used to bootstrap the Pipeline.
-	BootstrapConfiguration *BootstrapConfigurationResponse `pulumi:"bootstrapConfiguration"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Unique identifier of the Pipeline
-	PipelineId *int `pulumi:"pipelineId"`
-	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
-	PipelineType *string `pulumi:"pipelineType"`
-	// The system metadata pertaining to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource Tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type PipelineState struct {
-	// Configuration used to bootstrap the Pipeline.
-	BootstrapConfiguration BootstrapConfigurationResponsePtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Unique identifier of the Pipeline
-	PipelineId pulumi.IntPtrInput
-	// Specifies which CI/CD provider to use. Valid options are 'azurePipeline', 'githubWorkflow'.
-	PipelineType pulumi.StringPtrInput
-	// The system metadata pertaining to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource Tags
-	Tags pulumi.StringMapInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (PipelineState) ElementType() reflect.Type {

@@ -177,61 +177,9 @@ func GetNatGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NatGateway resources.
 type natGatewayState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The idle timeout of the nat gateway.
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the NAT gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// An array of public ip addresses associated with the nat gateway resource.
-	PublicIpAddresses []SubResourceResponse `pulumi:"publicIpAddresses"`
-	// An array of public ip prefixes associated with the nat gateway resource.
-	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
-	// The resource GUID property of the NAT gateway resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The nat gateway SKU.
-	Sku *NatGatewaySkuResponse `pulumi:"sku"`
-	// An array of references to the subnets using this nat gateway resource.
-	Subnets []SubResourceResponse `pulumi:"subnets"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// A list of availability zones denoting the zone in which Nat Gateway should be deployed.
-	Zones []string `pulumi:"zones"`
 }
 
 type NatGatewayState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The idle timeout of the nat gateway.
-	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the NAT gateway resource.
-	ProvisioningState pulumi.StringPtrInput
-	// An array of public ip addresses associated with the nat gateway resource.
-	PublicIpAddresses SubResourceResponseArrayInput
-	// An array of public ip prefixes associated with the nat gateway resource.
-	PublicIpPrefixes SubResourceResponseArrayInput
-	// The resource GUID property of the NAT gateway resource.
-	ResourceGuid pulumi.StringPtrInput
-	// The nat gateway SKU.
-	Sku NatGatewaySkuResponsePtrInput
-	// An array of references to the subnets using this nat gateway resource.
-	Subnets SubResourceResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// A list of availability zones denoting the zone in which Nat Gateway should be deployed.
-	Zones pulumi.StringArrayInput
 }
 
 func (NatGatewayState) ElementType() reflect.Type {

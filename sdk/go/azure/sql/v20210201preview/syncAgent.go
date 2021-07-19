@@ -104,41 +104,9 @@ func GetSyncAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyncAgent resources.
 type syncAgentState struct {
-	// Expiration time of the sync agent version.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// If the sync agent version is up to date.
-	IsUpToDate *bool `pulumi:"isUpToDate"`
-	// Last alive time of the sync agent.
-	LastAliveTime *string `pulumi:"lastAliveTime"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// State of the sync agent.
-	State *string `pulumi:"state"`
-	// ARM resource id of the sync database in the sync agent.
-	SyncDatabaseId *string `pulumi:"syncDatabaseId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Version of the sync agent.
-	Version *string `pulumi:"version"`
 }
 
 type SyncAgentState struct {
-	// Expiration time of the sync agent version.
-	ExpiryTime pulumi.StringPtrInput
-	// If the sync agent version is up to date.
-	IsUpToDate pulumi.BoolPtrInput
-	// Last alive time of the sync agent.
-	LastAliveTime pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// State of the sync agent.
-	State pulumi.StringPtrInput
-	// ARM resource id of the sync database in the sync agent.
-	SyncDatabaseId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Version of the sync agent.
-	Version pulumi.StringPtrInput
 }
 
 func (SyncAgentState) ElementType() reflect.Type {

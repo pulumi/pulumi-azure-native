@@ -116,41 +116,9 @@ func GetPrefix(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Prefix resources.
 type prefixState struct {
-	// The error message for validation state
-	ErrorMessage *string `pulumi:"errorMessage"`
-	// The list of events for peering service prefix
-	Events []PeeringServicePrefixEventResponse `pulumi:"events"`
-	// The prefix learned type
-	LearnedType *string `pulumi:"learnedType"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The prefix from which your traffic originates.
-	Prefix *string `pulumi:"prefix"`
-	// The prefix validation state
-	PrefixValidationState *string `pulumi:"prefixValidationState"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PrefixState struct {
-	// The error message for validation state
-	ErrorMessage pulumi.StringPtrInput
-	// The list of events for peering service prefix
-	Events PeeringServicePrefixEventResponseArrayInput
-	// The prefix learned type
-	LearnedType pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The prefix from which your traffic originates.
-	Prefix pulumi.StringPtrInput
-	// The prefix validation state
-	PrefixValidationState pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PrefixState) ElementType() reflect.Type {

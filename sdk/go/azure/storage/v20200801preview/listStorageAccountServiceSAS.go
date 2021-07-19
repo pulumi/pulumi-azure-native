@@ -45,7 +45,7 @@ type ListStorageAccountServiceSASArgs struct {
 	// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
 	Permissions *string `pulumi:"permissions"`
 	// The protocol permitted for a request made with the account SAS.
-	Protocols *string `pulumi:"protocols"`
+	Protocols *HttpProtocol `pulumi:"protocols"`
 	// The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
 	Resource *string `pulumi:"resource"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.

@@ -204,7 +204,7 @@ func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput
 // Identity for the managed cluster.
 type ConfigurationIdentity struct {
 	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // ConfigurationIdentityInput is an input type that accepts ConfigurationIdentityArgs and ConfigurationIdentityOutput values.
@@ -221,7 +221,7 @@ type ConfigurationIdentityInput interface {
 // Identity for the managed cluster.
 type ConfigurationIdentityArgs struct {
 	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (ConfigurationIdentityArgs) ElementType() reflect.Type {
@@ -303,8 +303,8 @@ func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutputWithContext
 }
 
 // The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConfigurationIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ConfigurationIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type ConfigurationIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -326,13 +326,13 @@ func (o ConfigurationIdentityPtrOutput) Elem() ConfigurationIdentityOutput {
 }
 
 // The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationIdentity) *string {
+func (o ConfigurationIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ConfigurationIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the managed cluster.

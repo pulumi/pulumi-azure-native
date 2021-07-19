@@ -98,53 +98,9 @@ func GetCustomImageResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomImageResource resources.
 type customImageResourceState struct {
-	// The author of the custom image.
-	Author *string `pulumi:"author"`
-	// The creation date of the custom image.
-	CreationDate *string `pulumi:"creationDate"`
-	// The description of the custom image.
-	Description *string `pulumi:"description"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The OS type of the custom image.
-	OsType *string `pulumi:"osType"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The VHD from which the image is to be created.
-	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
-	// Properties for creating a custom image from a virtual machine.
-	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
 }
 
 type CustomImageResourceState struct {
-	// The author of the custom image.
-	Author pulumi.StringPtrInput
-	// The creation date of the custom image.
-	CreationDate pulumi.StringPtrInput
-	// The description of the custom image.
-	Description pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The OS type of the custom image.
-	OsType pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The VHD from which the image is to be created.
-	Vhd CustomImagePropertiesCustomResponsePtrInput
-	// Properties for creating a custom image from a virtual machine.
-	Vm CustomImagePropertiesFromVmResponsePtrInput
 }
 
 func (CustomImageResourceState) ElementType() reflect.Type {

@@ -39,7 +39,7 @@ type ListWebAppBackupStatusSecretsSlotArgs struct {
 	// SAS URL to the container.
 	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 	// Type of the backup.
-	Type *string `pulumi:"type"`
+	Type *BackupRestoreOperationType `pulumi:"type"`
 }
 
 // Backup description.

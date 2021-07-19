@@ -231,85 +231,9 @@ func GetAzureFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AzureFirewall resources.
 type azureFirewallState struct {
-	// The additional properties used to further config this azure firewall.
-	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
-	// Collection of application rule collections used by Azure Firewall.
-	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The firewallPolicy associated with this azure firewall.
-	FirewallPolicy *SubResourceResponse `pulumi:"firewallPolicy"`
-	// IP addresses associated with AzureFirewall.
-	HubIpAddresses *HubIPAddressesResponse `pulumi:"hubIpAddresses"`
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// IpGroups associated with AzureFirewall.
-	IpGroups []AzureFirewallIpGroupsResponse `pulumi:"ipGroups"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// IP configuration of the Azure Firewall used for management traffic.
-	ManagementIpConfiguration *AzureFirewallIPConfigurationResponse `pulumi:"managementIpConfiguration"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Collection of NAT rule collections used by Azure Firewall.
-	NatRuleCollections []AzureFirewallNatRuleCollectionResponse `pulumi:"natRuleCollections"`
-	// Collection of network rule collections used by Azure Firewall.
-	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
-	// The provisioning state of the Azure firewall resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The Azure Firewall Resource SKU.
-	Sku *AzureFirewallSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The virtualHub to which the firewall belongs.
-	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones []string `pulumi:"zones"`
 }
 
 type AzureFirewallState struct {
-	// The additional properties used to further config this azure firewall.
-	AdditionalProperties pulumi.StringMapInput
-	// Collection of application rule collections used by Azure Firewall.
-	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionResponseArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The firewallPolicy associated with this azure firewall.
-	FirewallPolicy SubResourceResponsePtrInput
-	// IP addresses associated with AzureFirewall.
-	HubIpAddresses HubIPAddressesResponsePtrInput
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations AzureFirewallIPConfigurationResponseArrayInput
-	// IpGroups associated with AzureFirewall.
-	IpGroups AzureFirewallIpGroupsResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// IP configuration of the Azure Firewall used for management traffic.
-	ManagementIpConfiguration AzureFirewallIPConfigurationResponsePtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Collection of NAT rule collections used by Azure Firewall.
-	NatRuleCollections AzureFirewallNatRuleCollectionResponseArrayInput
-	// Collection of network rule collections used by Azure Firewall.
-	NetworkRuleCollections AzureFirewallNetworkRuleCollectionResponseArrayInput
-	// The provisioning state of the Azure firewall resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The Azure Firewall Resource SKU.
-	Sku AzureFirewallSkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The virtualHub to which the firewall belongs.
-	VirtualHub SubResourceResponsePtrInput
-	// A list of availability zones denoting where the resource needs to come from.
-	Zones pulumi.StringArrayInput
 }
 
 func (AzureFirewallState) ElementType() reflect.Type {

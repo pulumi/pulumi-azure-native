@@ -78,25 +78,9 @@ func GetEnvironmentSpecificationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentSpecificationVersion resources.
 type environmentSpecificationVersionState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties *EnvironmentSpecificationVersionResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type EnvironmentSpecificationVersionState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties EnvironmentSpecificationVersionResponsePtrInput
-	// System data associated with resource provider
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (EnvironmentSpecificationVersionState) ElementType() reflect.Type {

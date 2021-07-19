@@ -81,41 +81,9 @@ func GetVideo(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Video resources.
 type videoState struct {
-	// Optional video description provided by the user. Value can be up to 2048 characters long.
-	Description *string `pulumi:"description"`
-	// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
-	Flags *VideoFlagsResponse `pulumi:"flags"`
-	// Contains information about the video and audio content.
-	MediaInfo *VideoMediaInfoResponse `pulumi:"mediaInfo"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Video streaming holds information about video streaming URLs.
-	Streaming *VideoStreamingResponse `pulumi:"streaming"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Optional video title provided by the user. Value can be up to 256 characters long.
-	Title *string `pulumi:"title"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type VideoState struct {
-	// Optional video description provided by the user. Value can be up to 2048 characters long.
-	Description pulumi.StringPtrInput
-	// Video flags contain information about the available video actions and its dynamic properties based on the current video state.
-	Flags VideoFlagsResponsePtrInput
-	// Contains information about the video and audio content.
-	MediaInfo VideoMediaInfoResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Video streaming holds information about video streaming URLs.
-	Streaming VideoStreamingResponsePtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Optional video title provided by the user. Value can be up to 256 characters long.
-	Title pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (VideoState) ElementType() reflect.Type {

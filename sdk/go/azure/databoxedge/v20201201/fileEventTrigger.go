@@ -137,39 +137,9 @@ func GetFileEventTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileEventTrigger resources.
 type fileEventTriggerState struct {
-	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-	CustomContextTag *string `pulumi:"customContextTag"`
-	// Trigger Kind.
-	// Expected value is 'FileEvent'.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Role sink info.
-	SinkInfo *RoleSinkInfoResponse `pulumi:"sinkInfo"`
-	// File event source details.
-	SourceInfo *FileSourceInfoResponse `pulumi:"sourceInfo"`
-	// Trigger in DataBoxEdge Resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type FileEventTriggerState struct {
-	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
-	CustomContextTag pulumi.StringPtrInput
-	// Trigger Kind.
-	// Expected value is 'FileEvent'.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Role sink info.
-	SinkInfo RoleSinkInfoResponsePtrInput
-	// File event source details.
-	SourceInfo FileSourceInfoResponsePtrInput
-	// Trigger in DataBoxEdge Resource
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (FileEventTriggerState) ElementType() reflect.Type {

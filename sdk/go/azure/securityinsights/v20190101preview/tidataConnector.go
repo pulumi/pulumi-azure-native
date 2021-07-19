@@ -103,37 +103,9 @@ func GetTIDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TIDataConnector resources.
 type tidataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *TIDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'ThreatIntelligence'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// The lookback period for the feed to be imported.
-	TipLookbackPeriod *string `pulumi:"tipLookbackPeriod"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type TIDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes TIDataConnectorDataTypesResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'ThreatIntelligence'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// The lookback period for the feed to be imported.
-	TipLookbackPeriod pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (TIDataConnectorState) ElementType() reflect.Type {

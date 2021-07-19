@@ -102,29 +102,9 @@ func GetBlobInventoryPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobInventoryPolicy resources.
 type blobInventoryPolicyState struct {
-	// Returns the last modified date and time of the blob inventory policy.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The storage account blob inventory policy object. It is composed of policy rules.
-	Policy *BlobInventoryPolicySchemaResponse `pulumi:"policy"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type BlobInventoryPolicyState struct {
-	// Returns the last modified date and time of the blob inventory policy.
-	LastModifiedTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The storage account blob inventory policy object. It is composed of policy rules.
-	Policy BlobInventoryPolicySchemaResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (BlobInventoryPolicyState) ElementType() reflect.Type {

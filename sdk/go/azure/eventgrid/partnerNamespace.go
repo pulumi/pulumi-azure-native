@@ -91,43 +91,9 @@ func GetPartnerNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PartnerNamespace resources.
 type partnerNamespaceState struct {
-	// Endpoint for the partner namespace.
-	Endpoint *string `pulumi:"endpoint"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the resource.
-	Name *string `pulumi:"name"`
-	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
-	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
-	// Provisioning state of the partner namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system metadata relating to Partner Namespace resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PartnerNamespaceState struct {
-	// Endpoint for the partner namespace.
-	Endpoint pulumi.StringPtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the resource.
-	Name pulumi.StringPtrInput
-	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
-	PartnerRegistrationFullyQualifiedId pulumi.StringPtrInput
-	// Provisioning state of the partner namespace.
-	ProvisioningState pulumi.StringPtrInput
-	// The system metadata relating to Partner Namespace resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PartnerNamespaceState) ElementType() reflect.Type {

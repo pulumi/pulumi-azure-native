@@ -72,25 +72,9 @@ func GetPrivateLinkScopedResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkScopedResource resources.
 type privateLinkScopedResourceState struct {
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId *string `pulumi:"linkedResourceId"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// State of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type PrivateLinkScopedResourceState struct {
-	// The resource id of the scoped Azure monitor resource.
-	LinkedResourceId pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// State of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateLinkScopedResourceState) ElementType() reflect.Type {

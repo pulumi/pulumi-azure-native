@@ -25893,6 +25893,51 @@ func (o WaitStatisticsResponseMapOutput) MapIndex(k pulumi.StringInput) WaitStat
 	}).(WaitStatisticsResponseOutput)
 }
 
+type DatabaseTableResponseArgsArrayMap map[string]DatabaseTableResponseArgsArrayInput
+
+func (DatabaseTableResponseArgsArrayMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArgsArray)(nil)).Elem()
+}
+
+func (i DatabaseTableResponseArgsArrayMap) ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput {
+	return i.ToDatabaseTableResponseArgsArrayMapOutputWithContext(context.Background())
+}
+
+func (i DatabaseTableResponseArgsArrayMap) ToDatabaseTableResponseArgsArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArgsArrayMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTableResponseArgsArrayMapOutput)
+}
+
+type DatabaseTableResponseArgsArrayMapOutput struct{ *pulumi.OutputState }
+
+func (DatabaseTableResponseArgsArrayMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseTableResponseArgsArray)(nil)).Elem()
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) ToDatabaseTableResponseArgsArrayMapOutputWithContext(ctx context.Context) DatabaseTableResponseArgsArrayMapOutput {
+	return o
+}
+
+func (o DatabaseTableResponseArgsArrayMapOutput) MapIndex(k pulumi.StringInput) DatabaseTableResponseArgsArrayOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DatabaseTableResponseArgsArray {
+		return vs[0].(map[string]DatabaseTableResponseArgsArray)[vs[1].(string)]
+	}).(DatabaseTableResponseArgsArrayOutput)
+}
+
+// DatabaseTableResponseArgsArrayMapInput is an input type that accepts DatabaseTableResponseArgsArrayMap and DatabaseTableResponseArgsArrayMapOutput values.
+// You can construct a concrete instance of `DatabaseTableResponseArgsArrayMapInput` via:
+//
+//          DatabaseTableResponseArgsArrayMap{ "key": DatabaseTableResponseArgsArray{ DatabaseTableResponseArgsArgs{...} } }
+type DatabaseTableResponseArgsArrayMapInput interface {
+	pulumi.Input
+
+	ToDatabaseTableResponseArgsArrayMapOutput() DatabaseTableResponseArgsArrayMapOutput
+	ToDatabaseTableResponseArgsArrayMapOutputWithContext(context.Context) DatabaseTableResponseArgsArrayMapOutput
+}
+
 type DatabaseTableResponseArrayMap map[string]DatabaseTableResponseArrayInput
 
 func (DatabaseTableResponseArrayMap) ElementType() reflect.Type {

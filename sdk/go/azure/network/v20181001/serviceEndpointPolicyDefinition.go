@@ -196,33 +196,9 @@ func GetServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointPolicyDefinition resources.
 type serviceEndpointPolicyDefinitionState struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// service endpoint name.
-	Service *string `pulumi:"service"`
-	// A list of service resources.
-	ServiceResources []string `pulumi:"serviceResources"`
 }
 
 type ServiceEndpointPolicyDefinitionState struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrInput
-	// service endpoint name.
-	Service pulumi.StringPtrInput
-	// A list of service resources.
-	ServiceResources pulumi.StringArrayInput
 }
 
 func (ServiceEndpointPolicyDefinitionState) ElementType() reflect.Type {

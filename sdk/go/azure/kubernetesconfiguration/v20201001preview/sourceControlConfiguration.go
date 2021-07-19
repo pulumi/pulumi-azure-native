@@ -129,73 +129,9 @@ func GetSourceControlConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceControlConfiguration resources.
 type sourceControlConfigurationState struct {
-	// Compliance Status of the Configuration
-	ComplianceStatus *ComplianceStatusResponse `pulumi:"complianceStatus"`
-	// Name-value pairs of protected configuration settings for the configuration
-	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
-	// Option to enable Helm Operator for this git configuration.
-	EnableHelmOperator *bool `pulumi:"enableHelmOperator"`
-	// Properties for Helm operator.
-	HelmOperatorProperties *HelmOperatorPropertiesResponse `pulumi:"helmOperatorProperties"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Instance name of the operator - identifying the specific configuration.
-	OperatorInstanceName *string `pulumi:"operatorInstanceName"`
-	// The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
-	OperatorNamespace *string `pulumi:"operatorNamespace"`
-	// Any Parameters for the Operator instance in string format.
-	OperatorParams *string `pulumi:"operatorParams"`
-	// Scope at which the operator will be installed.
-	OperatorScope *string `pulumi:"operatorScope"`
-	// Type of the operator
-	OperatorType *string `pulumi:"operatorType"`
-	// The provisioning state of the resource provider.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
-	RepositoryPublicKey *string `pulumi:"repositoryPublicKey"`
-	// Url of the SourceControl Repository.
-	RepositoryUrl *string `pulumi:"repositoryUrl"`
-	// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
-	SshKnownHostsContents *string `pulumi:"sshKnownHostsContents"`
-	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SourceControlConfigurationState struct {
-	// Compliance Status of the Configuration
-	ComplianceStatus ComplianceStatusResponsePtrInput
-	// Name-value pairs of protected configuration settings for the configuration
-	ConfigurationProtectedSettings pulumi.StringMapInput
-	// Option to enable Helm Operator for this git configuration.
-	EnableHelmOperator pulumi.BoolPtrInput
-	// Properties for Helm operator.
-	HelmOperatorProperties HelmOperatorPropertiesResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Instance name of the operator - identifying the specific configuration.
-	OperatorInstanceName pulumi.StringPtrInput
-	// The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
-	OperatorNamespace pulumi.StringPtrInput
-	// Any Parameters for the Operator instance in string format.
-	OperatorParams pulumi.StringPtrInput
-	// Scope at which the operator will be installed.
-	OperatorScope pulumi.StringPtrInput
-	// Type of the operator
-	OperatorType pulumi.StringPtrInput
-	// The provisioning state of the resource provider.
-	ProvisioningState pulumi.StringPtrInput
-	// Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
-	RepositoryPublicKey pulumi.StringPtrInput
-	// Url of the SourceControl Repository.
-	RepositoryUrl pulumi.StringPtrInput
-	// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
-	SshKnownHostsContents pulumi.StringPtrInput
-	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
-	SystemData SystemDataResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SourceControlConfigurationState) ElementType() reflect.Type {

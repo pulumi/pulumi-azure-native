@@ -111,61 +111,9 @@ func GetVirtualMachineImageTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineImageTemplate resources.
 type virtualMachineImageTemplateState struct {
-	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-	BuildTimeoutInMinutes *int `pulumi:"buildTimeoutInMinutes"`
-	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize []interface{} `pulumi:"customize"`
-	// The distribution targets where the image output needs to go to.
-	Distribute []interface{} `pulumi:"distribute"`
-	// The identity of the image template, if configured.
-	Identity *ImageTemplateIdentityResponse `pulumi:"identity"`
-	// State of 'run' that is currently executing or was last executed.
-	LastRunStatus *ImageTemplateLastRunStatusResponse `pulumi:"lastRunStatus"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning error, if any
-	ProvisioningError *ProvisioningErrorResponse `pulumi:"provisioningError"`
-	// Provisioning state of the resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies the properties used to describe the source image.
-	Source interface{} `pulumi:"source"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Describes how virtual machine is set up to build images
-	VmProfile *ImageTemplateVmProfileResponse `pulumi:"vmProfile"`
 }
 
 type VirtualMachineImageTemplateState struct {
-	// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-	BuildTimeoutInMinutes pulumi.IntPtrInput
-	// Specifies the properties used to describe the customization steps of the image, like Image source etc
-	Customize pulumi.ArrayInput
-	// The distribution targets where the image output needs to go to.
-	Distribute pulumi.ArrayInput
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityResponsePtrInput
-	// State of 'run' that is currently executing or was last executed.
-	LastRunStatus ImageTemplateLastRunStatusResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning error, if any
-	ProvisioningError ProvisioningErrorResponsePtrInput
-	// Provisioning state of the resource
-	ProvisioningState pulumi.StringPtrInput
-	// Specifies the properties used to describe the source image.
-	Source pulumi.Input
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Describes how virtual machine is set up to build images
-	VmProfile ImageTemplateVmProfileResponsePtrInput
 }
 
 func (VirtualMachineImageTemplateState) ElementType() reflect.Type {

@@ -69,21 +69,9 @@ func GetTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficManagerUserMetricsKey resources.
 type trafficManagerUserMetricsKeyState struct {
-	// The key returned by the User Metrics operation.
-	Key *string `pulumi:"key"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type *string `pulumi:"type"`
 }
 
 type TrafficManagerUserMetricsKeyState struct {
-	// The key returned by the User Metrics operation.
-	Key pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringPtrInput
 }
 
 func (TrafficManagerUserMetricsKeyState) ElementType() reflect.Type {

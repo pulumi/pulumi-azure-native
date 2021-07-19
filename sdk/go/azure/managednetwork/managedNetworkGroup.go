@@ -85,49 +85,9 @@ func GetManagedNetworkGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedNetworkGroup resources.
 type managedNetworkGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Responsibility role under which this Managed Network Group will be created
-	Kind *string `pulumi:"kind"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups []ResourceIdResponse `pulumi:"managementGroups"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The collection of  subnets covered by the Managed Network
-	Subnets []ResourceIdResponse `pulumi:"subnets"`
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions []ResourceIdResponse `pulumi:"subscriptions"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks []ResourceIdResponse `pulumi:"virtualNetworks"`
 }
 
 type ManagedNetworkGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Responsibility role under which this Managed Network Group will be created
-	Kind pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The collection of management groups covered by the Managed Network
-	ManagementGroups ResourceIdResponseArrayInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The collection of  subnets covered by the Managed Network
-	Subnets ResourceIdResponseArrayInput
-	// The collection of subscriptions covered by the Managed Network
-	Subscriptions ResourceIdResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
-	// The collection of virtual nets covered by the Managed Network
-	VirtualNetworks ResourceIdResponseArrayInput
 }
 
 func (ManagedNetworkGroupState) ElementType() reflect.Type {

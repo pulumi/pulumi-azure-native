@@ -8,6 +8,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	structpb "github.com/golang/protobuf/ptypes/struct"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	"io"
 	"io/ioutil"
 	"log"
@@ -1208,10 +1210,15 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
 	// its API as long-running by an oversight.
 	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
+		// We have now created a resource. It is very important to ensure that from this point on,
+		// any other error below returns the ID using the `pulumirpc.ErrorResourceInitFailed` error
+		// details annotation. Otherwise, the resource is leaked. We ensure that we wrap any await
+		// errors as a partial error to the RPC.
+
 		// Ignore the style value for now, let go-autorest handle the headers.
 		future, err := azure.NewFutureFromResponse(resp)
 		if err != nil {
-			return nil, err
+			return nil, partialError(id, err, nil, nil)
 		}
 		err = future.WaitForCompletionRef(ctx, k.client)
 		if err != nil {
@@ -1234,6 +1241,18 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 		return nil, err
 	}
 	return outputs, nil
+}
+
+// partialError creates an error for resources that did not complete an operation in progress.
+// The last known state of the object is included in the error so that it can be checkpointed.
+func partialError(id string, err error, state *structpb.Struct, inputs *structpb.Struct) error {
+	detail := rpc.ErrorResourceInitFailed{
+		Id:         id,
+		Properties: state,
+		Reasons:    []string{err.Error()},
+		Inputs:     inputs,
+	}
+	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
 }
 
 func (k *azureNativeProvider) azureDelete(ctx context.Context, id string, apiVersion string, asyncStyle string) error {

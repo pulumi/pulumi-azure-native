@@ -85,25 +85,9 @@ func GetBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupPolicy resources.
 type backupPolicyState struct {
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// BaseBackupPolicyResource properties
-	Properties *BackupPolicyResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
 }
 
 type BackupPolicyState struct {
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrInput
-	// BaseBackupPolicyResource properties
-	Properties BackupPolicyResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrInput
 }
 
 func (BackupPolicyState) ElementType() reflect.Type {

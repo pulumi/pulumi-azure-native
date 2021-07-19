@@ -211,45 +211,9 @@ func GetAzureFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AzureFirewall resources.
 type azureFirewallState struct {
-	// Collection of application rule collections used by a Azure Firewall.
-	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Collection of network rule collections used by a Azure Firewall.
-	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AzureFirewallState struct {
-	// Collection of application rule collections used by a Azure Firewall.
-	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionResponseArrayInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// IP configuration of the Azure Firewall resource.
-	IpConfigurations AzureFirewallIPConfigurationResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Collection of network rule collections used by a Azure Firewall.
-	NetworkRuleCollections AzureFirewallNetworkRuleCollectionResponseArrayInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AzureFirewallState) ElementType() reflect.Type {

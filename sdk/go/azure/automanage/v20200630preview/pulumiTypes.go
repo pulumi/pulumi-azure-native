@@ -13,7 +13,7 @@ import (
 // Identity for the Automanage account.
 type AccountIdentity struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
@@ -30,7 +30,7 @@ type AccountIdentityInput interface {
 // Identity for the Automanage account.
 type AccountIdentityArgs struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (AccountIdentityArgs) ElementType() reflect.Type {
@@ -112,8 +112,8 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 }
 
 // The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o AccountIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AccountIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -135,13 +135,13 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 }
 
 // The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountIdentity) *string {
+func (o AccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the Automanage account.

@@ -141,7 +141,7 @@ type A2APolicyCreationInput struct {
 	// Expected value is 'A2A'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 }
@@ -167,7 +167,7 @@ type A2APolicyCreationInputArgs struct {
 	// Expected value is 'A2A'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatusInput `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 }
@@ -216,8 +216,8 @@ func (o A2APolicyCreationInputOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o A2APolicyCreationInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v A2APolicyCreationInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
+func (o A2APolicyCreationInputOutput) MultiVmSyncStatus() SetMultiVmSyncStatusOutput {
+	return o.ApplyT(func(v A2APolicyCreationInput) SetMultiVmSyncStatus { return v.MultiVmSyncStatus }).(SetMultiVmSyncStatusOutput)
 }
 
 // The duration in minutes until which the recovery points need to be stored.
@@ -2538,7 +2538,7 @@ func (o CreateProtectionContainerMappingInputPropertiesPtrOutput) TargetProtecti
 // Recovery plan creation properties.
 type CreateRecoveryPlanInputProperties struct {
 	// The failover deployment model.
-	FailoverDeploymentModel *string `pulumi:"failoverDeploymentModel"`
+	FailoverDeploymentModel *FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
 	// The recovery plan groups.
 	Groups []RecoveryPlanGroup `pulumi:"groups"`
 	// The primary fabric Id.
@@ -2561,7 +2561,7 @@ type CreateRecoveryPlanInputPropertiesInput interface {
 // Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesArgs struct {
 	// The failover deployment model.
-	FailoverDeploymentModel *FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
+	FailoverDeploymentModel FailoverDeploymentModelPtrInput `pulumi:"failoverDeploymentModel"`
 	// The recovery plan groups.
 	Groups RecoveryPlanGroupArrayInput `pulumi:"groups"`
 	// The primary fabric Id.
@@ -2649,8 +2649,8 @@ func (o CreateRecoveryPlanInputPropertiesOutput) ToCreateRecoveryPlanInputProper
 }
 
 // The failover deployment model.
-func (o CreateRecoveryPlanInputPropertiesOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *string { return v.FailoverDeploymentModel }).(pulumi.StringPtrOutput)
+func (o CreateRecoveryPlanInputPropertiesOutput) FailoverDeploymentModel() FailoverDeploymentModelPtrOutput {
+	return o.ApplyT(func(v CreateRecoveryPlanInputProperties) *FailoverDeploymentModel { return v.FailoverDeploymentModel }).(FailoverDeploymentModelPtrOutput)
 }
 
 // The recovery plan groups.
@@ -2687,13 +2687,13 @@ func (o CreateRecoveryPlanInputPropertiesPtrOutput) Elem() CreateRecoveryPlanInp
 }
 
 // The failover deployment model.
-func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *string {
+func (o CreateRecoveryPlanInputPropertiesPtrOutput) FailoverDeploymentModel() FailoverDeploymentModelPtrOutput {
+	return o.ApplyT(func(v *CreateRecoveryPlanInputProperties) *FailoverDeploymentModel {
 		if v == nil {
 			return nil
 		}
 		return v.FailoverDeploymentModel
-	}).(pulumi.StringPtrOutput)
+	}).(FailoverDeploymentModelPtrOutput)
 }
 
 // The recovery plan groups.
@@ -6294,7 +6294,7 @@ type InMageAzureV2PolicyInput struct {
 	// Expected value is 'InMageAzureV2'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -6322,7 +6322,7 @@ type InMageAzureV2PolicyInputArgs struct {
 	// Expected value is 'InMageAzureV2'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatusInput `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -6373,8 +6373,8 @@ func (o InMageAzureV2PolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o InMageAzureV2PolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v InMageAzureV2PolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
+func (o InMageAzureV2PolicyInputOutput) MultiVmSyncStatus() SetMultiVmSyncStatusOutput {
+	return o.ApplyT(func(v InMageAzureV2PolicyInput) SetMultiVmSyncStatus { return v.MultiVmSyncStatus }).(SetMultiVmSyncStatusOutput)
 }
 
 // The duration in minutes until which the recovery points need to be stored.
@@ -7695,7 +7695,7 @@ type InMagePolicyInput struct {
 	// Expected value is 'InMage'.
 	InstanceType *string `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus string `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory *int `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -7721,7 +7721,7 @@ type InMagePolicyInputArgs struct {
 	// Expected value is 'InMage'.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatusInput `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -7767,8 +7767,8 @@ func (o InMagePolicyInputOutput) InstanceType() pulumi.StringPtrOutput {
 }
 
 // A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-func (o InMagePolicyInputOutput) MultiVmSyncStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v InMagePolicyInput) string { return v.MultiVmSyncStatus }).(pulumi.StringOutput)
+func (o InMagePolicyInputOutput) MultiVmSyncStatus() SetMultiVmSyncStatusOutput {
+	return o.ApplyT(func(v InMagePolicyInput) SetMultiVmSyncStatus { return v.MultiVmSyncStatus }).(SetMultiVmSyncStatusOutput)
 }
 
 // The duration in minutes until which the recovery points need to be stored.
@@ -10838,9 +10838,9 @@ type RecoveryPlanAction struct {
 	// The action name.
 	ActionName string `pulumi:"actionName"`
 	// The list of failover directions.
-	FailoverDirections []string `pulumi:"failoverDirections"`
+	FailoverDirections []PossibleOperationsDirections `pulumi:"failoverDirections"`
 	// The list of failover types.
-	FailoverTypes []string `pulumi:"failoverTypes"`
+	FailoverTypes []ReplicationProtectedItemOperation `pulumi:"failoverTypes"`
 }
 
 // RecoveryPlanActionInput is an input type that accepts RecoveryPlanActionArgs and RecoveryPlanActionOutput values.
@@ -10922,13 +10922,13 @@ func (o RecoveryPlanActionOutput) ActionName() pulumi.StringOutput {
 }
 
 // The list of failover directions.
-func (o RecoveryPlanActionOutput) FailoverDirections() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverDirections }).(pulumi.StringArrayOutput)
+func (o RecoveryPlanActionOutput) FailoverDirections() PossibleOperationsDirectionsArrayOutput {
+	return o.ApplyT(func(v RecoveryPlanAction) []PossibleOperationsDirections { return v.FailoverDirections }).(PossibleOperationsDirectionsArrayOutput)
 }
 
 // The list of failover types.
-func (o RecoveryPlanActionOutput) FailoverTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecoveryPlanAction) []string { return v.FailoverTypes }).(pulumi.StringArrayOutput)
+func (o RecoveryPlanActionOutput) FailoverTypes() ReplicationProtectedItemOperationArrayOutput {
+	return o.ApplyT(func(v RecoveryPlanAction) []ReplicationProtectedItemOperation { return v.FailoverTypes }).(ReplicationProtectedItemOperationArrayOutput)
 }
 
 type RecoveryPlanActionArrayOutput struct{ *pulumi.OutputState }
@@ -11168,7 +11168,7 @@ type RecoveryPlanGroup struct {
 	// The end group actions.
 	EndGroupActions []RecoveryPlanAction `pulumi:"endGroupActions"`
 	// The group type.
-	GroupType string `pulumi:"groupType"`
+	GroupType RecoveryPlanGroupType `pulumi:"groupType"`
 	// The list of protected items.
 	ReplicationProtectedItems []RecoveryPlanProtectedItem `pulumi:"replicationProtectedItems"`
 	// The start group actions.
@@ -11191,7 +11191,7 @@ type RecoveryPlanGroupArgs struct {
 	// The end group actions.
 	EndGroupActions RecoveryPlanActionArrayInput `pulumi:"endGroupActions"`
 	// The group type.
-	GroupType RecoveryPlanGroupType `pulumi:"groupType"`
+	GroupType RecoveryPlanGroupTypeInput `pulumi:"groupType"`
 	// The list of protected items.
 	ReplicationProtectedItems RecoveryPlanProtectedItemArrayInput `pulumi:"replicationProtectedItems"`
 	// The start group actions.
@@ -11256,8 +11256,8 @@ func (o RecoveryPlanGroupOutput) EndGroupActions() RecoveryPlanActionArrayOutput
 }
 
 // The group type.
-func (o RecoveryPlanGroupOutput) GroupType() pulumi.StringOutput {
-	return o.ApplyT(func(v RecoveryPlanGroup) string { return v.GroupType }).(pulumi.StringOutput)
+func (o RecoveryPlanGroupOutput) GroupType() RecoveryPlanGroupTypeOutput {
+	return o.ApplyT(func(v RecoveryPlanGroup) RecoveryPlanGroupType { return v.GroupType }).(RecoveryPlanGroupTypeOutput)
 }
 
 // The list of protected items.

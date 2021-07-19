@@ -92,41 +92,9 @@ func GetTemplateSpecVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSpecVersion resources.
 type templateSpecVersionState struct {
-	// An array of Template Spec artifacts.
-	Artifacts []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
-	// Template Spec version description.
-	Description *string `pulumi:"description"`
-	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location *string `pulumi:"location"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The Azure Resource Manager template content.
-	Template interface{} `pulumi:"template"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type TemplateSpecVersionState struct {
-	// An array of Template Spec artifacts.
-	Artifacts TemplateSpecTemplateArtifactResponseArrayInput
-	// Template Spec version description.
-	Description pulumi.StringPtrInput
-	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
-	Location pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The Azure Resource Manager template content.
-	Template pulumi.Input
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TemplateSpecVersionState) ElementType() reflect.Type {

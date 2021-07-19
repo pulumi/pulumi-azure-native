@@ -68,23 +68,9 @@ func GetResourceManagementPrivateLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceManagementPrivateLink resources.
 type resourceManagementPrivateLinkState struct {
-	// the region of the rmpl
-	Location *string `pulumi:"location"`
-	// The rmpl Name.
-	Name       *string                                                   `pulumi:"name"`
-	Properties *ResourceManagementPrivateLinkEndpointConnectionsResponse `pulumi:"properties"`
-	// The operation type.
-	Type *string `pulumi:"type"`
 }
 
 type ResourceManagementPrivateLinkState struct {
-	// the region of the rmpl
-	Location pulumi.StringPtrInput
-	// The rmpl Name.
-	Name       pulumi.StringPtrInput
-	Properties ResourceManagementPrivateLinkEndpointConnectionsResponsePtrInput
-	// The operation type.
-	Type pulumi.StringPtrInput
 }
 
 func (ResourceManagementPrivateLinkState) ElementType() reflect.Type {

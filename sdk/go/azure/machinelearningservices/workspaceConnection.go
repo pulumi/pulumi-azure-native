@@ -109,37 +109,9 @@ func GetWorkspaceConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceConnection resources.
 type workspaceConnectionState struct {
-	// Authorization type of the workspace connection.
-	AuthType *string `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category *string `pulumi:"category"`
-	// Friendly name of the workspace connection.
-	Name *string `pulumi:"name"`
-	// Target of the workspace connection.
-	Target *string `pulumi:"target"`
-	// Resource type of workspace connection.
-	Type *string `pulumi:"type"`
-	// Value details of the workspace connection.
-	Value *string `pulumi:"value"`
-	// format for the workspace connection value
-	ValueFormat *string `pulumi:"valueFormat"`
 }
 
 type WorkspaceConnectionState struct {
-	// Authorization type of the workspace connection.
-	AuthType pulumi.StringPtrInput
-	// Category of the workspace connection.
-	Category pulumi.StringPtrInput
-	// Friendly name of the workspace connection.
-	Name pulumi.StringPtrInput
-	// Target of the workspace connection.
-	Target pulumi.StringPtrInput
-	// Resource type of workspace connection.
-	Type pulumi.StringPtrInput
-	// Value details of the workspace connection.
-	Value pulumi.StringPtrInput
-	// format for the workspace connection value
-	ValueFormat pulumi.StringPtrInput
 }
 
 func (WorkspaceConnectionState) ElementType() reflect.Type {

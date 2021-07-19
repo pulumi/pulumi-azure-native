@@ -76,21 +76,9 @@ func GetArtifact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Artifact resources.
 type artifactState struct {
-	// Specifies the kind of blueprint artifact.
-	Kind *string `pulumi:"kind"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type ArtifactState struct {
-	// Specifies the kind of blueprint artifact.
-	Kind pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ArtifactState) ElementType() reflect.Type {

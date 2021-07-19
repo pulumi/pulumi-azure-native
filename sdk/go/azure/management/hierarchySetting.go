@@ -90,29 +90,9 @@ func GetHierarchySetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HierarchySetting resources.
 type hierarchySettingState struct {
-	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-	DefaultManagementGroup *string `pulumi:"defaultManagementGroup"`
-	// The name of the object. In this case, default.
-	Name *string `pulumi:"name"`
-	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-	RequireAuthorizationForGroupCreation *bool `pulumi:"requireAuthorizationForGroupCreation"`
-	// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
-	Type *string `pulumi:"type"`
 }
 
 type HierarchySettingState struct {
-	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-	DefaultManagementGroup pulumi.StringPtrInput
-	// The name of the object. In this case, default.
-	Name pulumi.StringPtrInput
-	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
-	RequireAuthorizationForGroupCreation pulumi.BoolPtrInput
-	// The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
-	TenantId pulumi.StringPtrInput
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
-	Type pulumi.StringPtrInput
 }
 
 func (HierarchySettingState) ElementType() reflect.Type {

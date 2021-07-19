@@ -107,53 +107,9 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
-	// The size of this cache's cache, in GB.
-	CacheSizeGB *int `pulumi:"cacheSizeGB"`
-	// Health of the cache.
-	Health *CacheHealthResponse `pulumi:"health"`
-	// Region name string.
-	Location *string `pulumi:"location"`
-	// Array of IP addresses that can be used by clients mounting this Cache.
-	MountAddresses []string `pulumi:"mountAddresses"`
-	// Name of cache.
-	Name *string `pulumi:"name"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Sku for the cache.
-	Sku *CacheResponseSku `pulumi:"sku"`
-	// Subnet used for the cache.
-	Subnet *string `pulumi:"subnet"`
-	// ARM tags as name/value pairs.
-	Tags interface{} `pulumi:"tags"`
-	// Type for the cache; Microsoft.StorageCache/Cache
-	Type *string `pulumi:"type"`
-	// Upgrade status of the cache.
-	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
 }
 
 type CacheState struct {
-	// The size of this cache's cache, in GB.
-	CacheSizeGB pulumi.IntPtrInput
-	// Health of the cache.
-	Health CacheHealthResponsePtrInput
-	// Region name string.
-	Location pulumi.StringPtrInput
-	// Array of IP addresses that can be used by clients mounting this Cache.
-	MountAddresses pulumi.StringArrayInput
-	// Name of cache.
-	Name pulumi.StringPtrInput
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrInput
-	// Sku for the cache.
-	Sku CacheResponseSkuPtrInput
-	// Subnet used for the cache.
-	Subnet pulumi.StringPtrInput
-	// ARM tags as name/value pairs.
-	Tags pulumi.Input
-	// Type for the cache; Microsoft.StorageCache/Cache
-	Type pulumi.StringPtrInput
-	// Upgrade status of the cache.
-	UpgradeStatus CacheUpgradeStatusResponsePtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {

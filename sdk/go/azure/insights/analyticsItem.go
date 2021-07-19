@@ -84,41 +84,9 @@ func GetAnalyticsItem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsItem resources.
 type analyticsItemState struct {
-	// The content of this item
-	Content *string `pulumi:"content"`
-	// The user-defined name of the item.
-	Name *string `pulumi:"name"`
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties *ApplicationInsightsComponentAnalyticsItemPropertiesResponse `pulumi:"properties"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope *string `pulumi:"scope"`
-	// Date and time in UTC when this item was created.
-	TimeCreated *string `pulumi:"timeCreated"`
-	// Date and time in UTC of the last modification that was made to this item.
-	TimeModified *string `pulumi:"timeModified"`
-	// Enum indicating the type of the Analytics item.
-	Type *string `pulumi:"type"`
-	// This instance's version of the data model. This can change as new features are added.
-	Version *string `pulumi:"version"`
 }
 
 type AnalyticsItemState struct {
-	// The content of this item
-	Content pulumi.StringPtrInput
-	// The user-defined name of the item.
-	Name pulumi.StringPtrInput
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope pulumi.StringPtrInput
-	// Date and time in UTC when this item was created.
-	TimeCreated pulumi.StringPtrInput
-	// Date and time in UTC of the last modification that was made to this item.
-	TimeModified pulumi.StringPtrInput
-	// Enum indicating the type of the Analytics item.
-	Type pulumi.StringPtrInput
-	// This instance's version of the data model. This can change as new features are added.
-	Version pulumi.StringPtrInput
 }
 
 func (AnalyticsItemState) ElementType() reflect.Type {

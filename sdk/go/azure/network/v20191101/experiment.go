@@ -86,53 +86,9 @@ func GetExperiment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Experiment resources.
 type experimentState struct {
-	// The description of the details or intents of the Experiment
-	Description *string `pulumi:"description"`
-	// The state of the Experiment
-	EnabledState *string `pulumi:"enabledState"`
-	// The endpoint A of an experiment
-	EndpointA *ExperimentEndpointResponse `pulumi:"endpointA"`
-	// The endpoint B of an experiment
-	EndpointB *ExperimentEndpointResponse `pulumi:"endpointB"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource status.
-	ResourceState *string `pulumi:"resourceState"`
-	// The uri to the Script used in the Experiment
-	ScriptFileUri *string `pulumi:"scriptFileUri"`
-	// The description of Experiment status from the server side
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ExperimentState struct {
-	// The description of the details or intents of the Experiment
-	Description pulumi.StringPtrInput
-	// The state of the Experiment
-	EnabledState pulumi.StringPtrInput
-	// The endpoint A of an experiment
-	EndpointA ExperimentEndpointResponsePtrInput
-	// The endpoint B of an experiment
-	EndpointB ExperimentEndpointResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource status.
-	ResourceState pulumi.StringPtrInput
-	// The uri to the Script used in the Experiment
-	ScriptFileUri pulumi.StringPtrInput
-	// The description of Experiment status from the server side
-	Status pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ExperimentState) ElementType() reflect.Type {

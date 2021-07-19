@@ -19,7 +19,7 @@ func ListWorkflowCallbackUrl(ctx *pulumi.Context, args *ListWorkflowCallbackUrlA
 
 type ListWorkflowCallbackUrlArgs struct {
 	// The key type.
-	KeyType *string `pulumi:"keyType"`
+	KeyType *KeyType `pulumi:"keyType"`
 	// The expiry time.
 	NotAfter *string `pulumi:"notAfter"`
 	// The resource group name.

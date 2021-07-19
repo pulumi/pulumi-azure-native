@@ -84,53 +84,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The URI of the workspace endpoint.
-	EndpointUri *string `pulumi:"endpointUri"`
-	// Managed Identity information.
-	Identity *QuantumWorkspaceResponseIdentity `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// List of Providers selected for this Workspace
-	Providers []ProviderResponse `pulumi:"providers"`
-	// Provisioning status field
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// ARM Resource Id of the storage account associated with this workspace.
-	StorageAccount *string `pulumi:"storageAccount"`
-	// System metadata
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Whether the current workspace is ready to accept Jobs.
-	Usable *string `pulumi:"usable"`
 }
 
 type WorkspaceState struct {
-	// The URI of the workspace endpoint.
-	EndpointUri pulumi.StringPtrInput
-	// Managed Identity information.
-	Identity QuantumWorkspaceResponseIdentityPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// List of Providers selected for this Workspace
-	Providers ProviderResponseArrayInput
-	// Provisioning status field
-	ProvisioningState pulumi.StringPtrInput
-	// ARM Resource Id of the storage account associated with this workspace.
-	StorageAccount pulumi.StringPtrInput
-	// System metadata
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Whether the current workspace is ready to accept Jobs.
-	Usable pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

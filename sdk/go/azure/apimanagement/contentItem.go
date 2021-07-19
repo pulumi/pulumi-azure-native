@@ -92,21 +92,9 @@ func GetContentItem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContentItem resources.
 type contentItemState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Properties of the content item.
-	Properties interface{} `pulumi:"properties"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type ContentItemState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Properties of the content item.
-	Properties pulumi.Input
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ContentItemState) ElementType() reflect.Type {

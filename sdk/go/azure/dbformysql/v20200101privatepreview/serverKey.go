@@ -85,33 +85,9 @@ func GetServerKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerKey resources.
 type serverKeyState struct {
-	// The key creation date.
-	CreationDate *string `pulumi:"creationDate"`
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind *string `pulumi:"kind"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The key type like 'AzureKeyVault'.
-	ServerKeyType *string `pulumi:"serverKeyType"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The URI of the key.
-	Uri *string `pulumi:"uri"`
 }
 
 type ServerKeyState struct {
-	// The key creation date.
-	CreationDate pulumi.StringPtrInput
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The key type like 'AzureKeyVault'.
-	ServerKeyType pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The URI of the key.
-	Uri pulumi.StringPtrInput
 }
 
 func (ServerKeyState) ElementType() reflect.Type {

@@ -108,37 +108,9 @@ func GetObjectReplicationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectReplicationPolicy resources.
 type objectReplicationPolicyState struct {
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
-	DestinationAccount *string `pulumi:"destinationAccount"`
-	// Indicates when the policy is enabled on the source account.
-	EnabledTime *string `pulumi:"enabledTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// A unique id for object replication policy.
-	PolicyId *string `pulumi:"policyId"`
-	// The storage account object replication rules.
-	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
-	SourceAccount *string `pulumi:"sourceAccount"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ObjectReplicationPolicyState struct {
-	// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
-	DestinationAccount pulumi.StringPtrInput
-	// Indicates when the policy is enabled on the source account.
-	EnabledTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// A unique id for object replication policy.
-	PolicyId pulumi.StringPtrInput
-	// The storage account object replication rules.
-	Rules ObjectReplicationPolicyRuleResponseArrayInput
-	// Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
-	SourceAccount pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ObjectReplicationPolicyState) ElementType() reflect.Type {

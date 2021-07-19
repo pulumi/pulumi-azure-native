@@ -11,7 +11,7 @@ import (
 )
 
 // Describes the override action to be applied when rule matches.
-type ActionType pulumi.String
+type ActionType string
 
 const (
 	ActionTypeAllow    = ActionType("Allow")
@@ -21,7 +21,23 @@ const (
 )
 
 func (ActionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ActionType)(nil)).Elem()
+}
+
+func (e ActionType) ToActionTypeOutput() ActionTypeOutput {
+	return pulumi.ToOutput(e).(ActionTypeOutput)
+}
+
+func (e ActionType) ToActionTypeOutputWithContext(ctx context.Context) ActionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionTypeOutput)
+}
+
+func (e ActionType) ToActionTypePtrOutput() ActionTypePtrOutput {
+	return e.ToActionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ActionType) ToActionTypePtrOutputWithContext(ctx context.Context) ActionTypePtrOutput {
+	return ActionType(e).ToActionTypeOutputWithContext(ctx).ToActionTypePtrOutputWithContext(ctx)
 }
 
 func (e ActionType) ToStringOutput() pulumi.StringOutput {
@@ -40,8 +56,129 @@ func (e ActionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ActionTypeOutput struct{ *pulumi.OutputState }
+
+func (ActionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionType)(nil)).Elem()
+}
+
+func (o ActionTypeOutput) ToActionTypeOutput() ActionTypeOutput {
+	return o
+}
+
+func (o ActionTypeOutput) ToActionTypeOutputWithContext(ctx context.Context) ActionTypeOutput {
+	return o
+}
+
+func (o ActionTypeOutput) ToActionTypePtrOutput() ActionTypePtrOutput {
+	return o.ToActionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ActionTypeOutput) ToActionTypePtrOutputWithContext(ctx context.Context) ActionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionType) *ActionType {
+		return &v
+	}).(ActionTypePtrOutput)
+}
+
+func (o ActionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionTypePtrOutput) ElementType() reflect.Type {
+	return actionTypePtrType
+}
+
+func (o ActionTypePtrOutput) ToActionTypePtrOutput() ActionTypePtrOutput {
+	return o
+}
+
+func (o ActionTypePtrOutput) ToActionTypePtrOutputWithContext(ctx context.Context) ActionTypePtrOutput {
+	return o
+}
+
+func (o ActionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ActionTypePtrOutput) Elem() ActionTypeOutput {
+	return o.ApplyT(func(v *ActionType) ActionType {
+		var ret ActionType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ActionTypeOutput)
+}
+
+// ActionTypeInput is an input type that accepts ActionTypeArgs and ActionTypeOutput values.
+// You can construct a concrete instance of `ActionTypeInput` via:
+//
+//          ActionTypeArgs{...}
+type ActionTypeInput interface {
+	pulumi.Input
+
+	ToActionTypeOutput() ActionTypeOutput
+	ToActionTypeOutputWithContext(context.Context) ActionTypeOutput
+}
+
+var actionTypePtrType = reflect.TypeOf((**ActionType)(nil)).Elem()
+
+type ActionTypePtrInput interface {
+	pulumi.Input
+
+	ToActionTypePtrOutput() ActionTypePtrOutput
+	ToActionTypePtrOutputWithContext(context.Context) ActionTypePtrOutput
+}
+
+type actionTypePtr string
+
+func ActionTypePtr(v string) ActionTypePtrInput {
+	return (*actionTypePtr)(&v)
+}
+
+func (*actionTypePtr) ElementType() reflect.Type {
+	return actionTypePtrType
+}
+
+func (in *actionTypePtr) ToActionTypePtrOutput() ActionTypePtrOutput {
+	return pulumi.ToOutput(in).(ActionTypePtrOutput)
+}
+
+func (in *actionTypePtr) ToActionTypePtrOutputWithContext(ctx context.Context) ActionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionTypePtrOutput)
+}
+
 // Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-type CustomRuleEnabledState pulumi.String
+type CustomRuleEnabledState string
 
 const (
 	CustomRuleEnabledStateDisabled = CustomRuleEnabledState("Disabled")
@@ -49,7 +186,23 @@ const (
 )
 
 func (CustomRuleEnabledState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*CustomRuleEnabledState)(nil)).Elem()
+}
+
+func (e CustomRuleEnabledState) ToCustomRuleEnabledStateOutput() CustomRuleEnabledStateOutput {
+	return pulumi.ToOutput(e).(CustomRuleEnabledStateOutput)
+}
+
+func (e CustomRuleEnabledState) ToCustomRuleEnabledStateOutputWithContext(ctx context.Context) CustomRuleEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomRuleEnabledStateOutput)
+}
+
+func (e CustomRuleEnabledState) ToCustomRuleEnabledStatePtrOutput() CustomRuleEnabledStatePtrOutput {
+	return e.ToCustomRuleEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e CustomRuleEnabledState) ToCustomRuleEnabledStatePtrOutputWithContext(ctx context.Context) CustomRuleEnabledStatePtrOutput {
+	return CustomRuleEnabledState(e).ToCustomRuleEnabledStateOutputWithContext(ctx).ToCustomRuleEnabledStatePtrOutputWithContext(ctx)
 }
 
 func (e CustomRuleEnabledState) ToStringOutput() pulumi.StringOutput {
@@ -68,8 +221,129 @@ func (e CustomRuleEnabledState) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type CustomRuleEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (CustomRuleEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomRuleEnabledState)(nil)).Elem()
+}
+
+func (o CustomRuleEnabledStateOutput) ToCustomRuleEnabledStateOutput() CustomRuleEnabledStateOutput {
+	return o
+}
+
+func (o CustomRuleEnabledStateOutput) ToCustomRuleEnabledStateOutputWithContext(ctx context.Context) CustomRuleEnabledStateOutput {
+	return o
+}
+
+func (o CustomRuleEnabledStateOutput) ToCustomRuleEnabledStatePtrOutput() CustomRuleEnabledStatePtrOutput {
+	return o.ToCustomRuleEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o CustomRuleEnabledStateOutput) ToCustomRuleEnabledStatePtrOutputWithContext(ctx context.Context) CustomRuleEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomRuleEnabledState) *CustomRuleEnabledState {
+		return &v
+	}).(CustomRuleEnabledStatePtrOutput)
+}
+
+func (o CustomRuleEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomRuleEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomRuleEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomRuleEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomRuleEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomRuleEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomRuleEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomRuleEnabledStatePtrOutput) ElementType() reflect.Type {
+	return customRuleEnabledStatePtrType
+}
+
+func (o CustomRuleEnabledStatePtrOutput) ToCustomRuleEnabledStatePtrOutput() CustomRuleEnabledStatePtrOutput {
+	return o
+}
+
+func (o CustomRuleEnabledStatePtrOutput) ToCustomRuleEnabledStatePtrOutputWithContext(ctx context.Context) CustomRuleEnabledStatePtrOutput {
+	return o
+}
+
+func (o CustomRuleEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomRuleEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomRuleEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CustomRuleEnabledStatePtrOutput) Elem() CustomRuleEnabledStateOutput {
+	return o.ApplyT(func(v *CustomRuleEnabledState) CustomRuleEnabledState {
+		var ret CustomRuleEnabledState
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(CustomRuleEnabledStateOutput)
+}
+
+// CustomRuleEnabledStateInput is an input type that accepts CustomRuleEnabledStateArgs and CustomRuleEnabledStateOutput values.
+// You can construct a concrete instance of `CustomRuleEnabledStateInput` via:
+//
+//          CustomRuleEnabledStateArgs{...}
+type CustomRuleEnabledStateInput interface {
+	pulumi.Input
+
+	ToCustomRuleEnabledStateOutput() CustomRuleEnabledStateOutput
+	ToCustomRuleEnabledStateOutputWithContext(context.Context) CustomRuleEnabledStateOutput
+}
+
+var customRuleEnabledStatePtrType = reflect.TypeOf((**CustomRuleEnabledState)(nil)).Elem()
+
+type CustomRuleEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToCustomRuleEnabledStatePtrOutput() CustomRuleEnabledStatePtrOutput
+	ToCustomRuleEnabledStatePtrOutputWithContext(context.Context) CustomRuleEnabledStatePtrOutput
+}
+
+type customRuleEnabledStatePtr string
+
+func CustomRuleEnabledStatePtr(v string) CustomRuleEnabledStatePtrInput {
+	return (*customRuleEnabledStatePtr)(&v)
+}
+
+func (*customRuleEnabledStatePtr) ElementType() reflect.Type {
+	return customRuleEnabledStatePtrType
+}
+
+func (in *customRuleEnabledStatePtr) ToCustomRuleEnabledStatePtrOutput() CustomRuleEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(CustomRuleEnabledStatePtrOutput)
+}
+
+func (in *customRuleEnabledStatePtr) ToCustomRuleEnabledStatePtrOutputWithContext(ctx context.Context) CustomRuleEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomRuleEnabledStatePtrOutput)
+}
+
 // Request variable to compare with.
-type FrontDoorMatchVariable pulumi.String
+type FrontDoorMatchVariable string
 
 const (
 	FrontDoorMatchVariableRemoteAddr    = FrontDoorMatchVariable("RemoteAddr")
@@ -84,7 +358,23 @@ const (
 )
 
 func (FrontDoorMatchVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*FrontDoorMatchVariable)(nil)).Elem()
+}
+
+func (e FrontDoorMatchVariable) ToFrontDoorMatchVariableOutput() FrontDoorMatchVariableOutput {
+	return pulumi.ToOutput(e).(FrontDoorMatchVariableOutput)
+}
+
+func (e FrontDoorMatchVariable) ToFrontDoorMatchVariableOutputWithContext(ctx context.Context) FrontDoorMatchVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FrontDoorMatchVariableOutput)
+}
+
+func (e FrontDoorMatchVariable) ToFrontDoorMatchVariablePtrOutput() FrontDoorMatchVariablePtrOutput {
+	return e.ToFrontDoorMatchVariablePtrOutputWithContext(context.Background())
+}
+
+func (e FrontDoorMatchVariable) ToFrontDoorMatchVariablePtrOutputWithContext(ctx context.Context) FrontDoorMatchVariablePtrOutput {
+	return FrontDoorMatchVariable(e).ToFrontDoorMatchVariableOutputWithContext(ctx).ToFrontDoorMatchVariablePtrOutputWithContext(ctx)
 }
 
 func (e FrontDoorMatchVariable) ToStringOutput() pulumi.StringOutput {
@@ -103,8 +393,129 @@ func (e FrontDoorMatchVariable) ToStringPtrOutputWithContext(ctx context.Context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type FrontDoorMatchVariableOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorMatchVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontDoorMatchVariable)(nil)).Elem()
+}
+
+func (o FrontDoorMatchVariableOutput) ToFrontDoorMatchVariableOutput() FrontDoorMatchVariableOutput {
+	return o
+}
+
+func (o FrontDoorMatchVariableOutput) ToFrontDoorMatchVariableOutputWithContext(ctx context.Context) FrontDoorMatchVariableOutput {
+	return o
+}
+
+func (o FrontDoorMatchVariableOutput) ToFrontDoorMatchVariablePtrOutput() FrontDoorMatchVariablePtrOutput {
+	return o.ToFrontDoorMatchVariablePtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorMatchVariableOutput) ToFrontDoorMatchVariablePtrOutputWithContext(ctx context.Context) FrontDoorMatchVariablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontDoorMatchVariable) *FrontDoorMatchVariable {
+		return &v
+	}).(FrontDoorMatchVariablePtrOutput)
+}
+
+func (o FrontDoorMatchVariableOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FrontDoorMatchVariableOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorMatchVariable) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FrontDoorMatchVariableOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorMatchVariableOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FrontDoorMatchVariable) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontDoorMatchVariablePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontDoorMatchVariablePtrOutput) ElementType() reflect.Type {
+	return frontDoorMatchVariablePtrType
+}
+
+func (o FrontDoorMatchVariablePtrOutput) ToFrontDoorMatchVariablePtrOutput() FrontDoorMatchVariablePtrOutput {
+	return o
+}
+
+func (o FrontDoorMatchVariablePtrOutput) ToFrontDoorMatchVariablePtrOutputWithContext(ctx context.Context) FrontDoorMatchVariablePtrOutput {
+	return o
+}
+
+func (o FrontDoorMatchVariablePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FrontDoorMatchVariablePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FrontDoorMatchVariable) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FrontDoorMatchVariablePtrOutput) Elem() FrontDoorMatchVariableOutput {
+	return o.ApplyT(func(v *FrontDoorMatchVariable) FrontDoorMatchVariable {
+		var ret FrontDoorMatchVariable
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(FrontDoorMatchVariableOutput)
+}
+
+// FrontDoorMatchVariableInput is an input type that accepts FrontDoorMatchVariableArgs and FrontDoorMatchVariableOutput values.
+// You can construct a concrete instance of `FrontDoorMatchVariableInput` via:
+//
+//          FrontDoorMatchVariableArgs{...}
+type FrontDoorMatchVariableInput interface {
+	pulumi.Input
+
+	ToFrontDoorMatchVariableOutput() FrontDoorMatchVariableOutput
+	ToFrontDoorMatchVariableOutputWithContext(context.Context) FrontDoorMatchVariableOutput
+}
+
+var frontDoorMatchVariablePtrType = reflect.TypeOf((**FrontDoorMatchVariable)(nil)).Elem()
+
+type FrontDoorMatchVariablePtrInput interface {
+	pulumi.Input
+
+	ToFrontDoorMatchVariablePtrOutput() FrontDoorMatchVariablePtrOutput
+	ToFrontDoorMatchVariablePtrOutputWithContext(context.Context) FrontDoorMatchVariablePtrOutput
+}
+
+type frontDoorMatchVariablePtr string
+
+func FrontDoorMatchVariablePtr(v string) FrontDoorMatchVariablePtrInput {
+	return (*frontDoorMatchVariablePtr)(&v)
+}
+
+func (*frontDoorMatchVariablePtr) ElementType() reflect.Type {
+	return frontDoorMatchVariablePtrType
+}
+
+func (in *frontDoorMatchVariablePtr) ToFrontDoorMatchVariablePtrOutput() FrontDoorMatchVariablePtrOutput {
+	return pulumi.ToOutput(in).(FrontDoorMatchVariablePtrOutput)
+}
+
+func (in *frontDoorMatchVariablePtr) ToFrontDoorMatchVariablePtrOutputWithContext(ctx context.Context) FrontDoorMatchVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FrontDoorMatchVariablePtrOutput)
+}
+
 // Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-type ManagedRuleEnabledState pulumi.String
+type ManagedRuleEnabledState string
 
 const (
 	ManagedRuleEnabledStateDisabled = ManagedRuleEnabledState("Disabled")
@@ -112,7 +523,23 @@ const (
 )
 
 func (ManagedRuleEnabledState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ManagedRuleEnabledState)(nil)).Elem()
+}
+
+func (e ManagedRuleEnabledState) ToManagedRuleEnabledStateOutput() ManagedRuleEnabledStateOutput {
+	return pulumi.ToOutput(e).(ManagedRuleEnabledStateOutput)
+}
+
+func (e ManagedRuleEnabledState) ToManagedRuleEnabledStateOutputWithContext(ctx context.Context) ManagedRuleEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedRuleEnabledStateOutput)
+}
+
+func (e ManagedRuleEnabledState) ToManagedRuleEnabledStatePtrOutput() ManagedRuleEnabledStatePtrOutput {
+	return e.ToManagedRuleEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e ManagedRuleEnabledState) ToManagedRuleEnabledStatePtrOutputWithContext(ctx context.Context) ManagedRuleEnabledStatePtrOutput {
+	return ManagedRuleEnabledState(e).ToManagedRuleEnabledStateOutputWithContext(ctx).ToManagedRuleEnabledStatePtrOutputWithContext(ctx)
 }
 
 func (e ManagedRuleEnabledState) ToStringOutput() pulumi.StringOutput {
@@ -131,8 +558,129 @@ func (e ManagedRuleEnabledState) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ManagedRuleEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleEnabledState)(nil)).Elem()
+}
+
+func (o ManagedRuleEnabledStateOutput) ToManagedRuleEnabledStateOutput() ManagedRuleEnabledStateOutput {
+	return o
+}
+
+func (o ManagedRuleEnabledStateOutput) ToManagedRuleEnabledStateOutputWithContext(ctx context.Context) ManagedRuleEnabledStateOutput {
+	return o
+}
+
+func (o ManagedRuleEnabledStateOutput) ToManagedRuleEnabledStatePtrOutput() ManagedRuleEnabledStatePtrOutput {
+	return o.ToManagedRuleEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleEnabledStateOutput) ToManagedRuleEnabledStatePtrOutputWithContext(ctx context.Context) ManagedRuleEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleEnabledState) *ManagedRuleEnabledState {
+		return &v
+	}).(ManagedRuleEnabledStatePtrOutput)
+}
+
+func (o ManagedRuleEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedRuleEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedRuleEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedRuleEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedRuleEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleEnabledStatePtrOutput) ElementType() reflect.Type {
+	return managedRuleEnabledStatePtrType
+}
+
+func (o ManagedRuleEnabledStatePtrOutput) ToManagedRuleEnabledStatePtrOutput() ManagedRuleEnabledStatePtrOutput {
+	return o
+}
+
+func (o ManagedRuleEnabledStatePtrOutput) ToManagedRuleEnabledStatePtrOutputWithContext(ctx context.Context) ManagedRuleEnabledStatePtrOutput {
+	return o
+}
+
+func (o ManagedRuleEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedRuleEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedRuleEnabledStatePtrOutput) Elem() ManagedRuleEnabledStateOutput {
+	return o.ApplyT(func(v *ManagedRuleEnabledState) ManagedRuleEnabledState {
+		var ret ManagedRuleEnabledState
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ManagedRuleEnabledStateOutput)
+}
+
+// ManagedRuleEnabledStateInput is an input type that accepts ManagedRuleEnabledStateArgs and ManagedRuleEnabledStateOutput values.
+// You can construct a concrete instance of `ManagedRuleEnabledStateInput` via:
+//
+//          ManagedRuleEnabledStateArgs{...}
+type ManagedRuleEnabledStateInput interface {
+	pulumi.Input
+
+	ToManagedRuleEnabledStateOutput() ManagedRuleEnabledStateOutput
+	ToManagedRuleEnabledStateOutputWithContext(context.Context) ManagedRuleEnabledStateOutput
+}
+
+var managedRuleEnabledStatePtrType = reflect.TypeOf((**ManagedRuleEnabledState)(nil)).Elem()
+
+type ManagedRuleEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToManagedRuleEnabledStatePtrOutput() ManagedRuleEnabledStatePtrOutput
+	ToManagedRuleEnabledStatePtrOutputWithContext(context.Context) ManagedRuleEnabledStatePtrOutput
+}
+
+type managedRuleEnabledStatePtr string
+
+func ManagedRuleEnabledStatePtr(v string) ManagedRuleEnabledStatePtrInput {
+	return (*managedRuleEnabledStatePtr)(&v)
+}
+
+func (*managedRuleEnabledStatePtr) ElementType() reflect.Type {
+	return managedRuleEnabledStatePtrType
+}
+
+func (in *managedRuleEnabledStatePtr) ToManagedRuleEnabledStatePtrOutput() ManagedRuleEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(ManagedRuleEnabledStatePtrOutput)
+}
+
+func (in *managedRuleEnabledStatePtr) ToManagedRuleEnabledStatePtrOutputWithContext(ctx context.Context) ManagedRuleEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleEnabledStatePtrOutput)
+}
+
 // The variable type to be excluded.
-type ManagedRuleExclusionMatchVariable pulumi.String
+type ManagedRuleExclusionMatchVariable string
 
 const (
 	ManagedRuleExclusionMatchVariableRequestHeaderNames      = ManagedRuleExclusionMatchVariable("RequestHeaderNames")
@@ -142,7 +690,23 @@ const (
 )
 
 func (ManagedRuleExclusionMatchVariable) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ManagedRuleExclusionMatchVariable)(nil)).Elem()
+}
+
+func (e ManagedRuleExclusionMatchVariable) ToManagedRuleExclusionMatchVariableOutput() ManagedRuleExclusionMatchVariableOutput {
+	return pulumi.ToOutput(e).(ManagedRuleExclusionMatchVariableOutput)
+}
+
+func (e ManagedRuleExclusionMatchVariable) ToManagedRuleExclusionMatchVariableOutputWithContext(ctx context.Context) ManagedRuleExclusionMatchVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedRuleExclusionMatchVariableOutput)
+}
+
+func (e ManagedRuleExclusionMatchVariable) ToManagedRuleExclusionMatchVariablePtrOutput() ManagedRuleExclusionMatchVariablePtrOutput {
+	return e.ToManagedRuleExclusionMatchVariablePtrOutputWithContext(context.Background())
+}
+
+func (e ManagedRuleExclusionMatchVariable) ToManagedRuleExclusionMatchVariablePtrOutputWithContext(ctx context.Context) ManagedRuleExclusionMatchVariablePtrOutput {
+	return ManagedRuleExclusionMatchVariable(e).ToManagedRuleExclusionMatchVariableOutputWithContext(ctx).ToManagedRuleExclusionMatchVariablePtrOutputWithContext(ctx)
 }
 
 func (e ManagedRuleExclusionMatchVariable) ToStringOutput() pulumi.StringOutput {
@@ -161,8 +725,129 @@ func (e ManagedRuleExclusionMatchVariable) ToStringPtrOutputWithContext(ctx cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ManagedRuleExclusionMatchVariableOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleExclusionMatchVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleExclusionMatchVariable)(nil)).Elem()
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToManagedRuleExclusionMatchVariableOutput() ManagedRuleExclusionMatchVariableOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToManagedRuleExclusionMatchVariableOutputWithContext(ctx context.Context) ManagedRuleExclusionMatchVariableOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToManagedRuleExclusionMatchVariablePtrOutput() ManagedRuleExclusionMatchVariablePtrOutput {
+	return o.ToManagedRuleExclusionMatchVariablePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToManagedRuleExclusionMatchVariablePtrOutputWithContext(ctx context.Context) ManagedRuleExclusionMatchVariablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleExclusionMatchVariable) *ManagedRuleExclusionMatchVariable {
+		return &v
+	}).(ManagedRuleExclusionMatchVariablePtrOutput)
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedRuleExclusionMatchVariable) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionMatchVariableOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedRuleExclusionMatchVariable) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedRuleExclusionMatchVariablePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleExclusionMatchVariablePtrOutput) ElementType() reflect.Type {
+	return managedRuleExclusionMatchVariablePtrType
+}
+
+func (o ManagedRuleExclusionMatchVariablePtrOutput) ToManagedRuleExclusionMatchVariablePtrOutput() ManagedRuleExclusionMatchVariablePtrOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionMatchVariablePtrOutput) ToManagedRuleExclusionMatchVariablePtrOutputWithContext(ctx context.Context) ManagedRuleExclusionMatchVariablePtrOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionMatchVariablePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionMatchVariablePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedRuleExclusionMatchVariable) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedRuleExclusionMatchVariablePtrOutput) Elem() ManagedRuleExclusionMatchVariableOutput {
+	return o.ApplyT(func(v *ManagedRuleExclusionMatchVariable) ManagedRuleExclusionMatchVariable {
+		var ret ManagedRuleExclusionMatchVariable
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ManagedRuleExclusionMatchVariableOutput)
+}
+
+// ManagedRuleExclusionMatchVariableInput is an input type that accepts ManagedRuleExclusionMatchVariableArgs and ManagedRuleExclusionMatchVariableOutput values.
+// You can construct a concrete instance of `ManagedRuleExclusionMatchVariableInput` via:
+//
+//          ManagedRuleExclusionMatchVariableArgs{...}
+type ManagedRuleExclusionMatchVariableInput interface {
+	pulumi.Input
+
+	ToManagedRuleExclusionMatchVariableOutput() ManagedRuleExclusionMatchVariableOutput
+	ToManagedRuleExclusionMatchVariableOutputWithContext(context.Context) ManagedRuleExclusionMatchVariableOutput
+}
+
+var managedRuleExclusionMatchVariablePtrType = reflect.TypeOf((**ManagedRuleExclusionMatchVariable)(nil)).Elem()
+
+type ManagedRuleExclusionMatchVariablePtrInput interface {
+	pulumi.Input
+
+	ToManagedRuleExclusionMatchVariablePtrOutput() ManagedRuleExclusionMatchVariablePtrOutput
+	ToManagedRuleExclusionMatchVariablePtrOutputWithContext(context.Context) ManagedRuleExclusionMatchVariablePtrOutput
+}
+
+type managedRuleExclusionMatchVariablePtr string
+
+func ManagedRuleExclusionMatchVariablePtr(v string) ManagedRuleExclusionMatchVariablePtrInput {
+	return (*managedRuleExclusionMatchVariablePtr)(&v)
+}
+
+func (*managedRuleExclusionMatchVariablePtr) ElementType() reflect.Type {
+	return managedRuleExclusionMatchVariablePtrType
+}
+
+func (in *managedRuleExclusionMatchVariablePtr) ToManagedRuleExclusionMatchVariablePtrOutput() ManagedRuleExclusionMatchVariablePtrOutput {
+	return pulumi.ToOutput(in).(ManagedRuleExclusionMatchVariablePtrOutput)
+}
+
+func (in *managedRuleExclusionMatchVariablePtr) ToManagedRuleExclusionMatchVariablePtrOutputWithContext(ctx context.Context) ManagedRuleExclusionMatchVariablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleExclusionMatchVariablePtrOutput)
+}
+
 // Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
-type ManagedRuleExclusionSelectorMatchOperator pulumi.String
+type ManagedRuleExclusionSelectorMatchOperator string
 
 const (
 	ManagedRuleExclusionSelectorMatchOperatorEquals     = ManagedRuleExclusionSelectorMatchOperator("Equals")
@@ -173,7 +858,23 @@ const (
 )
 
 func (ManagedRuleExclusionSelectorMatchOperator) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ManagedRuleExclusionSelectorMatchOperator)(nil)).Elem()
+}
+
+func (e ManagedRuleExclusionSelectorMatchOperator) ToManagedRuleExclusionSelectorMatchOperatorOutput() ManagedRuleExclusionSelectorMatchOperatorOutput {
+	return pulumi.ToOutput(e).(ManagedRuleExclusionSelectorMatchOperatorOutput)
+}
+
+func (e ManagedRuleExclusionSelectorMatchOperator) ToManagedRuleExclusionSelectorMatchOperatorOutputWithContext(ctx context.Context) ManagedRuleExclusionSelectorMatchOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedRuleExclusionSelectorMatchOperatorOutput)
+}
+
+func (e ManagedRuleExclusionSelectorMatchOperator) ToManagedRuleExclusionSelectorMatchOperatorPtrOutput() ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return e.ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e ManagedRuleExclusionSelectorMatchOperator) ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(ctx context.Context) ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return ManagedRuleExclusionSelectorMatchOperator(e).ToManagedRuleExclusionSelectorMatchOperatorOutputWithContext(ctx).ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(ctx)
 }
 
 func (e ManagedRuleExclusionSelectorMatchOperator) ToStringOutput() pulumi.StringOutput {
@@ -192,8 +893,129 @@ func (e ManagedRuleExclusionSelectorMatchOperator) ToStringPtrOutputWithContext(
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ManagedRuleExclusionSelectorMatchOperatorOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleExclusionSelectorMatchOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedRuleExclusionSelectorMatchOperator)(nil)).Elem()
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToManagedRuleExclusionSelectorMatchOperatorOutput() ManagedRuleExclusionSelectorMatchOperatorOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToManagedRuleExclusionSelectorMatchOperatorOutputWithContext(ctx context.Context) ManagedRuleExclusionSelectorMatchOperatorOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToManagedRuleExclusionSelectorMatchOperatorPtrOutput() ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return o.ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(ctx context.Context) ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedRuleExclusionSelectorMatchOperator) *ManagedRuleExclusionSelectorMatchOperator {
+		return &v
+	}).(ManagedRuleExclusionSelectorMatchOperatorPtrOutput)
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedRuleExclusionSelectorMatchOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedRuleExclusionSelectorMatchOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ManagedRuleExclusionSelectorMatchOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedRuleExclusionSelectorMatchOperatorPtrOutput) ElementType() reflect.Type {
+	return managedRuleExclusionSelectorMatchOperatorPtrType
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorPtrOutput) ToManagedRuleExclusionSelectorMatchOperatorPtrOutput() ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorPtrOutput) ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(ctx context.Context) ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return o
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedRuleExclusionSelectorMatchOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedRuleExclusionSelectorMatchOperatorPtrOutput) Elem() ManagedRuleExclusionSelectorMatchOperatorOutput {
+	return o.ApplyT(func(v *ManagedRuleExclusionSelectorMatchOperator) ManagedRuleExclusionSelectorMatchOperator {
+		var ret ManagedRuleExclusionSelectorMatchOperator
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ManagedRuleExclusionSelectorMatchOperatorOutput)
+}
+
+// ManagedRuleExclusionSelectorMatchOperatorInput is an input type that accepts ManagedRuleExclusionSelectorMatchOperatorArgs and ManagedRuleExclusionSelectorMatchOperatorOutput values.
+// You can construct a concrete instance of `ManagedRuleExclusionSelectorMatchOperatorInput` via:
+//
+//          ManagedRuleExclusionSelectorMatchOperatorArgs{...}
+type ManagedRuleExclusionSelectorMatchOperatorInput interface {
+	pulumi.Input
+
+	ToManagedRuleExclusionSelectorMatchOperatorOutput() ManagedRuleExclusionSelectorMatchOperatorOutput
+	ToManagedRuleExclusionSelectorMatchOperatorOutputWithContext(context.Context) ManagedRuleExclusionSelectorMatchOperatorOutput
+}
+
+var managedRuleExclusionSelectorMatchOperatorPtrType = reflect.TypeOf((**ManagedRuleExclusionSelectorMatchOperator)(nil)).Elem()
+
+type ManagedRuleExclusionSelectorMatchOperatorPtrInput interface {
+	pulumi.Input
+
+	ToManagedRuleExclusionSelectorMatchOperatorPtrOutput() ManagedRuleExclusionSelectorMatchOperatorPtrOutput
+	ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(context.Context) ManagedRuleExclusionSelectorMatchOperatorPtrOutput
+}
+
+type managedRuleExclusionSelectorMatchOperatorPtr string
+
+func ManagedRuleExclusionSelectorMatchOperatorPtr(v string) ManagedRuleExclusionSelectorMatchOperatorPtrInput {
+	return (*managedRuleExclusionSelectorMatchOperatorPtr)(&v)
+}
+
+func (*managedRuleExclusionSelectorMatchOperatorPtr) ElementType() reflect.Type {
+	return managedRuleExclusionSelectorMatchOperatorPtrType
+}
+
+func (in *managedRuleExclusionSelectorMatchOperatorPtr) ToManagedRuleExclusionSelectorMatchOperatorPtrOutput() ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return pulumi.ToOutput(in).(ManagedRuleExclusionSelectorMatchOperatorPtrOutput)
+}
+
+func (in *managedRuleExclusionSelectorMatchOperatorPtr) ToManagedRuleExclusionSelectorMatchOperatorPtrOutputWithContext(ctx context.Context) ManagedRuleExclusionSelectorMatchOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedRuleExclusionSelectorMatchOperatorPtrOutput)
+}
+
 // Comparison type to use for matching with the variable value.
-type Operator pulumi.String
+type Operator string
 
 const (
 	OperatorAny                = Operator("Any")
@@ -211,7 +1033,23 @@ const (
 )
 
 func (Operator) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Operator)(nil)).Elem()
+}
+
+func (e Operator) ToOperatorOutput() OperatorOutput {
+	return pulumi.ToOutput(e).(OperatorOutput)
+}
+
+func (e Operator) ToOperatorOutputWithContext(ctx context.Context) OperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OperatorOutput)
+}
+
+func (e Operator) ToOperatorPtrOutput() OperatorPtrOutput {
+	return e.ToOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e Operator) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
+	return Operator(e).ToOperatorOutputWithContext(ctx).ToOperatorPtrOutputWithContext(ctx)
 }
 
 func (e Operator) ToStringOutput() pulumi.StringOutput {
@@ -230,8 +1068,129 @@ func (e Operator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type OperatorOutput struct{ *pulumi.OutputState }
+
+func (OperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Operator)(nil)).Elem()
+}
+
+func (o OperatorOutput) ToOperatorOutput() OperatorOutput {
+	return o
+}
+
+func (o OperatorOutput) ToOperatorOutputWithContext(ctx context.Context) OperatorOutput {
+	return o
+}
+
+func (o OperatorOutput) ToOperatorPtrOutput() OperatorPtrOutput {
+	return o.ToOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o OperatorOutput) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Operator) *Operator {
+		return &v
+	}).(OperatorPtrOutput)
+}
+
+func (o OperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Operator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Operator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (OperatorPtrOutput) ElementType() reflect.Type {
+	return operatorPtrType
+}
+
+func (o OperatorPtrOutput) ToOperatorPtrOutput() OperatorPtrOutput {
+	return o
+}
+
+func (o OperatorPtrOutput) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
+	return o
+}
+
+func (o OperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Operator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OperatorPtrOutput) Elem() OperatorOutput {
+	return o.ApplyT(func(v *Operator) Operator {
+		var ret Operator
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(OperatorOutput)
+}
+
+// OperatorInput is an input type that accepts OperatorArgs and OperatorOutput values.
+// You can construct a concrete instance of `OperatorInput` via:
+//
+//          OperatorArgs{...}
+type OperatorInput interface {
+	pulumi.Input
+
+	ToOperatorOutput() OperatorOutput
+	ToOperatorOutputWithContext(context.Context) OperatorOutput
+}
+
+var operatorPtrType = reflect.TypeOf((**Operator)(nil)).Elem()
+
+type OperatorPtrInput interface {
+	pulumi.Input
+
+	ToOperatorPtrOutput() OperatorPtrOutput
+	ToOperatorPtrOutputWithContext(context.Context) OperatorPtrOutput
+}
+
+type operatorPtr string
+
+func OperatorPtr(v string) OperatorPtrInput {
+	return (*operatorPtr)(&v)
+}
+
+func (*operatorPtr) ElementType() reflect.Type {
+	return operatorPtrType
+}
+
+func (in *operatorPtr) ToOperatorPtrOutput() OperatorPtrOutput {
+	return pulumi.ToOutput(in).(OperatorPtrOutput)
+}
+
+func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
+}
+
 // Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-type PolicyEnabledState pulumi.String
+type PolicyEnabledState string
 
 const (
 	PolicyEnabledStateDisabled = PolicyEnabledState("Disabled")
@@ -239,7 +1198,23 @@ const (
 )
 
 func (PolicyEnabledState) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PolicyEnabledState)(nil)).Elem()
+}
+
+func (e PolicyEnabledState) ToPolicyEnabledStateOutput() PolicyEnabledStateOutput {
+	return pulumi.ToOutput(e).(PolicyEnabledStateOutput)
+}
+
+func (e PolicyEnabledState) ToPolicyEnabledStateOutputWithContext(ctx context.Context) PolicyEnabledStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyEnabledStateOutput)
+}
+
+func (e PolicyEnabledState) ToPolicyEnabledStatePtrOutput() PolicyEnabledStatePtrOutput {
+	return e.ToPolicyEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyEnabledState) ToPolicyEnabledStatePtrOutputWithContext(ctx context.Context) PolicyEnabledStatePtrOutput {
+	return PolicyEnabledState(e).ToPolicyEnabledStateOutputWithContext(ctx).ToPolicyEnabledStatePtrOutputWithContext(ctx)
 }
 
 func (e PolicyEnabledState) ToStringOutput() pulumi.StringOutput {
@@ -258,8 +1233,129 @@ func (e PolicyEnabledState) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type PolicyEnabledStateOutput struct{ *pulumi.OutputState }
+
+func (PolicyEnabledStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyEnabledState)(nil)).Elem()
+}
+
+func (o PolicyEnabledStateOutput) ToPolicyEnabledStateOutput() PolicyEnabledStateOutput {
+	return o
+}
+
+func (o PolicyEnabledStateOutput) ToPolicyEnabledStateOutputWithContext(ctx context.Context) PolicyEnabledStateOutput {
+	return o
+}
+
+func (o PolicyEnabledStateOutput) ToPolicyEnabledStatePtrOutput() PolicyEnabledStatePtrOutput {
+	return o.ToPolicyEnabledStatePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEnabledStateOutput) ToPolicyEnabledStatePtrOutputWithContext(ctx context.Context) PolicyEnabledStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyEnabledState) *PolicyEnabledState {
+		return &v
+	}).(PolicyEnabledStatePtrOutput)
+}
+
+func (o PolicyEnabledStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyEnabledStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEnabledState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyEnabledStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEnabledStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEnabledState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyEnabledStatePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyEnabledStatePtrOutput) ElementType() reflect.Type {
+	return policyEnabledStatePtrType
+}
+
+func (o PolicyEnabledStatePtrOutput) ToPolicyEnabledStatePtrOutput() PolicyEnabledStatePtrOutput {
+	return o
+}
+
+func (o PolicyEnabledStatePtrOutput) ToPolicyEnabledStatePtrOutputWithContext(ctx context.Context) PolicyEnabledStatePtrOutput {
+	return o
+}
+
+func (o PolicyEnabledStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyEnabledState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyEnabledStatePtrOutput) Elem() PolicyEnabledStateOutput {
+	return o.ApplyT(func(v *PolicyEnabledState) PolicyEnabledState {
+		var ret PolicyEnabledState
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(PolicyEnabledStateOutput)
+}
+
+// PolicyEnabledStateInput is an input type that accepts PolicyEnabledStateArgs and PolicyEnabledStateOutput values.
+// You can construct a concrete instance of `PolicyEnabledStateInput` via:
+//
+//          PolicyEnabledStateArgs{...}
+type PolicyEnabledStateInput interface {
+	pulumi.Input
+
+	ToPolicyEnabledStateOutput() PolicyEnabledStateOutput
+	ToPolicyEnabledStateOutputWithContext(context.Context) PolicyEnabledStateOutput
+}
+
+var policyEnabledStatePtrType = reflect.TypeOf((**PolicyEnabledState)(nil)).Elem()
+
+type PolicyEnabledStatePtrInput interface {
+	pulumi.Input
+
+	ToPolicyEnabledStatePtrOutput() PolicyEnabledStatePtrOutput
+	ToPolicyEnabledStatePtrOutputWithContext(context.Context) PolicyEnabledStatePtrOutput
+}
+
+type policyEnabledStatePtr string
+
+func PolicyEnabledStatePtr(v string) PolicyEnabledStatePtrInput {
+	return (*policyEnabledStatePtr)(&v)
+}
+
+func (*policyEnabledStatePtr) ElementType() reflect.Type {
+	return policyEnabledStatePtrType
+}
+
+func (in *policyEnabledStatePtr) ToPolicyEnabledStatePtrOutput() PolicyEnabledStatePtrOutput {
+	return pulumi.ToOutput(in).(PolicyEnabledStatePtrOutput)
+}
+
+func (in *policyEnabledStatePtr) ToPolicyEnabledStatePtrOutputWithContext(ctx context.Context) PolicyEnabledStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyEnabledStatePtrOutput)
+}
+
 // Describes if it is in detection mode or prevention mode at policy level.
-type PolicyMode pulumi.String
+type PolicyMode string
 
 const (
 	PolicyModePrevention = PolicyMode("Prevention")
@@ -267,7 +1363,23 @@ const (
 )
 
 func (PolicyMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PolicyMode)(nil)).Elem()
+}
+
+func (e PolicyMode) ToPolicyModeOutput() PolicyModeOutput {
+	return pulumi.ToOutput(e).(PolicyModeOutput)
+}
+
+func (e PolicyMode) ToPolicyModeOutputWithContext(ctx context.Context) PolicyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyModeOutput)
+}
+
+func (e PolicyMode) ToPolicyModePtrOutput() PolicyModePtrOutput {
+	return e.ToPolicyModePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyMode) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
+	return PolicyMode(e).ToPolicyModeOutputWithContext(ctx).ToPolicyModePtrOutputWithContext(ctx)
 }
 
 func (e PolicyMode) ToStringOutput() pulumi.StringOutput {
@@ -286,8 +1398,129 @@ func (e PolicyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type PolicyModeOutput struct{ *pulumi.OutputState }
+
+func (PolicyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyMode)(nil)).Elem()
+}
+
+func (o PolicyModeOutput) ToPolicyModeOutput() PolicyModeOutput {
+	return o
+}
+
+func (o PolicyModeOutput) ToPolicyModeOutputWithContext(ctx context.Context) PolicyModeOutput {
+	return o
+}
+
+func (o PolicyModeOutput) ToPolicyModePtrOutput() PolicyModePtrOutput {
+	return o.ToPolicyModePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyModeOutput) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyMode) *PolicyMode {
+		return &v
+	}).(PolicyModePtrOutput)
+}
+
+func (o PolicyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyModePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyModePtrOutput) ElementType() reflect.Type {
+	return policyModePtrType
+}
+
+func (o PolicyModePtrOutput) ToPolicyModePtrOutput() PolicyModePtrOutput {
+	return o
+}
+
+func (o PolicyModePtrOutput) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
+	return o
+}
+
+func (o PolicyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyModePtrOutput) Elem() PolicyModeOutput {
+	return o.ApplyT(func(v *PolicyMode) PolicyMode {
+		var ret PolicyMode
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(PolicyModeOutput)
+}
+
+// PolicyModeInput is an input type that accepts PolicyModeArgs and PolicyModeOutput values.
+// You can construct a concrete instance of `PolicyModeInput` via:
+//
+//          PolicyModeArgs{...}
+type PolicyModeInput interface {
+	pulumi.Input
+
+	ToPolicyModeOutput() PolicyModeOutput
+	ToPolicyModeOutputWithContext(context.Context) PolicyModeOutput
+}
+
+var policyModePtrType = reflect.TypeOf((**PolicyMode)(nil)).Elem()
+
+type PolicyModePtrInput interface {
+	pulumi.Input
+
+	ToPolicyModePtrOutput() PolicyModePtrOutput
+	ToPolicyModePtrOutputWithContext(context.Context) PolicyModePtrOutput
+}
+
+type policyModePtr string
+
+func PolicyModePtr(v string) PolicyModePtrInput {
+	return (*policyModePtr)(&v)
+}
+
+func (*policyModePtr) ElementType() reflect.Type {
+	return policyModePtrType
+}
+
+func (in *policyModePtr) ToPolicyModePtrOutput() PolicyModePtrOutput {
+	return pulumi.ToOutput(in).(PolicyModePtrOutput)
+}
+
+func (in *policyModePtr) ToPolicyModePtrOutputWithContext(ctx context.Context) PolicyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyModePtrOutput)
+}
+
 // Describes type of rule.
-type RuleType pulumi.String
+type RuleType string
 
 const (
 	RuleTypeMatchRule     = RuleType("MatchRule")
@@ -295,7 +1528,23 @@ const (
 )
 
 func (RuleType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*RuleType)(nil)).Elem()
+}
+
+func (e RuleType) ToRuleTypeOutput() RuleTypeOutput {
+	return pulumi.ToOutput(e).(RuleTypeOutput)
+}
+
+func (e RuleType) ToRuleTypeOutputWithContext(ctx context.Context) RuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RuleTypeOutput)
+}
+
+func (e RuleType) ToRuleTypePtrOutput() RuleTypePtrOutput {
+	return e.ToRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e RuleType) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleTypePtrOutput {
+	return RuleType(e).ToRuleTypeOutputWithContext(ctx).ToRuleTypePtrOutputWithContext(ctx)
 }
 
 func (e RuleType) ToStringOutput() pulumi.StringOutput {
@@ -314,8 +1563,129 @@ func (e RuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type RuleTypeOutput struct{ *pulumi.OutputState }
+
+func (RuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleType)(nil)).Elem()
+}
+
+func (o RuleTypeOutput) ToRuleTypeOutput() RuleTypeOutput {
+	return o
+}
+
+func (o RuleTypeOutput) ToRuleTypeOutputWithContext(ctx context.Context) RuleTypeOutput {
+	return o
+}
+
+func (o RuleTypeOutput) ToRuleTypePtrOutput() RuleTypePtrOutput {
+	return o.ToRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o RuleTypeOutput) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleType) *RuleType {
+		return &v
+	}).(RuleTypePtrOutput)
+}
+
+func (o RuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RuleTypePtrOutput) ElementType() reflect.Type {
+	return ruleTypePtrType
+}
+
+func (o RuleTypePtrOutput) ToRuleTypePtrOutput() RuleTypePtrOutput {
+	return o
+}
+
+func (o RuleTypePtrOutput) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleTypePtrOutput {
+	return o
+}
+
+func (o RuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuleTypePtrOutput) Elem() RuleTypeOutput {
+	return o.ApplyT(func(v *RuleType) RuleType {
+		var ret RuleType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(RuleTypeOutput)
+}
+
+// RuleTypeInput is an input type that accepts RuleTypeArgs and RuleTypeOutput values.
+// You can construct a concrete instance of `RuleTypeInput` via:
+//
+//          RuleTypeArgs{...}
+type RuleTypeInput interface {
+	pulumi.Input
+
+	ToRuleTypeOutput() RuleTypeOutput
+	ToRuleTypeOutputWithContext(context.Context) RuleTypeOutput
+}
+
+var ruleTypePtrType = reflect.TypeOf((**RuleType)(nil)).Elem()
+
+type RuleTypePtrInput interface {
+	pulumi.Input
+
+	ToRuleTypePtrOutput() RuleTypePtrOutput
+	ToRuleTypePtrOutputWithContext(context.Context) RuleTypePtrOutput
+}
+
+type ruleTypePtr string
+
+func RuleTypePtr(v string) RuleTypePtrInput {
+	return (*ruleTypePtr)(&v)
+}
+
+func (*ruleTypePtr) ElementType() reflect.Type {
+	return ruleTypePtrType
+}
+
+func (in *ruleTypePtr) ToRuleTypePtrOutput() RuleTypePtrOutput {
+	return pulumi.ToOutput(in).(RuleTypePtrOutput)
+}
+
+func (in *ruleTypePtr) ToRuleTypePtrOutputWithContext(ctx context.Context) RuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RuleTypePtrOutput)
+}
+
 // Describes what transforms applied before matching.
-type TransformType pulumi.String
+type TransformType string
 
 const (
 	TransformTypeLowercase   = TransformType("Lowercase")
@@ -327,7 +1697,23 @@ const (
 )
 
 func (TransformType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*TransformType)(nil)).Elem()
+}
+
+func (e TransformType) ToTransformTypeOutput() TransformTypeOutput {
+	return pulumi.ToOutput(e).(TransformTypeOutput)
+}
+
+func (e TransformType) ToTransformTypeOutputWithContext(ctx context.Context) TransformTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformTypeOutput)
+}
+
+func (e TransformType) ToTransformTypePtrOutput() TransformTypePtrOutput {
+	return e.ToTransformTypePtrOutputWithContext(context.Background())
+}
+
+func (e TransformType) ToTransformTypePtrOutputWithContext(ctx context.Context) TransformTypePtrOutput {
+	return TransformType(e).ToTransformTypeOutputWithContext(ctx).ToTransformTypePtrOutputWithContext(ctx)
 }
 
 func (e TransformType) ToStringOutput() pulumi.StringOutput {
@@ -344,4 +1730,150 @@ func (e TransformType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e TransformType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformTypeOutput struct{ *pulumi.OutputState }
+
+func (TransformTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformType)(nil)).Elem()
+}
+
+func (o TransformTypeOutput) ToTransformTypeOutput() TransformTypeOutput {
+	return o
+}
+
+func (o TransformTypeOutput) ToTransformTypeOutputWithContext(ctx context.Context) TransformTypeOutput {
+	return o
+}
+
+func (o TransformTypeOutput) ToTransformTypePtrOutput() TransformTypePtrOutput {
+	return o.ToTransformTypePtrOutputWithContext(context.Background())
+}
+
+func (o TransformTypeOutput) ToTransformTypePtrOutputWithContext(ctx context.Context) TransformTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformType) *TransformType {
+		return &v
+	}).(TransformTypePtrOutput)
+}
+
+func (o TransformTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformTypePtrOutput) ElementType() reflect.Type {
+	return transformTypePtrType
+}
+
+func (o TransformTypePtrOutput) ToTransformTypePtrOutput() TransformTypePtrOutput {
+	return o
+}
+
+func (o TransformTypePtrOutput) ToTransformTypePtrOutputWithContext(ctx context.Context) TransformTypePtrOutput {
+	return o
+}
+
+func (o TransformTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TransformTypePtrOutput) Elem() TransformTypeOutput {
+	return o.ApplyT(func(v *TransformType) TransformType {
+		var ret TransformType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(TransformTypeOutput)
+}
+
+// TransformTypeInput is an input type that accepts TransformTypeArgs and TransformTypeOutput values.
+// You can construct a concrete instance of `TransformTypeInput` via:
+//
+//          TransformTypeArgs{...}
+type TransformTypeInput interface {
+	pulumi.Input
+
+	ToTransformTypeOutput() TransformTypeOutput
+	ToTransformTypeOutputWithContext(context.Context) TransformTypeOutput
+}
+
+var transformTypePtrType = reflect.TypeOf((**TransformType)(nil)).Elem()
+
+type TransformTypePtrInput interface {
+	pulumi.Input
+
+	ToTransformTypePtrOutput() TransformTypePtrOutput
+	ToTransformTypePtrOutputWithContext(context.Context) TransformTypePtrOutput
+}
+
+type transformTypePtr string
+
+func TransformTypePtr(v string) TransformTypePtrInput {
+	return (*transformTypePtr)(&v)
+}
+
+func (*transformTypePtr) ElementType() reflect.Type {
+	return transformTypePtrType
+}
+
+func (in *transformTypePtr) ToTransformTypePtrOutput() TransformTypePtrOutput {
+	return pulumi.ToOutput(in).(TransformTypePtrOutput)
+}
+
+func (in *transformTypePtr) ToTransformTypePtrOutputWithContext(ctx context.Context) TransformTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionTypeOutput{})
+	pulumi.RegisterOutputType(ActionTypePtrOutput{})
+	pulumi.RegisterOutputType(CustomRuleEnabledStateOutput{})
+	pulumi.RegisterOutputType(CustomRuleEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(FrontDoorMatchVariableOutput{})
+	pulumi.RegisterOutputType(FrontDoorMatchVariablePtrOutput{})
+	pulumi.RegisterOutputType(ManagedRuleEnabledStateOutput{})
+	pulumi.RegisterOutputType(ManagedRuleEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(ManagedRuleExclusionMatchVariableOutput{})
+	pulumi.RegisterOutputType(ManagedRuleExclusionMatchVariablePtrOutput{})
+	pulumi.RegisterOutputType(ManagedRuleExclusionSelectorMatchOperatorOutput{})
+	pulumi.RegisterOutputType(ManagedRuleExclusionSelectorMatchOperatorPtrOutput{})
+	pulumi.RegisterOutputType(OperatorOutput{})
+	pulumi.RegisterOutputType(OperatorPtrOutput{})
+	pulumi.RegisterOutputType(PolicyEnabledStateOutput{})
+	pulumi.RegisterOutputType(PolicyEnabledStatePtrOutput{})
+	pulumi.RegisterOutputType(PolicyModeOutput{})
+	pulumi.RegisterOutputType(PolicyModePtrOutput{})
+	pulumi.RegisterOutputType(RuleTypeOutput{})
+	pulumi.RegisterOutputType(RuleTypePtrOutput{})
+	pulumi.RegisterOutputType(TransformTypeOutput{})
+	pulumi.RegisterOutputType(TransformTypePtrOutput{})
 }

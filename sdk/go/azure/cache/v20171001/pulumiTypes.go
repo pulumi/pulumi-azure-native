@@ -266,7 +266,7 @@ func (o RedisLinkedServerResponseArrayOutput) Index(i pulumi.IntInput) RedisLink
 // Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntry struct {
 	// Day of the week when a cache can be patched.
-	DayOfWeek string `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
 	// ISO8601 timespan specifying how much time cache patching can take.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
@@ -287,7 +287,7 @@ type ScheduleEntryInput interface {
 // Patch schedule entry for a Premium Redis Cache.
 type ScheduleEntryArgs struct {
 	// Day of the week when a cache can be patched.
-	DayOfWeek DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeekInput `pulumi:"dayOfWeek"`
 	// ISO8601 timespan specifying how much time cache patching can take.
 	MaintenanceWindow pulumi.StringPtrInput `pulumi:"maintenanceWindow"`
 	// Start hour after which cache patching can start.
@@ -347,8 +347,8 @@ func (o ScheduleEntryOutput) ToScheduleEntryOutputWithContext(ctx context.Contex
 }
 
 // Day of the week when a cache can be patched.
-func (o ScheduleEntryOutput) DayOfWeek() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleEntry) string { return v.DayOfWeek }).(pulumi.StringOutput)
+func (o ScheduleEntryOutput) DayOfWeek() DayOfWeekOutput {
+	return o.ApplyT(func(v ScheduleEntry) DayOfWeek { return v.DayOfWeek }).(DayOfWeekOutput)
 }
 
 // ISO8601 timespan specifying how much time cache patching can take.

@@ -110,79 +110,9 @@ func GetDefaultAdminRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultAdminRule resources.
 type defaultAdminRuleState struct {
-	// Indicates the access allowed for this particular rule
-	Access *string `pulumi:"access"`
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// The destination port ranges.
-	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction *string `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Default rule flag.
-	Flag *string `pulumi:"flag"`
-	// Whether the rule is custom or default.
-	// Expected value is 'Default'.
-	Kind *string `pulumi:"kind"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Network protocol this rule applies to.
-	Protocol *string `pulumi:"protocol"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The source port ranges.
-	SourcePortRanges []string `pulumi:"sourcePortRanges"`
-	// The CIDR or source IP ranges.
-	Sources []AddressPrefixItemResponse `pulumi:"sources"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DefaultAdminRuleState struct {
-	// Indicates the access allowed for this particular rule
-	Access pulumi.StringPtrInput
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// The destination port ranges.
-	DestinationPortRanges pulumi.StringArrayInput
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destinations AddressPrefixItemResponseArrayInput
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction pulumi.StringPtrInput
-	// A friendly name for the rule.
-	DisplayName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Default rule flag.
-	Flag pulumi.StringPtrInput
-	// Whether the rule is custom or default.
-	// Expected value is 'Default'.
-	Kind pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput
-	// Network protocol this rule applies to.
-	Protocol pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The source port ranges.
-	SourcePortRanges pulumi.StringArrayInput
-	// The CIDR or source IP ranges.
-	Sources AddressPrefixItemResponseArrayInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DefaultAdminRuleState) ElementType() reflect.Type {

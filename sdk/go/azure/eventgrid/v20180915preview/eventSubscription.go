@@ -155,53 +155,9 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
-	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
-	// Information about the destination where events have to be delivered for the event subscription.
-	Destination interface{} `pulumi:"destination"`
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
-	// Information about the filter for the event subscription.
-	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
-	// List of user defined labels.
-	Labels []string `pulumi:"labels"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the event subscription.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
-	// Name of the topic of the event subscription.
-	Topic *string `pulumi:"topic"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type EventSubscriptionState struct {
-	// The DeadLetter destination of the event subscription.
-	DeadLetterDestination StorageBlobDeadLetterDestinationResponsePtrInput
-	// Information about the destination where events have to be delivered for the event subscription.
-	Destination pulumi.Input
-	// The event delivery schema for the event subscription.
-	EventDeliverySchema pulumi.StringPtrInput
-	// Expiration time of the event subscription.
-	ExpirationTimeUtc pulumi.StringPtrInput
-	// Information about the filter for the event subscription.
-	Filter EventSubscriptionFilterResponsePtrInput
-	// List of user defined labels.
-	Labels pulumi.StringArrayInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the event subscription.
-	ProvisioningState pulumi.StringPtrInput
-	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
-	RetryPolicy RetryPolicyResponsePtrInput
-	// Name of the topic of the event subscription.
-	Topic pulumi.StringPtrInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (EventSubscriptionState) ElementType() reflect.Type {

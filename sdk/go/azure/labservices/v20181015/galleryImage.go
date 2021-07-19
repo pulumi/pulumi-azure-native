@@ -96,73 +96,9 @@ func GetGalleryImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryImage resources.
 type galleryImageState struct {
-	// The author of the gallery image.
-	Author *string `pulumi:"author"`
-	// The creation date of the gallery image.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The description of the gallery image.
-	Description *string `pulumi:"description"`
-	// The icon of the gallery image.
-	Icon *string `pulumi:"icon"`
-	// The image reference of the gallery image.
-	ImageReference *GalleryImageReferenceResponse `pulumi:"imageReference"`
-	// Indicates whether this gallery image is enabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Indicates whether this gallery has been overridden for this lab account
-	IsOverride *bool `pulumi:"isOverride"`
-	// Indicates if the plan has been authorized for programmatic deployment.
-	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The third party plan that applies to this image
-	PlanId *string `pulumi:"planId"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type GalleryImageState struct {
-	// The author of the gallery image.
-	Author pulumi.StringPtrInput
-	// The creation date of the gallery image.
-	CreatedDate pulumi.StringPtrInput
-	// The description of the gallery image.
-	Description pulumi.StringPtrInput
-	// The icon of the gallery image.
-	Icon pulumi.StringPtrInput
-	// The image reference of the gallery image.
-	ImageReference GalleryImageReferenceResponsePtrInput
-	// Indicates whether this gallery image is enabled.
-	IsEnabled pulumi.BoolPtrInput
-	// Indicates whether this gallery has been overridden for this lab account
-	IsOverride pulumi.BoolPtrInput
-	// Indicates if the plan has been authorized for programmatic deployment.
-	IsPlanAuthorized pulumi.BoolPtrInput
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponsePtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The third party plan that applies to this image
-	PlanId pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (GalleryImageState) ElementType() reflect.Type {

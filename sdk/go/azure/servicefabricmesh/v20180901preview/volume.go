@@ -90,49 +90,9 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// This type describes a volume provided by an Azure Files file share.
-	AzureFileParameters *VolumeProviderParametersAzureFileResponse `pulumi:"azureFileParameters"`
-	// User readable description of the volume.
-	Description *string `pulumi:"description"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Provider of the volume.
-	Provider *string `pulumi:"provider"`
-	// State of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Status of the volume.
-	Status *string `pulumi:"status"`
-	// Gives additional information about the current status of the volume.
-	StatusDetails *string `pulumi:"statusDetails"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type VolumeState struct {
-	// This type describes a volume provided by an Azure Files file share.
-	AzureFileParameters VolumeProviderParametersAzureFileResponsePtrInput
-	// User readable description of the volume.
-	Description pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Provider of the volume.
-	Provider pulumi.StringPtrInput
-	// State of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Status of the volume.
-	Status pulumi.StringPtrInput
-	// Gives additional information about the current status of the volume.
-	StatusDetails pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {

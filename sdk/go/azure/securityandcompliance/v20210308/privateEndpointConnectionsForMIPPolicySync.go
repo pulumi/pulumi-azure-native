@@ -79,33 +79,9 @@ func GetPrivateEndpointConnectionsForMIPPolicySync(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnectionsForMIPPolicySync resources.
 type privateEndpointConnectionsForMIPPolicySyncState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Required property for system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionsForMIPPolicySyncState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Required property for system data
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionsForMIPPolicySyncState) ElementType() reflect.Type {

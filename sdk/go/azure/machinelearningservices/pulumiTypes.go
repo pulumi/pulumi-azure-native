@@ -25556,7 +25556,7 @@ func (o IdAssetReferenceResponseOutput) ReferenceType() pulumi.StringOutput {
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -25575,7 +25575,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -25659,8 +25659,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The user assigned identities associated with the resource.
@@ -25687,13 +25687,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The user assigned identities associated with the resource.
@@ -29952,7 +29952,7 @@ type LinkedServiceProps struct {
 	// The creation time of the linked service.
 	CreatedTime *string `pulumi:"createdTime"`
 	// Type of the link target.
-	LinkType *string `pulumi:"linkType"`
+	LinkType *LinkedServiceLinkType `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
 	LinkedServiceResourceId string `pulumi:"linkedServiceResourceId"`
 	// The last modified time of the linked service.
@@ -29975,7 +29975,7 @@ type LinkedServicePropsArgs struct {
 	// The creation time of the linked service.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// Type of the link target.
-	LinkType *LinkedServiceLinkType `pulumi:"linkType"`
+	LinkType LinkedServiceLinkTypePtrInput `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
 	LinkedServiceResourceId pulumi.StringInput `pulumi:"linkedServiceResourceId"`
 	// The last modified time of the linked service.
@@ -30066,8 +30066,8 @@ func (o LinkedServicePropsOutput) CreatedTime() pulumi.StringPtrOutput {
 }
 
 // Type of the link target.
-func (o LinkedServicePropsOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LinkedServiceProps) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+func (o LinkedServicePropsOutput) LinkType() LinkedServiceLinkTypePtrOutput {
+	return o.ApplyT(func(v LinkedServiceProps) *LinkedServiceLinkType { return v.LinkType }).(LinkedServiceLinkTypePtrOutput)
 }
 
 // ResourceId of the link target of the linked service.
@@ -30109,13 +30109,13 @@ func (o LinkedServicePropsPtrOutput) CreatedTime() pulumi.StringPtrOutput {
 }
 
 // Type of the link target.
-func (o LinkedServicePropsPtrOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceProps) *string {
+func (o LinkedServicePropsPtrOutput) LinkType() LinkedServiceLinkTypePtrOutput {
+	return o.ApplyT(func(v *LinkedServiceProps) *LinkedServiceLinkType {
 		if v == nil {
 			return nil
 		}
 		return v.LinkType
-	}).(pulumi.StringPtrOutput)
+	}).(LinkedServiceLinkTypePtrOutput)
 }
 
 // ResourceId of the link target of the linked service.

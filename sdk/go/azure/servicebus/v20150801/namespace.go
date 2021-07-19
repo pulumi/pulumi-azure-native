@@ -115,57 +115,9 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Indicates whether to create an ACS namespace.
-	CreateACSNamespace *bool `pulumi:"createACSNamespace"`
-	// The time the namespace was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Specifies whether this instance is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning state of the namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
-	// SKU of the namespace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// State of the namespace.
-	Status *string `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
-	// Indicates whether to create an ACS namespace.
-	CreateACSNamespace pulumi.BoolPtrInput
-	// The time the namespace was created.
-	CreatedAt pulumi.StringPtrInput
-	// Specifies whether this instance is enabled.
-	Enabled pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning state of the namespace.
-	ProvisioningState pulumi.StringPtrInput
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringPtrInput
-	// SKU of the namespace.
-	Sku SkuResponsePtrInput
-	// State of the namespace.
-	Status pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -186,7 +138,7 @@ type namespaceArgs struct {
 	// SKU of the namespace.
 	Sku *Sku `pulumi:"sku"`
 	// State of the namespace.
-	Status *string `pulumi:"status"`
+	Status *NamespaceStateEnum `pulumi:"status"`
 	// Namespace tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -206,7 +158,7 @@ type NamespaceArgs struct {
 	// SKU of the namespace.
 	Sku SkuPtrInput
 	// State of the namespace.
-	Status *NamespaceStateEnum
+	Status NamespaceStateEnumPtrInput
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 }

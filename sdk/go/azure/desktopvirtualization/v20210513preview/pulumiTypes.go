@@ -1427,7 +1427,7 @@ func (o KeyVaultCredentialPropertiesResponsePtrOutput) UserName() pulumi.StringP
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowProperties struct {
 	// Day of the week.
-	DayOfWeek *string `pulumi:"dayOfWeek"`
+	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
 	// The update start hour of the day. (0 - 23)
 	Hour *int `pulumi:"hour"`
 }
@@ -1446,7 +1446,7 @@ type MaintenanceWindowPropertiesInput interface {
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowPropertiesArgs struct {
 	// Day of the week.
-	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek DayOfWeekPtrInput `pulumi:"dayOfWeek"`
 	// The update start hour of the day. (0 - 23)
 	Hour pulumi.IntPtrInput `pulumi:"hour"`
 }
@@ -1530,8 +1530,8 @@ func (o MaintenanceWindowPropertiesOutput) ToMaintenanceWindowPropertiesPtrOutpu
 }
 
 // Day of the week.
-func (o MaintenanceWindowPropertiesOutput) DayOfWeek() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowProperties) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
+func (o MaintenanceWindowPropertiesOutput) DayOfWeek() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v MaintenanceWindowProperties) *DayOfWeek { return v.DayOfWeek }).(DayOfWeekPtrOutput)
 }
 
 // The update start hour of the day. (0 - 23)
@@ -1558,13 +1558,13 @@ func (o MaintenanceWindowPropertiesPtrOutput) Elem() MaintenanceWindowProperties
 }
 
 // Day of the week.
-func (o MaintenanceWindowPropertiesPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceWindowProperties) *string {
+func (o MaintenanceWindowPropertiesPtrOutput) DayOfWeek() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v *MaintenanceWindowProperties) *DayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.DayOfWeek
-	}).(pulumi.StringPtrOutput)
+	}).(DayOfWeekPtrOutput)
 }
 
 // The update start hour of the day. (0 - 23)
@@ -3788,7 +3788,7 @@ func (o RegistrationInfoResponsePtrOutput) Token() pulumi.StringPtrOutput {
 
 type ResourceModelWithAllowedPropertySetIdentity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // ResourceModelWithAllowedPropertySetIdentityInput is an input type that accepts ResourceModelWithAllowedPropertySetIdentityArgs and ResourceModelWithAllowedPropertySetIdentityOutput values.
@@ -3804,7 +3804,7 @@ type ResourceModelWithAllowedPropertySetIdentityInput interface {
 
 type ResourceModelWithAllowedPropertySetIdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (ResourceModelWithAllowedPropertySetIdentityArgs) ElementType() reflect.Type {
@@ -3885,8 +3885,8 @@ func (o ResourceModelWithAllowedPropertySetIdentityOutput) ToResourceModelWithAl
 }
 
 // The identity type.
-func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourceModelWithAllowedPropertySetIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3910,13 +3910,13 @@ func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Elem() ResourceMod
 }
 
 // The identity type.
-func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *string {
+func (o ResourceModelWithAllowedPropertySetIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetPlan struct {
@@ -4725,7 +4725,7 @@ type ResourceModelWithAllowedPropertySetSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *string `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 // ResourceModelWithAllowedPropertySetSkuInput is an input type that accepts ResourceModelWithAllowedPropertySetSkuArgs and ResourceModelWithAllowedPropertySetSkuOutput values.
@@ -4749,7 +4749,7 @@ type ResourceModelWithAllowedPropertySetSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-	Tier *SkuTier `pulumi:"tier"`
+	Tier SkuTierPtrInput `pulumi:"tier"`
 }
 
 func (ResourceModelWithAllowedPropertySetSkuArgs) ElementType() reflect.Type {
@@ -4850,8 +4850,8 @@ func (o ResourceModelWithAllowedPropertySetSkuOutput) Size() pulumi.StringPtrOut
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
+func (o ResourceModelWithAllowedPropertySetSkuOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v ResourceModelWithAllowedPropertySetSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
 }
 
 type ResourceModelWithAllowedPropertySetSkuPtrOutput struct{ *pulumi.OutputState }
@@ -4913,13 +4913,13 @@ func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Size() pulumi.StringPtr
 }
 
 // This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
-func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *string {
+func (o ResourceModelWithAllowedPropertySetSkuPtrOutput) Tier() SkuTierPtrOutput {
+	return o.ApplyT(func(v *ResourceModelWithAllowedPropertySetSku) *SkuTier {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(pulumi.StringPtrOutput)
+	}).(SkuTierPtrOutput)
 }
 
 // Scaling plan reference to hostpool.
