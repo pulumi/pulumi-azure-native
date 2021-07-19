@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Network function resource response.
-    /// API Version: 2021-05-01.
+    /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:NetworkFunction")]
     public partial class NetworkFunction : Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the device resource. Once set, it cannot be updated.
+        /// The reference to the device resource.
         /// </summary>
         [Output("device")]
         public Output<Outputs.SubResourceResponse?> Device { get; private set; } = null!;
@@ -53,12 +53,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network function container configurations from the user.
-        /// </summary>
-        [Output("networkFunctionContainerConfigurations")]
-        public Output<object?> NetworkFunctionContainerConfigurations { get; private set; } = null!;
-
-        /// <summary>
         /// The network function configurations from the user.
         /// </summary>
         [Output("networkFunctionUserConfigurations")]
@@ -77,7 +71,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Output<string> ServiceKey { get; private set; } = null!;
 
         /// <summary>
-        /// The sku name for the network function. Once set, it cannot be updated.
+        /// The sku name for the network function.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -87,12 +81,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("skuType")]
         public Output<string> SkuType { get; private set; } = null!;
-
-        /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -107,7 +95,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The vendor name for the network function. Once set, it cannot be updated.
+        /// The vendor name for the network function.
         /// </summary>
         [Output("vendorName")]
         public Output<string?> VendorName { get; private set; } = null!;
@@ -172,7 +160,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class NetworkFunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference to the device resource. Once set, it cannot be updated.
+        /// The reference to the device resource.
         /// </summary>
         [Input("device")]
         public Input<Inputs.SubResourceArgs>? Device { get; set; }
@@ -194,12 +182,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Input("managedApplicationParameters")]
         public Input<object>? ManagedApplicationParameters { get; set; }
-
-        /// <summary>
-        /// The network function container configurations from the user.
-        /// </summary>
-        [Input("networkFunctionContainerConfigurations")]
-        public Input<object>? NetworkFunctionContainerConfigurations { get; set; }
 
         /// <summary>
         /// Resource name for the network function resource.
@@ -226,7 +208,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku name for the network function. Once set, it cannot be updated.
+        /// The sku name for the network function.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -244,7 +226,7 @@ namespace Pulumi.AzureNative.HybridNetwork
         }
 
         /// <summary>
-        /// The vendor name for the network function. Once set, it cannot be updated.
+        /// The vendor name for the network function.
         /// </summary>
         [Input("vendorName")]
         public Input<string>? VendorName { get; set; }

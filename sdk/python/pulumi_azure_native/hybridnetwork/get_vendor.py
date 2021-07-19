@@ -20,7 +20,7 @@ class GetVendorResult:
     """
     Vendor resource.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, skus=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, skus=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -33,9 +33,6 @@ class GetVendorResult:
         if skus and not isinstance(skus, list):
             raise TypeError("Expected argument 'skus' to be a list")
         pulumi.set(__self__, "skus", skus)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -73,14 +70,6 @@ class GetVendorResult:
         return pulumi.get(self, "skus")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -99,7 +88,6 @@ class AwaitableGetVendorResult(GetVendorResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             skus=self.skus,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -107,7 +95,7 @@ def get_vendor(vendor_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorResult:
     """
     Vendor resource.
-    API Version: 2021-05-01.
+    API Version: 2020-01-01-preview.
 
 
     :param str vendor_name: The name of the vendor.
@@ -125,5 +113,4 @@ def get_vendor(vendor_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         skus=__ret__.skus,
-        system_data=__ret__.system_data,
         type=__ret__.type)

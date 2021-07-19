@@ -151,35 +151,6 @@ func (e NetworkFunctionRoleConfigurationType) ToStringPtrOutputWithContext(ctx c
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The network function type.
-type NetworkFunctionType pulumi.String
-
-const (
-	NetworkFunctionTypeUnknown                      = NetworkFunctionType("Unknown")
-	NetworkFunctionTypeVirtualNetworkFunction       = NetworkFunctionType("VirtualNetworkFunction")
-	NetworkFunctionTypeContainerizedNetworkFunction = NetworkFunctionType("ContainerizedNetworkFunction")
-)
-
-func (NetworkFunctionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e NetworkFunctionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NetworkFunctionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e NetworkFunctionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e NetworkFunctionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // The OS type.
 type OperatingSystemTypes pulumi.String
 

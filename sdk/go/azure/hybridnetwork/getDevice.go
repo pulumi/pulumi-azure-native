@@ -8,7 +8,7 @@ import (
 )
 
 // Device resource.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getDevice", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupDeviceArgs struct {
 
 // Device resource.
 type LookupDeviceResult struct {
-	// The reference to the Azure stack edge device. Once set, it cannot be updated.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResourceResponse `pulumi:"azureStackEdge"`
 	// The type of the device.
 	DeviceType string `pulumi:"deviceType"`
@@ -43,8 +43,6 @@ type LookupDeviceResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The current device status.
 	Status string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer subscription which can use a sku.
- * API Version: 2021-05-01.
+ * API Version: 2020-01-01-preview.
  */
 export function getVendorSkuPreview(args: GetVendorSkuPreviewArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkuPreviewResult> {
     if (!opts) {
@@ -51,14 +51,6 @@ export interface GetVendorSkuPreviewResult {
      * The preview subscription ID.
      */
     readonly name: string;
-    /**
-     * The provisioning state of the PreviewSubscription resource.
-     */
-    readonly provisioningState: string;
-    /**
-     * The system meta data relating to this resource.
-     */
-    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * The type of the resource.
      */

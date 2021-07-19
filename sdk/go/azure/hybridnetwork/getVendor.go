@@ -8,7 +8,7 @@ import (
 )
 
 // Vendor resource.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 func LookupVendor(ctx *pulumi.Context, args *LookupVendorArgs, opts ...pulumi.InvokeOption) (*LookupVendorResult, error) {
 	var rv LookupVendorResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getVendor", args, &rv, opts...)
@@ -33,8 +33,6 @@ type LookupVendorResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// A list of IDs of the vendor skus offered by the vendor.
 	Skus []SubResourceResponse `pulumi:"skus"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

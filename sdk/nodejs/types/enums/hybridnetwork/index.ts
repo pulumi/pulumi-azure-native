@@ -61,17 +61,6 @@ export const NetworkFunctionRoleConfigurationType = {
  */
 export type NetworkFunctionRoleConfigurationType = (typeof NetworkFunctionRoleConfigurationType)[keyof typeof NetworkFunctionRoleConfigurationType];
 
-export const NetworkFunctionType = {
-    Unknown: "Unknown",
-    VirtualNetworkFunction: "VirtualNetworkFunction",
-    ContainerizedNetworkFunction: "ContainerizedNetworkFunction",
-} as const;
-
-/**
- * The network function type.
- */
-export type NetworkFunctionType = (typeof NetworkFunctionType)[keyof typeof NetworkFunctionType];
-
 export const OperatingSystemTypes = {
     Unknown: "Unknown",
     Windows: "Windows",

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Device resource.
-        /// API Version: 2021-05-01.
+        /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceArgs(), options.WithVersion());
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetDeviceResult
     {
         /// <summary>
-        /// The reference to the Azure stack edge device. Once set, it cannot be updated.
+        /// The reference to the Azure stack edge device.
         /// </summary>
         public readonly Outputs.SubResourceResponse? AzureStackEdge;
         /// <summary>
@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -106,8 +102,6 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string status,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -120,7 +114,6 @@ namespace Pulumi.AzureNative.HybridNetwork
             NetworkFunctions = networkFunctions;
             ProvisioningState = provisioningState;
             Status = status;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

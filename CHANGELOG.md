@@ -3,7 +3,15 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `authorization.ResourceManagementPrivateLink`
+- `securityinsights.Anomalies`
+
+#### New functions:
+
+- `authorization.getResourceManagementPrivateLink`
+- `securityinsights.getAnomalies`
 
 ---
 

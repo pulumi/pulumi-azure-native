@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Vendor resource.
-        /// API Version: 2021-05-01.
+        /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetVendorResult> InvokeAsync(GetVendorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorResult>("azure-native:hybridnetwork:getVendor", args ?? new GetVendorArgs(), options.WithVersion());
@@ -54,10 +54,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Skus;
         /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -72,15 +68,12 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             ImmutableArray<Outputs.SubResourceResponse> skus,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Skus = skus;
-            SystemData = systemData;
             Type = type;
         }
     }

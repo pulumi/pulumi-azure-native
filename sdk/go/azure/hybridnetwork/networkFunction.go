@@ -12,11 +12,11 @@ import (
 )
 
 // Network function resource response.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 type NetworkFunction struct {
 	pulumi.CustomResourceState
 
-	// The reference to the device resource. Once set, it cannot be updated.
+	// The reference to the device resource.
 	Device SubResourceResponsePtrOutput `pulumi:"device"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
@@ -28,25 +28,21 @@ type NetworkFunction struct {
 	ManagedApplicationParameters pulumi.AnyOutput `pulumi:"managedApplicationParameters"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations pulumi.AnyOutput `pulumi:"networkFunctionContainerConfigurations"`
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations NetworkFunctionUserConfigurationResponseArrayOutput `pulumi:"networkFunctionUserConfigurations"`
 	// The provisioning state of the network function resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The service key for the network function resource.
 	ServiceKey pulumi.StringOutput `pulumi:"serviceKey"`
-	// The sku name for the network function. Once set, it cannot be updated.
+	// The sku name for the network function.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
 	// The sku type for the network function.
 	SkuType pulumi.StringOutput `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The vendor name for the network function. Once set, it cannot be updated.
+	// The vendor name for the network function.
 	VendorName pulumi.StringPtrOutput `pulumi:"vendorName"`
 	// The vendor provisioning state for the network function resource.
 	VendorProvisioningState pulumi.StringOutput `pulumi:"vendorProvisioningState"`
@@ -102,7 +98,7 @@ func GetNetworkFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkFunction resources.
 type networkFunctionState struct {
-	// The reference to the device resource. Once set, it cannot be updated.
+	// The reference to the device resource.
 	Device *SubResourceResponse `pulumi:"device"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
@@ -114,32 +110,28 @@ type networkFunctionState struct {
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations interface{} `pulumi:"networkFunctionContainerConfigurations"`
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations []NetworkFunctionUserConfigurationResponse `pulumi:"networkFunctionUserConfigurations"`
 	// The provisioning state of the network function resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The service key for the network function resource.
 	ServiceKey *string `pulumi:"serviceKey"`
-	// The sku name for the network function. Once set, it cannot be updated.
+	// The sku name for the network function.
 	SkuName *string `pulumi:"skuName"`
 	// The sku type for the network function.
 	SkuType *string `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
-	// The vendor name for the network function. Once set, it cannot be updated.
+	// The vendor name for the network function.
 	VendorName *string `pulumi:"vendorName"`
 	// The vendor provisioning state for the network function resource.
 	VendorProvisioningState *string `pulumi:"vendorProvisioningState"`
 }
 
 type NetworkFunctionState struct {
-	// The reference to the device resource. Once set, it cannot be updated.
+	// The reference to the device resource.
 	Device SubResourceResponsePtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
@@ -151,25 +143,21 @@ type NetworkFunctionState struct {
 	ManagedApplicationParameters pulumi.Input
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations pulumi.Input
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations NetworkFunctionUserConfigurationResponseArrayInput
 	// The provisioning state of the network function resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The service key for the network function resource.
 	ServiceKey pulumi.StringPtrInput
-	// The sku name for the network function. Once set, it cannot be updated.
+	// The sku name for the network function.
 	SkuName pulumi.StringPtrInput
 	// The sku type for the network function.
 	SkuType pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
-	// The vendor name for the network function. Once set, it cannot be updated.
+	// The vendor name for the network function.
 	VendorName pulumi.StringPtrInput
 	// The vendor provisioning state for the network function resource.
 	VendorProvisioningState pulumi.StringPtrInput
@@ -180,7 +168,7 @@ func (NetworkFunctionState) ElementType() reflect.Type {
 }
 
 type networkFunctionArgs struct {
-	// The reference to the device resource. Once set, it cannot be updated.
+	// The reference to the device resource.
 	Device *SubResource `pulumi:"device"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
@@ -188,25 +176,23 @@ type networkFunctionArgs struct {
 	Location *string `pulumi:"location"`
 	// The parameters for the managed application.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations interface{} `pulumi:"networkFunctionContainerConfigurations"`
 	// Resource name for the network function resource.
 	NetworkFunctionName *string `pulumi:"networkFunctionName"`
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations []NetworkFunctionUserConfiguration `pulumi:"networkFunctionUserConfigurations"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name for the network function. Once set, it cannot be updated.
+	// The sku name for the network function.
 	SkuName *string `pulumi:"skuName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The vendor name for the network function. Once set, it cannot be updated.
+	// The vendor name for the network function.
 	VendorName *string `pulumi:"vendorName"`
 }
 
 // The set of arguments for constructing a NetworkFunction resource.
 type NetworkFunctionArgs struct {
-	// The reference to the device resource. Once set, it cannot be updated.
+	// The reference to the device resource.
 	Device SubResourcePtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
@@ -214,19 +200,17 @@ type NetworkFunctionArgs struct {
 	Location pulumi.StringPtrInput
 	// The parameters for the managed application.
 	ManagedApplicationParameters pulumi.Input
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations pulumi.Input
 	// Resource name for the network function resource.
 	NetworkFunctionName pulumi.StringPtrInput
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations NetworkFunctionUserConfigurationArrayInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The sku name for the network function. Once set, it cannot be updated.
+	// The sku name for the network function.
 	SkuName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The vendor name for the network function. Once set, it cannot be updated.
+	// The vendor name for the network function.
 	VendorName pulumi.StringPtrInput
 }
 

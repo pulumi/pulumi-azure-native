@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network function resource response.
- * API Version: 2021-05-01.
+ * API Version: 2020-01-01-preview.
  */
 export function getNetworkFunction(args: GetNetworkFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface GetNetworkFunctionArgs {
  */
 export interface GetNetworkFunctionResult {
     /**
-     * The reference to the device resource. Once set, it cannot be updated.
+     * The reference to the device resource.
      */
     readonly device?: outputs.hybridnetwork.SubResourceResponse;
     /**
@@ -67,10 +67,6 @@ export interface GetNetworkFunctionResult {
      */
     readonly name: string;
     /**
-     * The network function container configurations from the user.
-     */
-    readonly networkFunctionContainerConfigurations?: any;
-    /**
      * The network function configurations from the user.
      */
     readonly networkFunctionUserConfigurations?: outputs.hybridnetwork.NetworkFunctionUserConfigurationResponse[];
@@ -83,17 +79,13 @@ export interface GetNetworkFunctionResult {
      */
     readonly serviceKey: string;
     /**
-     * The sku name for the network function. Once set, it cannot be updated.
+     * The sku name for the network function.
      */
     readonly skuName?: string;
     /**
      * The sku type for the network function.
      */
     readonly skuType: string;
-    /**
-     * The system meta data relating to this resource.
-     */
-    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -103,7 +95,7 @@ export interface GetNetworkFunctionResult {
      */
     readonly type: string;
     /**
-     * The vendor name for the network function. Once set, it cannot be updated.
+     * The vendor name for the network function.
      */
     readonly vendorName?: string;
     /**

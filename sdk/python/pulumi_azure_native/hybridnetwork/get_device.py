@@ -20,7 +20,7 @@ class GetDeviceResult:
     """
     Device resource.
     """
-    def __init__(__self__, azure_stack_edge=None, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_stack_edge=None, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, tags=None, type=None):
         if azure_stack_edge and not isinstance(azure_stack_edge, dict):
             raise TypeError("Expected argument 'azure_stack_edge' to be a dict")
         pulumi.set(__self__, "azure_stack_edge", azure_stack_edge)
@@ -45,9 +45,6 @@ class GetDeviceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -59,7 +56,7 @@ class GetDeviceResult:
     @pulumi.getter(name="azureStackEdge")
     def azure_stack_edge(self) -> Optional['outputs.SubResourceResponse']:
         """
-        The reference to the Azure stack edge device. Once set, it cannot be updated.
+        The reference to the Azure stack edge device.
         """
         return pulumi.get(self, "azure_stack_edge")
 
@@ -120,14 +117,6 @@ class GetDeviceResult:
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -158,7 +147,6 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             network_functions=self.network_functions,
             provisioning_state=self.provisioning_state,
             status=self.status,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -168,7 +156,7 @@ def get_device(device_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Device resource.
-    API Version: 2021-05-01.
+    API Version: 2020-01-01-preview.
 
 
     :param str device_name: The name of the device resource.
@@ -192,6 +180,5 @@ def get_device(device_name: Optional[str] = None,
         network_functions=__ret__.network_functions,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

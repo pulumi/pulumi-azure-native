@@ -164,38 +164,6 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
     /// <summary>
-    /// The network function type.
-    /// </summary>
-    [EnumType]
-    public readonly struct NetworkFunctionType : IEquatable<NetworkFunctionType>
-    {
-        private readonly string _value;
-
-        private NetworkFunctionType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static NetworkFunctionType Unknown { get; } = new NetworkFunctionType("Unknown");
-        public static NetworkFunctionType VirtualNetworkFunction { get; } = new NetworkFunctionType("VirtualNetworkFunction");
-        public static NetworkFunctionType ContainerizedNetworkFunction { get; } = new NetworkFunctionType("ContainerizedNetworkFunction");
-
-        public static bool operator ==(NetworkFunctionType left, NetworkFunctionType right) => left.Equals(right);
-        public static bool operator !=(NetworkFunctionType left, NetworkFunctionType right) => !left.Equals(right);
-
-        public static explicit operator string(NetworkFunctionType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is NetworkFunctionType other && Equals(other);
-        public bool Equals(NetworkFunctionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The OS type.
     /// </summary>
     [EnumType]

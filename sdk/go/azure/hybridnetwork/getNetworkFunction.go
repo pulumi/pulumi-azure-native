@@ -8,7 +8,7 @@ import (
 )
 
 // Network function resource response.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 func LookupNetworkFunction(ctx *pulumi.Context, args *LookupNetworkFunctionArgs, opts ...pulumi.InvokeOption) (*LookupNetworkFunctionResult, error) {
 	var rv LookupNetworkFunctionResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getNetworkFunction", args, &rv, opts...)
@@ -27,7 +27,7 @@ type LookupNetworkFunctionArgs struct {
 
 // Network function resource response.
 type LookupNetworkFunctionResult struct {
-	// The reference to the device resource. Once set, it cannot be updated.
+	// The reference to the device resource.
 	Device *SubResourceResponse `pulumi:"device"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
@@ -41,25 +41,21 @@ type LookupNetworkFunctionResult struct {
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The network function container configurations from the user.
-	NetworkFunctionContainerConfigurations interface{} `pulumi:"networkFunctionContainerConfigurations"`
 	// The network function configurations from the user.
 	NetworkFunctionUserConfigurations []NetworkFunctionUserConfigurationResponse `pulumi:"networkFunctionUserConfigurations"`
 	// The provisioning state of the network function resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The service key for the network function resource.
 	ServiceKey string `pulumi:"serviceKey"`
-	// The sku name for the network function. Once set, it cannot be updated.
+	// The sku name for the network function.
 	SkuName *string `pulumi:"skuName"`
 	// The sku type for the network function.
 	SkuType string `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
-	// The vendor name for the network function. Once set, it cannot be updated.
+	// The vendor name for the network function.
 	VendorName *string `pulumi:"vendorName"`
 	// The vendor provisioning state for the network function resource.
 	VendorProvisioningState string `pulumi:"vendorProvisioningState"`

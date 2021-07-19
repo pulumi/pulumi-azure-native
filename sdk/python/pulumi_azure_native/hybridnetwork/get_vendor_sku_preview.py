@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetVendorSkuPreviewResult',
@@ -20,19 +19,13 @@ class GetVendorSkuPreviewResult:
     """
     Customer subscription which can use a sku.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,22 +47,6 @@ class GetVendorSkuPreviewResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        The provisioning state of the PreviewSubscription resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -86,8 +63,6 @@ class AwaitableGetVendorSkuPreviewResult(GetVendorSkuPreviewResult):
         return GetVendorSkuPreviewResult(
             id=self.id,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -97,7 +72,7 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVendorSkuPreviewResult:
     """
     Customer subscription which can use a sku.
-    API Version: 2021-05-01.
+    API Version: 2020-01-01-preview.
 
 
     :param str preview_subscription: Preview subscription ID.
@@ -117,6 +92,4 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
     return AwaitableGetVendorSkuPreviewResult(
         id=__ret__.id,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
         type=__ret__.type)

@@ -2,12 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Customer subscription which can use a sku.
- * API Version: 2021-05-01.
+ * API Version: 2020-01-01-preview.
  */
 export class VendorSkuPreview extends pulumi.CustomResource {
     /**
@@ -41,14 +40,6 @@ export class VendorSkuPreview extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state of the PreviewSubscription resource.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The system meta data relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
-    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -74,13 +65,9 @@ export class VendorSkuPreview extends pulumi.CustomResource {
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["vendorName"] = args ? args.vendorName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

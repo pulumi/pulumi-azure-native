@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Sku sub resource.
-        /// API Version: 2021-05-01.
+        /// API Version: 2020-01-01-preview.
         /// </summary>
         public static Task<GetVendorSkusResult> InvokeAsync(GetVendorSkusArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVendorSkusResult>("azure-native:hybridnetwork:getVendorSkus", args ?? new GetVendorSkusArgs(), options.WithVersion());
@@ -68,10 +68,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly Outputs.NetworkFunctionTemplateResponse? NetworkFunctionTemplate;
         /// <summary>
-        /// The network function type.
-        /// </summary>
-        public readonly string? NetworkFunctionType;
-        /// <summary>
         /// Indicates if the vendor sku is in preview mode.
         /// </summary>
         public readonly bool? Preview;
@@ -83,10 +79,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// The sku type.
         /// </summary>
         public readonly string? SkuType;
-        /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -106,15 +98,11 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             Outputs.NetworkFunctionTemplateResponse? networkFunctionTemplate,
 
-            string? networkFunctionType,
-
             bool? preview,
 
             string provisioningState,
 
             string? skuType,
-
-            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -124,11 +112,9 @@ namespace Pulumi.AzureNative.HybridNetwork
             ManagedApplicationTemplate = managedApplicationTemplate;
             Name = name;
             NetworkFunctionTemplate = networkFunctionTemplate;
-            NetworkFunctionType = networkFunctionType;
             Preview = preview;
             ProvisioningState = provisioningState;
             SkuType = skuType;
-            SystemData = systemData;
             Type = type;
         }
     }

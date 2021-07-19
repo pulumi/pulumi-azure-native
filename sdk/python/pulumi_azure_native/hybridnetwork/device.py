@@ -26,7 +26,7 @@ class DeviceArgs:
         The set of arguments for constructing a Device resource.
         :param pulumi.Input[Union[str, 'DeviceType']] device_type: The type of the device.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SubResourceArgs'] azure_stack_edge: The reference to the Azure stack edge device. Once set, it cannot be updated.
+        :param pulumi.Input['SubResourceArgs'] azure_stack_edge: The reference to the Azure stack edge device.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -70,7 +70,7 @@ class DeviceArgs:
     @pulumi.getter(name="azureStackEdge")
     def azure_stack_edge(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        The reference to the Azure stack edge device. Once set, it cannot be updated.
+        The reference to the Azure stack edge device.
         """
         return pulumi.get(self, "azure_stack_edge")
 
@@ -129,11 +129,11 @@ class Device(pulumi.CustomResource):
                  __props__=None):
         """
         Device resource.
-        API Version: 2021-05-01.
+        API Version: 2020-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the Azure stack edge device. Once set, it cannot be updated.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the Azure stack edge device.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
         :param pulumi.Input[Union[str, 'DeviceType']] device_type: The type of the device.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -148,7 +148,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device resource.
-        API Version: 2021-05-01.
+        API Version: 2020-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.
@@ -197,7 +197,6 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["network_functions"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork:Device"), pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:Device"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:Device"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:Device"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20210501:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -230,7 +229,6 @@ class Device(pulumi.CustomResource):
         __props__.__dict__["network_functions"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Device(resource_name, opts=opts, __props__=__props__)
@@ -239,7 +237,7 @@ class Device(pulumi.CustomResource):
     @pulumi.getter(name="azureStackEdge")
     def azure_stack_edge(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        The reference to the Azure stack edge device. Once set, it cannot be updated.
+        The reference to the Azure stack edge device.
         """
         return pulumi.get(self, "azure_stack_edge")
 
@@ -290,14 +288,6 @@ class Device(pulumi.CustomResource):
         The current device status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

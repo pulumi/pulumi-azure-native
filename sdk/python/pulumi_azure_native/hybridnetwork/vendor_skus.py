@@ -21,7 +21,6 @@ class VendorSkusArgs:
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
                  network_function_template: Optional[pulumi.Input['NetworkFunctionTemplateArgs']] = None,
-                 network_function_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None):
@@ -32,7 +31,6 @@ class VendorSkusArgs:
         :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
         :param Any managed_application_template: The template for the managed application deployment.
         :param pulumi.Input['NetworkFunctionTemplateArgs'] network_function_template: The template definition of the network function.
-        :param pulumi.Input[Union[str, 'NetworkFunctionType']] network_function_type: The network function type.
         :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
         :param pulumi.Input[str] sku_name: The name of the sku.
         :param pulumi.Input[Union[str, 'SkuType']] sku_type: The sku type.
@@ -46,8 +44,6 @@ class VendorSkusArgs:
             pulumi.set(__self__, "managed_application_template", managed_application_template)
         if network_function_template is not None:
             pulumi.set(__self__, "network_function_template", network_function_template)
-        if network_function_type is not None:
-            pulumi.set(__self__, "network_function_type", network_function_type)
         if preview is not None:
             pulumi.set(__self__, "preview", preview)
         if sku_name is not None:
@@ -116,18 +112,6 @@ class VendorSkusArgs:
         pulumi.set(self, "network_function_template", value)
 
     @property
-    @pulumi.getter(name="networkFunctionType")
-    def network_function_type(self) -> Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]]:
-        """
-        The network function type.
-        """
-        return pulumi.get(self, "network_function_type")
-
-    @network_function_type.setter
-    def network_function_type(self, value: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]]):
-        pulumi.set(self, "network_function_type", value)
-
-    @property
     @pulumi.getter
     def preview(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -173,7 +157,6 @@ class VendorSkus(pulumi.CustomResource):
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
                  network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
-                 network_function_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
@@ -181,7 +164,7 @@ class VendorSkus(pulumi.CustomResource):
                  __props__=None):
         """
         Sku sub resource.
-        API Version: 2021-05-01.
+        API Version: 2020-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +172,6 @@ class VendorSkus(pulumi.CustomResource):
         :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
         :param Any managed_application_template: The template for the managed application deployment.
         :param pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']] network_function_template: The template definition of the network function.
-        :param pulumi.Input[Union[str, 'NetworkFunctionType']] network_function_type: The network function type.
         :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
         :param pulumi.Input[str] sku_name: The name of the sku.
         :param pulumi.Input[Union[str, 'SkuType']] sku_type: The sku type.
@@ -203,7 +185,7 @@ class VendorSkus(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sku sub resource.
-        API Version: 2021-05-01.
+        API Version: 2020-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VendorSkusArgs args: The arguments to use to populate this resource's properties.
@@ -224,7 +206,6 @@ class VendorSkus(pulumi.CustomResource):
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
                  network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
-                 network_function_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionType']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
@@ -245,7 +226,6 @@ class VendorSkus(pulumi.CustomResource):
             __props__.__dict__["managed_application_parameters"] = managed_application_parameters
             __props__.__dict__["managed_application_template"] = managed_application_template
             __props__.__dict__["network_function_template"] = network_function_template
-            __props__.__dict__["network_function_type"] = network_function_type
             __props__.__dict__["preview"] = preview
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["sku_type"] = sku_type
@@ -254,7 +234,6 @@ class VendorSkus(pulumi.CustomResource):
             __props__.__dict__["vendor_name"] = vendor_name
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork:VendorSkus"), pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:VendorSkus"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:VendorSkus"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:VendorSkus"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20210501:VendorSkus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -285,11 +264,9 @@ class VendorSkus(pulumi.CustomResource):
         __props__.__dict__["managed_application_template"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_function_template"] = None
-        __props__.__dict__["network_function_type"] = None
         __props__.__dict__["preview"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku_type"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return VendorSkus(resource_name, opts=opts, __props__=__props__)
 
@@ -334,14 +311,6 @@ class VendorSkus(pulumi.CustomResource):
         return pulumi.get(self, "network_function_template")
 
     @property
-    @pulumi.getter(name="networkFunctionType")
-    def network_function_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The network function type.
-        """
-        return pulumi.get(self, "network_function_type")
-
-    @property
     @pulumi.getter
     def preview(self) -> pulumi.Output[Optional[bool]]:
         """
@@ -364,14 +333,6 @@ class VendorSkus(pulumi.CustomResource):
         The sku type.
         """
         return pulumi.get(self, "sku_type")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        The system meta data relating to this resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

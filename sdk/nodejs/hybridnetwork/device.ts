@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device resource.
- * API Version: 2021-05-01.
+ * API Version: 2020-01-01-preview.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -37,7 +37,7 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to the Azure stack edge device. Once set, it cannot be updated.
+     * The reference to the Azure stack edge device.
      */
     public readonly azureStackEdge!: pulumi.Output<outputs.hybridnetwork.SubResourceResponse | undefined>;
     /**
@@ -64,10 +64,6 @@ export class Device extends pulumi.CustomResource {
      * The current device status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * The system meta data relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -104,7 +100,6 @@ export class Device extends pulumi.CustomResource {
             inputs["networkFunctions"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["azureStackEdge"] = undefined /*out*/;
@@ -114,7 +109,6 @@ export class Device extends pulumi.CustomResource {
             inputs["networkFunctions"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -132,7 +126,7 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
-     * The reference to the Azure stack edge device. Once set, it cannot be updated.
+     * The reference to the Azure stack edge device.
      */
     azureStackEdge?: pulumi.Input<inputs.hybridnetwork.SubResourceArgs>;
     /**

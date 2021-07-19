@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device resource.
- * API Version: 2021-05-01.
+ * API Version: 2020-01-01-preview.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface GetDeviceArgs {
  */
 export interface GetDeviceResult {
     /**
-     * The reference to the Azure stack edge device. Once set, it cannot be updated.
+     * The reference to the Azure stack edge device.
      */
     readonly azureStackEdge?: outputs.hybridnetwork.SubResourceResponse;
     /**
@@ -70,10 +70,6 @@ export interface GetDeviceResult {
      * The current device status.
      */
     readonly status: string;
-    /**
-     * The system meta data relating to this resource.
-     */
-    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * Resource tags.
      */

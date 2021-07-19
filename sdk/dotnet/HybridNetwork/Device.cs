@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Device resource.
-    /// API Version: 2021-05-01.
+    /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
-        /// The reference to the Azure stack edge device. Once set, it cannot be updated.
+        /// The reference to the Azure stack edge device.
         /// </summary>
         [Output("azureStackEdge")]
         public Output<Outputs.SubResourceResponse?> AzureStackEdge { get; private set; } = null!;
@@ -57,12 +57,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -130,7 +124,7 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference to the Azure stack edge device. Once set, it cannot be updated.
+        /// The reference to the Azure stack edge device.
         /// </summary>
         [Input("azureStackEdge")]
         public Input<Inputs.SubResourceArgs>? AzureStackEdge { get; set; }

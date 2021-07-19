@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 {
     /// <summary>
     /// Vendor resource.
-    /// API Version: 2021-05-01.
+    /// API Version: 2020-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Vendor")]
     public partial class Vendor : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         [Output("skus")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> Skus { get; private set; } = null!;
-
-        /// <summary>
-        /// The system meta data relating to this resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

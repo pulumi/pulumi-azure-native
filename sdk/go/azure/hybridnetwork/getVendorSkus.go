@@ -8,7 +8,7 @@ import (
 )
 
 // Sku sub resource.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 func LookupVendorSkus(ctx *pulumi.Context, args *LookupVendorSkusArgs, opts ...pulumi.InvokeOption) (*LookupVendorSkusResult, error) {
 	var rv LookupVendorSkusResult
 	err := ctx.Invoke("azure-native:hybridnetwork:getVendorSkus", args, &rv, opts...)
@@ -39,16 +39,12 @@ type LookupVendorSkusResult struct {
 	Name string `pulumi:"name"`
 	// The template definition of the network function.
 	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
-	// The network function type.
-	NetworkFunctionType *string `pulumi:"networkFunctionType"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

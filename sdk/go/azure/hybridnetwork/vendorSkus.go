@@ -12,7 +12,7 @@ import (
 )
 
 // Sku sub resource.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 type VendorSkus struct {
 	pulumi.CustomResourceState
 
@@ -26,16 +26,12 @@ type VendorSkus struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The template definition of the network function.
 	NetworkFunctionTemplate NetworkFunctionTemplateResponsePtrOutput `pulumi:"networkFunctionTemplate"`
-	// The network function type.
-	NetworkFunctionType pulumi.StringPtrOutput `pulumi:"networkFunctionType"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrOutput `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType pulumi.StringPtrOutput `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -100,16 +96,12 @@ type vendorSkusState struct {
 	Name *string `pulumi:"name"`
 	// The template definition of the network function.
 	NetworkFunctionTemplate *NetworkFunctionTemplateResponse `pulumi:"networkFunctionTemplate"`
-	// The network function type.
-	NetworkFunctionType *string `pulumi:"networkFunctionType"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The sku type.
 	SkuType *string `pulumi:"skuType"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -125,16 +117,12 @@ type VendorSkusState struct {
 	Name pulumi.StringPtrInput
 	// The template definition of the network function.
 	NetworkFunctionTemplate NetworkFunctionTemplateResponsePtrInput
-	// The network function type.
-	NetworkFunctionType pulumi.StringPtrInput
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrInput
 	// The provisioning state of the vendor sku sub resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The sku type.
 	SkuType pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }
@@ -152,8 +140,6 @@ type vendorSkusArgs struct {
 	ManagedApplicationTemplate interface{} `pulumi:"managedApplicationTemplate"`
 	// The template definition of the network function.
 	NetworkFunctionTemplate *NetworkFunctionTemplate `pulumi:"networkFunctionTemplate"`
-	// The network function type.
-	NetworkFunctionType *string `pulumi:"networkFunctionType"`
 	// Indicates if the vendor sku is in preview mode.
 	Preview *bool `pulumi:"preview"`
 	// The name of the sku.
@@ -174,8 +160,6 @@ type VendorSkusArgs struct {
 	ManagedApplicationTemplate pulumi.Input
 	// The template definition of the network function.
 	NetworkFunctionTemplate NetworkFunctionTemplatePtrInput
-	// The network function type.
-	NetworkFunctionType pulumi.StringPtrInput
 	// Indicates if the vendor sku is in preview mode.
 	Preview pulumi.BoolPtrInput
 	// The name of the sku.

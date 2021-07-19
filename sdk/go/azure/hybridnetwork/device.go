@@ -12,11 +12,11 @@ import (
 )
 
 // Device resource.
-// API Version: 2021-05-01.
+// API Version: 2020-01-01-preview.
 type Device struct {
 	pulumi.CustomResourceState
 
-	// The reference to the Azure stack edge device. Once set, it cannot be updated.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourceResponsePtrOutput `pulumi:"azureStackEdge"`
 	// The type of the device.
 	DeviceType pulumi.StringOutput `pulumi:"deviceType"`
@@ -30,8 +30,6 @@ type Device struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The current device status.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -91,7 +89,7 @@ func GetDevice(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Device resources.
 type deviceState struct {
-	// The reference to the Azure stack edge device. Once set, it cannot be updated.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResourceResponse `pulumi:"azureStackEdge"`
 	// The type of the device.
 	DeviceType *string `pulumi:"deviceType"`
@@ -105,8 +103,6 @@ type deviceState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The current device status.
 	Status *string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -114,7 +110,7 @@ type deviceState struct {
 }
 
 type DeviceState struct {
-	// The reference to the Azure stack edge device. Once set, it cannot be updated.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourceResponsePtrInput
 	// The type of the device.
 	DeviceType pulumi.StringPtrInput
@@ -128,8 +124,6 @@ type DeviceState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// The current device status.
 	Status pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -141,7 +135,7 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// The reference to the Azure stack edge device. Once set, it cannot be updated.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge *SubResource `pulumi:"azureStackEdge"`
 	// Resource name for the device resource.
 	DeviceName *string `pulumi:"deviceName"`
@@ -157,7 +151,7 @@ type deviceArgs struct {
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// The reference to the Azure stack edge device. Once set, it cannot be updated.
+	// The reference to the Azure stack edge device.
 	AzureStackEdge SubResourcePtrInput
 	// Resource name for the device resource.
 	DeviceName pulumi.StringPtrInput
