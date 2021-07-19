@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Binary store settings.
         /// </summary>
         [Input("storeSettings")]
-        public Input<object>? StoreSettings { get; set; }
+        public object? StoreSettings { get; set; }
 
         /// <summary>
         /// Copy source type.

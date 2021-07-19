@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// Compression settings.
         /// </summary>
         [Input("compressionProperties")]
-        public Input<object>? CompressionProperties { get; set; }
+        public object? CompressionProperties { get; set; }
 
         /// <summary>
         /// Indicates whether type detection is enabled when reading the xml files. Type: boolean (or Expression with resultType boolean).

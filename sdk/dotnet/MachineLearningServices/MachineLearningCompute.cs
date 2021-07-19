@@ -169,7 +169,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Compute properties
         /// </summary>
         [Input("properties")]
-        public Input<object>? Properties { get; set; }
+        public object? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group in which workspace is located.

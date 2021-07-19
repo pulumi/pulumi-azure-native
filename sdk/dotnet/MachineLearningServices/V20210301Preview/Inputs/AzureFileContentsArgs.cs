@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         /// Account credentials.
         /// </summary>
         [Input("credentials", required: true)]
-        public Input<object> Credentials { get; set; } = null!;
+        public object Credentials { get; set; } = null!;
 
         /// <summary>
         /// Azure cloud endpoint for the storage account.

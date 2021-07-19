@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// Fabric provider specific creation input.
         /// </summary>
         [Input("customDetails")]
-        public Input<object>? CustomDetails { get; set; }
+        public object? CustomDetails { get; set; }
 
         public FabricCreationInputPropertiesArgs()
         {

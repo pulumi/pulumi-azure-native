@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The location of the parquet storage.
         /// </summary>
         [Input("location", required: true)]
-        public Input<object> Location { get; set; } = null!;
+        public object Location { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

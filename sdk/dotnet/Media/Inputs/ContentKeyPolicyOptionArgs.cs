@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Media.Inputs
         /// The key delivery configuration.
         /// </summary>
         [Input("configuration", required: true)]
-        public Input<object> Configuration { get; set; } = null!;
+        public object Configuration { get; set; } = null!;
 
         /// <summary>
         /// The Policy Option description.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Media.Inputs
         /// The requirements that must be met to deliver keys with this configuration
         /// </summary>
         [Input("restriction", required: true)]
-        public Input<object> Restriction { get; set; } = null!;
+        public object Restriction { get; set; } = null!;
 
         public ContentKeyPolicyOptionArgs()
         {

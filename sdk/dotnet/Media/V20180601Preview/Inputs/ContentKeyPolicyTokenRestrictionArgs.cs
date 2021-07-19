@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Media.V20180601Preview.Inputs
         /// The primary verification key.
         /// </summary>
         [Input("primaryVerificationKey", required: true)]
-        public Input<object> PrimaryVerificationKey { get; set; } = null!;
+        public object PrimaryVerificationKey { get; set; } = null!;
 
         [Input("requiredClaims")]
         private InputList<Inputs.ContentKeyPolicyTokenClaimArgs>? _requiredClaims;

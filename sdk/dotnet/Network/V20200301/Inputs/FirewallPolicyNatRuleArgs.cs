@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         /// The match conditions for incoming traffic.
         /// </summary>
         [Input("ruleCondition")]
-        public Input<object>? RuleCondition { get; set; }
+        public object? RuleCondition { get; set; }
 
         /// <summary>
         /// The type of the rule.
