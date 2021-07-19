@@ -35,7 +35,7 @@ export interface GetUebaArgs {
      */
     resourceGroupName: string;
     /**
-     * The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+     * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
     settingsName: string;
     /**

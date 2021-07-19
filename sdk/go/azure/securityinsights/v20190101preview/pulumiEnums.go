@@ -778,6 +778,7 @@ func (e PollingFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type SettingKind pulumi.String
 
 const (
+	SettingKindAnomalies       = SettingKind("Anomalies")
 	SettingKindEyesOn          = SettingKind("EyesOn")
 	SettingKindEntityAnalytics = SettingKind("EntityAnalytics")
 	SettingKindUeba            = SettingKind("Ueba")

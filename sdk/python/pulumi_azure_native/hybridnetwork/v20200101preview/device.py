@@ -196,7 +196,7 @@ class Device(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:Device"), pulumi.Alias(type_="azure-native:hybridnetwork:Device"), pulumi.Alias(type_="azure-nextgen:hybridnetwork:Device")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:Device"), pulumi.Alias(type_="azure-native:hybridnetwork:Device"), pulumi.Alias(type_="azure-nextgen:hybridnetwork:Device"), pulumi.Alias(type_="azure-native:hybridnetwork/v20210501:Device"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20210501:Device")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Device, __self__).__init__(
             'azure-native:hybridnetwork/v20200101preview:Device',

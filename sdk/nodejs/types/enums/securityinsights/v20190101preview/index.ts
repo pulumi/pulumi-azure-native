@@ -609,6 +609,7 @@ export const PollingFrequency = {
 export type PollingFrequency = (typeof PollingFrequency)[keyof typeof PollingFrequency];
 
 export const SettingKind = {
+    Anomalies: "Anomalies",
     EyesOn: "EyesOn",
     EntityAnalytics: "EntityAnalytics",
     Ueba: "Ueba",

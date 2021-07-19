@@ -686,6 +686,7 @@ export const RepoType = {
 export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
 export const SettingKind = {
+    Anomalies: "Anomalies",
     EyesOn: "EyesOn",
     EntityAnalytics: "EntityAnalytics",
     Ueba: "Ueba",

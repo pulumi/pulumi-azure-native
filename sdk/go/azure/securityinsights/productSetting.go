@@ -14,7 +14,7 @@ import (
 // The Setting.
 // API Version: 2021-03-01-preview.
 //
-// Deprecated: Please use one of the variants: EntityAnalytics, EyesOn, Ueba.
+// Deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.
 type ProductSetting struct {
 	pulumi.CustomResourceState
 
@@ -127,7 +127,7 @@ type productSettingArgs struct {
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
 	SettingsName *string `pulumi:"settingsName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -143,7 +143,7 @@ type ProductSettingArgs struct {
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
 	SettingsName pulumi.StringPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput

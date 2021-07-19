@@ -1300,6 +1300,7 @@ _utilities.register(
    "azure-native:authorization:PolicyExemption": "PolicyExemption",
    "azure-native:authorization:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
+   "azure-native:authorization:ResourceManagementPrivateLink": "ResourceManagementPrivateLink",
    "azure-native:authorization:RoleAssignment": "RoleAssignment",
    "azure-native:authorization:RoleDefinition": "RoleDefinition",
    "azure-native:authorization:RoleManagementPolicyAssignment": "RoleManagementPolicyAssignment"
@@ -1491,6 +1492,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.authorization.v20200401preview",
   "classes": {
    "azure-native:authorization/v20200401preview:RoleAssignment": "RoleAssignment"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20200501",
+  "fqn": "pulumi_azure_native.authorization.v20200501",
+  "classes": {
+   "azure-native:authorization/v20200501:ResourceManagementPrivateLink": "ResourceManagementPrivateLink"
   }
  },
  {
@@ -7099,6 +7108,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "hybridnetwork/v20210501",
+  "fqn": "pulumi_azure_native.hybridnetwork.v20210501",
+  "classes": {
+   "azure-native:hybridnetwork/v20210501:Device": "Device",
+   "azure-native:hybridnetwork/v20210501:NetworkFunction": "NetworkFunction",
+   "azure-native:hybridnetwork/v20210501:Vendor": "Vendor",
+   "azure-native:hybridnetwork/v20210501:VendorSkuPreview": "VendorSkuPreview",
+   "azure-native:hybridnetwork/v20210501:VendorSkus": "VendorSkus"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "importexport",
   "fqn": "pulumi_azure_native.importexport",
   "classes": {
@@ -11895,6 +11916,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "purview/v20210701",
+  "fqn": "pulumi_azure_native.purview.v20210701",
+  "classes": {
+   "azure-native:purview/v20210701:Account": "Account",
+   "azure-native:purview/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "quantum",
   "fqn": "pulumi_azure_native.quantum",
   "classes": {
@@ -12170,7 +12200,8 @@ _utilities.register(
    "azure-native:recoveryservices/v20210601:ProtectedItem": "ProtectedItem",
    "azure-native:recoveryservices/v20210601:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20210601:ProtectionIntent": "ProtectionIntent",
-   "azure-native:recoveryservices/v20210601:ProtectionPolicy": "ProtectionPolicy"
+   "azure-native:recoveryservices/v20210601:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20210601:Vault": "Vault"
   }
  },
  {
@@ -12843,6 +12874,7 @@ _utilities.register(
    "azure-native:securityinsights:Action": "Action",
    "azure-native:securityinsights:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
    "azure-native:securityinsights:AlertRule": "AlertRule",
+   "azure-native:securityinsights:Anomalies": "Anomalies",
    "azure-native:securityinsights:AutomationRule": "AutomationRule",
    "azure-native:securityinsights:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
    "azure-native:securityinsights:Bookmark": "Bookmark",
@@ -12881,6 +12913,7 @@ _utilities.register(
    "azure-native:securityinsights/v20190101preview:ASCDataConnector": "ASCDataConnector",
    "azure-native:securityinsights/v20190101preview:Action": "Action",
    "azure-native:securityinsights/v20190101preview:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20190101preview:Anomalies": "Anomalies",
    "azure-native:securityinsights/v20190101preview:AutomationRule": "AutomationRule",
    "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
    "azure-native:securityinsights/v20190101preview:Bookmark": "Bookmark",
@@ -12947,6 +12980,7 @@ _utilities.register(
    "azure-native:securityinsights/v20210301preview:Action": "Action",
    "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
    "azure-native:securityinsights/v20210301preview:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20210301preview:Anomalies": "Anomalies",
    "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
    "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector": "CodelessUiDataConnector",
    "azure-native:securityinsights/v20210301preview:DataConnector": "DataConnector",

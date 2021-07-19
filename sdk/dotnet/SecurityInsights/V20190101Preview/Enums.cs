@@ -1046,6 +1046,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static SettingKind Anomalies { get; } = new SettingKind("Anomalies");
         public static SettingKind EyesOn { get; } = new SettingKind("EyesOn");
         public static SettingKind EntityAnalytics { get; } = new SettingKind("EntityAnalytics");
         public static SettingKind Ueba { get; } = new SettingKind("Ueba");

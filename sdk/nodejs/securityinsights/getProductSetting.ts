@@ -9,9 +9,9 @@ import * as utilities from "../utilities";
  * The Setting.
  * API Version: 2021-03-01-preview.
  */
-/** @deprecated Please use one of the variants: EntityAnalytics, EyesOn, Ueba. */
+/** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
 export function getProductSetting(args: GetProductSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetProductSettingResult> {
-    pulumi.log.warn("getProductSetting is deprecated: Please use one of the variants: EntityAnalytics, EyesOn, Ueba.")
+    pulumi.log.warn("getProductSetting is deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.")
     if (!opts) {
         opts = {}
     }
@@ -37,7 +37,7 @@ export interface GetProductSettingArgs {
      */
     resourceGroupName: string;
     /**
-     * The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+     * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
     settingsName: string;
     /**

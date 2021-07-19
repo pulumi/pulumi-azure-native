@@ -27,6 +27,7 @@ __all__ = [
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
     'PrincipalResponse',
+    'ResourceManagementPrivateLinkEndpointConnectionsResponse',
     'SystemDataResponse',
 ]
 
@@ -1092,6 +1093,42 @@ class PrincipalResponse(dict):
         Type of principal such as user , group etc
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ResourceManagementPrivateLinkEndpointConnectionsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceManagementPrivateLinkEndpointConnectionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceManagementPrivateLinkEndpointConnectionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceManagementPrivateLinkEndpointConnectionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_endpoint_connections: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] private_endpoint_connections: The private endpoint connections.
+        """
+        if private_endpoint_connections is not None:
+            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence[str]]:
+        """
+        The private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
 
 
 @pulumi.output_type

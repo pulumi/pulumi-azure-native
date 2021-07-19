@@ -19,6 +19,7 @@ export * from "./getPolicyDefinitionAtManagementGroup";
 export * from "./getPolicyExemption";
 export * from "./getPolicySetDefinition";
 export * from "./getPolicySetDefinitionAtManagementGroup";
+export * from "./getResourceManagementPrivateLink";
 export * from "./getRoleAssignment";
 export * from "./getRoleDefinition";
 export * from "./getRoleManagementPolicyAssignment";
@@ -32,6 +33,7 @@ export * from "./policyDefinitionAtManagementGroup";
 export * from "./policyExemption";
 export * from "./policySetDefinition";
 export * from "./policySetDefinitionAtManagementGroup";
+export * from "./resourceManagementPrivateLink";
 export * from "./roleAssignment";
 export * from "./roleDefinition";
 export * from "./roleManagementPolicyAssignment";
@@ -59,6 +61,7 @@ import * as v20190901 from "./v20190901";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200401preview from "./v20200401preview";
+import * as v20200501 from "./v20200501";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200801preview from "./v20200801preview";
 import * as v20200901 from "./v20200901";
@@ -85,6 +88,7 @@ export {
     v20200301,
     v20200301preview,
     v20200401preview,
+    v20200501,
     v20200701preview,
     v20200801preview,
     v20200901,
@@ -104,6 +108,7 @@ import { PolicyDefinitionAtManagementGroup } from "./policyDefinitionAtManagemen
 import { PolicyExemption } from "./policyExemption";
 import { PolicySetDefinition } from "./policySetDefinition";
 import { PolicySetDefinitionAtManagementGroup } from "./policySetDefinitionAtManagementGroup";
+import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
 import { RoleAssignment } from "./roleAssignment";
 import { RoleDefinition } from "./roleDefinition";
 import { RoleManagementPolicyAssignment } from "./roleManagementPolicyAssignment";
@@ -134,6 +139,8 @@ const _module = {
                 return new PolicySetDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
                 return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:ResourceManagementPrivateLink":
+                return new ResourceManagementPrivateLink(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleAssignment":
                 return new RoleAssignment(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleDefinition":

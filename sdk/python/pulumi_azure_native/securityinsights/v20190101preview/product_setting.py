@@ -27,7 +27,7 @@ class ProductSettingArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
@@ -102,7 +102,7 @@ class ProductSettingArgs:
     @pulumi.getter(name="settingsName")
     def settings_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         return pulumi.get(self, "settings_name")
 
@@ -111,11 +111,11 @@ class ProductSettingArgs:
         pulumi.set(self, "settings_name", value)
 
 
-warnings.warn("""Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
+warnings.warn("""Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
 
 
 class ProductSetting(pulumi.CustomResource):
-    warnings.warn("""Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
+    warnings.warn("""Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -137,7 +137,7 @@ class ProductSetting(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'SettingKind']] kind: The kind of the setting
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
@@ -171,7 +171,7 @@ class ProductSetting(pulumi.CustomResource):
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ProductSetting is deprecated: Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""")
+        pulumi.log.warn("""ProductSetting is deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

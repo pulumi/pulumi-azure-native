@@ -16,9 +16,11 @@ export * from "../types/enums/purview";
 
 // Export sub-modules:
 import * as v20201201preview from "./v20201201preview";
+import * as v20210701 from "./v20210701";
 
 export {
     v20201201preview,
+    v20210701,
 };
 
 // Import resources to register:

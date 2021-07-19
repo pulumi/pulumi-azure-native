@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        /// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         /// </summary>
         [Input("settingsName")]
         public Input<string>? SettingsName { get; set; }

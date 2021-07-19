@@ -125,7 +125,7 @@ type eyesOnArgs struct {
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
 	SettingsName *string `pulumi:"settingsName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
@@ -141,7 +141,7 @@ type EyesOnArgs struct {
 	OperationalInsightsResourceProvider pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
 	SettingsName pulumi.StringPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput

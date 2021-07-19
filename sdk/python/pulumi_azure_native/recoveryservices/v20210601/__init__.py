@@ -11,10 +11,12 @@ from .get_protected_item import *
 from .get_protection_container import *
 from .get_protection_intent import *
 from .get_protection_policy import *
+from .get_vault import *
 from .private_endpoint_connection import *
 from .protected_item import *
 from .protection_container import *
 from .protection_intent import *
 from .protection_policy import *
+from .vault import *
 from ._inputs import *
 from . import outputs

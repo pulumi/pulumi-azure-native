@@ -859,6 +859,7 @@ func (e RepoType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 type SettingKind pulumi.String
 
 const (
+	SettingKindAnomalies       = SettingKind("Anomalies")
 	SettingKindEyesOn          = SettingKind("EyesOn")
 	SettingKindEntityAnalytics = SettingKind("EntityAnalytics")
 	SettingKindUeba            = SettingKind("Ueba")

@@ -11,6 +11,7 @@ from .aatp_data_connector import *
 from .action import *
 from .activity_custom_entity_query import *
 from .alert_rule import *
+from .anomalies import *
 from .asc_data_connector import *
 from .aws_cloud_trail_data_connector import *
 from .codeless_ui_data_connector import *
@@ -25,6 +26,7 @@ from .get_aatp_data_connector import *
 from .get_action import *
 from .get_activity_custom_entity_query import *
 from .get_alert_rule import *
+from .get_anomalies import *
 from .get_asc_data_connector import *
 from .get_aws_cloud_trail_data_connector import *
 from .get_codeless_ui_data_connector import *

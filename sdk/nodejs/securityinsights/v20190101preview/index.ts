@@ -9,6 +9,7 @@ export * from "./aaddataConnector";
 export * from "./aatpdataConnector";
 export * from "./action";
 export * from "./alertRule";
+export * from "./anomalies";
 export * from "./ascdataConnector";
 export * from "./automationRule";
 export * from "./awsCloudTrailDataConnector";
@@ -24,6 +25,7 @@ export * from "./getAATPDataConnector";
 export * from "./getASCDataConnector";
 export * from "./getAction";
 export * from "./getAlertRule";
+export * from "./getAnomalies";
 export * from "./getAutomationRule";
 export * from "./getAwsCloudTrailDataConnector";
 export * from "./getBookmark";
@@ -87,6 +89,7 @@ import { AATPDataConnector } from "./aatpdataConnector";
 import { ASCDataConnector } from "./ascdataConnector";
 import { Action } from "./action";
 import { AlertRule } from "./alertRule";
+import { Anomalies } from "./anomalies";
 import { AutomationRule } from "./automationRule";
 import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
 import { Bookmark } from "./bookmark";
@@ -132,6 +135,8 @@ const _module = {
                 return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:Anomalies":
+                return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector":

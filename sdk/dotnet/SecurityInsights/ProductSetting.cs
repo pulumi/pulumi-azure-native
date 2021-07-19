@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// The Setting.
     /// API Version: 2021-03-01-preview.
     /// </summary>
-    [Obsolete(@"Please use one of the variants: EntityAnalytics, EyesOn, Ueba.")]
+    [Obsolete(@"Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.")]
     [AzureNativeResourceType("azure-native:securityinsights:ProductSetting")]
     public partial class ProductSetting : Pulumi.CustomResource
     {
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        /// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         /// </summary>
         [Input("settingsName")]
         public Input<string>? SettingsName { get; set; }

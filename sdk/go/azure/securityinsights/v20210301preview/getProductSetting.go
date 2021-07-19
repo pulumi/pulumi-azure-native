@@ -9,7 +9,7 @@ import (
 
 // The Setting.
 //
-// Deprecated: Please use one of the variants: EntityAnalytics, EyesOn, Ueba.
+// Deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.
 func LookupProductSetting(ctx *pulumi.Context, args *LookupProductSettingArgs, opts ...pulumi.InvokeOption) (*LookupProductSettingResult, error) {
 	var rv LookupProductSettingResult
 	err := ctx.Invoke("azure-native:securityinsights/v20210301preview:getProductSetting", args, &rv, opts...)
@@ -24,7 +24,7 @@ type LookupProductSettingArgs struct {
 	OperationalInsightsResourceProvider string `pulumi:"operationalInsightsResourceProvider"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+	// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
 	SettingsName string `pulumi:"settingsName"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`

@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActivityCustomEntityQuery{}
 	case "azure-native:securityinsights/v20210301preview:AlertRule":
 		r = &AlertRule{}
+	case "azure-native:securityinsights/v20210301preview:Anomalies":
+		r = &Anomalies{}
 	case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
 		r = &AwsCloudTrailDataConnector{}
 	case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":

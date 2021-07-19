@@ -14,7 +14,7 @@ __all__ = [
     'get_product_setting',
 ]
 
-warnings.warn("""Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
+warnings.warn("""Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProductSettingResult:
@@ -103,10 +103,10 @@ def get_product_setting(operational_insights_resource_provider: Optional[str] = 
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-    :param str settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+    :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_product_setting is deprecated: Please use one of the variants: EntityAnalytics, EyesOn, IPSyncer, Ueba.""")
+    pulumi.log.warn("""get_product_setting is deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, IPSyncer, Ueba.""")
     __args__ = dict()
     __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name

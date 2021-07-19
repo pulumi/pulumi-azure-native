@@ -10,6 +10,7 @@ export * from "./aatpdataConnector";
 export * from "./action";
 export * from "./activityCustomEntityQuery";
 export * from "./alertRule";
+export * from "./anomalies";
 export * from "./ascdataConnector";
 export * from "./awsCloudTrailDataConnector";
 export * from "./codelessUiDataConnector";
@@ -25,6 +26,7 @@ export * from "./getASCDataConnector";
 export * from "./getAction";
 export * from "./getActivityCustomEntityQuery";
 export * from "./getAlertRule";
+export * from "./getAnomalies";
 export * from "./getAwsCloudTrailDataConnector";
 export * from "./getCodelessUiDataConnector";
 export * from "./getDataConnector";
@@ -89,6 +91,7 @@ import { ASCDataConnector } from "./ascdataConnector";
 import { Action } from "./action";
 import { ActivityCustomEntityQuery } from "./activityCustomEntityQuery";
 import { AlertRule } from "./alertRule";
+import { Anomalies } from "./anomalies";
 import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
 import { CodelessUiDataConnector } from "./codelessUiDataConnector";
 import { DataConnector } from "./dataConnector";
@@ -136,6 +139,8 @@ const _module = {
                 return new ActivityCustomEntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:AlertRule":
                 return new AlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20210301preview:Anomalies":
+                return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":

@@ -31,7 +31,7 @@ class UebaArgs:
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]] data_sources: The relevant data sources that enriched by ueba
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         pulumi.set(__self__, "kind", 'Ueba')
         pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
@@ -121,7 +121,7 @@ class UebaArgs:
     @pulumi.getter(name="settingsName")
     def settings_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         return pulumi.get(self, "settings_name")
 
@@ -155,7 +155,7 @@ class Ueba(pulumi.CustomResource):
                Expected value is 'Ueba'.
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+        :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...

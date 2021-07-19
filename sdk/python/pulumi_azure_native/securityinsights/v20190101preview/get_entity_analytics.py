@@ -114,7 +114,7 @@ def get_entity_analytics(operational_insights_resource_provider: Optional[str] =
 
     :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-    :param str settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
+    :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()

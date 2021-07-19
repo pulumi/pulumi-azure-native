@@ -302,6 +302,7 @@ class SettingKind(str, Enum):
     """
     The kind of the setting
     """
+    ANOMALIES = "Anomalies"
     EYES_ON = "EyesOn"
     ENTITY_ANALYTICS = "EntityAnalytics"
     UEBA = "Ueba"
