@@ -5,7 +5,7 @@ CHANGELOG
 
 #### Dependencies
 
-- Updated `pulumi/pulumi` dependencies to 3.7.0
+- Updated `pulumi/pulumi` dependencies to 3.7.1
 - The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
 - Support inputty Go enums
 

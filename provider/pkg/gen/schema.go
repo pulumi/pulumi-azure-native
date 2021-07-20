@@ -221,7 +221,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		Types:     map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},
 		Functions: map[string]pschema.FunctionSpec{},
-		Language:  map[string]json.RawMessage{},
+		Language:  map[string]pschema.RawMessage{},
 	}
 	metadata := resources.AzureAPIMetadata{
 		Types:     map[string]resources.AzureAPIType{},
@@ -955,7 +955,7 @@ func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *p
 	for name, swagger := range resourceResponse.specs {
 		// C# doesn't allow properties to have the same name as its containing type.
 		if strings.Title(name) == typeName {
-			swagger.Language = map[string]json.RawMessage{
+			swagger.Language = map[string]pschema.RawMessage{
 				"csharp": rawMessage(map[string]interface{}{
 					"name": fmt.Sprintf("%sValue", typeName),
 				}),
@@ -1938,7 +1938,7 @@ func (bag *propertyBag) merge(other *propertyBag) {
 	}
 }
 
-func rawMessage(v interface{}) json.RawMessage {
+func rawMessage(v interface{}) pschema.RawMessage {
 	bytes, err := json.Marshal(v)
 	contract.Assert(err == nil)
 	return bytes
