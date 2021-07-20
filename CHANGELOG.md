@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+- Updates Authorization::RoleAssignment to force replace on principalId or scope change (fixes [771](https://github.com/pulumi/pulumi-azure-native/issues/771))
 
 #### Dependencies
 
