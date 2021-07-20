@@ -8,7 +8,7 @@ import "github.com/pulumi/pulumi/pkg/v3/codegen"
 // API Versions are currently ignored.
 var forceNewMap = map[string]map[string]codegen.StringSet{
 	"Authorization": {
-		"RoleAssignment": codegen.NewStringSet("applicationId", "principalId", "scope"),
+		"RoleAssignment": codegen.NewStringSet("principalId", "scope"),
 	},
 	"Insights": {
 		"Component": codegen.NewStringSet(), // covered by x-ms-mutability
