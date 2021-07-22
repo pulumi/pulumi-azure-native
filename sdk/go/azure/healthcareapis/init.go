@@ -21,10 +21,20 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:healthcareapis:DicomService":
+		r = &DicomService{}
+	case "azure-native:healthcareapis:FhirService":
+		r = &FhirService{}
+	case "azure-native:healthcareapis:IotConnector":
+		r = &IotConnector{}
+	case "azure-native:healthcareapis:IotConnectorFhirDestination":
+		r = &IotConnectorFhirDestination{}
 	case "azure-native:healthcareapis:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:healthcareapis:Service":
 		r = &Service{}
+	case "azure-native:healthcareapis:Workspace":
+		r = &Workspace{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

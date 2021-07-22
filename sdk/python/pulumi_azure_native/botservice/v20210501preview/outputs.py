@@ -33,6 +33,7 @@ __all__ = [
     'LineRegistrationResponse',
     'MsTeamsChannelPropertiesResponse',
     'MsTeamsChannelResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ServiceProviderParameterResponse',
@@ -201,6 +202,8 @@ class BotPropertiesResponse(dict):
             suggest = "endpoint_version"
         elif key == "msaAppId":
             suggest = "msa_app_id"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
         elif key == "cmekKeyVaultUrl":
             suggest = "cmek_key_vault_url"
         elif key == "developerAppInsightKey":
@@ -209,6 +212,8 @@ class BotPropertiesResponse(dict):
             suggest = "developer_app_insights_api_key"
         elif key == "developerAppInsightsApplicationId":
             suggest = "developer_app_insights_application_id"
+        elif key == "disableLocalAuth":
+            suggest = "disable_local_auth"
         elif key == "iconUrl":
             suggest = "icon_url"
         elif key == "isCmekEnabled":
@@ -219,6 +224,12 @@ class BotPropertiesResponse(dict):
             suggest = "luis_app_ids"
         elif key == "luisKey":
             suggest = "luis_key"
+        elif key == "msaAppMSIResourceId":
+            suggest = "msa_app_msi_resource_id"
+        elif key == "msaAppTenantId":
+            suggest = "msa_app_tenant_id"
+        elif key == "msaAppType":
+            suggest = "msa_app_type"
         elif key == "schemaTransformationVersion":
             suggest = "schema_transformation_version"
 
@@ -240,16 +251,21 @@ class BotPropertiesResponse(dict):
                  endpoint: str,
                  endpoint_version: str,
                  msa_app_id: str,
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  cmek_key_vault_url: Optional[str] = None,
                  description: Optional[str] = None,
                  developer_app_insight_key: Optional[str] = None,
                  developer_app_insights_api_key: Optional[str] = None,
                  developer_app_insights_application_id: Optional[str] = None,
+                 disable_local_auth: Optional[bool] = None,
                  icon_url: Optional[str] = None,
                  is_cmek_enabled: Optional[bool] = None,
                  is_isolated: Optional[bool] = None,
                  luis_app_ids: Optional[Sequence[str]] = None,
                  luis_key: Optional[str] = None,
+                 msa_app_msi_resource_id: Optional[str] = None,
+                 msa_app_tenant_id: Optional[str] = None,
+                 msa_app_type: Optional[str] = None,
                  schema_transformation_version: Optional[str] = None):
         """
         The parameters to provide for the Bot.
@@ -259,16 +275,21 @@ class BotPropertiesResponse(dict):
         :param str endpoint: The bot's endpoint
         :param str endpoint_version: The bot's endpoint version
         :param str msa_app_id: Microsoft App Id for the bot
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: List of Private Endpoint Connections configured for the bot
         :param str cmek_key_vault_url: The CMK Url
         :param str description: The description of the bot
         :param str developer_app_insight_key: The Application Insights key
         :param str developer_app_insights_api_key: The Application Insights Api Key
         :param str developer_app_insights_application_id: The Application Insights App Id
+        :param bool disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param str icon_url: The Icon Url of the bot
         :param bool is_cmek_enabled: Whether Cmek is enabled
         :param bool is_isolated: Whether the bot is in an isolated network
         :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
         :param str luis_key: The LUIS Key
+        :param str msa_app_msi_resource_id: Microsoft App Managed Identity Resource Id for the bot
+        :param str msa_app_tenant_id: Microsoft App Tenant Id for the bot
+        :param str msa_app_type: Microsoft App Type for the bot
         :param str schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "configured_channels", configured_channels)
@@ -277,6 +298,7 @@ class BotPropertiesResponse(dict):
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "endpoint_version", endpoint_version)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -287,6 +309,8 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
             pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
         if is_cmek_enabled is not None:
@@ -297,6 +321,12 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if msa_app_msi_resource_id is not None:
+            pulumi.set(__self__, "msa_app_msi_resource_id", msa_app_msi_resource_id)
+        if msa_app_tenant_id is not None:
+            pulumi.set(__self__, "msa_app_tenant_id", msa_app_tenant_id)
+        if msa_app_type is not None:
+            pulumi.set(__self__, "msa_app_type", msa_app_type)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
@@ -349,6 +379,14 @@ class BotPropertiesResponse(dict):
         return pulumi.get(self, "msa_app_id")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of Private Endpoint Connections configured for the bot
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="cmekKeyVaultUrl")
     def cmek_key_vault_url(self) -> Optional[str]:
         """
@@ -389,6 +427,14 @@ class BotPropertiesResponse(dict):
         return pulumi.get(self, "developer_app_insights_application_id")
 
     @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[str]:
         """
@@ -427,6 +473,30 @@ class BotPropertiesResponse(dict):
         The LUIS Key
         """
         return pulumi.get(self, "luis_key")
+
+    @property
+    @pulumi.getter(name="msaAppMSIResourceId")
+    def msa_app_msi_resource_id(self) -> Optional[str]:
+        """
+        Microsoft App Managed Identity Resource Id for the bot
+        """
+        return pulumi.get(self, "msa_app_msi_resource_id")
+
+    @property
+    @pulumi.getter(name="msaAppTenantId")
+    def msa_app_tenant_id(self) -> Optional[str]:
+        """
+        Microsoft App Tenant Id for the bot
+        """
+        return pulumi.get(self, "msa_app_tenant_id")
+
+    @property
+    @pulumi.getter(name="msaAppType")
+    def msa_app_type(self) -> Optional[str]:
+        """
+        Microsoft App Type for the bot
+        """
+        return pulumi.get(self, "msa_app_type")
 
     @property
     @pulumi.getter(name="schemaTransformationVersion")
@@ -1733,6 +1803,105 @@ class MsTeamsChannelResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     The Private Endpoint resource.
@@ -1762,8 +1931,8 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionRequired":
-            suggest = "action_required"
+        if key == "actionsRequired":
+            suggest = "actions_required"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1777,29 +1946,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_required: Optional[str] = None,
+                 actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
-        :param str action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[str]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter
@@ -2282,6 +2451,7 @@ class SlackChannelPropertiesResponse(dict):
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
                  landing_page_url: Optional[str] = None,
+                 scopes: Optional[str] = None,
                  signing_secret: Optional[str] = None,
                  verification_token: Optional[str] = None):
         """
@@ -2294,6 +2464,7 @@ class SlackChannelPropertiesResponse(dict):
         :param str client_id: The Slack client id
         :param str client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param str landing_page_url: The Slack landing page Url
+        :param str scopes: The Slack permission scopes.
         :param str signing_secret: The Slack signing secret.
         :param str verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
@@ -2308,6 +2479,8 @@ class SlackChannelPropertiesResponse(dict):
             pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if signing_secret is not None:
             pulumi.set(__self__, "signing_secret", signing_secret)
         if verification_token is not None:
@@ -2376,6 +2549,14 @@ class SlackChannelPropertiesResponse(dict):
         The Slack landing page Url
         """
         return pulumi.get(self, "landing_page_url")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[str]:
+        """
+        The Slack permission scopes.
+        """
+        return pulumi.get(self, "scopes")
 
     @property
     @pulumi.getter(name="signingSecret")

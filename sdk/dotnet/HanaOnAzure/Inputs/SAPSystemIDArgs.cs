@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
         public Input<string>? Gid { get; set; }
 
         /// <summary>
-        /// Percent of memory to allocate to this SID.
-        /// </summary>
-        [Input("memoryAllocation")]
-        public Input<string>? MemoryAllocation { get; set; }
-
-        /// <summary>
         /// SAP system ID as database identifier.
         /// </summary>
         [Input("sid")]

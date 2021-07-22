@@ -42,6 +42,38 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
     }
 
     /// <summary>
+    /// Microsoft App Type for the bot
+    /// </summary>
+    [EnumType]
+    public readonly struct MsaAppType : IEquatable<MsaAppType>
+    {
+        private readonly string _value;
+
+        private MsaAppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MsaAppType UserAssignedMSI { get; } = new MsaAppType("UserAssignedMSI");
+        public static MsaAppType SingleTenant { get; } = new MsaAppType("SingleTenant");
+        public static MsaAppType MultiTenant { get; } = new MsaAppType("MultiTenant");
+
+        public static bool operator ==(MsaAppType left, MsaAppType right) => left.Equals(right);
+        public static bool operator !=(MsaAppType left, MsaAppType right) => !left.Equals(right);
+
+        public static explicit operator string(MsaAppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MsaAppType other && Equals(other);
+        public bool Equals(MsaAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     /// </summary>
     [EnumType]

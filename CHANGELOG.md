@@ -3,7 +3,37 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-- Updates Authorization::RoleAssignment to force replace on principalId or scope change (fixes [771](https://github.com/pulumi/pulumi-azure-native/issues/771))
+#### Enhancements:
+
+- Updates Authorization::RoleAssignment to force replace on principalId or scope change
+  [771](https://github.com/pulumi/pulumi-azure-native/issues/771)
+
+#### New resources:
+
+- `fluidrelay.FluidRelayServer`
+- `healthcareapis.DicomService`
+- `healthcareapis.FhirService`
+- `healthcareapis.IotConnector`
+- `healthcareapis.IotConnectorFhirDestination`
+- `healthcareapis.Workspace`
+
+#### New functions:
+
+- `fluidrelay.getFluidRelayServer`
+- `fluidrelay.getFluidRelayServerKeys`
+- `healthcareapis.getDicomService`
+- `healthcareapis.getFhirService`
+- `healthcareapis.getIotConnector`
+- `healthcareapis.getIotConnectorFhirDestination`
+- `healthcareapis.getWorkspace`
+
+#### Breaking Changes published by Microsoft:
+
+- Several properties in `hanaonazure` are marked as read-only
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15205))
+- `maxUnusedVersionsToKeep` in `servicefabric.ApplicationTypeVersionsCleanupPolicy` changed the type from
+  integer to float (expects int64)
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15128))
 
 ---
 

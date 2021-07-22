@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'Kind',
+    'MsaAppType',
     'PrivateEndpointServiceConnectionStatus',
     'SkuName',
 ]
@@ -20,6 +21,15 @@ class Kind(str, Enum):
     BOT = "bot"
     FUNCTION = "function"
     AZUREBOT = "azurebot"
+
+
+class MsaAppType(str, Enum):
+    """
+    Microsoft App Type for the bot
+    """
+    USER_ASSIGNED_MSI = "UserAssignedMSI"
+    SINGLE_TENANT = "SingleTenant"
+    MULTI_TENANT = "MultiTenant"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

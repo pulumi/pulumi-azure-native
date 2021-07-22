@@ -1476,33 +1476,33 @@ class MsTeamsChannelPropertiesArgs:
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
 
     @property
     @pulumi.getter

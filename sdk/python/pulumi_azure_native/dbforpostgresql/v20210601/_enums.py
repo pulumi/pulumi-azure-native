@@ -8,7 +8,6 @@ __all__ = [
     'CreateMode',
     'GeoRedundantBackupEnum',
     'HighAvailabilityMode',
-    'ResourceIdentityType',
     'ServerVersion',
     'SkuTier',
 ]
@@ -38,13 +37,6 @@ class HighAvailabilityMode(str, Enum):
     """
     DISABLED = "Disabled"
     ZONE_REDUNDANT = "ZoneRedundant"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class ServerVersion(str, Enum):

@@ -11,6 +11,62 @@ import (
 )
 
 // The kind of the service.
+type FhirServiceKind pulumi.String
+
+const (
+	FhirServiceKind_Fhir_Stu3 = FhirServiceKind("fhir-Stu3")
+	FhirServiceKind_Fhir_R4   = FhirServiceKind("fhir-R4")
+)
+
+func (FhirServiceKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e FhirServiceKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FhirServiceKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FhirServiceKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FhirServiceKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// Determines how resource identity is resolved on the destination.
+type IotIdentityResolutionType pulumi.String
+
+const (
+	IotIdentityResolutionTypeCreate = IotIdentityResolutionType("Create")
+	IotIdentityResolutionTypeLookup = IotIdentityResolutionType("Lookup")
+)
+
+func (IotIdentityResolutionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IotIdentityResolutionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IotIdentityResolutionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IotIdentityResolutionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IotIdentityResolutionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+// The kind of the service.
 type Kind pulumi.String
 
 const (

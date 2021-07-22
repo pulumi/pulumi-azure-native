@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Inputs
         public Input<bool>? ForceRestart { get; set; }
 
         /// <summary>
+        /// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+        /// </summary>
+        [Input("recreateApplication")]
+        public Input<bool>? RecreateApplication { get; set; }
+
+        /// <summary>
         /// The policy used for monitoring the application upgrade
         /// </summary>
         [Input("rollingUpgradeMonitoringPolicy")]

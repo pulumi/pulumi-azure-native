@@ -1042,6 +1042,8 @@ type ApplicationUpgradePolicy struct {
 	ApplicationHealthPolicy *ArmApplicationHealthPolicy `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart *bool `pulumi:"forceRestart"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	RecreateApplication *bool `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicy `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -1067,6 +1069,8 @@ type ApplicationUpgradePolicyArgs struct {
 	ApplicationHealthPolicy ArmApplicationHealthPolicyPtrInput `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	RecreateApplication pulumi.BoolPtrInput `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy ArmRollingUpgradeMonitoringPolicyPtrInput `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -1163,6 +1167,11 @@ func (o ApplicationUpgradePolicyOutput) ForceRestart() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicy) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+func (o ApplicationUpgradePolicyOutput) RecreateApplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicy) *bool { return v.RecreateApplication }).(pulumi.BoolPtrOutput)
+}
+
 // The policy used for monitoring the application upgrade
 func (o ApplicationUpgradePolicyOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyPtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicy) *ArmRollingUpgradeMonitoringPolicy {
@@ -1218,6 +1227,16 @@ func (o ApplicationUpgradePolicyPtrOutput) ForceRestart() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+func (o ApplicationUpgradePolicyPtrOutput) RecreateApplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecreateApplication
+	}).(pulumi.BoolPtrOutput)
+}
+
 // The policy used for monitoring the application upgrade
 func (o ApplicationUpgradePolicyPtrOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyPtrOutput {
 	return o.ApplyT(func(v *ApplicationUpgradePolicy) *ArmRollingUpgradeMonitoringPolicy {
@@ -1254,6 +1273,8 @@ type ApplicationUpgradePolicyResponse struct {
 	ApplicationHealthPolicy *ArmApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart *bool `pulumi:"forceRestart"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	RecreateApplication *bool `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicyResponse `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -1279,6 +1300,8 @@ type ApplicationUpgradePolicyResponseArgs struct {
 	ApplicationHealthPolicy ArmApplicationHealthPolicyResponsePtrInput `pulumi:"applicationHealthPolicy"`
 	// If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
 	ForceRestart pulumi.BoolPtrInput `pulumi:"forceRestart"`
+	// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+	RecreateApplication pulumi.BoolPtrInput `pulumi:"recreateApplication"`
 	// The policy used for monitoring the application upgrade
 	RollingUpgradeMonitoringPolicy ArmRollingUpgradeMonitoringPolicyResponsePtrInput `pulumi:"rollingUpgradeMonitoringPolicy"`
 	// The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
@@ -1377,6 +1400,11 @@ func (o ApplicationUpgradePolicyResponseOutput) ForceRestart() pulumi.BoolPtrOut
 	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *bool { return v.ForceRestart }).(pulumi.BoolPtrOutput)
 }
 
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+func (o ApplicationUpgradePolicyResponseOutput) RecreateApplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *bool { return v.RecreateApplication }).(pulumi.BoolPtrOutput)
+}
+
 // The policy used for monitoring the application upgrade
 func (o ApplicationUpgradePolicyResponseOutput) RollingUpgradeMonitoringPolicy() ArmRollingUpgradeMonitoringPolicyResponsePtrOutput {
 	return o.ApplyT(func(v ApplicationUpgradePolicyResponse) *ArmRollingUpgradeMonitoringPolicyResponse {
@@ -1429,6 +1457,16 @@ func (o ApplicationUpgradePolicyResponsePtrOutput) ForceRestart() pulumi.BoolPtr
 			return nil
 		}
 		return v.ForceRestart
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+func (o ApplicationUpgradePolicyResponsePtrOutput) RecreateApplication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationUpgradePolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecreateApplication
 	}).(pulumi.BoolPtrOutput)
 }
 

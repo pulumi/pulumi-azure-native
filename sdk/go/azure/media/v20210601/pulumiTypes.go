@@ -17339,7 +17339,7 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncoding struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType *string `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
@@ -17362,7 +17362,7 @@ type LiveEventEncodingInput interface {
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingArgs struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
@@ -17450,7 +17450,7 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx con
 	}).(LiveEventEncodingPtrOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncoding) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
@@ -17488,7 +17488,7 @@ func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) LiveEventEncoding { return *v }).(LiveEventEncodingOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
@@ -17530,7 +17530,7 @@ func (o LiveEventEncodingPtrOutput) StretchMode() pulumi.StringPtrOutput {
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingResponse struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType *string `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval *string `pulumi:"keyFrameInterval"`
@@ -17553,7 +17553,7 @@ type LiveEventEncodingResponseInput interface {
 
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncodingResponseArgs struct {
-	// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
 	// Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
 	KeyFrameInterval pulumi.StringPtrInput `pulumi:"keyFrameInterval"`
@@ -17641,7 +17641,7 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWit
 	}).(LiveEventEncodingResponsePtrOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingResponseOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventEncodingResponse) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
@@ -17679,7 +17679,7 @@ func (o LiveEventEncodingResponsePtrOutput) Elem() LiveEventEncodingResponseOutp
 	return o.ApplyT(func(v *LiveEventEncodingResponse) LiveEventEncodingResponse { return *v }).(LiveEventEncodingResponseOutput)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 func (o LiveEventEncodingResponsePtrOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LiveEventEncodingResponse) *string {
 		if v == nil {

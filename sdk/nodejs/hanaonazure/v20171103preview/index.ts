@@ -8,9 +8,6 @@ import * as utilities from "../../utilities";
 export * from "./getHanaInstance";
 export * from "./hanaInstance";
 
-// Export enums:
-export * from "../../types/enums/hanaonazure/v20171103preview";
-
 // Import resources to register:
 import { HanaInstance } from "./hanaInstance";
 

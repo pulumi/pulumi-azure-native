@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
         /// <summary>
         /// Specifies the HANA instance unique ID.
         /// </summary>
-        public readonly string? HanaInstanceId;
+        public readonly string HanaInstanceId;
         /// <summary>
         /// Specifies the hardware settings for the HANA instance.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
         /// <summary>
         /// Hardware revision of a HANA instance
         /// </summary>
-        public readonly string? HwRevision;
+        public readonly string HwRevision;
         /// <summary>
         /// Resource ID
         /// </summary>
@@ -82,15 +82,15 @@ namespace Pulumi.AzureNative.HanaOnAzure
         /// <summary>
         /// Resource power state
         /// </summary>
-        public readonly string? PowerState;
+        public readonly string PowerState;
         /// <summary>
         /// State of provisioning of the HanaInstance
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource proximity placement group
         /// </summary>
-        public readonly string? ProximityPlacementGroup;
+        public readonly string ProximityPlacementGroup;
         /// <summary>
         /// Specifies the storage settings for the HANA instance disks.
         /// </summary>
@@ -106,11 +106,11 @@ namespace Pulumi.AzureNative.HanaOnAzure
 
         [OutputConstructor]
         private GetHanaInstanceResult(
-            string? hanaInstanceId,
+            string hanaInstanceId,
 
             Outputs.HardwareProfileResponse? hardwareProfile,
 
-            string? hwRevision,
+            string hwRevision,
 
             string id,
 
@@ -124,11 +124,11 @@ namespace Pulumi.AzureNative.HanaOnAzure
 
             string? partnerNodeId,
 
-            string? powerState,
+            string powerState,
 
-            string? provisioningState,
+            string provisioningState,
 
-            string? proximityPlacementGroup,
+            string proximityPlacementGroup,
 
             Outputs.StorageProfileResponse? storageProfile,
 

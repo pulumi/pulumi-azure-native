@@ -12,9 +12,6 @@ export * from "./hanaInstance";
 export * from "./providerInstance";
 export * from "./sapMonitor";
 
-// Export enums:
-export * from "../types/enums/hanaonazure";
-
 // Export sub-modules:
 import * as v20171103preview from "./v20171103preview";
 import * as v20200207preview from "./v20200207preview";

@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'BackupArgs',
     'HighAvailabilityArgs',
-    'IdentityArgs',
     'MaintenanceWindowArgs',
     'NetworkArgs',
     'SkuArgs',
@@ -97,30 +96,6 @@ class HighAvailabilityArgs:
     @standby_availability_zone.setter
     def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "standby_availability_zone", value)
-
-
-@pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
-        """
-        Identity for the resource.
-        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
-        """
-        The identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

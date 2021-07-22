@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Outputs
         /// </summary>
         public readonly Outputs.QueryDatasetConfigurationResponse? Configuration;
         /// <summary>
-        /// Has filter expression to use in the query.
+        /// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
         /// </summary>
         public readonly Outputs.QueryFilterResponse? Filter;
         /// <summary>

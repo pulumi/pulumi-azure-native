@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
-        [Input("actionRequired")]
-        public Input<string>? ActionRequired { get; set; }
+        [Input("actionsRequired")]
+        public Input<string>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The reason for approval/rejection of the connection.

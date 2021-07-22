@@ -56,10 +56,6 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly highAvailability!: pulumi.Output<outputs.dbforpostgresql.v20210601preview.HighAvailabilityResponse | undefined>;
     /**
-     * The Azure Active Directory identity of the server.
-     */
-    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.v20210601preview.IdentityResponse | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -128,7 +124,6 @@ export class Server extends pulumi.CustomResource {
             inputs["backup"] = args ? args.backup : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["highAvailability"] = args ? args.highAvailability : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["network"] = args ? args.network : undefined;
@@ -152,7 +147,6 @@ export class Server extends pulumi.CustomResource {
             inputs["backup"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["highAvailability"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["maintenanceWindow"] = undefined /*out*/;
             inputs["minorVersion"] = undefined /*out*/;
@@ -169,7 +163,7 @@ export class Server extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210601:Server" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210601:Server" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Server" }, { type: "azure-nextgen:dbforpostgresql/v20210615privatepreview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Server.__pulumiType, name, inputs, opts);
     }
@@ -203,10 +197,6 @@ export interface ServerArgs {
      * High availability properties of a server.
      */
     highAvailability?: pulumi.Input<inputs.dbforpostgresql.v20210601preview.HighAvailabilityArgs>;
-    /**
-     * The Azure Active Directory identity of the server.
-     */
-    identity?: pulumi.Input<inputs.dbforpostgresql.v20210601preview.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

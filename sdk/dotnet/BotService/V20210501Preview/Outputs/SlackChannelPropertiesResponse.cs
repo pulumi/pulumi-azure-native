@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly bool RegisterBeforeOAuthFlow;
         /// <summary>
+        /// The Slack permission scopes.
+        /// </summary>
+        public readonly string? Scopes;
+        /// <summary>
         /// The Slack signing secret.
         /// </summary>
         public readonly string? SigningSecret;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             bool registerBeforeOAuthFlow,
 
+            string? scopes,
+
             string? signingSecret,
 
             string? verificationToken)
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             LastSubmissionId = lastSubmissionId;
             RedirectAction = redirectAction;
             RegisterBeforeOAuthFlow = registerBeforeOAuthFlow;
+            Scopes = scopes;
             SigningSecret = signingSecret;
             VerificationToken = verificationToken;
         }

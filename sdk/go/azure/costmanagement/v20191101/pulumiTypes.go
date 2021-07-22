@@ -2676,7 +2676,7 @@ type QueryDataset struct {
 	Aggregation map[string]QueryAggregation `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration *QueryDatasetConfiguration `pulumi:"configuration"`
-	// Has filter expression to use in the query.
+	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 	Filter *QueryFilter `pulumi:"filter"`
 	// The granularity of rows in the query.
 	Granularity *string `pulumi:"granularity"`
@@ -2701,7 +2701,7 @@ type QueryDatasetArgs struct {
 	Aggregation QueryAggregationMapInput `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration QueryDatasetConfigurationPtrInput `pulumi:"configuration"`
-	// Has filter expression to use in the query.
+	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 	Filter QueryFilterPtrInput `pulumi:"filter"`
 	// The granularity of rows in the query.
 	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
@@ -2797,7 +2797,7 @@ func (o QueryDatasetOutput) Configuration() QueryDatasetConfigurationPtrOutput {
 	return o.ApplyT(func(v QueryDataset) *QueryDatasetConfiguration { return v.Configuration }).(QueryDatasetConfigurationPtrOutput)
 }
 
-// Has filter expression to use in the query.
+// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetOutput) Filter() QueryFilterPtrOutput {
 	return o.ApplyT(func(v QueryDataset) *QueryFilter { return v.Filter }).(QueryFilterPtrOutput)
 }
@@ -2850,7 +2850,7 @@ func (o QueryDatasetPtrOutput) Configuration() QueryDatasetConfigurationPtrOutpu
 	}).(QueryDatasetConfigurationPtrOutput)
 }
 
-// Has filter expression to use in the query.
+// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetPtrOutput) Filter() QueryFilterPtrOutput {
 	return o.ApplyT(func(v *QueryDataset) *QueryFilter {
 		if v == nil {
@@ -3154,7 +3154,7 @@ type QueryDatasetResponse struct {
 	Aggregation map[string]QueryAggregationResponse `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration *QueryDatasetConfigurationResponse `pulumi:"configuration"`
-	// Has filter expression to use in the query.
+	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 	Filter *QueryFilterResponse `pulumi:"filter"`
 	// The granularity of rows in the query.
 	Granularity *string `pulumi:"granularity"`
@@ -3179,7 +3179,7 @@ type QueryDatasetResponseArgs struct {
 	Aggregation QueryAggregationResponseMapInput `pulumi:"aggregation"`
 	// Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
 	Configuration QueryDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	// Has filter expression to use in the query.
+	// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 	Filter QueryFilterResponsePtrInput `pulumi:"filter"`
 	// The granularity of rows in the query.
 	Granularity pulumi.StringPtrInput `pulumi:"granularity"`
@@ -3275,7 +3275,7 @@ func (o QueryDatasetResponseOutput) Configuration() QueryDatasetConfigurationRes
 	return o.ApplyT(func(v QueryDatasetResponse) *QueryDatasetConfigurationResponse { return v.Configuration }).(QueryDatasetConfigurationResponsePtrOutput)
 }
 
-// Has filter expression to use in the query.
+// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetResponseOutput) Filter() QueryFilterResponsePtrOutput {
 	return o.ApplyT(func(v QueryDatasetResponse) *QueryFilterResponse { return v.Filter }).(QueryFilterResponsePtrOutput)
 }
@@ -3328,7 +3328,7 @@ func (o QueryDatasetResponsePtrOutput) Configuration() QueryDatasetConfiguration
 	}).(QueryDatasetConfigurationResponsePtrOutput)
 }
 
-// Has filter expression to use in the query.
+// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
 func (o QueryDatasetResponsePtrOutput) Filter() QueryFilterResponsePtrOutput {
 	return o.ApplyT(func(v *QueryDatasetResponse) *QueryFilterResponse {
 		if v == nil {

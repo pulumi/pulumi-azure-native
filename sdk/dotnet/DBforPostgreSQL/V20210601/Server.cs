@@ -46,12 +46,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         public Output<Outputs.HighAvailabilityResponse?> HighAvailability { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Active Directory identity of the server.
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -157,6 +151,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210410privatepreview:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Server"},
                     new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601preview:Server"},
+                    new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Server"},
+                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210615privatepreview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -215,12 +211,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.HighAvailabilityArgs>? HighAvailability { get; set; }
-
-        /// <summary>
-        /// The Azure Active Directory identity of the server.
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

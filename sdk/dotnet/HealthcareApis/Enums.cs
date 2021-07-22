@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// The kind of the service.
     /// </summary>
     [EnumType]
+    public readonly struct FhirServiceKind : IEquatable<FhirServiceKind>
+    {
+        private readonly string _value;
+
+        private FhirServiceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FhirServiceKind Fhir_Stu3 { get; } = new FhirServiceKind("fhir-Stu3");
+        public static FhirServiceKind Fhir_R4 { get; } = new FhirServiceKind("fhir-R4");
+
+        public static bool operator ==(FhirServiceKind left, FhirServiceKind right) => left.Equals(right);
+        public static bool operator !=(FhirServiceKind left, FhirServiceKind right) => !left.Equals(right);
+
+        public static explicit operator string(FhirServiceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FhirServiceKind other && Equals(other);
+        public bool Equals(FhirServiceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines how resource identity is resolved on the destination.
+    /// </summary>
+    [EnumType]
+    public readonly struct IotIdentityResolutionType : IEquatable<IotIdentityResolutionType>
+    {
+        private readonly string _value;
+
+        private IotIdentityResolutionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IotIdentityResolutionType Create { get; } = new IotIdentityResolutionType("Create");
+        public static IotIdentityResolutionType Lookup { get; } = new IotIdentityResolutionType("Lookup");
+
+        public static bool operator ==(IotIdentityResolutionType left, IotIdentityResolutionType right) => left.Equals(right);
+        public static bool operator !=(IotIdentityResolutionType left, IotIdentityResolutionType right) => !left.Equals(right);
+
+        public static explicit operator string(IotIdentityResolutionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IotIdentityResolutionType other && Equals(other);
+        public bool Equals(IotIdentityResolutionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of the service.
+    /// </summary>
+    [EnumType]
     public readonly struct Kind : IEquatable<Kind>
     {
         private readonly string _value;

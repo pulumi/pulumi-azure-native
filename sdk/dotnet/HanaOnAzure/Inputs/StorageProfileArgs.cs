@@ -27,12 +27,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.Inputs
             set => _hanaSids = value;
         }
 
-        /// <summary>
-        /// IP Address to connect to storage.
-        /// </summary>
-        [Input("nfsIpAddress")]
-        public Input<string>? NfsIpAddress { get; set; }
-
         [Input("osDisks")]
         private InputList<Inputs.DiskArgs>? _osDisks;
 

@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
         /// </summary>
         public readonly bool? ForceRestart;
         /// <summary>
+        /// Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+        /// </summary>
+        public readonly bool? RecreateApplication;
+        /// <summary>
         /// The policy used for monitoring the application upgrade
         /// </summary>
         public readonly Outputs.ArmRollingUpgradeMonitoringPolicyResponse? RollingUpgradeMonitoringPolicy;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
 
             bool? forceRestart,
 
+            bool? recreateApplication,
+
             Outputs.ArmRollingUpgradeMonitoringPolicyResponse? rollingUpgradeMonitoringPolicy,
 
             string? upgradeMode,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
         {
             ApplicationHealthPolicy = applicationHealthPolicy;
             ForceRestart = forceRestart;
+            RecreateApplication = recreateApplication;
             RollingUpgradeMonitoringPolicy = rollingUpgradeMonitoringPolicy;
             UpgradeMode = upgradeMode;
             UpgradeReplicaSetCheckTimeout = upgradeReplicaSetCheckTimeout;

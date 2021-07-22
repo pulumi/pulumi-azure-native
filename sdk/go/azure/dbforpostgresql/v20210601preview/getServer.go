@@ -38,8 +38,6 @@ type LookupServerResult struct {
 	HighAvailability *HighAvailabilityResponse `pulumi:"highAvailability"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// The Azure Active Directory identity of the server.
-	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maintenance window properties of a server.

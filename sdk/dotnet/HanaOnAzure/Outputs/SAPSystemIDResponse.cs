@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.Outputs
         /// <summary>
         /// Percent of memory to allocate to this SID.
         /// </summary>
-        public readonly string? MemoryAllocation;
+        public readonly string MemoryAllocation;
         /// <summary>
         /// SAP system ID as database identifier.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.Outputs
         private SAPSystemIDResponse(
             string? gid,
 
-            string? memoryAllocation,
+            string memoryAllocation,
 
             string? sid,
 
