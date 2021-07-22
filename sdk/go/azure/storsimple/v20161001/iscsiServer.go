@@ -81,9 +81,37 @@ func GetIscsiServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IscsiServer resources.
 type iscsiServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId *string `pulumi:"backupScheduleGroupId"`
+	// The chap id.
+	ChapId *string `pulumi:"chapId"`
+	// The description.
+	Description *string `pulumi:"description"`
+	// The name.
+	Name *string `pulumi:"name"`
+	// The reverse chap id.
+	ReverseChapId *string `pulumi:"reverseChapId"`
+	// The storage domain id.
+	StorageDomainId *string `pulumi:"storageDomainId"`
+	// The type.
+	Type *string `pulumi:"type"`
 }
 
 type IscsiServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringPtrInput
+	// The chap id.
+	ChapId pulumi.StringPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
+	// The name.
+	Name pulumi.StringPtrInput
+	// The reverse chap id.
+	ReverseChapId pulumi.StringPtrInput
+	// The storage domain id.
+	StorageDomainId pulumi.StringPtrInput
+	// The type.
+	Type pulumi.StringPtrInput
 }
 
 func (IscsiServerState) ElementType() reflect.Type {

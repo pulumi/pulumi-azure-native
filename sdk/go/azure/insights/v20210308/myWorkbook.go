@@ -114,9 +114,73 @@ func GetMyWorkbook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MyWorkbook resources.
 type myWorkbookState struct {
+	// Workbook category, as defined by the user at creation time.
+	Category *string `pulumi:"category"`
+	// The user-defined name of the private workbook.
+	DisplayName *string `pulumi:"displayName"`
+	// Resource etag
+	Etag map[string]string `pulumi:"etag"`
+	// Identity used for BYOS
+	Identity *MyWorkbookManagedIdentityResponse `pulumi:"identity"`
+	// The kind of workbook. Choices are user and shared.
+	Kind *string `pulumi:"kind"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Configuration of this particular private workbook. Configuration data is a string containing valid JSON
+	SerializedData *string `pulumi:"serializedData"`
+	// Optional resourceId for a source resource.
+	SourceId *string `pulumi:"sourceId"`
+	// BYOS Storage Account URI
+	StorageUri *string `pulumi:"storageUri"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Date and time in UTC of the last modification that was made to this private workbook definition.
+	TimeModified *string `pulumi:"timeModified"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
+	// Unique user id of the specific user that owns this private workbook.
+	UserId *string `pulumi:"userId"`
+	// This instance's version of the data model. This can change as new features are added that can be marked private workbook.
+	Version *string `pulumi:"version"`
 }
 
 type MyWorkbookState struct {
+	// Workbook category, as defined by the user at creation time.
+	Category pulumi.StringPtrInput
+	// The user-defined name of the private workbook.
+	DisplayName pulumi.StringPtrInput
+	// Resource etag
+	Etag pulumi.StringMapInput
+	// Identity used for BYOS
+	Identity MyWorkbookManagedIdentityResponsePtrInput
+	// The kind of workbook. Choices are user and shared.
+	Kind pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Configuration of this particular private workbook. Configuration data is a string containing valid JSON
+	SerializedData pulumi.StringPtrInput
+	// Optional resourceId for a source resource.
+	SourceId pulumi.StringPtrInput
+	// BYOS Storage Account URI
+	StorageUri pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Date and time in UTC of the last modification that was made to this private workbook definition.
+	TimeModified pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
+	// Unique user id of the specific user that owns this private workbook.
+	UserId pulumi.StringPtrInput
+	// This instance's version of the data model. This can change as new features are added that can be marked private workbook.
+	Version pulumi.StringPtrInput
 }
 
 func (MyWorkbookState) ElementType() reflect.Type {

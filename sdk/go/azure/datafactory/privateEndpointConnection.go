@@ -73,9 +73,25 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
+	// Etag identifies change in the resource.
+	Etag *string `pulumi:"etag"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// Core resource properties
+	Properties *RemotePrivateEndpointConnectionResponse `pulumi:"properties"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
+	// Etag identifies change in the resource.
+	Etag pulumi.StringPtrInput
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// Core resource properties
+	Properties RemotePrivateEndpointConnectionResponsePtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionState) ElementType() reflect.Type {

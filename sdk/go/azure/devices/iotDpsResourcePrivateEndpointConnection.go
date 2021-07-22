@@ -80,9 +80,21 @@ func GetIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotDpsResourcePrivateEndpointConnection resources.
 type iotDpsResourcePrivateEndpointConnectionState struct {
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The properties of a private endpoint connection
+	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IotDpsResourcePrivateEndpointConnectionState struct {
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The properties of a private endpoint connection
+	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IotDpsResourcePrivateEndpointConnectionState) ElementType() reflect.Type {

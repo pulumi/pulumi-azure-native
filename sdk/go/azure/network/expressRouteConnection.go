@@ -201,9 +201,41 @@ func GetExpressRouteConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteConnection resources.
 type expressRouteConnectionState struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Enable internet security.
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering *ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the express route connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration *RoutingConfigurationResponse `pulumi:"routingConfiguration"`
+	// The routing weight associated to the connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
 }
 
 type ExpressRouteConnectionState struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey pulumi.StringPtrInput
+	// Enable internet security.
+	EnableInternetSecurity pulumi.BoolPtrInput
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponsePtrInput
+	// Enable FastPath to vWan Firewall hub.
+	ExpressRouteGatewayBypass pulumi.BoolPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the express route connection resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration RoutingConfigurationResponsePtrInput
+	// The routing weight associated to the connection.
+	RoutingWeight pulumi.IntPtrInput
 }
 
 func (ExpressRouteConnectionState) ElementType() reflect.Type {

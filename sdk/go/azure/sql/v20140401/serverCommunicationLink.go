@@ -79,9 +79,33 @@ func GetServerCommunicationLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerCommunicationLink resources.
 type serverCommunicationLinkState struct {
+	// Communication link kind.  This property is used for Azure Portal metadata.
+	Kind *string `pulumi:"kind"`
+	// Communication link location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The name of the partner server.
+	PartnerServer *string `pulumi:"partnerServer"`
+	// The state.
+	State *string `pulumi:"state"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ServerCommunicationLinkState struct {
+	// Communication link kind.  This property is used for Azure Portal metadata.
+	Kind pulumi.StringPtrInput
+	// Communication link location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The name of the partner server.
+	PartnerServer pulumi.StringPtrInput
+	// The state.
+	State pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ServerCommunicationLinkState) ElementType() reflect.Type {

@@ -70,9 +70,21 @@ func GetTenantConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TenantConfiguration resources.
 type tenantConfigurationState struct {
+	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+	EnforcePrivateMarkdownStorage *bool `pulumi:"enforcePrivateMarkdownStorage"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type TenantConfigurationState struct {
+	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
+	EnforcePrivateMarkdownStorage pulumi.BoolPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (TenantConfigurationState) ElementType() reflect.Type {

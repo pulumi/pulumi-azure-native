@@ -145,9 +145,57 @@ func GetCloudEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudEndpoint resources.
 type cloudEndpointState struct {
+	// Backup Enabled
+	BackupEnabled *bool `pulumi:"backupEnabled"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// CloudEndpoint lastWorkflowId
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Partnership Id
+	PartnershipId *string `pulumi:"partnershipId"`
+	// CloudEndpoint Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Storage Account name.
+	StorageAccount *string `pulumi:"storageAccount"`
+	// Storage Account access key.
+	StorageAccountKey *string `pulumi:"storageAccountKey"`
+	// Storage Account Resource Id
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+	// Storage Account Share name
+	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
+	// Storage Account Tenant Id
+	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
+	// The type of the resource
+	Type *string `pulumi:"type"`
 }
 
 type CloudEndpointState struct {
+	// Backup Enabled
+	BackupEnabled pulumi.BoolPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
+	// CloudEndpoint lastWorkflowId
+	LastWorkflowId pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Partnership Id
+	PartnershipId pulumi.StringPtrInput
+	// CloudEndpoint Provisioning State
+	ProvisioningState pulumi.StringPtrInput
+	// Storage Account name.
+	StorageAccount pulumi.StringPtrInput
+	// Storage Account access key.
+	StorageAccountKey pulumi.StringPtrInput
+	// Storage Account Resource Id
+	StorageAccountResourceId pulumi.StringPtrInput
+	// Storage Account Share name
+	StorageAccountShareName pulumi.StringPtrInput
+	// Storage Account Tenant Id
+	StorageAccountTenantId pulumi.StringPtrInput
+	// The type of the resource
+	Type pulumi.StringPtrInput
 }
 
 func (CloudEndpointState) ElementType() reflect.Type {

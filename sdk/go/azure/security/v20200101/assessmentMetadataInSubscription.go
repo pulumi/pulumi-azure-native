@@ -99,9 +99,61 @@ func GetAssessmentMetadataInSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AssessmentMetadataInSubscription resources.
 type assessmentMetadataInSubscriptionState struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType *string  `pulumi:"assessmentType"`
+	Categories     []string `pulumi:"categories"`
+	// Human readable description of the assessment
+	Description *string `pulumi:"description"`
+	// User friendly display name of the assessment
+	DisplayName *string `pulumi:"displayName"`
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort *string `pulumi:"implementationEffort"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Describes the partner that created the assessment
+	PartnerData *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
+	// Azure resource ID of the policy definition that turns this assessment calculation on
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// True if this assessment is in preview release status
+	Preview *bool `pulumi:"preview"`
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription *string `pulumi:"remediationDescription"`
+	// The severity level of the assessment
+	Severity *string  `pulumi:"severity"`
+	Threats  []string `pulumi:"threats"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// The user impact of the assessment
+	UserImpact *string `pulumi:"userImpact"`
 }
 
 type AssessmentMetadataInSubscriptionState struct {
+	// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+	AssessmentType pulumi.StringPtrInput
+	Categories     pulumi.StringArrayInput
+	// Human readable description of the assessment
+	Description pulumi.StringPtrInput
+	// User friendly display name of the assessment
+	DisplayName pulumi.StringPtrInput
+	// The implementation effort required to remediate this assessment
+	ImplementationEffort pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Describes the partner that created the assessment
+	PartnerData SecurityAssessmentMetadataPartnerDataResponsePtrInput
+	// Azure resource ID of the policy definition that turns this assessment calculation on
+	PolicyDefinitionId pulumi.StringPtrInput
+	// True if this assessment is in preview release status
+	Preview pulumi.BoolPtrInput
+	// Human readable description of what you should do to mitigate this security issue
+	RemediationDescription pulumi.StringPtrInput
+	// The severity level of the assessment
+	Severity pulumi.StringPtrInput
+	Threats  pulumi.StringArrayInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// The user impact of the assessment
+	UserImpact pulumi.StringPtrInput
 }
 
 func (AssessmentMetadataInSubscriptionState) ElementType() reflect.Type {

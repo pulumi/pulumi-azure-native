@@ -83,9 +83,45 @@ func GetTransactionNode(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransactionNode resources.
 type transactionNodeState struct {
+	// Gets or sets the transaction node dns endpoint.
+	Dns *string `pulumi:"dns"`
+	// Gets or sets the firewall rules.
+	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	// Gets or sets the transaction node location.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Sets the transaction node dns endpoint basic auth password.
+	Password *string `pulumi:"password"`
+	// Gets or sets the blockchain member provision state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets the transaction node public key.
+	PublicKey *string `pulumi:"publicKey"`
+	// The type of the service - e.g. "Microsoft.Blockchain"
+	Type *string `pulumi:"type"`
+	// Gets or sets the transaction node dns endpoint basic auth user name.
+	UserName *string `pulumi:"userName"`
 }
 
 type TransactionNodeState struct {
+	// Gets or sets the transaction node dns endpoint.
+	Dns pulumi.StringPtrInput
+	// Gets or sets the firewall rules.
+	FirewallRules FirewallRuleResponseArrayInput
+	// Gets or sets the transaction node location.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Sets the transaction node dns endpoint basic auth password.
+	Password pulumi.StringPtrInput
+	// Gets or sets the blockchain member provision state.
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets the transaction node public key.
+	PublicKey pulumi.StringPtrInput
+	// The type of the service - e.g. "Microsoft.Blockchain"
+	Type pulumi.StringPtrInput
+	// Gets or sets the transaction node dns endpoint basic auth user name.
+	UserName pulumi.StringPtrInput
 }
 
 func (TransactionNodeState) ElementType() reflect.Type {

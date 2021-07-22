@@ -100,9 +100,45 @@ func GetDataExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataExport resources.
 type dataExportState struct {
+	// The latest data export rule modification time.
+	CreatedDate *string `pulumi:"createdDate"`
+	// The data export rule ID.
+	DataExportId *string `pulumi:"dataExportId"`
+	// Active when enabled.
+	Enable *bool `pulumi:"enable"`
+	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
+	EventHubName *string `pulumi:"eventHubName"`
+	// Date and time when the export was last modified.
+	LastModifiedDate *string `pulumi:"lastModifiedDate"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
+	ResourceId *string `pulumi:"resourceId"`
+	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+	TableNames []string `pulumi:"tableNames"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type DataExportState struct {
+	// The latest data export rule modification time.
+	CreatedDate pulumi.StringPtrInput
+	// The data export rule ID.
+	DataExportId pulumi.StringPtrInput
+	// Active when enabled.
+	Enable pulumi.BoolPtrInput
+	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
+	EventHubName pulumi.StringPtrInput
+	// Date and time when the export was last modified.
+	LastModifiedDate pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
+	ResourceId pulumi.StringPtrInput
+	// An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
+	TableNames pulumi.StringArrayInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (DataExportState) ElementType() reflect.Type {

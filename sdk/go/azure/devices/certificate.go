@@ -187,9 +187,25 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// The entity tag.
+	Etag *string `pulumi:"etag"`
+	// The name of the certificate.
+	Name *string `pulumi:"name"`
+	// The description of an X509 CA Certificate.
+	Properties *CertificatePropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
+	// The entity tag.
+	Etag pulumi.StringPtrInput
+	// The name of the certificate.
+	Name pulumi.StringPtrInput
+	// The description of an X509 CA Certificate.
+	Properties CertificatePropertiesResponsePtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {

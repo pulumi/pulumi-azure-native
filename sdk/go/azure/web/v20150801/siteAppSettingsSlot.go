@@ -139,9 +139,33 @@ func GetSiteAppSettingsSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteAppSettingsSlot resources.
 type siteAppSettingsSlotState struct {
+	// Kind of resource
+	Kind *string `pulumi:"kind"`
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Settings
+	Properties map[string]string `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type SiteAppSettingsSlotState struct {
+	// Kind of resource
+	Kind pulumi.StringPtrInput
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Settings
+	Properties pulumi.StringMapInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (SiteAppSettingsSlotState) ElementType() reflect.Type {

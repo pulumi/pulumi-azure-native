@@ -89,9 +89,35 @@ func GetStaticSitePrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticSitePrivateEndpointConnection resources.
 type staticSitePrivateEndpointConnectionState struct {
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses []string `pulumi:"ipAddresses"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// PrivateEndpoint of a remote private endpoint connection
+	PrivateEndpoint *ArmIdWrapperResponse `pulumi:"privateEndpoint"`
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 *string                             `pulumi:"provisioningState"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type StaticSitePrivateEndpointConnectionState struct {
+	// Private IPAddresses mapped to the remote private endpoint
+	IpAddresses pulumi.StringArrayInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// PrivateEndpoint of a remote private endpoint connection
+	PrivateEndpoint ArmIdWrapperResponsePtrInput
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState PrivateLinkConnectionStateResponsePtrInput
+	ProvisioningState                 pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (StaticSitePrivateEndpointConnectionState) ElementType() reflect.Type {

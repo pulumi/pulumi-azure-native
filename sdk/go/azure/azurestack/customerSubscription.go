@@ -79,9 +79,25 @@ func GetCustomerSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomerSubscription resources.
 type customerSubscriptionState struct {
+	// The entity tag used for optimistic concurrency when modifying the resource.
+	Etag *string `pulumi:"etag"`
+	// Name of the resource.
+	Name *string `pulumi:"name"`
+	// Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
+	// Type of Resource.
+	Type *string `pulumi:"type"`
 }
 
 type CustomerSubscriptionState struct {
+	// The entity tag used for optimistic concurrency when modifying the resource.
+	Etag pulumi.StringPtrInput
+	// Name of the resource.
+	Name pulumi.StringPtrInput
+	// Tenant Id.
+	TenantId pulumi.StringPtrInput
+	// Type of Resource.
+	Type pulumi.StringPtrInput
 }
 
 func (CustomerSubscriptionState) ElementType() reflect.Type {

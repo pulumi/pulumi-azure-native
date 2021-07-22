@@ -100,9 +100,57 @@ func GetArtifactSourceResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ArtifactSourceResource resources.
 type artifactSourceResourceState struct {
+	// The branch reference of the artifact source.
+	BranchRef *string `pulumi:"branchRef"`
+	// The display name of the artifact source.
+	DisplayName *string `pulumi:"displayName"`
+	// The folder path of the artifact source.
+	FolderPath *string `pulumi:"folderPath"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The security token of the artifact source.
+	SecurityToken *string `pulumi:"securityToken"`
+	// The type of the artifact source.
+	SourceType *string `pulumi:"sourceType"`
+	// The status of the artifact source.
+	Status *string `pulumi:"status"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The URI of the artifact source.
+	Uri *string `pulumi:"uri"`
 }
 
 type ArtifactSourceResourceState struct {
+	// The branch reference of the artifact source.
+	BranchRef pulumi.StringPtrInput
+	// The display name of the artifact source.
+	DisplayName pulumi.StringPtrInput
+	// The folder path of the artifact source.
+	FolderPath pulumi.StringPtrInput
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The security token of the artifact source.
+	SecurityToken pulumi.StringPtrInput
+	// The type of the artifact source.
+	SourceType pulumi.StringPtrInput
+	// The status of the artifact source.
+	Status pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// The URI of the artifact source.
+	Uri pulumi.StringPtrInput
 }
 
 func (ArtifactSourceResourceState) ElementType() reflect.Type {

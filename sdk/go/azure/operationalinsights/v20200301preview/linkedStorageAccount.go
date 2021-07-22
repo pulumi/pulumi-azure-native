@@ -84,9 +84,25 @@ func GetLinkedStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedStorageAccount resources.
 type linkedStorageAccountState struct {
+	// Linked storage accounts type.
+	DataSourceType *string `pulumi:"dataSourceType"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Linked storage accounts resources ids.
+	StorageAccountIds []string `pulumi:"storageAccountIds"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type LinkedStorageAccountState struct {
+	// Linked storage accounts type.
+	DataSourceType pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Linked storage accounts resources ids.
+	StorageAccountIds pulumi.StringArrayInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (LinkedStorageAccountState) ElementType() reflect.Type {

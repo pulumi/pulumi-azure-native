@@ -135,9 +135,35 @@ func GetPeriodicTimerEventTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeriodicTimerEventTrigger resources.
 type periodicTimerEventTriggerState struct {
+	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+	CustomContextTag *string `pulumi:"customContextTag"`
+	// Trigger Kind.
+	// Expected value is 'PeriodicTimerEvent'.
+	Kind *string `pulumi:"kind"`
+	// The object name.
+	Name *string `pulumi:"name"`
+	// Role Sink information.
+	SinkInfo *RoleSinkInfoResponse `pulumi:"sinkInfo"`
+	// Periodic timer details.
+	SourceInfo *PeriodicTimerSourceInfoResponse `pulumi:"sourceInfo"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
 }
 
 type PeriodicTimerEventTriggerState struct {
+	// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
+	CustomContextTag pulumi.StringPtrInput
+	// Trigger Kind.
+	// Expected value is 'PeriodicTimerEvent'.
+	Kind pulumi.StringPtrInput
+	// The object name.
+	Name pulumi.StringPtrInput
+	// Role Sink information.
+	SinkInfo RoleSinkInfoResponsePtrInput
+	// Periodic timer details.
+	SourceInfo PeriodicTimerSourceInfoResponsePtrInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
 }
 
 func (PeriodicTimerEventTriggerState) ElementType() reflect.Type {

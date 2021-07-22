@@ -110,9 +110,41 @@ func GetGalleryImageVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryImageVersion resources.
 type galleryImageVersionState struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile *GalleryImageVersionPublishingProfileResponse `pulumi:"publishingProfile"`
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
+	// This is the storage profile of a gallery Image Version.
+	StorageProfile *GalleryImageVersionStorageProfileResponse `pulumi:"storageProfile"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type GalleryImageVersionState struct {
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryImageVersionPublishingProfileResponsePtrInput
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus ReplicationStatusResponsePtrInput
+	// This is the storage profile of a gallery Image Version.
+	StorageProfile GalleryImageVersionStorageProfileResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (GalleryImageVersionState) ElementType() reflect.Type {

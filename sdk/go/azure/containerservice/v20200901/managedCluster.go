@@ -235,9 +235,117 @@ func GetManagedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedCluster resources.
 type managedClusterState struct {
+	// Profile of Azure Active Directory configuration.
+	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
+	// Profile of managed cluster add-on.
+	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
+	// Properties of the agent pool.
+	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	// Access profile for managed cluster API server.
+	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
+	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
+	// Whether to enable Kubernetes Role-Based Access Control.
+	EnableRBAC *bool `pulumi:"enableRBAC"`
+	// FQDN for the master pool.
+	Fqdn *string `pulumi:"fqdn"`
+	// The identity of the managed cluster, if configured.
+	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
+	// Identities associated with the cluster.
+	IdentityProfile map[string]ManagedClusterPropertiesResponseIdentityProfile `pulumi:"identityProfile"`
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// The max number of agent pools for the managed cluster.
+	MaxAgentPools *int `pulumi:"maxAgentPools"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Profile of network configuration.
+	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
+	// Name of the resource group containing agent pool nodes.
+	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
+	// Represents the Power State of the cluster
+	PowerState *PowerStateResponse `pulumi:"powerState"`
+	// FQDN of private cluster.
+	PrivateFQDN *string `pulumi:"privateFQDN"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+	ServicePrincipalProfile *ManagedClusterServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
+	// The managed cluster SKU.
+	Sku *ManagedClusterSKUResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile *ManagedClusterWindowsProfileResponse `pulumi:"windowsProfile"`
 }
 
 type ManagedClusterState struct {
+	// Profile of Azure Active Directory configuration.
+	AadProfile ManagedClusterAADProfileResponsePtrInput
+	// Profile of managed cluster add-on.
+	AddonProfiles ManagedClusterAddonProfileResponseMapInput
+	// Properties of the agent pool.
+	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayInput
+	// Access profile for managed cluster API server.
+	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrInput
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrInput
+	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	DiskEncryptionSetID pulumi.StringPtrInput
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix pulumi.StringPtrInput
+	// (DEPRECATING) Whether to enable Kubernetes pod security policy (preview). This feature is set for removal on October 15th, 2020. Learn more at aka.ms/aks/azpodpolicy.
+	EnablePodSecurityPolicy pulumi.BoolPtrInput
+	// Whether to enable Kubernetes Role-Based Access Control.
+	EnableRBAC pulumi.BoolPtrInput
+	// FQDN for the master pool.
+	Fqdn pulumi.StringPtrInput
+	// The identity of the managed cluster, if configured.
+	Identity ManagedClusterIdentityResponsePtrInput
+	// Identities associated with the cluster.
+	IdentityProfile ManagedClusterPropertiesResponseIdentityProfileMapInput
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion pulumi.StringPtrInput
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfileResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// The max number of agent pools for the managed cluster.
+	MaxAgentPools pulumi.IntPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Profile of network configuration.
+	NetworkProfile ContainerServiceNetworkProfileResponsePtrInput
+	// Name of the resource group containing agent pool nodes.
+	NodeResourceGroup pulumi.StringPtrInput
+	// Represents the Power State of the cluster
+	PowerState PowerStateResponsePtrInput
+	// FQDN of private cluster.
+	PrivateFQDN pulumi.StringPtrInput
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+	ServicePrincipalProfile ManagedClusterServicePrincipalProfileResponsePtrInput
+	// The managed cluster SKU.
+	Sku ManagedClusterSKUResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile ManagedClusterWindowsProfileResponsePtrInput
 }
 
 func (ManagedClusterState) ElementType() reflect.Type {

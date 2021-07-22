@@ -72,9 +72,25 @@ func GetEdgeModule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EdgeModule resources.
 type edgeModuleState struct {
+	// Internal ID generated for the instance of the Video Analyzer edge module.
+	EdgeModuleId *string `pulumi:"edgeModuleId"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type EdgeModuleState struct {
+	// Internal ID generated for the instance of the Video Analyzer edge module.
+	EdgeModuleId pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (EdgeModuleState) ElementType() reflect.Type {

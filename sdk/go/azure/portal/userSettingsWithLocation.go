@@ -67,9 +67,13 @@ func GetUserSettingsWithLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserSettingsWithLocation resources.
 type userSettingsWithLocationState struct {
+	// The cloud shell user settings properties.
+	Properties *UserPropertiesResponse `pulumi:"properties"`
 }
 
 type UserSettingsWithLocationState struct {
+	// The cloud shell user settings properties.
+	Properties UserPropertiesResponsePtrInput
 }
 
 func (UserSettingsWithLocationState) ElementType() reflect.Type {

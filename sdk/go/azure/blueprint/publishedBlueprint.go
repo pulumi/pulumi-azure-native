@@ -85,9 +85,49 @@ func GetPublishedBlueprint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublishedBlueprint resources.
 type publishedBlueprintState struct {
+	// Name of the published blueprint definition.
+	BlueprintName *string `pulumi:"blueprintName"`
+	// Version-specific change notes.
+	ChangeNotes *string `pulumi:"changeNotes"`
+	// Multi-line explain this resource.
+	Description *string `pulumi:"description"`
+	// One-liner string explain this resource.
+	DisplayName *string `pulumi:"displayName"`
+	// Name of this resource.
+	Name *string `pulumi:"name"`
+	// Parameters required by this blueprint definition.
+	Parameters map[string]ParameterDefinitionResponse `pulumi:"parameters"`
+	// Resource group placeholders defined by this blueprint definition.
+	ResourceGroups map[string]ResourceGroupDefinitionResponse `pulumi:"resourceGroups"`
+	// Status of the blueprint. This field is readonly.
+	Status *BlueprintStatusResponse `pulumi:"status"`
+	// The scope where this blueprint definition can be assigned.
+	TargetScope *string `pulumi:"targetScope"`
+	// Type of this resource.
+	Type *string `pulumi:"type"`
 }
 
 type PublishedBlueprintState struct {
+	// Name of the published blueprint definition.
+	BlueprintName pulumi.StringPtrInput
+	// Version-specific change notes.
+	ChangeNotes pulumi.StringPtrInput
+	// Multi-line explain this resource.
+	Description pulumi.StringPtrInput
+	// One-liner string explain this resource.
+	DisplayName pulumi.StringPtrInput
+	// Name of this resource.
+	Name pulumi.StringPtrInput
+	// Parameters required by this blueprint definition.
+	Parameters ParameterDefinitionResponseMapInput
+	// Resource group placeholders defined by this blueprint definition.
+	ResourceGroups ResourceGroupDefinitionResponseMapInput
+	// Status of the blueprint. This field is readonly.
+	Status BlueprintStatusResponsePtrInput
+	// The scope where this blueprint definition can be assigned.
+	TargetScope pulumi.StringPtrInput
+	// Type of this resource.
+	Type pulumi.StringPtrInput
 }
 
 func (PublishedBlueprintState) ElementType() reflect.Type {

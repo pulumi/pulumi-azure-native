@@ -76,9 +76,25 @@ func GetDataContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataContainer resources.
 type dataContainerState struct {
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Additional attributes of the entity.
+	Properties *DataContainerResponse `pulumi:"properties"`
+	// System data associated with resource provider
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type DataContainerState struct {
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Additional attributes of the entity.
+	Properties DataContainerResponsePtrInput
+	// System data associated with resource provider
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (DataContainerState) ElementType() reflect.Type {

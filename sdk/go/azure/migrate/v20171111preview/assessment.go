@@ -144,9 +144,97 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
+	// AHUB discount on windows virtual machines.
+	AzureHybridUseBenefit *string `pulumi:"azureHybridUseBenefit"`
+	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+	AzureLocation *string `pulumi:"azureLocation"`
+	// Offer code according to which cost estimation is done.
+	AzureOfferCode *string `pulumi:"azureOfferCode"`
+	// Pricing tier for Size evaluation.
+	AzurePricingTier *string `pulumi:"azurePricingTier"`
+	// Storage Redundancy type offered by Azure.
+	AzureStorageRedundancy *string `pulumi:"azureStorageRedundancy"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp *string `pulumi:"createdTimestamp"`
+	// Currency to report prices in.
+	Currency *string `pulumi:"currency"`
+	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+	DiscountPercentage *float64 `pulumi:"discountPercentage"`
+	// For optimistic concurrency control.
+	ETag *string `pulumi:"eTag"`
+	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyBandwidthCost *float64 `pulumi:"monthlyBandwidthCost"`
+	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyComputeCost *float64 `pulumi:"monthlyComputeCost"`
+	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyStorageCost *float64 `pulumi:"monthlyStorageCost"`
+	// Unique name of an assessment.
+	Name *string `pulumi:"name"`
+	// Number of assessed machines part of this assessment.
+	NumberOfMachines *int `pulumi:"numberOfMachines"`
+	// Percentile of performance data used to recommend Azure size.
+	Percentile *string `pulumi:"percentile"`
+	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+	PricesTimestamp *string `pulumi:"pricesTimestamp"`
+	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+	ScalingFactor *float64 `pulumi:"scalingFactor"`
+	// User configurable setting that describes the status of the assessment.
+	Stage *string `pulumi:"stage"`
+	// Whether the assessment has been created and is valid.
+	Status *string `pulumi:"status"`
+	// Time range of performance data used to recommend a size.
+	TimeRange *string `pulumi:"timeRange"`
+	// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
+	Type *string `pulumi:"type"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp *string `pulumi:"updatedTimestamp"`
 }
 
 type AssessmentState struct {
+	// AHUB discount on windows virtual machines.
+	AzureHybridUseBenefit pulumi.StringPtrInput
+	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+	AzureLocation pulumi.StringPtrInput
+	// Offer code according to which cost estimation is done.
+	AzureOfferCode pulumi.StringPtrInput
+	// Pricing tier for Size evaluation.
+	AzurePricingTier pulumi.StringPtrInput
+	// Storage Redundancy type offered by Azure.
+	AzureStorageRedundancy pulumi.StringPtrInput
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp pulumi.StringPtrInput
+	// Currency to report prices in.
+	Currency pulumi.StringPtrInput
+	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+	DiscountPercentage pulumi.Float64PtrInput
+	// For optimistic concurrency control.
+	ETag pulumi.StringPtrInput
+	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyBandwidthCost pulumi.Float64PtrInput
+	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyComputeCost pulumi.Float64PtrInput
+	// Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+	MonthlyStorageCost pulumi.Float64PtrInput
+	// Unique name of an assessment.
+	Name pulumi.StringPtrInput
+	// Number of assessed machines part of this assessment.
+	NumberOfMachines pulumi.IntPtrInput
+	// Percentile of performance data used to recommend Azure size.
+	Percentile pulumi.StringPtrInput
+	// Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+	PricesTimestamp pulumi.StringPtrInput
+	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+	ScalingFactor pulumi.Float64PtrInput
+	// User configurable setting that describes the status of the assessment.
+	Stage pulumi.StringPtrInput
+	// Whether the assessment has been created and is valid.
+	Status pulumi.StringPtrInput
+	// Time range of performance data used to recommend a size.
+	TimeRange pulumi.StringPtrInput
+	// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
+	Type pulumi.StringPtrInput
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp pulumi.StringPtrInput
 }
 
 func (AssessmentState) ElementType() reflect.Type {

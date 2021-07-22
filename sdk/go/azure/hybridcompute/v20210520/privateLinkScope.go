@@ -109,9 +109,33 @@ func GetPrivateLinkScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkScope resources.
 type privateLinkScopeState struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Properties that define a Azure Arc PrivateLinkScope resource.
+	Properties *HybridComputePrivateLinkScopePropertiesResponse `pulumi:"properties"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type PrivateLinkScopeState struct {
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Properties that define a Azure Arc PrivateLinkScope resource.
+	Properties HybridComputePrivateLinkScopePropertiesResponsePtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (PrivateLinkScopeState) ElementType() reflect.Type {

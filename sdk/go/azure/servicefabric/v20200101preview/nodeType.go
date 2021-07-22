@@ -109,9 +109,81 @@ func GetNodeType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NodeType resources.
 type nodeTypeState struct {
+	// The range of ports from which cluster assigned port to Service Fabric applications.
+	ApplicationPorts *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
+	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+	Capacities map[string]string `pulumi:"capacities"`
+	// Disk size for each vm in the node type in GBs.
+	DataDiskSizeGB *int `pulumi:"dataDiskSizeGB"`
+	// The range of ephemeral ports that nodes in this node type should be configured with.
+	EphemeralPorts *EndpointRangeDescriptionResponse `pulumi:"ephemeralPorts"`
+	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+	IsPrimary *bool `pulumi:"isPrimary"`
+	// Azure resource name.
+	Name *string `pulumi:"name"`
+	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+	PlacementProperties map[string]string `pulumi:"placementProperties"`
+	// The provisioning state of the managed cluster resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type *string `pulumi:"type"`
+	// Set of extensions that should be installed onto the virtual machines.
+	VmExtensions []VMSSExtensionResponse `pulumi:"vmExtensions"`
+	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+	VmImageOffer *string `pulumi:"vmImageOffer"`
+	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+	VmImagePublisher *string `pulumi:"vmImagePublisher"`
+	// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+	VmImageSku *string `pulumi:"vmImageSku"`
+	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+	VmImageVersion *string `pulumi:"vmImageVersion"`
+	// The number of nodes in the node type.
+	VmInstanceCount *int `pulumi:"vmInstanceCount"`
+	// The secrets to install in the virtual machines.
+	VmSecrets []VaultSecretGroupResponse `pulumi:"vmSecrets"`
+	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+	VmSize *string `pulumi:"vmSize"`
 }
 
 type NodeTypeState struct {
+	// The range of ports from which cluster assigned port to Service Fabric applications.
+	ApplicationPorts EndpointRangeDescriptionResponsePtrInput
+	// The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+	Capacities pulumi.StringMapInput
+	// Disk size for each vm in the node type in GBs.
+	DataDiskSizeGB pulumi.IntPtrInput
+	// The range of ephemeral ports that nodes in this node type should be configured with.
+	EphemeralPorts EndpointRangeDescriptionResponsePtrInput
+	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
+	IsPrimary pulumi.BoolPtrInput
+	// Azure resource name.
+	Name pulumi.StringPtrInput
+	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+	PlacementProperties pulumi.StringMapInput
+	// The provisioning state of the managed cluster resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Azure resource tags.
+	Tags pulumi.StringMapInput
+	// Azure resource type.
+	Type pulumi.StringPtrInput
+	// Set of extensions that should be installed onto the virtual machines.
+	VmExtensions VMSSExtensionResponseArrayInput
+	// The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
+	VmImageOffer pulumi.StringPtrInput
+	// The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
+	VmImagePublisher pulumi.StringPtrInput
+	// The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
+	VmImageSku pulumi.StringPtrInput
+	// The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
+	VmImageVersion pulumi.StringPtrInput
+	// The number of nodes in the node type.
+	VmInstanceCount pulumi.IntPtrInput
+	// The secrets to install in the virtual machines.
+	VmSecrets VaultSecretGroupResponseArrayInput
+	// The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
+	VmSize pulumi.StringPtrInput
 }
 
 func (NodeTypeState) ElementType() reflect.Type {

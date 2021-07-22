@@ -185,9 +185,113 @@ func GetApiManagementService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiManagementService resources.
 type apiManagementServiceState struct {
+	// Additional datacenter locations of the API Management service.
+	AdditionalLocations []AdditionalLocationResponse `pulumi:"additionalLocations"`
+	// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+	Certificates []CertificateConfigurationResponse `pulumi:"certificates"`
+	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	CreatedAtUtc *string `pulumi:"createdAtUtc"`
+	// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+	CustomProperties map[string]string `pulumi:"customProperties"`
+	// ETag of the resource.
+	Etag *string `pulumi:"etag"`
+	// Gateway URL of the API Management service in the Default Region.
+	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
+	// Gateway URL of the API Management service.
+	GatewayUrl *string `pulumi:"gatewayUrl"`
+	// Custom hostname configuration of the API Management service.
+	HostnameConfigurations []HostnameConfigurationResponse `pulumi:"hostnameConfigurations"`
+	// Managed service identity of the Api Management service.
+	Identity *ApiManagementServiceIdentityResponse `pulumi:"identity"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Management API endpoint URL of the API Management service.
+	ManagementApiUrl *string `pulumi:"managementApiUrl"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Email address from which the notification will be sent.
+	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
+	// Publisher portal endpoint Url of the API Management service.
+	PortalUrl *string `pulumi:"portalUrl"`
+	// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
+	PrivateIPAddresses []string `pulumi:"privateIPAddresses"`
+	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+	PublicIPAddresses []string `pulumi:"publicIPAddresses"`
+	// Publisher email.
+	PublisherEmail *string `pulumi:"publisherEmail"`
+	// Publisher name.
+	PublisherName *string `pulumi:"publisherName"`
+	// SCM endpoint URL of the API Management service.
+	ScmUrl *string `pulumi:"scmUrl"`
+	// SKU properties of the API Management service.
+	Sku *ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+	TargetProvisioningState *string `pulumi:"targetProvisioningState"`
+	// Resource type for API Management resource is set to Microsoft.ApiManagement.
+	Type *string `pulumi:"type"`
+	// Virtual network configuration of the API Management service.
+	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
+	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+	VirtualNetworkType *string `pulumi:"virtualNetworkType"`
 }
 
 type ApiManagementServiceState struct {
+	// Additional datacenter locations of the API Management service.
+	AdditionalLocations AdditionalLocationResponseArrayInput
+	// List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+	Certificates CertificateConfigurationResponseArrayInput
+	// Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	CreatedAtUtc pulumi.StringPtrInput
+	// Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+	CustomProperties pulumi.StringMapInput
+	// ETag of the resource.
+	Etag pulumi.StringPtrInput
+	// Gateway URL of the API Management service in the Default Region.
+	GatewayRegionalUrl pulumi.StringPtrInput
+	// Gateway URL of the API Management service.
+	GatewayUrl pulumi.StringPtrInput
+	// Custom hostname configuration of the API Management service.
+	HostnameConfigurations HostnameConfigurationResponseArrayInput
+	// Managed service identity of the Api Management service.
+	Identity ApiManagementServiceIdentityResponsePtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Management API endpoint URL of the API Management service.
+	ManagementApiUrl pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Email address from which the notification will be sent.
+	NotificationSenderEmail pulumi.StringPtrInput
+	// Publisher portal endpoint Url of the API Management service.
+	PortalUrl pulumi.StringPtrInput
+	// Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
+	PrivateIPAddresses pulumi.StringArrayInput
+	// The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+	ProvisioningState pulumi.StringPtrInput
+	// Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+	PublicIPAddresses pulumi.StringArrayInput
+	// Publisher email.
+	PublisherEmail pulumi.StringPtrInput
+	// Publisher name.
+	PublisherName pulumi.StringPtrInput
+	// SCM endpoint URL of the API Management service.
+	ScmUrl pulumi.StringPtrInput
+	// SKU properties of the API Management service.
+	Sku ApiManagementServiceSkuPropertiesResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+	TargetProvisioningState pulumi.StringPtrInput
+	// Resource type for API Management resource is set to Microsoft.ApiManagement.
+	Type pulumi.StringPtrInput
+	// Virtual network configuration of the API Management service.
+	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrInput
+	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+	VirtualNetworkType pulumi.StringPtrInput
 }
 
 func (ApiManagementServiceState) ElementType() reflect.Type {

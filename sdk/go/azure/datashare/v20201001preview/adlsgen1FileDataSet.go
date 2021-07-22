@@ -122,9 +122,51 @@ func GetADLSGen1FileDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ADLSGen1FileDataSet resources.
 type adlsgen1FileDataSetState struct {
+	// The ADLS account name.
+	AccountName *string `pulumi:"accountName"`
+	// Unique id for identifying a data set resource
+	DataSetId *string `pulumi:"dataSetId"`
+	// The file name in the ADLS account.
+	FileName *string `pulumi:"fileName"`
+	// The folder path within the ADLS account.
+	FolderPath *string `pulumi:"folderPath"`
+	// Kind of data set.
+	// Expected value is 'AdlsGen1File'.
+	Kind *string `pulumi:"kind"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// Resource group of ADLS account.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Subscription id of ADLS account.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// System Data of the Azure resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
 }
 
 type ADLSGen1FileDataSetState struct {
+	// The ADLS account name.
+	AccountName pulumi.StringPtrInput
+	// Unique id for identifying a data set resource
+	DataSetId pulumi.StringPtrInput
+	// The file name in the ADLS account.
+	FileName pulumi.StringPtrInput
+	// The folder path within the ADLS account.
+	FolderPath pulumi.StringPtrInput
+	// Kind of data set.
+	// Expected value is 'AdlsGen1File'.
+	Kind pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// Resource group of ADLS account.
+	ResourceGroup pulumi.StringPtrInput
+	// Subscription id of ADLS account.
+	SubscriptionId pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData SystemDataResponsePtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
 }
 
 func (ADLSGen1FileDataSetState) ElementType() reflect.Type {

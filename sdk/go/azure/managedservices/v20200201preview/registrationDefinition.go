@@ -93,9 +93,25 @@ func GetRegistrationDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistrationDefinition resources.
 type registrationDefinitionState struct {
+	// The name of the registration definition.
+	Name *string `pulumi:"name"`
+	// The details for the Managed Services offer’s plan in Azure Marketplace.
+	Plan *PlanResponse `pulumi:"plan"`
+	// The properties of a registration definition.
+	Properties *RegistrationDefinitionPropertiesResponse `pulumi:"properties"`
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
+	Type *string `pulumi:"type"`
 }
 
 type RegistrationDefinitionState struct {
+	// The name of the registration definition.
+	Name pulumi.StringPtrInput
+	// The details for the Managed Services offer’s plan in Azure Marketplace.
+	Plan PlanResponsePtrInput
+	// The properties of a registration definition.
+	Properties RegistrationDefinitionPropertiesResponsePtrInput
+	// The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
+	Type pulumi.StringPtrInput
 }
 
 func (RegistrationDefinitionState) ElementType() reflect.Type {

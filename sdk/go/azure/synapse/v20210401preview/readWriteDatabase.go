@@ -98,9 +98,51 @@ func GetReadWriteDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReadWriteDatabase resources.
 type readWriteDatabaseState struct {
+	// The time the data should be kept in cache for fast queries in TimeSpan.
+	HotCachePeriod *string `pulumi:"hotCachePeriod"`
+	// Indicates whether the database is followed.
+	IsFollowed *bool `pulumi:"isFollowed"`
+	// Kind of the database
+	// Expected value is 'ReadWrite'.
+	Kind *string `pulumi:"kind"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
+	// The statistics of the database.
+	Statistics *DatabaseStatisticsResponse `pulumi:"statistics"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ReadWriteDatabaseState struct {
+	// The time the data should be kept in cache for fast queries in TimeSpan.
+	HotCachePeriod pulumi.StringPtrInput
+	// Indicates whether the database is followed.
+	IsFollowed pulumi.BoolPtrInput
+	// Kind of the database
+	// Expected value is 'ReadWrite'.
+	Kind pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+	SoftDeletePeriod pulumi.StringPtrInput
+	// The statistics of the database.
+	Statistics DatabaseStatisticsResponsePtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ReadWriteDatabaseState) ElementType() reflect.Type {

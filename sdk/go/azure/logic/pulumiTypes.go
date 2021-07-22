@@ -10419,7 +10419,7 @@ type EdifactDelimiterOverride struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -10435,7 +10435,7 @@ type EdifactDelimiterOverride struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -10458,7 +10458,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -10474,7 +10474,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -10542,8 +10542,8 @@ func (o EdifactDelimiterOverrideOutput) DataElementSeparator() pulumi.IntOutput 
 }
 
 // The decimal point indicator.
-func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
+func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
 }
 
 // The message association assigned code.
@@ -10582,8 +10582,8 @@ func (o EdifactDelimiterOverrideOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
+func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -13061,7 +13061,7 @@ type EdifactFramingSettings struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion int `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -13071,7 +13071,7 @@ type EdifactFramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -13098,7 +13098,7 @@ type EdifactFramingSettingsArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -13108,7 +13108,7 @@ type EdifactFramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -13212,8 +13212,8 @@ func (o EdifactFramingSettingsOutput) DataElementSeparator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
+func (o EdifactFramingSettingsOutput) DecimalPointIndicator() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
 }
 
 // The protocol version.
@@ -13237,8 +13237,8 @@ func (o EdifactFramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
+func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
 // The service code list directory version.
@@ -13305,13 +13305,13 @@ func (o EdifactFramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOut
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() EdifactDecimalIndicatorPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *EdifactDecimalIndicator {
+func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.DecimalPointIndicator
-	}).(EdifactDecimalIndicatorPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The protocol version.
@@ -13355,13 +13355,13 @@ func (o EdifactFramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *SegmentTerminatorSuffix {
+func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(SegmentTerminatorSuffixPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The service code list directory version.
@@ -23763,7 +23763,7 @@ type RecurrenceSchedule struct {
 	// The monthly occurrences.
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays []DaysOfWeek `pulumi:"weekDays"`
+	WeekDays []string `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -23890,8 +23890,8 @@ func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurre
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -23953,19 +23953,19 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
+func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(DaysOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
+	Day *string `pulumi:"day"`
 	// The occurrence.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -23984,7 +23984,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day DayOfWeekPtrInput `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -24042,8 +24042,8 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 }
 
 // The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
 }
 
 // The occurrence.
@@ -25099,7 +25099,7 @@ func (o RosettaNetPipAcknowledgmentOfReceiptSettingsResponsePtrOutput) TimeToAck
 // The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehavior struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
-	ActionType RosettaNetActionType `pulumi:"actionType"`
+	ActionType string `pulumi:"actionType"`
 	// The value indicating whether authorization is required.
 	IsAuthorizationRequired bool `pulumi:"isAuthorizationRequired"`
 	// The value indicating whether secured transport is required.
@@ -25107,9 +25107,9 @@ type RosettaNetPipActivityBehavior struct {
 	// The value indicating whether non-repudiation is for origin and content.
 	NonRepudiationOfOriginAndContent bool `pulumi:"nonRepudiationOfOriginAndContent"`
 	// The persistent confidentiality encryption scope.
-	PersistentConfidentialityScope RosettaNetPipConfidentialityScope `pulumi:"persistentConfidentialityScope"`
+	PersistentConfidentialityScope string `pulumi:"persistentConfidentialityScope"`
 	// The value indicating whether the RosettaNet PIP communication is synchronous.
-	ResponseType RosettaNetResponseType `pulumi:"responseType"`
+	ResponseType string `pulumi:"responseType"`
 	// The value indicating retry count.
 	RetryCount int `pulumi:"retryCount"`
 	// The time to perform in seconds.
@@ -25130,7 +25130,7 @@ type RosettaNetPipActivityBehaviorInput interface {
 // The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
-	ActionType RosettaNetActionTypeInput `pulumi:"actionType"`
+	ActionType RosettaNetActionType `pulumi:"actionType"`
 	// The value indicating whether authorization is required.
 	IsAuthorizationRequired pulumi.BoolInput `pulumi:"isAuthorizationRequired"`
 	// The value indicating whether secured transport is required.
@@ -25138,9 +25138,9 @@ type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether non-repudiation is for origin and content.
 	NonRepudiationOfOriginAndContent pulumi.BoolInput `pulumi:"nonRepudiationOfOriginAndContent"`
 	// The persistent confidentiality encryption scope.
-	PersistentConfidentialityScope RosettaNetPipConfidentialityScopeInput `pulumi:"persistentConfidentialityScope"`
+	PersistentConfidentialityScope RosettaNetPipConfidentialityScope `pulumi:"persistentConfidentialityScope"`
 	// The value indicating whether the RosettaNet PIP communication is synchronous.
-	ResponseType RosettaNetResponseTypeInput `pulumi:"responseType"`
+	ResponseType RosettaNetResponseType `pulumi:"responseType"`
 	// The value indicating retry count.
 	RetryCount pulumi.IntInput `pulumi:"retryCount"`
 	// The time to perform in seconds.
@@ -25226,8 +25226,8 @@ func (o RosettaNetPipActivityBehaviorOutput) ToRosettaNetPipActivityBehaviorPtrO
 }
 
 // The value indicating whether the RosettaNet PIP is used for a single action.
-func (o RosettaNetPipActivityBehaviorOutput) ActionType() RosettaNetActionTypeOutput {
-	return o.ApplyT(func(v RosettaNetPipActivityBehavior) RosettaNetActionType { return v.ActionType }).(RosettaNetActionTypeOutput)
+func (o RosettaNetPipActivityBehaviorOutput) ActionType() pulumi.StringOutput {
+	return o.ApplyT(func(v RosettaNetPipActivityBehavior) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
 // The value indicating whether authorization is required.
@@ -25246,15 +25246,13 @@ func (o RosettaNetPipActivityBehaviorOutput) NonRepudiationOfOriginAndContent() 
 }
 
 // The persistent confidentiality encryption scope.
-func (o RosettaNetPipActivityBehaviorOutput) PersistentConfidentialityScope() RosettaNetPipConfidentialityScopeOutput {
-	return o.ApplyT(func(v RosettaNetPipActivityBehavior) RosettaNetPipConfidentialityScope {
-		return v.PersistentConfidentialityScope
-	}).(RosettaNetPipConfidentialityScopeOutput)
+func (o RosettaNetPipActivityBehaviorOutput) PersistentConfidentialityScope() pulumi.StringOutput {
+	return o.ApplyT(func(v RosettaNetPipActivityBehavior) string { return v.PersistentConfidentialityScope }).(pulumi.StringOutput)
 }
 
 // The value indicating whether the RosettaNet PIP communication is synchronous.
-func (o RosettaNetPipActivityBehaviorOutput) ResponseType() RosettaNetResponseTypeOutput {
-	return o.ApplyT(func(v RosettaNetPipActivityBehavior) RosettaNetResponseType { return v.ResponseType }).(RosettaNetResponseTypeOutput)
+func (o RosettaNetPipActivityBehaviorOutput) ResponseType() pulumi.StringOutput {
+	return o.ApplyT(func(v RosettaNetPipActivityBehavior) string { return v.ResponseType }).(pulumi.StringOutput)
 }
 
 // The value indicating retry count.
@@ -25286,13 +25284,13 @@ func (o RosettaNetPipActivityBehaviorPtrOutput) Elem() RosettaNetPipActivityBeha
 }
 
 // The value indicating whether the RosettaNet PIP is used for a single action.
-func (o RosettaNetPipActivityBehaviorPtrOutput) ActionType() RosettaNetActionTypePtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *RosettaNetActionType {
+func (o RosettaNetPipActivityBehaviorPtrOutput) ActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.ActionType
-	}).(RosettaNetActionTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The value indicating whether authorization is required.
@@ -25326,23 +25324,23 @@ func (o RosettaNetPipActivityBehaviorPtrOutput) NonRepudiationOfOriginAndContent
 }
 
 // The persistent confidentiality encryption scope.
-func (o RosettaNetPipActivityBehaviorPtrOutput) PersistentConfidentialityScope() RosettaNetPipConfidentialityScopePtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *RosettaNetPipConfidentialityScope {
+func (o RosettaNetPipActivityBehaviorPtrOutput) PersistentConfidentialityScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.PersistentConfidentialityScope
-	}).(RosettaNetPipConfidentialityScopePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The value indicating whether the RosettaNet PIP communication is synchronous.
-func (o RosettaNetPipActivityBehaviorPtrOutput) ResponseType() RosettaNetResponseTypePtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *RosettaNetResponseType {
+func (o RosettaNetPipActivityBehaviorPtrOutput) ResponseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivityBehavior) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.ResponseType
-	}).(RosettaNetResponseTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The value indicating retry count.
@@ -25639,7 +25637,7 @@ type RosettaNetPipActivitySettings struct {
 	// The RosettaNet ProcessConfiguration activity behavior.
 	ActivityBehavior RosettaNetPipActivityBehavior `pulumi:"activityBehavior"`
 	// The RosettaNet ProcessConfiguration activity type.
-	ActivityType RosettaNetPipActivityType `pulumi:"activityType"`
+	ActivityType string `pulumi:"activityType"`
 }
 
 // RosettaNetPipActivitySettingsInput is an input type that accepts RosettaNetPipActivitySettingsArgs and RosettaNetPipActivitySettingsOutput values.
@@ -25660,7 +25658,7 @@ type RosettaNetPipActivitySettingsArgs struct {
 	// The RosettaNet ProcessConfiguration activity behavior.
 	ActivityBehavior RosettaNetPipActivityBehaviorInput `pulumi:"activityBehavior"`
 	// The RosettaNet ProcessConfiguration activity type.
-	ActivityType RosettaNetPipActivityTypeInput `pulumi:"activityType"`
+	ActivityType RosettaNetPipActivityType `pulumi:"activityType"`
 }
 
 func (RosettaNetPipActivitySettingsArgs) ElementType() reflect.Type {
@@ -25754,8 +25752,8 @@ func (o RosettaNetPipActivitySettingsOutput) ActivityBehavior() RosettaNetPipAct
 }
 
 // The RosettaNet ProcessConfiguration activity type.
-func (o RosettaNetPipActivitySettingsOutput) ActivityType() RosettaNetPipActivityTypeOutput {
-	return o.ApplyT(func(v RosettaNetPipActivitySettings) RosettaNetPipActivityType { return v.ActivityType }).(RosettaNetPipActivityTypeOutput)
+func (o RosettaNetPipActivitySettingsOutput) ActivityType() pulumi.StringOutput {
+	return o.ApplyT(func(v RosettaNetPipActivitySettings) string { return v.ActivityType }).(pulumi.StringOutput)
 }
 
 type RosettaNetPipActivitySettingsPtrOutput struct{ *pulumi.OutputState }
@@ -25797,13 +25795,13 @@ func (o RosettaNetPipActivitySettingsPtrOutput) ActivityBehavior() RosettaNetPip
 }
 
 // The RosettaNet ProcessConfiguration activity type.
-func (o RosettaNetPipActivitySettingsPtrOutput) ActivityType() RosettaNetPipActivityTypePtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipActivitySettings) *RosettaNetPipActivityType {
+func (o RosettaNetPipActivitySettingsPtrOutput) ActivityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipActivitySettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.ActivityType
-	}).(RosettaNetPipActivityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The integration account RosettaNet ProcessConfiguration activity settings.
@@ -26337,7 +26335,7 @@ type RosettaNetPipRoleSettings struct {
 	// The role name.
 	Role string `pulumi:"role"`
 	// The RosettaNet ProcessConfiguration role type.
-	RoleType RosettaNetPipRoleType `pulumi:"roleType"`
+	RoleType string `pulumi:"roleType"`
 	// The service name.
 	Service string `pulumi:"service"`
 	// The service classification name.
@@ -26366,7 +26364,7 @@ type RosettaNetPipRoleSettingsArgs struct {
 	// The role name.
 	Role pulumi.StringInput `pulumi:"role"`
 	// The RosettaNet ProcessConfiguration role type.
-	RoleType RosettaNetPipRoleTypeInput `pulumi:"roleType"`
+	RoleType RosettaNetPipRoleType `pulumi:"roleType"`
 	// The service name.
 	Service pulumi.StringInput `pulumi:"service"`
 	// The service classification name.
@@ -26472,8 +26470,8 @@ func (o RosettaNetPipRoleSettingsOutput) Role() pulumi.StringOutput {
 }
 
 // The RosettaNet ProcessConfiguration role type.
-func (o RosettaNetPipRoleSettingsOutput) RoleType() RosettaNetPipRoleTypeOutput {
-	return o.ApplyT(func(v RosettaNetPipRoleSettings) RosettaNetPipRoleType { return v.RoleType }).(RosettaNetPipRoleTypeOutput)
+func (o RosettaNetPipRoleSettingsOutput) RoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v RosettaNetPipRoleSettings) string { return v.RoleType }).(pulumi.StringOutput)
 }
 
 // The service name.
@@ -26545,13 +26543,13 @@ func (o RosettaNetPipRoleSettingsPtrOutput) Role() pulumi.StringPtrOutput {
 }
 
 // The RosettaNet ProcessConfiguration role type.
-func (o RosettaNetPipRoleSettingsPtrOutput) RoleType() RosettaNetPipRoleTypePtrOutput {
-	return o.ApplyT(func(v *RosettaNetPipRoleSettings) *RosettaNetPipRoleType {
+func (o RosettaNetPipRoleSettingsPtrOutput) RoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RosettaNetPipRoleSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.RoleType
-	}).(RosettaNetPipRoleTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The service name.
@@ -29056,7 +29054,7 @@ type X12DelimiterOverrides struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -29089,7 +29087,7 @@ type X12DelimiterOverridesArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -29182,8 +29180,8 @@ func (o X12DelimiterOverridesOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
-	return o.ApplyT(func(v X12DelimiterOverrides) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
+func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v X12DelimiterOverrides) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -30902,7 +30900,7 @@ type X12FramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
 }
 
 // X12FramingSettingsInput is an input type that accepts X12FramingSettingsArgs and X12FramingSettingsOutput values.
@@ -30931,7 +30929,7 @@ type X12FramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {
@@ -31043,8 +31041,8 @@ func (o X12FramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
-	return o.ApplyT(func(v X12FramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
+func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v X12FramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
 }
 
 type X12FramingSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -31126,13 +31124,13 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
-	return o.ApplyT(func(v *X12FramingSettings) *SegmentTerminatorSuffix {
+func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(SegmentTerminatorSuffixPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The X12 agreement framing settings.

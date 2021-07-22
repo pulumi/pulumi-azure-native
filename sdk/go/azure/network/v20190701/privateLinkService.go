@@ -173,9 +173,65 @@ func GetPrivateLinkService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkService resources.
 type privateLinkServiceState struct {
+	// The alias of the private link service.
+	Alias *string `pulumi:"alias"`
+	// The auto-approval list of the private link service.
+	AutoApproval *PrivateLinkServicePropertiesResponseAutoApproval `pulumi:"autoApproval"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// The list of Fqdn.
+	Fqdns []string `pulumi:"fqdns"`
+	// An array of private link service IP configurations.
+	IpConfigurations []PrivateLinkServiceIpConfigurationResponse `pulumi:"ipConfigurations"`
+	// An array of references to the load balancer IP configurations.
+	LoadBalancerFrontendIpConfigurations []FrontendIPConfigurationResponse `pulumi:"loadBalancerFrontendIpConfigurations"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// An array of references to the network interfaces created for this private link service.
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// An array of list about connections to the private endpoint.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The provisioning state of the private link service resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The visibility list of the private link service.
+	Visibility *PrivateLinkServicePropertiesResponseVisibility `pulumi:"visibility"`
 }
 
 type PrivateLinkServiceState struct {
+	// The alias of the private link service.
+	Alias pulumi.StringPtrInput
+	// The auto-approval list of the private link service.
+	AutoApproval PrivateLinkServicePropertiesResponseAutoApprovalPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// The list of Fqdn.
+	Fqdns pulumi.StringArrayInput
+	// An array of private link service IP configurations.
+	IpConfigurations PrivateLinkServiceIpConfigurationResponseArrayInput
+	// An array of references to the load balancer IP configurations.
+	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationResponseArrayInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// An array of references to the network interfaces created for this private link service.
+	NetworkInterfaces NetworkInterfaceResponseArrayInput
+	// An array of list about connections to the private endpoint.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// The provisioning state of the private link service resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The visibility list of the private link service.
+	Visibility PrivateLinkServicePropertiesResponseVisibilityPtrInput
 }
 
 func (PrivateLinkServiceState) ElementType() reflect.Type {

@@ -192,9 +192,49 @@ func GetResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Resource resources.
 type resourceState struct {
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Id of the resource that manages this resource.
+	ManagedBy *string `pulumi:"managedBy"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The plan of the resource.
+	Plan *PlanResponse `pulumi:"plan"`
+	// The resource properties.
+	Properties interface{} `pulumi:"properties"`
+	// The sku of the resource.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type ResourceState struct {
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// The kind of the resource.
+	Kind pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Id of the resource that manages this resource.
+	ManagedBy pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The plan of the resource.
+	Plan PlanResponsePtrInput
+	// The resource properties.
+	Properties pulumi.Input
+	// The sku of the resource.
+	Sku SkuResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (ResourceState) ElementType() reflect.Type {

@@ -12471,7 +12471,7 @@ func (o JpgLayerResponseArrayOutput) Index(i pulumi.IntInput) JpgLayerResponseOu
 // The Live Event encoding.
 type LiveEventEncoding struct {
 	// The encoding type for Live Event.
-	EncodingType *LiveEventEncodingType `pulumi:"encodingType"`
+	EncodingType *string `pulumi:"encodingType"`
 	// The encoding preset name.
 	PresetName *string `pulumi:"presetName"`
 }
@@ -12490,7 +12490,7 @@ type LiveEventEncodingInput interface {
 // The Live Event encoding.
 type LiveEventEncodingArgs struct {
 	// The encoding type for Live Event.
-	EncodingType LiveEventEncodingTypePtrInput `pulumi:"encodingType"`
+	EncodingType *LiveEventEncodingType `pulumi:"encodingType"`
 	// The encoding preset name.
 	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
 }
@@ -12574,8 +12574,8 @@ func (o LiveEventEncodingOutput) ToLiveEventEncodingPtrOutputWithContext(ctx con
 }
 
 // The encoding type for Live Event.
-func (o LiveEventEncodingOutput) EncodingType() LiveEventEncodingTypePtrOutput {
-	return o.ApplyT(func(v LiveEventEncoding) *LiveEventEncodingType { return v.EncodingType }).(LiveEventEncodingTypePtrOutput)
+func (o LiveEventEncodingOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LiveEventEncoding) *string { return v.EncodingType }).(pulumi.StringPtrOutput)
 }
 
 // The encoding preset name.
@@ -12602,13 +12602,13 @@ func (o LiveEventEncodingPtrOutput) Elem() LiveEventEncodingOutput {
 }
 
 // The encoding type for Live Event.
-func (o LiveEventEncodingPtrOutput) EncodingType() LiveEventEncodingTypePtrOutput {
-	return o.ApplyT(func(v *LiveEventEncoding) *LiveEventEncodingType {
+func (o LiveEventEncodingPtrOutput) EncodingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventEncoding) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EncodingType
-	}).(LiveEventEncodingTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The encoding preset name.
@@ -13001,7 +13001,7 @@ type LiveEventInputType struct {
 	// ISO 8601 timespan duration of the key frame interval duration.
 	KeyFrameIntervalDuration *string `pulumi:"keyFrameIntervalDuration"`
 	// The streaming protocol for the Live Event.
-	StreamingProtocol LiveEventInputProtocol `pulumi:"streamingProtocol"`
+	StreamingProtocol string `pulumi:"streamingProtocol"`
 }
 
 // LiveEventInputTypeInput is an input type that accepts LiveEventInputTypeArgs and LiveEventInputTypeOutput values.
@@ -13024,7 +13024,7 @@ type LiveEventInputTypeArgs struct {
 	// ISO 8601 timespan duration of the key frame interval duration.
 	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
 	// The streaming protocol for the Live Event.
-	StreamingProtocol LiveEventInputProtocolInput `pulumi:"streamingProtocol"`
+	StreamingProtocol LiveEventInputProtocol `pulumi:"streamingProtocol"`
 }
 
 func (LiveEventInputTypeArgs) ElementType() reflect.Type {
@@ -13121,8 +13121,8 @@ func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOut
 }
 
 // The streaming protocol for the Live Event.
-func (o LiveEventInputTypeOutput) StreamingProtocol() LiveEventInputProtocolOutput {
-	return o.ApplyT(func(v LiveEventInputType) LiveEventInputProtocol { return v.StreamingProtocol }).(LiveEventInputProtocolOutput)
+func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LiveEventInputType) string { return v.StreamingProtocol }).(pulumi.StringOutput)
 }
 
 type LiveEventInputTypePtrOutput struct{ *pulumi.OutputState }
@@ -13174,13 +13174,13 @@ func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtr
 }
 
 // The streaming protocol for the Live Event.
-func (o LiveEventInputTypePtrOutput) StreamingProtocol() LiveEventInputProtocolPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *LiveEventInputProtocol {
+func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LiveEventInputType) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.StreamingProtocol
-	}).(LiveEventInputProtocolPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Live Event input.

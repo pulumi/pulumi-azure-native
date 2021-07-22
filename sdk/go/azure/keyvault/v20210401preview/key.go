@@ -102,9 +102,55 @@ func GetKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Key resources.
 type keyState struct {
+	// The attributes of the key.
+	Attributes *KeyAttributesResponse `pulumi:"attributes"`
+	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+	CurveName *string  `pulumi:"curveName"`
+	KeyOps    []string `pulumi:"keyOps"`
+	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+	KeySize *int `pulumi:"keySize"`
+	// The URI to retrieve the current version of the key.
+	KeyUri *string `pulumi:"keyUri"`
+	// The URI to retrieve the specific version of the key.
+	KeyUriWithVersion *string `pulumi:"keyUriWithVersion"`
+	// The type of the key. For valid values, see JsonWebKeyType.
+	Kty *string `pulumi:"kty"`
+	// Azure location of the key vault resource.
+	Location *string `pulumi:"location"`
+	// Name of the key vault resource.
+	Name *string `pulumi:"name"`
+	// Key rotation policy in response. It will be used for both output and input. Omitted if empty
+	RotationPolicy *RotationPolicyResponse `pulumi:"rotationPolicy"`
+	// Tags assigned to the key vault resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type of the key vault resource.
+	Type *string `pulumi:"type"`
 }
 
 type KeyState struct {
+	// The attributes of the key.
+	Attributes KeyAttributesResponsePtrInput
+	// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+	CurveName pulumi.StringPtrInput
+	KeyOps    pulumi.StringArrayInput
+	// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+	KeySize pulumi.IntPtrInput
+	// The URI to retrieve the current version of the key.
+	KeyUri pulumi.StringPtrInput
+	// The URI to retrieve the specific version of the key.
+	KeyUriWithVersion pulumi.StringPtrInput
+	// The type of the key. For valid values, see JsonWebKeyType.
+	Kty pulumi.StringPtrInput
+	// Azure location of the key vault resource.
+	Location pulumi.StringPtrInput
+	// Name of the key vault resource.
+	Name pulumi.StringPtrInput
+	// Key rotation policy in response. It will be used for both output and input. Omitted if empty
+	RotationPolicy RotationPolicyResponsePtrInput
+	// Tags assigned to the key vault resource.
+	Tags pulumi.StringMapInput
+	// Resource type of the key vault resource.
+	Type pulumi.StringPtrInput
 }
 
 func (KeyState) ElementType() reflect.Type {

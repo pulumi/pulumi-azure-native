@@ -124,9 +124,45 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// Endpoint for the domain.
+	Endpoint *string `pulumi:"endpoint"`
+	// This determines the format that Event Grid should expect for incoming events published to the domain.
+	InputSchema *string `pulumi:"inputSchema"`
+	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
+	// Location of the resource
+	Location *string `pulumi:"location"`
+	// Metric resource id for the domain.
+	MetricResourceId *string `pulumi:"metricResourceId"`
+	// Name of the resource
+	Name *string `pulumi:"name"`
+	// Provisioning state of the domain.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Tags of the resource
+	Tags map[string]string `pulumi:"tags"`
+	// Type of the resource
+	Type *string `pulumi:"type"`
 }
 
 type DomainState struct {
+	// Endpoint for the domain.
+	Endpoint pulumi.StringPtrInput
+	// This determines the format that Event Grid should expect for incoming events published to the domain.
+	InputSchema pulumi.StringPtrInput
+	// Information about the InputSchemaMapping which specified the info about mapping event payload.
+	InputSchemaMapping JsonInputSchemaMappingResponsePtrInput
+	// Location of the resource
+	Location pulumi.StringPtrInput
+	// Metric resource id for the domain.
+	MetricResourceId pulumi.StringPtrInput
+	// Name of the resource
+	Name pulumi.StringPtrInput
+	// Provisioning state of the domain.
+	ProvisioningState pulumi.StringPtrInput
+	// Tags of the resource
+	Tags pulumi.StringMapInput
+	// Type of the resource
+	Type pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {

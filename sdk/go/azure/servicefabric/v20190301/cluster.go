@@ -197,9 +197,161 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// The list of add-on features to enable in the cluster.
+	AddOnFeatures []string `pulumi:"addOnFeatures"`
+	// The Service Fabric runtime versions available for this cluster.
+	AvailableClusterVersions []ClusterVersionDetailsResponse `pulumi:"availableClusterVersions"`
+	// The AAD authentication settings of the cluster.
+	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
+	// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+	Certificate *CertificateDescriptionResponse `pulumi:"certificate"`
+	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+	CertificateCommonNames *ServerCertificateCommonNamesResponse `pulumi:"certificateCommonNames"`
+	// The list of client certificates referenced by common name that are allowed to manage the cluster.
+	ClientCertificateCommonNames []ClientCertificateCommonNameResponse `pulumi:"clientCertificateCommonNames"`
+	// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+	ClientCertificateThumbprints []ClientCertificateThumbprintResponse `pulumi:"clientCertificateThumbprints"`
+	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
+	// The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
+	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
+	// A service generated unique identifier for the cluster resource.
+	ClusterId *string `pulumi:"clusterId"`
+	// The current state of the cluster.
+	//
+	//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+	//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+	//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+	//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+	//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+	//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+	//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+	//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+	//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+	//   - Ready - Indicates that the cluster is in a stable state.
+	ClusterState *string `pulumi:"clusterState"`
+	// The storage account information for storing Service Fabric diagnostic logs.
+	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfigResponse `pulumi:"diagnosticsStorageAccountConfig"`
+	// Azure resource etag.
+	Etag *string `pulumi:"etag"`
+	// Indicates if the event store service is enabled.
+	EventStoreServiceEnabled *bool `pulumi:"eventStoreServiceEnabled"`
+	// The list of custom fabric settings to configure the cluster.
+	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
+	// Azure resource location.
+	Location *string `pulumi:"location"`
+	// The http management endpoint of the cluster.
+	ManagementEndpoint *string `pulumi:"managementEndpoint"`
+	// Azure resource name.
+	Name *string `pulumi:"name"`
+	// The list of node types in the cluster.
+	NodeTypes []NodeTypeDescriptionResponse `pulumi:"nodeTypes"`
+	// The provisioning state of the cluster resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+	//
+	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+	//   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+	//   - Silver - Run the System services with a target replica set count of 5.
+	//   - Gold - Run the System services with a target replica set count of 7.
+	//   - Platinum - Run the System services with a target replica set count of 9.
+	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
+	// The server certificate used by reverse proxy.
+	ReverseProxyCertificate *CertificateDescriptionResponse `pulumi:"reverseProxyCertificate"`
+	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+	ReverseProxyCertificateCommonNames *ServerCertificateCommonNamesResponse `pulumi:"reverseProxyCertificateCommonNames"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type *string `pulumi:"type"`
+	// The policy to use when upgrading the cluster.
+	UpgradeDescription *ClusterUpgradePolicyResponse `pulumi:"upgradeDescription"`
+	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+	UpgradeMode *string `pulumi:"upgradeMode"`
+	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+	VmImage *string `pulumi:"vmImage"`
 }
 
 type ClusterState struct {
+	// The list of add-on features to enable in the cluster.
+	AddOnFeatures pulumi.StringArrayInput
+	// The Service Fabric runtime versions available for this cluster.
+	AvailableClusterVersions ClusterVersionDetailsResponseArrayInput
+	// The AAD authentication settings of the cluster.
+	AzureActiveDirectory AzureActiveDirectoryResponsePtrInput
+	// The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+	Certificate CertificateDescriptionResponsePtrInput
+	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+	CertificateCommonNames ServerCertificateCommonNamesResponsePtrInput
+	// The list of client certificates referenced by common name that are allowed to manage the cluster.
+	ClientCertificateCommonNames ClientCertificateCommonNameResponseArrayInput
+	// The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+	ClientCertificateThumbprints ClientCertificateThumbprintResponseArrayInput
+	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	ClusterCodeVersion pulumi.StringPtrInput
+	// The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
+	ClusterEndpoint pulumi.StringPtrInput
+	// A service generated unique identifier for the cluster resource.
+	ClusterId pulumi.StringPtrInput
+	// The current state of the cluster.
+	//
+	//   - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+	//   - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+	//   - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+	//   - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+	//   - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+	//   - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+	//   - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+	//   - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+	//   - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+	//   - Ready - Indicates that the cluster is in a stable state.
+	ClusterState pulumi.StringPtrInput
+	// The storage account information for storing Service Fabric diagnostic logs.
+	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigResponsePtrInput
+	// Azure resource etag.
+	Etag pulumi.StringPtrInput
+	// Indicates if the event store service is enabled.
+	EventStoreServiceEnabled pulumi.BoolPtrInput
+	// The list of custom fabric settings to configure the cluster.
+	FabricSettings SettingsSectionDescriptionResponseArrayInput
+	// Azure resource location.
+	Location pulumi.StringPtrInput
+	// The http management endpoint of the cluster.
+	ManagementEndpoint pulumi.StringPtrInput
+	// Azure resource name.
+	Name pulumi.StringPtrInput
+	// The list of node types in the cluster.
+	NodeTypes NodeTypeDescriptionResponseArrayInput
+	// The provisioning state of the cluster resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+	//
+	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+	//   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+	//   - Silver - Run the System services with a target replica set count of 5.
+	//   - Gold - Run the System services with a target replica set count of 7.
+	//   - Platinum - Run the System services with a target replica set count of 9.
+	ReliabilityLevel pulumi.StringPtrInput
+	// The server certificate used by reverse proxy.
+	ReverseProxyCertificate CertificateDescriptionResponsePtrInput
+	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
+	ReverseProxyCertificateCommonNames ServerCertificateCommonNamesResponsePtrInput
+	// Azure resource tags.
+	Tags pulumi.StringMapInput
+	// Azure resource type.
+	Type pulumi.StringPtrInput
+	// The policy to use when upgrading the cluster.
+	UpgradeDescription ClusterUpgradePolicyResponsePtrInput
+	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+	UpgradeMode pulumi.StringPtrInput
+	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+	VmImage pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

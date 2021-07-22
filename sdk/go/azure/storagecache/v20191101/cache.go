@@ -107,9 +107,53 @@ func GetCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cache resources.
 type cacheState struct {
+	// The size of this Cache, in GB.
+	CacheSizeGB *int `pulumi:"cacheSizeGB"`
+	// Health of the Cache.
+	Health *CacheHealthResponse `pulumi:"health"`
+	// Region name string.
+	Location *string `pulumi:"location"`
+	// Array of IP addresses that can be used by clients mounting this Cache.
+	MountAddresses []string `pulumi:"mountAddresses"`
+	// Name of Cache.
+	Name *string `pulumi:"name"`
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// SKU for the Cache.
+	Sku *CacheResponseSku `pulumi:"sku"`
+	// Subnet used for the Cache.
+	Subnet *string `pulumi:"subnet"`
+	// ARM tags as name/value pairs.
+	Tags interface{} `pulumi:"tags"`
+	// Type of the Cache; Microsoft.StorageCache/Cache
+	Type *string `pulumi:"type"`
+	// Upgrade status of the Cache.
+	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
 }
 
 type CacheState struct {
+	// The size of this Cache, in GB.
+	CacheSizeGB pulumi.IntPtrInput
+	// Health of the Cache.
+	Health CacheHealthResponsePtrInput
+	// Region name string.
+	Location pulumi.StringPtrInput
+	// Array of IP addresses that can be used by clients mounting this Cache.
+	MountAddresses pulumi.StringArrayInput
+	// Name of Cache.
+	Name pulumi.StringPtrInput
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState pulumi.StringPtrInput
+	// SKU for the Cache.
+	Sku CacheResponseSkuPtrInput
+	// Subnet used for the Cache.
+	Subnet pulumi.StringPtrInput
+	// ARM tags as name/value pairs.
+	Tags pulumi.Input
+	// Type of the Cache; Microsoft.StorageCache/Cache
+	Type pulumi.StringPtrInput
+	// Upgrade status of the Cache.
+	UpgradeStatus CacheUpgradeStatusResponsePtrInput
 }
 
 func (CacheState) ElementType() reflect.Type {

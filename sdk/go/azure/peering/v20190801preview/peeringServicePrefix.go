@@ -112,9 +112,33 @@ func GetPeeringServicePrefix(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringServicePrefix resources.
 type peeringServicePrefixState struct {
+	// The prefix learned type
+	LearnedType *string `pulumi:"learnedType"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Valid route prefix
+	Prefix *string `pulumi:"prefix"`
+	// The prefix validation state
+	PrefixValidationState *string `pulumi:"prefixValidationState"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type PeeringServicePrefixState struct {
+	// The prefix learned type
+	LearnedType pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Valid route prefix
+	Prefix pulumi.StringPtrInput
+	// The prefix validation state
+	PrefixValidationState pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (PeeringServicePrefixState) ElementType() reflect.Type {

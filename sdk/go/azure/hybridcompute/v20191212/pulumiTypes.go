@@ -1582,7 +1582,7 @@ func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVers
 
 type MachineIdentity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // MachineIdentityInput is an input type that accepts MachineIdentityArgs and MachineIdentityOutput values.
@@ -1598,7 +1598,7 @@ type MachineIdentityInput interface {
 
 type MachineIdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (MachineIdentityArgs) ElementType() reflect.Type {
@@ -1679,8 +1679,8 @@ func (o MachineIdentityOutput) ToMachineIdentityPtrOutputWithContext(ctx context
 }
 
 // The identity type.
-func (o MachineIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v MachineIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o MachineIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type MachineIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1702,13 +1702,13 @@ func (o MachineIdentityPtrOutput) Elem() MachineIdentityOutput {
 }
 
 // The identity type.
-func (o MachineIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *MachineIdentity) *ResourceIdentityType {
+func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the operating system settings for the hybrid machine.

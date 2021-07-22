@@ -105,9 +105,49 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// The ID associated with the cluster.
+	ClusterId *string `pulumi:"clusterId"`
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The associated key properties.
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The link used to get the next page of recommendations.
+	NextLink *string `pulumi:"nextLink"`
+	// The provisioning state of the cluster.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The sku properties.
+	Sku *ClusterSkuResponse `pulumi:"sku"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ClusterState struct {
+	// The ID associated with the cluster.
+	ClusterId pulumi.StringPtrInput
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// The associated key properties.
+	KeyVaultProperties KeyVaultPropertiesResponsePtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The link used to get the next page of recommendations.
+	NextLink pulumi.StringPtrInput
+	// The provisioning state of the cluster.
+	ProvisioningState pulumi.StringPtrInput
+	// The sku properties.
+	Sku ClusterSkuResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

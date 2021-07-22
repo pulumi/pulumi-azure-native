@@ -115,9 +115,69 @@ func GetVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineRunCommandByVirtualMachine resources.
 type virtualMachineRunCommandByVirtualMachineState struct {
+	// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
+	AsyncExecution *bool `pulumi:"asyncExecution"`
+	// Specifies the Azure storage blob where script error stream will be uploaded.
+	ErrorBlobUri *string `pulumi:"errorBlobUri"`
+	// The virtual machine run command instance view.
+	InstanceView *VirtualMachineRunCommandInstanceViewResponse `pulumi:"instanceView"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Specifies the Azure storage blob where script output stream will be uploaded.
+	OutputBlobUri *string `pulumi:"outputBlobUri"`
+	// The parameters used by the script.
+	Parameters []RunCommandInputParameterResponse `pulumi:"parameters"`
+	// The parameters used by the script.
+	ProtectedParameters []RunCommandInputParameterResponse `pulumi:"protectedParameters"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies the user account password on the VM when executing the run command.
+	RunAsPassword *string `pulumi:"runAsPassword"`
+	// Specifies the user account on the VM when executing the run command.
+	RunAsUser *string `pulumi:"runAsUser"`
+	// The source of the run command script.
+	Source *VirtualMachineRunCommandScriptSourceResponse `pulumi:"source"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// The timeout in seconds to execute the run command.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type VirtualMachineRunCommandByVirtualMachineState struct {
+	// Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
+	AsyncExecution pulumi.BoolPtrInput
+	// Specifies the Azure storage blob where script error stream will be uploaded.
+	ErrorBlobUri pulumi.StringPtrInput
+	// The virtual machine run command instance view.
+	InstanceView VirtualMachineRunCommandInstanceViewResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Specifies the Azure storage blob where script output stream will be uploaded.
+	OutputBlobUri pulumi.StringPtrInput
+	// The parameters used by the script.
+	Parameters RunCommandInputParameterResponseArrayInput
+	// The parameters used by the script.
+	ProtectedParameters RunCommandInputParameterResponseArrayInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Specifies the user account password on the VM when executing the run command.
+	RunAsPassword pulumi.StringPtrInput
+	// Specifies the user account on the VM when executing the run command.
+	RunAsUser pulumi.StringPtrInput
+	// The source of the run command script.
+	Source VirtualMachineRunCommandScriptSourceResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// The timeout in seconds to execute the run command.
+	TimeoutInSeconds pulumi.IntPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (VirtualMachineRunCommandByVirtualMachineState) ElementType() reflect.Type {

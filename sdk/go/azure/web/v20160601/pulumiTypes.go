@@ -3984,7 +3984,7 @@ type ConnectionParameter struct {
 	// OAuth settings for the connection provider
 	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
@@ -4003,7 +4003,7 @@ type ConnectionParameterArgs struct {
 	// OAuth settings for the connection provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type ConnectionParameterTypePtrInput `pulumi:"type"`
+	Type *ConnectionParameterType `pulumi:"type"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -4064,8 +4064,8 @@ func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 }
 
 // Type of the parameter
-func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
+func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ConnectionParameterMapOutput struct{ *pulumi.OutputState }

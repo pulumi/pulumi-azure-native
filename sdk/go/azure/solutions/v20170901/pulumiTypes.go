@@ -15,7 +15,7 @@ type ApplicationArtifact struct {
 	// The managed application artifact name.
 	Name *string `pulumi:"name"`
 	// The managed application artifact type.
-	Type *ApplicationArtifactType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The managed application artifact blob uri.
 	Uri *string `pulumi:"uri"`
 }
@@ -36,7 +36,7 @@ type ApplicationArtifactArgs struct {
 	// The managed application artifact name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The managed application artifact type.
-	Type ApplicationArtifactTypePtrInput `pulumi:"type"`
+	Type *ApplicationArtifactType `pulumi:"type"`
 	// The managed application artifact blob uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -99,8 +99,8 @@ func (o ApplicationArtifactOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The managed application artifact type.
-func (o ApplicationArtifactOutput) Type() ApplicationArtifactTypePtrOutput {
-	return o.ApplyT(func(v ApplicationArtifact) *ApplicationArtifactType { return v.Type }).(ApplicationArtifactTypePtrOutput)
+func (o ApplicationArtifactOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationArtifact) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The managed application artifact blob uri.
@@ -467,7 +467,7 @@ func (o ApplicationProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntI
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -484,7 +484,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -566,8 +566,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -589,13 +589,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.

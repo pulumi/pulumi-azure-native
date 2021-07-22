@@ -197,9 +197,41 @@ func GetServiceEndpointPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointPolicy resources.
 type serviceEndpointPolicyState struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionResponse `pulumi:"serviceEndpointPolicyDefinitions"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ServiceEndpointPolicyState struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid pulumi.StringPtrInput
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions ServiceEndpointPolicyDefinitionResponseArrayInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ServiceEndpointPolicyState) ElementType() reflect.Type {

@@ -146,9 +146,77 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme []ServiceCorrelationDescriptionResponse `pulumi:"correlationScheme"`
+	// Specifies the move cost for the service.
+	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
+	// Azure resource etag.
+	Etag *string `pulumi:"etag"`
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location *string `pulumi:"location"`
+	// Azure resource name.
+	Name *string `pulumi:"name"`
+	// Describes how the service is partitioned.
+	PartitionDescription interface{} `pulumi:"partitionDescription"`
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints *string `pulumi:"placementConstraints"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+	ServiceDnsName *string `pulumi:"serviceDnsName"`
+	// The kind of service (Stateless or Stateful).
+	ServiceKind *string `pulumi:"serviceKind"`
+	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+	ServiceLoadMetrics []ServiceLoadMetricDescriptionResponse `pulumi:"serviceLoadMetrics"`
+	// The activation Mode of the service package
+	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies []ServicePlacementPolicyDescriptionResponse `pulumi:"servicePlacementPolicies"`
+	// The name of the service type
+	ServiceTypeName *string `pulumi:"serviceTypeName"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme ServiceCorrelationDescriptionResponseArrayInput
+	// Specifies the move cost for the service.
+	DefaultMoveCost pulumi.StringPtrInput
+	// Azure resource etag.
+	Etag pulumi.StringPtrInput
+	// It will be deprecated in New API, resource location depends on the parent resource.
+	Location pulumi.StringPtrInput
+	// Azure resource name.
+	Name pulumi.StringPtrInput
+	// Describes how the service is partitioned.
+	PartitionDescription pulumi.Input
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints pulumi.StringPtrInput
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState pulumi.StringPtrInput
+	// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+	ServiceDnsName pulumi.StringPtrInput
+	// The kind of service (Stateless or Stateful).
+	ServiceKind pulumi.StringPtrInput
+	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+	ServiceLoadMetrics ServiceLoadMetricDescriptionResponseArrayInput
+	// The activation Mode of the service package
+	ServicePackageActivationMode pulumi.StringPtrInput
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies ServicePlacementPolicyDescriptionResponseArrayInput
+	// The name of the service type
+	ServiceTypeName pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Azure resource tags.
+	Tags pulumi.StringMapInput
+	// Azure resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {

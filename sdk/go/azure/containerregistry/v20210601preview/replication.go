@@ -118,9 +118,45 @@ func GetReplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Replication resources.
 type replicationState struct {
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled *bool `pulumi:"regionEndpointEnabled"`
+	// The status of the replication at the time the operation was called.
+	Status *StatusResponse `pulumi:"status"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// Whether or not zone redundancy is enabled for this container registry replication
+	ZoneRedundancy *string `pulumi:"zoneRedundancy"`
 }
 
 type ReplicationState struct {
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+	RegionEndpointEnabled pulumi.BoolPtrInput
+	// The status of the replication at the time the operation was called.
+	Status StatusResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// Whether or not zone redundancy is enabled for this container registry replication
+	ZoneRedundancy pulumi.StringPtrInput
 }
 
 func (ReplicationState) ElementType() reflect.Type {

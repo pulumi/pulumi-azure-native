@@ -293,9 +293,41 @@ func GetRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTable resources.
 type routeTableState struct {
+	// Gets a unique read-only string that changes whenever the resource is updated
+	Etag *string `pulumi:"etag"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets Routes in a Route Table
+	Routes []RouteResponse `pulumi:"routes"`
+	// Gets collection of references to subnets
+	Subnets []SubResourceResponse `pulumi:"subnets"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type RouteTableState struct {
+	// Gets a unique read-only string that changes whenever the resource is updated
+	Etag pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets Routes in a Route Table
+	Routes RouteResponseArrayInput
+	// Gets collection of references to subnets
+	Subnets SubResourceResponseArrayInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (RouteTableState) ElementType() reflect.Type {

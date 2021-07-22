@@ -75,9 +75,29 @@ func GetNamespaceIpFilterRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceIpFilterRule resources.
 type namespaceIpFilterRuleState struct {
+	// The IP Filter Action
+	Action *string `pulumi:"action"`
+	// IP Filter name
+	FilterName *string `pulumi:"filterName"`
+	// IP Mask
+	IpMask *string `pulumi:"ipMask"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type NamespaceIpFilterRuleState struct {
+	// The IP Filter Action
+	Action pulumi.StringPtrInput
+	// IP Filter name
+	FilterName pulumi.StringPtrInput
+	// IP Mask
+	IpMask pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (NamespaceIpFilterRuleState) ElementType() reflect.Type {

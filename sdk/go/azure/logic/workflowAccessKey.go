@@ -72,9 +72,25 @@ func GetWorkflowAccessKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkflowAccessKey resources.
 type workflowAccessKeyState struct {
+	// Gets the workflow access key name.
+	Name *string `pulumi:"name"`
+	// Gets or sets the not-after time.
+	NotAfter *string `pulumi:"notAfter"`
+	// Gets or sets the not-before time.
+	NotBefore *string `pulumi:"notBefore"`
+	// Gets the workflow access key type.
+	Type *string `pulumi:"type"`
 }
 
 type WorkflowAccessKeyState struct {
+	// Gets the workflow access key name.
+	Name pulumi.StringPtrInput
+	// Gets or sets the not-after time.
+	NotAfter pulumi.StringPtrInput
+	// Gets or sets the not-before time.
+	NotBefore pulumi.StringPtrInput
+	// Gets the workflow access key type.
+	Type pulumi.StringPtrInput
 }
 
 func (WorkflowAccessKeyState) ElementType() reflect.Type {

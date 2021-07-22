@@ -29,7 +29,7 @@ type GetLogAnalyticExportRequestRateByIntervalArgs struct {
 	// Group query result by Throttle Policy applied.
 	GroupByThrottlePolicy *bool `pulumi:"groupByThrottlePolicy"`
 	// Interval value in minutes used to create LogAnalytics call rate logs.
-	IntervalLength IntervalInMins `pulumi:"intervalLength"`
+	IntervalLength string `pulumi:"intervalLength"`
 	// The location upon which virtual-machine-sizes is queried.
 	Location string `pulumi:"location"`
 	// To time of the query

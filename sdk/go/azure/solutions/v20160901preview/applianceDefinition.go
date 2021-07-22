@@ -53,9 +53,6 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 	if args.Authorizations == nil {
 		return nil, errors.New("invalid value for required argument 'Authorizations'")
 	}
-	if args.LockLevel == nil {
-		return nil, errors.New("invalid value for required argument 'LockLevel'")
-	}
 	if args.PackageFileUri == nil {
 		return nil, errors.New("invalid value for required argument 'PackageFileUri'")
 	}
@@ -120,9 +117,61 @@ func GetApplianceDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplianceDefinition resources.
 type applianceDefinitionState struct {
+	// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+	Artifacts []ApplianceArtifactResponse `pulumi:"artifacts"`
+	// The appliance provider authorizations.
+	Authorizations []ApplianceProviderAuthorizationResponse `pulumi:"authorizations"`
+	// The appliance definition description.
+	Description *string `pulumi:"description"`
+	// The appliance definition display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// The appliance lock level.
+	LockLevel *string `pulumi:"lockLevel"`
+	// ID of the resource that manages this resource.
+	ManagedBy *string `pulumi:"managedBy"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The appliance definition package file Uri.
+	PackageFileUri *string `pulumi:"packageFileUri"`
+	// The SKU of the resource.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type ApplianceDefinitionState struct {
+	// The collection of appliance artifacts. The portal will use the files specified as artifacts to construct the user experience of creating an appliance from an appliance definition.
+	Artifacts ApplianceArtifactResponseArrayInput
+	// The appliance provider authorizations.
+	Authorizations ApplianceProviderAuthorizationResponseArrayInput
+	// The appliance definition description.
+	Description pulumi.StringPtrInput
+	// The appliance definition display name.
+	DisplayName pulumi.StringPtrInput
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// The appliance lock level.
+	LockLevel pulumi.StringPtrInput
+	// ID of the resource that manages this resource.
+	ManagedBy pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The appliance definition package file Uri.
+	PackageFileUri pulumi.StringPtrInput
+	// The SKU of the resource.
+	Sku SkuResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (ApplianceDefinitionState) ElementType() reflect.Type {
@@ -145,7 +194,7 @@ type applianceDefinitionArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The appliance lock level.
-	LockLevel ApplianceLockLevel `pulumi:"lockLevel"`
+	LockLevel string `pulumi:"lockLevel"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The appliance definition package file Uri.
@@ -175,7 +224,7 @@ type ApplianceDefinitionArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The appliance lock level.
-	LockLevel ApplianceLockLevelInput
+	LockLevel ApplianceLockLevel
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// The appliance definition package file Uri.

@@ -69,9 +69,25 @@ func GetNotebookProxy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotebookProxy resources.
 type notebookProxyState struct {
+	// The friendly string identifier of the creator of the NotebookProxy resource.
+	Hostname *string `pulumi:"hostname"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The unique identifier (a GUID) generated for every resource.
+	ResourceId *string `pulumi:"resourceId"`
+	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
+	Type *string `pulumi:"type"`
 }
 
 type NotebookProxyState struct {
+	// The friendly string identifier of the creator of the NotebookProxy resource.
+	Hostname pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The unique identifier (a GUID) generated for every resource.
+	ResourceId pulumi.StringPtrInput
+	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
+	Type pulumi.StringPtrInput
 }
 
 func (NotebookProxyState) ElementType() reflect.Type {

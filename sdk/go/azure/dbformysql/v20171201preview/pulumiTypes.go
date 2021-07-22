@@ -684,7 +684,7 @@ type ServerPropertiesForDefaultCreate struct {
 	// Enforce a minimal Tls version for the server.
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -714,7 +714,7 @@ type ServerPropertiesForDefaultCreateArgs struct {
 	// Enforce a minimal Tls version for the server.
 	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -770,8 +770,8 @@ func (o ServerPropertiesForDefaultCreateOutput) MinimalTlsVersion() pulumi.Strin
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
+func (o ServerPropertiesForDefaultCreateOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
 }
 
 // Storage profile of a server.
@@ -794,7 +794,7 @@ type ServerPropertiesForGeoRestore struct {
 	// The source server id to restore from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -822,7 +822,7 @@ type ServerPropertiesForGeoRestoreArgs struct {
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -873,8 +873,8 @@ func (o ServerPropertiesForGeoRestoreOutput) SourceServerId() pulumi.StringOutpu
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForGeoRestoreOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
+func (o ServerPropertiesForGeoRestoreOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForGeoRestore) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
 }
 
 // Storage profile of a server.
@@ -897,7 +897,7 @@ type ServerPropertiesForReplica struct {
 	// The master server id to create replica from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -925,7 +925,7 @@ type ServerPropertiesForReplicaArgs struct {
 	// The master server id to create replica from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -976,8 +976,8 @@ func (o ServerPropertiesForReplicaOutput) SourceServerId() pulumi.StringOutput {
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForReplicaOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForReplica) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
+func (o ServerPropertiesForReplicaOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForReplica) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
 }
 
 // Storage profile of a server.
@@ -1002,7 +1002,7 @@ type ServerPropertiesForRestore struct {
 	// The source server id to restore from.
 	SourceServerId string `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
+	SslEnforcement *string `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Server version.
@@ -1032,7 +1032,7 @@ type ServerPropertiesForRestoreArgs struct {
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement SslEnforcementEnumPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement *SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -1088,8 +1088,8 @@ func (o ServerPropertiesForRestoreOutput) SourceServerId() pulumi.StringOutput {
 }
 
 // Enable ssl enforcement or not when connect to server.
-func (o ServerPropertiesForRestoreOutput) SslEnforcement() SslEnforcementEnumPtrOutput {
-	return o.ApplyT(func(v ServerPropertiesForRestore) *SslEnforcementEnum { return v.SslEnforcement }).(SslEnforcementEnumPtrOutput)
+func (o ServerPropertiesForRestoreOutput) SslEnforcement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerPropertiesForRestore) *string { return v.SslEnforcement }).(pulumi.StringPtrOutput)
 }
 
 // Storage profile of a server.

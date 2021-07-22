@@ -123,9 +123,53 @@ func GetManagedDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDatabase resources.
 type managedDatabaseState struct {
+	// Collation of the metadata catalog.
+	CatalogCollation *string `pulumi:"catalogCollation"`
+	// Collation of the managed database.
+	Collation *string `pulumi:"collation"`
+	// Creation date of the database.
+	CreationDate *string `pulumi:"creationDate"`
+	// Geo paired region.
+	DefaultSecondaryLocation *string `pulumi:"defaultSecondaryLocation"`
+	// Earliest restore point in time for point in time restore.
+	EarliestRestorePoint *string `pulumi:"earliestRestorePoint"`
+	// Instance Failover Group resource identifier that this managed database belongs to.
+	FailoverGroupId *string `pulumi:"failoverGroupId"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Status of the database.
+	Status *string `pulumi:"status"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ManagedDatabaseState struct {
+	// Collation of the metadata catalog.
+	CatalogCollation pulumi.StringPtrInput
+	// Collation of the managed database.
+	Collation pulumi.StringPtrInput
+	// Creation date of the database.
+	CreationDate pulumi.StringPtrInput
+	// Geo paired region.
+	DefaultSecondaryLocation pulumi.StringPtrInput
+	// Earliest restore point in time for point in time restore.
+	EarliestRestorePoint pulumi.StringPtrInput
+	// Instance Failover Group resource identifier that this managed database belongs to.
+	FailoverGroupId pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Status of the database.
+	Status pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ManagedDatabaseState) ElementType() reflect.Type {

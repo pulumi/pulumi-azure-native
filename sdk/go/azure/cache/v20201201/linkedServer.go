@@ -48,9 +48,6 @@ func NewLinkedServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServerRole == nil {
-		return nil, errors.New("invalid value for required argument 'ServerRole'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:cache/v20201201:LinkedServer"),
@@ -115,9 +112,33 @@ func GetLinkedServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedServer resources.
 type linkedServerState struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId *string `pulumi:"linkedRedisCacheId"`
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation *string `pulumi:"linkedRedisCacheLocation"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Terminal state of the link between primary and secondary redis cache.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Role of the linked server.
+	ServerRole *string `pulumi:"serverRole"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type LinkedServerState struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId pulumi.StringPtrInput
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Terminal state of the link between primary and secondary redis cache.
+	ProvisioningState pulumi.StringPtrInput
+	// Role of the linked server.
+	ServerRole pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (LinkedServerState) ElementType() reflect.Type {
@@ -136,7 +157,7 @@ type linkedServerArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Role of the linked server.
-	ServerRole ReplicationRole `pulumi:"serverRole"`
+	ServerRole string `pulumi:"serverRole"`
 }
 
 // The set of arguments for constructing a LinkedServer resource.
@@ -152,7 +173,7 @@ type LinkedServerArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Role of the linked server.
-	ServerRole ReplicationRoleInput
+	ServerRole ReplicationRole
 }
 
 func (LinkedServerArgs) ElementType() reflect.Type {

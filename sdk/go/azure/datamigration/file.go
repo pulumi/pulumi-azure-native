@@ -76,9 +76,25 @@ func GetFile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering File resources.
 type fileState struct {
+	// HTTP strong entity tag value. This is ignored if submitted.
+	Etag *string `pulumi:"etag"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Custom file properties
+	Properties *ProjectFilePropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type FileState struct {
+	// HTTP strong entity tag value. This is ignored if submitted.
+	Etag pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Custom file properties
+	Properties ProjectFilePropertiesResponsePtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (FileState) ElementType() reflect.Type {

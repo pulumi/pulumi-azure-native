@@ -83,9 +83,41 @@ func GetManager(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Manager resources.
 type managerState struct {
+	// Specifies if the Manager is Garda or Helsinki
+	CisIntrinsicSettings *ManagerIntrinsicSettingsResponse `pulumi:"cisIntrinsicSettings"`
+	// ETag of the Manager
+	Etag *string `pulumi:"etag"`
+	// The Geo location of the Manager
+	Location *string `pulumi:"location"`
+	// The Resource Name
+	Name *string `pulumi:"name"`
+	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies the Sku
+	Sku *ManagerSkuResponse `pulumi:"sku"`
+	// Tags attached to the Manager
+	Tags map[string]string `pulumi:"tags"`
+	// The Resource type
+	Type *string `pulumi:"type"`
 }
 
 type ManagerState struct {
+	// Specifies if the Manager is Garda or Helsinki
+	CisIntrinsicSettings ManagerIntrinsicSettingsResponsePtrInput
+	// ETag of the Manager
+	Etag pulumi.StringPtrInput
+	// The Geo location of the Manager
+	Location pulumi.StringPtrInput
+	// The Resource Name
+	Name pulumi.StringPtrInput
+	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
+	ProvisioningState pulumi.StringPtrInput
+	// Specifies the Sku
+	Sku ManagerSkuResponsePtrInput
+	// Tags attached to the Manager
+	Tags pulumi.StringMapInput
+	// The Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (ManagerState) ElementType() reflect.Type {

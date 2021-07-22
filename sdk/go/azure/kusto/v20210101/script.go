@@ -90,9 +90,37 @@ func GetScript(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Script resources.
 type scriptState struct {
+	// Flag that indicates whether to continue if one of the command fails.
+	ContinueOnErrors *bool `pulumi:"continueOnErrors"`
+	// A unique string. If changed the script will be applied again.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The url to the KQL script blob file.
+	ScriptUrl *string `pulumi:"scriptUrl"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ScriptState struct {
+	// Flag that indicates whether to continue if one of the command fails.
+	ContinueOnErrors pulumi.BoolPtrInput
+	// A unique string. If changed the script will be applied again.
+	ForceUpdateTag pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The url to the KQL script blob file.
+	ScriptUrl pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ScriptState) ElementType() reflect.Type {

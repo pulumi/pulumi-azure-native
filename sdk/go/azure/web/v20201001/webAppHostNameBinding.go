@@ -150,9 +150,61 @@ func GetWebAppHostNameBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppHostNameBinding resources.
 type webAppHostNameBindingState struct {
+	// Azure resource name.
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type.
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type.
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI.
+	DomainId *string `pulumi:"domainId"`
+	// Hostname type.
+	HostNameType *string `pulumi:"hostNameType"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// App Service app name.
+	SiteName *string `pulumi:"siteName"`
+	// SSL type
+	SslState *string `pulumi:"sslState"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// SSL certificate thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIP *string `pulumi:"virtualIP"`
 }
 
 type WebAppHostNameBindingState struct {
+	// Azure resource name.
+	AzureResourceName pulumi.StringPtrInput
+	// Azure resource type.
+	AzureResourceType pulumi.StringPtrInput
+	// Custom DNS record type.
+	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	// Fully qualified ARM domain resource URI.
+	DomainId pulumi.StringPtrInput
+	// Hostname type.
+	HostNameType pulumi.StringPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// App Service app name.
+	SiteName pulumi.StringPtrInput
+	// SSL type
+	SslState pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	// SSL certificate thumbprint
+	Thumbprint pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+	VirtualIP pulumi.StringPtrInput
 }
 
 func (WebAppHostNameBindingState) ElementType() reflect.Type {
@@ -163,15 +215,15 @@ type webAppHostNameBindingArgs struct {
 	// Azure resource name.
 	AzureResourceName *string `pulumi:"azureResourceName"`
 	// Azure resource type.
-	AzureResourceType *AzureResourceType `pulumi:"azureResourceType"`
+	AzureResourceType *string `pulumi:"azureResourceType"`
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI.
 	DomainId *string `pulumi:"domainId"`
 	// Hostname in the hostname binding.
 	HostName *string `pulumi:"hostName"`
 	// Hostname type.
-	HostNameType *HostNameType `pulumi:"hostNameType"`
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of the app.
@@ -181,7 +233,7 @@ type webAppHostNameBindingArgs struct {
 	// App Service app name.
 	SiteName *string `pulumi:"siteName"`
 	// SSL type
-	SslState *SslState `pulumi:"sslState"`
+	SslState *string `pulumi:"sslState"`
 	// SSL certificate thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
 }
@@ -191,15 +243,15 @@ type WebAppHostNameBindingArgs struct {
 	// Azure resource name.
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type.
-	AzureResourceType AzureResourceTypePtrInput
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordTypePtrInput
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
 	// Hostname in the hostname binding.
 	HostName pulumi.StringPtrInput
 	// Hostname type.
-	HostNameType HostNameTypePtrInput
+	HostNameType *HostNameType
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.
@@ -209,7 +261,7 @@ type WebAppHostNameBindingArgs struct {
 	// App Service app name.
 	SiteName pulumi.StringPtrInput
 	// SSL type
-	SslState SslStatePtrInput
+	SslState *SslState
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 }

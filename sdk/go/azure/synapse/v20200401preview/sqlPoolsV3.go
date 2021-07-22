@@ -128,9 +128,65 @@ func GetSqlPoolsV3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolsV3 resources.
 type sqlPoolsV3State struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer *int `pulumi:"autoPauseTimer"`
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume *bool `pulumi:"autoResume"`
+	// The current service level objective name of the sql pool.
+	CurrentServiceObjectiveName *string `pulumi:"currentServiceObjectiveName"`
+	// Kind of SqlPool.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName *string `pulumi:"maxServiceObjectiveName"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The requested service level objective name of the sql pool.
+	RequestedServiceObjectiveName *string `pulumi:"requestedServiceObjectiveName"`
+	// The sql pool SKU. The list of SKUs may vary by region and support offer.
+	Sku *SkuV3Response `pulumi:"sku"`
+	// The Guid of the sql pool.
+	SqlPoolGuid *string `pulumi:"sqlPoolGuid"`
+	// The status of the sql pool.
+	Status *string `pulumi:"status"`
+	// SystemData of SqlPool.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type SqlPoolsV3State struct {
+	// The period of inactivity in minutes before automatically pausing the sql pool.
+	AutoPauseTimer pulumi.IntPtrInput
+	// Indicates whether the sql pool can automatically resume when connection attempts are made.
+	AutoResume pulumi.BoolPtrInput
+	// The current service level objective name of the sql pool.
+	CurrentServiceObjectiveName pulumi.StringPtrInput
+	// Kind of SqlPool.
+	Kind pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The max service level objective name of the sql pool.
+	MaxServiceObjectiveName pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The requested service level objective name of the sql pool.
+	RequestedServiceObjectiveName pulumi.StringPtrInput
+	// The sql pool SKU. The list of SKUs may vary by region and support offer.
+	Sku SkuV3ResponsePtrInput
+	// The Guid of the sql pool.
+	SqlPoolGuid pulumi.StringPtrInput
+	// The status of the sql pool.
+	Status pulumi.StringPtrInput
+	// SystemData of SqlPool.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (SqlPoolsV3State) ElementType() reflect.Type {

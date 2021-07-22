@@ -827,7 +827,7 @@ type MachineExtensionInstanceViewStatus struct {
 	// The short localizable label for the status.
 	DisplayStatus *string `pulumi:"displayStatus"`
 	// The level code.
-	Level *StatusLevelTypes `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message *string `pulumi:"message"`
 	// The time of the status.
@@ -852,7 +852,7 @@ type MachineExtensionInstanceViewStatusArgs struct {
 	// The short localizable label for the status.
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
 	// The level code.
-	Level StatusLevelTypesPtrInput `pulumi:"level"`
+	Level *StatusLevelTypes `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// The time of the status.
@@ -948,8 +948,8 @@ func (o MachineExtensionInstanceViewStatusOutput) DisplayStatus() pulumi.StringP
 }
 
 // The level code.
-func (o MachineExtensionInstanceViewStatusOutput) Level() StatusLevelTypesPtrOutput {
-	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *StatusLevelTypes { return v.Level }).(StatusLevelTypesPtrOutput)
+func (o MachineExtensionInstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // The detailed status message, including for alerts and error messages.
@@ -1001,13 +1001,13 @@ func (o MachineExtensionInstanceViewStatusPtrOutput) DisplayStatus() pulumi.Stri
 }
 
 // The level code.
-func (o MachineExtensionInstanceViewStatusPtrOutput) Level() StatusLevelTypesPtrOutput {
-	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *StatusLevelTypes {
+func (o MachineExtensionInstanceViewStatusPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(StatusLevelTypesPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The detailed status message, including for alerts and error messages.

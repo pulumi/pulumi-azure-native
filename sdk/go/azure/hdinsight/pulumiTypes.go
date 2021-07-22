@@ -2047,7 +2047,7 @@ func (o AutoscaleResponsePtrOutput) Recurrence() AutoscaleRecurrenceResponsePtrO
 // Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
 type AutoscaleSchedule struct {
 	// Days of the week for a schedule-based autoscale rule
-	Days []DaysOfWeek `pulumi:"days"`
+	Days []string `pulumi:"days"`
 	// Time and capacity for a schedule-based autoscale rule
 	TimeAndCapacity *AutoscaleTimeAndCapacity `pulumi:"timeAndCapacity"`
 }
@@ -2124,8 +2124,8 @@ func (o AutoscaleScheduleOutput) ToAutoscaleScheduleOutputWithContext(ctx contex
 }
 
 // Days of the week for a schedule-based autoscale rule
-func (o AutoscaleScheduleOutput) Days() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v AutoscaleSchedule) []DaysOfWeek { return v.Days }).(DaysOfWeekArrayOutput)
+func (o AutoscaleScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoscaleSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
 // Time and capacity for a schedule-based autoscale rule
@@ -3106,13 +3106,13 @@ type ClusterCreateProperties struct {
 	// The network properties.
 	NetworkProperties *NetworkProperties `pulumi:"networkProperties"`
 	// The type of operating system.
-	OsType *OSType `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The security profile.
 	SecurityProfile *SecurityProfile `pulumi:"securityProfile"`
 	// The storage profile.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// The cluster tier.
-	Tier *Tier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // ClusterCreatePropertiesInput is an input type that accepts ClusterCreatePropertiesArgs and ClusterCreatePropertiesOutput values.
@@ -3147,13 +3147,13 @@ type ClusterCreatePropertiesArgs struct {
 	// The network properties.
 	NetworkProperties NetworkPropertiesPtrInput `pulumi:"networkProperties"`
 	// The type of operating system.
-	OsType OSTypePtrInput `pulumi:"osType"`
+	OsType *OSType `pulumi:"osType"`
 	// The security profile.
 	SecurityProfile SecurityProfilePtrInput `pulumi:"securityProfile"`
 	// The storage profile.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// The cluster tier.
-	Tier TierPtrInput `pulumi:"tier"`
+	Tier *Tier `pulumi:"tier"`
 }
 
 func (ClusterCreatePropertiesArgs) ElementType() reflect.Type {
@@ -3280,8 +3280,8 @@ func (o ClusterCreatePropertiesOutput) NetworkProperties() NetworkPropertiesPtrO
 }
 
 // The type of operating system.
-func (o ClusterCreatePropertiesOutput) OsType() OSTypePtrOutput {
-	return o.ApplyT(func(v ClusterCreateProperties) *OSType { return v.OsType }).(OSTypePtrOutput)
+func (o ClusterCreatePropertiesOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.OsType }).(pulumi.StringPtrOutput)
 }
 
 // The security profile.
@@ -3295,8 +3295,8 @@ func (o ClusterCreatePropertiesOutput) StorageProfile() StorageProfilePtrOutput 
 }
 
 // The cluster tier.
-func (o ClusterCreatePropertiesOutput) Tier() TierPtrOutput {
-	return o.ApplyT(func(v ClusterCreateProperties) *Tier { return v.Tier }).(TierPtrOutput)
+func (o ClusterCreatePropertiesOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCreateProperties) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type ClusterCreatePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -3408,13 +3408,13 @@ func (o ClusterCreatePropertiesPtrOutput) NetworkProperties() NetworkPropertiesP
 }
 
 // The type of operating system.
-func (o ClusterCreatePropertiesPtrOutput) OsType() OSTypePtrOutput {
-	return o.ApplyT(func(v *ClusterCreateProperties) *OSType {
+func (o ClusterCreatePropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.OsType
-	}).(OSTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The security profile.
@@ -3438,13 +3438,13 @@ func (o ClusterCreatePropertiesPtrOutput) StorageProfile() StorageProfilePtrOutp
 }
 
 // The cluster tier.
-func (o ClusterCreatePropertiesPtrOutput) Tier() TierPtrOutput {
-	return o.ApplyT(func(v *ClusterCreateProperties) *Tier {
+func (o ClusterCreatePropertiesPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCreateProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(TierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The cluster definition.
@@ -4371,7 +4371,7 @@ func (o ClusterGetPropertiesResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // Identity for the cluster.
 type ClusterIdentity struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]ClusterIdentityUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
@@ -4390,7 +4390,7 @@ type ClusterIdentityInput interface {
 // Identity for the cluster.
 type ClusterIdentityArgs struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities ClusterIdentityUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
@@ -4474,8 +4474,8 @@ func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context
 }
 
 // The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-func (o ClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ClusterIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o ClusterIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -4504,13 +4504,13 @@ func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
 }
 
 // The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
-func (o ClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ClusterIdentity) *ResourceIdentityType {
+func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -9465,7 +9465,7 @@ type SecurityProfile struct {
 	// Optional. The Distinguished Names for cluster user groups
 	ClusterUsersGroupDNs []string `pulumi:"clusterUsersGroupDNs"`
 	// The directory type.
-	DirectoryType *DirectoryType `pulumi:"directoryType"`
+	DirectoryType *string `pulumi:"directoryType"`
 	// The organization's active directory domain.
 	Domain *string `pulumi:"domain"`
 	// The domain admin password.
@@ -9498,7 +9498,7 @@ type SecurityProfileArgs struct {
 	// Optional. The Distinguished Names for cluster user groups
 	ClusterUsersGroupDNs pulumi.StringArrayInput `pulumi:"clusterUsersGroupDNs"`
 	// The directory type.
-	DirectoryType DirectoryTypePtrInput `pulumi:"directoryType"`
+	DirectoryType *DirectoryType `pulumi:"directoryType"`
 	// The organization's active directory domain.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
 	// The domain admin password.
@@ -9602,8 +9602,8 @@ func (o SecurityProfileOutput) ClusterUsersGroupDNs() pulumi.StringArrayOutput {
 }
 
 // The directory type.
-func (o SecurityProfileOutput) DirectoryType() DirectoryTypePtrOutput {
-	return o.ApplyT(func(v SecurityProfile) *DirectoryType { return v.DirectoryType }).(DirectoryTypePtrOutput)
+func (o SecurityProfileOutput) DirectoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityProfile) *string { return v.DirectoryType }).(pulumi.StringPtrOutput)
 }
 
 // The organization's active directory domain.
@@ -9675,13 +9675,13 @@ func (o SecurityProfilePtrOutput) ClusterUsersGroupDNs() pulumi.StringArrayOutpu
 }
 
 // The directory type.
-func (o SecurityProfilePtrOutput) DirectoryType() DirectoryTypePtrOutput {
-	return o.ApplyT(func(v *SecurityProfile) *DirectoryType {
+func (o SecurityProfilePtrOutput) DirectoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) *string {
 		if v == nil {
 			return nil
 		}
 		return v.DirectoryType
-	}).(DirectoryTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The organization's active directory domain.

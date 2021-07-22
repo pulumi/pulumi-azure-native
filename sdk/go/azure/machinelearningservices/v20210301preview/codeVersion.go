@@ -78,9 +78,25 @@ func GetCodeVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CodeVersion resources.
 type codeVersionState struct {
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Additional attributes of the entity.
+	Properties *CodeVersionResponse `pulumi:"properties"`
+	// System data associated with resource provider
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type CodeVersionState struct {
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Additional attributes of the entity.
+	Properties CodeVersionResponsePtrInput
+	// System data associated with resource provider
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (CodeVersionState) ElementType() reflect.Type {

@@ -116,9 +116,45 @@ func GetClusterPrincipalAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterPrincipalAssignment resources.
 type clusterPrincipalAssignmentState struct {
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+	PrincipalId *string `pulumi:"principalId"`
+	// The principal name
+	PrincipalName *string `pulumi:"principalName"`
+	// Principal type.
+	PrincipalType *string `pulumi:"principalType"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Cluster principal role.
+	Role *string `pulumi:"role"`
+	// The tenant id of the principal
+	TenantId *string `pulumi:"tenantId"`
+	// The tenant name of the principal
+	TenantName *string `pulumi:"tenantName"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ClusterPrincipalAssignmentState struct {
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+	PrincipalId pulumi.StringPtrInput
+	// The principal name
+	PrincipalName pulumi.StringPtrInput
+	// Principal type.
+	PrincipalType pulumi.StringPtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Cluster principal role.
+	Role pulumi.StringPtrInput
+	// The tenant id of the principal
+	TenantId pulumi.StringPtrInput
+	// The tenant name of the principal
+	TenantName pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ClusterPrincipalAssignmentState) ElementType() reflect.Type {

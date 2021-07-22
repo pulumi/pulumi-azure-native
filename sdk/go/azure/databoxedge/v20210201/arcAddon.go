@@ -129,9 +129,59 @@ func GetArcAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ArcAddon resources.
 type arcAddonState struct {
+	// Host OS supported by the Arc addon.
+	HostPlatform *string `pulumi:"hostPlatform"`
+	// Platform where the runtime is hosted.
+	HostPlatformType *string `pulumi:"hostPlatformType"`
+	// Addon type.
+	// Expected value is 'ArcForKubernetes'.
+	Kind *string `pulumi:"kind"`
+	// The object name.
+	Name *string `pulumi:"name"`
+	// Addon Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Arc resource group name
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// Arc resource location
+	ResourceLocation *string `pulumi:"resourceLocation"`
+	// Arc resource Name
+	ResourceName *string `pulumi:"resourceName"`
+	// Arc resource subscription Id
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// Addon type
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
+	// Arc resource version
+	Version *string `pulumi:"version"`
 }
 
 type ArcAddonState struct {
+	// Host OS supported by the Arc addon.
+	HostPlatform pulumi.StringPtrInput
+	// Platform where the runtime is hosted.
+	HostPlatformType pulumi.StringPtrInput
+	// Addon type.
+	// Expected value is 'ArcForKubernetes'.
+	Kind pulumi.StringPtrInput
+	// The object name.
+	Name pulumi.StringPtrInput
+	// Addon Provisioning State
+	ProvisioningState pulumi.StringPtrInput
+	// Arc resource group name
+	ResourceGroupName pulumi.StringPtrInput
+	// Arc resource location
+	ResourceLocation pulumi.StringPtrInput
+	// Arc resource Name
+	ResourceName pulumi.StringPtrInput
+	// Arc resource subscription Id
+	SubscriptionId pulumi.StringPtrInput
+	// Addon type
+	SystemData SystemDataResponsePtrInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
+	// Arc resource version
+	Version pulumi.StringPtrInput
 }
 
 func (ArcAddonState) ElementType() reflect.Type {

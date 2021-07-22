@@ -88,9 +88,43 @@ func GetMachineGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MachineGroup resources.
 type machineGroupState struct {
+	// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
+	Count *int `pulumi:"count"`
+	// User defined name for the group
+	DisplayName *string `pulumi:"displayName"`
+	// Resource ETAG.
+	Etag *string `pulumi:"etag"`
+	// Type of the machine group
+	GroupType *string `pulumi:"groupType"`
+	// Additional resource type qualifier.
+	// Expected value is 'machineGroup'.
+	Kind *string `pulumi:"kind"`
+	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+	Machines []MachineReferenceWithHintsResponse `pulumi:"machines"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type MachineGroupState struct {
+	// Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
+	Count pulumi.IntPtrInput
+	// User defined name for the group
+	DisplayName pulumi.StringPtrInput
+	// Resource ETAG.
+	Etag pulumi.StringPtrInput
+	// Type of the machine group
+	GroupType pulumi.StringPtrInput
+	// Additional resource type qualifier.
+	// Expected value is 'machineGroup'.
+	Kind pulumi.StringPtrInput
+	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
+	Machines MachineReferenceWithHintsResponseArrayInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (MachineGroupState) ElementType() reflect.Type {

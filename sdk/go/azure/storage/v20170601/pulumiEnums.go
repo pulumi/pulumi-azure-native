@@ -11,7 +11,7 @@ import (
 )
 
 // Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-type AccessTier string
+type AccessTier pulumi.String
 
 const (
 	AccessTierHot  = AccessTier("Hot")
@@ -19,23 +19,7 @@ const (
 )
 
 func (AccessTier) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessTier)(nil)).Elem()
-}
-
-func (e AccessTier) ToAccessTierOutput() AccessTierOutput {
-	return pulumi.ToOutput(e).(AccessTierOutput)
-}
-
-func (e AccessTier) ToAccessTierOutputWithContext(ctx context.Context) AccessTierOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AccessTierOutput)
-}
-
-func (e AccessTier) ToAccessTierPtrOutput() AccessTierPtrOutput {
-	return e.ToAccessTierPtrOutputWithContext(context.Background())
-}
-
-func (e AccessTier) ToAccessTierPtrOutputWithContext(ctx context.Context) AccessTierPtrOutput {
-	return AccessTier(e).ToAccessTierOutputWithContext(ctx).ToAccessTierPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AccessTier) ToStringOutput() pulumi.StringOutput {
@@ -54,152 +38,15 @@ func (e AccessTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AccessTierOutput struct{ *pulumi.OutputState }
-
-func (AccessTierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessTier)(nil)).Elem()
-}
-
-func (o AccessTierOutput) ToAccessTierOutput() AccessTierOutput {
-	return o
-}
-
-func (o AccessTierOutput) ToAccessTierOutputWithContext(ctx context.Context) AccessTierOutput {
-	return o
-}
-
-func (o AccessTierOutput) ToAccessTierPtrOutput() AccessTierPtrOutput {
-	return o.ToAccessTierPtrOutputWithContext(context.Background())
-}
-
-func (o AccessTierOutput) ToAccessTierPtrOutputWithContext(ctx context.Context) AccessTierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessTier) *AccessTier {
-		return &v
-	}).(AccessTierPtrOutput)
-}
-
-func (o AccessTierOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AccessTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessTier) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AccessTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccessTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessTier) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AccessTierPtrOutput struct{ *pulumi.OutputState }
-
-func (AccessTierPtrOutput) ElementType() reflect.Type {
-	return accessTierPtrType
-}
-
-func (o AccessTierPtrOutput) ToAccessTierPtrOutput() AccessTierPtrOutput {
-	return o
-}
-
-func (o AccessTierPtrOutput) ToAccessTierPtrOutputWithContext(ctx context.Context) AccessTierPtrOutput {
-	return o
-}
-
-func (o AccessTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccessTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessTier) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AccessTierPtrOutput) Elem() AccessTierOutput {
-	return o.ApplyT(func(v *AccessTier) AccessTier {
-		var ret AccessTier
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(AccessTierOutput)
-}
-
-// AccessTierInput is an input type that accepts AccessTierArgs and AccessTierOutput values.
-// You can construct a concrete instance of `AccessTierInput` via:
-//
-//          AccessTierArgs{...}
-type AccessTierInput interface {
-	pulumi.Input
-
-	ToAccessTierOutput() AccessTierOutput
-	ToAccessTierOutputWithContext(context.Context) AccessTierOutput
-}
-
-var accessTierPtrType = reflect.TypeOf((**AccessTier)(nil)).Elem()
-
-type AccessTierPtrInput interface {
-	pulumi.Input
-
-	ToAccessTierPtrOutput() AccessTierPtrOutput
-	ToAccessTierPtrOutputWithContext(context.Context) AccessTierPtrOutput
-}
-
-type accessTierPtr string
-
-func AccessTierPtr(v string) AccessTierPtrInput {
-	return (*accessTierPtr)(&v)
-}
-
-func (*accessTierPtr) ElementType() reflect.Type {
-	return accessTierPtrType
-}
-
-func (in *accessTierPtr) ToAccessTierPtrOutput() AccessTierPtrOutput {
-	return pulumi.ToOutput(in).(AccessTierPtrOutput)
-}
-
-func (in *accessTierPtr) ToAccessTierPtrOutputWithContext(ctx context.Context) AccessTierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AccessTierPtrOutput)
-}
-
 // The action of virtual network rule.
-type Action string
+type Action pulumi.String
 
 const (
 	ActionAllow = Action("Allow")
 )
 
 func (Action) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (e Action) ToActionOutput() ActionOutput {
-	return pulumi.ToOutput(e).(ActionOutput)
-}
-
-func (e Action) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ActionOutput)
-}
-
-func (e Action) ToActionPtrOutput() ActionPtrOutput {
-	return e.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (e Action) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return Action(e).ToActionOutputWithContext(ctx).ToActionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Action) ToStringOutput() pulumi.StringOutput {
@@ -218,129 +65,8 @@ func (e Action) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ActionOutput struct{ *pulumi.OutputState }
-
-func (ActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (o ActionOutput) ToActionOutput() ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Action) *Action {
-		return &v
-	}).(ActionPtrOutput)
-}
-
-func (o ActionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Action) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Action) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionPtrOutput) ElementType() reflect.Type {
-	return actionPtrType
-}
-
-func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Action) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action {
-		var ret Action
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ActionOutput)
-}
-
-// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
-// You can construct a concrete instance of `ActionInput` via:
-//
-//          ActionArgs{...}
-type ActionInput interface {
-	pulumi.Input
-
-	ToActionOutput() ActionOutput
-	ToActionOutputWithContext(context.Context) ActionOutput
-}
-
-var actionPtrType = reflect.TypeOf((**Action)(nil)).Elem()
-
-type ActionPtrInput interface {
-	pulumi.Input
-
-	ToActionPtrOutput() ActionPtrOutput
-	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
-}
-
-type actionPtr string
-
-func ActionPtr(v string) ActionPtrInput {
-	return (*actionPtr)(&v)
-}
-
-func (*actionPtr) ElementType() reflect.Type {
-	return actionPtrType
-}
-
-func (in *actionPtr) ToActionPtrOutput() ActionPtrOutput {
-	return pulumi.ToOutput(in).(ActionPtrOutput)
-}
-
-func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ActionPtrOutput)
-}
-
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-type Bypass string
+type Bypass pulumi.String
 
 const (
 	BypassNone          = Bypass("None")
@@ -350,23 +76,7 @@ const (
 )
 
 func (Bypass) ElementType() reflect.Type {
-	return reflect.TypeOf((*Bypass)(nil)).Elem()
-}
-
-func (e Bypass) ToBypassOutput() BypassOutput {
-	return pulumi.ToOutput(e).(BypassOutput)
-}
-
-func (e Bypass) ToBypassOutputWithContext(ctx context.Context) BypassOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BypassOutput)
-}
-
-func (e Bypass) ToBypassPtrOutput() BypassPtrOutput {
-	return e.ToBypassPtrOutputWithContext(context.Background())
-}
-
-func (e Bypass) ToBypassPtrOutputWithContext(ctx context.Context) BypassPtrOutput {
-	return Bypass(e).ToBypassOutputWithContext(ctx).ToBypassPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Bypass) ToStringOutput() pulumi.StringOutput {
@@ -385,129 +95,8 @@ func (e Bypass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type BypassOutput struct{ *pulumi.OutputState }
-
-func (BypassOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Bypass)(nil)).Elem()
-}
-
-func (o BypassOutput) ToBypassOutput() BypassOutput {
-	return o
-}
-
-func (o BypassOutput) ToBypassOutputWithContext(ctx context.Context) BypassOutput {
-	return o
-}
-
-func (o BypassOutput) ToBypassPtrOutput() BypassPtrOutput {
-	return o.ToBypassPtrOutputWithContext(context.Background())
-}
-
-func (o BypassOutput) ToBypassPtrOutputWithContext(ctx context.Context) BypassPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Bypass) *Bypass {
-		return &v
-	}).(BypassPtrOutput)
-}
-
-func (o BypassOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o BypassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Bypass) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o BypassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BypassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Bypass) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type BypassPtrOutput struct{ *pulumi.OutputState }
-
-func (BypassPtrOutput) ElementType() reflect.Type {
-	return bypassPtrType
-}
-
-func (o BypassPtrOutput) ToBypassPtrOutput() BypassPtrOutput {
-	return o
-}
-
-func (o BypassPtrOutput) ToBypassPtrOutputWithContext(ctx context.Context) BypassPtrOutput {
-	return o
-}
-
-func (o BypassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BypassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Bypass) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BypassPtrOutput) Elem() BypassOutput {
-	return o.ApplyT(func(v *Bypass) Bypass {
-		var ret Bypass
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(BypassOutput)
-}
-
-// BypassInput is an input type that accepts BypassArgs and BypassOutput values.
-// You can construct a concrete instance of `BypassInput` via:
-//
-//          BypassArgs{...}
-type BypassInput interface {
-	pulumi.Input
-
-	ToBypassOutput() BypassOutput
-	ToBypassOutputWithContext(context.Context) BypassOutput
-}
-
-var bypassPtrType = reflect.TypeOf((**Bypass)(nil)).Elem()
-
-type BypassPtrInput interface {
-	pulumi.Input
-
-	ToBypassPtrOutput() BypassPtrOutput
-	ToBypassPtrOutputWithContext(context.Context) BypassPtrOutput
-}
-
-type bypassPtr string
-
-func BypassPtr(v string) BypassPtrInput {
-	return (*bypassPtr)(&v)
-}
-
-func (*bypassPtr) ElementType() reflect.Type {
-	return bypassPtrType
-}
-
-func (in *bypassPtr) ToBypassPtrOutput() BypassPtrOutput {
-	return pulumi.ToOutput(in).(BypassPtrOutput)
-}
-
-func (in *bypassPtr) ToBypassPtrOutputWithContext(ctx context.Context) BypassPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BypassPtrOutput)
-}
-
 // Specifies the default action of allow or deny when no other rules match.
-type DefaultAction string
+type DefaultAction pulumi.String
 
 const (
 	DefaultActionAllow = DefaultAction("Allow")
@@ -515,23 +104,7 @@ const (
 )
 
 func (DefaultAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultAction)(nil)).Elem()
-}
-
-func (e DefaultAction) ToDefaultActionOutput() DefaultActionOutput {
-	return pulumi.ToOutput(e).(DefaultActionOutput)
-}
-
-func (e DefaultAction) ToDefaultActionOutputWithContext(ctx context.Context) DefaultActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DefaultActionOutput)
-}
-
-func (e DefaultAction) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return e.ToDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (e DefaultAction) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return DefaultAction(e).ToDefaultActionOutputWithContext(ctx).ToDefaultActionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e DefaultAction) ToStringOutput() pulumi.StringOutput {
@@ -550,129 +123,8 @@ func (e DefaultAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DefaultActionOutput struct{ *pulumi.OutputState }
-
-func (DefaultActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultAction)(nil)).Elem()
-}
-
-func (o DefaultActionOutput) ToDefaultActionOutput() DefaultActionOutput {
-	return o
-}
-
-func (o DefaultActionOutput) ToDefaultActionOutputWithContext(ctx context.Context) DefaultActionOutput {
-	return o
-}
-
-func (o DefaultActionOutput) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return o.ToDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultActionOutput) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultAction) *DefaultAction {
-		return &v
-	}).(DefaultActionPtrOutput)
-}
-
-func (o DefaultActionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DefaultActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultAction) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DefaultActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultAction) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DefaultActionPtrOutput struct{ *pulumi.OutputState }
-
-func (DefaultActionPtrOutput) ElementType() reflect.Type {
-	return defaultActionPtrType
-}
-
-func (o DefaultActionPtrOutput) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return o
-}
-
-func (o DefaultActionPtrOutput) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return o
-}
-
-func (o DefaultActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DefaultAction) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DefaultActionPtrOutput) Elem() DefaultActionOutput {
-	return o.ApplyT(func(v *DefaultAction) DefaultAction {
-		var ret DefaultAction
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(DefaultActionOutput)
-}
-
-// DefaultActionInput is an input type that accepts DefaultActionArgs and DefaultActionOutput values.
-// You can construct a concrete instance of `DefaultActionInput` via:
-//
-//          DefaultActionArgs{...}
-type DefaultActionInput interface {
-	pulumi.Input
-
-	ToDefaultActionOutput() DefaultActionOutput
-	ToDefaultActionOutputWithContext(context.Context) DefaultActionOutput
-}
-
-var defaultActionPtrType = reflect.TypeOf((**DefaultAction)(nil)).Elem()
-
-type DefaultActionPtrInput interface {
-	pulumi.Input
-
-	ToDefaultActionPtrOutput() DefaultActionPtrOutput
-	ToDefaultActionPtrOutputWithContext(context.Context) DefaultActionPtrOutput
-}
-
-type defaultActionPtr string
-
-func DefaultActionPtr(v string) DefaultActionPtrInput {
-	return (*defaultActionPtr)(&v)
-}
-
-func (*defaultActionPtr) ElementType() reflect.Type {
-	return defaultActionPtrType
-}
-
-func (in *defaultActionPtr) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return pulumi.ToOutput(in).(DefaultActionPtrOutput)
-}
-
-func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
-}
-
 // The protocol permitted for a request made with the account SAS.
-type HttpProtocol string
+type HttpProtocol pulumi.String
 
 const (
 	HttpProtocol_Https_http = HttpProtocol("https,http")
@@ -680,23 +132,7 @@ const (
 )
 
 func (HttpProtocol) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpProtocol)(nil)).Elem()
-}
-
-func (e HttpProtocol) ToHttpProtocolOutput() HttpProtocolOutput {
-	return pulumi.ToOutput(e).(HttpProtocolOutput)
-}
-
-func (e HttpProtocol) ToHttpProtocolOutputWithContext(ctx context.Context) HttpProtocolOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HttpProtocolOutput)
-}
-
-func (e HttpProtocol) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
-	return e.ToHttpProtocolPtrOutputWithContext(context.Background())
-}
-
-func (e HttpProtocol) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
-	return HttpProtocol(e).ToHttpProtocolOutputWithContext(ctx).ToHttpProtocolPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HttpProtocol) ToStringOutput() pulumi.StringOutput {
@@ -715,152 +151,15 @@ func (e HttpProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HttpProtocolOutput struct{ *pulumi.OutputState }
-
-func (HttpProtocolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpProtocol)(nil)).Elem()
-}
-
-func (o HttpProtocolOutput) ToHttpProtocolOutput() HttpProtocolOutput {
-	return o
-}
-
-func (o HttpProtocolOutput) ToHttpProtocolOutputWithContext(ctx context.Context) HttpProtocolOutput {
-	return o
-}
-
-func (o HttpProtocolOutput) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
-	return o.ToHttpProtocolPtrOutputWithContext(context.Background())
-}
-
-func (o HttpProtocolOutput) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpProtocol) *HttpProtocol {
-		return &v
-	}).(HttpProtocolPtrOutput)
-}
-
-func (o HttpProtocolOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HttpProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HttpProtocol) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HttpProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HttpProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HttpProtocol) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HttpProtocolPtrOutput struct{ *pulumi.OutputState }
-
-func (HttpProtocolPtrOutput) ElementType() reflect.Type {
-	return httpProtocolPtrType
-}
-
-func (o HttpProtocolPtrOutput) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
-	return o
-}
-
-func (o HttpProtocolPtrOutput) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
-	return o
-}
-
-func (o HttpProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HttpProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HttpProtocol) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HttpProtocolPtrOutput) Elem() HttpProtocolOutput {
-	return o.ApplyT(func(v *HttpProtocol) HttpProtocol {
-		var ret HttpProtocol
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HttpProtocolOutput)
-}
-
-// HttpProtocolInput is an input type that accepts HttpProtocolArgs and HttpProtocolOutput values.
-// You can construct a concrete instance of `HttpProtocolInput` via:
-//
-//          HttpProtocolArgs{...}
-type HttpProtocolInput interface {
-	pulumi.Input
-
-	ToHttpProtocolOutput() HttpProtocolOutput
-	ToHttpProtocolOutputWithContext(context.Context) HttpProtocolOutput
-}
-
-var httpProtocolPtrType = reflect.TypeOf((**HttpProtocol)(nil)).Elem()
-
-type HttpProtocolPtrInput interface {
-	pulumi.Input
-
-	ToHttpProtocolPtrOutput() HttpProtocolPtrOutput
-	ToHttpProtocolPtrOutputWithContext(context.Context) HttpProtocolPtrOutput
-}
-
-type httpProtocolPtr string
-
-func HttpProtocolPtr(v string) HttpProtocolPtrInput {
-	return (*httpProtocolPtr)(&v)
-}
-
-func (*httpProtocolPtr) ElementType() reflect.Type {
-	return httpProtocolPtrType
-}
-
-func (in *httpProtocolPtr) ToHttpProtocolPtrOutput() HttpProtocolPtrOutput {
-	return pulumi.ToOutput(in).(HttpProtocolPtrOutput)
-}
-
-func (in *httpProtocolPtr) ToHttpProtocolPtrOutputWithContext(ctx context.Context) HttpProtocolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HttpProtocolPtrOutput)
-}
-
 // The identity type.
-type IdentityType string
+type IdentityType pulumi.String
 
 const (
 	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
 )
 
 func (IdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (e IdentityType) ToIdentityTypeOutput() IdentityTypeOutput {
-	return pulumi.ToOutput(e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return e.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (e IdentityType) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return IdentityType(e).ToIdentityTypeOutputWithContext(ctx).ToIdentityTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e IdentityType) ToStringOutput() pulumi.StringOutput {
@@ -879,129 +178,8 @@ func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type IdentityTypeOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutput() IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityType) *IdentityType {
-		return &v
-	}).(IdentityTypePtrOutput)
-}
-
-func (o IdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type IdentityTypePtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypePtrOutput) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdentityType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IdentityTypePtrOutput) Elem() IdentityTypeOutput {
-	return o.ApplyT(func(v *IdentityType) IdentityType {
-		var ret IdentityType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(IdentityTypeOutput)
-}
-
-// IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
-// You can construct a concrete instance of `IdentityTypeInput` via:
-//
-//          IdentityTypeArgs{...}
-type IdentityTypeInput interface {
-	pulumi.Input
-
-	ToIdentityTypeOutput() IdentityTypeOutput
-	ToIdentityTypeOutputWithContext(context.Context) IdentityTypeOutput
-}
-
-var identityTypePtrType = reflect.TypeOf((**IdentityType)(nil)).Elem()
-
-type IdentityTypePtrInput interface {
-	pulumi.Input
-
-	ToIdentityTypePtrOutput() IdentityTypePtrOutput
-	ToIdentityTypePtrOutputWithContext(context.Context) IdentityTypePtrOutput
-}
-
-type identityTypePtr string
-
-func IdentityTypePtr(v string) IdentityTypePtrInput {
-	return (*identityTypePtr)(&v)
-}
-
-func (*identityTypePtr) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return pulumi.ToOutput(in).(IdentityTypePtrOutput)
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
-}
-
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-type KeySource string
+type KeySource pulumi.String
 
 const (
 	KeySource_Microsoft_Storage  = KeySource("Microsoft.Storage")
@@ -1009,23 +187,7 @@ const (
 )
 
 func (KeySource) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySource)(nil)).Elem()
-}
-
-func (e KeySource) ToKeySourceOutput() KeySourceOutput {
-	return pulumi.ToOutput(e).(KeySourceOutput)
-}
-
-func (e KeySource) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(KeySourceOutput)
-}
-
-func (e KeySource) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return e.ToKeySourcePtrOutputWithContext(context.Background())
-}
-
-func (e KeySource) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return KeySource(e).ToKeySourceOutputWithContext(ctx).ToKeySourcePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e KeySource) ToStringOutput() pulumi.StringOutput {
@@ -1044,129 +206,8 @@ func (e KeySource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KeySourceOutput struct{ *pulumi.OutputState }
-
-func (KeySourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySource)(nil)).Elem()
-}
-
-func (o KeySourceOutput) ToKeySourceOutput() KeySourceOutput {
-	return o
-}
-
-func (o KeySourceOutput) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
-	return o
-}
-
-func (o KeySourceOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return o.ToKeySourcePtrOutputWithContext(context.Background())
-}
-
-func (o KeySourceOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeySource) *KeySource {
-		return &v
-	}).(KeySourcePtrOutput)
-}
-
-func (o KeySourceOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o KeySourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o KeySourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o KeySourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type KeySourcePtrOutput struct{ *pulumi.OutputState }
-
-func (KeySourcePtrOutput) ElementType() reflect.Type {
-	return keySourcePtrType
-}
-
-func (o KeySourcePtrOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return o
-}
-
-func (o KeySourcePtrOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return o
-}
-
-func (o KeySourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o KeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeySource) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o KeySourcePtrOutput) Elem() KeySourceOutput {
-	return o.ApplyT(func(v *KeySource) KeySource {
-		var ret KeySource
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(KeySourceOutput)
-}
-
-// KeySourceInput is an input type that accepts KeySourceArgs and KeySourceOutput values.
-// You can construct a concrete instance of `KeySourceInput` via:
-//
-//          KeySourceArgs{...}
-type KeySourceInput interface {
-	pulumi.Input
-
-	ToKeySourceOutput() KeySourceOutput
-	ToKeySourceOutputWithContext(context.Context) KeySourceOutput
-}
-
-var keySourcePtrType = reflect.TypeOf((**KeySource)(nil)).Elem()
-
-type KeySourcePtrInput interface {
-	pulumi.Input
-
-	ToKeySourcePtrOutput() KeySourcePtrOutput
-	ToKeySourcePtrOutputWithContext(context.Context) KeySourcePtrOutput
-}
-
-type keySourcePtr string
-
-func KeySourcePtr(v string) KeySourcePtrInput {
-	return (*keySourcePtr)(&v)
-}
-
-func (*keySourcePtr) ElementType() reflect.Type {
-	return keySourcePtrType
-}
-
-func (in *keySourcePtr) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return pulumi.ToOutput(in).(KeySourcePtrOutput)
-}
-
-func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
-}
-
 // Required. Indicates the type of storage account.
-type Kind string
+type Kind pulumi.String
 
 const (
 	KindStorage     = Kind("Storage")
@@ -1174,23 +215,7 @@ const (
 )
 
 func (Kind) ElementType() reflect.Type {
-	return reflect.TypeOf((*Kind)(nil)).Elem()
-}
-
-func (e Kind) ToKindOutput() KindOutput {
-	return pulumi.ToOutput(e).(KindOutput)
-}
-
-func (e Kind) ToKindOutputWithContext(ctx context.Context) KindOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(KindOutput)
-}
-
-func (e Kind) ToKindPtrOutput() KindPtrOutput {
-	return e.ToKindPtrOutputWithContext(context.Background())
-}
-
-func (e Kind) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
-	return Kind(e).ToKindOutputWithContext(ctx).ToKindPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Kind) ToStringOutput() pulumi.StringOutput {
@@ -1209,129 +234,8 @@ func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtr
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KindOutput struct{ *pulumi.OutputState }
-
-func (KindOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Kind)(nil)).Elem()
-}
-
-func (o KindOutput) ToKindOutput() KindOutput {
-	return o
-}
-
-func (o KindOutput) ToKindOutputWithContext(ctx context.Context) KindOutput {
-	return o
-}
-
-func (o KindOutput) ToKindPtrOutput() KindPtrOutput {
-	return o.ToKindPtrOutputWithContext(context.Background())
-}
-
-func (o KindOutput) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Kind) *Kind {
-		return &v
-	}).(KindPtrOutput)
-}
-
-func (o KindOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o KindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Kind) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o KindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o KindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Kind) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type KindPtrOutput struct{ *pulumi.OutputState }
-
-func (KindPtrOutput) ElementType() reflect.Type {
-	return kindPtrType
-}
-
-func (o KindPtrOutput) ToKindPtrOutput() KindPtrOutput {
-	return o
-}
-
-func (o KindPtrOutput) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
-	return o
-}
-
-func (o KindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Kind) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o KindPtrOutput) Elem() KindOutput {
-	return o.ApplyT(func(v *Kind) Kind {
-		var ret Kind
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(KindOutput)
-}
-
-// KindInput is an input type that accepts KindArgs and KindOutput values.
-// You can construct a concrete instance of `KindInput` via:
-//
-//          KindArgs{...}
-type KindInput interface {
-	pulumi.Input
-
-	ToKindOutput() KindOutput
-	ToKindOutputWithContext(context.Context) KindOutput
-}
-
-var kindPtrType = reflect.TypeOf((**Kind)(nil)).Elem()
-
-type KindPtrInput interface {
-	pulumi.Input
-
-	ToKindPtrOutput() KindPtrOutput
-	ToKindPtrOutputWithContext(context.Context) KindPtrOutput
-}
-
-type kindPtr string
-
-func KindPtr(v string) KindPtrInput {
-	return (*kindPtr)(&v)
-}
-
-func (*kindPtr) ElementType() reflect.Type {
-	return kindPtrType
-}
-
-func (in *kindPtr) ToKindPtrOutput() KindPtrOutput {
-	return pulumi.ToOutput(in).(KindPtrOutput)
-}
-
-func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
-}
-
 // The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
-type Permissions string
+type Permissions pulumi.String
 
 const (
 	PermissionsR = Permissions("r")
@@ -1345,23 +249,7 @@ const (
 )
 
 func (Permissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permissions)(nil)).Elem()
-}
-
-func (e Permissions) ToPermissionsOutput() PermissionsOutput {
-	return pulumi.ToOutput(e).(PermissionsOutput)
-}
-
-func (e Permissions) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PermissionsOutput)
-}
-
-func (e Permissions) ToPermissionsPtrOutput() PermissionsPtrOutput {
-	return e.ToPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (e Permissions) ToPermissionsPtrOutputWithContext(ctx context.Context) PermissionsPtrOutput {
-	return Permissions(e).ToPermissionsOutputWithContext(ctx).ToPermissionsPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Permissions) ToStringOutput() pulumi.StringOutput {
@@ -1380,129 +268,8 @@ func (e Permissions) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PermissionsOutput struct{ *pulumi.OutputState }
-
-func (PermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Permissions)(nil)).Elem()
-}
-
-func (o PermissionsOutput) ToPermissionsOutput() PermissionsOutput {
-	return o
-}
-
-func (o PermissionsOutput) ToPermissionsOutputWithContext(ctx context.Context) PermissionsOutput {
-	return o
-}
-
-func (o PermissionsOutput) ToPermissionsPtrOutput() PermissionsPtrOutput {
-	return o.ToPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (o PermissionsOutput) ToPermissionsPtrOutputWithContext(ctx context.Context) PermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Permissions) *Permissions {
-		return &v
-	}).(PermissionsPtrOutput)
-}
-
-func (o PermissionsOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PermissionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Permissions) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PermissionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PermissionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Permissions) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PermissionsPtrOutput struct{ *pulumi.OutputState }
-
-func (PermissionsPtrOutput) ElementType() reflect.Type {
-	return permissionsPtrType
-}
-
-func (o PermissionsPtrOutput) ToPermissionsPtrOutput() PermissionsPtrOutput {
-	return o
-}
-
-func (o PermissionsPtrOutput) ToPermissionsPtrOutputWithContext(ctx context.Context) PermissionsPtrOutput {
-	return o
-}
-
-func (o PermissionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PermissionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Permissions) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PermissionsPtrOutput) Elem() PermissionsOutput {
-	return o.ApplyT(func(v *Permissions) Permissions {
-		var ret Permissions
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PermissionsOutput)
-}
-
-// PermissionsInput is an input type that accepts PermissionsArgs and PermissionsOutput values.
-// You can construct a concrete instance of `PermissionsInput` via:
-//
-//          PermissionsArgs{...}
-type PermissionsInput interface {
-	pulumi.Input
-
-	ToPermissionsOutput() PermissionsOutput
-	ToPermissionsOutputWithContext(context.Context) PermissionsOutput
-}
-
-var permissionsPtrType = reflect.TypeOf((**Permissions)(nil)).Elem()
-
-type PermissionsPtrInput interface {
-	pulumi.Input
-
-	ToPermissionsPtrOutput() PermissionsPtrOutput
-	ToPermissionsPtrOutputWithContext(context.Context) PermissionsPtrOutput
-}
-
-type permissionsPtr string
-
-func PermissionsPtr(v string) PermissionsPtrInput {
-	return (*permissionsPtr)(&v)
-}
-
-func (*permissionsPtr) ElementType() reflect.Type {
-	return permissionsPtrType
-}
-
-func (in *permissionsPtr) ToPermissionsPtrOutput() PermissionsPtrOutput {
-	return pulumi.ToOutput(in).(PermissionsPtrOutput)
-}
-
-func (in *permissionsPtr) ToPermissionsPtrOutputWithContext(ctx context.Context) PermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PermissionsPtrOutput)
-}
-
 // The reason for the restriction. As of now this can be "QuotaId" or "NotAvailableForSubscription". Quota Id is set when the SKU has requiredQuotas parameter as the subscription does not belong to that quota. The "NotAvailableForSubscription" is related to capacity at DC.
-type ReasonCode string
+type ReasonCode pulumi.String
 
 const (
 	ReasonCodeQuotaId                     = ReasonCode("QuotaId")
@@ -1510,23 +277,7 @@ const (
 )
 
 func (ReasonCode) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReasonCode)(nil)).Elem()
-}
-
-func (e ReasonCode) ToReasonCodeOutput() ReasonCodeOutput {
-	return pulumi.ToOutput(e).(ReasonCodeOutput)
-}
-
-func (e ReasonCode) ToReasonCodeOutputWithContext(ctx context.Context) ReasonCodeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ReasonCodeOutput)
-}
-
-func (e ReasonCode) ToReasonCodePtrOutput() ReasonCodePtrOutput {
-	return e.ToReasonCodePtrOutputWithContext(context.Background())
-}
-
-func (e ReasonCode) ToReasonCodePtrOutputWithContext(ctx context.Context) ReasonCodePtrOutput {
-	return ReasonCode(e).ToReasonCodeOutputWithContext(ctx).ToReasonCodePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ReasonCode) ToStringOutput() pulumi.StringOutput {
@@ -1545,129 +296,8 @@ func (e ReasonCode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ReasonCodeOutput struct{ *pulumi.OutputState }
-
-func (ReasonCodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReasonCode)(nil)).Elem()
-}
-
-func (o ReasonCodeOutput) ToReasonCodeOutput() ReasonCodeOutput {
-	return o
-}
-
-func (o ReasonCodeOutput) ToReasonCodeOutputWithContext(ctx context.Context) ReasonCodeOutput {
-	return o
-}
-
-func (o ReasonCodeOutput) ToReasonCodePtrOutput() ReasonCodePtrOutput {
-	return o.ToReasonCodePtrOutputWithContext(context.Background())
-}
-
-func (o ReasonCodeOutput) ToReasonCodePtrOutputWithContext(ctx context.Context) ReasonCodePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReasonCode) *ReasonCode {
-		return &v
-	}).(ReasonCodePtrOutput)
-}
-
-func (o ReasonCodeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ReasonCodeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReasonCode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ReasonCodeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReasonCodeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReasonCode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ReasonCodePtrOutput struct{ *pulumi.OutputState }
-
-func (ReasonCodePtrOutput) ElementType() reflect.Type {
-	return reasonCodePtrType
-}
-
-func (o ReasonCodePtrOutput) ToReasonCodePtrOutput() ReasonCodePtrOutput {
-	return o
-}
-
-func (o ReasonCodePtrOutput) ToReasonCodePtrOutputWithContext(ctx context.Context) ReasonCodePtrOutput {
-	return o
-}
-
-func (o ReasonCodePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReasonCodePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReasonCode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReasonCodePtrOutput) Elem() ReasonCodeOutput {
-	return o.ApplyT(func(v *ReasonCode) ReasonCode {
-		var ret ReasonCode
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ReasonCodeOutput)
-}
-
-// ReasonCodeInput is an input type that accepts ReasonCodeArgs and ReasonCodeOutput values.
-// You can construct a concrete instance of `ReasonCodeInput` via:
-//
-//          ReasonCodeArgs{...}
-type ReasonCodeInput interface {
-	pulumi.Input
-
-	ToReasonCodeOutput() ReasonCodeOutput
-	ToReasonCodeOutputWithContext(context.Context) ReasonCodeOutput
-}
-
-var reasonCodePtrType = reflect.TypeOf((**ReasonCode)(nil)).Elem()
-
-type ReasonCodePtrInput interface {
-	pulumi.Input
-
-	ToReasonCodePtrOutput() ReasonCodePtrOutput
-	ToReasonCodePtrOutputWithContext(context.Context) ReasonCodePtrOutput
-}
-
-type reasonCodePtr string
-
-func ReasonCodePtr(v string) ReasonCodePtrInput {
-	return (*reasonCodePtr)(&v)
-}
-
-func (*reasonCodePtr) ElementType() reflect.Type {
-	return reasonCodePtrType
-}
-
-func (in *reasonCodePtr) ToReasonCodePtrOutput() ReasonCodePtrOutput {
-	return pulumi.ToOutput(in).(ReasonCodePtrOutput)
-}
-
-func (in *reasonCodePtr) ToReasonCodePtrOutputWithContext(ctx context.Context) ReasonCodePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ReasonCodePtrOutput)
-}
-
 // The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).
-type Services string
+type Services pulumi.String
 
 const (
 	ServicesB = Services("b")
@@ -1677,23 +307,7 @@ const (
 )
 
 func (Services) ElementType() reflect.Type {
-	return reflect.TypeOf((*Services)(nil)).Elem()
-}
-
-func (e Services) ToServicesOutput() ServicesOutput {
-	return pulumi.ToOutput(e).(ServicesOutput)
-}
-
-func (e Services) ToServicesOutputWithContext(ctx context.Context) ServicesOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ServicesOutput)
-}
-
-func (e Services) ToServicesPtrOutput() ServicesPtrOutput {
-	return e.ToServicesPtrOutputWithContext(context.Background())
-}
-
-func (e Services) ToServicesPtrOutputWithContext(ctx context.Context) ServicesPtrOutput {
-	return Services(e).ToServicesOutputWithContext(ctx).ToServicesPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Services) ToStringOutput() pulumi.StringOutput {
@@ -1712,129 +326,8 @@ func (e Services) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ServicesOutput struct{ *pulumi.OutputState }
-
-func (ServicesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Services)(nil)).Elem()
-}
-
-func (o ServicesOutput) ToServicesOutput() ServicesOutput {
-	return o
-}
-
-func (o ServicesOutput) ToServicesOutputWithContext(ctx context.Context) ServicesOutput {
-	return o
-}
-
-func (o ServicesOutput) ToServicesPtrOutput() ServicesPtrOutput {
-	return o.ToServicesPtrOutputWithContext(context.Background())
-}
-
-func (o ServicesOutput) ToServicesPtrOutputWithContext(ctx context.Context) ServicesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Services) *Services {
-		return &v
-	}).(ServicesPtrOutput)
-}
-
-func (o ServicesOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ServicesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Services) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ServicesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ServicesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Services) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ServicesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServicesPtrOutput) ElementType() reflect.Type {
-	return servicesPtrType
-}
-
-func (o ServicesPtrOutput) ToServicesPtrOutput() ServicesPtrOutput {
-	return o
-}
-
-func (o ServicesPtrOutput) ToServicesPtrOutputWithContext(ctx context.Context) ServicesPtrOutput {
-	return o
-}
-
-func (o ServicesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ServicesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Services) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServicesPtrOutput) Elem() ServicesOutput {
-	return o.ApplyT(func(v *Services) Services {
-		var ret Services
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ServicesOutput)
-}
-
-// ServicesInput is an input type that accepts ServicesArgs and ServicesOutput values.
-// You can construct a concrete instance of `ServicesInput` via:
-//
-//          ServicesArgs{...}
-type ServicesInput interface {
-	pulumi.Input
-
-	ToServicesOutput() ServicesOutput
-	ToServicesOutputWithContext(context.Context) ServicesOutput
-}
-
-var servicesPtrType = reflect.TypeOf((**Services)(nil)).Elem()
-
-type ServicesPtrInput interface {
-	pulumi.Input
-
-	ToServicesPtrOutput() ServicesPtrOutput
-	ToServicesPtrOutputWithContext(context.Context) ServicesPtrOutput
-}
-
-type servicesPtr string
-
-func ServicesPtr(v string) ServicesPtrInput {
-	return (*servicesPtr)(&v)
-}
-
-func (*servicesPtr) ElementType() reflect.Type {
-	return servicesPtrType
-}
-
-func (in *servicesPtr) ToServicesPtrOutput() ServicesPtrOutput {
-	return pulumi.ToOutput(in).(ServicesPtrOutput)
-}
-
-func (in *servicesPtr) ToServicesPtrOutputWithContext(ctx context.Context) ServicesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ServicesPtrOutput)
-}
-
 // The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).
-type SignedResource string
+type SignedResource pulumi.String
 
 const (
 	SignedResourceB = SignedResource("b")
@@ -1844,23 +337,7 @@ const (
 )
 
 func (SignedResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedResource)(nil)).Elem()
-}
-
-func (e SignedResource) ToSignedResourceOutput() SignedResourceOutput {
-	return pulumi.ToOutput(e).(SignedResourceOutput)
-}
-
-func (e SignedResource) ToSignedResourceOutputWithContext(ctx context.Context) SignedResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SignedResourceOutput)
-}
-
-func (e SignedResource) ToSignedResourcePtrOutput() SignedResourcePtrOutput {
-	return e.ToSignedResourcePtrOutputWithContext(context.Background())
-}
-
-func (e SignedResource) ToSignedResourcePtrOutputWithContext(ctx context.Context) SignedResourcePtrOutput {
-	return SignedResource(e).ToSignedResourceOutputWithContext(ctx).ToSignedResourcePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SignedResource) ToStringOutput() pulumi.StringOutput {
@@ -1879,129 +356,8 @@ func (e SignedResource) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SignedResourceOutput struct{ *pulumi.OutputState }
-
-func (SignedResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedResource)(nil)).Elem()
-}
-
-func (o SignedResourceOutput) ToSignedResourceOutput() SignedResourceOutput {
-	return o
-}
-
-func (o SignedResourceOutput) ToSignedResourceOutputWithContext(ctx context.Context) SignedResourceOutput {
-	return o
-}
-
-func (o SignedResourceOutput) ToSignedResourcePtrOutput() SignedResourcePtrOutput {
-	return o.ToSignedResourcePtrOutputWithContext(context.Background())
-}
-
-func (o SignedResourceOutput) ToSignedResourcePtrOutputWithContext(ctx context.Context) SignedResourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignedResource) *SignedResource {
-		return &v
-	}).(SignedResourcePtrOutput)
-}
-
-func (o SignedResourceOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SignedResourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SignedResource) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SignedResourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SignedResourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SignedResource) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SignedResourcePtrOutput struct{ *pulumi.OutputState }
-
-func (SignedResourcePtrOutput) ElementType() reflect.Type {
-	return signedResourcePtrType
-}
-
-func (o SignedResourcePtrOutput) ToSignedResourcePtrOutput() SignedResourcePtrOutput {
-	return o
-}
-
-func (o SignedResourcePtrOutput) ToSignedResourcePtrOutputWithContext(ctx context.Context) SignedResourcePtrOutput {
-	return o
-}
-
-func (o SignedResourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SignedResourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SignedResource) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SignedResourcePtrOutput) Elem() SignedResourceOutput {
-	return o.ApplyT(func(v *SignedResource) SignedResource {
-		var ret SignedResource
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SignedResourceOutput)
-}
-
-// SignedResourceInput is an input type that accepts SignedResourceArgs and SignedResourceOutput values.
-// You can construct a concrete instance of `SignedResourceInput` via:
-//
-//          SignedResourceArgs{...}
-type SignedResourceInput interface {
-	pulumi.Input
-
-	ToSignedResourceOutput() SignedResourceOutput
-	ToSignedResourceOutputWithContext(context.Context) SignedResourceOutput
-}
-
-var signedResourcePtrType = reflect.TypeOf((**SignedResource)(nil)).Elem()
-
-type SignedResourcePtrInput interface {
-	pulumi.Input
-
-	ToSignedResourcePtrOutput() SignedResourcePtrOutput
-	ToSignedResourcePtrOutputWithContext(context.Context) SignedResourcePtrOutput
-}
-
-type signedResourcePtr string
-
-func SignedResourcePtr(v string) SignedResourcePtrInput {
-	return (*signedResourcePtr)(&v)
-}
-
-func (*signedResourcePtr) ElementType() reflect.Type {
-	return signedResourcePtrType
-}
-
-func (in *signedResourcePtr) ToSignedResourcePtrOutput() SignedResourcePtrOutput {
-	return pulumi.ToOutput(in).(SignedResourcePtrOutput)
-}
-
-func (in *signedResourcePtr) ToSignedResourcePtrOutputWithContext(ctx context.Context) SignedResourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SignedResourcePtrOutput)
-}
-
 // The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.
-type SignedResourceTypes string
+type SignedResourceTypes pulumi.String
 
 const (
 	SignedResourceTypesS = SignedResourceTypes("s")
@@ -2010,23 +366,7 @@ const (
 )
 
 func (SignedResourceTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedResourceTypes)(nil)).Elem()
-}
-
-func (e SignedResourceTypes) ToSignedResourceTypesOutput() SignedResourceTypesOutput {
-	return pulumi.ToOutput(e).(SignedResourceTypesOutput)
-}
-
-func (e SignedResourceTypes) ToSignedResourceTypesOutputWithContext(ctx context.Context) SignedResourceTypesOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SignedResourceTypesOutput)
-}
-
-func (e SignedResourceTypes) ToSignedResourceTypesPtrOutput() SignedResourceTypesPtrOutput {
-	return e.ToSignedResourceTypesPtrOutputWithContext(context.Background())
-}
-
-func (e SignedResourceTypes) ToSignedResourceTypesPtrOutputWithContext(ctx context.Context) SignedResourceTypesPtrOutput {
-	return SignedResourceTypes(e).ToSignedResourceTypesOutputWithContext(ctx).ToSignedResourceTypesPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SignedResourceTypes) ToStringOutput() pulumi.StringOutput {
@@ -2045,129 +385,8 @@ func (e SignedResourceTypes) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SignedResourceTypesOutput struct{ *pulumi.OutputState }
-
-func (SignedResourceTypesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignedResourceTypes)(nil)).Elem()
-}
-
-func (o SignedResourceTypesOutput) ToSignedResourceTypesOutput() SignedResourceTypesOutput {
-	return o
-}
-
-func (o SignedResourceTypesOutput) ToSignedResourceTypesOutputWithContext(ctx context.Context) SignedResourceTypesOutput {
-	return o
-}
-
-func (o SignedResourceTypesOutput) ToSignedResourceTypesPtrOutput() SignedResourceTypesPtrOutput {
-	return o.ToSignedResourceTypesPtrOutputWithContext(context.Background())
-}
-
-func (o SignedResourceTypesOutput) ToSignedResourceTypesPtrOutputWithContext(ctx context.Context) SignedResourceTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignedResourceTypes) *SignedResourceTypes {
-		return &v
-	}).(SignedResourceTypesPtrOutput)
-}
-
-func (o SignedResourceTypesOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SignedResourceTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SignedResourceTypes) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SignedResourceTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SignedResourceTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SignedResourceTypes) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SignedResourceTypesPtrOutput struct{ *pulumi.OutputState }
-
-func (SignedResourceTypesPtrOutput) ElementType() reflect.Type {
-	return signedResourceTypesPtrType
-}
-
-func (o SignedResourceTypesPtrOutput) ToSignedResourceTypesPtrOutput() SignedResourceTypesPtrOutput {
-	return o
-}
-
-func (o SignedResourceTypesPtrOutput) ToSignedResourceTypesPtrOutputWithContext(ctx context.Context) SignedResourceTypesPtrOutput {
-	return o
-}
-
-func (o SignedResourceTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SignedResourceTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SignedResourceTypes) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SignedResourceTypesPtrOutput) Elem() SignedResourceTypesOutput {
-	return o.ApplyT(func(v *SignedResourceTypes) SignedResourceTypes {
-		var ret SignedResourceTypes
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SignedResourceTypesOutput)
-}
-
-// SignedResourceTypesInput is an input type that accepts SignedResourceTypesArgs and SignedResourceTypesOutput values.
-// You can construct a concrete instance of `SignedResourceTypesInput` via:
-//
-//          SignedResourceTypesArgs{...}
-type SignedResourceTypesInput interface {
-	pulumi.Input
-
-	ToSignedResourceTypesOutput() SignedResourceTypesOutput
-	ToSignedResourceTypesOutputWithContext(context.Context) SignedResourceTypesOutput
-}
-
-var signedResourceTypesPtrType = reflect.TypeOf((**SignedResourceTypes)(nil)).Elem()
-
-type SignedResourceTypesPtrInput interface {
-	pulumi.Input
-
-	ToSignedResourceTypesPtrOutput() SignedResourceTypesPtrOutput
-	ToSignedResourceTypesPtrOutputWithContext(context.Context) SignedResourceTypesPtrOutput
-}
-
-type signedResourceTypesPtr string
-
-func SignedResourceTypesPtr(v string) SignedResourceTypesPtrInput {
-	return (*signedResourceTypesPtr)(&v)
-}
-
-func (*signedResourceTypesPtr) ElementType() reflect.Type {
-	return signedResourceTypesPtrType
-}
-
-func (in *signedResourceTypesPtr) ToSignedResourceTypesPtrOutput() SignedResourceTypesPtrOutput {
-	return pulumi.ToOutput(in).(SignedResourceTypesPtrOutput)
-}
-
-func (in *signedResourceTypesPtr) ToSignedResourceTypesPtrOutputWithContext(ctx context.Context) SignedResourceTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SignedResourceTypesPtrOutput)
-}
-
 // Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-type SkuName string
+type SkuName pulumi.String
 
 const (
 	SkuName_Standard_LRS   = SkuName("Standard_LRS")
@@ -2178,23 +397,7 @@ const (
 )
 
 func (SkuName) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuName)(nil)).Elem()
-}
-
-func (e SkuName) ToSkuNameOutput() SkuNameOutput {
-	return pulumi.ToOutput(e).(SkuNameOutput)
-}
-
-func (e SkuName) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SkuNameOutput)
-}
-
-func (e SkuName) ToSkuNamePtrOutput() SkuNamePtrOutput {
-	return e.ToSkuNamePtrOutputWithContext(context.Background())
-}
-
-func (e SkuName) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
-	return SkuName(e).ToSkuNameOutputWithContext(ctx).ToSkuNamePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SkuName) ToStringOutput() pulumi.StringOutput {
@@ -2213,129 +416,8 @@ func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SkuNameOutput struct{ *pulumi.OutputState }
-
-func (SkuNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuName)(nil)).Elem()
-}
-
-func (o SkuNameOutput) ToSkuNameOutput() SkuNameOutput {
-	return o
-}
-
-func (o SkuNameOutput) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
-	return o
-}
-
-func (o SkuNameOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
-	return o.ToSkuNamePtrOutputWithContext(context.Background())
-}
-
-func (o SkuNameOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuName) *SkuName {
-		return &v
-	}).(SkuNamePtrOutput)
-}
-
-func (o SkuNameOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SkuNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SkuNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SkuNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SkuNamePtrOutput struct{ *pulumi.OutputState }
-
-func (SkuNamePtrOutput) ElementType() reflect.Type {
-	return skuNamePtrType
-}
-
-func (o SkuNamePtrOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
-	return o
-}
-
-func (o SkuNamePtrOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
-	return o
-}
-
-func (o SkuNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuName) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SkuNamePtrOutput) Elem() SkuNameOutput {
-	return o.ApplyT(func(v *SkuName) SkuName {
-		var ret SkuName
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SkuNameOutput)
-}
-
-// SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
-// You can construct a concrete instance of `SkuNameInput` via:
-//
-//          SkuNameArgs{...}
-type SkuNameInput interface {
-	pulumi.Input
-
-	ToSkuNameOutput() SkuNameOutput
-	ToSkuNameOutputWithContext(context.Context) SkuNameOutput
-}
-
-var skuNamePtrType = reflect.TypeOf((**SkuName)(nil)).Elem()
-
-type SkuNamePtrInput interface {
-	pulumi.Input
-
-	ToSkuNamePtrOutput() SkuNamePtrOutput
-	ToSkuNamePtrOutputWithContext(context.Context) SkuNamePtrOutput
-}
-
-type skuNamePtr string
-
-func SkuNamePtr(v string) SkuNamePtrInput {
-	return (*skuNamePtr)(&v)
-}
-
-func (*skuNamePtr) ElementType() reflect.Type {
-	return skuNamePtrType
-}
-
-func (in *skuNamePtr) ToSkuNamePtrOutput() SkuNamePtrOutput {
-	return pulumi.ToOutput(in).(SkuNamePtrOutput)
-}
-
-func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
-}
-
 // Gets the state of virtual network rule.
-type State string
+type State pulumi.String
 
 const (
 	StateProvisioning         = State("provisioning")
@@ -2346,23 +428,7 @@ const (
 )
 
 func (State) ElementType() reflect.Type {
-	return reflect.TypeOf((*State)(nil)).Elem()
-}
-
-func (e State) ToStateOutput() StateOutput {
-	return pulumi.ToOutput(e).(StateOutput)
-}
-
-func (e State) ToStateOutputWithContext(ctx context.Context) StateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StateOutput)
-}
-
-func (e State) ToStatePtrOutput() StatePtrOutput {
-	return e.ToStatePtrOutputWithContext(context.Background())
-}
-
-func (e State) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return State(e).ToStateOutputWithContext(ctx).ToStatePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e State) ToStringOutput() pulumi.StringOutput {
@@ -2379,158 +445,4 @@ func (e State) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e State) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type StateOutput struct{ *pulumi.OutputState }
-
-func (StateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*State)(nil)).Elem()
-}
-
-func (o StateOutput) ToStateOutput() StateOutput {
-	return o
-}
-
-func (o StateOutput) ToStateOutputWithContext(ctx context.Context) StateOutput {
-	return o
-}
-
-func (o StateOutput) ToStatePtrOutput() StatePtrOutput {
-	return o.ToStatePtrOutputWithContext(context.Background())
-}
-
-func (o StateOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v State) *State {
-		return &v
-	}).(StatePtrOutput)
-}
-
-func (o StateOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e State) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StatePtrOutput struct{ *pulumi.OutputState }
-
-func (StatePtrOutput) ElementType() reflect.Type {
-	return statePtrType
-}
-
-func (o StatePtrOutput) ToStatePtrOutput() StatePtrOutput {
-	return o
-}
-
-func (o StatePtrOutput) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return o
-}
-
-func (o StatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *State) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StatePtrOutput) Elem() StateOutput {
-	return o.ApplyT(func(v *State) State {
-		var ret State
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(StateOutput)
-}
-
-// StateInput is an input type that accepts StateArgs and StateOutput values.
-// You can construct a concrete instance of `StateInput` via:
-//
-//          StateArgs{...}
-type StateInput interface {
-	pulumi.Input
-
-	ToStateOutput() StateOutput
-	ToStateOutputWithContext(context.Context) StateOutput
-}
-
-var statePtrType = reflect.TypeOf((**State)(nil)).Elem()
-
-type StatePtrInput interface {
-	pulumi.Input
-
-	ToStatePtrOutput() StatePtrOutput
-	ToStatePtrOutputWithContext(context.Context) StatePtrOutput
-}
-
-type statePtr string
-
-func StatePtr(v string) StatePtrInput {
-	return (*statePtr)(&v)
-}
-
-func (*statePtr) ElementType() reflect.Type {
-	return statePtrType
-}
-
-func (in *statePtr) ToStatePtrOutput() StatePtrOutput {
-	return pulumi.ToOutput(in).(StatePtrOutput)
-}
-
-func (in *statePtr) ToStatePtrOutputWithContext(ctx context.Context) StatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StatePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(AccessTierOutput{})
-	pulumi.RegisterOutputType(AccessTierPtrOutput{})
-	pulumi.RegisterOutputType(ActionOutput{})
-	pulumi.RegisterOutputType(ActionPtrOutput{})
-	pulumi.RegisterOutputType(BypassOutput{})
-	pulumi.RegisterOutputType(BypassPtrOutput{})
-	pulumi.RegisterOutputType(DefaultActionOutput{})
-	pulumi.RegisterOutputType(DefaultActionPtrOutput{})
-	pulumi.RegisterOutputType(HttpProtocolOutput{})
-	pulumi.RegisterOutputType(HttpProtocolPtrOutput{})
-	pulumi.RegisterOutputType(IdentityTypeOutput{})
-	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
-	pulumi.RegisterOutputType(KeySourceOutput{})
-	pulumi.RegisterOutputType(KeySourcePtrOutput{})
-	pulumi.RegisterOutputType(KindOutput{})
-	pulumi.RegisterOutputType(KindPtrOutput{})
-	pulumi.RegisterOutputType(PermissionsOutput{})
-	pulumi.RegisterOutputType(PermissionsPtrOutput{})
-	pulumi.RegisterOutputType(ReasonCodeOutput{})
-	pulumi.RegisterOutputType(ReasonCodePtrOutput{})
-	pulumi.RegisterOutputType(ServicesOutput{})
-	pulumi.RegisterOutputType(ServicesPtrOutput{})
-	pulumi.RegisterOutputType(SignedResourceOutput{})
-	pulumi.RegisterOutputType(SignedResourcePtrOutput{})
-	pulumi.RegisterOutputType(SignedResourceTypesOutput{})
-	pulumi.RegisterOutputType(SignedResourceTypesPtrOutput{})
-	pulumi.RegisterOutputType(SkuNameOutput{})
-	pulumi.RegisterOutputType(SkuNamePtrOutput{})
-	pulumi.RegisterOutputType(StateOutput{})
-	pulumi.RegisterOutputType(StatePtrOutput{})
 }

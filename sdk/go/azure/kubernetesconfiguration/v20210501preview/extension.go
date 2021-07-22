@@ -114,9 +114,73 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
+	// Flag to note if this extension participates in auto upgrade of minor version, or not.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
+	// Configuration settings, as name-value pairs for configuring this extension.
+	ConfigurationSettings map[string]string `pulumi:"configurationSettings"`
+	// Custom Location settings properties.
+	CustomLocationSettings map[string]string `pulumi:"customLocationSettings"`
+	// Error information from the Agent - e.g. errors during installation.
+	ErrorInfo *ErrorDetailResponse `pulumi:"errorInfo"`
+	// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+	ExtensionType *string `pulumi:"extensionType"`
+	// Identity of the Extension resource
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Uri of the Helm package
+	PackageUri *string `pulumi:"packageUri"`
+	// Status of installation of this extension.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+	ReleaseTrain *string `pulumi:"releaseTrain"`
+	// Scope at which the extension is installed.
+	Scope *ScopeResponse `pulumi:"scope"`
+	// Status from this extension.
+	Statuses []ExtensionStatusResponse `pulumi:"statuses"`
+	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
+	// Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+	Version *string `pulumi:"version"`
 }
 
 type ExtensionState struct {
+	// Flag to note if this extension participates in auto upgrade of minor version, or not.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
+	ConfigurationProtectedSettings pulumi.StringMapInput
+	// Configuration settings, as name-value pairs for configuring this extension.
+	ConfigurationSettings pulumi.StringMapInput
+	// Custom Location settings properties.
+	CustomLocationSettings pulumi.StringMapInput
+	// Error information from the Agent - e.g. errors during installation.
+	ErrorInfo ErrorDetailResponsePtrInput
+	// Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
+	ExtensionType pulumi.StringPtrInput
+	// Identity of the Extension resource
+	Identity IdentityResponsePtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Uri of the Helm package
+	PackageUri pulumi.StringPtrInput
+	// Status of installation of this extension.
+	ProvisioningState pulumi.StringPtrInput
+	// ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
+	ReleaseTrain pulumi.StringPtrInput
+	// Scope at which the extension is installed.
+	Scope ScopeResponsePtrInput
+	// Status from this extension.
+	Statuses ExtensionStatusResponseArrayInput
+	// Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
+	// Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.
+	Version pulumi.StringPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {

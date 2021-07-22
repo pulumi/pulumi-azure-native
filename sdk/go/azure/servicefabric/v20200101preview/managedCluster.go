@@ -117,9 +117,97 @@ func GetManagedCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedCluster resources.
 type managedClusterState struct {
+	// client certificates for the cluster.
+	AddonFeatures []string `pulumi:"addonFeatures"`
+	// vm admin user password.
+	AdminPassword *string `pulumi:"adminPassword"`
+	// vm admin user name.
+	AdminUserName *string `pulumi:"adminUserName"`
+	// Azure active directory.
+	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
+	// The port used for client connections to the cluster.
+	ClientConnectionPort *int `pulumi:"clientConnectionPort"`
+	// client certificates for the cluster.
+	Clients []ClientCertificateResponse `pulumi:"clients"`
+	// The cluster certificate thumbprint used node to node communication.
+	ClusterCertificateThumbprint *string `pulumi:"clusterCertificateThumbprint"`
+	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
+	// A service generated unique identifier for the cluster resource.
+	ClusterId *string `pulumi:"clusterId"`
+	// The current state of the cluster.
+	ClusterState *string `pulumi:"clusterState"`
+	// The cluster dns name.
+	DnsName *string `pulumi:"dnsName"`
+	// Azure resource etag.
+	Etag *string `pulumi:"etag"`
+	// The list of custom fabric settings to configure the cluster.
+	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
+	// the cluster Fully qualified domain name.
+	Fqdn *string `pulumi:"fqdn"`
+	// The port used for http connections to the cluster.
+	HttpGatewayConnectionPort *int `pulumi:"httpGatewayConnectionPort"`
+	// Describes load balancing rules.
+	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
+	// Azure resource location.
+	Location *string `pulumi:"location"`
+	// Azure resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the managed cluster resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The sku of the managed cluster
+	Sku *SkuResponse `pulumi:"sku"`
+	// Azure resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ManagedClusterState struct {
+	// client certificates for the cluster.
+	AddonFeatures pulumi.StringArrayInput
+	// vm admin user password.
+	AdminPassword pulumi.StringPtrInput
+	// vm admin user name.
+	AdminUserName pulumi.StringPtrInput
+	// Azure active directory.
+	AzureActiveDirectory AzureActiveDirectoryResponsePtrInput
+	// The port used for client connections to the cluster.
+	ClientConnectionPort pulumi.IntPtrInput
+	// client certificates for the cluster.
+	Clients ClientCertificateResponseArrayInput
+	// The cluster certificate thumbprint used node to node communication.
+	ClusterCertificateThumbprint pulumi.StringPtrInput
+	// The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+	ClusterCodeVersion pulumi.StringPtrInput
+	// A service generated unique identifier for the cluster resource.
+	ClusterId pulumi.StringPtrInput
+	// The current state of the cluster.
+	ClusterState pulumi.StringPtrInput
+	// The cluster dns name.
+	DnsName pulumi.StringPtrInput
+	// Azure resource etag.
+	Etag pulumi.StringPtrInput
+	// The list of custom fabric settings to configure the cluster.
+	FabricSettings SettingsSectionDescriptionResponseArrayInput
+	// the cluster Fully qualified domain name.
+	Fqdn pulumi.StringPtrInput
+	// The port used for http connections to the cluster.
+	HttpGatewayConnectionPort pulumi.IntPtrInput
+	// Describes load balancing rules.
+	LoadBalancingRules LoadBalancingRuleResponseArrayInput
+	// Azure resource location.
+	Location pulumi.StringPtrInput
+	// Azure resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the managed cluster resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The sku of the managed cluster
+	Sku SkuResponsePtrInput
+	// Azure resource tags.
+	Tags pulumi.StringMapInput
+	// Azure resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ManagedClusterState) ElementType() reflect.Type {

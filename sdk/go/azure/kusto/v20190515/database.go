@@ -132,9 +132,37 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
+	// The time the data should be kept in cache for fast queries in TimeSpan.
+	HotCachePeriod *string `pulumi:"hotCachePeriod"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
+	// The statistics of the database.
+	Statistics *DatabaseStatisticsResponse `pulumi:"statistics"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type DatabaseState struct {
+	// The time the data should be kept in cache for fast queries in TimeSpan.
+	HotCachePeriod pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+	SoftDeletePeriod pulumi.StringPtrInput
+	// The statistics of the database.
+	Statistics DatabaseStatisticsResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {

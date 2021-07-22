@@ -183,7 +183,7 @@ func (o LocationThresholdRuleConditionResponseOutput) WindowSize() pulumi.String
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationCondition struct {
 	// the condition operator.
-	Operator *ConditionOperator `pulumi:"operator"`
+	Operator *string `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold *float64 `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -204,7 +204,7 @@ type ManagementEventAggregationConditionInput interface {
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionArgs struct {
 	// the condition operator.
-	Operator ConditionOperatorPtrInput `pulumi:"operator"`
+	Operator *ConditionOperator `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -290,8 +290,8 @@ func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationC
 }
 
 // the condition operator.
-func (o ManagementEventAggregationConditionOutput) Operator() ConditionOperatorPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *ConditionOperator { return v.Operator }).(ConditionOperatorPtrOutput)
+func (o ManagementEventAggregationConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
 }
 
 // The threshold value that activates the alert.
@@ -323,13 +323,13 @@ func (o ManagementEventAggregationConditionPtrOutput) Elem() ManagementEventAggr
 }
 
 // the condition operator.
-func (o ManagementEventAggregationConditionPtrOutput) Operator() ConditionOperatorPtrOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) *ConditionOperator {
+func (o ManagementEventAggregationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Operator
-	}).(ConditionOperatorPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The threshold value that activates the alert.
@@ -2126,11 +2126,11 @@ type ThresholdRuleCondition struct {
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator ConditionOperator `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
+	TimeAggregation *string `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
 }
@@ -2154,11 +2154,11 @@ type ThresholdRuleConditionArgs struct {
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator ConditionOperatorInput `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation TimeAggregationOperatorPtrInput `pulumi:"timeAggregation"`
+	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
 }
@@ -2202,8 +2202,8 @@ func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 }
 
 // the operator used to compare the data and the threshold.
-func (o ThresholdRuleConditionOutput) Operator() ConditionOperatorOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) ConditionOperator { return v.Operator }).(ConditionOperatorOutput)
+func (o ThresholdRuleConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
 // the threshold value that activates the alert.
@@ -2212,8 +2212,8 @@ func (o ThresholdRuleConditionOutput) Threshold() pulumi.Float64Output {
 }
 
 // the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-func (o ThresholdRuleConditionOutput) TimeAggregation() TimeAggregationOperatorPtrOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) *TimeAggregationOperator { return v.TimeAggregation }).(TimeAggregationOperatorPtrOutput)
+func (o ThresholdRuleConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
 }
 
 // the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.

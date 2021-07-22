@@ -82,9 +82,39 @@ func GetDataManager(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataManager resources.
 type dataManagerState struct {
+	// Etag of the Resource.
+	Etag *string `pulumi:"etag"`
+	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
+	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
+	// region is specified on update the request will succeed.
+	Location *string `pulumi:"location"`
+	// The Resource Name.
+	Name *string `pulumi:"name"`
+	// The sku type.
+	Sku *SkuResponse `pulumi:"sku"`
+	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
+	// (across resource groups).
+	Tags map[string]string `pulumi:"tags"`
+	// The Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type DataManagerState struct {
+	// Etag of the Resource.
+	Etag pulumi.StringPtrInput
+	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
+	// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
+	// region is specified on update the request will succeed.
+	Location pulumi.StringPtrInput
+	// The Resource Name.
+	Name pulumi.StringPtrInput
+	// The sku type.
+	Sku SkuResponsePtrInput
+	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
+	// (across resource groups).
+	Tags pulumi.StringMapInput
+	// The Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (DataManagerState) ElementType() reflect.Type {

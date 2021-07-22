@@ -92,9 +92,41 @@ func GetMediaGraph(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MediaGraph resources.
 type mediaGraphState struct {
+	// Date the Media Graph was created.
+	Created *string `pulumi:"created"`
+	// Media Graph description.
+	Description *string `pulumi:"description"`
+	// Date the Media Graph was last modified.
+	LastModified *string `pulumi:"lastModified"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Media Graph sinks.
+	Sinks []MediaGraphAssetSinkResponse `pulumi:"sinks"`
+	// Media Graph sources.
+	Sources []MediaGraphRtspSourceResponse `pulumi:"sources"`
+	// Media Graph state which indicates the resource allocation status for running the media graph pipeline.
+	State *string `pulumi:"state"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type MediaGraphState struct {
+	// Date the Media Graph was created.
+	Created pulumi.StringPtrInput
+	// Media Graph description.
+	Description pulumi.StringPtrInput
+	// Date the Media Graph was last modified.
+	LastModified pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Media Graph sinks.
+	Sinks MediaGraphAssetSinkResponseArrayInput
+	// Media Graph sources.
+	Sources MediaGraphRtspSourceResponseArrayInput
+	// Media Graph state which indicates the resource allocation status for running the media graph pipeline.
+	State pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (MediaGraphState) ElementType() reflect.Type {

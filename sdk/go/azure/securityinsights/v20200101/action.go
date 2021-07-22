@@ -95,9 +95,29 @@ func GetAction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Action resources.
 type actionState struct {
+	// Etag of the action.
+	Etag *string `pulumi:"etag"`
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
+	// The name of the logic app's workflow.
+	WorkflowId *string `pulumi:"workflowId"`
 }
 
 type ActionState struct {
+	// Etag of the action.
+	Etag pulumi.StringPtrInput
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
+	// The name of the logic app's workflow.
+	WorkflowId pulumi.StringPtrInput
 }
 
 func (ActionState) ElementType() reflect.Type {

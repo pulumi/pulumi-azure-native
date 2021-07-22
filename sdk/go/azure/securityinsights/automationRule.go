@@ -102,9 +102,53 @@ func GetAutomationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationRule resources.
 type automationRuleState struct {
+	// The actions to execute when the automation rule is triggered
+	Actions []interface{} `pulumi:"actions"`
+	// Describes the client that created the automation rule
+	CreatedBy *ClientInfoResponse `pulumi:"createdBy"`
+	// The time the automation rule was created
+	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
+	// The display name of the automation  rule
+	DisplayName *string `pulumi:"displayName"`
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// Describes the client that last updated the automation rule
+	LastModifiedBy *ClientInfoResponse `pulumi:"lastModifiedBy"`
+	// The last time the automation rule was updated
+	LastModifiedTimeUtc *string `pulumi:"lastModifiedTimeUtc"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// The order of execution of the automation rule
+	Order *int `pulumi:"order"`
+	// The triggering logic of the automation rule
+	TriggeringLogic *AutomationRuleTriggeringLogicResponse `pulumi:"triggeringLogic"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type AutomationRuleState struct {
+	// The actions to execute when the automation rule is triggered
+	Actions pulumi.ArrayInput
+	// Describes the client that created the automation rule
+	CreatedBy ClientInfoResponsePtrInput
+	// The time the automation rule was created
+	CreatedTimeUtc pulumi.StringPtrInput
+	// The display name of the automation  rule
+	DisplayName pulumi.StringPtrInput
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput
+	// Describes the client that last updated the automation rule
+	LastModifiedBy ClientInfoResponsePtrInput
+	// The last time the automation rule was updated
+	LastModifiedTimeUtc pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// The order of execution of the automation rule
+	Order pulumi.IntPtrInput
+	// The triggering logic of the automation rule
+	TriggeringLogic AutomationRuleTriggeringLogicResponsePtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AutomationRuleState) ElementType() reflect.Type {

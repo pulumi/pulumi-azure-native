@@ -773,7 +773,7 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 // Network access control entry.
 type NetworkAccessControlEntry struct {
 	// Action object.
-	Action *AccessControlEntryAction `pulumi:"action"`
+	Action *string `pulumi:"action"`
 	// Description of network access control entry.
 	Description *string `pulumi:"description"`
 	// Order of precedence.
@@ -796,7 +796,7 @@ type NetworkAccessControlEntryInput interface {
 // Network access control entry.
 type NetworkAccessControlEntryArgs struct {
 	// Action object.
-	Action AccessControlEntryActionPtrInput `pulumi:"action"`
+	Action *AccessControlEntryAction `pulumi:"action"`
 	// Description of network access control entry.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Order of precedence.
@@ -858,8 +858,8 @@ func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutputWithCo
 }
 
 // Action object.
-func (o NetworkAccessControlEntryOutput) Action() AccessControlEntryActionPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *AccessControlEntryAction { return v.Action }).(AccessControlEntryActionPtrOutput)
+func (o NetworkAccessControlEntryOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // Description of network access control entry.
@@ -2607,7 +2607,7 @@ func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 // Worker pool of an App Service Environment.
 type WorkerPool struct {
 	// Shared or dedicated app hosting.
-	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
+	ComputeMode *string `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount *int `pulumi:"workerCount"`
 	// VM size of the worker pool instances.
@@ -2630,7 +2630,7 @@ type WorkerPoolInput interface {
 // Worker pool of an App Service Environment.
 type WorkerPoolArgs struct {
 	// Shared or dedicated app hosting.
-	ComputeMode ComputeModeOptionsPtrInput `pulumi:"computeMode"`
+	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
 	// VM size of the worker pool instances.
@@ -2692,8 +2692,8 @@ func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) Wor
 }
 
 // Shared or dedicated app hosting.
-func (o WorkerPoolOutput) ComputeMode() ComputeModeOptionsPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *ComputeModeOptions { return v.ComputeMode }).(ComputeModeOptionsPtrOutput)
+func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the worker pool.

@@ -217,9 +217,57 @@ func GetVirtualWan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualWan resources.
 type virtualWanState struct {
+	// True if branch to branch traffic is allowed.
+	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
+	// True if Vnet to Vnet traffic is allowed.
+	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The office local breakout category.
+	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
+	// The provisioning state of the virtual WAN resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// List of VirtualHubs in the VirtualWAN.
+	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
+	// List of VpnSites in the VirtualWAN.
+	VpnSites []SubResourceResponse `pulumi:"vpnSites"`
 }
 
 type VirtualWanState struct {
+	// True if branch to branch traffic is allowed.
+	AllowBranchToBranchTraffic pulumi.BoolPtrInput
+	// True if Vnet to Vnet traffic is allowed.
+	AllowVnetToVnetTraffic pulumi.BoolPtrInput
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption pulumi.BoolPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The office local breakout category.
+	Office365LocalBreakoutCategory pulumi.StringPtrInput
+	// The provisioning state of the virtual WAN resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// List of VirtualHubs in the VirtualWAN.
+	VirtualHubs SubResourceResponseArrayInput
+	// List of VpnSites in the VirtualWAN.
+	VpnSites SubResourceResponseArrayInput
 }
 
 func (VirtualWanState) ElementType() reflect.Type {

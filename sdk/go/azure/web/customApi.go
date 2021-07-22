@@ -74,9 +74,33 @@ func GetCustomApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomApi resources.
 type customApiState struct {
+	// Resource ETag
+	Etag *string `pulumi:"etag"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Custom API properties
+	Properties *CustomApiPropertiesDefinitionResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type CustomApiState struct {
+	// Resource ETag
+	Etag pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Custom API properties
+	Properties CustomApiPropertiesDefinitionResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (CustomApiState) ElementType() reflect.Type {

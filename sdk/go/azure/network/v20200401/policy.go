@@ -102,9 +102,55 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
+	// Gets a unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+	FrontendEndpointLinks []FrontendEndpointLinkResponse `pulumi:"frontendEndpointLinks"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Describes settings for the policy.
+	PolicySettings *FrontDoorPolicySettingsResponse `pulumi:"policySettings"`
+	// Provisioning state of the policy.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	ResourceState     *string `pulumi:"resourceState"`
+	// Describes Routing Rules associated with this Web Application Firewall policy.
+	RoutingRuleLinks []RoutingRuleLinkResponse `pulumi:"routingRuleLinks"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type PolicyState struct {
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListResponsePtrInput
+	// Gets a unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+	FrontendEndpointLinks FrontendEndpointLinkResponseArrayInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListResponsePtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Describes settings for the policy.
+	PolicySettings FrontDoorPolicySettingsResponsePtrInput
+	// Provisioning state of the policy.
+	ProvisioningState pulumi.StringPtrInput
+	ResourceState     pulumi.StringPtrInput
+	// Describes Routing Rules associated with this Web Application Firewall policy.
+	RoutingRuleLinks RoutingRuleLinkResponseArrayInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (PolicyState) ElementType() reflect.Type {

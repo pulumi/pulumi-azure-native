@@ -72,9 +72,29 @@ func GetConfigurationProfilePreference(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationProfilePreference resources.
 type configurationProfilePreferenceState struct {
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Properties of the configuration profile preference.
+	Properties *ConfigurationProfilePreferencePropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ConfigurationProfilePreferenceState struct {
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Properties of the configuration profile preference.
+	Properties ConfigurationProfilePreferencePropertiesResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationProfilePreferenceState) ElementType() reflect.Type {

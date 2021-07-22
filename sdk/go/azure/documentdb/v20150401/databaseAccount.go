@@ -64,9 +64,6 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.DatabaseAccountOfferType == nil {
-		return nil, errors.New("invalid value for required argument 'DatabaseAccountOfferType'")
-	}
 	if args.Locations == nil {
 		return nil, errors.New("invalid value for required argument 'Locations'")
 	}
@@ -212,9 +209,89 @@ func GetDatabaseAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DatabaseAccount resources.
 type databaseAccountState struct {
+	// List of Cosmos DB capabilities for the account
+	Capabilities []CapabilityResponse `pulumi:"capabilities"`
+	// The cassandra connector offer type for the Cosmos DB database C* account.
+	ConnectorOffer *string `pulumi:"connectorOffer"`
+	// The consistency policy for the Cosmos DB database account.
+	ConsistencyPolicy *ConsistencyPolicyResponse `pulumi:"consistencyPolicy"`
+	// The offer type for the Cosmos DB database account. Default value: Standard.
+	DatabaseAccountOfferType *string `pulumi:"databaseAccountOfferType"`
+	// The connection endpoint for the Cosmos DB database account.
+	DocumentEndpoint *string `pulumi:"documentEndpoint"`
+	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
+	// Enables the cassandra connector on the Cosmos DB C* account
+	EnableCassandraConnector *bool `pulumi:"enableCassandraConnector"`
+	// Enables the account to write in multiple locations
+	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
+	// An array that contains the regions ordered by their failover priorities.
+	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	IpRangeFilter *string `pulumi:"ipRangeFilter"`
+	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+	IsVirtualNetworkFilterEnabled *bool `pulumi:"isVirtualNetworkFilterEnabled"`
+	// Indicates the type of database account. This can only be set at database account creation.
+	Kind *string `pulumi:"kind"`
+	// The location of the resource group to which the resource belongs.
+	Location *string `pulumi:"location"`
+	// The name of the database account.
+	Name *string `pulumi:"name"`
+	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// An array that contains of the read locations enabled for the Cosmos DB account.
+	ReadLocations []LocationResponse `pulumi:"readLocations"`
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags map[string]string `pulumi:"tags"`
+	// The type of Azure resource.
+	Type *string `pulumi:"type"`
+	// List of Virtual Network ACL rules configured for the Cosmos DB account.
+	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+	// An array that contains the write location for the Cosmos DB account.
+	WriteLocations []LocationResponse `pulumi:"writeLocations"`
 }
 
 type DatabaseAccountState struct {
+	// List of Cosmos DB capabilities for the account
+	Capabilities CapabilityResponseArrayInput
+	// The cassandra connector offer type for the Cosmos DB database C* account.
+	ConnectorOffer pulumi.StringPtrInput
+	// The consistency policy for the Cosmos DB database account.
+	ConsistencyPolicy ConsistencyPolicyResponsePtrInput
+	// The offer type for the Cosmos DB database account. Default value: Standard.
+	DatabaseAccountOfferType pulumi.StringPtrInput
+	// The connection endpoint for the Cosmos DB database account.
+	DocumentEndpoint pulumi.StringPtrInput
+	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+	EnableAutomaticFailover pulumi.BoolPtrInput
+	// Enables the cassandra connector on the Cosmos DB C* account
+	EnableCassandraConnector pulumi.BoolPtrInput
+	// Enables the account to write in multiple locations
+	EnableMultipleWriteLocations pulumi.BoolPtrInput
+	// An array that contains the regions ordered by their failover priorities.
+	FailoverPolicies FailoverPolicyResponseArrayInput
+	// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+	IpRangeFilter pulumi.StringPtrInput
+	// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
+	// Indicates the type of database account. This can only be set at database account creation.
+	Kind pulumi.StringPtrInput
+	// The location of the resource group to which the resource belongs.
+	Location pulumi.StringPtrInput
+	// The name of the database account.
+	Name pulumi.StringPtrInput
+	// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
+	ProvisioningState pulumi.StringPtrInput
+	// An array that contains of the read locations enabled for the Cosmos DB account.
+	ReadLocations LocationResponseArrayInput
+	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+	Tags pulumi.StringMapInput
+	// The type of Azure resource.
+	Type pulumi.StringPtrInput
+	// List of Virtual Network ACL rules configured for the Cosmos DB account.
+	VirtualNetworkRules VirtualNetworkRuleResponseArrayInput
+	// An array that contains the write location for the Cosmos DB account.
+	WriteLocations LocationResponseArrayInput
 }
 
 func (DatabaseAccountState) ElementType() reflect.Type {
@@ -231,7 +308,7 @@ type databaseAccountArgs struct {
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy *ConsistencyPolicy `pulumi:"consistencyPolicy"`
 	// The offer type for the database
-	DatabaseAccountOfferType DatabaseAccountOfferType `pulumi:"databaseAccountOfferType"`
+	DatabaseAccountOfferType string `pulumi:"databaseAccountOfferType"`
 	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
 	EnableAutomaticFailover *bool `pulumi:"enableAutomaticFailover"`
 	// Enables the cassandra connector on the Cosmos DB C* account
@@ -267,7 +344,7 @@ type DatabaseAccountArgs struct {
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy ConsistencyPolicyPtrInput
 	// The offer type for the database
-	DatabaseAccountOfferType DatabaseAccountOfferTypeInput
+	DatabaseAccountOfferType DatabaseAccountOfferType
 	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enables the cassandra connector on the Cosmos DB C* account

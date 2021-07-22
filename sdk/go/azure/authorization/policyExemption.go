@@ -88,9 +88,49 @@ func GetPolicyExemption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyExemption resources.
 type policyExemptionState struct {
+	// The description of the policy exemption.
+	Description *string `pulumi:"description"`
+	// The display name of the policy exemption.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy exemption category. Possible values are Waiver and Mitigated.
+	ExemptionCategory *string `pulumi:"exemptionCategory"`
+	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+	ExpiresOn *string `pulumi:"expiresOn"`
+	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata interface{} `pulumi:"metadata"`
+	// The name of the policy exemption.
+	Name *string `pulumi:"name"`
+	// The ID of the policy assignment that is being exempted.
+	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
+	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+	PolicyDefinitionReferenceIds []string `pulumi:"policyDefinitionReferenceIds"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource (Microsoft.Authorization/policyExemptions).
+	Type *string `pulumi:"type"`
 }
 
 type PolicyExemptionState struct {
+	// The description of the policy exemption.
+	Description pulumi.StringPtrInput
+	// The display name of the policy exemption.
+	DisplayName pulumi.StringPtrInput
+	// The policy exemption category. Possible values are Waiver and Mitigated.
+	ExemptionCategory pulumi.StringPtrInput
+	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
+	ExpiresOn pulumi.StringPtrInput
+	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.Input
+	// The name of the policy exemption.
+	Name pulumi.StringPtrInput
+	// The ID of the policy assignment that is being exempted.
+	PolicyAssignmentId pulumi.StringPtrInput
+	// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
+	PolicyDefinitionReferenceIds pulumi.StringArrayInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource (Microsoft.Authorization/policyExemptions).
+	Type pulumi.StringPtrInput
 }
 
 func (PolicyExemptionState) ElementType() reflect.Type {

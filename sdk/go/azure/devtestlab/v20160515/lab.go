@@ -103,9 +103,69 @@ func GetLab(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Lab resources.
 type labState struct {
+	// The lab's artifact storage account.
+	ArtifactsStorageAccount *string `pulumi:"artifactsStorageAccount"`
+	// The creation date of the lab.
+	CreatedDate *string `pulumi:"createdDate"`
+	// The lab's default premium storage account.
+	DefaultPremiumStorageAccount *string `pulumi:"defaultPremiumStorageAccount"`
+	// The lab's default storage account.
+	DefaultStorageAccount *string `pulumi:"defaultStorageAccount"`
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType *string `pulumi:"labStorageType"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The lab's premium data disk storage account.
+	PremiumDataDiskStorageAccount *string `pulumi:"premiumDataDiskStorageAccount"`
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks *string `pulumi:"premiumDataDisks"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The lab's Key vault.
+	VaultName *string `pulumi:"vaultName"`
 }
 
 type LabState struct {
+	// The lab's artifact storage account.
+	ArtifactsStorageAccount pulumi.StringPtrInput
+	// The creation date of the lab.
+	CreatedDate pulumi.StringPtrInput
+	// The lab's default premium storage account.
+	DefaultPremiumStorageAccount pulumi.StringPtrInput
+	// The lab's default storage account.
+	DefaultStorageAccount pulumi.StringPtrInput
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType pulumi.StringPtrInput
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The lab's premium data disk storage account.
+	PremiumDataDiskStorageAccount pulumi.StringPtrInput
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// The lab's Key vault.
+	VaultName pulumi.StringPtrInput
 }
 
 func (LabState) ElementType() reflect.Type {

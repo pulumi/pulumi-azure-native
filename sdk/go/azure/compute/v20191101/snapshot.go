@@ -164,9 +164,77 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData *CreationDataResponse `pulumi:"creationData"`
+	// The size of the disk in bytes. This field is read only.
+	DiskSizeBytes *float64 `pulumi:"diskSizeBytes"`
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+	Incremental *bool `pulumi:"incremental"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Unused. Always Null.
+	ManagedBy *string `pulumi:"managedBy"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The Operating System type.
+	OsType *string `pulumi:"osType"`
+	// The disk provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	Sku *SnapshotSkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// The time when the disk was created.
+	TimeCreated *string `pulumi:"timeCreated"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// Unique Guid identifying the resource.
+	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type SnapshotState struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationDataResponsePtrInput
+	// The size of the disk in bytes. This field is read only.
+	DiskSizeBytes pulumi.Float64PtrInput
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB pulumi.IntPtrInput
+	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+	Encryption EncryptionResponsePtrInput
+	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	EncryptionSettingsCollection EncryptionSettingsCollectionResponsePtrInput
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration pulumi.StringPtrInput
+	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+	Incremental pulumi.BoolPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Unused. Always Null.
+	ManagedBy pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The Operating System type.
+	OsType pulumi.StringPtrInput
+	// The disk provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
+	Sku SnapshotSkuResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// The time when the disk was created.
+	TimeCreated pulumi.StringPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// Unique Guid identifying the resource.
+	UniqueId pulumi.StringPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -189,7 +257,7 @@ type snapshotArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The Operating System type.
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -217,7 +285,7 @@ type SnapshotArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The Operating System type.
-	OsType OperatingSystemTypesPtrInput
+	OsType *OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.

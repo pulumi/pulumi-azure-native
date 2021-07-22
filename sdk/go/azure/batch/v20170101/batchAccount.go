@@ -148,9 +148,51 @@ func GetBatchAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BatchAccount resources.
 type batchAccountState struct {
+	// The endpoint used by this account to interact with the Batch services.
+	AccountEndpoint              *string `pulumi:"accountEndpoint"`
+	ActiveJobAndJobScheduleQuota *int    `pulumi:"activeJobAndJobScheduleQuota"`
+	// Contains information about the auto storage account associated with a Batch account.
+	AutoStorage *AutoStoragePropertiesResponse `pulumi:"autoStorage"`
+	CoreQuota   *int                           `pulumi:"coreQuota"`
+	// Identifies the Azure key vault associated with a Batch account.
+	KeyVaultReference *KeyVaultReferenceResponse `pulumi:"keyVaultReference"`
+	// The location of the resource
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The allocation mode for creating pools in the Batch account.
+	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
+	PoolQuota          *int    `pulumi:"poolQuota"`
+	// The provisioned state of the resource
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The tags of the resource
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource
+	Type *string `pulumi:"type"`
 }
 
 type BatchAccountState struct {
+	// The endpoint used by this account to interact with the Batch services.
+	AccountEndpoint              pulumi.StringPtrInput
+	ActiveJobAndJobScheduleQuota pulumi.IntPtrInput
+	// Contains information about the auto storage account associated with a Batch account.
+	AutoStorage AutoStoragePropertiesResponsePtrInput
+	CoreQuota   pulumi.IntPtrInput
+	// Identifies the Azure key vault associated with a Batch account.
+	KeyVaultReference KeyVaultReferenceResponsePtrInput
+	// The location of the resource
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The allocation mode for creating pools in the Batch account.
+	PoolAllocationMode pulumi.StringPtrInput
+	PoolQuota          pulumi.IntPtrInput
+	// The provisioned state of the resource
+	ProvisioningState pulumi.StringPtrInput
+	// The tags of the resource
+	Tags pulumi.StringMapInput
+	// The type of the resource
+	Type pulumi.StringPtrInput
 }
 
 func (BatchAccountState) ElementType() reflect.Type {
@@ -167,7 +209,7 @@ type batchAccountArgs struct {
 	// The region in which to create the account.
 	Location *string `pulumi:"location"`
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode *PoolAllocationMode `pulumi:"poolAllocationMode"`
+	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// The name of the resource group that contains the new Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user specified tags associated with the account.
@@ -185,7 +227,7 @@ type BatchAccountArgs struct {
 	// The region in which to create the account.
 	Location pulumi.StringPtrInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode PoolAllocationModePtrInput
+	PoolAllocationMode *PoolAllocationMode
 	// The name of the resource group that contains the new Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The user specified tags associated with the account.

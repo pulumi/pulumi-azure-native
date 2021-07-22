@@ -100,9 +100,57 @@ func GetDiskPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskPool resources.
 type diskPoolState struct {
+	// List of additional capabilities for Disk pool.
+	AdditionalCapabilities []string `pulumi:"additionalCapabilities"`
+	// Logical zone for Disk pool resource; example: ["1"].
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+	Disks []DiskResponse `pulumi:"disks"`
+	// The geo-location where the resource lives.
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// State of the operation on the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Operational status of the Disk pool.
+	Status *string `pulumi:"status"`
+	// Azure Resource ID of a Subnet for the Disk pool.
+	SubnetId *string `pulumi:"subnetId"`
+	// Resource metadata required by ARM RPC
+	SystemData *SystemMetadataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Determines the SKU of VM deployed for Disk pool
+	Tier *string `pulumi:"tier"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type *string `pulumi:"type"`
 }
 
 type DiskPoolState struct {
+	// List of additional capabilities for Disk pool.
+	AdditionalCapabilities pulumi.StringArrayInput
+	// Logical zone for Disk pool resource; example: ["1"].
+	AvailabilityZones pulumi.StringArrayInput
+	// List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+	Disks DiskResponseArrayInput
+	// The geo-location where the resource lives.
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// State of the operation on the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Operational status of the Disk pool.
+	Status pulumi.StringPtrInput
+	// Azure Resource ID of a Subnet for the Disk pool.
+	SubnetId pulumi.StringPtrInput
+	// Resource metadata required by ARM RPC
+	SystemData SystemMetadataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Determines the SKU of VM deployed for Disk pool
+	Tier pulumi.StringPtrInput
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringPtrInput
 }
 
 func (DiskPoolState) ElementType() reflect.Type {

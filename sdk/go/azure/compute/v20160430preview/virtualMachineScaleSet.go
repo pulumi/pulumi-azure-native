@@ -169,9 +169,57 @@ func GetVirtualMachineScaleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineScaleSet resources.
 type virtualMachineScaleSetState struct {
+	// The identity of the virtual machine scale set, if configured.
+	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	OverProvision *bool `pulumi:"overProvision"`
+	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+	Plan *PlanResponse `pulumi:"plan"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
+	// The virtual machine scale set sku.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// The upgrade policy.
+	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
+	// The virtual machine profile.
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
 }
 
 type VirtualMachineScaleSetState struct {
+	// The identity of the virtual machine scale set, if configured.
+	Identity VirtualMachineScaleSetIdentityResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	OverProvision pulumi.BoolPtrInput
+	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
+	Plan PlanResponsePtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup pulumi.BoolPtrInput
+	// The virtual machine scale set sku.
+	Sku SkuResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// The upgrade policy.
+	UpgradePolicy UpgradePolicyResponsePtrInput
+	// The virtual machine profile.
+	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrInput
 }
 
 func (VirtualMachineScaleSetState) ElementType() reflect.Type {

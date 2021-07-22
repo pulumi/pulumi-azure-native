@@ -167,9 +167,17 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
+	// Gets or sets the name of the deployment.
+	Name *string `pulumi:"name"`
+	// Gets or sets deployment properties.
+	Properties *DeploymentPropertiesExtendedResponse `pulumi:"properties"`
 }
 
 type DeploymentState struct {
+	// Gets or sets the name of the deployment.
+	Name pulumi.StringPtrInput
+	// Gets or sets deployment properties.
+	Properties DeploymentPropertiesExtendedResponsePtrInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {

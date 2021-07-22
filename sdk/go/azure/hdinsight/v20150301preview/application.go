@@ -80,9 +80,29 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
+	// The ETag for the application
+	Etag *string `pulumi:"etag"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The properties of the application.
+	Properties *ApplicationPropertiesResponse `pulumi:"properties"`
+	// The tags for the application.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type ApplicationState struct {
+	// The ETag for the application
+	Etag pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The properties of the application.
+	Properties ApplicationPropertiesResponsePtrInput
+	// The tags for the application.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {

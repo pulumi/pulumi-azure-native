@@ -101,9 +101,29 @@ func GetDscNodeConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DscNodeConfiguration resources.
 type dscNodeConfigurationState struct {
+	// Gets or sets the configuration of the node.
+	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
+	// Gets or sets creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type DscNodeConfigurationState struct {
+	// Gets or sets the configuration of the node.
+	Configuration DscConfigurationAssociationPropertyResponsePtrInput
+	// Gets or sets creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (DscNodeConfigurationState) ElementType() reflect.Type {

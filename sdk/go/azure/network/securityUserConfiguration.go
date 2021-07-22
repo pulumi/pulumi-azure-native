@@ -83,9 +83,45 @@ func GetSecurityUserConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityUserConfiguration resources.
 type securityUserConfigurationState struct {
+	// Flag if need to delete existing network security groups.
+	DeleteExistingNSGs *string `pulumi:"deleteExistingNSGs"`
+	// A description of the security configuration.
+	Description *string `pulumi:"description"`
+	// A display name of the security configuration.
+	DisplayName *string `pulumi:"displayName"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Security Type.
+	SecurityType *string `pulumi:"securityType"`
+	// The system metadata related to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type SecurityUserConfigurationState struct {
+	// Flag if need to delete existing network security groups.
+	DeleteExistingNSGs pulumi.StringPtrInput
+	// A description of the security configuration.
+	Description pulumi.StringPtrInput
+	// A display name of the security configuration.
+	DisplayName pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Security Type.
+	SecurityType pulumi.StringPtrInput
+	// The system metadata related to this resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityUserConfigurationState) ElementType() reflect.Type {

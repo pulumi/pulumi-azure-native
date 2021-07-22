@@ -138,9 +138,85 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
+	// Reason for cancellation.
+	CancellationReason *string `pulumi:"cancellationReason"`
+	// Delivery Info of Job.
+	DeliveryInfo *JobDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	// Delivery type of Job.
+	DeliveryType *string `pulumi:"deliveryType"`
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details interface{} `pulumi:"details"`
+	// Top level error for the job.
+	Error *CloudErrorResponse `pulumi:"error"`
+	// Msi identity of the resource
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Describes whether the job is cancellable or not.
+	IsCancellable *bool `pulumi:"isCancellable"`
+	// Flag to indicate cancellation of scheduled job.
+	IsCancellableWithoutFee *bool `pulumi:"isCancellableWithoutFee"`
+	// Describes whether the job is deletable or not.
+	IsDeletable *bool `pulumi:"isDeletable"`
+	// Is Prepare To Ship Enabled on this job
+	IsPrepareToShipEnabled *bool `pulumi:"isPrepareToShipEnabled"`
+	// Describes whether the shipping address is editable or not.
+	IsShippingAddressEditable *bool `pulumi:"isShippingAddressEditable"`
+	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
+	Location *string `pulumi:"location"`
+	// Name of the object.
+	Name *string `pulumi:"name"`
+	// The sku type.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Time at which the job was started in UTC ISO 8601 format.
+	StartTime *string `pulumi:"startTime"`
+	// Name of the stage which is in progress.
+	Status *string `pulumi:"status"`
+	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
+	Tags map[string]string `pulumi:"tags"`
+	// Type of the data transfer.
+	TransferType *string `pulumi:"transferType"`
+	// Type of the object.
+	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
+	// Reason for cancellation.
+	CancellationReason pulumi.StringPtrInput
+	// Delivery Info of Job.
+	DeliveryInfo JobDeliveryInfoResponsePtrInput
+	// Delivery type of Job.
+	DeliveryType pulumi.StringPtrInput
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details pulumi.Input
+	// Top level error for the job.
+	Error CloudErrorResponsePtrInput
+	// Msi identity of the resource
+	Identity ResourceIdentityResponsePtrInput
+	// Describes whether the job is cancellable or not.
+	IsCancellable pulumi.BoolPtrInput
+	// Flag to indicate cancellation of scheduled job.
+	IsCancellableWithoutFee pulumi.BoolPtrInput
+	// Describes whether the job is deletable or not.
+	IsDeletable pulumi.BoolPtrInput
+	// Is Prepare To Ship Enabled on this job
+	IsPrepareToShipEnabled pulumi.BoolPtrInput
+	// Describes whether the shipping address is editable or not.
+	IsShippingAddressEditable pulumi.BoolPtrInput
+	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
+	Location pulumi.StringPtrInput
+	// Name of the object.
+	Name pulumi.StringPtrInput
+	// The sku type.
+	Sku SkuResponsePtrInput
+	// Time at which the job was started in UTC ISO 8601 format.
+	StartTime pulumi.StringPtrInput
+	// Name of the stage which is in progress.
+	Status pulumi.StringPtrInput
+	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
+	Tags pulumi.StringMapInput
+	// Type of the data transfer.
+	TransferType pulumi.StringPtrInput
+	// Type of the object.
+	Type pulumi.StringPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {

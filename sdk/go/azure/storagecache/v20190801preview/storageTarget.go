@@ -104,9 +104,41 @@ func GetStorageTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageTarget resources.
 type storageTargetState struct {
+	// Properties when clfs target.
+	Clfs *ClfsTargetResponse `pulumi:"clfs"`
+	// List of cache namespace to target namespace associations.
+	Junctions []NamespaceJunctionResponse `pulumi:"junctions"`
+	// A fully qualified URL.
+	Name *string `pulumi:"name"`
+	// Properties when nfs3 target.
+	Nfs3 *Nfs3TargetResponse `pulumi:"nfs3"`
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Type for storage target.
+	TargetType *string `pulumi:"targetType"`
+	// Type for the storage target; Microsoft.StorageCache/Cache/StorageTarget
+	Type *string `pulumi:"type"`
+	// Properties when unknown target.
+	Unknown *UnknownTargetResponse `pulumi:"unknown"`
 }
 
 type StorageTargetState struct {
+	// Properties when clfs target.
+	Clfs ClfsTargetResponsePtrInput
+	// List of cache namespace to target namespace associations.
+	Junctions NamespaceJunctionResponseArrayInput
+	// A fully qualified URL.
+	Name pulumi.StringPtrInput
+	// Properties when nfs3 target.
+	Nfs3 Nfs3TargetResponsePtrInput
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState pulumi.StringPtrInput
+	// Type for storage target.
+	TargetType pulumi.StringPtrInput
+	// Type for the storage target; Microsoft.StorageCache/Cache/StorageTarget
+	Type pulumi.StringPtrInput
+	// Properties when unknown target.
+	Unknown UnknownTargetResponsePtrInput
 }
 
 func (StorageTargetState) ElementType() reflect.Type {

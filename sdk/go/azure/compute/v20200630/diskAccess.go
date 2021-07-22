@@ -93,9 +93,37 @@ func GetDiskAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskAccess resources.
 type diskAccessState struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The disk access resource provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// The time when the disk access was created.
+	TimeCreated *string `pulumi:"timeCreated"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type DiskAccessState struct {
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// The disk access resource provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// The time when the disk access was created.
+	TimeCreated pulumi.StringPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (DiskAccessState) ElementType() reflect.Type {

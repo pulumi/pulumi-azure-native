@@ -80,9 +80,21 @@ func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
 type namespaceAuthorizationRuleState struct {
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type NamespaceAuthorizationRuleState struct {
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (NamespaceAuthorizationRuleState) ElementType() reflect.Type {
@@ -97,7 +109,7 @@ type namespaceAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.

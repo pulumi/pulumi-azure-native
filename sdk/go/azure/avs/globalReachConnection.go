@@ -91,9 +91,37 @@ func GetGlobalReachConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GlobalReachConnection resources.
 type globalReachConnectionState struct {
+	// The network used for global reach carved out from the original network block provided for the private cloud
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// Authorization key from the peer express route used for the global reach connection
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The connection status of the global reach connection
+	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+	PeerExpressRouteCircuit *string `pulumi:"peerExpressRouteCircuit"`
+	// The state of the  ExpressRoute Circuit Authorization provisioning
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type GlobalReachConnectionState struct {
+	// The network used for global reach carved out from the original network block provided for the private cloud
+	AddressPrefix pulumi.StringPtrInput
+	// Authorization key from the peer express route used for the global reach connection
+	AuthorizationKey pulumi.StringPtrInput
+	// The connection status of the global reach connection
+	CircuitConnectionStatus pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+	PeerExpressRouteCircuit pulumi.StringPtrInput
+	// The state of the  ExpressRoute Circuit Authorization provisioning
+	ProvisioningState pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (GlobalReachConnectionState) ElementType() reflect.Type {

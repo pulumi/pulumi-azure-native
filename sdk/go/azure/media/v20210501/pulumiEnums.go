@@ -11,7 +11,7 @@ import (
 )
 
 // The type of key used to encrypt the Account Key.
-type AccountEncryptionKeyType string
+type AccountEncryptionKeyType pulumi.String
 
 const (
 	// The Account Key is encrypted with a System Key.
@@ -21,23 +21,7 @@ const (
 )
 
 func (AccountEncryptionKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountEncryptionKeyType)(nil)).Elem()
-}
-
-func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypeOutput() AccountEncryptionKeyTypeOutput {
-	return pulumi.ToOutput(e).(AccountEncryptionKeyTypeOutput)
-}
-
-func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypeOutputWithContext(ctx context.Context) AccountEncryptionKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AccountEncryptionKeyTypeOutput)
-}
-
-func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
-	return e.ToAccountEncryptionKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (e AccountEncryptionKeyType) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
-	return AccountEncryptionKeyType(e).ToAccountEncryptionKeyTypeOutputWithContext(ctx).ToAccountEncryptionKeyTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AccountEncryptionKeyType) ToStringOutput() pulumi.StringOutput {
@@ -56,129 +40,8 @@ func (e AccountEncryptionKeyType) ToStringPtrOutputWithContext(ctx context.Conte
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AccountEncryptionKeyTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountEncryptionKeyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountEncryptionKeyType)(nil)).Elem()
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypeOutput() AccountEncryptionKeyTypeOutput {
-	return o
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypeOutputWithContext(ctx context.Context) AccountEncryptionKeyTypeOutput {
-	return o
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
-	return o.ToAccountEncryptionKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryptionKeyType) *AccountEncryptionKeyType {
-		return &v
-	}).(AccountEncryptionKeyTypePtrOutput)
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountEncryptionKeyType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccountEncryptionKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountEncryptionKeyType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AccountEncryptionKeyTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AccountEncryptionKeyTypePtrOutput) ElementType() reflect.Type {
-	return accountEncryptionKeyTypePtrType
-}
-
-func (o AccountEncryptionKeyTypePtrOutput) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
-	return o
-}
-
-func (o AccountEncryptionKeyTypePtrOutput) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
-	return o
-}
-
-func (o AccountEncryptionKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccountEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountEncryptionKeyType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AccountEncryptionKeyTypePtrOutput) Elem() AccountEncryptionKeyTypeOutput {
-	return o.ApplyT(func(v *AccountEncryptionKeyType) AccountEncryptionKeyType {
-		var ret AccountEncryptionKeyType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(AccountEncryptionKeyTypeOutput)
-}
-
-// AccountEncryptionKeyTypeInput is an input type that accepts AccountEncryptionKeyTypeArgs and AccountEncryptionKeyTypeOutput values.
-// You can construct a concrete instance of `AccountEncryptionKeyTypeInput` via:
-//
-//          AccountEncryptionKeyTypeArgs{...}
-type AccountEncryptionKeyTypeInput interface {
-	pulumi.Input
-
-	ToAccountEncryptionKeyTypeOutput() AccountEncryptionKeyTypeOutput
-	ToAccountEncryptionKeyTypeOutputWithContext(context.Context) AccountEncryptionKeyTypeOutput
-}
-
-var accountEncryptionKeyTypePtrType = reflect.TypeOf((**AccountEncryptionKeyType)(nil)).Elem()
-
-type AccountEncryptionKeyTypePtrInput interface {
-	pulumi.Input
-
-	ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput
-	ToAccountEncryptionKeyTypePtrOutputWithContext(context.Context) AccountEncryptionKeyTypePtrOutput
-}
-
-type accountEncryptionKeyTypePtr string
-
-func AccountEncryptionKeyTypePtr(v string) AccountEncryptionKeyTypePtrInput {
-	return (*accountEncryptionKeyTypePtr)(&v)
-}
-
-func (*accountEncryptionKeyTypePtr) ElementType() reflect.Type {
-	return accountEncryptionKeyTypePtrType
-}
-
-func (in *accountEncryptionKeyTypePtr) ToAccountEncryptionKeyTypePtrOutput() AccountEncryptionKeyTypePtrOutput {
-	return pulumi.ToOutput(in).(AccountEncryptionKeyTypePtrOutput)
-}
-
-func (in *accountEncryptionKeyTypePtr) ToAccountEncryptionKeyTypePtrOutputWithContext(ctx context.Context) AccountEncryptionKeyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AccountEncryptionKeyTypePtrOutput)
-}
-
 // The behavior for IP access control in Key Delivery.
-type DefaultAction string
+type DefaultAction pulumi.String
 
 const (
 	// All public IP addresses are allowed.
@@ -188,23 +51,7 @@ const (
 )
 
 func (DefaultAction) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultAction)(nil)).Elem()
-}
-
-func (e DefaultAction) ToDefaultActionOutput() DefaultActionOutput {
-	return pulumi.ToOutput(e).(DefaultActionOutput)
-}
-
-func (e DefaultAction) ToDefaultActionOutputWithContext(ctx context.Context) DefaultActionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DefaultActionOutput)
-}
-
-func (e DefaultAction) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return e.ToDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (e DefaultAction) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return DefaultAction(e).ToDefaultActionOutputWithContext(ctx).ToDefaultActionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e DefaultAction) ToStringOutput() pulumi.StringOutput {
@@ -223,129 +70,8 @@ func (e DefaultAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type DefaultActionOutput struct{ *pulumi.OutputState }
-
-func (DefaultActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultAction)(nil)).Elem()
-}
-
-func (o DefaultActionOutput) ToDefaultActionOutput() DefaultActionOutput {
-	return o
-}
-
-func (o DefaultActionOutput) ToDefaultActionOutputWithContext(ctx context.Context) DefaultActionOutput {
-	return o
-}
-
-func (o DefaultActionOutput) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return o.ToDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultActionOutput) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultAction) *DefaultAction {
-		return &v
-	}).(DefaultActionPtrOutput)
-}
-
-func (o DefaultActionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DefaultActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultAction) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DefaultActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultAction) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DefaultActionPtrOutput struct{ *pulumi.OutputState }
-
-func (DefaultActionPtrOutput) ElementType() reflect.Type {
-	return defaultActionPtrType
-}
-
-func (o DefaultActionPtrOutput) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return o
-}
-
-func (o DefaultActionPtrOutput) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return o
-}
-
-func (o DefaultActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DefaultAction) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DefaultActionPtrOutput) Elem() DefaultActionOutput {
-	return o.ApplyT(func(v *DefaultAction) DefaultAction {
-		var ret DefaultAction
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(DefaultActionOutput)
-}
-
-// DefaultActionInput is an input type that accepts DefaultActionArgs and DefaultActionOutput values.
-// You can construct a concrete instance of `DefaultActionInput` via:
-//
-//          DefaultActionArgs{...}
-type DefaultActionInput interface {
-	pulumi.Input
-
-	ToDefaultActionOutput() DefaultActionOutput
-	ToDefaultActionOutputWithContext(context.Context) DefaultActionOutput
-}
-
-var defaultActionPtrType = reflect.TypeOf((**DefaultAction)(nil)).Elem()
-
-type DefaultActionPtrInput interface {
-	pulumi.Input
-
-	ToDefaultActionPtrOutput() DefaultActionPtrOutput
-	ToDefaultActionPtrOutputWithContext(context.Context) DefaultActionPtrOutput
-}
-
-type defaultActionPtr string
-
-func DefaultActionPtr(v string) DefaultActionPtrInput {
-	return (*defaultActionPtr)(&v)
-}
-
-func (*defaultActionPtr) ElementType() reflect.Type {
-	return defaultActionPtrType
-}
-
-func (in *defaultActionPtr) ToDefaultActionPtrOutput() DefaultActionPtrOutput {
-	return pulumi.ToOutput(in).(DefaultActionPtrOutput)
-}
-
-func (in *defaultActionPtr) ToDefaultActionPtrOutputWithContext(ctx context.Context) DefaultActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DefaultActionPtrOutput)
-}
-
 // The identity type.
-type ManagedIdentityType string
+type ManagedIdentityType pulumi.String
 
 const (
 	// A system-assigned managed identity.
@@ -355,23 +81,7 @@ const (
 )
 
 func (ManagedIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentityType)(nil)).Elem()
-}
-
-func (e ManagedIdentityType) ToManagedIdentityTypeOutput() ManagedIdentityTypeOutput {
-	return pulumi.ToOutput(e).(ManagedIdentityTypeOutput)
-}
-
-func (e ManagedIdentityType) ToManagedIdentityTypeOutputWithContext(ctx context.Context) ManagedIdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ManagedIdentityTypeOutput)
-}
-
-func (e ManagedIdentityType) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
-	return e.ToManagedIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (e ManagedIdentityType) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
-	return ManagedIdentityType(e).ToManagedIdentityTypeOutputWithContext(ctx).ToManagedIdentityTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ManagedIdentityType) ToStringOutput() pulumi.StringOutput {
@@ -390,129 +100,8 @@ func (e ManagedIdentityType) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ManagedIdentityTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentityType)(nil)).Elem()
-}
-
-func (o ManagedIdentityTypeOutput) ToManagedIdentityTypeOutput() ManagedIdentityTypeOutput {
-	return o
-}
-
-func (o ManagedIdentityTypeOutput) ToManagedIdentityTypeOutputWithContext(ctx context.Context) ManagedIdentityTypeOutput {
-	return o
-}
-
-func (o ManagedIdentityTypeOutput) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
-	return o.ToManagedIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityTypeOutput) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityType) *ManagedIdentityType {
-		return &v
-	}).(ManagedIdentityTypePtrOutput)
-}
-
-func (o ManagedIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedIdentityType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ManagedIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedIdentityType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ManagedIdentityTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityTypePtrOutput) ElementType() reflect.Type {
-	return managedIdentityTypePtrType
-}
-
-func (o ManagedIdentityTypePtrOutput) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
-	return o
-}
-
-func (o ManagedIdentityTypePtrOutput) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
-	return o
-}
-
-func (o ManagedIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedIdentityType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ManagedIdentityTypePtrOutput) Elem() ManagedIdentityTypeOutput {
-	return o.ApplyT(func(v *ManagedIdentityType) ManagedIdentityType {
-		var ret ManagedIdentityType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ManagedIdentityTypeOutput)
-}
-
-// ManagedIdentityTypeInput is an input type that accepts ManagedIdentityTypeArgs and ManagedIdentityTypeOutput values.
-// You can construct a concrete instance of `ManagedIdentityTypeInput` via:
-//
-//          ManagedIdentityTypeArgs{...}
-type ManagedIdentityTypeInput interface {
-	pulumi.Input
-
-	ToManagedIdentityTypeOutput() ManagedIdentityTypeOutput
-	ToManagedIdentityTypeOutputWithContext(context.Context) ManagedIdentityTypeOutput
-}
-
-var managedIdentityTypePtrType = reflect.TypeOf((**ManagedIdentityType)(nil)).Elem()
-
-type ManagedIdentityTypePtrInput interface {
-	pulumi.Input
-
-	ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput
-	ToManagedIdentityTypePtrOutputWithContext(context.Context) ManagedIdentityTypePtrOutput
-}
-
-type managedIdentityTypePtr string
-
-func ManagedIdentityTypePtr(v string) ManagedIdentityTypePtrInput {
-	return (*managedIdentityTypePtr)(&v)
-}
-
-func (*managedIdentityTypePtr) ElementType() reflect.Type {
-	return managedIdentityTypePtrType
-}
-
-func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutput() ManagedIdentityTypePtrOutput {
-	return pulumi.ToOutput(in).(ManagedIdentityTypePtrOutput)
-}
-
-func (in *managedIdentityTypePtr) ToManagedIdentityTypePtrOutputWithContext(ctx context.Context) ManagedIdentityTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ManagedIdentityTypePtrOutput)
-}
-
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-type PrivateEndpointServiceConnectionStatus string
+type PrivateEndpointServiceConnectionStatus pulumi.String
 
 const (
 	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
@@ -521,23 +110,7 @@ const (
 )
 
 func (PrivateEndpointServiceConnectionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointServiceConnectionStatus)(nil)).Elem()
-}
-
-func (e PrivateEndpointServiceConnectionStatus) ToPrivateEndpointServiceConnectionStatusOutput() PrivateEndpointServiceConnectionStatusOutput {
-	return pulumi.ToOutput(e).(PrivateEndpointServiceConnectionStatusOutput)
-}
-
-func (e PrivateEndpointServiceConnectionStatus) ToPrivateEndpointServiceConnectionStatusOutputWithContext(ctx context.Context) PrivateEndpointServiceConnectionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PrivateEndpointServiceConnectionStatusOutput)
-}
-
-func (e PrivateEndpointServiceConnectionStatus) ToPrivateEndpointServiceConnectionStatusPtrOutput() PrivateEndpointServiceConnectionStatusPtrOutput {
-	return e.ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(context.Background())
-}
-
-func (e PrivateEndpointServiceConnectionStatus) ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateEndpointServiceConnectionStatusPtrOutput {
-	return PrivateEndpointServiceConnectionStatus(e).ToPrivateEndpointServiceConnectionStatusOutputWithContext(ctx).ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PrivateEndpointServiceConnectionStatus) ToStringOutput() pulumi.StringOutput {
@@ -556,129 +129,8 @@ func (e PrivateEndpointServiceConnectionStatus) ToStringPtrOutputWithContext(ctx
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PrivateEndpointServiceConnectionStatusOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointServiceConnectionStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointServiceConnectionStatus)(nil)).Elem()
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToPrivateEndpointServiceConnectionStatusOutput() PrivateEndpointServiceConnectionStatusOutput {
-	return o
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToPrivateEndpointServiceConnectionStatusOutputWithContext(ctx context.Context) PrivateEndpointServiceConnectionStatusOutput {
-	return o
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToPrivateEndpointServiceConnectionStatusPtrOutput() PrivateEndpointServiceConnectionStatusPtrOutput {
-	return o.ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateEndpointServiceConnectionStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointServiceConnectionStatus) *PrivateEndpointServiceConnectionStatus {
-		return &v
-	}).(PrivateEndpointServiceConnectionStatusPtrOutput)
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateEndpointServiceConnectionStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointServiceConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateEndpointServiceConnectionStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PrivateEndpointServiceConnectionStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointServiceConnectionStatusPtrOutput) ElementType() reflect.Type {
-	return privateEndpointServiceConnectionStatusPtrType
-}
-
-func (o PrivateEndpointServiceConnectionStatusPtrOutput) ToPrivateEndpointServiceConnectionStatusPtrOutput() PrivateEndpointServiceConnectionStatusPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointServiceConnectionStatusPtrOutput) ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateEndpointServiceConnectionStatusPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointServiceConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointServiceConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateEndpointServiceConnectionStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateEndpointServiceConnectionStatusPtrOutput) Elem() PrivateEndpointServiceConnectionStatusOutput {
-	return o.ApplyT(func(v *PrivateEndpointServiceConnectionStatus) PrivateEndpointServiceConnectionStatus {
-		var ret PrivateEndpointServiceConnectionStatus
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PrivateEndpointServiceConnectionStatusOutput)
-}
-
-// PrivateEndpointServiceConnectionStatusInput is an input type that accepts PrivateEndpointServiceConnectionStatusArgs and PrivateEndpointServiceConnectionStatusOutput values.
-// You can construct a concrete instance of `PrivateEndpointServiceConnectionStatusInput` via:
-//
-//          PrivateEndpointServiceConnectionStatusArgs{...}
-type PrivateEndpointServiceConnectionStatusInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointServiceConnectionStatusOutput() PrivateEndpointServiceConnectionStatusOutput
-	ToPrivateEndpointServiceConnectionStatusOutputWithContext(context.Context) PrivateEndpointServiceConnectionStatusOutput
-}
-
-var privateEndpointServiceConnectionStatusPtrType = reflect.TypeOf((**PrivateEndpointServiceConnectionStatus)(nil)).Elem()
-
-type PrivateEndpointServiceConnectionStatusPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointServiceConnectionStatusPtrOutput() PrivateEndpointServiceConnectionStatusPtrOutput
-	ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(context.Context) PrivateEndpointServiceConnectionStatusPtrOutput
-}
-
-type privateEndpointServiceConnectionStatusPtr string
-
-func PrivateEndpointServiceConnectionStatusPtr(v string) PrivateEndpointServiceConnectionStatusPtrInput {
-	return (*privateEndpointServiceConnectionStatusPtr)(&v)
-}
-
-func (*privateEndpointServiceConnectionStatusPtr) ElementType() reflect.Type {
-	return privateEndpointServiceConnectionStatusPtrType
-}
-
-func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceConnectionStatusPtrOutput() PrivateEndpointServiceConnectionStatusPtrOutput {
-	return pulumi.ToOutput(in).(PrivateEndpointServiceConnectionStatusPtrOutput)
-}
-
-func (in *privateEndpointServiceConnectionStatusPtr) ToPrivateEndpointServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateEndpointServiceConnectionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PrivateEndpointServiceConnectionStatusPtrOutput)
-}
-
 // The type of the storage account.
-type StorageAccountType string
+type StorageAccountType pulumi.String
 
 const (
 	// The primary storage account for the Media Services account.
@@ -688,23 +140,7 @@ const (
 )
 
 func (StorageAccountType) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (e StorageAccountType) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return pulumi.ToOutput(e).(StorageAccountTypeOutput)
-}
-
-func (e StorageAccountType) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StorageAccountTypeOutput)
-}
-
-func (e StorageAccountType) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return e.ToStorageAccountTypePtrOutputWithContext(context.Background())
-}
-
-func (e StorageAccountType) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return StorageAccountType(e).ToStorageAccountTypeOutputWithContext(ctx).ToStorageAccountTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StorageAccountType) ToStringOutput() pulumi.StringOutput {
@@ -723,128 +159,7 @@ func (e StorageAccountType) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StorageAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return o
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return o
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return o.ToStorageAccountTypePtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountType) *StorageAccountType {
-		return &v
-	}).(StorageAccountTypePtrOutput)
-}
-
-func (o StorageAccountTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAccountType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StorageAccountTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAccountType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StorageAccountTypePtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountTypePtrOutput) ElementType() reflect.Type {
-	return storageAccountTypePtrType
-}
-
-func (o StorageAccountTypePtrOutput) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return o
-}
-
-func (o StorageAccountTypePtrOutput) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return o
-}
-
-func (o StorageAccountTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageAccountType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StorageAccountTypePtrOutput) Elem() StorageAccountTypeOutput {
-	return o.ApplyT(func(v *StorageAccountType) StorageAccountType {
-		var ret StorageAccountType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(StorageAccountTypeOutput)
-}
-
-// StorageAccountTypeInput is an input type that accepts StorageAccountTypeArgs and StorageAccountTypeOutput values.
-// You can construct a concrete instance of `StorageAccountTypeInput` via:
-//
-//          StorageAccountTypeArgs{...}
-type StorageAccountTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountTypeOutput() StorageAccountTypeOutput
-	ToStorageAccountTypeOutputWithContext(context.Context) StorageAccountTypeOutput
-}
-
-var storageAccountTypePtrType = reflect.TypeOf((**StorageAccountType)(nil)).Elem()
-
-type StorageAccountTypePtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput
-	ToStorageAccountTypePtrOutputWithContext(context.Context) StorageAccountTypePtrOutput
-}
-
-type storageAccountTypePtr string
-
-func StorageAccountTypePtr(v string) StorageAccountTypePtrInput {
-	return (*storageAccountTypePtr)(&v)
-}
-
-func (*storageAccountTypePtr) ElementType() reflect.Type {
-	return storageAccountTypePtrType
-}
-
-func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
-	return pulumi.ToOutput(in).(StorageAccountTypePtrOutput)
-}
-
-func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypePtrOutput)
-}
-
-type StorageAuthentication string
+type StorageAuthentication pulumi.String
 
 const (
 	// System authentication.
@@ -854,23 +169,7 @@ const (
 )
 
 func (StorageAuthentication) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAuthentication)(nil)).Elem()
-}
-
-func (e StorageAuthentication) ToStorageAuthenticationOutput() StorageAuthenticationOutput {
-	return pulumi.ToOutput(e).(StorageAuthenticationOutput)
-}
-
-func (e StorageAuthentication) ToStorageAuthenticationOutputWithContext(ctx context.Context) StorageAuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StorageAuthenticationOutput)
-}
-
-func (e StorageAuthentication) ToStorageAuthenticationPtrOutput() StorageAuthenticationPtrOutput {
-	return e.ToStorageAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (e StorageAuthentication) ToStorageAuthenticationPtrOutputWithContext(ctx context.Context) StorageAuthenticationPtrOutput {
-	return StorageAuthentication(e).ToStorageAuthenticationOutputWithContext(ctx).ToStorageAuthenticationPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StorageAuthentication) ToStringOutput() pulumi.StringOutput {
@@ -887,140 +186,4 @@ func (e StorageAuthentication) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e StorageAuthentication) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type StorageAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (StorageAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAuthentication)(nil)).Elem()
-}
-
-func (o StorageAuthenticationOutput) ToStorageAuthenticationOutput() StorageAuthenticationOutput {
-	return o
-}
-
-func (o StorageAuthenticationOutput) ToStorageAuthenticationOutputWithContext(ctx context.Context) StorageAuthenticationOutput {
-	return o
-}
-
-func (o StorageAuthenticationOutput) ToStorageAuthenticationPtrOutput() StorageAuthenticationPtrOutput {
-	return o.ToStorageAuthenticationPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAuthenticationOutput) ToStorageAuthenticationPtrOutputWithContext(ctx context.Context) StorageAuthenticationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAuthentication) *StorageAuthentication {
-		return &v
-	}).(StorageAuthenticationPtrOutput)
-}
-
-func (o StorageAuthenticationOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StorageAuthenticationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAuthentication) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StorageAuthenticationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAuthenticationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAuthentication) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StorageAuthenticationPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAuthenticationPtrOutput) ElementType() reflect.Type {
-	return storageAuthenticationPtrType
-}
-
-func (o StorageAuthenticationPtrOutput) ToStorageAuthenticationPtrOutput() StorageAuthenticationPtrOutput {
-	return o
-}
-
-func (o StorageAuthenticationPtrOutput) ToStorageAuthenticationPtrOutputWithContext(ctx context.Context) StorageAuthenticationPtrOutput {
-	return o
-}
-
-func (o StorageAuthenticationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAuthenticationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageAuthentication) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StorageAuthenticationPtrOutput) Elem() StorageAuthenticationOutput {
-	return o.ApplyT(func(v *StorageAuthentication) StorageAuthentication {
-		var ret StorageAuthentication
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(StorageAuthenticationOutput)
-}
-
-// StorageAuthenticationInput is an input type that accepts StorageAuthenticationArgs and StorageAuthenticationOutput values.
-// You can construct a concrete instance of `StorageAuthenticationInput` via:
-//
-//          StorageAuthenticationArgs{...}
-type StorageAuthenticationInput interface {
-	pulumi.Input
-
-	ToStorageAuthenticationOutput() StorageAuthenticationOutput
-	ToStorageAuthenticationOutputWithContext(context.Context) StorageAuthenticationOutput
-}
-
-var storageAuthenticationPtrType = reflect.TypeOf((**StorageAuthentication)(nil)).Elem()
-
-type StorageAuthenticationPtrInput interface {
-	pulumi.Input
-
-	ToStorageAuthenticationPtrOutput() StorageAuthenticationPtrOutput
-	ToStorageAuthenticationPtrOutputWithContext(context.Context) StorageAuthenticationPtrOutput
-}
-
-type storageAuthenticationPtr string
-
-func StorageAuthenticationPtr(v string) StorageAuthenticationPtrInput {
-	return (*storageAuthenticationPtr)(&v)
-}
-
-func (*storageAuthenticationPtr) ElementType() reflect.Type {
-	return storageAuthenticationPtrType
-}
-
-func (in *storageAuthenticationPtr) ToStorageAuthenticationPtrOutput() StorageAuthenticationPtrOutput {
-	return pulumi.ToOutput(in).(StorageAuthenticationPtrOutput)
-}
-
-func (in *storageAuthenticationPtr) ToStorageAuthenticationPtrOutputWithContext(ctx context.Context) StorageAuthenticationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StorageAuthenticationPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(AccountEncryptionKeyTypeOutput{})
-	pulumi.RegisterOutputType(AccountEncryptionKeyTypePtrOutput{})
-	pulumi.RegisterOutputType(DefaultActionOutput{})
-	pulumi.RegisterOutputType(DefaultActionPtrOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityTypeOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityTypePtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusPtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
-	pulumi.RegisterOutputType(StorageAccountTypePtrOutput{})
-	pulumi.RegisterOutputType(StorageAuthenticationOutput{})
-	pulumi.RegisterOutputType(StorageAuthenticationPtrOutput{})
 }

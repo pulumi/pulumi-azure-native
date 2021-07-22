@@ -125,9 +125,45 @@ func GetPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyDefinitionAtManagementGroup resources.
 type policyDefinitionAtManagementGroupState struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata interface{} `pulumi:"metadata"`
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode *string `pulumi:"mode"`
+	// The name of the policy definition.
+	Name *string `pulumi:"name"`
+	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType *string `pulumi:"policyType"`
+	// The type of the resource (Microsoft.Authorization/policyDefinitions).
+	Type *string `pulumi:"type"`
 }
 
 type PolicyDefinitionAtManagementGroupState struct {
+	// The policy definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrInput
+	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.Input
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode pulumi.StringPtrInput
+	// The name of the policy definition.
+	Name pulumi.StringPtrInput
+	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+	Parameters ParameterDefinitionsValueResponseMapInput
+	// The policy rule.
+	PolicyRule pulumi.Input
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType pulumi.StringPtrInput
+	// The type of the resource (Microsoft.Authorization/policyDefinitions).
+	Type pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionAtManagementGroupState) ElementType() reflect.Type {

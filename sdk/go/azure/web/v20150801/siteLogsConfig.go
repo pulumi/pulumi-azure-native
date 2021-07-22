@@ -142,9 +142,45 @@ func GetSiteLogsConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteLogsConfig resources.
 type siteLogsConfigState struct {
+	// Application logs configuration
+	ApplicationLogs *ApplicationLogsConfigResponse `pulumi:"applicationLogs"`
+	// Detailed error messages configuration
+	DetailedErrorMessages *EnabledConfigResponse `pulumi:"detailedErrorMessages"`
+	// Failed requests tracing configuration
+	FailedRequestsTracing *EnabledConfigResponse `pulumi:"failedRequestsTracing"`
+	// Http logs configuration
+	HttpLogs *HttpLogsConfigResponse `pulumi:"httpLogs"`
+	// Kind of resource
+	Kind *string `pulumi:"kind"`
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type SiteLogsConfigState struct {
+	// Application logs configuration
+	ApplicationLogs ApplicationLogsConfigResponsePtrInput
+	// Detailed error messages configuration
+	DetailedErrorMessages EnabledConfigResponsePtrInput
+	// Failed requests tracing configuration
+	FailedRequestsTracing EnabledConfigResponsePtrInput
+	// Http logs configuration
+	HttpLogs HttpLogsConfigResponsePtrInput
+	// Kind of resource
+	Kind pulumi.StringPtrInput
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (SiteLogsConfigState) ElementType() reflect.Type {

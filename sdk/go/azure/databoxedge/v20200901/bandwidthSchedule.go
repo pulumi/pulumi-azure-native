@@ -138,9 +138,37 @@ func GetBandwidthSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BandwidthSchedule resources.
 type bandwidthScheduleState struct {
+	// The days of the week when this schedule is applicable.
+	Days []string `pulumi:"days"`
+	// The object name.
+	Name *string `pulumi:"name"`
+	// The bandwidth rate in Mbps.
+	RateInMbps *int `pulumi:"rateInMbps"`
+	// The start time of the schedule in UTC.
+	Start *string `pulumi:"start"`
+	// The stop time of the schedule in UTC.
+	Stop *string `pulumi:"stop"`
+	// Bandwidth object related to ASE resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
 }
 
 type BandwidthScheduleState struct {
+	// The days of the week when this schedule is applicable.
+	Days pulumi.StringArrayInput
+	// The object name.
+	Name pulumi.StringPtrInput
+	// The bandwidth rate in Mbps.
+	RateInMbps pulumi.IntPtrInput
+	// The start time of the schedule in UTC.
+	Start pulumi.StringPtrInput
+	// The stop time of the schedule in UTC.
+	Stop pulumi.StringPtrInput
+	// Bandwidth object related to ASE resource
+	SystemData SystemDataResponsePtrInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
 }
 
 func (BandwidthScheduleState) ElementType() reflect.Type {

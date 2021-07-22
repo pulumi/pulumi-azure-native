@@ -135,9 +135,29 @@ func GetApiIssueComment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIssueComment resources.
 type apiIssueCommentState struct {
+	// Date and time when the comment was created.
+	CreatedDate *string `pulumi:"createdDate"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Comment text.
+	Text *string `pulumi:"text"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
+	// A resource identifier for the user who left the comment.
+	UserId *string `pulumi:"userId"`
 }
 
 type ApiIssueCommentState struct {
+	// Date and time when the comment was created.
+	CreatedDate pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Comment text.
+	Text pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
+	// A resource identifier for the user who left the comment.
+	UserId pulumi.StringPtrInput
 }
 
 func (ApiIssueCommentState) ElementType() reflect.Type {

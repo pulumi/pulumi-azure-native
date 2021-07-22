@@ -1026,7 +1026,7 @@ func (o ResourceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 type Sku struct {
 	// Gets or sets the name.
-	Name *SkuName `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Gets or sets the reference to plan.
 	Plan *ResourceReference `pulumi:"plan"`
 }
@@ -1044,7 +1044,7 @@ type SkuInput interface {
 
 type SkuArgs struct {
 	// Gets or sets the name.
-	Name SkuNamePtrInput `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 	// Gets or sets the reference to plan.
 	Plan ResourceReferencePtrInput `pulumi:"plan"`
 }
@@ -1127,8 +1127,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // Gets or sets the name.
-func (o SkuOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
+func (o SkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the reference to plan.
@@ -1155,13 +1155,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // Gets or sets the name.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the reference to plan.
@@ -1328,7 +1328,7 @@ type WorkflowParameter struct {
 	// Gets or sets the metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// Gets or sets the type.
-	Type *ParameterType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Gets or sets the value.
 	Value interface{} `pulumi:"value"`
 }
@@ -1348,7 +1348,7 @@ type WorkflowParameterArgs struct {
 	// Gets or sets the metadata.
 	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the type.
-	Type ParameterTypePtrInput `pulumi:"type"`
+	Type *ParameterType `pulumi:"type"`
 	// Gets or sets the value.
 	Value pulumi.Input `pulumi:"value"`
 }
@@ -1410,8 +1410,8 @@ func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
 }
 
 // Gets or sets the type.
-func (o WorkflowParameterOutput) Type() ParameterTypePtrOutput {
-	return o.ApplyT(func(v WorkflowParameter) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
+func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets the value.

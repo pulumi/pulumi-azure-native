@@ -105,9 +105,65 @@ func GetConnectedRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectedRegistry resources.
 type connectedRegistryState struct {
+	// The activation properties of the connected registry.
+	Activation *ActivationPropertiesResponse `pulumi:"activation"`
+	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
+	ClientTokenIds []string `pulumi:"clientTokenIds"`
+	// The current connection state of the connected registry.
+	ConnectionState *string `pulumi:"connectionState"`
+	// The last activity time of the connected registry.
+	LastActivityTime *string `pulumi:"lastActivityTime"`
+	// The logging properties of the connected registry.
+	Logging *LoggingPropertiesResponse `pulumi:"logging"`
+	// The login server properties of the connected registry.
+	LoginServer *LoginServerPropertiesResponse `pulumi:"loginServer"`
+	// The mode of the connected registry resource that indicates the permissions of the registry.
+	Mode *string `pulumi:"mode"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The parent of the connected registry.
+	Parent *ParentPropertiesResponse `pulumi:"parent"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The list of current statuses of the connected registry.
+	StatusDetails []StatusDetailPropertiesResponse `pulumi:"statusDetails"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The current version of ACR runtime on the connected registry.
+	Version *string `pulumi:"version"`
 }
 
 type ConnectedRegistryState struct {
+	// The activation properties of the connected registry.
+	Activation ActivationPropertiesResponsePtrInput
+	// The list of the ACR token resource IDs used to authenticate clients to the connected registry.
+	ClientTokenIds pulumi.StringArrayInput
+	// The current connection state of the connected registry.
+	ConnectionState pulumi.StringPtrInput
+	// The last activity time of the connected registry.
+	LastActivityTime pulumi.StringPtrInput
+	// The logging properties of the connected registry.
+	Logging LoggingPropertiesResponsePtrInput
+	// The login server properties of the connected registry.
+	LoginServer LoginServerPropertiesResponsePtrInput
+	// The mode of the connected registry resource that indicates the permissions of the registry.
+	Mode pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The parent of the connected registry.
+	Parent ParentPropertiesResponsePtrInput
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The list of current statuses of the connected registry.
+	StatusDetails StatusDetailPropertiesResponseArrayInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// The current version of ACR runtime on the connected registry.
+	Version pulumi.StringPtrInput
 }
 
 func (ConnectedRegistryState) ElementType() reflect.Type {

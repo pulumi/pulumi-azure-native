@@ -91,9 +91,57 @@ func GetVNetPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VNetPeering resources.
 type vnetPeeringState struct {
+	// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+	AllowForwardedTraffic *bool `pulumi:"allowForwardedTraffic"`
+	// If gateway links can be used in remote virtual networking to link to this virtual network.
+	AllowGatewayTransit *bool `pulumi:"allowGatewayTransit"`
+	// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
+	// The reference to the databricks virtual network address space.
+	DatabricksAddressSpace *AddressSpaceResponse `pulumi:"databricksAddressSpace"`
+	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
+	// Name of the virtual network peering resource
+	Name *string `pulumi:"name"`
+	// The status of the virtual network peering.
+	PeeringState *string `pulumi:"peeringState"`
+	// The provisioning state of the virtual network peering resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The reference to the remote virtual network address space.
+	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
+	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+	RemoteVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork `pulumi:"remoteVirtualNetwork"`
+	// type of the virtual network peering resource
+	Type *string `pulumi:"type"`
+	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 }
 
 type VNetPeeringState struct {
+	// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+	AllowForwardedTraffic pulumi.BoolPtrInput
+	// If gateway links can be used in remote virtual networking to link to this virtual network.
+	AllowGatewayTransit pulumi.BoolPtrInput
+	// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+	AllowVirtualNetworkAccess pulumi.BoolPtrInput
+	// The reference to the databricks virtual network address space.
+	DatabricksAddressSpace AddressSpaceResponsePtrInput
+	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput
+	// Name of the virtual network peering resource
+	Name pulumi.StringPtrInput
+	// The status of the virtual network peering.
+	PeeringState pulumi.StringPtrInput
+	// The provisioning state of the virtual network peering resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The reference to the remote virtual network address space.
+	RemoteAddressSpace AddressSpaceResponsePtrInput
+	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrInput
+	// type of the virtual network peering resource
+	Type pulumi.StringPtrInput
+	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+	UseRemoteGateways pulumi.BoolPtrInput
 }
 
 func (VNetPeeringState) ElementType() reflect.Type {

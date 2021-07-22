@@ -54,9 +54,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AccountType == nil {
-		return nil, errors.New("invalid value for required argument 'AccountType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -190,9 +187,69 @@ func GetStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccount resources.
 type storageAccountState struct {
+	// The type of the storage account.
+	AccountType *string `pulumi:"accountType"`
+	// The creation date and time of the storage account in UTC.
+	CreationTime *string `pulumi:"creationTime"`
+	// The custom domain the user assigned to this storage account.
+	CustomDomain *CustomDomainResponse `pulumi:"customDomain"`
+	// The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	LastGeoFailoverTime *string `pulumi:"lastGeoFailoverTime"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+	PrimaryEndpoints *EndpointsResponse `pulumi:"primaryEndpoints"`
+	// The location of the primary data center for the storage account.
+	PrimaryLocation *string `pulumi:"primaryLocation"`
+	// The status of the storage account at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+	SecondaryEndpoints *EndpointsResponse `pulumi:"secondaryEndpoints"`
+	// The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	SecondaryLocation *string `pulumi:"secondaryLocation"`
+	// The status indicating whether the primary location of the storage account is available or unavailable.
+	StatusOfPrimary *string `pulumi:"statusOfPrimary"`
+	// The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+	StatusOfSecondary *string `pulumi:"statusOfSecondary"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type StorageAccountState struct {
+	// The type of the storage account.
+	AccountType pulumi.StringPtrInput
+	// The creation date and time of the storage account in UTC.
+	CreationTime pulumi.StringPtrInput
+	// The custom domain the user assigned to this storage account.
+	CustomDomain CustomDomainResponsePtrInput
+	// The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	LastGeoFailoverTime pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+	PrimaryEndpoints EndpointsResponsePtrInput
+	// The location of the primary data center for the storage account.
+	PrimaryLocation pulumi.StringPtrInput
+	// The status of the storage account at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+	SecondaryEndpoints EndpointsResponsePtrInput
+	// The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	SecondaryLocation pulumi.StringPtrInput
+	// The status indicating whether the primary location of the storage account is available or unavailable.
+	StatusOfPrimary pulumi.StringPtrInput
+	// The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+	StatusOfSecondary pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountState) ElementType() reflect.Type {
@@ -203,7 +260,7 @@ type storageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName *string `pulumi:"accountName"`
 	// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	AccountType AccountType `pulumi:"accountType"`
+	AccountType string `pulumi:"accountType"`
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -217,7 +274,7 @@ type StorageAccountArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringPtrInput
 	// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	AccountType AccountTypeInput
+	AccountType AccountType
 	// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.

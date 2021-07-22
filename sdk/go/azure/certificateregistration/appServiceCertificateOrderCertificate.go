@@ -131,9 +131,45 @@ func GetAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppServiceCertificateOrderCertificate resources.
 type appServiceCertificateOrderCertificateState struct {
+	// Key Vault resource Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location *string `pulumi:"location"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Status of the Key Vault secret.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type AppServiceCertificateOrderCertificateState struct {
+	// Key Vault resource Id.
+	KeyVaultId pulumi.StringPtrInput
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Location.
+	Location pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Status of the Key Vault secret.
+	ProvisioningState pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (AppServiceCertificateOrderCertificateState) ElementType() reflect.Type {

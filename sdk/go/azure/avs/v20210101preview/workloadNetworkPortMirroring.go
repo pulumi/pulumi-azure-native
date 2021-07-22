@@ -94,9 +94,45 @@ func GetWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkPortMirroring resources.
 type workloadNetworkPortMirroringState struct {
+	// Destination VM Group.
+	Destination *string `pulumi:"destination"`
+	// Direction of port mirroring profile.
+	Direction *string `pulumi:"direction"`
+	// Display name of the port mirroring profile.
+	DisplayName *string `pulumi:"displayName"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// Source VM Group.
+	Source *string `pulumi:"source"`
+	// Port Mirroring Status.
+	Status *string `pulumi:"status"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkPortMirroringState struct {
+	// Destination VM Group.
+	Destination pulumi.StringPtrInput
+	// Direction of port mirroring profile.
+	Direction pulumi.StringPtrInput
+	// Display name of the port mirroring profile.
+	DisplayName pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// NSX revision number.
+	Revision pulumi.Float64PtrInput
+	// Source VM Group.
+	Source pulumi.StringPtrInput
+	// Port Mirroring Status.
+	Status pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkPortMirroringState) ElementType() reflect.Type {

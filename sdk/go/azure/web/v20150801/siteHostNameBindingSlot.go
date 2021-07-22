@@ -149,9 +149,53 @@ func GetSiteHostNameBindingSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteHostNameBindingSlot resources.
 type siteHostNameBindingSlotState struct {
+	// Azure resource name
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI
+	DomainId *string `pulumi:"domainId"`
+	// Host name type
+	HostNameType *string `pulumi:"hostNameType"`
+	// Kind of resource
+	Kind *string `pulumi:"kind"`
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Web app name
+	SiteName *string `pulumi:"siteName"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type SiteHostNameBindingSlotState struct {
+	// Azure resource name
+	AzureResourceName pulumi.StringPtrInput
+	// Azure resource type
+	AzureResourceType pulumi.StringPtrInput
+	// Custom DNS record type
+	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	// Fully qualified ARM domain resource URI
+	DomainId pulumi.StringPtrInput
+	// Host name type
+	HostNameType pulumi.StringPtrInput
+	// Kind of resource
+	Kind pulumi.StringPtrInput
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Web app name
+	SiteName pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (SiteHostNameBindingSlotState) ElementType() reflect.Type {
@@ -162,15 +206,15 @@ type siteHostNameBindingSlotArgs struct {
 	// Azure resource name
 	AzureResourceName *string `pulumi:"azureResourceName"`
 	// Azure resource type
-	AzureResourceType *AzureResourceType `pulumi:"azureResourceType"`
+	AzureResourceType *string `pulumi:"azureResourceType"`
 	// Custom DNS record type
-	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
 	// Fully qualified ARM domain resource URI
 	DomainId *string `pulumi:"domainId"`
 	// Name of host
 	HostName *string `pulumi:"hostName"`
 	// Host name type
-	HostNameType *HostNameType `pulumi:"hostNameType"`
+	HostNameType *string `pulumi:"hostNameType"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -196,15 +240,15 @@ type SiteHostNameBindingSlotArgs struct {
 	// Azure resource name
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type
-	AzureResourceType AzureResourceTypePtrInput
+	AzureResourceType *AzureResourceType
 	// Custom DNS record type
-	CustomHostNameDnsRecordType CustomHostNameDnsRecordTypePtrInput
+	CustomHostNameDnsRecordType *CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
 	// Name of host
 	HostName pulumi.StringPtrInput
 	// Host name type
-	HostNameType HostNameTypePtrInput
+	HostNameType *HostNameType
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource

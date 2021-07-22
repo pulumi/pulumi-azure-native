@@ -130,9 +130,37 @@ func GetApiTagDescription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiTagDescription resources.
 type apiTagDescriptionState struct {
+	// Description of the Tag.
+	Description *string `pulumi:"description"`
+	// Tag name.
+	DisplayName *string `pulumi:"displayName"`
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Identifier of the tag in the form of /tags/{tagId}
+	TagId *string `pulumi:"tagId"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
 }
 
 type ApiTagDescriptionState struct {
+	// Description of the Tag.
+	Description pulumi.StringPtrInput
+	// Tag name.
+	DisplayName pulumi.StringPtrInput
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription pulumi.StringPtrInput
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Identifier of the tag in the form of /tags/{tagId}
+	TagId pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ApiTagDescriptionState) ElementType() reflect.Type {

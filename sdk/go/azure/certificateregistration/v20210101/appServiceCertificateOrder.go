@@ -74,9 +74,6 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ProductType == nil {
-		return nil, errors.New("invalid value for required argument 'ProductType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -171,9 +168,109 @@ func GetAppServiceCertificateOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppServiceCertificateOrder resources.
 type appServiceCertificateOrderState struct {
+	// Reasons why App Service Certificate is not renewable at the current moment.
+	AppServiceCertificateNotRenewableReasons []string `pulumi:"appServiceCertificateNotRenewableReasons"`
+	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// State of the Key Vault secret.
+	Certificates map[string]AppServiceCertificateResponse `pulumi:"certificates"`
+	// Contact info
+	Contact *CertificateOrderContactResponse `pulumi:"contact"`
+	// Last CSR that was created for this order.
+	Csr *string `pulumi:"csr"`
+	// Certificate distinguished name.
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Domain verification token.
+	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
+	// Certificate expiration time.
+	ExpirationTime *string `pulumi:"expirationTime"`
+	// Intermediate certificate.
+	Intermediate *CertificateDetailsResponse `pulumi:"intermediate"`
+	// <code>true</code> if private key is external; otherwise, <code>false</code>.
+	IsPrivateKeyExternal *bool `pulumi:"isPrivateKeyExternal"`
+	// Certificate key size.
+	KeySize *int `pulumi:"keySize"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Certificate last issuance time.
+	LastCertificateIssuanceTime *string `pulumi:"lastCertificateIssuanceTime"`
+	// Resource Location.
+	Location *string `pulumi:"location"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Time stamp when the certificate would be auto renewed next
+	NextAutoRenewalTimeStamp *string `pulumi:"nextAutoRenewalTimeStamp"`
+	// Certificate product type.
+	ProductType *string `pulumi:"productType"`
+	// Status of certificate order.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Root certificate.
+	Root *CertificateDetailsResponse `pulumi:"root"`
+	// Current serial number of the certificate.
+	SerialNumber *string `pulumi:"serialNumber"`
+	// Signed certificate.
+	SignedCertificate *CertificateDetailsResponse `pulumi:"signedCertificate"`
+	// Current order status.
+	Status *string `pulumi:"status"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Duration in years (must be 1).
+	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
 type AppServiceCertificateOrderState struct {
+	// Reasons why App Service Certificate is not renewable at the current moment.
+	AppServiceCertificateNotRenewableReasons pulumi.StringArrayInput
+	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+	AutoRenew pulumi.BoolPtrInput
+	// State of the Key Vault secret.
+	Certificates AppServiceCertificateResponseMapInput
+	// Contact info
+	Contact CertificateOrderContactResponsePtrInput
+	// Last CSR that was created for this order.
+	Csr pulumi.StringPtrInput
+	// Certificate distinguished name.
+	DistinguishedName pulumi.StringPtrInput
+	// Domain verification token.
+	DomainVerificationToken pulumi.StringPtrInput
+	// Certificate expiration time.
+	ExpirationTime pulumi.StringPtrInput
+	// Intermediate certificate.
+	Intermediate CertificateDetailsResponsePtrInput
+	// <code>true</code> if private key is external; otherwise, <code>false</code>.
+	IsPrivateKeyExternal pulumi.BoolPtrInput
+	// Certificate key size.
+	KeySize pulumi.IntPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Certificate last issuance time.
+	LastCertificateIssuanceTime pulumi.StringPtrInput
+	// Resource Location.
+	Location pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Time stamp when the certificate would be auto renewed next
+	NextAutoRenewalTimeStamp pulumi.StringPtrInput
+	// Certificate product type.
+	ProductType pulumi.StringPtrInput
+	// Status of certificate order.
+	ProvisioningState pulumi.StringPtrInput
+	// Root certificate.
+	Root CertificateDetailsResponsePtrInput
+	// Current serial number of the certificate.
+	SerialNumber pulumi.StringPtrInput
+	// Signed certificate.
+	SignedCertificate CertificateDetailsResponsePtrInput
+	// Current order status.
+	Status pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Duration in years (must be 1).
+	ValidityInYears pulumi.IntPtrInput
 }
 
 func (AppServiceCertificateOrderState) ElementType() reflect.Type {
@@ -198,7 +295,7 @@ type appServiceCertificateOrderArgs struct {
 	// Resource Location.
 	Location *string `pulumi:"location"`
 	// Certificate product type.
-	ProductType CertificateProductType `pulumi:"productType"`
+	ProductType string `pulumi:"productType"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -226,7 +323,7 @@ type AppServiceCertificateOrderArgs struct {
 	// Resource Location.
 	Location pulumi.StringPtrInput
 	// Certificate product type.
-	ProductType CertificateProductTypeInput
+	ProductType CertificateProductType
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -83,9 +83,29 @@ func GetJobCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobCollection resources.
 type jobCollectionState struct {
+	// Gets or sets the storage account location.
+	Location *string `pulumi:"location"`
+	// Gets or sets the job collection resource name.
+	Name *string `pulumi:"name"`
+	// Gets or sets the job collection properties.
+	Properties *JobCollectionPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets the job collection resource type.
+	Type *string `pulumi:"type"`
 }
 
 type JobCollectionState struct {
+	// Gets or sets the storage account location.
+	Location pulumi.StringPtrInput
+	// Gets or sets the job collection resource name.
+	Name pulumi.StringPtrInput
+	// Gets or sets the job collection properties.
+	Properties JobCollectionPropertiesResponsePtrInput
+	// Gets or sets the tags.
+	Tags pulumi.StringMapInput
+	// Gets the job collection resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (JobCollectionState) ElementType() reflect.Type {

@@ -147,9 +147,37 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	// Information about the filter for the event subscription.
+	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
+	// List of user defined labels.
+	Labels []string `pulumi:"labels"`
+	// Name of the resource
+	Name *string `pulumi:"name"`
+	// Provisioning state of the event subscription.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Name of the topic of the event subscription.
+	Topic *string `pulumi:"topic"`
+	// Type of the resource
+	Type *string `pulumi:"type"`
 }
 
 type EventSubscriptionState struct {
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination EventSubscriptionDestinationResponsePtrInput
+	// Information about the filter for the event subscription.
+	Filter EventSubscriptionFilterResponsePtrInput
+	// List of user defined labels.
+	Labels pulumi.StringArrayInput
+	// Name of the resource
+	Name pulumi.StringPtrInput
+	// Provisioning state of the event subscription.
+	ProvisioningState pulumi.StringPtrInput
+	// Name of the topic of the event subscription.
+	Topic pulumi.StringPtrInput
+	// Type of the resource
+	Type pulumi.StringPtrInput
 }
 
 func (EventSubscriptionState) ElementType() reflect.Type {

@@ -105,9 +105,29 @@ func GetSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlResourceSqlRoleDefinition resources.
 type sqlResourceSqlRoleDefinitionState struct {
+	// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+	AssignableScopes []string `pulumi:"assignableScopes"`
+	// The name of the database account.
+	Name *string `pulumi:"name"`
+	// The set of operations allowed through this Role Definition.
+	Permissions []PermissionResponse `pulumi:"permissions"`
+	// A user-friendly name for the Role Definition. Must be unique for the database account.
+	RoleName *string `pulumi:"roleName"`
+	// The type of Azure resource.
+	Type *string `pulumi:"type"`
 }
 
 type SqlResourceSqlRoleDefinitionState struct {
+	// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
+	AssignableScopes pulumi.StringArrayInput
+	// The name of the database account.
+	Name pulumi.StringPtrInput
+	// The set of operations allowed through this Role Definition.
+	Permissions PermissionResponseArrayInput
+	// A user-friendly name for the Role Definition. Must be unique for the database account.
+	RoleName pulumi.StringPtrInput
+	// The type of Azure resource.
+	Type pulumi.StringPtrInput
 }
 
 func (SqlResourceSqlRoleDefinitionState) ElementType() reflect.Type {
@@ -128,7 +148,7 @@ type sqlResourceSqlRoleDefinitionArgs struct {
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName *string `pulumi:"roleName"`
 	// Indicates whether the Role Definition was built-in or user created.
-	Type *RoleDefinitionType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlRoleDefinition resource.
@@ -146,7 +166,7 @@ type SqlResourceSqlRoleDefinitionArgs struct {
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName pulumi.StringPtrInput
 	// Indicates whether the Role Definition was built-in or user created.
-	Type RoleDefinitionTypePtrInput
+	Type *RoleDefinitionType
 }
 
 func (SqlResourceSqlRoleDefinitionArgs) ElementType() reflect.Type {

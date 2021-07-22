@@ -78,9 +78,41 @@ func GetEnterpriseChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnterpriseChannel resources.
 type enterpriseChannelState struct {
+	// Entity Tag
+	Etag *string `pulumi:"etag"`
+	// Required. Gets or sets the Kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name *string `pulumi:"name"`
+	// The set of properties specific to an Enterprise Channel resource.
+	Properties *EnterpriseChannelPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the SKU of the resource.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type EnterpriseChannelState struct {
+	// Entity Tag
+	Etag pulumi.StringPtrInput
+	// Required. Gets or sets the Kind of the resource.
+	Kind pulumi.StringPtrInput
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput
+	// Specifies the name of the resource.
+	Name pulumi.StringPtrInput
+	// The set of properties specific to an Enterprise Channel resource.
+	Properties EnterpriseChannelPropertiesResponsePtrInput
+	// Gets or sets the SKU of the resource.
+	Sku SkuResponsePtrInput
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput
+	// Specifies the type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (EnterpriseChannelState) ElementType() reflect.Type {

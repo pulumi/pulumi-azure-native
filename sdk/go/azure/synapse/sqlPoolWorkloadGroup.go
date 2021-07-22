@@ -123,9 +123,41 @@ func GetSqlPoolWorkloadGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolWorkloadGroup resources.
 type sqlPoolWorkloadGroupState struct {
+	// The workload group importance level.
+	Importance *string `pulumi:"importance"`
+	// The workload group cap percentage resource.
+	MaxResourcePercent *int `pulumi:"maxResourcePercent"`
+	// The workload group request maximum grant percentage.
+	MaxResourcePercentPerRequest *float64 `pulumi:"maxResourcePercentPerRequest"`
+	// The workload group minimum percentage resource.
+	MinResourcePercent *int `pulumi:"minResourcePercent"`
+	// The workload group request minimum grant percentage.
+	MinResourcePercentPerRequest *float64 `pulumi:"minResourcePercentPerRequest"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The workload group query execution timeout.
+	QueryExecutionTimeout *int `pulumi:"queryExecutionTimeout"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type SqlPoolWorkloadGroupState struct {
+	// The workload group importance level.
+	Importance pulumi.StringPtrInput
+	// The workload group cap percentage resource.
+	MaxResourcePercent pulumi.IntPtrInput
+	// The workload group request maximum grant percentage.
+	MaxResourcePercentPerRequest pulumi.Float64PtrInput
+	// The workload group minimum percentage resource.
+	MinResourcePercent pulumi.IntPtrInput
+	// The workload group request minimum grant percentage.
+	MinResourcePercentPerRequest pulumi.Float64PtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The workload group query execution timeout.
+	QueryExecutionTimeout pulumi.IntPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (SqlPoolWorkloadGroupState) ElementType() reflect.Type {

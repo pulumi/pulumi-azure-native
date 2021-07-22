@@ -73,9 +73,33 @@ func GetSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Setting resources.
 type settingState struct {
+	// Array of scopes with additional details used by Cost Management in the Azure portal.
+	Cache []SettingsPropertiesResponseCache `pulumi:"cache"`
+	// Resource kind.
+	Kind *string `pulumi:"kind"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+	Scope *string `pulumi:"scope"`
+	// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+	StartOn *string `pulumi:"startOn"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type SettingState struct {
+	// Array of scopes with additional details used by Cost Management in the Azure portal.
+	Cache SettingsPropertiesResponseCacheArrayInput
+	// Resource kind.
+	Kind pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
+	Scope pulumi.StringPtrInput
+	// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
+	StartOn pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (SettingState) ElementType() reflect.Type {

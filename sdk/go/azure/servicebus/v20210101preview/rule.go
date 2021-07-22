@@ -102,9 +102,37 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action *ActionResponse `pulumi:"action"`
+	// Properties of correlationFilter
+	CorrelationFilter *CorrelationFilterResponse `pulumi:"correlationFilter"`
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType *string `pulumi:"filterType"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Properties of sqlFilter
+	SqlFilter *SqlFilterResponse `pulumi:"sqlFilter"`
+	// The system meta data relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type RuleState struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action ActionResponsePtrInput
+	// Properties of correlationFilter
+	CorrelationFilter CorrelationFilterResponsePtrInput
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Properties of sqlFilter
+	SqlFilter SqlFilterResponsePtrInput
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -117,7 +145,7 @@ type ruleArgs struct {
 	// Properties of correlationFilter
 	CorrelationFilter *CorrelationFilter `pulumi:"correlationFilter"`
 	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType *FilterType `pulumi:"filterType"`
+	FilterType *string `pulumi:"filterType"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
 	// Name of the Resource group within the Azure subscription.
@@ -139,7 +167,7 @@ type RuleArgs struct {
 	// Properties of correlationFilter
 	CorrelationFilter CorrelationFilterPtrInput
 	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType FilterTypePtrInput
+	FilterType *FilterType
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

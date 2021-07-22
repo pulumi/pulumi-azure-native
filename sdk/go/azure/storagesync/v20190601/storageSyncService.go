@@ -127,9 +127,33 @@ func GetStorageSyncService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageSyncService resources.
 type storageSyncServiceState struct {
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus *int `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type StorageSyncServiceState struct {
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Storage Sync service status.
+	StorageSyncServiceStatus pulumi.IntPtrInput
+	// Storage Sync service Uid
+	StorageSyncServiceUid pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (StorageSyncServiceState) ElementType() reflect.Type {

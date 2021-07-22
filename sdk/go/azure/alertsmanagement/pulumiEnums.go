@@ -11,7 +11,7 @@ import (
 )
 
 // Indicates if the given action rule is enabled or disabled
-type ActionRuleStatus string
+type ActionRuleStatus pulumi.String
 
 const (
 	ActionRuleStatusEnabled  = ActionRuleStatus("Enabled")
@@ -19,23 +19,7 @@ const (
 )
 
 func (ActionRuleStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleStatus)(nil)).Elem()
-}
-
-func (e ActionRuleStatus) ToActionRuleStatusOutput() ActionRuleStatusOutput {
-	return pulumi.ToOutput(e).(ActionRuleStatusOutput)
-}
-
-func (e ActionRuleStatus) ToActionRuleStatusOutputWithContext(ctx context.Context) ActionRuleStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ActionRuleStatusOutput)
-}
-
-func (e ActionRuleStatus) ToActionRuleStatusPtrOutput() ActionRuleStatusPtrOutput {
-	return e.ToActionRuleStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ActionRuleStatus) ToActionRuleStatusPtrOutputWithContext(ctx context.Context) ActionRuleStatusPtrOutput {
-	return ActionRuleStatus(e).ToActionRuleStatusOutputWithContext(ctx).ToActionRuleStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ActionRuleStatus) ToStringOutput() pulumi.StringOutput {
@@ -54,129 +38,8 @@ func (e ActionRuleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ActionRuleStatusOutput struct{ *pulumi.OutputState }
-
-func (ActionRuleStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleStatus)(nil)).Elem()
-}
-
-func (o ActionRuleStatusOutput) ToActionRuleStatusOutput() ActionRuleStatusOutput {
-	return o
-}
-
-func (o ActionRuleStatusOutput) ToActionRuleStatusOutputWithContext(ctx context.Context) ActionRuleStatusOutput {
-	return o
-}
-
-func (o ActionRuleStatusOutput) ToActionRuleStatusPtrOutput() ActionRuleStatusPtrOutput {
-	return o.ToActionRuleStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleStatusOutput) ToActionRuleStatusPtrOutputWithContext(ctx context.Context) ActionRuleStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleStatus) *ActionRuleStatus {
-		return &v
-	}).(ActionRuleStatusPtrOutput)
-}
-
-func (o ActionRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ActionRuleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionRuleStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ActionRuleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionRuleStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ActionRuleStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionRuleStatusPtrOutput) ElementType() reflect.Type {
-	return actionRuleStatusPtrType
-}
-
-func (o ActionRuleStatusPtrOutput) ToActionRuleStatusPtrOutput() ActionRuleStatusPtrOutput {
-	return o
-}
-
-func (o ActionRuleStatusPtrOutput) ToActionRuleStatusPtrOutputWithContext(ctx context.Context) ActionRuleStatusPtrOutput {
-	return o
-}
-
-func (o ActionRuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionRuleStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionRuleStatusPtrOutput) Elem() ActionRuleStatusOutput {
-	return o.ApplyT(func(v *ActionRuleStatus) ActionRuleStatus {
-		var ret ActionRuleStatus
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ActionRuleStatusOutput)
-}
-
-// ActionRuleStatusInput is an input type that accepts ActionRuleStatusArgs and ActionRuleStatusOutput values.
-// You can construct a concrete instance of `ActionRuleStatusInput` via:
-//
-//          ActionRuleStatusArgs{...}
-type ActionRuleStatusInput interface {
-	pulumi.Input
-
-	ToActionRuleStatusOutput() ActionRuleStatusOutput
-	ToActionRuleStatusOutputWithContext(context.Context) ActionRuleStatusOutput
-}
-
-var actionRuleStatusPtrType = reflect.TypeOf((**ActionRuleStatus)(nil)).Elem()
-
-type ActionRuleStatusPtrInput interface {
-	pulumi.Input
-
-	ToActionRuleStatusPtrOutput() ActionRuleStatusPtrOutput
-	ToActionRuleStatusPtrOutputWithContext(context.Context) ActionRuleStatusPtrOutput
-}
-
-type actionRuleStatusPtr string
-
-func ActionRuleStatusPtr(v string) ActionRuleStatusPtrInput {
-	return (*actionRuleStatusPtr)(&v)
-}
-
-func (*actionRuleStatusPtr) ElementType() reflect.Type {
-	return actionRuleStatusPtrType
-}
-
-func (in *actionRuleStatusPtr) ToActionRuleStatusPtrOutput() ActionRuleStatusPtrOutput {
-	return pulumi.ToOutput(in).(ActionRuleStatusPtrOutput)
-}
-
-func (in *actionRuleStatusPtr) ToActionRuleStatusPtrOutputWithContext(ctx context.Context) ActionRuleStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ActionRuleStatusPtrOutput)
-}
-
 // Indicates type of action rule
-type ActionRuleType string
+type ActionRuleType pulumi.String
 
 const (
 	ActionRuleTypeSuppression = ActionRuleType("Suppression")
@@ -185,23 +48,7 @@ const (
 )
 
 func (ActionRuleType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleType)(nil)).Elem()
-}
-
-func (e ActionRuleType) ToActionRuleTypeOutput() ActionRuleTypeOutput {
-	return pulumi.ToOutput(e).(ActionRuleTypeOutput)
-}
-
-func (e ActionRuleType) ToActionRuleTypeOutputWithContext(ctx context.Context) ActionRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ActionRuleTypeOutput)
-}
-
-func (e ActionRuleType) ToActionRuleTypePtrOutput() ActionRuleTypePtrOutput {
-	return e.ToActionRuleTypePtrOutputWithContext(context.Background())
-}
-
-func (e ActionRuleType) ToActionRuleTypePtrOutputWithContext(ctx context.Context) ActionRuleTypePtrOutput {
-	return ActionRuleType(e).ToActionRuleTypeOutputWithContext(ctx).ToActionRuleTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ActionRuleType) ToStringOutput() pulumi.StringOutput {
@@ -220,129 +67,8 @@ func (e ActionRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ActionRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (ActionRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleType)(nil)).Elem()
-}
-
-func (o ActionRuleTypeOutput) ToActionRuleTypeOutput() ActionRuleTypeOutput {
-	return o
-}
-
-func (o ActionRuleTypeOutput) ToActionRuleTypeOutputWithContext(ctx context.Context) ActionRuleTypeOutput {
-	return o
-}
-
-func (o ActionRuleTypeOutput) ToActionRuleTypePtrOutput() ActionRuleTypePtrOutput {
-	return o.ToActionRuleTypePtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleTypeOutput) ToActionRuleTypePtrOutputWithContext(ctx context.Context) ActionRuleTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleType) *ActionRuleType {
-		return &v
-	}).(ActionRuleTypePtrOutput)
-}
-
-func (o ActionRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ActionRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionRuleType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ActionRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionRuleType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ActionRuleTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ActionRuleTypePtrOutput) ElementType() reflect.Type {
-	return actionRuleTypePtrType
-}
-
-func (o ActionRuleTypePtrOutput) ToActionRuleTypePtrOutput() ActionRuleTypePtrOutput {
-	return o
-}
-
-func (o ActionRuleTypePtrOutput) ToActionRuleTypePtrOutputWithContext(ctx context.Context) ActionRuleTypePtrOutput {
-	return o
-}
-
-func (o ActionRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionRuleType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionRuleTypePtrOutput) Elem() ActionRuleTypeOutput {
-	return o.ApplyT(func(v *ActionRuleType) ActionRuleType {
-		var ret ActionRuleType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ActionRuleTypeOutput)
-}
-
-// ActionRuleTypeInput is an input type that accepts ActionRuleTypeArgs and ActionRuleTypeOutput values.
-// You can construct a concrete instance of `ActionRuleTypeInput` via:
-//
-//          ActionRuleTypeArgs{...}
-type ActionRuleTypeInput interface {
-	pulumi.Input
-
-	ToActionRuleTypeOutput() ActionRuleTypeOutput
-	ToActionRuleTypeOutputWithContext(context.Context) ActionRuleTypeOutput
-}
-
-var actionRuleTypePtrType = reflect.TypeOf((**ActionRuleType)(nil)).Elem()
-
-type ActionRuleTypePtrInput interface {
-	pulumi.Input
-
-	ToActionRuleTypePtrOutput() ActionRuleTypePtrOutput
-	ToActionRuleTypePtrOutputWithContext(context.Context) ActionRuleTypePtrOutput
-}
-
-type actionRuleTypePtr string
-
-func ActionRuleTypePtr(v string) ActionRuleTypePtrInput {
-	return (*actionRuleTypePtr)(&v)
-}
-
-func (*actionRuleTypePtr) ElementType() reflect.Type {
-	return actionRuleTypePtrType
-}
-
-func (in *actionRuleTypePtr) ToActionRuleTypePtrOutput() ActionRuleTypePtrOutput {
-	return pulumi.ToOutput(in).(ActionRuleTypePtrOutput)
-}
-
-func (in *actionRuleTypePtr) ToActionRuleTypePtrOutputWithContext(ctx context.Context) ActionRuleTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ActionRuleTypePtrOutput)
-}
-
 // The alert rule state.
-type AlertRuleState string
+type AlertRuleState pulumi.String
 
 const (
 	AlertRuleStateEnabled  = AlertRuleState("Enabled")
@@ -350,23 +76,7 @@ const (
 )
 
 func (AlertRuleState) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleState)(nil)).Elem()
-}
-
-func (e AlertRuleState) ToAlertRuleStateOutput() AlertRuleStateOutput {
-	return pulumi.ToOutput(e).(AlertRuleStateOutput)
-}
-
-func (e AlertRuleState) ToAlertRuleStateOutputWithContext(ctx context.Context) AlertRuleStateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AlertRuleStateOutput)
-}
-
-func (e AlertRuleState) ToAlertRuleStatePtrOutput() AlertRuleStatePtrOutput {
-	return e.ToAlertRuleStatePtrOutputWithContext(context.Background())
-}
-
-func (e AlertRuleState) ToAlertRuleStatePtrOutputWithContext(ctx context.Context) AlertRuleStatePtrOutput {
-	return AlertRuleState(e).ToAlertRuleStateOutputWithContext(ctx).ToAlertRuleStatePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AlertRuleState) ToStringOutput() pulumi.StringOutput {
@@ -385,152 +95,15 @@ func (e AlertRuleState) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AlertRuleStateOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleState)(nil)).Elem()
-}
-
-func (o AlertRuleStateOutput) ToAlertRuleStateOutput() AlertRuleStateOutput {
-	return o
-}
-
-func (o AlertRuleStateOutput) ToAlertRuleStateOutputWithContext(ctx context.Context) AlertRuleStateOutput {
-	return o
-}
-
-func (o AlertRuleStateOutput) ToAlertRuleStatePtrOutput() AlertRuleStatePtrOutput {
-	return o.ToAlertRuleStatePtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleStateOutput) ToAlertRuleStatePtrOutputWithContext(ctx context.Context) AlertRuleStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleState) *AlertRuleState {
-		return &v
-	}).(AlertRuleStatePtrOutput)
-}
-
-func (o AlertRuleStateOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AlertRuleStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertRuleState) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AlertRuleStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AlertRuleState) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AlertRuleStatePtrOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleStatePtrOutput) ElementType() reflect.Type {
-	return alertRuleStatePtrType
-}
-
-func (o AlertRuleStatePtrOutput) ToAlertRuleStatePtrOutput() AlertRuleStatePtrOutput {
-	return o
-}
-
-func (o AlertRuleStatePtrOutput) ToAlertRuleStatePtrOutputWithContext(ctx context.Context) AlertRuleStatePtrOutput {
-	return o
-}
-
-func (o AlertRuleStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AlertRuleStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AlertRuleState) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AlertRuleStatePtrOutput) Elem() AlertRuleStateOutput {
-	return o.ApplyT(func(v *AlertRuleState) AlertRuleState {
-		var ret AlertRuleState
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(AlertRuleStateOutput)
-}
-
-// AlertRuleStateInput is an input type that accepts AlertRuleStateArgs and AlertRuleStateOutput values.
-// You can construct a concrete instance of `AlertRuleStateInput` via:
-//
-//          AlertRuleStateArgs{...}
-type AlertRuleStateInput interface {
-	pulumi.Input
-
-	ToAlertRuleStateOutput() AlertRuleStateOutput
-	ToAlertRuleStateOutputWithContext(context.Context) AlertRuleStateOutput
-}
-
-var alertRuleStatePtrType = reflect.TypeOf((**AlertRuleState)(nil)).Elem()
-
-type AlertRuleStatePtrInput interface {
-	pulumi.Input
-
-	ToAlertRuleStatePtrOutput() AlertRuleStatePtrOutput
-	ToAlertRuleStatePtrOutputWithContext(context.Context) AlertRuleStatePtrOutput
-}
-
-type alertRuleStatePtr string
-
-func AlertRuleStatePtr(v string) AlertRuleStatePtrInput {
-	return (*alertRuleStatePtr)(&v)
-}
-
-func (*alertRuleStatePtr) ElementType() reflect.Type {
-	return alertRuleStatePtrType
-}
-
-func (in *alertRuleStatePtr) ToAlertRuleStatePtrOutput() AlertRuleStatePtrOutput {
-	return pulumi.ToOutput(in).(AlertRuleStatePtrOutput)
-}
-
-func (in *alertRuleStatePtr) ToAlertRuleStatePtrOutputWithContext(ctx context.Context) AlertRuleStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AlertRuleStatePtrOutput)
-}
-
 // specifies the type of the alert criterion.
-type HealthAlertsNamespace string
+type HealthAlertsNamespace pulumi.String
 
 const (
 	HealthAlertsNamespaceGuestVmHealth = HealthAlertsNamespace("GuestVmHealth")
 )
 
 func (HealthAlertsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlertsNamespace)(nil)).Elem()
-}
-
-func (e HealthAlertsNamespace) ToHealthAlertsNamespaceOutput() HealthAlertsNamespaceOutput {
-	return pulumi.ToOutput(e).(HealthAlertsNamespaceOutput)
-}
-
-func (e HealthAlertsNamespace) ToHealthAlertsNamespaceOutputWithContext(ctx context.Context) HealthAlertsNamespaceOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HealthAlertsNamespaceOutput)
-}
-
-func (e HealthAlertsNamespace) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
-	return e.ToHealthAlertsNamespacePtrOutputWithContext(context.Background())
-}
-
-func (e HealthAlertsNamespace) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
-	return HealthAlertsNamespace(e).ToHealthAlertsNamespaceOutputWithContext(ctx).ToHealthAlertsNamespacePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HealthAlertsNamespace) ToStringOutput() pulumi.StringOutput {
@@ -549,129 +122,8 @@ func (e HealthAlertsNamespace) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HealthAlertsNamespaceOutput struct{ *pulumi.OutputState }
-
-func (HealthAlertsNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlertsNamespace)(nil)).Elem()
-}
-
-func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespaceOutput() HealthAlertsNamespaceOutput {
-	return o
-}
-
-func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespaceOutputWithContext(ctx context.Context) HealthAlertsNamespaceOutput {
-	return o
-}
-
-func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
-	return o.ToHealthAlertsNamespacePtrOutputWithContext(context.Background())
-}
-
-func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertsNamespace) *HealthAlertsNamespace {
-		return &v
-	}).(HealthAlertsNamespacePtrOutput)
-}
-
-func (o HealthAlertsNamespaceOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HealthAlertsNamespaceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthAlertsNamespace) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HealthAlertsNamespaceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HealthAlertsNamespaceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthAlertsNamespace) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HealthAlertsNamespacePtrOutput struct{ *pulumi.OutputState }
-
-func (HealthAlertsNamespacePtrOutput) ElementType() reflect.Type {
-	return healthAlertsNamespacePtrType
-}
-
-func (o HealthAlertsNamespacePtrOutput) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
-	return o
-}
-
-func (o HealthAlertsNamespacePtrOutput) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
-	return o
-}
-
-func (o HealthAlertsNamespacePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HealthAlertsNamespacePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthAlertsNamespace) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthAlertsNamespacePtrOutput) Elem() HealthAlertsNamespaceOutput {
-	return o.ApplyT(func(v *HealthAlertsNamespace) HealthAlertsNamespace {
-		var ret HealthAlertsNamespace
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HealthAlertsNamespaceOutput)
-}
-
-// HealthAlertsNamespaceInput is an input type that accepts HealthAlertsNamespaceArgs and HealthAlertsNamespaceOutput values.
-// You can construct a concrete instance of `HealthAlertsNamespaceInput` via:
-//
-//          HealthAlertsNamespaceArgs{...}
-type HealthAlertsNamespaceInput interface {
-	pulumi.Input
-
-	ToHealthAlertsNamespaceOutput() HealthAlertsNamespaceOutput
-	ToHealthAlertsNamespaceOutputWithContext(context.Context) HealthAlertsNamespaceOutput
-}
-
-var healthAlertsNamespacePtrType = reflect.TypeOf((**HealthAlertsNamespace)(nil)).Elem()
-
-type HealthAlertsNamespacePtrInput interface {
-	pulumi.Input
-
-	ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput
-	ToHealthAlertsNamespacePtrOutputWithContext(context.Context) HealthAlertsNamespacePtrOutput
-}
-
-type healthAlertsNamespacePtr string
-
-func HealthAlertsNamespacePtr(v string) HealthAlertsNamespacePtrInput {
-	return (*healthAlertsNamespacePtr)(&v)
-}
-
-func (*healthAlertsNamespacePtr) ElementType() reflect.Type {
-	return healthAlertsNamespacePtrType
-}
-
-func (in *healthAlertsNamespacePtr) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
-	return pulumi.ToOutput(in).(HealthAlertsNamespacePtrOutput)
-}
-
-func (in *healthAlertsNamespacePtr) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HealthAlertsNamespacePtrOutput)
-}
-
 // Health state name
-type HealthStateName string
+type HealthStateName pulumi.String
 
 const (
 	HealthStateNameWarning  = HealthStateName("Warning")
@@ -679,23 +131,7 @@ const (
 )
 
 func (HealthStateName) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthStateName)(nil)).Elem()
-}
-
-func (e HealthStateName) ToHealthStateNameOutput() HealthStateNameOutput {
-	return pulumi.ToOutput(e).(HealthStateNameOutput)
-}
-
-func (e HealthStateName) ToHealthStateNameOutputWithContext(ctx context.Context) HealthStateNameOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HealthStateNameOutput)
-}
-
-func (e HealthStateName) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
-	return e.ToHealthStateNamePtrOutputWithContext(context.Background())
-}
-
-func (e HealthStateName) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
-	return HealthStateName(e).ToHealthStateNameOutputWithContext(ctx).ToHealthStateNamePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HealthStateName) ToStringOutput() pulumi.StringOutput {
@@ -714,129 +150,8 @@ func (e HealthStateName) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HealthStateNameOutput struct{ *pulumi.OutputState }
-
-func (HealthStateNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthStateName)(nil)).Elem()
-}
-
-func (o HealthStateNameOutput) ToHealthStateNameOutput() HealthStateNameOutput {
-	return o
-}
-
-func (o HealthStateNameOutput) ToHealthStateNameOutputWithContext(ctx context.Context) HealthStateNameOutput {
-	return o
-}
-
-func (o HealthStateNameOutput) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
-	return o.ToHealthStateNamePtrOutputWithContext(context.Background())
-}
-
-func (o HealthStateNameOutput) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthStateName) *HealthStateName {
-		return &v
-	}).(HealthStateNamePtrOutput)
-}
-
-func (o HealthStateNameOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HealthStateNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthStateName) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HealthStateNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HealthStateNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthStateName) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HealthStateNamePtrOutput struct{ *pulumi.OutputState }
-
-func (HealthStateNamePtrOutput) ElementType() reflect.Type {
-	return healthStateNamePtrType
-}
-
-func (o HealthStateNamePtrOutput) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
-	return o
-}
-
-func (o HealthStateNamePtrOutput) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
-	return o
-}
-
-func (o HealthStateNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HealthStateNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthStateName) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HealthStateNamePtrOutput) Elem() HealthStateNameOutput {
-	return o.ApplyT(func(v *HealthStateName) HealthStateName {
-		var ret HealthStateName
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HealthStateNameOutput)
-}
-
-// HealthStateNameInput is an input type that accepts HealthStateNameArgs and HealthStateNameOutput values.
-// You can construct a concrete instance of `HealthStateNameInput` via:
-//
-//          HealthStateNameArgs{...}
-type HealthStateNameInput interface {
-	pulumi.Input
-
-	ToHealthStateNameOutput() HealthStateNameOutput
-	ToHealthStateNameOutputWithContext(context.Context) HealthStateNameOutput
-}
-
-var healthStateNamePtrType = reflect.TypeOf((**HealthStateName)(nil)).Elem()
-
-type HealthStateNamePtrInput interface {
-	pulumi.Input
-
-	ToHealthStateNamePtrOutput() HealthStateNamePtrOutput
-	ToHealthStateNamePtrOutputWithContext(context.Context) HealthStateNamePtrOutput
-}
-
-type healthStateNamePtr string
-
-func HealthStateNamePtr(v string) HealthStateNamePtrInput {
-	return (*healthStateNamePtr)(&v)
-}
-
-func (*healthStateNamePtr) ElementType() reflect.Type {
-	return healthStateNamePtrType
-}
-
-func (in *healthStateNamePtr) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
-	return pulumi.ToOutput(in).(HealthStateNamePtrOutput)
-}
-
-func (in *healthStateNamePtr) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HealthStateNamePtrOutput)
-}
-
 // operator for a given condition
-type Operator string
+type Operator pulumi.String
 
 const (
 	OperatorEquals         = Operator("Equals")
@@ -846,23 +161,7 @@ const (
 )
 
 func (Operator) ElementType() reflect.Type {
-	return reflect.TypeOf((*Operator)(nil)).Elem()
-}
-
-func (e Operator) ToOperatorOutput() OperatorOutput {
-	return pulumi.ToOutput(e).(OperatorOutput)
-}
-
-func (e Operator) ToOperatorOutputWithContext(ctx context.Context) OperatorOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(OperatorOutput)
-}
-
-func (e Operator) ToOperatorPtrOutput() OperatorPtrOutput {
-	return e.ToOperatorPtrOutputWithContext(context.Background())
-}
-
-func (e Operator) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
-	return Operator(e).ToOperatorOutputWithContext(ctx).ToOperatorPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Operator) ToStringOutput() pulumi.StringOutput {
@@ -881,129 +180,8 @@ func (e Operator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type OperatorOutput struct{ *pulumi.OutputState }
-
-func (OperatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Operator)(nil)).Elem()
-}
-
-func (o OperatorOutput) ToOperatorOutput() OperatorOutput {
-	return o
-}
-
-func (o OperatorOutput) ToOperatorOutputWithContext(ctx context.Context) OperatorOutput {
-	return o
-}
-
-func (o OperatorOutput) ToOperatorPtrOutput() OperatorPtrOutput {
-	return o.ToOperatorPtrOutputWithContext(context.Background())
-}
-
-func (o OperatorOutput) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Operator) *Operator {
-		return &v
-	}).(OperatorPtrOutput)
-}
-
-func (o OperatorOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o OperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Operator) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o OperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Operator) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type OperatorPtrOutput struct{ *pulumi.OutputState }
-
-func (OperatorPtrOutput) ElementType() reflect.Type {
-	return operatorPtrType
-}
-
-func (o OperatorPtrOutput) ToOperatorPtrOutput() OperatorPtrOutput {
-	return o
-}
-
-func (o OperatorPtrOutput) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
-	return o
-}
-
-func (o OperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Operator) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OperatorPtrOutput) Elem() OperatorOutput {
-	return o.ApplyT(func(v *Operator) Operator {
-		var ret Operator
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(OperatorOutput)
-}
-
-// OperatorInput is an input type that accepts OperatorArgs and OperatorOutput values.
-// You can construct a concrete instance of `OperatorInput` via:
-//
-//          OperatorArgs{...}
-type OperatorInput interface {
-	pulumi.Input
-
-	ToOperatorOutput() OperatorOutput
-	ToOperatorOutputWithContext(context.Context) OperatorOutput
-}
-
-var operatorPtrType = reflect.TypeOf((**Operator)(nil)).Elem()
-
-type OperatorPtrInput interface {
-	pulumi.Input
-
-	ToOperatorPtrOutput() OperatorPtrOutput
-	ToOperatorPtrOutputWithContext(context.Context) OperatorPtrOutput
-}
-
-type operatorPtr string
-
-func OperatorPtr(v string) OperatorPtrInput {
-	return (*operatorPtr)(&v)
-}
-
-func (*operatorPtr) ElementType() reflect.Type {
-	return operatorPtrType
-}
-
-func (in *operatorPtr) ToOperatorPtrOutput() OperatorPtrOutput {
-	return pulumi.ToOutput(in).(OperatorPtrOutput)
-}
-
-func (in *operatorPtr) ToOperatorPtrOutputWithContext(ctx context.Context) OperatorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(OperatorPtrOutput)
-}
-
 // type of target scope
-type ScopeType string
+type ScopeType pulumi.String
 
 const (
 	ScopeTypeResourceGroup = ScopeType("ResourceGroup")
@@ -1012,23 +190,7 @@ const (
 )
 
 func (ScopeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeType)(nil)).Elem()
-}
-
-func (e ScopeType) ToScopeTypeOutput() ScopeTypeOutput {
-	return pulumi.ToOutput(e).(ScopeTypeOutput)
-}
-
-func (e ScopeType) ToScopeTypeOutputWithContext(ctx context.Context) ScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ScopeTypeOutput)
-}
-
-func (e ScopeType) ToScopeTypePtrOutput() ScopeTypePtrOutput {
-	return e.ToScopeTypePtrOutputWithContext(context.Background())
-}
-
-func (e ScopeType) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
-	return ScopeType(e).ToScopeTypeOutputWithContext(ctx).ToScopeTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ScopeType) ToStringOutput() pulumi.StringOutput {
@@ -1047,129 +209,8 @@ func (e ScopeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (ScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeType)(nil)).Elem()
-}
-
-func (o ScopeTypeOutput) ToScopeTypeOutput() ScopeTypeOutput {
-	return o
-}
-
-func (o ScopeTypeOutput) ToScopeTypeOutputWithContext(ctx context.Context) ScopeTypeOutput {
-	return o
-}
-
-func (o ScopeTypeOutput) ToScopeTypePtrOutput() ScopeTypePtrOutput {
-	return o.ToScopeTypePtrOutputWithContext(context.Background())
-}
-
-func (o ScopeTypeOutput) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeType) *ScopeType {
-		return &v
-	}).(ScopeTypePtrOutput)
-}
-
-func (o ScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ScopeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ScopeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScopeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ScopeType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ScopeTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ScopeTypePtrOutput) ElementType() reflect.Type {
-	return scopeTypePtrType
-}
-
-func (o ScopeTypePtrOutput) ToScopeTypePtrOutput() ScopeTypePtrOutput {
-	return o
-}
-
-func (o ScopeTypePtrOutput) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
-	return o
-}
-
-func (o ScopeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ScopeType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ScopeTypePtrOutput) Elem() ScopeTypeOutput {
-	return o.ApplyT(func(v *ScopeType) ScopeType {
-		var ret ScopeType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ScopeTypeOutput)
-}
-
-// ScopeTypeInput is an input type that accepts ScopeTypeArgs and ScopeTypeOutput values.
-// You can construct a concrete instance of `ScopeTypeInput` via:
-//
-//          ScopeTypeArgs{...}
-type ScopeTypeInput interface {
-	pulumi.Input
-
-	ToScopeTypeOutput() ScopeTypeOutput
-	ToScopeTypeOutputWithContext(context.Context) ScopeTypeOutput
-}
-
-var scopeTypePtrType = reflect.TypeOf((**ScopeType)(nil)).Elem()
-
-type ScopeTypePtrInput interface {
-	pulumi.Input
-
-	ToScopeTypePtrOutput() ScopeTypePtrOutput
-	ToScopeTypePtrOutputWithContext(context.Context) ScopeTypePtrOutput
-}
-
-type scopeTypePtr string
-
-func ScopeTypePtr(v string) ScopeTypePtrInput {
-	return (*scopeTypePtr)(&v)
-}
-
-func (*scopeTypePtr) ElementType() reflect.Type {
-	return scopeTypePtrType
-}
-
-func (in *scopeTypePtr) ToScopeTypePtrOutput() ScopeTypePtrOutput {
-	return pulumi.ToOutput(in).(ScopeTypePtrOutput)
-}
-
-func (in *scopeTypePtr) ToScopeTypePtrOutputWithContext(ctx context.Context) ScopeTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ScopeTypePtrOutput)
-}
-
 // The alert rule severity.
-type Severity string
+type Severity pulumi.String
 
 const (
 	SeveritySev0 = Severity("Sev0")
@@ -1180,23 +221,7 @@ const (
 )
 
 func (Severity) ElementType() reflect.Type {
-	return reflect.TypeOf((*Severity)(nil)).Elem()
-}
-
-func (e Severity) ToSeverityOutput() SeverityOutput {
-	return pulumi.ToOutput(e).(SeverityOutput)
-}
-
-func (e Severity) ToSeverityOutputWithContext(ctx context.Context) SeverityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SeverityOutput)
-}
-
-func (e Severity) ToSeverityPtrOutput() SeverityPtrOutput {
-	return e.ToSeverityPtrOutputWithContext(context.Background())
-}
-
-func (e Severity) ToSeverityPtrOutputWithContext(ctx context.Context) SeverityPtrOutput {
-	return Severity(e).ToSeverityOutputWithContext(ctx).ToSeverityPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Severity) ToStringOutput() pulumi.StringOutput {
@@ -1215,129 +240,8 @@ func (e Severity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Strin
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SeverityOutput struct{ *pulumi.OutputState }
-
-func (SeverityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Severity)(nil)).Elem()
-}
-
-func (o SeverityOutput) ToSeverityOutput() SeverityOutput {
-	return o
-}
-
-func (o SeverityOutput) ToSeverityOutputWithContext(ctx context.Context) SeverityOutput {
-	return o
-}
-
-func (o SeverityOutput) ToSeverityPtrOutput() SeverityPtrOutput {
-	return o.ToSeverityPtrOutputWithContext(context.Background())
-}
-
-func (o SeverityOutput) ToSeverityPtrOutputWithContext(ctx context.Context) SeverityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Severity) *Severity {
-		return &v
-	}).(SeverityPtrOutput)
-}
-
-func (o SeverityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SeverityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Severity) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SeverityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SeverityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Severity) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SeverityPtrOutput struct{ *pulumi.OutputState }
-
-func (SeverityPtrOutput) ElementType() reflect.Type {
-	return severityPtrType
-}
-
-func (o SeverityPtrOutput) ToSeverityPtrOutput() SeverityPtrOutput {
-	return o
-}
-
-func (o SeverityPtrOutput) ToSeverityPtrOutputWithContext(ctx context.Context) SeverityPtrOutput {
-	return o
-}
-
-func (o SeverityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SeverityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Severity) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SeverityPtrOutput) Elem() SeverityOutput {
-	return o.ApplyT(func(v *Severity) Severity {
-		var ret Severity
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SeverityOutput)
-}
-
-// SeverityInput is an input type that accepts SeverityArgs and SeverityOutput values.
-// You can construct a concrete instance of `SeverityInput` via:
-//
-//          SeverityArgs{...}
-type SeverityInput interface {
-	pulumi.Input
-
-	ToSeverityOutput() SeverityOutput
-	ToSeverityOutputWithContext(context.Context) SeverityOutput
-}
-
-var severityPtrType = reflect.TypeOf((**Severity)(nil)).Elem()
-
-type SeverityPtrInput interface {
-	pulumi.Input
-
-	ToSeverityPtrOutput() SeverityPtrOutput
-	ToSeverityPtrOutputWithContext(context.Context) SeverityPtrOutput
-}
-
-type severityPtr string
-
-func SeverityPtr(v string) SeverityPtrInput {
-	return (*severityPtr)(&v)
-}
-
-func (*severityPtr) ElementType() reflect.Type {
-	return severityPtrType
-}
-
-func (in *severityPtr) ToSeverityPtrOutput() SeverityPtrOutput {
-	return pulumi.ToOutput(in).(SeverityPtrOutput)
-}
-
-func (in *severityPtr) ToSeverityPtrOutputWithContext(ctx context.Context) SeverityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SeverityPtrOutput)
-}
-
 // Specifies when the suppression should be applied
-type SuppressionType string
+type SuppressionType pulumi.String
 
 const (
 	SuppressionTypeAlways  = SuppressionType("Always")
@@ -1348,23 +252,7 @@ const (
 )
 
 func (SuppressionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionType)(nil)).Elem()
-}
-
-func (e SuppressionType) ToSuppressionTypeOutput() SuppressionTypeOutput {
-	return pulumi.ToOutput(e).(SuppressionTypeOutput)
-}
-
-func (e SuppressionType) ToSuppressionTypeOutputWithContext(ctx context.Context) SuppressionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SuppressionTypeOutput)
-}
-
-func (e SuppressionType) ToSuppressionTypePtrOutput() SuppressionTypePtrOutput {
-	return e.ToSuppressionTypePtrOutputWithContext(context.Background())
-}
-
-func (e SuppressionType) ToSuppressionTypePtrOutputWithContext(ctx context.Context) SuppressionTypePtrOutput {
-	return SuppressionType(e).ToSuppressionTypeOutputWithContext(ctx).ToSuppressionTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SuppressionType) ToStringOutput() pulumi.StringOutput {
@@ -1381,146 +269,4 @@ func (e SuppressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SuppressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SuppressionTypeOutput struct{ *pulumi.OutputState }
-
-func (SuppressionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionType)(nil)).Elem()
-}
-
-func (o SuppressionTypeOutput) ToSuppressionTypeOutput() SuppressionTypeOutput {
-	return o
-}
-
-func (o SuppressionTypeOutput) ToSuppressionTypeOutputWithContext(ctx context.Context) SuppressionTypeOutput {
-	return o
-}
-
-func (o SuppressionTypeOutput) ToSuppressionTypePtrOutput() SuppressionTypePtrOutput {
-	return o.ToSuppressionTypePtrOutputWithContext(context.Background())
-}
-
-func (o SuppressionTypeOutput) ToSuppressionTypePtrOutputWithContext(ctx context.Context) SuppressionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SuppressionType) *SuppressionType {
-		return &v
-	}).(SuppressionTypePtrOutput)
-}
-
-func (o SuppressionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SuppressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SuppressionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SuppressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SuppressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SuppressionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SuppressionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (SuppressionTypePtrOutput) ElementType() reflect.Type {
-	return suppressionTypePtrType
-}
-
-func (o SuppressionTypePtrOutput) ToSuppressionTypePtrOutput() SuppressionTypePtrOutput {
-	return o
-}
-
-func (o SuppressionTypePtrOutput) ToSuppressionTypePtrOutputWithContext(ctx context.Context) SuppressionTypePtrOutput {
-	return o
-}
-
-func (o SuppressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SuppressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SuppressionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SuppressionTypePtrOutput) Elem() SuppressionTypeOutput {
-	return o.ApplyT(func(v *SuppressionType) SuppressionType {
-		var ret SuppressionType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SuppressionTypeOutput)
-}
-
-// SuppressionTypeInput is an input type that accepts SuppressionTypeArgs and SuppressionTypeOutput values.
-// You can construct a concrete instance of `SuppressionTypeInput` via:
-//
-//          SuppressionTypeArgs{...}
-type SuppressionTypeInput interface {
-	pulumi.Input
-
-	ToSuppressionTypeOutput() SuppressionTypeOutput
-	ToSuppressionTypeOutputWithContext(context.Context) SuppressionTypeOutput
-}
-
-var suppressionTypePtrType = reflect.TypeOf((**SuppressionType)(nil)).Elem()
-
-type SuppressionTypePtrInput interface {
-	pulumi.Input
-
-	ToSuppressionTypePtrOutput() SuppressionTypePtrOutput
-	ToSuppressionTypePtrOutputWithContext(context.Context) SuppressionTypePtrOutput
-}
-
-type suppressionTypePtr string
-
-func SuppressionTypePtr(v string) SuppressionTypePtrInput {
-	return (*suppressionTypePtr)(&v)
-}
-
-func (*suppressionTypePtr) ElementType() reflect.Type {
-	return suppressionTypePtrType
-}
-
-func (in *suppressionTypePtr) ToSuppressionTypePtrOutput() SuppressionTypePtrOutput {
-	return pulumi.ToOutput(in).(SuppressionTypePtrOutput)
-}
-
-func (in *suppressionTypePtr) ToSuppressionTypePtrOutputWithContext(ctx context.Context) SuppressionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SuppressionTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(ActionRuleStatusOutput{})
-	pulumi.RegisterOutputType(ActionRuleStatusPtrOutput{})
-	pulumi.RegisterOutputType(ActionRuleTypeOutput{})
-	pulumi.RegisterOutputType(ActionRuleTypePtrOutput{})
-	pulumi.RegisterOutputType(AlertRuleStateOutput{})
-	pulumi.RegisterOutputType(AlertRuleStatePtrOutput{})
-	pulumi.RegisterOutputType(HealthAlertsNamespaceOutput{})
-	pulumi.RegisterOutputType(HealthAlertsNamespacePtrOutput{})
-	pulumi.RegisterOutputType(HealthStateNameOutput{})
-	pulumi.RegisterOutputType(HealthStateNamePtrOutput{})
-	pulumi.RegisterOutputType(OperatorOutput{})
-	pulumi.RegisterOutputType(OperatorPtrOutput{})
-	pulumi.RegisterOutputType(ScopeTypeOutput{})
-	pulumi.RegisterOutputType(ScopeTypePtrOutput{})
-	pulumi.RegisterOutputType(SeverityOutput{})
-	pulumi.RegisterOutputType(SeverityPtrOutput{})
-	pulumi.RegisterOutputType(SuppressionTypeOutput{})
-	pulumi.RegisterOutputType(SuppressionTypePtrOutput{})
 }

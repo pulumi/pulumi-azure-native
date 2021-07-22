@@ -76,9 +76,25 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
+	// For optimistic concurrency control.
+	ETag *string `pulumi:"eTag"`
+	// Name of the group.
+	Name *string `pulumi:"name"`
+	// Properties of the group.
+	Properties *GroupPropertiesResponse `pulumi:"properties"`
+	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
+	Type *string `pulumi:"type"`
 }
 
 type GroupState struct {
+	// For optimistic concurrency control.
+	ETag pulumi.StringPtrInput
+	// Name of the group.
+	Name pulumi.StringPtrInput
+	// Properties of the group.
+	Properties GroupPropertiesResponsePtrInput
+	// Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
+	Type pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {

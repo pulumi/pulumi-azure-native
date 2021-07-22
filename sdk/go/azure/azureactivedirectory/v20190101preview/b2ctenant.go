@@ -80,9 +80,37 @@ func GetB2CTenant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering B2CTenant resources.
 type b2ctenantState struct {
+	// The billing configuration for the tenant.
+	BillingConfig *B2CTenantResourcePropertiesResponseBillingConfig `pulumi:"billingConfig"`
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+	Location *string `pulumi:"location"`
+	// The name of the B2C tenant resource.
+	Name *string `pulumi:"name"`
+	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+	Sku *B2CResourceSKUResponse `pulumi:"sku"`
+	// Resource Tags
+	Tags map[string]string `pulumi:"tags"`
+	// An identifier of the B2C tenant.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of the B2C tenant resource.
+	Type *string `pulumi:"type"`
 }
 
 type B2CTenantState struct {
+	// The billing configuration for the tenant.
+	BillingConfig B2CTenantResourcePropertiesResponseBillingConfigPtrInput
+	// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+	Location pulumi.StringPtrInput
+	// The name of the B2C tenant resource.
+	Name pulumi.StringPtrInput
+	// SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
+	Sku B2CResourceSKUResponsePtrInput
+	// Resource Tags
+	Tags pulumi.StringMapInput
+	// An identifier of the B2C tenant.
+	TenantId pulumi.StringPtrInput
+	// The type of the B2C tenant resource.
+	Type pulumi.StringPtrInput
 }
 
 func (B2CTenantState) ElementType() reflect.Type {

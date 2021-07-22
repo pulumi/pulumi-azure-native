@@ -123,9 +123,61 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	// Administrator username for the server. Once created it cannot be changed.
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The fully qualified domain name of the server.
+	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// The Azure Active Directory identity of the server.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// Kind of sql server. This is metadata used for the Azure portal experience.
+	Kind *string `pulumi:"kind"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The state of the server.
+	State *string `pulumi:"state"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The version of the server.
+	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
+	// Administrator username for the server. Once created it cannot be changed.
+	AdministratorLogin pulumi.StringPtrInput
+	// The fully qualified domain name of the server.
+	FullyQualifiedDomainName pulumi.StringPtrInput
+	// The Azure Active Directory identity of the server.
+	Identity ResourceIdentityResponsePtrInput
+	// Kind of sql server. This is metadata used for the Azure portal experience.
+	Kind pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
+	MinimalTlsVersion pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
+	// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess pulumi.StringPtrInput
+	// The state of the server.
+	State pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The version of the server.
+	Version pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {

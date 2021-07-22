@@ -74,9 +74,29 @@ func GetIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationServiceEnvironmentManagedApi resources.
 type integrationServiceEnvironmentManagedApiState struct {
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// Gets the resource name.
+	Name *string `pulumi:"name"`
+	// The api resource properties.
+	Properties *ApiResourcePropertiesResponse `pulumi:"properties"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets the resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationServiceEnvironmentManagedApiState struct {
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// Gets the resource name.
+	Name pulumi.StringPtrInput
+	// The api resource properties.
+	Properties ApiResourcePropertiesResponsePtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// Gets the resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationServiceEnvironmentManagedApiState) ElementType() reflect.Type {

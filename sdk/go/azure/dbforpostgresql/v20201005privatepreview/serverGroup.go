@@ -101,9 +101,101 @@ func GetServerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerGroup resources.
 type serverGroupState struct {
+	// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// Availability Zone information of the server group.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The backup retention days for server group.
+	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// The Citus version of server group.
+	CitusVersion *string `pulumi:"citusVersion"`
+	// The delegated subnet arguments for a server group.
+	DelegatedSubnetArguments *ServerGroupPropertiesResponseDelegatedSubnetArguments `pulumi:"delegatedSubnetArguments"`
+	// The earliest restore point time (ISO8601 format) for server group.
+	EarliestRestoreTime *string `pulumi:"earliestRestoreTime"`
+	// If Citus MX is enabled or not for the server group.
+	EnableMx *bool `pulumi:"enableMx"`
+	// If shards on coordinator is enabled or not for the server group.
+	EnableShardsOnCoordinator *bool `pulumi:"enableShardsOnCoordinator"`
+	// If ZFS compression is enabled or not for the server group.
+	EnableZfs *bool `pulumi:"enableZfs"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// Maintenance window of a server group.
+	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The PostgreSQL version of server group.
+	PostgresqlVersion *string `pulumi:"postgresqlVersion"`
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments *ServerGroupPropertiesResponsePrivateDnsZoneArguments `pulumi:"privateDnsZoneArguments"`
+	// The array of read replica server groups.
+	ReadReplicas []string `pulumi:"readReplicas"`
+	// The resource provider type of server group.
+	ResourceProviderType *string `pulumi:"resourceProviderType"`
+	// The list of server role groups.
+	ServerRoleGroups []ServerRoleGroupResponse `pulumi:"serverRoleGroups"`
+	// The source server group id for read replica server groups.
+	SourceServerGroup *string `pulumi:"sourceServerGroup"`
+	// Standby Availability Zone information of the server group.
+	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+	// A state of a server group that is visible to user.
+	State *string `pulumi:"state"`
+	// The system metadata relating to this resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ServerGroupState struct {
+	// The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrInput
+	// Availability Zone information of the server group.
+	AvailabilityZone pulumi.StringPtrInput
+	// The backup retention days for server group.
+	BackupRetentionDays pulumi.IntPtrInput
+	// The Citus version of server group.
+	CitusVersion pulumi.StringPtrInput
+	// The delegated subnet arguments for a server group.
+	DelegatedSubnetArguments ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrInput
+	// The earliest restore point time (ISO8601 format) for server group.
+	EarliestRestoreTime pulumi.StringPtrInput
+	// If Citus MX is enabled or not for the server group.
+	EnableMx pulumi.BoolPtrInput
+	// If shards on coordinator is enabled or not for the server group.
+	EnableShardsOnCoordinator pulumi.BoolPtrInput
+	// If ZFS compression is enabled or not for the server group.
+	EnableZfs pulumi.BoolPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// Maintenance window of a server group.
+	MaintenanceWindow MaintenanceWindowResponsePtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The PostgreSQL version of server group.
+	PostgresqlVersion pulumi.StringPtrInput
+	// The private dns zone arguments for a server group.
+	PrivateDnsZoneArguments ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrInput
+	// The array of read replica server groups.
+	ReadReplicas pulumi.StringArrayInput
+	// The resource provider type of server group.
+	ResourceProviderType pulumi.StringPtrInput
+	// The list of server role groups.
+	ServerRoleGroups ServerRoleGroupResponseArrayInput
+	// The source server group id for read replica server groups.
+	SourceServerGroup pulumi.StringPtrInput
+	// Standby Availability Zone information of the server group.
+	StandbyAvailabilityZone pulumi.StringPtrInput
+	// A state of a server group that is visible to user.
+	State pulumi.StringPtrInput
+	// The system metadata relating to this resource
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ServerGroupState) ElementType() reflect.Type {

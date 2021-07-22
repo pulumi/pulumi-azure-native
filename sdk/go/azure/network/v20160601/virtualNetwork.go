@@ -299,9 +299,53 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetwork resources.
 type virtualNetworkState struct {
+	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
+	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
+	// Gets a unique read-only string that changes whenever the resource is updated
+	Etag *string `pulumi:"etag"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the VirtualNetwork resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets list of subnets in a VirtualNetwork
+	Subnets []SubnetResponse `pulumi:"subnets"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
 }
 
 type VirtualNetworkState struct {
+	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+	AddressSpace AddressSpaceResponsePtrInput
+	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+	DhcpOptions DhcpOptionsResponsePtrInput
+	// Gets a unique read-only string that changes whenever the resource is updated
+	Etag pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets resource guid property of the VirtualNetwork resource
+	ResourceGuid pulumi.StringPtrInput
+	// Gets or sets list of subnets in a VirtualNetwork
+	Subnets SubnetResponseArrayInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayInput
 }
 
 func (VirtualNetworkState) ElementType() reflect.Type {

@@ -108,9 +108,41 @@ func GetGatewayHostnameConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GatewayHostnameConfiguration resources.
 type gatewayHostnameConfigurationState struct {
+	// Identifier of Certificate entity that will be used for TLS connection establishment
+	CertificateId *string `pulumi:"certificateId"`
+	// Hostname value. Supports valid domain name, partial or full wildcard
+	Hostname *string `pulumi:"hostname"`
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Determines whether gateway requests client certificate
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled *bool `pulumi:"tls10Enabled"`
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled *bool `pulumi:"tls11Enabled"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
 }
 
 type GatewayHostnameConfigurationState struct {
+	// Identifier of Certificate entity that will be used for TLS connection establishment
+	CertificateId pulumi.StringPtrInput
+	// Hostname value. Supports valid domain name, partial or full wildcard
+	Hostname pulumi.StringPtrInput
+	// Specifies if HTTP/2.0 is supported
+	Http2Enabled pulumi.BoolPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Determines whether gateway requests client certificate
+	NegotiateClientCertificate pulumi.BoolPtrInput
+	// Specifies if TLS 1.0 is supported
+	Tls10Enabled pulumi.BoolPtrInput
+	// Specifies if TLS 1.1 is supported
+	Tls11Enabled pulumi.BoolPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
 }
 
 func (GatewayHostnameConfigurationState) ElementType() reflect.Type {

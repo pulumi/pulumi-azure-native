@@ -325,9 +325,81 @@ func GetSecurityRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityRule resources.
 type securityRuleState struct {
+	// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+	Access *string `pulumi:"access"`
+	// A description for this rule. Restricted to 140 chars.
+	Description *string `pulumi:"description"`
+	// The destination address prefix. CIDR or destination IP range. Asterisks '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+	DestinationAddressPrefix *string `pulumi:"destinationAddressPrefix"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	DestinationAddressPrefixes []string `pulumi:"destinationAddressPrefixes"`
+	// The application security group specified as destination.
+	DestinationApplicationSecurityGroups []ApplicationSecurityGroupResponse `pulumi:"destinationApplicationSecurityGroups"`
+	// The destination port or range. Integer or range between 0 and 65535. Asterisks '*' can also be used to match all ports.
+	DestinationPortRange *string `pulumi:"destinationPortRange"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+	Direction *string `pulumi:"direction"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
+	// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority *int `pulumi:"priority"`
+	// Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+	Protocol *string `pulumi:"protocol"`
+	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The CIDR or source IP range. Asterisks '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+	SourceAddressPrefix *string `pulumi:"sourceAddressPrefix"`
+	// The CIDR or source IP ranges.
+	SourceAddressPrefixes []string `pulumi:"sourceAddressPrefixes"`
+	// The application security group specified as source.
+	SourceApplicationSecurityGroups []ApplicationSecurityGroupResponse `pulumi:"sourceApplicationSecurityGroups"`
+	// The source port or range. Integer or range between 0 and 65535. Asterisks '*' can also be used to match all ports.
+	SourcePortRange *string `pulumi:"sourcePortRange"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
 type SecurityRuleState struct {
+	// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+	Access pulumi.StringPtrInput
+	// A description for this rule. Restricted to 140 chars.
+	Description pulumi.StringPtrInput
+	// The destination address prefix. CIDR or destination IP range. Asterisks '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+	DestinationAddressPrefix pulumi.StringPtrInput
+	// The destination address prefixes. CIDR or destination IP ranges.
+	DestinationAddressPrefixes pulumi.StringArrayInput
+	// The application security group specified as destination.
+	DestinationApplicationSecurityGroups ApplicationSecurityGroupResponseArrayInput
+	// The destination port or range. Integer or range between 0 and 65535. Asterisks '*' can also be used to match all ports.
+	DestinationPortRange pulumi.StringPtrInput
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput
+	// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+	Direction pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
+	// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority pulumi.IntPtrInput
+	// Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+	Protocol pulumi.StringPtrInput
+	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The CIDR or source IP range. Asterisks '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+	SourceAddressPrefix pulumi.StringPtrInput
+	// The CIDR or source IP ranges.
+	SourceAddressPrefixes pulumi.StringArrayInput
+	// The application security group specified as source.
+	SourceApplicationSecurityGroups ApplicationSecurityGroupResponseArrayInput
+	// The source port or range. Integer or range between 0 and 65535. Asterisks '*' can also be used to match all ports.
+	SourcePortRange pulumi.StringPtrInput
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput
 }
 
 func (SecurityRuleState) ElementType() reflect.Type {

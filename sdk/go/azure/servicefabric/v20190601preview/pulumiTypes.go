@@ -6159,7 +6159,7 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 // Describes the managed identities for an Azure resource.
 type ManagedIdentity struct {
 	// The type of managed identity for the resource.
-	Type *ManagedIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
@@ -6179,7 +6179,7 @@ type ManagedIdentityInput interface {
 // Describes the managed identities for an Azure resource.
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the resource.
-	Type ManagedIdentityTypePtrInput `pulumi:"type"`
+	Type *ManagedIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
@@ -6264,8 +6264,8 @@ func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context
 }
 
 // The type of managed identity for the resource.
-func (o ManagedIdentityOutput) Type() ManagedIdentityTypePtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *ManagedIdentityType { return v.Type }).(ManagedIdentityTypePtrOutput)
+func (o ManagedIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
@@ -6293,13 +6293,13 @@ func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
 }
 
 // The type of managed identity for the resource.
-func (o ManagedIdentityPtrOutput) Type() ManagedIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ManagedIdentity) *ManagedIdentityType {
+func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ManagedIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:

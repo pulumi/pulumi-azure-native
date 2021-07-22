@@ -87,9 +87,61 @@ func GetDataCollectionEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCollectionEndpoint resources.
 type dataCollectionEndpointState struct {
+	// The endpoint used by agents to access their configuration.
+	ConfigurationAccess *DataCollectionEndpointResponseConfigurationAccess `pulumi:"configurationAccess"`
+	// Description of the data collection endpoint.
+	Description *string `pulumi:"description"`
+	// Resource entity tag (ETag).
+	Etag *string `pulumi:"etag"`
+	// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
+	ImmutableId *string `pulumi:"immutableId"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives.
+	Location *string `pulumi:"location"`
+	// The endpoint used by clients to ingest logs.
+	LogsIngestion *DataCollectionEndpointResponseLogsIngestion `pulumi:"logsIngestion"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Network access control rules for the endpoints.
+	NetworkAcls *DataCollectionEndpointResponseNetworkAcls `pulumi:"networkAcls"`
+	// The resource provisioning state. This property is READ-ONLY.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *DataCollectionEndpointResourceResponseSystemData `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type DataCollectionEndpointState struct {
+	// The endpoint used by agents to access their configuration.
+	ConfigurationAccess DataCollectionEndpointResponseConfigurationAccessPtrInput
+	// Description of the data collection endpoint.
+	Description pulumi.StringPtrInput
+	// Resource entity tag (ETag).
+	Etag pulumi.StringPtrInput
+	// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
+	ImmutableId pulumi.StringPtrInput
+	// The kind of the resource.
+	Kind pulumi.StringPtrInput
+	// The geo-location where the resource lives.
+	Location pulumi.StringPtrInput
+	// The endpoint used by clients to ingest logs.
+	LogsIngestion DataCollectionEndpointResponseLogsIngestionPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Network access control rules for the endpoints.
+	NetworkAcls DataCollectionEndpointResponseNetworkAclsPtrInput
+	// The resource provisioning state. This property is READ-ONLY.
+	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData DataCollectionEndpointResourceResponseSystemDataPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (DataCollectionEndpointState) ElementType() reflect.Type {

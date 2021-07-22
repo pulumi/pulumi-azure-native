@@ -94,9 +94,69 @@ func GetLab(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Lab resources.
 type labState struct {
+	// Object id of the user that created the lab.
+	CreatedByObjectId *string `pulumi:"createdByObjectId"`
+	// Lab creator name
+	CreatedByUserPrincipalName *string `pulumi:"createdByUserPrincipalName"`
+	// Creation date for the lab
+	CreatedDate *string `pulumi:"createdDate"`
+	// Invitation code that users can use to join a lab.
+	InvitationCode *string `pulumi:"invitationCode"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// Maximum number of users allowed in the lab.
+	MaxUsersInLab *int `pulumi:"maxUsersInLab"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// Maximum duration a user can use an environment for in the lab.
+	UsageQuota *string `pulumi:"usageQuota"`
+	// Lab user access mode (open to all vs. restricted to those listed on the lab).
+	UserAccessMode *string `pulumi:"userAccessMode"`
+	// Maximum value MaxUsersInLab can be set to, as specified by the service
+	UserQuota *int `pulumi:"userQuota"`
 }
 
 type LabState struct {
+	// Object id of the user that created the lab.
+	CreatedByObjectId pulumi.StringPtrInput
+	// Lab creator name
+	CreatedByUserPrincipalName pulumi.StringPtrInput
+	// Creation date for the lab
+	CreatedDate pulumi.StringPtrInput
+	// Invitation code that users can use to join a lab.
+	InvitationCode pulumi.StringPtrInput
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponsePtrInput
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// Maximum number of users allowed in the lab.
+	MaxUsersInLab pulumi.IntPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// Maximum duration a user can use an environment for in the lab.
+	UsageQuota pulumi.StringPtrInput
+	// Lab user access mode (open to all vs. restricted to those listed on the lab).
+	UserAccessMode pulumi.StringPtrInput
+	// Maximum value MaxUsersInLab can be set to, as specified by the service
+	UserQuota pulumi.IntPtrInput
 }
 
 func (LabState) ElementType() reflect.Type {

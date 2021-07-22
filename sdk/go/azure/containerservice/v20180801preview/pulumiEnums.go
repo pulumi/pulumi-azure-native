@@ -11,7 +11,7 @@ import (
 )
 
 // AgentPoolType represents types of an agent pool
-type AgentPoolType string
+type AgentPoolType pulumi.String
 
 const (
 	AgentPoolTypeVirtualMachineScaleSets = AgentPoolType("VirtualMachineScaleSets")
@@ -19,23 +19,7 @@ const (
 )
 
 func (AgentPoolType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
-}
-
-func (e AgentPoolType) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
-	return pulumi.ToOutput(e).(AgentPoolTypeOutput)
-}
-
-func (e AgentPoolType) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AgentPoolTypeOutput)
-}
-
-func (e AgentPoolType) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
-	return e.ToAgentPoolTypePtrOutputWithContext(context.Background())
-}
-
-func (e AgentPoolType) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
-	return AgentPoolType(e).ToAgentPoolTypeOutputWithContext(ctx).ToAgentPoolTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AgentPoolType) ToStringOutput() pulumi.StringOutput {
@@ -54,129 +38,8 @@ func (e AgentPoolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type AgentPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (AgentPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
-	return o
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
-	return o
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
-	return o.ToAgentPoolTypePtrOutputWithContext(context.Background())
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPoolType) *AgentPoolType {
-		return &v
-	}).(AgentPoolTypePtrOutput)
-}
-
-func (o AgentPoolTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AgentPoolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentPoolType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AgentPoolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AgentPoolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentPoolType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AgentPoolTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AgentPoolTypePtrOutput) ElementType() reflect.Type {
-	return agentPoolTypePtrType
-}
-
-func (o AgentPoolTypePtrOutput) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
-	return o
-}
-
-func (o AgentPoolTypePtrOutput) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
-	return o
-}
-
-func (o AgentPoolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AgentPoolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentPoolType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AgentPoolTypePtrOutput) Elem() AgentPoolTypeOutput {
-	return o.ApplyT(func(v *AgentPoolType) AgentPoolType {
-		var ret AgentPoolType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(AgentPoolTypeOutput)
-}
-
-// AgentPoolTypeInput is an input type that accepts AgentPoolTypeArgs and AgentPoolTypeOutput values.
-// You can construct a concrete instance of `AgentPoolTypeInput` via:
-//
-//          AgentPoolTypeArgs{...}
-type AgentPoolTypeInput interface {
-	pulumi.Input
-
-	ToAgentPoolTypeOutput() AgentPoolTypeOutput
-	ToAgentPoolTypeOutputWithContext(context.Context) AgentPoolTypeOutput
-}
-
-var agentPoolTypePtrType = reflect.TypeOf((**AgentPoolType)(nil)).Elem()
-
-type AgentPoolTypePtrInput interface {
-	pulumi.Input
-
-	ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput
-	ToAgentPoolTypePtrOutputWithContext(context.Context) AgentPoolTypePtrOutput
-}
-
-type agentPoolTypePtr string
-
-func AgentPoolTypePtr(v string) AgentPoolTypePtrInput {
-	return (*agentPoolTypePtr)(&v)
-}
-
-func (*agentPoolTypePtr) ElementType() reflect.Type {
-	return agentPoolTypePtrType
-}
-
-func (in *agentPoolTypePtr) ToAgentPoolTypePtrOutput() AgentPoolTypePtrOutput {
-	return pulumi.ToOutput(in).(AgentPoolTypePtrOutput)
-}
-
-func (in *agentPoolTypePtr) ToAgentPoolTypePtrOutputWithContext(ctx context.Context) AgentPoolTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AgentPoolTypePtrOutput)
-}
-
 // Size of agent VMs.
-type ContainerServiceVMSizeTypes string
+type ContainerServiceVMSizeTypes pulumi.String
 
 const (
 	ContainerServiceVMSizeTypes_Standard_A1            = ContainerServiceVMSizeTypes("Standard_A1")
@@ -356,23 +219,7 @@ const (
 )
 
 func (ContainerServiceVMSizeTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceVMSizeTypes)(nil)).Elem()
-}
-
-func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput {
-	return pulumi.ToOutput(e).(ContainerServiceVMSizeTypesOutput)
-}
-
-func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ContainerServiceVMSizeTypesOutput)
-}
-
-func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
-	return e.ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Background())
-}
-
-func (e ContainerServiceVMSizeTypes) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
-	return ContainerServiceVMSizeTypes(e).ToContainerServiceVMSizeTypesOutputWithContext(ctx).ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ContainerServiceVMSizeTypes) ToStringOutput() pulumi.StringOutput {
@@ -391,129 +238,8 @@ func (e ContainerServiceVMSizeTypes) ToStringPtrOutputWithContext(ctx context.Co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ContainerServiceVMSizeTypesOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceVMSizeTypesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceVMSizeTypes)(nil)).Elem()
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput {
-	return o
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesOutput {
-	return o
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
-	return o.ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMSizeTypes) *ContainerServiceVMSizeTypes {
-		return &v
-	}).(ContainerServiceVMSizeTypesPtrOutput)
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceVMSizeTypes) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceVMSizeTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerServiceVMSizeTypes) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ContainerServiceVMSizeTypesPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceVMSizeTypesPtrOutput) ElementType() reflect.Type {
-	return containerServiceVMSizeTypesPtrType
-}
-
-func (o ContainerServiceVMSizeTypesPtrOutput) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
-	return o
-}
-
-func (o ContainerServiceVMSizeTypesPtrOutput) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
-	return o
-}
-
-func (o ContainerServiceVMSizeTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceVMSizeTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerServiceVMSizeTypes) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerServiceVMSizeTypesPtrOutput) Elem() ContainerServiceVMSizeTypesOutput {
-	return o.ApplyT(func(v *ContainerServiceVMSizeTypes) ContainerServiceVMSizeTypes {
-		var ret ContainerServiceVMSizeTypes
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ContainerServiceVMSizeTypesOutput)
-}
-
-// ContainerServiceVMSizeTypesInput is an input type that accepts ContainerServiceVMSizeTypesArgs and ContainerServiceVMSizeTypesOutput values.
-// You can construct a concrete instance of `ContainerServiceVMSizeTypesInput` via:
-//
-//          ContainerServiceVMSizeTypesArgs{...}
-type ContainerServiceVMSizeTypesInput interface {
-	pulumi.Input
-
-	ToContainerServiceVMSizeTypesOutput() ContainerServiceVMSizeTypesOutput
-	ToContainerServiceVMSizeTypesOutputWithContext(context.Context) ContainerServiceVMSizeTypesOutput
-}
-
-var containerServiceVMSizeTypesPtrType = reflect.TypeOf((**ContainerServiceVMSizeTypes)(nil)).Elem()
-
-type ContainerServiceVMSizeTypesPtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput
-	ToContainerServiceVMSizeTypesPtrOutputWithContext(context.Context) ContainerServiceVMSizeTypesPtrOutput
-}
-
-type containerServiceVMSizeTypesPtr string
-
-func ContainerServiceVMSizeTypesPtr(v string) ContainerServiceVMSizeTypesPtrInput {
-	return (*containerServiceVMSizeTypesPtr)(&v)
-}
-
-func (*containerServiceVMSizeTypesPtr) ElementType() reflect.Type {
-	return containerServiceVMSizeTypesPtrType
-}
-
-func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutput() ContainerServiceVMSizeTypesPtrOutput {
-	return pulumi.ToOutput(in).(ContainerServiceVMSizeTypesPtrOutput)
-}
-
-func (in *containerServiceVMSizeTypesPtr) ToContainerServiceVMSizeTypesPtrOutputWithContext(ctx context.Context) ContainerServiceVMSizeTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ContainerServiceVMSizeTypesPtrOutput)
-}
-
 // Network plugin used for building Kubernetes network.
-type NetworkPlugin string
+type NetworkPlugin pulumi.String
 
 const (
 	NetworkPluginAzure   = NetworkPlugin("azure")
@@ -521,23 +247,7 @@ const (
 )
 
 func (NetworkPlugin) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPlugin)(nil)).Elem()
-}
-
-func (e NetworkPlugin) ToNetworkPluginOutput() NetworkPluginOutput {
-	return pulumi.ToOutput(e).(NetworkPluginOutput)
-}
-
-func (e NetworkPlugin) ToNetworkPluginOutputWithContext(ctx context.Context) NetworkPluginOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(NetworkPluginOutput)
-}
-
-func (e NetworkPlugin) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
-	return e.ToNetworkPluginPtrOutputWithContext(context.Background())
-}
-
-func (e NetworkPlugin) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
-	return NetworkPlugin(e).ToNetworkPluginOutputWithContext(ctx).ToNetworkPluginPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e NetworkPlugin) ToStringOutput() pulumi.StringOutput {
@@ -556,152 +266,15 @@ func (e NetworkPlugin) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type NetworkPluginOutput struct{ *pulumi.OutputState }
-
-func (NetworkPluginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPlugin)(nil)).Elem()
-}
-
-func (o NetworkPluginOutput) ToNetworkPluginOutput() NetworkPluginOutput {
-	return o
-}
-
-func (o NetworkPluginOutput) ToNetworkPluginOutputWithContext(ctx context.Context) NetworkPluginOutput {
-	return o
-}
-
-func (o NetworkPluginOutput) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
-	return o.ToNetworkPluginPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPluginOutput) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPlugin) *NetworkPlugin {
-		return &v
-	}).(NetworkPluginPtrOutput)
-}
-
-func (o NetworkPluginOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o NetworkPluginOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPlugin) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o NetworkPluginOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPluginOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPlugin) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type NetworkPluginPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkPluginPtrOutput) ElementType() reflect.Type {
-	return networkPluginPtrType
-}
-
-func (o NetworkPluginPtrOutput) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
-	return o
-}
-
-func (o NetworkPluginPtrOutput) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
-	return o
-}
-
-func (o NetworkPluginPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPluginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkPlugin) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NetworkPluginPtrOutput) Elem() NetworkPluginOutput {
-	return o.ApplyT(func(v *NetworkPlugin) NetworkPlugin {
-		var ret NetworkPlugin
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(NetworkPluginOutput)
-}
-
-// NetworkPluginInput is an input type that accepts NetworkPluginArgs and NetworkPluginOutput values.
-// You can construct a concrete instance of `NetworkPluginInput` via:
-//
-//          NetworkPluginArgs{...}
-type NetworkPluginInput interface {
-	pulumi.Input
-
-	ToNetworkPluginOutput() NetworkPluginOutput
-	ToNetworkPluginOutputWithContext(context.Context) NetworkPluginOutput
-}
-
-var networkPluginPtrType = reflect.TypeOf((**NetworkPlugin)(nil)).Elem()
-
-type NetworkPluginPtrInput interface {
-	pulumi.Input
-
-	ToNetworkPluginPtrOutput() NetworkPluginPtrOutput
-	ToNetworkPluginPtrOutputWithContext(context.Context) NetworkPluginPtrOutput
-}
-
-type networkPluginPtr string
-
-func NetworkPluginPtr(v string) NetworkPluginPtrInput {
-	return (*networkPluginPtr)(&v)
-}
-
-func (*networkPluginPtr) ElementType() reflect.Type {
-	return networkPluginPtrType
-}
-
-func (in *networkPluginPtr) ToNetworkPluginPtrOutput() NetworkPluginPtrOutput {
-	return pulumi.ToOutput(in).(NetworkPluginPtrOutput)
-}
-
-func (in *networkPluginPtr) ToNetworkPluginPtrOutputWithContext(ctx context.Context) NetworkPluginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(NetworkPluginPtrOutput)
-}
-
 // Network policy used for building Kubernetes network.
-type NetworkPolicy string
+type NetworkPolicy pulumi.String
 
 const (
 	NetworkPolicyCalico = NetworkPolicy("calico")
 )
 
 func (NetworkPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPolicy)(nil)).Elem()
-}
-
-func (e NetworkPolicy) ToNetworkPolicyOutput() NetworkPolicyOutput {
-	return pulumi.ToOutput(e).(NetworkPolicyOutput)
-}
-
-func (e NetworkPolicy) ToNetworkPolicyOutputWithContext(ctx context.Context) NetworkPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(NetworkPolicyOutput)
-}
-
-func (e NetworkPolicy) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
-	return e.ToNetworkPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e NetworkPolicy) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
-	return NetworkPolicy(e).ToNetworkPolicyOutputWithContext(ctx).ToNetworkPolicyPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e NetworkPolicy) ToStringOutput() pulumi.StringOutput {
@@ -720,129 +293,8 @@ func (e NetworkPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type NetworkPolicyOutput struct{ *pulumi.OutputState }
-
-func (NetworkPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkPolicy)(nil)).Elem()
-}
-
-func (o NetworkPolicyOutput) ToNetworkPolicyOutput() NetworkPolicyOutput {
-	return o
-}
-
-func (o NetworkPolicyOutput) ToNetworkPolicyOutputWithContext(ctx context.Context) NetworkPolicyOutput {
-	return o
-}
-
-func (o NetworkPolicyOutput) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
-	return o.ToNetworkPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPolicyOutput) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkPolicy) *NetworkPolicy {
-		return &v
-	}).(NetworkPolicyPtrOutput)
-}
-
-func (o NetworkPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o NetworkPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o NetworkPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e NetworkPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type NetworkPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkPolicyPtrOutput) ElementType() reflect.Type {
-	return networkPolicyPtrType
-}
-
-func (o NetworkPolicyPtrOutput) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
-	return o
-}
-
-func (o NetworkPolicyPtrOutput) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
-	return o
-}
-
-func (o NetworkPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o NetworkPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NetworkPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NetworkPolicyPtrOutput) Elem() NetworkPolicyOutput {
-	return o.ApplyT(func(v *NetworkPolicy) NetworkPolicy {
-		var ret NetworkPolicy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(NetworkPolicyOutput)
-}
-
-// NetworkPolicyInput is an input type that accepts NetworkPolicyArgs and NetworkPolicyOutput values.
-// You can construct a concrete instance of `NetworkPolicyInput` via:
-//
-//          NetworkPolicyArgs{...}
-type NetworkPolicyInput interface {
-	pulumi.Input
-
-	ToNetworkPolicyOutput() NetworkPolicyOutput
-	ToNetworkPolicyOutputWithContext(context.Context) NetworkPolicyOutput
-}
-
-var networkPolicyPtrType = reflect.TypeOf((**NetworkPolicy)(nil)).Elem()
-
-type NetworkPolicyPtrInput interface {
-	pulumi.Input
-
-	ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput
-	ToNetworkPolicyPtrOutputWithContext(context.Context) NetworkPolicyPtrOutput
-}
-
-type networkPolicyPtr string
-
-func NetworkPolicyPtr(v string) NetworkPolicyPtrInput {
-	return (*networkPolicyPtr)(&v)
-}
-
-func (*networkPolicyPtr) ElementType() reflect.Type {
-	return networkPolicyPtrType
-}
-
-func (in *networkPolicyPtr) ToNetworkPolicyPtrOutput() NetworkPolicyPtrOutput {
-	return pulumi.ToOutput(in).(NetworkPolicyPtrOutput)
-}
-
-func (in *networkPolicyPtr) ToNetworkPolicyPtrOutputWithContext(ctx context.Context) NetworkPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(NetworkPolicyPtrOutput)
-}
-
 // OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-type OSType string
+type OSType pulumi.String
 
 const (
 	OSTypeLinux   = OSType("Linux")
@@ -850,23 +302,7 @@ const (
 )
 
 func (OSType) ElementType() reflect.Type {
-	return reflect.TypeOf((*OSType)(nil)).Elem()
-}
-
-func (e OSType) ToOSTypeOutput() OSTypeOutput {
-	return pulumi.ToOutput(e).(OSTypeOutput)
-}
-
-func (e OSType) ToOSTypeOutputWithContext(ctx context.Context) OSTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(OSTypeOutput)
-}
-
-func (e OSType) ToOSTypePtrOutput() OSTypePtrOutput {
-	return e.ToOSTypePtrOutputWithContext(context.Background())
-}
-
-func (e OSType) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
-	return OSType(e).ToOSTypeOutputWithContext(ctx).ToOSTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e OSType) ToStringOutput() pulumi.StringOutput {
@@ -883,138 +319,4 @@ func (e OSType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e OSType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type OSTypeOutput struct{ *pulumi.OutputState }
-
-func (OSTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OSType)(nil)).Elem()
-}
-
-func (o OSTypeOutput) ToOSTypeOutput() OSTypeOutput {
-	return o
-}
-
-func (o OSTypeOutput) ToOSTypeOutputWithContext(ctx context.Context) OSTypeOutput {
-	return o
-}
-
-func (o OSTypeOutput) ToOSTypePtrOutput() OSTypePtrOutput {
-	return o.ToOSTypePtrOutputWithContext(context.Background())
-}
-
-func (o OSTypeOutput) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSType) *OSType {
-		return &v
-	}).(OSTypePtrOutput)
-}
-
-func (o OSTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o OSTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OSType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o OSTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OSTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e OSType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type OSTypePtrOutput struct{ *pulumi.OutputState }
-
-func (OSTypePtrOutput) ElementType() reflect.Type {
-	return ostypePtrType
-}
-
-func (o OSTypePtrOutput) ToOSTypePtrOutput() OSTypePtrOutput {
-	return o
-}
-
-func (o OSTypePtrOutput) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
-	return o
-}
-
-func (o OSTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o OSTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OSType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OSTypePtrOutput) Elem() OSTypeOutput {
-	return o.ApplyT(func(v *OSType) OSType {
-		var ret OSType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(OSTypeOutput)
-}
-
-// OSTypeInput is an input type that accepts OSTypeArgs and OSTypeOutput values.
-// You can construct a concrete instance of `OSTypeInput` via:
-//
-//          OSTypeArgs{...}
-type OSTypeInput interface {
-	pulumi.Input
-
-	ToOSTypeOutput() OSTypeOutput
-	ToOSTypeOutputWithContext(context.Context) OSTypeOutput
-}
-
-var ostypePtrType = reflect.TypeOf((**OSType)(nil)).Elem()
-
-type OSTypePtrInput interface {
-	pulumi.Input
-
-	ToOSTypePtrOutput() OSTypePtrOutput
-	ToOSTypePtrOutputWithContext(context.Context) OSTypePtrOutput
-}
-
-type ostypePtr string
-
-func OSTypePtr(v string) OSTypePtrInput {
-	return (*ostypePtr)(&v)
-}
-
-func (*ostypePtr) ElementType() reflect.Type {
-	return ostypePtrType
-}
-
-func (in *ostypePtr) ToOSTypePtrOutput() OSTypePtrOutput {
-	return pulumi.ToOutput(in).(OSTypePtrOutput)
-}
-
-func (in *ostypePtr) ToOSTypePtrOutputWithContext(ctx context.Context) OSTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(OSTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
-	pulumi.RegisterOutputType(AgentPoolTypePtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesOutput{})
-	pulumi.RegisterOutputType(ContainerServiceVMSizeTypesPtrOutput{})
-	pulumi.RegisterOutputType(NetworkPluginOutput{})
-	pulumi.RegisterOutputType(NetworkPluginPtrOutput{})
-	pulumi.RegisterOutputType(NetworkPolicyOutput{})
-	pulumi.RegisterOutputType(NetworkPolicyPtrOutput{})
-	pulumi.RegisterOutputType(OSTypeOutput{})
-	pulumi.RegisterOutputType(OSTypePtrOutput{})
 }

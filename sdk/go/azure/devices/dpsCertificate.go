@@ -103,9 +103,25 @@ func GetDpsCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DpsCertificate resources.
 type dpsCertificateState struct {
+	// The entity tag.
+	Etag *string `pulumi:"etag"`
+	// The name of the certificate.
+	Name *string `pulumi:"name"`
+	// properties of a certificate
+	Properties *CertificatePropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type DpsCertificateState struct {
+	// The entity tag.
+	Etag pulumi.StringPtrInput
+	// The name of the certificate.
+	Name pulumi.StringPtrInput
+	// properties of a certificate
+	Properties CertificatePropertiesResponsePtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (DpsCertificateState) ElementType() reflect.Type {

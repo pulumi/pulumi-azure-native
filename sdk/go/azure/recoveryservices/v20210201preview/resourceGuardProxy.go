@@ -75,9 +75,33 @@ func GetResourceGuardProxy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceGuardProxy resources.
 type resourceGuardProxyState struct {
+	// Optional ETag.
+	ETag *string `pulumi:"eTag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name associated with the resource.
+	Name *string `pulumi:"name"`
+	// ResourceGuardProxyBaseResource properties
+	Properties *ResourceGuardProxyBaseResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type *string `pulumi:"type"`
 }
 
 type ResourceGuardProxyState struct {
+	// Optional ETag.
+	ETag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name associated with the resource.
+	Name pulumi.StringPtrInput
+	// ResourceGuardProxyBaseResource properties
+	Properties ResourceGuardProxyBaseResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type pulumi.StringPtrInput
 }
 
 func (ResourceGuardProxyState) ElementType() reflect.Type {

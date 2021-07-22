@@ -11,7 +11,7 @@ import (
 )
 
 // Resource Type of ApplicationGroup.
-type ApplicationGroupType string
+type ApplicationGroupType pulumi.String
 
 const (
 	ApplicationGroupTypeRemoteApp = ApplicationGroupType("RemoteApp")
@@ -19,23 +19,7 @@ const (
 )
 
 func (ApplicationGroupType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGroupType)(nil)).Elem()
-}
-
-func (e ApplicationGroupType) ToApplicationGroupTypeOutput() ApplicationGroupTypeOutput {
-	return pulumi.ToOutput(e).(ApplicationGroupTypeOutput)
-}
-
-func (e ApplicationGroupType) ToApplicationGroupTypeOutputWithContext(ctx context.Context) ApplicationGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ApplicationGroupTypeOutput)
-}
-
-func (e ApplicationGroupType) ToApplicationGroupTypePtrOutput() ApplicationGroupTypePtrOutput {
-	return e.ToApplicationGroupTypePtrOutputWithContext(context.Background())
-}
-
-func (e ApplicationGroupType) ToApplicationGroupTypePtrOutputWithContext(ctx context.Context) ApplicationGroupTypePtrOutput {
-	return ApplicationGroupType(e).ToApplicationGroupTypeOutputWithContext(ctx).ToApplicationGroupTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ApplicationGroupType) ToStringOutput() pulumi.StringOutput {
@@ -54,129 +38,8 @@ func (e ApplicationGroupType) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ApplicationGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGroupType)(nil)).Elem()
-}
-
-func (o ApplicationGroupTypeOutput) ToApplicationGroupTypeOutput() ApplicationGroupTypeOutput {
-	return o
-}
-
-func (o ApplicationGroupTypeOutput) ToApplicationGroupTypeOutputWithContext(ctx context.Context) ApplicationGroupTypeOutput {
-	return o
-}
-
-func (o ApplicationGroupTypeOutput) ToApplicationGroupTypePtrOutput() ApplicationGroupTypePtrOutput {
-	return o.ToApplicationGroupTypePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationGroupTypeOutput) ToApplicationGroupTypePtrOutputWithContext(ctx context.Context) ApplicationGroupTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGroupType) *ApplicationGroupType {
-		return &v
-	}).(ApplicationGroupTypePtrOutput)
-}
-
-func (o ApplicationGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ApplicationGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationGroupType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ApplicationGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationGroupType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApplicationGroupTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationGroupTypePtrOutput) ElementType() reflect.Type {
-	return applicationGroupTypePtrType
-}
-
-func (o ApplicationGroupTypePtrOutput) ToApplicationGroupTypePtrOutput() ApplicationGroupTypePtrOutput {
-	return o
-}
-
-func (o ApplicationGroupTypePtrOutput) ToApplicationGroupTypePtrOutputWithContext(ctx context.Context) ApplicationGroupTypePtrOutput {
-	return o
-}
-
-func (o ApplicationGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationGroupType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationGroupTypePtrOutput) Elem() ApplicationGroupTypeOutput {
-	return o.ApplyT(func(v *ApplicationGroupType) ApplicationGroupType {
-		var ret ApplicationGroupType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ApplicationGroupTypeOutput)
-}
-
-// ApplicationGroupTypeInput is an input type that accepts ApplicationGroupTypeArgs and ApplicationGroupTypeOutput values.
-// You can construct a concrete instance of `ApplicationGroupTypeInput` via:
-//
-//          ApplicationGroupTypeArgs{...}
-type ApplicationGroupTypeInput interface {
-	pulumi.Input
-
-	ToApplicationGroupTypeOutput() ApplicationGroupTypeOutput
-	ToApplicationGroupTypeOutputWithContext(context.Context) ApplicationGroupTypeOutput
-}
-
-var applicationGroupTypePtrType = reflect.TypeOf((**ApplicationGroupType)(nil)).Elem()
-
-type ApplicationGroupTypePtrInput interface {
-	pulumi.Input
-
-	ToApplicationGroupTypePtrOutput() ApplicationGroupTypePtrOutput
-	ToApplicationGroupTypePtrOutputWithContext(context.Context) ApplicationGroupTypePtrOutput
-}
-
-type applicationGroupTypePtr string
-
-func ApplicationGroupTypePtr(v string) ApplicationGroupTypePtrInput {
-	return (*applicationGroupTypePtr)(&v)
-}
-
-func (*applicationGroupTypePtr) ElementType() reflect.Type {
-	return applicationGroupTypePtrType
-}
-
-func (in *applicationGroupTypePtr) ToApplicationGroupTypePtrOutput() ApplicationGroupTypePtrOutput {
-	return pulumi.ToOutput(in).(ApplicationGroupTypePtrOutput)
-}
-
-func (in *applicationGroupTypePtr) ToApplicationGroupTypePtrOutputWithContext(ctx context.Context) ApplicationGroupTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ApplicationGroupTypePtrOutput)
-}
-
 // Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-type CommandLineSetting string
+type CommandLineSetting pulumi.String
 
 const (
 	CommandLineSettingDoNotAllow = CommandLineSetting("DoNotAllow")
@@ -185,23 +48,7 @@ const (
 )
 
 func (CommandLineSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommandLineSetting)(nil)).Elem()
-}
-
-func (e CommandLineSetting) ToCommandLineSettingOutput() CommandLineSettingOutput {
-	return pulumi.ToOutput(e).(CommandLineSettingOutput)
-}
-
-func (e CommandLineSetting) ToCommandLineSettingOutputWithContext(ctx context.Context) CommandLineSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CommandLineSettingOutput)
-}
-
-func (e CommandLineSetting) ToCommandLineSettingPtrOutput() CommandLineSettingPtrOutput {
-	return e.ToCommandLineSettingPtrOutputWithContext(context.Background())
-}
-
-func (e CommandLineSetting) ToCommandLineSettingPtrOutputWithContext(ctx context.Context) CommandLineSettingPtrOutput {
-	return CommandLineSetting(e).ToCommandLineSettingOutputWithContext(ctx).ToCommandLineSettingPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e CommandLineSetting) ToStringOutput() pulumi.StringOutput {
@@ -220,129 +67,8 @@ func (e CommandLineSetting) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type CommandLineSettingOutput struct{ *pulumi.OutputState }
-
-func (CommandLineSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommandLineSetting)(nil)).Elem()
-}
-
-func (o CommandLineSettingOutput) ToCommandLineSettingOutput() CommandLineSettingOutput {
-	return o
-}
-
-func (o CommandLineSettingOutput) ToCommandLineSettingOutputWithContext(ctx context.Context) CommandLineSettingOutput {
-	return o
-}
-
-func (o CommandLineSettingOutput) ToCommandLineSettingPtrOutput() CommandLineSettingPtrOutput {
-	return o.ToCommandLineSettingPtrOutputWithContext(context.Background())
-}
-
-func (o CommandLineSettingOutput) ToCommandLineSettingPtrOutputWithContext(ctx context.Context) CommandLineSettingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandLineSetting) *CommandLineSetting {
-		return &v
-	}).(CommandLineSettingPtrOutput)
-}
-
-func (o CommandLineSettingOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o CommandLineSettingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandLineSetting) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o CommandLineSettingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CommandLineSettingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandLineSetting) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type CommandLineSettingPtrOutput struct{ *pulumi.OutputState }
-
-func (CommandLineSettingPtrOutput) ElementType() reflect.Type {
-	return commandLineSettingPtrType
-}
-
-func (o CommandLineSettingPtrOutput) ToCommandLineSettingPtrOutput() CommandLineSettingPtrOutput {
-	return o
-}
-
-func (o CommandLineSettingPtrOutput) ToCommandLineSettingPtrOutputWithContext(ctx context.Context) CommandLineSettingPtrOutput {
-	return o
-}
-
-func (o CommandLineSettingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CommandLineSettingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CommandLineSetting) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CommandLineSettingPtrOutput) Elem() CommandLineSettingOutput {
-	return o.ApplyT(func(v *CommandLineSetting) CommandLineSetting {
-		var ret CommandLineSetting
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(CommandLineSettingOutput)
-}
-
-// CommandLineSettingInput is an input type that accepts CommandLineSettingArgs and CommandLineSettingOutput values.
-// You can construct a concrete instance of `CommandLineSettingInput` via:
-//
-//          CommandLineSettingArgs{...}
-type CommandLineSettingInput interface {
-	pulumi.Input
-
-	ToCommandLineSettingOutput() CommandLineSettingOutput
-	ToCommandLineSettingOutputWithContext(context.Context) CommandLineSettingOutput
-}
-
-var commandLineSettingPtrType = reflect.TypeOf((**CommandLineSetting)(nil)).Elem()
-
-type CommandLineSettingPtrInput interface {
-	pulumi.Input
-
-	ToCommandLineSettingPtrOutput() CommandLineSettingPtrOutput
-	ToCommandLineSettingPtrOutputWithContext(context.Context) CommandLineSettingPtrOutput
-}
-
-type commandLineSettingPtr string
-
-func CommandLineSettingPtr(v string) CommandLineSettingPtrInput {
-	return (*commandLineSettingPtr)(&v)
-}
-
-func (*commandLineSettingPtr) ElementType() reflect.Type {
-	return commandLineSettingPtrType
-}
-
-func (in *commandLineSettingPtr) ToCommandLineSettingPtrOutput() CommandLineSettingPtrOutput {
-	return pulumi.ToOutput(in).(CommandLineSettingPtrOutput)
-}
-
-func (in *commandLineSettingPtr) ToCommandLineSettingPtrOutputWithContext(ctx context.Context) CommandLineSettingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CommandLineSettingPtrOutput)
-}
-
 // HostPool type for desktop.
-type HostPoolType string
+type HostPoolType pulumi.String
 
 const (
 	HostPoolTypePersonal = HostPoolType("Personal")
@@ -350,23 +76,7 @@ const (
 )
 
 func (HostPoolType) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPoolType)(nil)).Elem()
-}
-
-func (e HostPoolType) ToHostPoolTypeOutput() HostPoolTypeOutput {
-	return pulumi.ToOutput(e).(HostPoolTypeOutput)
-}
-
-func (e HostPoolType) ToHostPoolTypeOutputWithContext(ctx context.Context) HostPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HostPoolTypeOutput)
-}
-
-func (e HostPoolType) ToHostPoolTypePtrOutput() HostPoolTypePtrOutput {
-	return e.ToHostPoolTypePtrOutputWithContext(context.Background())
-}
-
-func (e HostPoolType) ToHostPoolTypePtrOutputWithContext(ctx context.Context) HostPoolTypePtrOutput {
-	return HostPoolType(e).ToHostPoolTypeOutputWithContext(ctx).ToHostPoolTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HostPoolType) ToStringOutput() pulumi.StringOutput {
@@ -385,129 +95,8 @@ func (e HostPoolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HostPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (HostPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPoolType)(nil)).Elem()
-}
-
-func (o HostPoolTypeOutput) ToHostPoolTypeOutput() HostPoolTypeOutput {
-	return o
-}
-
-func (o HostPoolTypeOutput) ToHostPoolTypeOutputWithContext(ctx context.Context) HostPoolTypeOutput {
-	return o
-}
-
-func (o HostPoolTypeOutput) ToHostPoolTypePtrOutput() HostPoolTypePtrOutput {
-	return o.ToHostPoolTypePtrOutputWithContext(context.Background())
-}
-
-func (o HostPoolTypeOutput) ToHostPoolTypePtrOutputWithContext(ctx context.Context) HostPoolTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostPoolType) *HostPoolType {
-		return &v
-	}).(HostPoolTypePtrOutput)
-}
-
-func (o HostPoolTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HostPoolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostPoolType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HostPoolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HostPoolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostPoolType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HostPoolTypePtrOutput struct{ *pulumi.OutputState }
-
-func (HostPoolTypePtrOutput) ElementType() reflect.Type {
-	return hostPoolTypePtrType
-}
-
-func (o HostPoolTypePtrOutput) ToHostPoolTypePtrOutput() HostPoolTypePtrOutput {
-	return o
-}
-
-func (o HostPoolTypePtrOutput) ToHostPoolTypePtrOutputWithContext(ctx context.Context) HostPoolTypePtrOutput {
-	return o
-}
-
-func (o HostPoolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HostPoolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostPoolType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HostPoolTypePtrOutput) Elem() HostPoolTypeOutput {
-	return o.ApplyT(func(v *HostPoolType) HostPoolType {
-		var ret HostPoolType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HostPoolTypeOutput)
-}
-
-// HostPoolTypeInput is an input type that accepts HostPoolTypeArgs and HostPoolTypeOutput values.
-// You can construct a concrete instance of `HostPoolTypeInput` via:
-//
-//          HostPoolTypeArgs{...}
-type HostPoolTypeInput interface {
-	pulumi.Input
-
-	ToHostPoolTypeOutput() HostPoolTypeOutput
-	ToHostPoolTypeOutputWithContext(context.Context) HostPoolTypeOutput
-}
-
-var hostPoolTypePtrType = reflect.TypeOf((**HostPoolType)(nil)).Elem()
-
-type HostPoolTypePtrInput interface {
-	pulumi.Input
-
-	ToHostPoolTypePtrOutput() HostPoolTypePtrOutput
-	ToHostPoolTypePtrOutputWithContext(context.Context) HostPoolTypePtrOutput
-}
-
-type hostPoolTypePtr string
-
-func HostPoolTypePtr(v string) HostPoolTypePtrInput {
-	return (*hostPoolTypePtr)(&v)
-}
-
-func (*hostPoolTypePtr) ElementType() reflect.Type {
-	return hostPoolTypePtrType
-}
-
-func (in *hostPoolTypePtr) ToHostPoolTypePtrOutput() HostPoolTypePtrOutput {
-	return pulumi.ToOutput(in).(HostPoolTypePtrOutput)
-}
-
-func (in *hostPoolTypePtr) ToHostPoolTypePtrOutputWithContext(ctx context.Context) HostPoolTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HostPoolTypePtrOutput)
-}
-
 // The type of the load balancer.
-type LoadBalancerType string
+type LoadBalancerType pulumi.String
 
 const (
 	LoadBalancerTypeBreadthFirst = LoadBalancerType("BreadthFirst")
@@ -516,23 +105,7 @@ const (
 )
 
 func (LoadBalancerType) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerType)(nil)).Elem()
-}
-
-func (e LoadBalancerType) ToLoadBalancerTypeOutput() LoadBalancerTypeOutput {
-	return pulumi.ToOutput(e).(LoadBalancerTypeOutput)
-}
-
-func (e LoadBalancerType) ToLoadBalancerTypeOutputWithContext(ctx context.Context) LoadBalancerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerTypeOutput)
-}
-
-func (e LoadBalancerType) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
-	return e.ToLoadBalancerTypePtrOutputWithContext(context.Background())
-}
-
-func (e LoadBalancerType) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
-	return LoadBalancerType(e).ToLoadBalancerTypeOutputWithContext(ctx).ToLoadBalancerTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e LoadBalancerType) ToStringOutput() pulumi.StringOutput {
@@ -551,129 +124,8 @@ func (e LoadBalancerType) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LoadBalancerTypeOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerType)(nil)).Elem()
-}
-
-func (o LoadBalancerTypeOutput) ToLoadBalancerTypeOutput() LoadBalancerTypeOutput {
-	return o
-}
-
-func (o LoadBalancerTypeOutput) ToLoadBalancerTypeOutputWithContext(ctx context.Context) LoadBalancerTypeOutput {
-	return o
-}
-
-func (o LoadBalancerTypeOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
-	return o.ToLoadBalancerTypePtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerTypeOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerType) *LoadBalancerType {
-		return &v
-	}).(LoadBalancerTypePtrOutput)
-}
-
-func (o LoadBalancerTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoadBalancerType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o LoadBalancerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e LoadBalancerType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type LoadBalancerTypePtrOutput struct{ *pulumi.OutputState }
-
-func (LoadBalancerTypePtrOutput) ElementType() reflect.Type {
-	return loadBalancerTypePtrType
-}
-
-func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
-	return o
-}
-
-func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
-	return o
-}
-
-func (o LoadBalancerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o LoadBalancerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LoadBalancerType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerTypePtrOutput) Elem() LoadBalancerTypeOutput {
-	return o.ApplyT(func(v *LoadBalancerType) LoadBalancerType {
-		var ret LoadBalancerType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(LoadBalancerTypeOutput)
-}
-
-// LoadBalancerTypeInput is an input type that accepts LoadBalancerTypeArgs and LoadBalancerTypeOutput values.
-// You can construct a concrete instance of `LoadBalancerTypeInput` via:
-//
-//          LoadBalancerTypeArgs{...}
-type LoadBalancerTypeInput interface {
-	pulumi.Input
-
-	ToLoadBalancerTypeOutput() LoadBalancerTypeOutput
-	ToLoadBalancerTypeOutputWithContext(context.Context) LoadBalancerTypeOutput
-}
-
-var loadBalancerTypePtrType = reflect.TypeOf((**LoadBalancerType)(nil)).Elem()
-
-type LoadBalancerTypePtrInput interface {
-	pulumi.Input
-
-	ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput
-	ToLoadBalancerTypePtrOutputWithContext(context.Context) LoadBalancerTypePtrOutput
-}
-
-type loadBalancerTypePtr string
-
-func LoadBalancerTypePtr(v string) LoadBalancerTypePtrInput {
-	return (*loadBalancerTypePtr)(&v)
-}
-
-func (*loadBalancerTypePtr) ElementType() reflect.Type {
-	return loadBalancerTypePtrType
-}
-
-func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
-	return pulumi.ToOutput(in).(LoadBalancerTypePtrOutput)
-}
-
-func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerTypePtrOutput)
-}
-
 // PersonalDesktopAssignment type for HostPool.
-type PersonalDesktopAssignmentType string
+type PersonalDesktopAssignmentType pulumi.String
 
 const (
 	PersonalDesktopAssignmentTypeAutomatic = PersonalDesktopAssignmentType("Automatic")
@@ -681,23 +133,7 @@ const (
 )
 
 func (PersonalDesktopAssignmentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersonalDesktopAssignmentType)(nil)).Elem()
-}
-
-func (e PersonalDesktopAssignmentType) ToPersonalDesktopAssignmentTypeOutput() PersonalDesktopAssignmentTypeOutput {
-	return pulumi.ToOutput(e).(PersonalDesktopAssignmentTypeOutput)
-}
-
-func (e PersonalDesktopAssignmentType) ToPersonalDesktopAssignmentTypeOutputWithContext(ctx context.Context) PersonalDesktopAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PersonalDesktopAssignmentTypeOutput)
-}
-
-func (e PersonalDesktopAssignmentType) ToPersonalDesktopAssignmentTypePtrOutput() PersonalDesktopAssignmentTypePtrOutput {
-	return e.ToPersonalDesktopAssignmentTypePtrOutputWithContext(context.Background())
-}
-
-func (e PersonalDesktopAssignmentType) ToPersonalDesktopAssignmentTypePtrOutputWithContext(ctx context.Context) PersonalDesktopAssignmentTypePtrOutput {
-	return PersonalDesktopAssignmentType(e).ToPersonalDesktopAssignmentTypeOutputWithContext(ctx).ToPersonalDesktopAssignmentTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PersonalDesktopAssignmentType) ToStringOutput() pulumi.StringOutput {
@@ -716,129 +152,8 @@ func (e PersonalDesktopAssignmentType) ToStringPtrOutputWithContext(ctx context.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PersonalDesktopAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (PersonalDesktopAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersonalDesktopAssignmentType)(nil)).Elem()
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToPersonalDesktopAssignmentTypeOutput() PersonalDesktopAssignmentTypeOutput {
-	return o
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToPersonalDesktopAssignmentTypeOutputWithContext(ctx context.Context) PersonalDesktopAssignmentTypeOutput {
-	return o
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToPersonalDesktopAssignmentTypePtrOutput() PersonalDesktopAssignmentTypePtrOutput {
-	return o.ToPersonalDesktopAssignmentTypePtrOutputWithContext(context.Background())
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToPersonalDesktopAssignmentTypePtrOutputWithContext(ctx context.Context) PersonalDesktopAssignmentTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersonalDesktopAssignmentType) *PersonalDesktopAssignmentType {
-		return &v
-	}).(PersonalDesktopAssignmentTypePtrOutput)
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PersonalDesktopAssignmentType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PersonalDesktopAssignmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PersonalDesktopAssignmentType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PersonalDesktopAssignmentTypePtrOutput struct{ *pulumi.OutputState }
-
-func (PersonalDesktopAssignmentTypePtrOutput) ElementType() reflect.Type {
-	return personalDesktopAssignmentTypePtrType
-}
-
-func (o PersonalDesktopAssignmentTypePtrOutput) ToPersonalDesktopAssignmentTypePtrOutput() PersonalDesktopAssignmentTypePtrOutput {
-	return o
-}
-
-func (o PersonalDesktopAssignmentTypePtrOutput) ToPersonalDesktopAssignmentTypePtrOutputWithContext(ctx context.Context) PersonalDesktopAssignmentTypePtrOutput {
-	return o
-}
-
-func (o PersonalDesktopAssignmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PersonalDesktopAssignmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PersonalDesktopAssignmentType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PersonalDesktopAssignmentTypePtrOutput) Elem() PersonalDesktopAssignmentTypeOutput {
-	return o.ApplyT(func(v *PersonalDesktopAssignmentType) PersonalDesktopAssignmentType {
-		var ret PersonalDesktopAssignmentType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PersonalDesktopAssignmentTypeOutput)
-}
-
-// PersonalDesktopAssignmentTypeInput is an input type that accepts PersonalDesktopAssignmentTypeArgs and PersonalDesktopAssignmentTypeOutput values.
-// You can construct a concrete instance of `PersonalDesktopAssignmentTypeInput` via:
-//
-//          PersonalDesktopAssignmentTypeArgs{...}
-type PersonalDesktopAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToPersonalDesktopAssignmentTypeOutput() PersonalDesktopAssignmentTypeOutput
-	ToPersonalDesktopAssignmentTypeOutputWithContext(context.Context) PersonalDesktopAssignmentTypeOutput
-}
-
-var personalDesktopAssignmentTypePtrType = reflect.TypeOf((**PersonalDesktopAssignmentType)(nil)).Elem()
-
-type PersonalDesktopAssignmentTypePtrInput interface {
-	pulumi.Input
-
-	ToPersonalDesktopAssignmentTypePtrOutput() PersonalDesktopAssignmentTypePtrOutput
-	ToPersonalDesktopAssignmentTypePtrOutputWithContext(context.Context) PersonalDesktopAssignmentTypePtrOutput
-}
-
-type personalDesktopAssignmentTypePtr string
-
-func PersonalDesktopAssignmentTypePtr(v string) PersonalDesktopAssignmentTypePtrInput {
-	return (*personalDesktopAssignmentTypePtr)(&v)
-}
-
-func (*personalDesktopAssignmentTypePtr) ElementType() reflect.Type {
-	return personalDesktopAssignmentTypePtrType
-}
-
-func (in *personalDesktopAssignmentTypePtr) ToPersonalDesktopAssignmentTypePtrOutput() PersonalDesktopAssignmentTypePtrOutput {
-	return pulumi.ToOutput(in).(PersonalDesktopAssignmentTypePtrOutput)
-}
-
-func (in *personalDesktopAssignmentTypePtr) ToPersonalDesktopAssignmentTypePtrOutputWithContext(ctx context.Context) PersonalDesktopAssignmentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PersonalDesktopAssignmentTypePtrOutput)
-}
-
 // The type of preferred application group type, default to Desktop Application Group
-type PreferredAppGroupType string
+type PreferredAppGroupType pulumi.String
 
 const (
 	PreferredAppGroupTypeNone             = PreferredAppGroupType("None")
@@ -847,23 +162,7 @@ const (
 )
 
 func (PreferredAppGroupType) ElementType() reflect.Type {
-	return reflect.TypeOf((*PreferredAppGroupType)(nil)).Elem()
-}
-
-func (e PreferredAppGroupType) ToPreferredAppGroupTypeOutput() PreferredAppGroupTypeOutput {
-	return pulumi.ToOutput(e).(PreferredAppGroupTypeOutput)
-}
-
-func (e PreferredAppGroupType) ToPreferredAppGroupTypeOutputWithContext(ctx context.Context) PreferredAppGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PreferredAppGroupTypeOutput)
-}
-
-func (e PreferredAppGroupType) ToPreferredAppGroupTypePtrOutput() PreferredAppGroupTypePtrOutput {
-	return e.ToPreferredAppGroupTypePtrOutputWithContext(context.Background())
-}
-
-func (e PreferredAppGroupType) ToPreferredAppGroupTypePtrOutputWithContext(ctx context.Context) PreferredAppGroupTypePtrOutput {
-	return PreferredAppGroupType(e).ToPreferredAppGroupTypeOutputWithContext(ctx).ToPreferredAppGroupTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PreferredAppGroupType) ToStringOutput() pulumi.StringOutput {
@@ -880,140 +179,4 @@ func (e PreferredAppGroupType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e PreferredAppGroupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PreferredAppGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (PreferredAppGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PreferredAppGroupType)(nil)).Elem()
-}
-
-func (o PreferredAppGroupTypeOutput) ToPreferredAppGroupTypeOutput() PreferredAppGroupTypeOutput {
-	return o
-}
-
-func (o PreferredAppGroupTypeOutput) ToPreferredAppGroupTypeOutputWithContext(ctx context.Context) PreferredAppGroupTypeOutput {
-	return o
-}
-
-func (o PreferredAppGroupTypeOutput) ToPreferredAppGroupTypePtrOutput() PreferredAppGroupTypePtrOutput {
-	return o.ToPreferredAppGroupTypePtrOutputWithContext(context.Background())
-}
-
-func (o PreferredAppGroupTypeOutput) ToPreferredAppGroupTypePtrOutputWithContext(ctx context.Context) PreferredAppGroupTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PreferredAppGroupType) *PreferredAppGroupType {
-		return &v
-	}).(PreferredAppGroupTypePtrOutput)
-}
-
-func (o PreferredAppGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PreferredAppGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PreferredAppGroupType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PreferredAppGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PreferredAppGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PreferredAppGroupType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PreferredAppGroupTypePtrOutput struct{ *pulumi.OutputState }
-
-func (PreferredAppGroupTypePtrOutput) ElementType() reflect.Type {
-	return preferredAppGroupTypePtrType
-}
-
-func (o PreferredAppGroupTypePtrOutput) ToPreferredAppGroupTypePtrOutput() PreferredAppGroupTypePtrOutput {
-	return o
-}
-
-func (o PreferredAppGroupTypePtrOutput) ToPreferredAppGroupTypePtrOutputWithContext(ctx context.Context) PreferredAppGroupTypePtrOutput {
-	return o
-}
-
-func (o PreferredAppGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PreferredAppGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PreferredAppGroupType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PreferredAppGroupTypePtrOutput) Elem() PreferredAppGroupTypeOutput {
-	return o.ApplyT(func(v *PreferredAppGroupType) PreferredAppGroupType {
-		var ret PreferredAppGroupType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PreferredAppGroupTypeOutput)
-}
-
-// PreferredAppGroupTypeInput is an input type that accepts PreferredAppGroupTypeArgs and PreferredAppGroupTypeOutput values.
-// You can construct a concrete instance of `PreferredAppGroupTypeInput` via:
-//
-//          PreferredAppGroupTypeArgs{...}
-type PreferredAppGroupTypeInput interface {
-	pulumi.Input
-
-	ToPreferredAppGroupTypeOutput() PreferredAppGroupTypeOutput
-	ToPreferredAppGroupTypeOutputWithContext(context.Context) PreferredAppGroupTypeOutput
-}
-
-var preferredAppGroupTypePtrType = reflect.TypeOf((**PreferredAppGroupType)(nil)).Elem()
-
-type PreferredAppGroupTypePtrInput interface {
-	pulumi.Input
-
-	ToPreferredAppGroupTypePtrOutput() PreferredAppGroupTypePtrOutput
-	ToPreferredAppGroupTypePtrOutputWithContext(context.Context) PreferredAppGroupTypePtrOutput
-}
-
-type preferredAppGroupTypePtr string
-
-func PreferredAppGroupTypePtr(v string) PreferredAppGroupTypePtrInput {
-	return (*preferredAppGroupTypePtr)(&v)
-}
-
-func (*preferredAppGroupTypePtr) ElementType() reflect.Type {
-	return preferredAppGroupTypePtrType
-}
-
-func (in *preferredAppGroupTypePtr) ToPreferredAppGroupTypePtrOutput() PreferredAppGroupTypePtrOutput {
-	return pulumi.ToOutput(in).(PreferredAppGroupTypePtrOutput)
-}
-
-func (in *preferredAppGroupTypePtr) ToPreferredAppGroupTypePtrOutputWithContext(ctx context.Context) PreferredAppGroupTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PreferredAppGroupTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(ApplicationGroupTypeOutput{})
-	pulumi.RegisterOutputType(ApplicationGroupTypePtrOutput{})
-	pulumi.RegisterOutputType(CommandLineSettingOutput{})
-	pulumi.RegisterOutputType(CommandLineSettingPtrOutput{})
-	pulumi.RegisterOutputType(HostPoolTypeOutput{})
-	pulumi.RegisterOutputType(HostPoolTypePtrOutput{})
-	pulumi.RegisterOutputType(LoadBalancerTypeOutput{})
-	pulumi.RegisterOutputType(LoadBalancerTypePtrOutput{})
-	pulumi.RegisterOutputType(PersonalDesktopAssignmentTypeOutput{})
-	pulumi.RegisterOutputType(PersonalDesktopAssignmentTypePtrOutput{})
-	pulumi.RegisterOutputType(PreferredAppGroupTypeOutput{})
-	pulumi.RegisterOutputType(PreferredAppGroupTypePtrOutput{})
 }

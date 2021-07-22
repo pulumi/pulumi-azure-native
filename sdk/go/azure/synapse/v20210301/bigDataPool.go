@@ -138,9 +138,97 @@ func GetBigDataPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BigDataPool resources.
 type bigDataPoolState struct {
+	// Auto-pausing properties
+	AutoPause *AutoPausePropertiesResponse `pulumi:"autoPause"`
+	// Auto-scaling properties
+	AutoScale *AutoScalePropertiesResponse `pulumi:"autoScale"`
+	// The cache size
+	CacheSize *int `pulumi:"cacheSize"`
+	// The time when the Big Data pool was created.
+	CreationDate *string `pulumi:"creationDate"`
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries []LibraryInfoResponse `pulumi:"customLibraries"`
+	// The default folder where Spark logs will be written.
+	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
+	// The time when the Big Data pool was updated successfully.
+	LastSucceededTimestamp *string `pulumi:"lastSucceededTimestamp"`
+	// Library version requirements
+	LibraryRequirements *LibraryRequirementsResponse `pulumi:"libraryRequirements"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The number of nodes in the Big Data pool.
+	NodeCount *int `pulumi:"nodeCount"`
+	// The level of compute power that each node in the Big Data pool has.
+	NodeSize *string `pulumi:"nodeSize"`
+	// The kind of nodes that the Big Data pool provides.
+	NodeSizeFamily *string `pulumi:"nodeSizeFamily"`
+	// The state of the Big Data pool.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
+	// The Spark events folder
+	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
+	// The Apache Spark version.
+	SparkVersion *string `pulumi:"sparkVersion"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type BigDataPoolState struct {
+	// Auto-pausing properties
+	AutoPause AutoPausePropertiesResponsePtrInput
+	// Auto-scaling properties
+	AutoScale AutoScalePropertiesResponsePtrInput
+	// The cache size
+	CacheSize pulumi.IntPtrInput
+	// The time when the Big Data pool was created.
+	CreationDate pulumi.StringPtrInput
+	// List of custom libraries/packages associated with the spark pool.
+	CustomLibraries LibraryInfoResponseArrayInput
+	// The default folder where Spark logs will be written.
+	DefaultSparkLogFolder pulumi.StringPtrInput
+	// Dynamic Executor Allocation
+	DynamicExecutorAllocation DynamicExecutorAllocationResponsePtrInput
+	// Whether compute isolation is required or not.
+	IsComputeIsolationEnabled pulumi.BoolPtrInput
+	// The time when the Big Data pool was updated successfully.
+	LastSucceededTimestamp pulumi.StringPtrInput
+	// Library version requirements
+	LibraryRequirements LibraryRequirementsResponsePtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The number of nodes in the Big Data pool.
+	NodeCount pulumi.IntPtrInput
+	// The level of compute power that each node in the Big Data pool has.
+	NodeSize pulumi.StringPtrInput
+	// The kind of nodes that the Big Data pool provides.
+	NodeSizeFamily pulumi.StringPtrInput
+	// The state of the Big Data pool.
+	ProvisioningState pulumi.StringPtrInput
+	// Whether session level packages enabled.
+	SessionLevelPackagesEnabled pulumi.BoolPtrInput
+	// Spark configuration file to specify additional properties
+	SparkConfigProperties LibraryRequirementsResponsePtrInput
+	// The Spark events folder
+	SparkEventsFolder pulumi.StringPtrInput
+	// The Apache Spark version.
+	SparkVersion pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (BigDataPoolState) ElementType() reflect.Type {

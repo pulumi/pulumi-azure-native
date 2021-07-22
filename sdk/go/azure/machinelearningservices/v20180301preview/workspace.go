@@ -189,9 +189,73 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+	ApplicationInsights *string `pulumi:"applicationInsights"`
+	// ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once the workspace has been created
+	BatchaiWorkspace *string `pulumi:"batchaiWorkspace"`
+	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+	ContainerRegistry *string `pulumi:"containerRegistry"`
+	// The creation time of the machine learning workspace in ISO8601 format.
+	CreationTime *string `pulumi:"creationTime"`
+	// The description of this workspace.
+	Description *string `pulumi:"description"`
+	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+	DiscoveryUrl *string `pulumi:"discoveryUrl"`
+	// The friendly name for this workspace. This name in mutable
+	FriendlyName *string `pulumi:"friendlyName"`
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+	KeyVault *string `pulumi:"keyVault"`
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name *string `pulumi:"name"`
+	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+	StorageAccount *string `pulumi:"storageAccount"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type *string `pulumi:"type"`
+	// The immutable id associated with this workspace.
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceState struct {
+	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+	ApplicationInsights pulumi.StringPtrInput
+	// ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once the workspace has been created
+	BatchaiWorkspace pulumi.StringPtrInput
+	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+	ContainerRegistry pulumi.StringPtrInput
+	// The creation time of the machine learning workspace in ISO8601 format.
+	CreationTime pulumi.StringPtrInput
+	// The description of this workspace.
+	Description pulumi.StringPtrInput
+	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+	DiscoveryUrl pulumi.StringPtrInput
+	// The friendly name for this workspace. This name in mutable
+	FriendlyName pulumi.StringPtrInput
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+	KeyVault pulumi.StringPtrInput
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput
+	// Specifies the name of the resource.
+	Name pulumi.StringPtrInput
+	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState pulumi.StringPtrInput
+	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+	StorageAccount pulumi.StringPtrInput
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput
+	// Specifies the type of the resource.
+	Type pulumi.StringPtrInput
+	// The immutable id associated with this workspace.
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

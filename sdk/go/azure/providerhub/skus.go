@@ -84,9 +84,19 @@ func GetSkus(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Skus resources.
 type skusState struct {
+	// The name of the resource
+	Name       *string                        `pulumi:"name"`
+	Properties *SkuResourceResponseProperties `pulumi:"properties"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type SkusState struct {
+	// The name of the resource
+	Name       pulumi.StringPtrInput
+	Properties SkuResourceResponsePropertiesPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (SkusState) ElementType() reflect.Type {

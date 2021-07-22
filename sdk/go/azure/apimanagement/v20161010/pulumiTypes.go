@@ -15,7 +15,7 @@ type AdditionalRegion struct {
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
 	// The SKU type in the location.
-	SkuType SkuType `pulumi:"skuType"`
+	SkuType string `pulumi:"skuType"`
 	// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
 	SkuUnitCount *int `pulumi:"skuUnitCount"`
 	// Virtual network configuration for the location.
@@ -38,7 +38,7 @@ type AdditionalRegionArgs struct {
 	// The location name of the additional region among Azure Data center regions.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The SKU type in the location.
-	SkuType SkuTypeInput `pulumi:"skuType"`
+	SkuType SkuType `pulumi:"skuType"`
 	// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
 	SkuUnitCount pulumi.IntPtrInput `pulumi:"skuUnitCount"`
 	// Virtual network configuration for the location.
@@ -103,8 +103,8 @@ func (o AdditionalRegionOutput) Location() pulumi.StringOutput {
 }
 
 // The SKU type in the location.
-func (o AdditionalRegionOutput) SkuType() SkuTypeOutput {
-	return o.ApplyT(func(v AdditionalRegion) SkuType { return v.SkuType }).(SkuTypeOutput)
+func (o AdditionalRegionOutput) SkuType() pulumi.StringOutput {
+	return o.ApplyT(func(v AdditionalRegion) string { return v.SkuType }).(pulumi.StringOutput)
 }
 
 // The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
@@ -278,7 +278,7 @@ type ApiManagementServiceSkuProperties struct {
 	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
 	Capacity *int `pulumi:"capacity"`
 	// Name of the Sku.
-	Name SkuType `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // ApiManagementServiceSkuPropertiesInput is an input type that accepts ApiManagementServiceSkuPropertiesArgs and ApiManagementServiceSkuPropertiesOutput values.
@@ -297,7 +297,7 @@ type ApiManagementServiceSkuPropertiesArgs struct {
 	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of the Sku.
-	Name SkuTypeInput `pulumi:"name"`
+	Name SkuType `pulumi:"name"`
 }
 
 func (ApiManagementServiceSkuPropertiesArgs) ElementType() reflect.Type {
@@ -384,8 +384,8 @@ func (o ApiManagementServiceSkuPropertiesOutput) Capacity() pulumi.IntPtrOutput 
 }
 
 // Name of the Sku.
-func (o ApiManagementServiceSkuPropertiesOutput) Name() SkuTypeOutput {
-	return o.ApplyT(func(v ApiManagementServiceSkuProperties) SkuType { return v.Name }).(SkuTypeOutput)
+func (o ApiManagementServiceSkuPropertiesOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiManagementServiceSkuProperties) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ApiManagementServiceSkuPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -417,13 +417,13 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) Capacity() pulumi.IntPtrOutp
 }
 
 // Name of the Sku.
-func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() SkuTypePtrOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *SkuType {
+func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // API Management service resource SKU properties.
@@ -789,7 +789,7 @@ type HostnameConfiguration struct {
 	// Hostname.
 	Hostname string `pulumi:"hostname"`
 	// Hostname type.
-	Type HostnameType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // HostnameConfigurationInput is an input type that accepts HostnameConfigurationArgs and HostnameConfigurationOutput values.
@@ -810,7 +810,7 @@ type HostnameConfigurationArgs struct {
 	// Hostname.
 	Hostname pulumi.StringInput `pulumi:"hostname"`
 	// Hostname type.
-	Type HostnameTypeInput `pulumi:"type"`
+	Type HostnameType `pulumi:"type"`
 }
 
 func (HostnameConfigurationArgs) ElementType() reflect.Type {
@@ -876,8 +876,8 @@ func (o HostnameConfigurationOutput) Hostname() pulumi.StringOutput {
 }
 
 // Hostname type.
-func (o HostnameConfigurationOutput) Type() HostnameTypeOutput {
-	return o.ApplyT(func(v HostnameConfiguration) HostnameType { return v.Type }).(HostnameTypeOutput)
+func (o HostnameConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HostnameConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type HostnameConfigurationArrayOutput struct{ *pulumi.OutputState }

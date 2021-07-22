@@ -109,9 +109,81 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// The time the namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Whether or not the namespace is set as Critical.
+	Critical *bool `pulumi:"critical"`
+	// Data center for the namespace
+	DataCenter *string `pulumi:"dataCenter"`
+	// Whether or not the namespace is currently enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId *string `pulumi:"metricId"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The namespace type.
+	NamespaceType *string `pulumi:"namespaceType"`
+	// Provisioning state of the Namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region *string `pulumi:"region"`
+	// ScaleUnit where the namespace gets created
+	ScaleUnit *string `pulumi:"scaleUnit"`
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
+	// The sku of the created namespace
+	Sku *SkuResponse `pulumi:"sku"`
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status *string `pulumi:"status"`
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrInput
+	// Whether or not the namespace is set as Critical.
+	Critical pulumi.BoolPtrInput
+	// Data center for the namespace
+	DataCenter pulumi.StringPtrInput
+	// Whether or not the namespace is currently enabled.
+	Enabled pulumi.BoolPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Identifier for Azure Insights metrics
+	MetricId pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The namespace type.
+	NamespaceType pulumi.StringPtrInput
+	// Provisioning state of the Namespace.
+	ProvisioningState pulumi.StringPtrInput
+	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+	Region pulumi.StringPtrInput
+	// ScaleUnit where the namespace gets created
+	ScaleUnit pulumi.StringPtrInput
+	// Endpoint you can use to perform NotificationHub operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
+	// The sku of the created namespace
+	Sku SkuResponsePtrInput
+	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+	Status pulumi.StringPtrInput
+	// The Id of the Azure subscription associated with the namespace.
+	SubscriptionId pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -134,7 +206,7 @@ type namespaceArgs struct {
 	// The namespace name.
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The namespace type.
-	NamespaceType *NamespaceType `pulumi:"namespaceType"`
+	NamespaceType *string `pulumi:"namespaceType"`
 	// Provisioning state of the Namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -174,7 +246,7 @@ type NamespaceArgs struct {
 	// The namespace name.
 	NamespaceName pulumi.StringPtrInput
 	// The namespace type.
-	NamespaceType NamespaceTypePtrInput
+	NamespaceType *NamespaceType
 	// Provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe

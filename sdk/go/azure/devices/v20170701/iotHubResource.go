@@ -214,9 +214,45 @@ func GetIotHubResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotHubResource resources.
 type iotHubResourceState struct {
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag *string `pulumi:"etag"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The properties of an IoT hub.
+	Properties *IotHubPropertiesResponse `pulumi:"properties"`
+	// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
+	Resourcegroup *string `pulumi:"resourcegroup"`
+	// Information about the SKU of the IoT hub.
+	Sku *IotHubSkuInfoResponse `pulumi:"sku"`
+	// The subscription identifier.
+	Subscriptionid *string `pulumi:"subscriptionid"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IotHubResourceState struct {
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag pulumi.StringPtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The properties of an IoT hub.
+	Properties IotHubPropertiesResponsePtrInput
+	// The name of the resource group that contains the IoT hub. A resource group name uniquely identifies the resource group within the subscription.
+	Resourcegroup pulumi.StringPtrInput
+	// Information about the SKU of the IoT hub.
+	Sku IotHubSkuInfoResponsePtrInput
+	// The subscription identifier.
+	Subscriptionid pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IotHubResourceState) ElementType() reflect.Type {

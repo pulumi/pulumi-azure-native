@@ -85,9 +85,49 @@ func GetAgentPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentPool resources.
 type agentPoolState struct {
+	// The count of agent machine
+	Count *int `pulumi:"count"`
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The OS of agent machine
+	Os *string `pulumi:"os"`
+	// The provisioning state of this agent pool
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The Tier of agent machine
+	Tier *string `pulumi:"tier"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The Virtual Network Subnet Resource Id of the agent machine
+	VirtualNetworkSubnetResourceId *string `pulumi:"virtualNetworkSubnetResourceId"`
 }
 
 type AgentPoolState struct {
+	// The count of agent machine
+	Count pulumi.IntPtrInput
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The OS of agent machine
+	Os pulumi.StringPtrInput
+	// The provisioning state of this agent pool
+	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The Tier of agent machine
+	Tier pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// The Virtual Network Subnet Resource Id of the agent machine
+	VirtualNetworkSubnetResourceId pulumi.StringPtrInput
 }
 
 func (AgentPoolState) ElementType() reflect.Type {

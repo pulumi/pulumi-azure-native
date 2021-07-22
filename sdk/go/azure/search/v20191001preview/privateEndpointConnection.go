@@ -94,9 +94,21 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
+	// The name of the private endpoint connection.
+	Name *string `pulumi:"name"`
+	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
+	// The name of the private endpoint connection.
+	Name pulumi.StringPtrInput
+	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionState) ElementType() reflect.Type {

@@ -131,9 +131,41 @@ func GetDiagnostic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Diagnostic resources.
 type diagnosticState struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog *string `pulumi:"alwaysLog"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend *PipelineDiagnosticSettingsResponse `pulumi:"backend"`
+	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+	EnableHttpCorrelationHeaders *bool `pulumi:"enableHttpCorrelationHeaders"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
+	// Resource Id of a target logger.
+	LoggerId *string `pulumi:"loggerId"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Sampling settings for Diagnostic.
+	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
 }
 
 type DiagnosticState struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog pulumi.StringPtrInput
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend PipelineDiagnosticSettingsResponsePtrInput
+	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+	EnableHttpCorrelationHeaders pulumi.BoolPtrInput
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend PipelineDiagnosticSettingsResponsePtrInput
+	// Resource Id of a target logger.
+	LoggerId pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Sampling settings for Diagnostic.
+	Sampling SamplingSettingsResponsePtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
 }
 
 func (DiagnosticState) ElementType() reflect.Type {

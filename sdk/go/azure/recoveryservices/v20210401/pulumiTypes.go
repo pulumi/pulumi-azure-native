@@ -47462,7 +47462,7 @@ type SimpleSchedulePolicy struct {
 	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType string `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
-	ScheduleRunDays []DayOfWeek `pulumi:"scheduleRunDays"`
+	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
 	// Frequency of the schedule operation of this policy.
 	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
 	// List of times of day this schedule has to be run.
@@ -47531,8 +47531,8 @@ func (o SimpleSchedulePolicyOutput) SchedulePolicyType() pulumi.StringOutput {
 }
 
 // List of days of week this schedule has to be run.
-func (o SimpleSchedulePolicyOutput) ScheduleRunDays() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v SimpleSchedulePolicy) []DayOfWeek { return v.ScheduleRunDays }).(DayOfWeekArrayOutput)
+func (o SimpleSchedulePolicyOutput) ScheduleRunDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicy) []string { return v.ScheduleRunDays }).(pulumi.StringArrayOutput)
 }
 
 // Frequency of the schedule operation of this policy.
@@ -54120,9 +54120,9 @@ func (o VmwareCbtPolicyDetailsResponseOutput) RecoveryPointHistoryInMinutes() pu
 // Weekly retention format.
 type WeeklyRetentionFormat struct {
 	// List of days of the week.
-	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
 	// List of weeks of month.
-	WeeksOfTheMonth []WeekOfMonth `pulumi:"weeksOfTheMonth"`
+	WeeksOfTheMonth []string `pulumi:"weeksOfTheMonth"`
 }
 
 // WeeklyRetentionFormatInput is an input type that accepts WeeklyRetentionFormatArgs and WeeklyRetentionFormatOutput values.
@@ -54223,13 +54223,13 @@ func (o WeeklyRetentionFormatOutput) ToWeeklyRetentionFormatPtrOutputWithContext
 }
 
 // List of days of the week.
-func (o WeeklyRetentionFormatOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) []DayOfWeek { return v.DaysOfTheWeek }).(DayOfWeekArrayOutput)
+func (o WeeklyRetentionFormatOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormat) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
 }
 
 // List of weeks of month.
-func (o WeeklyRetentionFormatOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) []WeekOfMonth { return v.WeeksOfTheMonth }).(WeekOfMonthArrayOutput)
+func (o WeeklyRetentionFormatOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormat) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
 }
 
 type WeeklyRetentionFormatPtrOutput struct{ *pulumi.OutputState }
@@ -54251,23 +54251,23 @@ func (o WeeklyRetentionFormatPtrOutput) Elem() WeeklyRetentionFormatOutput {
 }
 
 // List of days of the week.
-func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) []DayOfWeek {
+func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
 		if v == nil {
 			return nil
 		}
 		return v.DaysOfTheWeek
-	}).(DayOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // List of weeks of month.
-func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) []WeekOfMonth {
+func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeeksOfTheMonth
-	}).(WeekOfMonthArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Weekly retention format.
@@ -54426,7 +54426,7 @@ func (o WeeklyRetentionFormatResponsePtrOutput) WeeksOfTheMonth() pulumi.StringA
 // Weekly retention schedule.
 type WeeklyRetentionSchedule struct {
 	// List of days of week for weekly retention policy.
-	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// Retention times of retention policy.
@@ -54533,8 +54533,8 @@ func (o WeeklyRetentionScheduleOutput) ToWeeklyRetentionSchedulePtrOutputWithCon
 }
 
 // List of days of week for weekly retention policy.
-func (o WeeklyRetentionScheduleOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionSchedule) []DayOfWeek { return v.DaysOfTheWeek }).(DayOfWeekArrayOutput)
+func (o WeeklyRetentionScheduleOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionSchedule) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -54566,13 +54566,13 @@ func (o WeeklyRetentionSchedulePtrOutput) Elem() WeeklyRetentionScheduleOutput {
 }
 
 // List of days of week for weekly retention policy.
-func (o WeeklyRetentionSchedulePtrOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionSchedule) []DayOfWeek {
+func (o WeeklyRetentionSchedulePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.DaysOfTheWeek
-	}).(DayOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -55006,7 +55006,7 @@ func (o WorkloadInquiryDetailsResponseArrayOutput) Index(i pulumi.IntInput) Work
 // Yearly retention schedule.
 type YearlyRetentionSchedule struct {
 	// List of months of year of yearly retention policy.
-	MonthsOfYear []MonthOfYear `pulumi:"monthsOfYear"`
+	MonthsOfYear []string `pulumi:"monthsOfYear"`
 	// Retention duration of retention Policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// Daily retention format for yearly retention policy.
@@ -55125,8 +55125,8 @@ func (o YearlyRetentionScheduleOutput) ToYearlyRetentionSchedulePtrOutputWithCon
 }
 
 // List of months of year of yearly retention policy.
-func (o YearlyRetentionScheduleOutput) MonthsOfYear() MonthOfYearArrayOutput {
-	return o.ApplyT(func(v YearlyRetentionSchedule) []MonthOfYear { return v.MonthsOfYear }).(MonthOfYearArrayOutput)
+func (o YearlyRetentionScheduleOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionSchedule) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.
@@ -55173,13 +55173,13 @@ func (o YearlyRetentionSchedulePtrOutput) Elem() YearlyRetentionScheduleOutput {
 }
 
 // List of months of year of yearly retention policy.
-func (o YearlyRetentionSchedulePtrOutput) MonthsOfYear() MonthOfYearArrayOutput {
-	return o.ApplyT(func(v *YearlyRetentionSchedule) []MonthOfYear {
+func (o YearlyRetentionSchedulePtrOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.MonthsOfYear
-	}).(MonthOfYearArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // Retention duration of retention Policy.

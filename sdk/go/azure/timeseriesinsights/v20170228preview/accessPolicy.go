@@ -92,9 +92,29 @@ func GetAccessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPolicy resources.
 type accessPolicyState struct {
+	// An description of the access policy.
+	Description *string `pulumi:"description"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId *string `pulumi:"principalObjectId"`
+	// The list of roles the principal is assigned on the environment.
+	Roles []string `pulumi:"roles"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type AccessPolicyState struct {
+	// An description of the access policy.
+	Description pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId pulumi.StringPtrInput
+	// The list of roles the principal is assigned on the environment.
+	Roles pulumi.StringArrayInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AccessPolicyState) ElementType() reflect.Type {
@@ -113,7 +133,7 @@ type accessPolicyArgs struct {
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of roles the principal is assigned on the environment.
-	Roles []AccessPolicyRole `pulumi:"roles"`
+	Roles []string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.

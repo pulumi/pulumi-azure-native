@@ -45,9 +45,6 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	if args.BackupPolicyName == nil {
 		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
 	}
-	if args.BackupType == nil {
-		return nil, errors.New("invalid value for required argument 'BackupType'")
-	}
 	if args.DeviceName == nil {
 		return nil, errors.New("invalid value for required argument 'DeviceName'")
 	}
@@ -62,9 +59,6 @@ func NewBackupSchedule(ctx *pulumi.Context,
 	}
 	if args.ScheduleRecurrence == nil {
 		return nil, errors.New("invalid value for required argument 'ScheduleRecurrence'")
-	}
-	if args.ScheduleStatus == nil {
-		return nil, errors.New("invalid value for required argument 'ScheduleStatus'")
 	}
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
@@ -103,9 +97,45 @@ func GetBackupSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupSchedule resources.
 type backupScheduleState struct {
+	// The type of backup which needs to be taken.
+	BackupType *string `pulumi:"backupType"`
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The last successful backup run which was triggered for the schedule.
+	LastSuccessfulRun *string `pulumi:"lastSuccessfulRun"`
+	// The name of the object.
+	Name *string `pulumi:"name"`
+	// The number of backups to be retained.
+	RetentionCount *float64 `pulumi:"retentionCount"`
+	// The schedule recurrence.
+	ScheduleRecurrence *ScheduleRecurrenceResponse `pulumi:"scheduleRecurrence"`
+	// The schedule status.
+	ScheduleStatus *string `pulumi:"scheduleStatus"`
+	// The start time of the schedule.
+	StartTime *string `pulumi:"startTime"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
 }
 
 type BackupScheduleState struct {
+	// The type of backup which needs to be taken.
+	BackupType pulumi.StringPtrInput
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput
+	// The last successful backup run which was triggered for the schedule.
+	LastSuccessfulRun pulumi.StringPtrInput
+	// The name of the object.
+	Name pulumi.StringPtrInput
+	// The number of backups to be retained.
+	RetentionCount pulumi.Float64PtrInput
+	// The schedule recurrence.
+	ScheduleRecurrence ScheduleRecurrenceResponsePtrInput
+	// The schedule status.
+	ScheduleStatus pulumi.StringPtrInput
+	// The start time of the schedule.
+	StartTime pulumi.StringPtrInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
 }
 
 func (BackupScheduleState) ElementType() reflect.Type {
@@ -118,11 +148,11 @@ type backupScheduleArgs struct {
 	// The backup schedule name.
 	BackupScheduleName *string `pulumi:"backupScheduleName"`
 	// The type of backup which needs to be taken.
-	BackupType BackupType `pulumi:"backupType"`
+	BackupType string `pulumi:"backupType"`
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -132,7 +162,7 @@ type backupScheduleArgs struct {
 	// The schedule recurrence.
 	ScheduleRecurrence ScheduleRecurrence `pulumi:"scheduleRecurrence"`
 	// The schedule status.
-	ScheduleStatus ScheduleStatus `pulumi:"scheduleStatus"`
+	ScheduleStatus string `pulumi:"scheduleStatus"`
 	// The start time of the schedule.
 	StartTime string `pulumi:"startTime"`
 }
@@ -144,11 +174,11 @@ type BackupScheduleArgs struct {
 	// The backup schedule name.
 	BackupScheduleName pulumi.StringPtrInput
 	// The type of backup which needs to be taken.
-	BackupType BackupTypeInput
+	BackupType BackupType
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
@@ -158,7 +188,7 @@ type BackupScheduleArgs struct {
 	// The schedule recurrence.
 	ScheduleRecurrence ScheduleRecurrenceInput
 	// The schedule status.
-	ScheduleStatus ScheduleStatusInput
+	ScheduleStatus ScheduleStatus
 	// The start time of the schedule.
 	StartTime pulumi.StringInput
 }

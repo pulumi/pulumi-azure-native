@@ -115,9 +115,47 @@ func GetScheduledSynchronizationSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledSynchronizationSetting resources.
 type scheduledSynchronizationSettingState struct {
+	// Time at which the synchronization setting was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Kind of synchronization setting.
+	// Expected value is 'ScheduleBased'.
+	Kind *string `pulumi:"kind"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// Gets or sets the provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Recurrence Interval
+	RecurrenceInterval *string `pulumi:"recurrenceInterval"`
+	// Synchronization time
+	SynchronizationTime *string `pulumi:"synchronizationTime"`
+	// System Data of the Azure resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
+	// Name of the user who created the synchronization setting.
+	UserName *string `pulumi:"userName"`
 }
 
 type ScheduledSynchronizationSettingState struct {
+	// Time at which the synchronization setting was created.
+	CreatedAt pulumi.StringPtrInput
+	// Kind of synchronization setting.
+	// Expected value is 'ScheduleBased'.
+	Kind pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// Gets or sets the provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// Recurrence Interval
+	RecurrenceInterval pulumi.StringPtrInput
+	// Synchronization time
+	SynchronizationTime pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData SystemDataResponsePtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
+	// Name of the user who created the synchronization setting.
+	UserName pulumi.StringPtrInput
 }
 
 func (ScheduledSynchronizationSettingState) ElementType() reflect.Type {

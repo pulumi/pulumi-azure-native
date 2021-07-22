@@ -102,9 +102,25 @@ func GetReplicationFabric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationFabric resources.
 type replicationFabricState struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Fabric related data.
+	Properties *FabricPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type *string `pulumi:"type"`
 }
 
 type ReplicationFabricState struct {
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Fabric related data.
+	Properties FabricPropertiesResponsePtrInput
+	// Resource Type
+	Type pulumi.StringPtrInput
 }
 
 func (ReplicationFabricState) ElementType() reflect.Type {

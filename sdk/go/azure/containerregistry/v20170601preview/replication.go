@@ -106,9 +106,33 @@ func GetReplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Replication resources.
 type replicationState struct {
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the replication at the time the operation was called.
+	Status *StatusResponse `pulumi:"status"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type ReplicationState struct {
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// The status of the replication at the time the operation was called.
+	Status StatusResponsePtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ReplicationState) ElementType() reflect.Type {

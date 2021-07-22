@@ -3081,7 +3081,7 @@ type NamespaceProperties struct {
 	// The name of the namespace.
 	Name *string `pulumi:"name"`
 	// Gets or sets the namespace type.
-	NamespaceType *NamespaceType `pulumi:"namespaceType"`
+	NamespaceType *string `pulumi:"namespaceType"`
 	// Gets or sets provisioning state of the Namespace.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -3118,7 +3118,7 @@ type NamespacePropertiesArgs struct {
 	// The name of the namespace.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Gets or sets the namespace type.
-	NamespaceType NamespaceTypePtrInput `pulumi:"namespaceType"`
+	NamespaceType *NamespaceType `pulumi:"namespaceType"`
 	// Gets or sets provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -3232,8 +3232,8 @@ func (o NamespacePropertiesOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the namespace type.
-func (o NamespacePropertiesOutput) NamespaceType() NamespaceTypePtrOutput {
-	return o.ApplyT(func(v NamespaceProperties) *NamespaceType { return v.NamespaceType }).(NamespaceTypePtrOutput)
+func (o NamespacePropertiesOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NamespaceProperties) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets provisioning state of the Namespace.
@@ -3325,13 +3325,13 @@ func (o NamespacePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Gets or sets the namespace type.
-func (o NamespacePropertiesPtrOutput) NamespaceType() NamespaceTypePtrOutput {
-	return o.ApplyT(func(v *NamespaceProperties) *NamespaceType {
+func (o NamespacePropertiesPtrOutput) NamespaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NamespaceProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.NamespaceType
-	}).(NamespaceTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Gets or sets provisioning state of the Namespace.
@@ -4311,7 +4311,7 @@ type SharedAccessAuthorizationRuleProperties struct {
 	// The revision number for the rule.
 	Revision *int `pulumi:"revision"`
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 	// The secondary key that was used.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
@@ -4437,8 +4437,8 @@ func (o SharedAccessAuthorizationRulePropertiesOutput) Revision() pulumi.IntPtrO
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []AccessRights { return v.Rights }).(AccessRightsArrayOutput)
+func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
 // The secondary key that was used.

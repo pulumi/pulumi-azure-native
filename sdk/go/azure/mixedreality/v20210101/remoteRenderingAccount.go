@@ -103,9 +103,57 @@ func GetRemoteRenderingAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RemoteRenderingAccount resources.
 type remoteRenderingAccountState struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain *string `pulumi:"accountDomain"`
+	// unique id of certain account.
+	AccountId *string `pulumi:"accountId"`
+	// The identity associated with this account
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The kind of account, if supported
+	Kind *SkuResponse `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The plan associated with this account
+	Plan *IdentityResponse `pulumi:"plan"`
+	// The sku associated with this account
+	Sku *SkuResponse `pulumi:"sku"`
+	// The name of the storage account associated with this accountId
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// System metadata for this account
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type RemoteRenderingAccountState struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain pulumi.StringPtrInput
+	// unique id of certain account.
+	AccountId pulumi.StringPtrInput
+	// The identity associated with this account
+	Identity IdentityResponsePtrInput
+	// The kind of account, if supported
+	Kind SkuResponsePtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The plan associated with this account
+	Plan IdentityResponsePtrInput
+	// The sku associated with this account
+	Sku SkuResponsePtrInput
+	// The name of the storage account associated with this accountId
+	StorageAccountName pulumi.StringPtrInput
+	// System metadata for this account
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (RemoteRenderingAccountState) ElementType() reflect.Type {

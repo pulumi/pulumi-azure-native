@@ -114,9 +114,37 @@ func GetDedicatedHostGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedHostGroup resources.
 type dedicatedHostGroupState struct {
+	// A list of references to all dedicated hosts in the dedicated host group.
+	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+	Zones []string `pulumi:"zones"`
 }
 
 type DedicatedHostGroupState struct {
+	// A list of references to all dedicated hosts in the dedicated host group.
+	Hosts SubResourceReadOnlyResponseArrayInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount pulumi.IntPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
+	Zones pulumi.StringArrayInput
 }
 
 func (DedicatedHostGroupState) ElementType() reflect.Type {

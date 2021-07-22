@@ -82,9 +82,33 @@ func GetFileServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileServer resources.
 type fileServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId *string `pulumi:"backupScheduleGroupId"`
+	// The description of the file server
+	Description *string `pulumi:"description"`
+	// Domain of the file server
+	DomainName *string `pulumi:"domainName"`
+	// The name.
+	Name *string `pulumi:"name"`
+	// The storage domain id.
+	StorageDomainId *string `pulumi:"storageDomainId"`
+	// The type.
+	Type *string `pulumi:"type"`
 }
 
 type FileServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringPtrInput
+	// The description of the file server
+	Description pulumi.StringPtrInput
+	// Domain of the file server
+	DomainName pulumi.StringPtrInput
+	// The name.
+	Name pulumi.StringPtrInput
+	// The storage domain id.
+	StorageDomainId pulumi.StringPtrInput
+	// The type.
+	Type pulumi.StringPtrInput
 }
 
 func (FileServerState) ElementType() reflect.Type {

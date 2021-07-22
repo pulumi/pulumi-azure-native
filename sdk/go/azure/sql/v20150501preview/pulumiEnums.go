@@ -11,7 +11,7 @@ import (
 )
 
 // Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-type BlobAuditingPolicyState string
+type BlobAuditingPolicyState pulumi.String
 
 const (
 	BlobAuditingPolicyStateEnabled  = BlobAuditingPolicyState("Enabled")
@@ -19,23 +19,7 @@ const (
 )
 
 func (BlobAuditingPolicyState) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobAuditingPolicyState)(nil)).Elem()
-}
-
-func (e BlobAuditingPolicyState) ToBlobAuditingPolicyStateOutput() BlobAuditingPolicyStateOutput {
-	return pulumi.ToOutput(e).(BlobAuditingPolicyStateOutput)
-}
-
-func (e BlobAuditingPolicyState) ToBlobAuditingPolicyStateOutputWithContext(ctx context.Context) BlobAuditingPolicyStateOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(BlobAuditingPolicyStateOutput)
-}
-
-func (e BlobAuditingPolicyState) ToBlobAuditingPolicyStatePtrOutput() BlobAuditingPolicyStatePtrOutput {
-	return e.ToBlobAuditingPolicyStatePtrOutputWithContext(context.Background())
-}
-
-func (e BlobAuditingPolicyState) ToBlobAuditingPolicyStatePtrOutputWithContext(ctx context.Context) BlobAuditingPolicyStatePtrOutput {
-	return BlobAuditingPolicyState(e).ToBlobAuditingPolicyStateOutputWithContext(ctx).ToBlobAuditingPolicyStatePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e BlobAuditingPolicyState) ToStringOutput() pulumi.StringOutput {
@@ -54,129 +38,8 @@ func (e BlobAuditingPolicyState) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type BlobAuditingPolicyStateOutput struct{ *pulumi.OutputState }
-
-func (BlobAuditingPolicyStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobAuditingPolicyState)(nil)).Elem()
-}
-
-func (o BlobAuditingPolicyStateOutput) ToBlobAuditingPolicyStateOutput() BlobAuditingPolicyStateOutput {
-	return o
-}
-
-func (o BlobAuditingPolicyStateOutput) ToBlobAuditingPolicyStateOutputWithContext(ctx context.Context) BlobAuditingPolicyStateOutput {
-	return o
-}
-
-func (o BlobAuditingPolicyStateOutput) ToBlobAuditingPolicyStatePtrOutput() BlobAuditingPolicyStatePtrOutput {
-	return o.ToBlobAuditingPolicyStatePtrOutputWithContext(context.Background())
-}
-
-func (o BlobAuditingPolicyStateOutput) ToBlobAuditingPolicyStatePtrOutputWithContext(ctx context.Context) BlobAuditingPolicyStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobAuditingPolicyState) *BlobAuditingPolicyState {
-		return &v
-	}).(BlobAuditingPolicyStatePtrOutput)
-}
-
-func (o BlobAuditingPolicyStateOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o BlobAuditingPolicyStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlobAuditingPolicyState) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o BlobAuditingPolicyStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BlobAuditingPolicyStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlobAuditingPolicyState) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type BlobAuditingPolicyStatePtrOutput struct{ *pulumi.OutputState }
-
-func (BlobAuditingPolicyStatePtrOutput) ElementType() reflect.Type {
-	return blobAuditingPolicyStatePtrType
-}
-
-func (o BlobAuditingPolicyStatePtrOutput) ToBlobAuditingPolicyStatePtrOutput() BlobAuditingPolicyStatePtrOutput {
-	return o
-}
-
-func (o BlobAuditingPolicyStatePtrOutput) ToBlobAuditingPolicyStatePtrOutputWithContext(ctx context.Context) BlobAuditingPolicyStatePtrOutput {
-	return o
-}
-
-func (o BlobAuditingPolicyStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o BlobAuditingPolicyStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BlobAuditingPolicyState) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BlobAuditingPolicyStatePtrOutput) Elem() BlobAuditingPolicyStateOutput {
-	return o.ApplyT(func(v *BlobAuditingPolicyState) BlobAuditingPolicyState {
-		var ret BlobAuditingPolicyState
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(BlobAuditingPolicyStateOutput)
-}
-
-// BlobAuditingPolicyStateInput is an input type that accepts BlobAuditingPolicyStateArgs and BlobAuditingPolicyStateOutput values.
-// You can construct a concrete instance of `BlobAuditingPolicyStateInput` via:
-//
-//          BlobAuditingPolicyStateArgs{...}
-type BlobAuditingPolicyStateInput interface {
-	pulumi.Input
-
-	ToBlobAuditingPolicyStateOutput() BlobAuditingPolicyStateOutput
-	ToBlobAuditingPolicyStateOutputWithContext(context.Context) BlobAuditingPolicyStateOutput
-}
-
-var blobAuditingPolicyStatePtrType = reflect.TypeOf((**BlobAuditingPolicyState)(nil)).Elem()
-
-type BlobAuditingPolicyStatePtrInput interface {
-	pulumi.Input
-
-	ToBlobAuditingPolicyStatePtrOutput() BlobAuditingPolicyStatePtrOutput
-	ToBlobAuditingPolicyStatePtrOutputWithContext(context.Context) BlobAuditingPolicyStatePtrOutput
-}
-
-type blobAuditingPolicyStatePtr string
-
-func BlobAuditingPolicyStatePtr(v string) BlobAuditingPolicyStatePtrInput {
-	return (*blobAuditingPolicyStatePtr)(&v)
-}
-
-func (*blobAuditingPolicyStatePtr) ElementType() reflect.Type {
-	return blobAuditingPolicyStatePtrType
-}
-
-func (in *blobAuditingPolicyStatePtr) ToBlobAuditingPolicyStatePtrOutput() BlobAuditingPolicyStatePtrOutput {
-	return pulumi.ToOutput(in).(BlobAuditingPolicyStatePtrOutput)
-}
-
-func (in *blobAuditingPolicyStatePtr) ToBlobAuditingPolicyStatePtrOutputWithContext(ctx context.Context) BlobAuditingPolicyStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(BlobAuditingPolicyStatePtrOutput)
-}
-
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-type IdentityType string
+type IdentityType pulumi.String
 
 const (
 	IdentityTypeNone                         = IdentityType("None")
@@ -186,23 +49,7 @@ const (
 )
 
 func (IdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (e IdentityType) ToIdentityTypeOutput() IdentityTypeOutput {
-	return pulumi.ToOutput(e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return e.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (e IdentityType) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return IdentityType(e).ToIdentityTypeOutputWithContext(ctx).ToIdentityTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e IdentityType) ToStringOutput() pulumi.StringOutput {
@@ -221,129 +68,8 @@ func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type IdentityTypeOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutput() IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityType) *IdentityType {
-		return &v
-	}).(IdentityTypePtrOutput)
-}
-
-func (o IdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type IdentityTypePtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypePtrOutput) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdentityType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IdentityTypePtrOutput) Elem() IdentityTypeOutput {
-	return o.ApplyT(func(v *IdentityType) IdentityType {
-		var ret IdentityType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(IdentityTypeOutput)
-}
-
-// IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
-// You can construct a concrete instance of `IdentityTypeInput` via:
-//
-//          IdentityTypeArgs{...}
-type IdentityTypeInput interface {
-	pulumi.Input
-
-	ToIdentityTypeOutput() IdentityTypeOutput
-	ToIdentityTypeOutputWithContext(context.Context) IdentityTypeOutput
-}
-
-var identityTypePtrType = reflect.TypeOf((**IdentityType)(nil)).Elem()
-
-type IdentityTypePtrInput interface {
-	pulumi.Input
-
-	ToIdentityTypePtrOutput() IdentityTypePtrOutput
-	ToIdentityTypePtrOutputWithContext(context.Context) IdentityTypePtrOutput
-}
-
-type identityTypePtr string
-
-func IdentityTypePtr(v string) IdentityTypePtrInput {
-	return (*identityTypePtr)(&v)
-}
-
-func (*identityTypePtr) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return pulumi.ToOutput(in).(IdentityTypePtrOutput)
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
-}
-
 // The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
-type ManagedInstanceLicenseType string
+type ManagedInstanceLicenseType pulumi.String
 
 const (
 	ManagedInstanceLicenseTypeLicenseIncluded = ManagedInstanceLicenseType("LicenseIncluded")
@@ -351,23 +77,7 @@ const (
 )
 
 func (ManagedInstanceLicenseType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceLicenseType)(nil)).Elem()
-}
-
-func (e ManagedInstanceLicenseType) ToManagedInstanceLicenseTypeOutput() ManagedInstanceLicenseTypeOutput {
-	return pulumi.ToOutput(e).(ManagedInstanceLicenseTypeOutput)
-}
-
-func (e ManagedInstanceLicenseType) ToManagedInstanceLicenseTypeOutputWithContext(ctx context.Context) ManagedInstanceLicenseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ManagedInstanceLicenseTypeOutput)
-}
-
-func (e ManagedInstanceLicenseType) ToManagedInstanceLicenseTypePtrOutput() ManagedInstanceLicenseTypePtrOutput {
-	return e.ToManagedInstanceLicenseTypePtrOutputWithContext(context.Background())
-}
-
-func (e ManagedInstanceLicenseType) ToManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ManagedInstanceLicenseTypePtrOutput {
-	return ManagedInstanceLicenseType(e).ToManagedInstanceLicenseTypeOutputWithContext(ctx).ToManagedInstanceLicenseTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ManagedInstanceLicenseType) ToStringOutput() pulumi.StringOutput {
@@ -386,129 +96,8 @@ func (e ManagedInstanceLicenseType) ToStringPtrOutputWithContext(ctx context.Con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ManagedInstanceLicenseTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceLicenseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceLicenseType)(nil)).Elem()
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToManagedInstanceLicenseTypeOutput() ManagedInstanceLicenseTypeOutput {
-	return o
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToManagedInstanceLicenseTypeOutputWithContext(ctx context.Context) ManagedInstanceLicenseTypeOutput {
-	return o
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToManagedInstanceLicenseTypePtrOutput() ManagedInstanceLicenseTypePtrOutput {
-	return o.ToManagedInstanceLicenseTypePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ManagedInstanceLicenseTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceLicenseType) *ManagedInstanceLicenseType {
-		return &v
-	}).(ManagedInstanceLicenseTypePtrOutput)
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedInstanceLicenseType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceLicenseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedInstanceLicenseType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ManagedInstanceLicenseTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceLicenseTypePtrOutput) ElementType() reflect.Type {
-	return managedInstanceLicenseTypePtrType
-}
-
-func (o ManagedInstanceLicenseTypePtrOutput) ToManagedInstanceLicenseTypePtrOutput() ManagedInstanceLicenseTypePtrOutput {
-	return o
-}
-
-func (o ManagedInstanceLicenseTypePtrOutput) ToManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ManagedInstanceLicenseTypePtrOutput {
-	return o
-}
-
-func (o ManagedInstanceLicenseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceLicenseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedInstanceLicenseType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ManagedInstanceLicenseTypePtrOutput) Elem() ManagedInstanceLicenseTypeOutput {
-	return o.ApplyT(func(v *ManagedInstanceLicenseType) ManagedInstanceLicenseType {
-		var ret ManagedInstanceLicenseType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ManagedInstanceLicenseTypeOutput)
-}
-
-// ManagedInstanceLicenseTypeInput is an input type that accepts ManagedInstanceLicenseTypeArgs and ManagedInstanceLicenseTypeOutput values.
-// You can construct a concrete instance of `ManagedInstanceLicenseTypeInput` via:
-//
-//          ManagedInstanceLicenseTypeArgs{...}
-type ManagedInstanceLicenseTypeInput interface {
-	pulumi.Input
-
-	ToManagedInstanceLicenseTypeOutput() ManagedInstanceLicenseTypeOutput
-	ToManagedInstanceLicenseTypeOutputWithContext(context.Context) ManagedInstanceLicenseTypeOutput
-}
-
-var managedInstanceLicenseTypePtrType = reflect.TypeOf((**ManagedInstanceLicenseType)(nil)).Elem()
-
-type ManagedInstanceLicenseTypePtrInput interface {
-	pulumi.Input
-
-	ToManagedInstanceLicenseTypePtrOutput() ManagedInstanceLicenseTypePtrOutput
-	ToManagedInstanceLicenseTypePtrOutputWithContext(context.Context) ManagedInstanceLicenseTypePtrOutput
-}
-
-type managedInstanceLicenseTypePtr string
-
-func ManagedInstanceLicenseTypePtr(v string) ManagedInstanceLicenseTypePtrInput {
-	return (*managedInstanceLicenseTypePtr)(&v)
-}
-
-func (*managedInstanceLicenseTypePtr) ElementType() reflect.Type {
-	return managedInstanceLicenseTypePtrType
-}
-
-func (in *managedInstanceLicenseTypePtr) ToManagedInstanceLicenseTypePtrOutput() ManagedInstanceLicenseTypePtrOutput {
-	return pulumi.ToOutput(in).(ManagedInstanceLicenseTypePtrOutput)
-}
-
-func (in *managedInstanceLicenseTypePtr) ToManagedInstanceLicenseTypePtrOutputWithContext(ctx context.Context) ManagedInstanceLicenseTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ManagedInstanceLicenseTypePtrOutput)
-}
-
 // Connection type used for connecting to the instance.
-type ManagedInstanceProxyOverride string
+type ManagedInstanceProxyOverride pulumi.String
 
 const (
 	ManagedInstanceProxyOverrideProxy    = ManagedInstanceProxyOverride("Proxy")
@@ -517,23 +106,7 @@ const (
 )
 
 func (ManagedInstanceProxyOverride) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceProxyOverride)(nil)).Elem()
-}
-
-func (e ManagedInstanceProxyOverride) ToManagedInstanceProxyOverrideOutput() ManagedInstanceProxyOverrideOutput {
-	return pulumi.ToOutput(e).(ManagedInstanceProxyOverrideOutput)
-}
-
-func (e ManagedInstanceProxyOverride) ToManagedInstanceProxyOverrideOutputWithContext(ctx context.Context) ManagedInstanceProxyOverrideOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ManagedInstanceProxyOverrideOutput)
-}
-
-func (e ManagedInstanceProxyOverride) ToManagedInstanceProxyOverridePtrOutput() ManagedInstanceProxyOverridePtrOutput {
-	return e.ToManagedInstanceProxyOverridePtrOutputWithContext(context.Background())
-}
-
-func (e ManagedInstanceProxyOverride) ToManagedInstanceProxyOverridePtrOutputWithContext(ctx context.Context) ManagedInstanceProxyOverridePtrOutput {
-	return ManagedInstanceProxyOverride(e).ToManagedInstanceProxyOverrideOutputWithContext(ctx).ToManagedInstanceProxyOverridePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ManagedInstanceProxyOverride) ToStringOutput() pulumi.StringOutput {
@@ -552,133 +125,12 @@ func (e ManagedInstanceProxyOverride) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ManagedInstanceProxyOverrideOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceProxyOverrideOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceProxyOverride)(nil)).Elem()
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToManagedInstanceProxyOverrideOutput() ManagedInstanceProxyOverrideOutput {
-	return o
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToManagedInstanceProxyOverrideOutputWithContext(ctx context.Context) ManagedInstanceProxyOverrideOutput {
-	return o
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToManagedInstanceProxyOverridePtrOutput() ManagedInstanceProxyOverridePtrOutput {
-	return o.ToManagedInstanceProxyOverridePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToManagedInstanceProxyOverridePtrOutputWithContext(ctx context.Context) ManagedInstanceProxyOverridePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedInstanceProxyOverride) *ManagedInstanceProxyOverride {
-		return &v
-	}).(ManagedInstanceProxyOverridePtrOutput)
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedInstanceProxyOverride) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceProxyOverrideOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedInstanceProxyOverride) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ManagedInstanceProxyOverridePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedInstanceProxyOverridePtrOutput) ElementType() reflect.Type {
-	return managedInstanceProxyOverridePtrType
-}
-
-func (o ManagedInstanceProxyOverridePtrOutput) ToManagedInstanceProxyOverridePtrOutput() ManagedInstanceProxyOverridePtrOutput {
-	return o
-}
-
-func (o ManagedInstanceProxyOverridePtrOutput) ToManagedInstanceProxyOverridePtrOutputWithContext(ctx context.Context) ManagedInstanceProxyOverridePtrOutput {
-	return o
-}
-
-func (o ManagedInstanceProxyOverridePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedInstanceProxyOverridePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedInstanceProxyOverride) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ManagedInstanceProxyOverridePtrOutput) Elem() ManagedInstanceProxyOverrideOutput {
-	return o.ApplyT(func(v *ManagedInstanceProxyOverride) ManagedInstanceProxyOverride {
-		var ret ManagedInstanceProxyOverride
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ManagedInstanceProxyOverrideOutput)
-}
-
-// ManagedInstanceProxyOverrideInput is an input type that accepts ManagedInstanceProxyOverrideArgs and ManagedInstanceProxyOverrideOutput values.
-// You can construct a concrete instance of `ManagedInstanceProxyOverrideInput` via:
-//
-//          ManagedInstanceProxyOverrideArgs{...}
-type ManagedInstanceProxyOverrideInput interface {
-	pulumi.Input
-
-	ToManagedInstanceProxyOverrideOutput() ManagedInstanceProxyOverrideOutput
-	ToManagedInstanceProxyOverrideOutputWithContext(context.Context) ManagedInstanceProxyOverrideOutput
-}
-
-var managedInstanceProxyOverridePtrType = reflect.TypeOf((**ManagedInstanceProxyOverride)(nil)).Elem()
-
-type ManagedInstanceProxyOverridePtrInput interface {
-	pulumi.Input
-
-	ToManagedInstanceProxyOverridePtrOutput() ManagedInstanceProxyOverridePtrOutput
-	ToManagedInstanceProxyOverridePtrOutputWithContext(context.Context) ManagedInstanceProxyOverridePtrOutput
-}
-
-type managedInstanceProxyOverridePtr string
-
-func ManagedInstanceProxyOverridePtr(v string) ManagedInstanceProxyOverridePtrInput {
-	return (*managedInstanceProxyOverridePtr)(&v)
-}
-
-func (*managedInstanceProxyOverridePtr) ElementType() reflect.Type {
-	return managedInstanceProxyOverridePtrType
-}
-
-func (in *managedInstanceProxyOverridePtr) ToManagedInstanceProxyOverridePtrOutput() ManagedInstanceProxyOverridePtrOutput {
-	return pulumi.ToOutput(in).(ManagedInstanceProxyOverridePtrOutput)
-}
-
-func (in *managedInstanceProxyOverridePtr) ToManagedInstanceProxyOverridePtrOutputWithContext(ctx context.Context) ManagedInstanceProxyOverridePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ManagedInstanceProxyOverridePtrOutput)
-}
-
 // Specifies the mode of database creation.
 //
 // Default: Regular instance creation.
 //
 // Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
-type ManagedServerCreateMode string
+type ManagedServerCreateMode pulumi.String
 
 const (
 	ManagedServerCreateModeDefault            = ManagedServerCreateMode("Default")
@@ -686,23 +138,7 @@ const (
 )
 
 func (ManagedServerCreateMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServerCreateMode)(nil)).Elem()
-}
-
-func (e ManagedServerCreateMode) ToManagedServerCreateModeOutput() ManagedServerCreateModeOutput {
-	return pulumi.ToOutput(e).(ManagedServerCreateModeOutput)
-}
-
-func (e ManagedServerCreateMode) ToManagedServerCreateModeOutputWithContext(ctx context.Context) ManagedServerCreateModeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ManagedServerCreateModeOutput)
-}
-
-func (e ManagedServerCreateMode) ToManagedServerCreateModePtrOutput() ManagedServerCreateModePtrOutput {
-	return e.ToManagedServerCreateModePtrOutputWithContext(context.Background())
-}
-
-func (e ManagedServerCreateMode) ToManagedServerCreateModePtrOutputWithContext(ctx context.Context) ManagedServerCreateModePtrOutput {
-	return ManagedServerCreateMode(e).ToManagedServerCreateModeOutputWithContext(ctx).ToManagedServerCreateModePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ManagedServerCreateMode) ToStringOutput() pulumi.StringOutput {
@@ -721,129 +157,8 @@ func (e ManagedServerCreateMode) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ManagedServerCreateModeOutput struct{ *pulumi.OutputState }
-
-func (ManagedServerCreateModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServerCreateMode)(nil)).Elem()
-}
-
-func (o ManagedServerCreateModeOutput) ToManagedServerCreateModeOutput() ManagedServerCreateModeOutput {
-	return o
-}
-
-func (o ManagedServerCreateModeOutput) ToManagedServerCreateModeOutputWithContext(ctx context.Context) ManagedServerCreateModeOutput {
-	return o
-}
-
-func (o ManagedServerCreateModeOutput) ToManagedServerCreateModePtrOutput() ManagedServerCreateModePtrOutput {
-	return o.ToManagedServerCreateModePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedServerCreateModeOutput) ToManagedServerCreateModePtrOutputWithContext(ctx context.Context) ManagedServerCreateModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServerCreateMode) *ManagedServerCreateMode {
-		return &v
-	}).(ManagedServerCreateModePtrOutput)
-}
-
-func (o ManagedServerCreateModeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ManagedServerCreateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedServerCreateMode) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ManagedServerCreateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedServerCreateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedServerCreateMode) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ManagedServerCreateModePtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedServerCreateModePtrOutput) ElementType() reflect.Type {
-	return managedServerCreateModePtrType
-}
-
-func (o ManagedServerCreateModePtrOutput) ToManagedServerCreateModePtrOutput() ManagedServerCreateModePtrOutput {
-	return o
-}
-
-func (o ManagedServerCreateModePtrOutput) ToManagedServerCreateModePtrOutputWithContext(ctx context.Context) ManagedServerCreateModePtrOutput {
-	return o
-}
-
-func (o ManagedServerCreateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedServerCreateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedServerCreateMode) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ManagedServerCreateModePtrOutput) Elem() ManagedServerCreateModeOutput {
-	return o.ApplyT(func(v *ManagedServerCreateMode) ManagedServerCreateMode {
-		var ret ManagedServerCreateMode
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ManagedServerCreateModeOutput)
-}
-
-// ManagedServerCreateModeInput is an input type that accepts ManagedServerCreateModeArgs and ManagedServerCreateModeOutput values.
-// You can construct a concrete instance of `ManagedServerCreateModeInput` via:
-//
-//          ManagedServerCreateModeArgs{...}
-type ManagedServerCreateModeInput interface {
-	pulumi.Input
-
-	ToManagedServerCreateModeOutput() ManagedServerCreateModeOutput
-	ToManagedServerCreateModeOutputWithContext(context.Context) ManagedServerCreateModeOutput
-}
-
-var managedServerCreateModePtrType = reflect.TypeOf((**ManagedServerCreateMode)(nil)).Elem()
-
-type ManagedServerCreateModePtrInput interface {
-	pulumi.Input
-
-	ToManagedServerCreateModePtrOutput() ManagedServerCreateModePtrOutput
-	ToManagedServerCreateModePtrOutputWithContext(context.Context) ManagedServerCreateModePtrOutput
-}
-
-type managedServerCreateModePtr string
-
-func ManagedServerCreateModePtr(v string) ManagedServerCreateModePtrInput {
-	return (*managedServerCreateModePtr)(&v)
-}
-
-func (*managedServerCreateModePtr) ElementType() reflect.Type {
-	return managedServerCreateModePtrType
-}
-
-func (in *managedServerCreateModePtr) ToManagedServerCreateModePtrOutput() ManagedServerCreateModePtrOutput {
-	return pulumi.ToOutput(in).(ManagedServerCreateModePtrOutput)
-}
-
-func (in *managedServerCreateModePtr) ToManagedServerCreateModePtrOutputWithContext(ctx context.Context) ManagedServerCreateModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ManagedServerCreateModePtrOutput)
-}
-
 // Failover policy of the read-only endpoint for the failover group.
-type ReadOnlyEndpointFailoverPolicy string
+type ReadOnlyEndpointFailoverPolicy pulumi.String
 
 const (
 	ReadOnlyEndpointFailoverPolicyDisabled = ReadOnlyEndpointFailoverPolicy("Disabled")
@@ -851,23 +166,7 @@ const (
 )
 
 func (ReadOnlyEndpointFailoverPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadOnlyEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (e ReadOnlyEndpointFailoverPolicy) ToReadOnlyEndpointFailoverPolicyOutput() ReadOnlyEndpointFailoverPolicyOutput {
-	return pulumi.ToOutput(e).(ReadOnlyEndpointFailoverPolicyOutput)
-}
-
-func (e ReadOnlyEndpointFailoverPolicy) ToReadOnlyEndpointFailoverPolicyOutputWithContext(ctx context.Context) ReadOnlyEndpointFailoverPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ReadOnlyEndpointFailoverPolicyOutput)
-}
-
-func (e ReadOnlyEndpointFailoverPolicy) ToReadOnlyEndpointFailoverPolicyPtrOutput() ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return e.ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e ReadOnlyEndpointFailoverPolicy) ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return ReadOnlyEndpointFailoverPolicy(e).ToReadOnlyEndpointFailoverPolicyOutputWithContext(ctx).ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ReadOnlyEndpointFailoverPolicy) ToStringOutput() pulumi.StringOutput {
@@ -886,129 +185,8 @@ func (e ReadOnlyEndpointFailoverPolicy) ToStringPtrOutputWithContext(ctx context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ReadOnlyEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
-
-func (ReadOnlyEndpointFailoverPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadOnlyEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToReadOnlyEndpointFailoverPolicyOutput() ReadOnlyEndpointFailoverPolicyOutput {
-	return o
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToReadOnlyEndpointFailoverPolicyOutputWithContext(ctx context.Context) ReadOnlyEndpointFailoverPolicyOutput {
-	return o
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToReadOnlyEndpointFailoverPolicyPtrOutput() ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return o.ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReadOnlyEndpointFailoverPolicy) *ReadOnlyEndpointFailoverPolicy {
-		return &v
-	}).(ReadOnlyEndpointFailoverPolicyPtrOutput)
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReadOnlyEndpointFailoverPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReadOnlyEndpointFailoverPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReadOnlyEndpointFailoverPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ReadOnlyEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ReadOnlyEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
-	return readOnlyEndpointFailoverPolicyPtrType
-}
-
-func (o ReadOnlyEndpointFailoverPolicyPtrOutput) ToReadOnlyEndpointFailoverPolicyPtrOutput() ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o ReadOnlyEndpointFailoverPolicyPtrOutput) ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o ReadOnlyEndpointFailoverPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReadOnlyEndpointFailoverPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReadOnlyEndpointFailoverPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReadOnlyEndpointFailoverPolicyPtrOutput) Elem() ReadOnlyEndpointFailoverPolicyOutput {
-	return o.ApplyT(func(v *ReadOnlyEndpointFailoverPolicy) ReadOnlyEndpointFailoverPolicy {
-		var ret ReadOnlyEndpointFailoverPolicy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ReadOnlyEndpointFailoverPolicyOutput)
-}
-
-// ReadOnlyEndpointFailoverPolicyInput is an input type that accepts ReadOnlyEndpointFailoverPolicyArgs and ReadOnlyEndpointFailoverPolicyOutput values.
-// You can construct a concrete instance of `ReadOnlyEndpointFailoverPolicyInput` via:
-//
-//          ReadOnlyEndpointFailoverPolicyArgs{...}
-type ReadOnlyEndpointFailoverPolicyInput interface {
-	pulumi.Input
-
-	ToReadOnlyEndpointFailoverPolicyOutput() ReadOnlyEndpointFailoverPolicyOutput
-	ToReadOnlyEndpointFailoverPolicyOutputWithContext(context.Context) ReadOnlyEndpointFailoverPolicyOutput
-}
-
-var readOnlyEndpointFailoverPolicyPtrType = reflect.TypeOf((**ReadOnlyEndpointFailoverPolicy)(nil)).Elem()
-
-type ReadOnlyEndpointFailoverPolicyPtrInput interface {
-	pulumi.Input
-
-	ToReadOnlyEndpointFailoverPolicyPtrOutput() ReadOnlyEndpointFailoverPolicyPtrOutput
-	ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(context.Context) ReadOnlyEndpointFailoverPolicyPtrOutput
-}
-
-type readOnlyEndpointFailoverPolicyPtr string
-
-func ReadOnlyEndpointFailoverPolicyPtr(v string) ReadOnlyEndpointFailoverPolicyPtrInput {
-	return (*readOnlyEndpointFailoverPolicyPtr)(&v)
-}
-
-func (*readOnlyEndpointFailoverPolicyPtr) ElementType() reflect.Type {
-	return readOnlyEndpointFailoverPolicyPtrType
-}
-
-func (in *readOnlyEndpointFailoverPolicyPtr) ToReadOnlyEndpointFailoverPolicyPtrOutput() ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutput(in).(ReadOnlyEndpointFailoverPolicyPtrOutput)
-}
-
-func (in *readOnlyEndpointFailoverPolicyPtr) ToReadOnlyEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadOnlyEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ReadOnlyEndpointFailoverPolicyPtrOutput)
-}
-
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
-type ReadWriteEndpointFailoverPolicy string
+type ReadWriteEndpointFailoverPolicy pulumi.String
 
 const (
 	ReadWriteEndpointFailoverPolicyManual    = ReadWriteEndpointFailoverPolicy("Manual")
@@ -1016,23 +194,7 @@ const (
 )
 
 func (ReadWriteEndpointFailoverPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (e ReadWriteEndpointFailoverPolicy) ToReadWriteEndpointFailoverPolicyOutput() ReadWriteEndpointFailoverPolicyOutput {
-	return pulumi.ToOutput(e).(ReadWriteEndpointFailoverPolicyOutput)
-}
-
-func (e ReadWriteEndpointFailoverPolicy) ToReadWriteEndpointFailoverPolicyOutputWithContext(ctx context.Context) ReadWriteEndpointFailoverPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ReadWriteEndpointFailoverPolicyOutput)
-}
-
-func (e ReadWriteEndpointFailoverPolicy) ToReadWriteEndpointFailoverPolicyPtrOutput() ReadWriteEndpointFailoverPolicyPtrOutput {
-	return e.ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e ReadWriteEndpointFailoverPolicy) ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadWriteEndpointFailoverPolicyPtrOutput {
-	return ReadWriteEndpointFailoverPolicy(e).ToReadWriteEndpointFailoverPolicyOutputWithContext(ctx).ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ReadWriteEndpointFailoverPolicy) ToStringOutput() pulumi.StringOutput {
@@ -1051,129 +213,8 @@ func (e ReadWriteEndpointFailoverPolicy) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ReadWriteEndpointFailoverPolicyOutput struct{ *pulumi.OutputState }
-
-func (ReadWriteEndpointFailoverPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadWriteEndpointFailoverPolicy)(nil)).Elem()
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToReadWriteEndpointFailoverPolicyOutput() ReadWriteEndpointFailoverPolicyOutput {
-	return o
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToReadWriteEndpointFailoverPolicyOutputWithContext(ctx context.Context) ReadWriteEndpointFailoverPolicyOutput {
-	return o
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToReadWriteEndpointFailoverPolicyPtrOutput() ReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadWriteEndpointFailoverPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReadWriteEndpointFailoverPolicy) *ReadWriteEndpointFailoverPolicy {
-		return &v
-	}).(ReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReadWriteEndpointFailoverPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReadWriteEndpointFailoverPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReadWriteEndpointFailoverPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ReadWriteEndpointFailoverPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ReadWriteEndpointFailoverPolicyPtrOutput) ElementType() reflect.Type {
-	return readWriteEndpointFailoverPolicyPtrType
-}
-
-func (o ReadWriteEndpointFailoverPolicyPtrOutput) ToReadWriteEndpointFailoverPolicyPtrOutput() ReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o ReadWriteEndpointFailoverPolicyPtrOutput) ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadWriteEndpointFailoverPolicyPtrOutput {
-	return o
-}
-
-func (o ReadWriteEndpointFailoverPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ReadWriteEndpointFailoverPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReadWriteEndpointFailoverPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReadWriteEndpointFailoverPolicyPtrOutput) Elem() ReadWriteEndpointFailoverPolicyOutput {
-	return o.ApplyT(func(v *ReadWriteEndpointFailoverPolicy) ReadWriteEndpointFailoverPolicy {
-		var ret ReadWriteEndpointFailoverPolicy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ReadWriteEndpointFailoverPolicyOutput)
-}
-
-// ReadWriteEndpointFailoverPolicyInput is an input type that accepts ReadWriteEndpointFailoverPolicyArgs and ReadWriteEndpointFailoverPolicyOutput values.
-// You can construct a concrete instance of `ReadWriteEndpointFailoverPolicyInput` via:
-//
-//          ReadWriteEndpointFailoverPolicyArgs{...}
-type ReadWriteEndpointFailoverPolicyInput interface {
-	pulumi.Input
-
-	ToReadWriteEndpointFailoverPolicyOutput() ReadWriteEndpointFailoverPolicyOutput
-	ToReadWriteEndpointFailoverPolicyOutputWithContext(context.Context) ReadWriteEndpointFailoverPolicyOutput
-}
-
-var readWriteEndpointFailoverPolicyPtrType = reflect.TypeOf((**ReadWriteEndpointFailoverPolicy)(nil)).Elem()
-
-type ReadWriteEndpointFailoverPolicyPtrInput interface {
-	pulumi.Input
-
-	ToReadWriteEndpointFailoverPolicyPtrOutput() ReadWriteEndpointFailoverPolicyPtrOutput
-	ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(context.Context) ReadWriteEndpointFailoverPolicyPtrOutput
-}
-
-type readWriteEndpointFailoverPolicyPtr string
-
-func ReadWriteEndpointFailoverPolicyPtr(v string) ReadWriteEndpointFailoverPolicyPtrInput {
-	return (*readWriteEndpointFailoverPolicyPtr)(&v)
-}
-
-func (*readWriteEndpointFailoverPolicyPtr) ElementType() reflect.Type {
-	return readWriteEndpointFailoverPolicyPtrType
-}
-
-func (in *readWriteEndpointFailoverPolicyPtr) ToReadWriteEndpointFailoverPolicyPtrOutput() ReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutput(in).(ReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
-func (in *readWriteEndpointFailoverPolicyPtr) ToReadWriteEndpointFailoverPolicyPtrOutputWithContext(ctx context.Context) ReadWriteEndpointFailoverPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ReadWriteEndpointFailoverPolicyPtrOutput)
-}
-
 // The server key type like 'ServiceManaged', 'AzureKeyVault'.
-type ServerKeyType string
+type ServerKeyType pulumi.String
 
 const (
 	ServerKeyTypeServiceManaged = ServerKeyType("ServiceManaged")
@@ -1181,23 +222,7 @@ const (
 )
 
 func (ServerKeyType) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKeyType)(nil)).Elem()
-}
-
-func (e ServerKeyType) ToServerKeyTypeOutput() ServerKeyTypeOutput {
-	return pulumi.ToOutput(e).(ServerKeyTypeOutput)
-}
-
-func (e ServerKeyType) ToServerKeyTypeOutputWithContext(ctx context.Context) ServerKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ServerKeyTypeOutput)
-}
-
-func (e ServerKeyType) ToServerKeyTypePtrOutput() ServerKeyTypePtrOutput {
-	return e.ToServerKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (e ServerKeyType) ToServerKeyTypePtrOutputWithContext(ctx context.Context) ServerKeyTypePtrOutput {
-	return ServerKeyType(e).ToServerKeyTypeOutputWithContext(ctx).ToServerKeyTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ServerKeyType) ToStringOutput() pulumi.StringOutput {
@@ -1216,129 +241,8 @@ func (e ServerKeyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ServerKeyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerKeyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKeyType)(nil)).Elem()
-}
-
-func (o ServerKeyTypeOutput) ToServerKeyTypeOutput() ServerKeyTypeOutput {
-	return o
-}
-
-func (o ServerKeyTypeOutput) ToServerKeyTypeOutputWithContext(ctx context.Context) ServerKeyTypeOutput {
-	return o
-}
-
-func (o ServerKeyTypeOutput) ToServerKeyTypePtrOutput() ServerKeyTypePtrOutput {
-	return o.ToServerKeyTypePtrOutputWithContext(context.Background())
-}
-
-func (o ServerKeyTypeOutput) ToServerKeyTypePtrOutputWithContext(ctx context.Context) ServerKeyTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerKeyType) *ServerKeyType {
-		return &v
-	}).(ServerKeyTypePtrOutput)
-}
-
-func (o ServerKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ServerKeyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerKeyType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ServerKeyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ServerKeyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerKeyType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ServerKeyTypePtrOutput struct{ *pulumi.OutputState }
-
-func (ServerKeyTypePtrOutput) ElementType() reflect.Type {
-	return serverKeyTypePtrType
-}
-
-func (o ServerKeyTypePtrOutput) ToServerKeyTypePtrOutput() ServerKeyTypePtrOutput {
-	return o
-}
-
-func (o ServerKeyTypePtrOutput) ToServerKeyTypePtrOutputWithContext(ctx context.Context) ServerKeyTypePtrOutput {
-	return o
-}
-
-func (o ServerKeyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ServerKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerKeyType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServerKeyTypePtrOutput) Elem() ServerKeyTypeOutput {
-	return o.ApplyT(func(v *ServerKeyType) ServerKeyType {
-		var ret ServerKeyType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ServerKeyTypeOutput)
-}
-
-// ServerKeyTypeInput is an input type that accepts ServerKeyTypeArgs and ServerKeyTypeOutput values.
-// You can construct a concrete instance of `ServerKeyTypeInput` via:
-//
-//          ServerKeyTypeArgs{...}
-type ServerKeyTypeInput interface {
-	pulumi.Input
-
-	ToServerKeyTypeOutput() ServerKeyTypeOutput
-	ToServerKeyTypeOutputWithContext(context.Context) ServerKeyTypeOutput
-}
-
-var serverKeyTypePtrType = reflect.TypeOf((**ServerKeyType)(nil)).Elem()
-
-type ServerKeyTypePtrInput interface {
-	pulumi.Input
-
-	ToServerKeyTypePtrOutput() ServerKeyTypePtrOutput
-	ToServerKeyTypePtrOutputWithContext(context.Context) ServerKeyTypePtrOutput
-}
-
-type serverKeyTypePtr string
-
-func ServerKeyTypePtr(v string) ServerKeyTypePtrInput {
-	return (*serverKeyTypePtr)(&v)
-}
-
-func (*serverKeyTypePtr) ElementType() reflect.Type {
-	return serverKeyTypePtrType
-}
-
-func (in *serverKeyTypePtr) ToServerKeyTypePtrOutput() ServerKeyTypePtrOutput {
-	return pulumi.ToOutput(in).(ServerKeyTypePtrOutput)
-}
-
-func (in *serverKeyTypePtr) ToServerKeyTypePtrOutputWithContext(ctx context.Context) ServerKeyTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ServerKeyTypePtrOutput)
-}
-
 // Conflict resolution policy of the sync group.
-type SyncConflictResolutionPolicy string
+type SyncConflictResolutionPolicy pulumi.String
 
 const (
 	SyncConflictResolutionPolicyHubWin    = SyncConflictResolutionPolicy("HubWin")
@@ -1346,23 +250,7 @@ const (
 )
 
 func (SyncConflictResolutionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncConflictResolutionPolicy)(nil)).Elem()
-}
-
-func (e SyncConflictResolutionPolicy) ToSyncConflictResolutionPolicyOutput() SyncConflictResolutionPolicyOutput {
-	return pulumi.ToOutput(e).(SyncConflictResolutionPolicyOutput)
-}
-
-func (e SyncConflictResolutionPolicy) ToSyncConflictResolutionPolicyOutputWithContext(ctx context.Context) SyncConflictResolutionPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SyncConflictResolutionPolicyOutput)
-}
-
-func (e SyncConflictResolutionPolicy) ToSyncConflictResolutionPolicyPtrOutput() SyncConflictResolutionPolicyPtrOutput {
-	return e.ToSyncConflictResolutionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (e SyncConflictResolutionPolicy) ToSyncConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SyncConflictResolutionPolicyPtrOutput {
-	return SyncConflictResolutionPolicy(e).ToSyncConflictResolutionPolicyOutputWithContext(ctx).ToSyncConflictResolutionPolicyPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SyncConflictResolutionPolicy) ToStringOutput() pulumi.StringOutput {
@@ -1381,129 +269,8 @@ func (e SyncConflictResolutionPolicy) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SyncConflictResolutionPolicyOutput struct{ *pulumi.OutputState }
-
-func (SyncConflictResolutionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncConflictResolutionPolicy)(nil)).Elem()
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToSyncConflictResolutionPolicyOutput() SyncConflictResolutionPolicyOutput {
-	return o
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToSyncConflictResolutionPolicyOutputWithContext(ctx context.Context) SyncConflictResolutionPolicyOutput {
-	return o
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToSyncConflictResolutionPolicyPtrOutput() SyncConflictResolutionPolicyPtrOutput {
-	return o.ToSyncConflictResolutionPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToSyncConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SyncConflictResolutionPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncConflictResolutionPolicy) *SyncConflictResolutionPolicy {
-		return &v
-	}).(SyncConflictResolutionPolicyPtrOutput)
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SyncConflictResolutionPolicy) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SyncConflictResolutionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SyncConflictResolutionPolicy) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SyncConflictResolutionPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (SyncConflictResolutionPolicyPtrOutput) ElementType() reflect.Type {
-	return syncConflictResolutionPolicyPtrType
-}
-
-func (o SyncConflictResolutionPolicyPtrOutput) ToSyncConflictResolutionPolicyPtrOutput() SyncConflictResolutionPolicyPtrOutput {
-	return o
-}
-
-func (o SyncConflictResolutionPolicyPtrOutput) ToSyncConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SyncConflictResolutionPolicyPtrOutput {
-	return o
-}
-
-func (o SyncConflictResolutionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SyncConflictResolutionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SyncConflictResolutionPolicy) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SyncConflictResolutionPolicyPtrOutput) Elem() SyncConflictResolutionPolicyOutput {
-	return o.ApplyT(func(v *SyncConflictResolutionPolicy) SyncConflictResolutionPolicy {
-		var ret SyncConflictResolutionPolicy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SyncConflictResolutionPolicyOutput)
-}
-
-// SyncConflictResolutionPolicyInput is an input type that accepts SyncConflictResolutionPolicyArgs and SyncConflictResolutionPolicyOutput values.
-// You can construct a concrete instance of `SyncConflictResolutionPolicyInput` via:
-//
-//          SyncConflictResolutionPolicyArgs{...}
-type SyncConflictResolutionPolicyInput interface {
-	pulumi.Input
-
-	ToSyncConflictResolutionPolicyOutput() SyncConflictResolutionPolicyOutput
-	ToSyncConflictResolutionPolicyOutputWithContext(context.Context) SyncConflictResolutionPolicyOutput
-}
-
-var syncConflictResolutionPolicyPtrType = reflect.TypeOf((**SyncConflictResolutionPolicy)(nil)).Elem()
-
-type SyncConflictResolutionPolicyPtrInput interface {
-	pulumi.Input
-
-	ToSyncConflictResolutionPolicyPtrOutput() SyncConflictResolutionPolicyPtrOutput
-	ToSyncConflictResolutionPolicyPtrOutputWithContext(context.Context) SyncConflictResolutionPolicyPtrOutput
-}
-
-type syncConflictResolutionPolicyPtr string
-
-func SyncConflictResolutionPolicyPtr(v string) SyncConflictResolutionPolicyPtrInput {
-	return (*syncConflictResolutionPolicyPtr)(&v)
-}
-
-func (*syncConflictResolutionPolicyPtr) ElementType() reflect.Type {
-	return syncConflictResolutionPolicyPtrType
-}
-
-func (in *syncConflictResolutionPolicyPtr) ToSyncConflictResolutionPolicyPtrOutput() SyncConflictResolutionPolicyPtrOutput {
-	return pulumi.ToOutput(in).(SyncConflictResolutionPolicyPtrOutput)
-}
-
-func (in *syncConflictResolutionPolicyPtr) ToSyncConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) SyncConflictResolutionPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SyncConflictResolutionPolicyPtrOutput)
-}
-
 // Sync direction of the sync member.
-type SyncDirection string
+type SyncDirection pulumi.String
 
 const (
 	SyncDirectionBidirectional     = SyncDirection("Bidirectional")
@@ -1512,23 +279,7 @@ const (
 )
 
 func (SyncDirection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncDirection)(nil)).Elem()
-}
-
-func (e SyncDirection) ToSyncDirectionOutput() SyncDirectionOutput {
-	return pulumi.ToOutput(e).(SyncDirectionOutput)
-}
-
-func (e SyncDirection) ToSyncDirectionOutputWithContext(ctx context.Context) SyncDirectionOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SyncDirectionOutput)
-}
-
-func (e SyncDirection) ToSyncDirectionPtrOutput() SyncDirectionPtrOutput {
-	return e.ToSyncDirectionPtrOutputWithContext(context.Background())
-}
-
-func (e SyncDirection) ToSyncDirectionPtrOutputWithContext(ctx context.Context) SyncDirectionPtrOutput {
-	return SyncDirection(e).ToSyncDirectionOutputWithContext(ctx).ToSyncDirectionPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SyncDirection) ToStringOutput() pulumi.StringOutput {
@@ -1547,129 +298,8 @@ func (e SyncDirection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type SyncDirectionOutput struct{ *pulumi.OutputState }
-
-func (SyncDirectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncDirection)(nil)).Elem()
-}
-
-func (o SyncDirectionOutput) ToSyncDirectionOutput() SyncDirectionOutput {
-	return o
-}
-
-func (o SyncDirectionOutput) ToSyncDirectionOutputWithContext(ctx context.Context) SyncDirectionOutput {
-	return o
-}
-
-func (o SyncDirectionOutput) ToSyncDirectionPtrOutput() SyncDirectionPtrOutput {
-	return o.ToSyncDirectionPtrOutputWithContext(context.Background())
-}
-
-func (o SyncDirectionOutput) ToSyncDirectionPtrOutputWithContext(ctx context.Context) SyncDirectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncDirection) *SyncDirection {
-		return &v
-	}).(SyncDirectionPtrOutput)
-}
-
-func (o SyncDirectionOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SyncDirectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SyncDirection) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SyncDirectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SyncDirectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SyncDirection) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SyncDirectionPtrOutput struct{ *pulumi.OutputState }
-
-func (SyncDirectionPtrOutput) ElementType() reflect.Type {
-	return syncDirectionPtrType
-}
-
-func (o SyncDirectionPtrOutput) ToSyncDirectionPtrOutput() SyncDirectionPtrOutput {
-	return o
-}
-
-func (o SyncDirectionPtrOutput) ToSyncDirectionPtrOutputWithContext(ctx context.Context) SyncDirectionPtrOutput {
-	return o
-}
-
-func (o SyncDirectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SyncDirectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SyncDirection) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SyncDirectionPtrOutput) Elem() SyncDirectionOutput {
-	return o.ApplyT(func(v *SyncDirection) SyncDirection {
-		var ret SyncDirection
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SyncDirectionOutput)
-}
-
-// SyncDirectionInput is an input type that accepts SyncDirectionArgs and SyncDirectionOutput values.
-// You can construct a concrete instance of `SyncDirectionInput` via:
-//
-//          SyncDirectionArgs{...}
-type SyncDirectionInput interface {
-	pulumi.Input
-
-	ToSyncDirectionOutput() SyncDirectionOutput
-	ToSyncDirectionOutputWithContext(context.Context) SyncDirectionOutput
-}
-
-var syncDirectionPtrType = reflect.TypeOf((**SyncDirection)(nil)).Elem()
-
-type SyncDirectionPtrInput interface {
-	pulumi.Input
-
-	ToSyncDirectionPtrOutput() SyncDirectionPtrOutput
-	ToSyncDirectionPtrOutputWithContext(context.Context) SyncDirectionPtrOutput
-}
-
-type syncDirectionPtr string
-
-func SyncDirectionPtr(v string) SyncDirectionPtrInput {
-	return (*syncDirectionPtr)(&v)
-}
-
-func (*syncDirectionPtr) ElementType() reflect.Type {
-	return syncDirectionPtrType
-}
-
-func (in *syncDirectionPtr) ToSyncDirectionPtrOutput() SyncDirectionPtrOutput {
-	return pulumi.ToOutput(in).(SyncDirectionPtrOutput)
-}
-
-func (in *syncDirectionPtr) ToSyncDirectionPtrOutputWithContext(ctx context.Context) SyncDirectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SyncDirectionPtrOutput)
-}
-
 // Database type of the sync member.
-type SyncMemberDbType string
+type SyncMemberDbType pulumi.String
 
 const (
 	SyncMemberDbTypeAzureSqlDatabase  = SyncMemberDbType("AzureSqlDatabase")
@@ -1677,23 +307,7 @@ const (
 )
 
 func (SyncMemberDbType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMemberDbType)(nil)).Elem()
-}
-
-func (e SyncMemberDbType) ToSyncMemberDbTypeOutput() SyncMemberDbTypeOutput {
-	return pulumi.ToOutput(e).(SyncMemberDbTypeOutput)
-}
-
-func (e SyncMemberDbType) ToSyncMemberDbTypeOutputWithContext(ctx context.Context) SyncMemberDbTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(SyncMemberDbTypeOutput)
-}
-
-func (e SyncMemberDbType) ToSyncMemberDbTypePtrOutput() SyncMemberDbTypePtrOutput {
-	return e.ToSyncMemberDbTypePtrOutputWithContext(context.Background())
-}
-
-func (e SyncMemberDbType) ToSyncMemberDbTypePtrOutputWithContext(ctx context.Context) SyncMemberDbTypePtrOutput {
-	return SyncMemberDbType(e).ToSyncMemberDbTypeOutputWithContext(ctx).ToSyncMemberDbTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e SyncMemberDbType) ToStringOutput() pulumi.StringOutput {
@@ -1710,150 +324,4 @@ func (e SyncMemberDbType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SyncMemberDbType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type SyncMemberDbTypeOutput struct{ *pulumi.OutputState }
-
-func (SyncMemberDbTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMemberDbType)(nil)).Elem()
-}
-
-func (o SyncMemberDbTypeOutput) ToSyncMemberDbTypeOutput() SyncMemberDbTypeOutput {
-	return o
-}
-
-func (o SyncMemberDbTypeOutput) ToSyncMemberDbTypeOutputWithContext(ctx context.Context) SyncMemberDbTypeOutput {
-	return o
-}
-
-func (o SyncMemberDbTypeOutput) ToSyncMemberDbTypePtrOutput() SyncMemberDbTypePtrOutput {
-	return o.ToSyncMemberDbTypePtrOutputWithContext(context.Background())
-}
-
-func (o SyncMemberDbTypeOutput) ToSyncMemberDbTypePtrOutputWithContext(ctx context.Context) SyncMemberDbTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncMemberDbType) *SyncMemberDbType {
-		return &v
-	}).(SyncMemberDbTypePtrOutput)
-}
-
-func (o SyncMemberDbTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o SyncMemberDbTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SyncMemberDbType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o SyncMemberDbTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SyncMemberDbTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e SyncMemberDbType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type SyncMemberDbTypePtrOutput struct{ *pulumi.OutputState }
-
-func (SyncMemberDbTypePtrOutput) ElementType() reflect.Type {
-	return syncMemberDbTypePtrType
-}
-
-func (o SyncMemberDbTypePtrOutput) ToSyncMemberDbTypePtrOutput() SyncMemberDbTypePtrOutput {
-	return o
-}
-
-func (o SyncMemberDbTypePtrOutput) ToSyncMemberDbTypePtrOutputWithContext(ctx context.Context) SyncMemberDbTypePtrOutput {
-	return o
-}
-
-func (o SyncMemberDbTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o SyncMemberDbTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SyncMemberDbType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SyncMemberDbTypePtrOutput) Elem() SyncMemberDbTypeOutput {
-	return o.ApplyT(func(v *SyncMemberDbType) SyncMemberDbType {
-		var ret SyncMemberDbType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(SyncMemberDbTypeOutput)
-}
-
-// SyncMemberDbTypeInput is an input type that accepts SyncMemberDbTypeArgs and SyncMemberDbTypeOutput values.
-// You can construct a concrete instance of `SyncMemberDbTypeInput` via:
-//
-//          SyncMemberDbTypeArgs{...}
-type SyncMemberDbTypeInput interface {
-	pulumi.Input
-
-	ToSyncMemberDbTypeOutput() SyncMemberDbTypeOutput
-	ToSyncMemberDbTypeOutputWithContext(context.Context) SyncMemberDbTypeOutput
-}
-
-var syncMemberDbTypePtrType = reflect.TypeOf((**SyncMemberDbType)(nil)).Elem()
-
-type SyncMemberDbTypePtrInput interface {
-	pulumi.Input
-
-	ToSyncMemberDbTypePtrOutput() SyncMemberDbTypePtrOutput
-	ToSyncMemberDbTypePtrOutputWithContext(context.Context) SyncMemberDbTypePtrOutput
-}
-
-type syncMemberDbTypePtr string
-
-func SyncMemberDbTypePtr(v string) SyncMemberDbTypePtrInput {
-	return (*syncMemberDbTypePtr)(&v)
-}
-
-func (*syncMemberDbTypePtr) ElementType() reflect.Type {
-	return syncMemberDbTypePtrType
-}
-
-func (in *syncMemberDbTypePtr) ToSyncMemberDbTypePtrOutput() SyncMemberDbTypePtrOutput {
-	return pulumi.ToOutput(in).(SyncMemberDbTypePtrOutput)
-}
-
-func (in *syncMemberDbTypePtr) ToSyncMemberDbTypePtrOutputWithContext(ctx context.Context) SyncMemberDbTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(SyncMemberDbTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(BlobAuditingPolicyStateOutput{})
-	pulumi.RegisterOutputType(BlobAuditingPolicyStatePtrOutput{})
-	pulumi.RegisterOutputType(IdentityTypeOutput{})
-	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceLicenseTypeOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceLicenseTypePtrOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceProxyOverrideOutput{})
-	pulumi.RegisterOutputType(ManagedInstanceProxyOverridePtrOutput{})
-	pulumi.RegisterOutputType(ManagedServerCreateModeOutput{})
-	pulumi.RegisterOutputType(ManagedServerCreateModePtrOutput{})
-	pulumi.RegisterOutputType(ReadOnlyEndpointFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(ReadOnlyEndpointFailoverPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ReadWriteEndpointFailoverPolicyOutput{})
-	pulumi.RegisterOutputType(ReadWriteEndpointFailoverPolicyPtrOutput{})
-	pulumi.RegisterOutputType(ServerKeyTypeOutput{})
-	pulumi.RegisterOutputType(ServerKeyTypePtrOutput{})
-	pulumi.RegisterOutputType(SyncConflictResolutionPolicyOutput{})
-	pulumi.RegisterOutputType(SyncConflictResolutionPolicyPtrOutput{})
-	pulumi.RegisterOutputType(SyncDirectionOutput{})
-	pulumi.RegisterOutputType(SyncDirectionPtrOutput{})
-	pulumi.RegisterOutputType(SyncMemberDbTypeOutput{})
-	pulumi.RegisterOutputType(SyncMemberDbTypePtrOutput{})
 }

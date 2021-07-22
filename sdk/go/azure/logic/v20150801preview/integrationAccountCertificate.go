@@ -99,9 +99,45 @@ func GetIntegrationAccountCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountCertificate resources.
 type integrationAccountCertificateState struct {
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The key details in the key vault.
+	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The public certificate.
+	PublicCertificate *string `pulumi:"publicCertificate"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountCertificateState struct {
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The key details in the key vault.
+	Key KeyVaultKeyReferenceResponsePtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.Input
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The public certificate.
+	PublicCertificate pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountCertificateState) ElementType() reflect.Type {

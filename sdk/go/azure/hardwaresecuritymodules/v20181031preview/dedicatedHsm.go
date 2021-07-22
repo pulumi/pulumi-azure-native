@@ -84,9 +84,49 @@ func GetDedicatedHsm(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedHsm resources.
 type dedicatedHsmState struct {
+	// The supported Azure location where the dedicated HSM should be created.
+	Location *string `pulumi:"location"`
+	// The name of the dedicated HSM.
+	Name *string `pulumi:"name"`
+	// Specifies the network interfaces of the dedicated hsm.
+	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
+	// Provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// SKU details
+	Sku *SkuResponse `pulumi:"sku"`
+	// This field will be used when RP does not support Availability zones.
+	StampId *string `pulumi:"stampId"`
+	// Resource Status Message.
+	StatusMessage *string `pulumi:"statusMessage"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type of the dedicated HSM.
+	Type *string `pulumi:"type"`
+	// The Dedicated Hsm zones.
+	Zones []string `pulumi:"zones"`
 }
 
 type DedicatedHsmState struct {
+	// The supported Azure location where the dedicated HSM should be created.
+	Location pulumi.StringPtrInput
+	// The name of the dedicated HSM.
+	Name pulumi.StringPtrInput
+	// Specifies the network interfaces of the dedicated hsm.
+	NetworkProfile NetworkProfileResponsePtrInput
+	// Provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// SKU details
+	Sku SkuResponsePtrInput
+	// This field will be used when RP does not support Availability zones.
+	StampId pulumi.StringPtrInput
+	// Resource Status Message.
+	StatusMessage pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// The resource type of the dedicated HSM.
+	Type pulumi.StringPtrInput
+	// The Dedicated Hsm zones.
+	Zones pulumi.StringArrayInput
 }
 
 func (DedicatedHsmState) ElementType() reflect.Type {

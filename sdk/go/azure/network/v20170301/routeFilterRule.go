@@ -275,9 +275,41 @@ func GetRouteFilterRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteFilterRule resources.
 type routeFilterRuleState struct {
+	// The access type of the rule. Valid values are: 'Allow', 'Deny'
+	Access *string `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities []string `pulumi:"communities"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType *string `pulumi:"routeFilterRuleType"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type RouteFilterRuleState struct {
+	// The access type of the rule. Valid values are: 'Allow', 'Deny'
+	Access pulumi.StringPtrInput
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities pulumi.StringArrayInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
 }
 
 func (RouteFilterRuleState) ElementType() reflect.Type {

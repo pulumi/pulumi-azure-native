@@ -99,9 +99,53 @@ func GetSourceControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SourceControl resources.
 type sourceControlState struct {
+	// The auto sync of the source control. Default is false.
+	AutoSync *bool `pulumi:"autoSync"`
+	// The repo branch of the source control. Include branch as empty string for VsoTfvc.
+	Branch *string `pulumi:"branch"`
+	// The creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// The description.
+	Description *string `pulumi:"description"`
+	// The folder path of the source control.
+	FolderPath *string `pulumi:"folderPath"`
+	// The last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The auto publish of the source control. Default is true.
+	PublishRunbook *bool `pulumi:"publishRunbook"`
+	// The repo url of the source control.
+	RepoUrl *string `pulumi:"repoUrl"`
+	// The source type. Must be one of VsoGit, VsoTfvc, GitHub.
+	SourceType *string `pulumi:"sourceType"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type SourceControlState struct {
+	// The auto sync of the source control. Default is false.
+	AutoSync pulumi.BoolPtrInput
+	// The repo branch of the source control. Include branch as empty string for VsoTfvc.
+	Branch pulumi.StringPtrInput
+	// The creation time.
+	CreationTime pulumi.StringPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
+	// The folder path of the source control.
+	FolderPath pulumi.StringPtrInput
+	// The last modified time.
+	LastModifiedTime pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The auto publish of the source control. Default is true.
+	PublishRunbook pulumi.BoolPtrInput
+	// The repo url of the source control.
+	RepoUrl pulumi.StringPtrInput
+	// The source type. Must be one of VsoGit, VsoTfvc, GitHub.
+	SourceType pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (SourceControlState) ElementType() reflect.Type {

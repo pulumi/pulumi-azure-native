@@ -13,7 +13,7 @@ import (
 // Identity for the connected cluster.
 type ConnectedClusterIdentity struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type ResourceIdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ConnectedClusterIdentityInput is an input type that accepts ConnectedClusterIdentityArgs and ConnectedClusterIdentityOutput values.
@@ -30,7 +30,7 @@ type ConnectedClusterIdentityInput interface {
 // Identity for the connected cluster.
 type ConnectedClusterIdentityArgs struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type ResourceIdentityTypeInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityArgs) ElementType() reflect.Type {
@@ -112,8 +112,8 @@ func (o ConnectedClusterIdentityOutput) ToConnectedClusterIdentityPtrOutputWithC
 }
 
 // The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityOutput) Type() ResourceIdentityTypeOutput {
-	return o.ApplyT(func(v ConnectedClusterIdentity) ResourceIdentityType { return v.Type }).(ResourceIdentityTypeOutput)
+func (o ConnectedClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectedClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ConnectedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -135,13 +135,13 @@ func (o ConnectedClusterIdentityPtrOutput) Elem() ConnectedClusterIdentityOutput
 }
 
 // The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-func (o ConnectedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ConnectedClusterIdentity) *ResourceIdentityType {
+func (o ConnectedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectedClusterIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the connected cluster.

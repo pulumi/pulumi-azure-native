@@ -90,9 +90,49 @@ func GetWCFRelay(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WCFRelay resources.
 type wcfrelayState struct {
+	// The time the WCFRelay was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// true if the relay is dynamic; otherwise, false.
+	IsDynamic *bool `pulumi:"isDynamic"`
+	// The number of listeners for this relay. min : 1 and max:25 supported
+	ListenerCount *int `pulumi:"listenerCount"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// WCFRelay Type.
+	RelayType *string `pulumi:"relayType"`
+	// true if client authorization is needed for this relay; otherwise, false.
+	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
+	// true if transport security is needed for this relay; otherwise, false.
+	RequiresTransportSecurity *bool `pulumi:"requiresTransportSecurity"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
+	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 type WCFRelayState struct {
+	// The time the WCFRelay was created.
+	CreatedAt pulumi.StringPtrInput
+	// true if the relay is dynamic; otherwise, false.
+	IsDynamic pulumi.BoolPtrInput
+	// The number of listeners for this relay. min : 1 and max:25 supported
+	ListenerCount pulumi.IntPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// WCFRelay Type.
+	RelayType pulumi.StringPtrInput
+	// true if client authorization is needed for this relay; otherwise, false.
+	RequiresClientAuthorization pulumi.BoolPtrInput
+	// true if transport security is needed for this relay; otherwise, false.
+	RequiresTransportSecurity pulumi.BoolPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
+	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (WCFRelayState) ElementType() reflect.Type {

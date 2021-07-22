@@ -74,9 +74,33 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
+	// For optimistic concurrency control.
+	ETag *string `pulumi:"eTag"`
+	// Azure location in which project is created.
+	Location *string `pulumi:"location"`
+	// Name of the project.
+	Name *string `pulumi:"name"`
+	// Properties of the project.
+	Properties *ProjectPropertiesResponse `pulumi:"properties"`
+	// Tags provided by Azure Tagging service.
+	Tags interface{} `pulumi:"tags"`
+	// Type of the object = [Microsoft.Migrate/assessmentProjects].
+	Type *string `pulumi:"type"`
 }
 
 type ProjectState struct {
+	// For optimistic concurrency control.
+	ETag pulumi.StringPtrInput
+	// Azure location in which project is created.
+	Location pulumi.StringPtrInput
+	// Name of the project.
+	Name pulumi.StringPtrInput
+	// Properties of the project.
+	Properties ProjectPropertiesResponsePtrInput
+	// Tags provided by Azure Tagging service.
+	Tags pulumi.Input
+	// Type of the object = [Microsoft.Migrate/assessmentProjects].
+	Type pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {

@@ -106,9 +106,33 @@ func GetFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileShare resources.
 type fileShareState struct {
+	// Resource Etag.
+	Etag *string `pulumi:"etag"`
+	// Returns the date and time the share was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// A name-value pair to associate with the share as metadata.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+	ShareQuota *int `pulumi:"shareQuota"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type FileShareState struct {
+	// Resource Etag.
+	Etag pulumi.StringPtrInput
+	// Returns the date and time the share was last modified.
+	LastModifiedTime pulumi.StringPtrInput
+	// A name-value pair to associate with the share as metadata.
+	Metadata pulumi.StringMapInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+	ShareQuota pulumi.IntPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (FileShareState) ElementType() reflect.Type {

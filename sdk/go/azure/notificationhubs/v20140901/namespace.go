@@ -86,9 +86,29 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// Gets or sets datacenter location of the Namespace.
+	Location *string `pulumi:"location"`
+	// Gets or sets name of the Namespace.
+	Name *string `pulumi:"name"`
+	// Gets or sets properties of the Namespace.
+	Properties *NamespacePropertiesResponse `pulumi:"properties"`
+	// Gets or sets tags of the Namespace.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets resource type of the Namespace.
+	Type *string `pulumi:"type"`
 }
 
 type NamespaceState struct {
+	// Gets or sets datacenter location of the Namespace.
+	Location pulumi.StringPtrInput
+	// Gets or sets name of the Namespace.
+	Name pulumi.StringPtrInput
+	// Gets or sets properties of the Namespace.
+	Properties NamespacePropertiesResponsePtrInput
+	// Gets or sets tags of the Namespace.
+	Tags pulumi.StringMapInput
+	// Gets or sets resource type of the Namespace.
+	Type pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

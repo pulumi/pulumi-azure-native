@@ -75,9 +75,37 @@ func GetCommitmentPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CommitmentPlan resources.
 type commitmentPlanState struct {
+	// An entity tag used to enforce optimistic concurrency.
+	Etag *string `pulumi:"etag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The commitment plan properties.
+	Properties *CommitmentPlanPropertiesResponse `pulumi:"properties"`
+	// The commitment plan SKU.
+	Sku *ResourceSkuResponse `pulumi:"sku"`
+	// User-defined tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type CommitmentPlanState struct {
+	// An entity tag used to enforce optimistic concurrency.
+	Etag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The commitment plan properties.
+	Properties CommitmentPlanPropertiesResponsePtrInput
+	// The commitment plan SKU.
+	Sku ResourceSkuResponsePtrInput
+	// User-defined tags for the resource.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (CommitmentPlanState) ElementType() reflect.Type {

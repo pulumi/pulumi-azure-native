@@ -73,9 +73,27 @@ func GetRuleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RuleSet resources.
 type ruleSetState struct {
+	DeploymentStatus *string `pulumi:"deploymentStatus"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Provisioning status
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type RuleSetState struct {
+	DeploymentStatus pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Provisioning status
+	ProvisioningState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (RuleSetState) ElementType() reflect.Type {

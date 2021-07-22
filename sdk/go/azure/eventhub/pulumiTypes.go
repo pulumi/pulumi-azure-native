@@ -17,7 +17,7 @@ type CaptureDescription struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
+	Encoding *string `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -44,7 +44,7 @@ type CaptureDescriptionArgs struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding EncodingCaptureDescriptionPtrInput `pulumi:"encoding"`
+	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -142,8 +142,8 @@ func (o CaptureDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v CaptureDescription) *EncodingCaptureDescription { return v.Encoding }).(EncodingCaptureDescriptionPtrOutput)
+func (o CaptureDescriptionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -200,13 +200,13 @@ func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionPtrOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v *CaptureDescription) *EncodingCaptureDescription {
+func (o CaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Encoding
-	}).(EncodingCaptureDescriptionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds

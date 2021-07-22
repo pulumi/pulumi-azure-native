@@ -113,9 +113,65 @@ func GetIntegrationAccountSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountSchema resources.
 type integrationAccountSchemaState struct {
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The content.
+	Content *string `pulumi:"content"`
+	// The content link.
+	ContentLink *ContentLinkResponse `pulumi:"contentLink"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The document name.
+	DocumentName *string `pulumi:"documentName"`
+	// The file name.
+	FileName *string `pulumi:"fileName"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// Gets the resource name.
+	Name *string `pulumi:"name"`
+	// The schema type.
+	SchemaType *string `pulumi:"schemaType"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The target namespace of the schema.
+	TargetNamespace *string `pulumi:"targetNamespace"`
+	// Gets the resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountSchemaState struct {
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The content.
+	Content pulumi.StringPtrInput
+	// The content link.
+	ContentLink ContentLinkResponsePtrInput
+	// The content type.
+	ContentType pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The document name.
+	DocumentName pulumi.StringPtrInput
+	// The file name.
+	FileName pulumi.StringPtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.Input
+	// Gets the resource name.
+	Name pulumi.StringPtrInput
+	// The schema type.
+	SchemaType pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The target namespace of the schema.
+	TargetNamespace pulumi.StringPtrInput
+	// Gets the resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountSchemaState) ElementType() reflect.Type {

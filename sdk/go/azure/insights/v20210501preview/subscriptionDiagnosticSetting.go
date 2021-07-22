@@ -83,9 +83,49 @@ func GetSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubscriptionDiagnosticSetting resources.
 type subscriptionDiagnosticSettingState struct {
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The list of logs settings.
+	Logs []SubscriptionLogSettingsResponse `pulumi:"logs"`
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId *string `pulumi:"marketplacePartnerId"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The system metadata related to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
+	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type SubscriptionDiagnosticSettingState struct {
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId pulumi.StringPtrInput
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName pulumi.StringPtrInput
+	// The list of logs settings.
+	Logs SubscriptionLogSettingsResponseArrayInput
+	// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+	MarketplacePartnerId pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId pulumi.StringPtrInput
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId pulumi.StringPtrInput
+	// The system metadata related to this resource.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
+	// The full ARM resource ID of the Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (SubscriptionDiagnosticSettingState) ElementType() reflect.Type {

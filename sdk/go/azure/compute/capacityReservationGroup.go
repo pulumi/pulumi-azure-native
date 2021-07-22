@@ -78,9 +78,41 @@ func GetCapacityReservationGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CapacityReservationGroup resources.
 type capacityReservationGroupState struct {
+	// A list of all capacity reservation resource ids that belong to capacity reservation group.
+	CapacityReservations []SubResourceReadOnlyResponse `pulumi:"capacityReservations"`
+	// The capacity reservation group instance view which has the list of instance views for all the capacity reservations that belong to the capacity reservation group.
+	InstanceView *CapacityReservationGroupInstanceViewResponse `pulumi:"instanceView"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// A list of references to all virtual machines associated to the capacity reservation group.
+	VirtualMachinesAssociated []SubResourceReadOnlyResponse `pulumi:"virtualMachinesAssociated"`
+	// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+	Zones []string `pulumi:"zones"`
 }
 
 type CapacityReservationGroupState struct {
+	// A list of all capacity reservation resource ids that belong to capacity reservation group.
+	CapacityReservations SubResourceReadOnlyResponseArrayInput
+	// The capacity reservation group instance view which has the list of instance views for all the capacity reservations that belong to the capacity reservation group.
+	InstanceView CapacityReservationGroupInstanceViewResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// A list of references to all virtual machines associated to the capacity reservation group.
+	VirtualMachinesAssociated SubResourceReadOnlyResponseArrayInput
+	// Availability Zones to use for this capacity reservation group. The zones can be assigned only during creation. If not provided, the group supports only regional resources in the region. If provided, enforces each capacity reservation in the group to be in one of the zones.
+	Zones pulumi.StringArrayInput
 }
 
 func (CapacityReservationGroupState) ElementType() reflect.Type {

@@ -85,9 +85,39 @@ func GetBatchDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BatchDeployment resources.
 type batchDeploymentState struct {
+	// Service identity associated with a resource.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	Kind     *string                   `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Additional attributes of the entity.
+	Properties *BatchDeploymentResponse `pulumi:"properties"`
+	// System data associated with resource provider
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type BatchDeploymentState struct {
+	// Service identity associated with a resource.
+	Identity ResourceIdentityResponsePtrInput
+	Kind     pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Additional attributes of the entity.
+	Properties BatchDeploymentResponsePtrInput
+	// System data associated with resource provider
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (BatchDeploymentState) ElementType() reflect.Type {

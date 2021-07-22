@@ -13,7 +13,7 @@ import (
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityTypeInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -112,8 +112,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() IdentityTypeOutput {
-	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
+func (o IdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -135,13 +135,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *IdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(IdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.
@@ -519,7 +519,7 @@ func (o IpRuleResponseArrayOutput) Index(i pulumi.IntInput) IpRuleResponseOutput
 // Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSet struct {
 	// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-	EndpointAccess *EndpointAccess `pulumi:"endpointAccess"`
+	EndpointAccess *string `pulumi:"endpointAccess"`
 	// A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
 	IpRules []IpRule `pulumi:"ipRules"`
 }
@@ -538,7 +538,7 @@ type NetworkRuleSetInput interface {
 // Network specific rules that determine how the Azure Cognitive Search service may be reached.
 type NetworkRuleSetArgs struct {
 	// The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-	EndpointAccess EndpointAccessPtrInput `pulumi:"endpointAccess"`
+	EndpointAccess *EndpointAccess `pulumi:"endpointAccess"`
 	// A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
 	IpRules IpRuleArrayInput `pulumi:"ipRules"`
 }
@@ -622,8 +622,8 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.C
 }
 
 // The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-func (o NetworkRuleSetOutput) EndpointAccess() EndpointAccessPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *EndpointAccess { return v.EndpointAccess }).(EndpointAccessPtrOutput)
+func (o NetworkRuleSetOutput) EndpointAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkRuleSet) *string { return v.EndpointAccess }).(pulumi.StringPtrOutput)
 }
 
 // A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
@@ -650,13 +650,13 @@ func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
 }
 
 // The level of access to the search service endpoint. Public, the search service endpoint is reachable from the internet. Private, the search service endpoint can only be accessed via private endpoints. Default is Public.
-func (o NetworkRuleSetPtrOutput) EndpointAccess() EndpointAccessPtrOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) *EndpointAccess {
+func (o NetworkRuleSetPtrOutput) EndpointAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSet) *string {
 		if v == nil {
 			return nil
 		}
 		return v.EndpointAccess
-	}).(EndpointAccessPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of IP restriction rules that defines the inbound network access to the search service endpoint. These restriction rules are applied only when the EndpointAccess of the search service is Public.
@@ -1122,7 +1122,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState struct
 	// The description for the private link service connection state.
 	Description *string `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
+	Status *string `pulumi:"status"`
 }
 
 // PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateInput is an input type that accepts PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs and PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput values.
@@ -1143,7 +1143,7 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs st
 	// The description for the private link service connection state.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-	Status PrivateLinkServiceConnectionStatusPtrInput `pulumi:"status"`
+	Status *PrivateLinkServiceConnectionStatus `pulumi:"status"`
 }
 
 func (PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
@@ -1239,10 +1239,8 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutp
 }
 
 // Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
-		return v.Status
-	}).(PrivateLinkServiceConnectionStatusPtrOutput)
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
@@ -1286,13 +1284,13 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 }
 
 // Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
-func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() PrivateLinkServiceConnectionStatusPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionStatus {
+func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Status
-	}).(PrivateLinkServiceConnectionStatusPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
@@ -2011,7 +2009,7 @@ func (o QueryKeyResponseArrayOutput) Index(i pulumi.IntInput) QueryKeyResponseOu
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type Sku struct {
 	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name *SkuName `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -2028,7 +2026,7 @@ type SkuInput interface {
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type SkuArgs struct {
 	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-	Name SkuNamePtrInput `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2110,8 +2108,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-func (o SkuOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
+func (o SkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -2133,13 +2131,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.

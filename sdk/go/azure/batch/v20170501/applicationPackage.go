@@ -145,9 +145,33 @@ func GetApplicationPackage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationPackage resources.
 type applicationPackageState struct {
+	// The format of the application package, if the package is active.
+	Format *string `pulumi:"format"`
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime *string `pulumi:"lastActivationTime"`
+	// The current state of the application package.
+	State *string `pulumi:"state"`
+	// The URL for the application package in Azure Storage.
+	StorageUrl *string `pulumi:"storageUrl"`
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry *string `pulumi:"storageUrlExpiry"`
+	// The version of the application package.
+	Version *string `pulumi:"version"`
 }
 
 type ApplicationPackageState struct {
+	// The format of the application package, if the package is active.
+	Format pulumi.StringPtrInput
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime pulumi.StringPtrInput
+	// The current state of the application package.
+	State pulumi.StringPtrInput
+	// The URL for the application package in Azure Storage.
+	StorageUrl pulumi.StringPtrInput
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry pulumi.StringPtrInput
+	// The version of the application package.
+	Version pulumi.StringPtrInput
 }
 
 func (ApplicationPackageState) ElementType() reflect.Type {

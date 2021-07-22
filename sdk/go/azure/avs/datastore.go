@@ -84,9 +84,29 @@ func GetDatastore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Datastore resources.
 type datastoreState struct {
+	// An iSCSI volume
+	DiskPoolVolume *DiskPoolVolumeResponse `pulumi:"diskPoolVolume"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// An Azure NetApp Files volume
+	NetAppVolume *NetAppVolumeResponse `pulumi:"netAppVolume"`
+	// The state of the datastore provisioning
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type DatastoreState struct {
+	// An iSCSI volume
+	DiskPoolVolume DiskPoolVolumeResponsePtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// An Azure NetApp Files volume
+	NetAppVolume NetAppVolumeResponsePtrInput
+	// The state of the datastore provisioning
+	ProvisioningState pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (DatastoreState) ElementType() reflect.Type {

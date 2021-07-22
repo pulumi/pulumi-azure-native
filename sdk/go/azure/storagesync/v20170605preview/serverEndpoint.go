@@ -165,9 +165,97 @@ func GetServerEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerEndpoint resources.
 type serverEndpointState struct {
+	// Bytes in progress
+	ByteProgress *int `pulumi:"byteProgress"`
+	// Bytes total
+	ByteTotal *int `pulumi:"byteTotal"`
+	// Cloud Tiering.
+	CloudTiering *string `pulumi:"cloudTiering"`
+	// current progress type.
+	CurrentProgressType *string `pulumi:"currentProgressType"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Item download error count.
+	ItemDownloadErrorCount *int `pulumi:"itemDownloadErrorCount"`
+	// Item Progress Count
+	ItemProgressCount *int `pulumi:"itemProgressCount"`
+	// Item Total Count
+	ItemTotalCount *int `pulumi:"itemTotalCount"`
+	// Item Upload Error Count.
+	ItemUploadErrorCount *int `pulumi:"itemUploadErrorCount"`
+	// Last Sync Success
+	LastSyncSuccess *string `pulumi:"lastSyncSuccess"`
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// ServerEndpoint Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Server Local path.
+	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId *string `pulumi:"serverResourceId"`
+	// sync error context.
+	SyncErrorContext *string `pulumi:"syncErrorContext"`
+	// Sync Error Direction.
+	SyncErrorDirection *string `pulumi:"syncErrorDirection"`
+	// Sync Error State
+	SyncErrorState *string `pulumi:"syncErrorState"`
+	// Sync Error State Timestamp
+	SyncErrorStateTimestamp *string `pulumi:"syncErrorStateTimestamp"`
+	// Total progress
+	TotalProgress *int `pulumi:"totalProgress"`
+	// The type of the resource
+	Type *string `pulumi:"type"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }
 
 type ServerEndpointState struct {
+	// Bytes in progress
+	ByteProgress pulumi.IntPtrInput
+	// Bytes total
+	ByteTotal pulumi.IntPtrInput
+	// Cloud Tiering.
+	CloudTiering pulumi.StringPtrInput
+	// current progress type.
+	CurrentProgressType pulumi.StringPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
+	// Item download error count.
+	ItemDownloadErrorCount pulumi.IntPtrInput
+	// Item Progress Count
+	ItemProgressCount pulumi.IntPtrInput
+	// Item Total Count
+	ItemTotalCount pulumi.IntPtrInput
+	// Item Upload Error Count.
+	ItemUploadErrorCount pulumi.IntPtrInput
+	// Last Sync Success
+	LastSyncSuccess pulumi.StringPtrInput
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// ServerEndpoint Provisioning State
+	ProvisioningState pulumi.StringPtrInput
+	// Server Local path.
+	ServerLocalPath pulumi.StringPtrInput
+	// Server Resource Id.
+	ServerResourceId pulumi.StringPtrInput
+	// sync error context.
+	SyncErrorContext pulumi.StringPtrInput
+	// Sync Error Direction.
+	SyncErrorDirection pulumi.StringPtrInput
+	// Sync Error State
+	SyncErrorState pulumi.StringPtrInput
+	// Sync Error State Timestamp
+	SyncErrorStateTimestamp pulumi.StringPtrInput
+	// Total progress
+	TotalProgress pulumi.IntPtrInput
+	// The type of the resource
+	Type pulumi.StringPtrInput
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
 func (ServerEndpointState) ElementType() reflect.Type {
