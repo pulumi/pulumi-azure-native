@@ -21,8 +21,8 @@ __all__ = [
     'HourDetailsArgs',
     'LabVirtualMachineArgs',
     'LinuxOsInfoArgs',
-    'SubnetOverrideArgs',
     'SubnetArgs',
+    'SubnetOverrideArgs',
     'WeekDetailsArgs',
     'WindowsOsInfoArgs',
 ]
@@ -864,6 +864,47 @@ class LinuxOsInfoArgs:
 
 
 @pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+                 lab_subnet_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        if allow_public_ip is not None:
+            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
+        if lab_subnet_name is not None:
+            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="allowPublicIp")
+    def allow_public_ip(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
+        return pulumi.get(self, "allow_public_ip")
+
+    @allow_public_ip.setter
+    def allow_public_ip(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
+        pulumi.set(self, "allow_public_ip", value)
+
+    @property
+    @pulumi.getter(name="labSubnetName")
+    def lab_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lab_subnet_name")
+
+    @lab_subnet_name.setter
+    def lab_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lab_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class SubnetOverrideArgs:
     def __init__(__self__, *,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
@@ -933,47 +974,6 @@ class SubnetOverrideArgs:
     @use_public_ip_address_permission.setter
     def use_public_ip_address_permission(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_public_ip_address_permission", value)
-
-
-@pulumi.input_type
-class SubnetArgs:
-    def __init__(__self__, *,
-                 allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[str]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        if allow_public_ip is not None:
-            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
-        if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="allowPublicIp")
-    def allow_public_ip(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
-        return pulumi.get(self, "allow_public_ip")
-
-    @allow_public_ip.setter
-    def allow_public_ip(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
-        pulumi.set(self, "allow_public_ip", value)
-
-    @property
-    @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "lab_subnet_name")
-
-    @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "lab_subnet_name", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type

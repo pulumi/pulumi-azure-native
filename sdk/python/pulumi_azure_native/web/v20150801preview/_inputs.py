@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'ApiEntityArgs',
-    'ApiOAuthSettingsParameterArgs',
     'ApiOAuthSettingsArgs',
+    'ApiOAuthSettingsParameterArgs',
     'ApiPoliciesArgs',
     'ArmPlanArgs',
     'BackendServiceDefinitionArgs',
@@ -325,62 +325,6 @@ class ApiEntityArgs:
 
 
 @pulumi.input_type
-class ApiOAuthSettingsParameterArgs:
-    def __init__(__self__, *,
-                 options: Optional[Any] = None,
-                 ui_definition: Optional[Any] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        OAuth Settings Parameter
-        :param Any options: Read only: Options available to this parameter
-        :param Any ui_definition: UI definitions per culture as caller can specify the culture
-        :param pulumi.Input[str] value: Value
-        """
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-        if ui_definition is not None:
-            pulumi.set(__self__, "ui_definition", ui_definition)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional[Any]:
-        """
-        Read only: Options available to this parameter
-        """
-        return pulumi.get(self, "options")
-
-    @options.setter
-    def options(self, value: Optional[Any]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[Any]:
-        """
-        UI definitions per culture as caller can specify the culture
-        """
-        return pulumi.get(self, "ui_definition")
-
-    @ui_definition.setter
-    def ui_definition(self, value: Optional[Any]):
-        pulumi.set(self, "ui_definition", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Value
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ApiOAuthSettingsArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -498,6 +442,62 @@ class ApiOAuthSettingsArgs:
     @scopes.setter
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
+
+
+@pulumi.input_type
+class ApiOAuthSettingsParameterArgs:
+    def __init__(__self__, *,
+                 options: Optional[Any] = None,
+                 ui_definition: Optional[Any] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        OAuth Settings Parameter
+        :param Any options: Read only: Options available to this parameter
+        :param Any ui_definition: UI definitions per culture as caller can specify the culture
+        :param pulumi.Input[str] value: Value
+        """
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if ui_definition is not None:
+            pulumi.set(__self__, "ui_definition", ui_definition)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Any]:
+        """
+        Read only: Options available to this parameter
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[Any]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="uiDefinition")
+    def ui_definition(self) -> Optional[Any]:
+        """
+        UI definitions per culture as caller can specify the culture
+        """
+        return pulumi.get(self, "ui_definition")
+
+    @ui_definition.setter
+    def ui_definition(self, value: Optional[Any]):
+        pulumi.set(self, "ui_definition", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

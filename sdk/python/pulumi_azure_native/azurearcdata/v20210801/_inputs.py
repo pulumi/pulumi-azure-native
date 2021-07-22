@@ -14,8 +14,8 @@ __all__ = [
     'DataControllerPropertiesArgs',
     'ExtendedLocationArgs',
     'K8sResourceRequirementsArgs',
-    'K8sSchedulingOptionsArgs',
     'K8sSchedulingArgs',
+    'K8sSchedulingOptionsArgs',
     'LogAnalyticsWorkspaceConfigArgs',
     'OnPremisePropertyArgs',
     'SqlManagedInstanceK8sRawArgs',
@@ -318,30 +318,6 @@ class K8sResourceRequirementsArgs:
 
 
 @pulumi.input_type
-class K8sSchedulingOptionsArgs:
-    def __init__(__self__, *,
-                 resources: Optional[pulumi.Input['K8sResourceRequirementsArgs']] = None):
-        """
-        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
-        :param pulumi.Input['K8sResourceRequirementsArgs'] resources: The kubernetes resource limits and requests used to restrict or reserve resource usage.
-        """
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input['K8sResourceRequirementsArgs']]:
-        """
-        The kubernetes resource limits and requests used to restrict or reserve resource usage.
-        """
-        return pulumi.get(self, "resources")
-
-    @resources.setter
-    def resources(self, value: Optional[pulumi.Input['K8sResourceRequirementsArgs']]):
-        pulumi.set(self, "resources", value)
-
-
-@pulumi.input_type
 class K8sSchedulingArgs:
     def __init__(__self__, *,
                  default: Optional[pulumi.Input['K8sSchedulingOptionsArgs']] = None):
@@ -363,6 +339,30 @@ class K8sSchedulingArgs:
     @default.setter
     def default(self, value: Optional[pulumi.Input['K8sSchedulingOptionsArgs']]):
         pulumi.set(self, "default", value)
+
+
+@pulumi.input_type
+class K8sSchedulingOptionsArgs:
+    def __init__(__self__, *,
+                 resources: Optional[pulumi.Input['K8sResourceRequirementsArgs']] = None):
+        """
+        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        :param pulumi.Input['K8sResourceRequirementsArgs'] resources: The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        """
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional[pulumi.Input['K8sResourceRequirementsArgs']]:
+        """
+        The kubernetes resource limits and requests used to restrict or reserve resource usage.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: Optional[pulumi.Input['K8sResourceRequirementsArgs']]):
+        pulumi.set(self, "resources", value)
 
 
 @pulumi.input_type

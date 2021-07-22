@@ -75,19 +75,12 @@ class DiskCreateOption(str, Enum):
     This enumerates the possible sources of a disk's creation.
     """
     EMPTY = "Empty"
-    """Create an empty data disk of a size given by diskSizeGB."""
     ATTACH = "Attach"
-    """Disk will be attached to a VM."""
     FROM_IMAGE = "FromImage"
-    """Create a new disk from a platform image specified by the given imageReference."""
     IMPORT_ = "Import"
-    """Create a disk by importing from a blob specified by a sourceUri in a storage account specified by storageAccountId."""
     COPY = "Copy"
-    """Create a new disk or snapshot by copying from a disk or snapshot specified by the given sourceResourceId."""
     RESTORE = "Restore"
-    """Create a new disk by copying from a backup recovery point."""
     UPLOAD = "Upload"
-    """Create a new disk by obtaining a write token and using it to directly upload the contents of the disk."""
 
 
 class DiskCreateOptionTypes(str, Enum):
@@ -111,13 +104,9 @@ class DiskStorageAccountTypes(str, Enum):
     The sku name.
     """
     STANDARD_LRS = "Standard_LRS"
-    """Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access."""
     PREMIUM_LRS = "Premium_LRS"
-    """Premium SSD locally redundant storage. Best for production and performance sensitive workloads."""
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
-    """Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test."""
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
-    """Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads."""
 
 
 class EncryptionType(str, Enum):
@@ -125,9 +114,7 @@ class EncryptionType(str, Enum):
     The type of key used to encrypt the data of the disk.
     """
     ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
-    """Disk is encrypted with XStore managed key at rest. It is the default encryption type."""
     ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
-    """Disk is encrypted with Customer managed key at rest."""
 
 
 class HostCaching(str, Enum):
@@ -178,9 +165,7 @@ class OperatingSystemStateTypes(str, Enum):
     The OS State.
     """
     GENERALIZED = "Generalized"
-    """Generalized image. Needs to be provisioned during deployment time."""
     SPECIALIZED = "Specialized"
-    """Specialized image. Contains already provisioned OS Disk."""
 
 
 class OperatingSystemTypes(str, Enum):
@@ -237,11 +222,8 @@ class SnapshotStorageAccountTypes(str, Enum):
     The sku name.
     """
     STANDARD_LRS = "Standard_LRS"
-    """Standard HDD locally redundant storage"""
     PREMIUM_LRS = "Premium_LRS"
-    """Premium SSD locally redundant storage"""
     STANDARD_ZRS = "Standard_ZRS"
-    """Standard zone redundant storage"""
 
 
 class StatusLevelTypes(str, Enum):

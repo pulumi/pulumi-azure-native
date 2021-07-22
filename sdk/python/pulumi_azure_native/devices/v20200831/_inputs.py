@@ -23,8 +23,8 @@ __all__ = [
     'MessagingEndpointPropertiesArgs',
     'NetworkRuleSetIpRuleArgs',
     'NetworkRuleSetPropertiesArgs',
-    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RoutePropertiesArgs',
     'RoutingEndpointsArgs',
@@ -868,29 +868,6 @@ class NetworkRuleSetPropertiesArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        """
-        The properties of a private endpoint connection
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
-        """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
-        """
-        The current state of a private endpoint connection
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
@@ -911,6 +888,29 @@ class PrivateEndpointConnectionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        """
+        The properties of a private endpoint connection
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        The current state of a private endpoint connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 @pulumi.input_type

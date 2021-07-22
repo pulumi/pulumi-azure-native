@@ -10,8 +10,8 @@ from ... import _utilities
 
 __all__ = [
     'AttestationServiceCreationSpecificParamsArgs',
-    'JSONWebKeySetArgs',
     'JSONWebKeyArgs',
+    'JSONWebKeySetArgs',
 ]
 
 @pulumi.input_type
@@ -52,37 +52,6 @@ class AttestationServiceCreationSpecificParamsArgs:
     @policy_signing_certificates.setter
     def policy_signing_certificates(self, value: Optional[pulumi.Input['JSONWebKeySetArgs']]):
         pulumi.set(self, "policy_signing_certificates", value)
-
-
-@pulumi.input_type
-class JSONWebKeySetArgs:
-    def __init__(__self__, *,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]] keys: The value of the "keys" parameter is an array of JWK values.  By
-               default, the order of the JWK values within the array does not imply
-               an order of preference among them, although applications of JWK Sets
-               can choose to assign a meaning to the order for their purposes, if
-               desired.
-        """
-        if keys is not None:
-            pulumi.set(__self__, "keys", keys)
-
-    @property
-    @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]:
-        """
-        The value of the "keys" parameter is an array of JWK values.  By
-        default, the order of the JWK values within the array does not imply
-        an order of preference among them, although applications of JWK Sets
-        can choose to assign a meaning to the order for their purposes, if
-        desired.
-        """
-        return pulumi.get(self, "keys")
-
-    @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]):
-        pulumi.set(self, "keys", value)
 
 
 @pulumi.input_type
@@ -411,5 +380,36 @@ class JSONWebKeyArgs:
     @y.setter
     def y(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "y", value)
+
+
+@pulumi.input_type
+class JSONWebKeySetArgs:
+    def __init__(__self__, *,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]] keys: The value of the "keys" parameter is an array of JWK values.  By
+               default, the order of the JWK values within the array does not imply
+               an order of preference among them, although applications of JWK Sets
+               can choose to assign a meaning to the order for their purposes, if
+               desired.
+        """
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]:
+        """
+        The value of the "keys" parameter is an array of JWK values.  By
+        default, the order of the JWK values within the array does not imply
+        an order of preference among them, although applications of JWK Sets
+        can choose to assign a meaning to the order for their purposes, if
+        desired.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JSONWebKeyArgs']]]]):
+        pulumi.set(self, "keys", value)
 
 

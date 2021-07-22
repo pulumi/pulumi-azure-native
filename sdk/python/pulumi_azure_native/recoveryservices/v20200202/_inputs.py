@@ -13,12 +13,12 @@ __all__ = [
     'CmkKekIdentityArgs',
     'CmkKeyVaultPropertiesArgs',
     'IdentityDataArgs',
-    'PrivateEndpointConnectionArgs',
     'PrivateEndpointArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
-    'VaultPropertiesEncryptionArgs',
     'VaultPropertiesArgs',
+    'VaultPropertiesEncryptionArgs',
 ]
 
 @pulumi.input_type
@@ -125,6 +125,30 @@ class IdentityDataArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The Private Endpoint network resource that is linked to the Private Endpoint connection
+        :param pulumi.Input[str] id: Gets or sets id
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
@@ -178,30 +202,6 @@ class PrivateEndpointConnectionArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        The Private Endpoint network resource that is linked to the Private Endpoint connection
-        :param pulumi.Input[str] id: Gets or sets id
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -284,6 +284,30 @@ class SkuArgs:
 
 
 @pulumi.input_type
+class VaultPropertiesArgs:
+    def __init__(__self__, *,
+                 encryption: Optional[pulumi.Input['VaultPropertiesEncryptionArgs']] = None):
+        """
+        Properties of the vault.
+        :param pulumi.Input['VaultPropertiesEncryptionArgs'] encryption: Customer Managed Key details of the resource.
+        """
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VaultPropertiesEncryptionArgs']]:
+        """
+        Customer Managed Key details of the resource.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VaultPropertiesEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+
+@pulumi.input_type
 class VaultPropertiesEncryptionArgs:
     def __init__(__self__, *,
                  infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]] = None,
@@ -337,29 +361,5 @@ class VaultPropertiesEncryptionArgs:
     @key_vault_properties.setter
     def key_vault_properties(self, value: Optional[pulumi.Input['CmkKeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
-
-
-@pulumi.input_type
-class VaultPropertiesArgs:
-    def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['VaultPropertiesEncryptionArgs']] = None):
-        """
-        Properties of the vault.
-        :param pulumi.Input['VaultPropertiesEncryptionArgs'] encryption: Customer Managed Key details of the resource.
-        """
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-
-    @property
-    @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['VaultPropertiesEncryptionArgs']]:
-        """
-        Customer Managed Key details of the resource.
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['VaultPropertiesEncryptionArgs']]):
-        pulumi.set(self, "encryption", value)
 
 

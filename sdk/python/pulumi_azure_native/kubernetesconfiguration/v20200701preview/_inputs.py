@@ -13,9 +13,9 @@ __all__ = [
     'ConfigurationIdentityArgs',
     'ExtensionStatusArgs',
     'HelmOperatorPropertiesArgs',
+    'ScopeArgs',
     'ScopeClusterArgs',
     'ScopeNamespaceArgs',
-    'ScopeArgs',
 ]
 
 @pulumi.input_type
@@ -173,6 +173,46 @@ class HelmOperatorPropertiesArgs:
 
 
 @pulumi.input_type
+class ScopeArgs:
+    def __init__(__self__, *,
+                 cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
+                 namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None):
+        """
+        Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+        :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extensionInstance is Cluster
+        :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extensionInstance is Namespace
+        """
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input['ScopeClusterArgs']]:
+        """
+        Specifies that the scope of the extensionInstance is Cluster
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input['ScopeClusterArgs']]):
+        pulumi.set(self, "cluster", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input['ScopeNamespaceArgs']]:
+        """
+        Specifies that the scope of the extensionInstance is Namespace
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input['ScopeNamespaceArgs']]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
 class ScopeClusterArgs:
     def __init__(__self__, *,
                  release_namespace: Optional[pulumi.Input[str]] = None):
@@ -218,45 +258,5 @@ class ScopeNamespaceArgs:
     @target_namespace.setter
     def target_namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_namespace", value)
-
-
-@pulumi.input_type
-class ScopeArgs:
-    def __init__(__self__, *,
-                 cluster: Optional[pulumi.Input['ScopeClusterArgs']] = None,
-                 namespace: Optional[pulumi.Input['ScopeNamespaceArgs']] = None):
-        """
-        Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
-        :param pulumi.Input['ScopeClusterArgs'] cluster: Specifies that the scope of the extensionInstance is Cluster
-        :param pulumi.Input['ScopeNamespaceArgs'] namespace: Specifies that the scope of the extensionInstance is Namespace
-        """
-        if cluster is not None:
-            pulumi.set(__self__, "cluster", cluster)
-        if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
-
-    @property
-    @pulumi.getter
-    def cluster(self) -> Optional[pulumi.Input['ScopeClusterArgs']]:
-        """
-        Specifies that the scope of the extensionInstance is Cluster
-        """
-        return pulumi.get(self, "cluster")
-
-    @cluster.setter
-    def cluster(self, value: Optional[pulumi.Input['ScopeClusterArgs']]):
-        pulumi.set(self, "cluster", value)
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> Optional[pulumi.Input['ScopeNamespaceArgs']]:
-        """
-        Specifies that the scope of the extensionInstance is Namespace
-        """
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: Optional[pulumi.Input['ScopeNamespaceArgs']]):
-        pulumi.set(self, "namespace", value)
 
 

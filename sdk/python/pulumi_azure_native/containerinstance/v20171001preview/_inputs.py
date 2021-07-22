@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'AzureFileVolumeArgs',
-    'ContainerPortArgs',
     'ContainerArgs',
+    'ContainerPortArgs',
     'EnvironmentVariableArgs',
     'ImageRegistryCredentialArgs',
     'IpAddressArgs',
@@ -20,8 +20,8 @@ __all__ = [
     'ResourceLimitsArgs',
     'ResourceRequestsArgs',
     'ResourceRequirementsArgs',
-    'VolumeMountArgs',
     'VolumeArgs',
+    'VolumeMountArgs',
 ]
 
 @pulumi.input_type
@@ -92,45 +92,6 @@ class AzureFileVolumeArgs:
     @storage_account_key.setter
     def storage_account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_key", value)
-
-
-@pulumi.input_type
-class ContainerPortArgs:
-    def __init__(__self__, *,
-                 port: pulumi.Input[int],
-                 protocol: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]] = None):
-        """
-        The port exposed on the container instance.
-        :param pulumi.Input[int] port: The port number exposed within the container group.
-        :param pulumi.Input[Union[str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
-        """
-        pulumi.set(__self__, "port", port)
-        if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[int]:
-        """
-        The port number exposed within the container group.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "port", value)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]:
-        """
-        The protocol associated with the port.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]):
-        pulumi.set(self, "protocol", value)
 
 
 @pulumi.input_type
@@ -248,6 +209,45 @@ class ContainerArgs:
     @volume_mounts.setter
     def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
+
+
+@pulumi.input_type
+class ContainerPortArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 protocol: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]] = None):
+        """
+        The port exposed on the container instance.
+        :param pulumi.Input[int] port: The port number exposed within the container group.
+        :param pulumi.Input[Union[str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
+        """
+        pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number exposed within the container group.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]:
+        """
+        The protocol associated with the port.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]):
+        pulumi.set(self, "protocol", value)
 
 
 @pulumi.input_type
@@ -553,60 +553,6 @@ class ResourceRequirementsArgs:
 
 
 @pulumi.input_type
-class VolumeMountArgs:
-    def __init__(__self__, *,
-                 mount_path: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 read_only: Optional[pulumi.Input[bool]] = None):
-        """
-        The properties of the volume mount.
-        :param pulumi.Input[str] mount_path: The path within the container where the volume should be mounted. Must not contain colon (:).
-        :param pulumi.Input[str] name: The name of the volume mount.
-        :param pulumi.Input[bool] read_only: The flag indicating whether the volume mount is read-only.
-        """
-        pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "name", name)
-        if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
-
-    @property
-    @pulumi.getter(name="mountPath")
-    def mount_path(self) -> pulumi.Input[str]:
-        """
-        The path within the container where the volume should be mounted. Must not contain colon (:).
-        """
-        return pulumi.get(self, "mount_path")
-
-    @mount_path.setter
-    def mount_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "mount_path", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the volume mount.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The flag indicating whether the volume mount is read-only.
-        """
-        return pulumi.get(self, "read_only")
-
-    @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "read_only", value)
-
-
-@pulumi.input_type
 class VolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -659,5 +605,59 @@ class VolumeArgs:
     @empty_dir.setter
     def empty_dir(self, value: Optional[Any]):
         pulumi.set(self, "empty_dir", value)
+
+
+@pulumi.input_type
+class VolumeMountArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 read_only: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of the volume mount.
+        :param pulumi.Input[str] mount_path: The path within the container where the volume should be mounted. Must not contain colon (:).
+        :param pulumi.Input[str] name: The name of the volume mount.
+        :param pulumi.Input[bool] read_only: The flag indicating whether the volume mount is read-only.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "name", name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        """
+        The path within the container where the volume should be mounted. Must not contain colon (:).
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the volume mount.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag indicating whether the volume mount is read-only.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
 
 

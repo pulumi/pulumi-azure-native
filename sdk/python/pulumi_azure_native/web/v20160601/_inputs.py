@@ -12,8 +12,8 @@ from ._enums import *
 __all__ = [
     'ApiConnectionDefinitionPropertiesArgs',
     'ApiConnectionTestLinkArgs',
-    'ApiOAuthSettingsParameterArgs',
     'ApiOAuthSettingsArgs',
+    'ApiOAuthSettingsParameterArgs',
     'ApiReferenceArgs',
     'ApiResourceBackendServiceArgs',
     'ApiResourceDefinitionsArgs',
@@ -25,8 +25,8 @@ __all__ = [
     'ConsentLinkParameterDefinition',
     'CustomApiPropertiesDefinitionArgs',
     'WsdlDefinitionArgs',
-    'WsdlService',
     'WsdlServiceArgs',
+    'WsdlService',
 ]
 
 @pulumi.input_type
@@ -217,62 +217,6 @@ class ApiConnectionTestLinkArgs:
 
 
 @pulumi.input_type
-class ApiOAuthSettingsParameterArgs:
-    def __init__(__self__, *,
-                 options: Optional[Any] = None,
-                 ui_definition: Optional[Any] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        OAuth settings for the API
-        :param Any options: Options available to this parameter
-        :param Any ui_definition: UI definitions per culture as caller can specify the culture
-        :param pulumi.Input[str] value: Value of the setting
-        """
-        if options is not None:
-            pulumi.set(__self__, "options", options)
-        if ui_definition is not None:
-            pulumi.set(__self__, "ui_definition", ui_definition)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def options(self) -> Optional[Any]:
-        """
-        Options available to this parameter
-        """
-        return pulumi.get(self, "options")
-
-    @options.setter
-    def options(self, value: Optional[Any]):
-        pulumi.set(self, "options", value)
-
-    @property
-    @pulumi.getter(name="uiDefinition")
-    def ui_definition(self) -> Optional[Any]:
-        """
-        UI definitions per culture as caller can specify the culture
-        """
-        return pulumi.get(self, "ui_definition")
-
-    @ui_definition.setter
-    def ui_definition(self, value: Optional[Any]):
-        pulumi.set(self, "ui_definition", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Value of the setting
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class ApiOAuthSettingsArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -390,6 +334,62 @@ class ApiOAuthSettingsArgs:
     @scopes.setter
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
+
+
+@pulumi.input_type
+class ApiOAuthSettingsParameterArgs:
+    def __init__(__self__, *,
+                 options: Optional[Any] = None,
+                 ui_definition: Optional[Any] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        OAuth settings for the API
+        :param Any options: Options available to this parameter
+        :param Any ui_definition: UI definitions per culture as caller can specify the culture
+        :param pulumi.Input[str] value: Value of the setting
+        """
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if ui_definition is not None:
+            pulumi.set(__self__, "ui_definition", ui_definition)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[Any]:
+        """
+        Options available to this parameter
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[Any]):
+        pulumi.set(self, "options", value)
+
+    @property
+    @pulumi.getter(name="uiDefinition")
+    def ui_definition(self) -> Optional[Any]:
+        """
+        UI definitions per culture as caller can specify the culture
+        """
+        return pulumi.get(self, "ui_definition")
+
+    @ui_definition.setter
+    def ui_definition(self, value: Optional[Any]):
+        pulumi.set(self, "ui_definition", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the setting
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1311,45 +1311,6 @@ class WsdlDefinitionArgs:
 
 
 @pulumi.input_type
-class WsdlService:
-    def __init__(__self__, *,
-                 qualified_name: str,
-                 endpoint_qualified_names: Optional[Sequence[str]] = None):
-        """
-        The service with name and endpoint names
-        :param str qualified_name: The service's qualified name
-        :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
-        """
-        pulumi.set(__self__, "qualified_name", qualified_name)
-        if endpoint_qualified_names is not None:
-            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
-
-    @property
-    @pulumi.getter(name="qualifiedName")
-    def qualified_name(self) -> str:
-        """
-        The service's qualified name
-        """
-        return pulumi.get(self, "qualified_name")
-
-    @qualified_name.setter
-    def qualified_name(self, value: str):
-        pulumi.set(self, "qualified_name", value)
-
-    @property
-    @pulumi.getter(name="endpointQualifiedNames")
-    def endpoint_qualified_names(self) -> Optional[Sequence[str]]:
-        """
-        List of the endpoints' qualified names
-        """
-        return pulumi.get(self, "endpoint_qualified_names")
-
-    @endpoint_qualified_names.setter
-    def endpoint_qualified_names(self, value: Optional[Sequence[str]]):
-        pulumi.set(self, "endpoint_qualified_names", value)
-
-
-@pulumi.input_type
 class WsdlServiceArgs:
     def __init__(__self__, *,
                  qualified_name: pulumi.Input[str],
@@ -1385,6 +1346,45 @@ class WsdlServiceArgs:
 
     @endpoint_qualified_names.setter
     def endpoint_qualified_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "endpoint_qualified_names", value)
+
+
+@pulumi.input_type
+class WsdlService:
+    def __init__(__self__, *,
+                 qualified_name: str,
+                 endpoint_qualified_names: Optional[Sequence[str]] = None):
+        """
+        The service with name and endpoint names
+        :param str qualified_name: The service's qualified name
+        :param Sequence[str] endpoint_qualified_names: List of the endpoints' qualified names
+        """
+        pulumi.set(__self__, "qualified_name", qualified_name)
+        if endpoint_qualified_names is not None:
+            pulumi.set(__self__, "endpoint_qualified_names", endpoint_qualified_names)
+
+    @property
+    @pulumi.getter(name="qualifiedName")
+    def qualified_name(self) -> str:
+        """
+        The service's qualified name
+        """
+        return pulumi.get(self, "qualified_name")
+
+    @qualified_name.setter
+    def qualified_name(self, value: str):
+        pulumi.set(self, "qualified_name", value)
+
+    @property
+    @pulumi.getter(name="endpointQualifiedNames")
+    def endpoint_qualified_names(self) -> Optional[Sequence[str]]:
+        """
+        List of the endpoints' qualified names
+        """
+        return pulumi.get(self, "endpoint_qualified_names")
+
+    @endpoint_qualified_names.setter
+    def endpoint_qualified_names(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "endpoint_qualified_names", value)
 
 

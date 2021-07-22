@@ -10,11 +10,11 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ManagedIdentitySettingsArgs',
     'ManagedIdentityArgs',
+    'ManagedIdentitySettingsArgs',
     'NetworkACLArgs',
-    'PrivateEndpointACLArgs',
     'PrivateEndpointArgs',
+    'PrivateEndpointACLArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ResourceSkuArgs',
     'ServerlessUpstreamSettingsArgs',
@@ -25,32 +25,6 @@ __all__ = [
     'UpstreamAuthSettingsArgs',
     'UpstreamTemplateArgs',
 ]
-
-@pulumi.input_type
-class ManagedIdentitySettingsArgs:
-    def __init__(__self__, *,
-                 resource: Optional[pulumi.Input[str]] = None):
-        """
-        Managed identity settings for upstream.
-        :param pulumi.Input[str] resource: The Resource indicating the App ID URI of the target resource.
-               It also appears in the aud (audience) claim of the issued token.
-        """
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Resource indicating the App ID URI of the target resource.
-        It also appears in the aud (audience) claim of the issued token.
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource", value)
-
 
 @pulumi.input_type
 class ManagedIdentityArgs:
@@ -93,6 +67,32 @@ class ManagedIdentityArgs:
 
 
 @pulumi.input_type
+class ManagedIdentitySettingsArgs:
+    def __init__(__self__, *,
+                 resource: Optional[pulumi.Input[str]] = None):
+        """
+        Managed identity settings for upstream.
+        :param pulumi.Input[str] resource: The Resource indicating the App ID URI of the target resource.
+               It also appears in the aud (audience) claim of the issued token.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Resource indicating the App ID URI of the target resource.
+        It also appears in the aud (audience) claim of the issued token.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
 class NetworkACLArgs:
     def __init__(__self__, *,
                  allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]] = None,
@@ -130,6 +130,30 @@ class NetworkACLArgs:
     @deny.setter
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
+
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Private endpoint
+        :param pulumi.Input[str] id: Full qualified Id of the private endpoint
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full qualified Id of the private endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -185,30 +209,6 @@ class PrivateEndpointACLArgs:
     @deny.setter
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
-
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint
-        :param pulumi.Input[str] id: Full qualified Id of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Full qualified Id of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

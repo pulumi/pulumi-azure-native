@@ -14,6 +14,4 @@ class ExemptionCategory(str, Enum):
     The policy exemption category. Possible values are Waiver and Mitigated.
     """
     WAIVER = "Waiver"
-    """This category of exemptions usually means the scope is not applicable for the policy."""
     MITIGATED = "Mitigated"
-    """This category of exemptions usually means the mitigation actions have been applied to the scope."""

@@ -14,9 +14,9 @@ __all__ = [
     'AzureResourceDetailsArgs',
     'JitNetworkAccessPolicyVirtualMachineArgs',
     'JitNetworkAccessPortRuleArgs',
+    'JitNetworkAccessRequestArgs',
     'JitNetworkAccessRequestPortArgs',
     'JitNetworkAccessRequestVirtualMachineArgs',
-    'JitNetworkAccessRequestArgs',
     'OnPremiseResourceDetailsArgs',
     'OnPremiseSqlResourceDetailsArgs',
     'PathRecommendationArgs',
@@ -239,6 +239,70 @@ class JitNetworkAccessPortRuleArgs:
 
 
 @pulumi.input_type
+class JitNetworkAccessRequestArgs:
+    def __init__(__self__, *,
+                 requestor: pulumi.Input[str],
+                 start_time_utc: pulumi.Input[str],
+                 virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]],
+                 justification: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] requestor: The identity of the person who made the request
+        :param pulumi.Input[str] start_time_utc: The start time of the request in UTC
+        :param pulumi.Input[str] justification: The justification for making the initiate request
+        """
+        pulumi.set(__self__, "requestor", requestor)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if justification is not None:
+            pulumi.set(__self__, "justification", justification)
+
+    @property
+    @pulumi.getter
+    def requestor(self) -> pulumi.Input[str]:
+        """
+        The identity of the person who made the request
+        """
+        return pulumi.get(self, "requestor")
+
+    @requestor.setter
+    def requestor(self, value: pulumi.Input[str]):
+        pulumi.set(self, "requestor", value)
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> pulumi.Input[str]:
+        """
+        The start time of the request in UTC
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @start_time_utc.setter
+    def start_time_utc(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time_utc", value)
+
+    @property
+    @pulumi.getter(name="virtualMachines")
+    def virtual_machines(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]:
+        return pulumi.get(self, "virtual_machines")
+
+    @virtual_machines.setter
+    def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]):
+        pulumi.set(self, "virtual_machines", value)
+
+    @property
+    @pulumi.getter
+    def justification(self) -> Optional[pulumi.Input[str]]:
+        """
+        The justification for making the initiate request
+        """
+        return pulumi.get(self, "justification")
+
+    @justification.setter
+    def justification(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "justification", value)
+
+
+@pulumi.input_type
 class JitNetworkAccessRequestPortArgs:
     def __init__(__self__, *,
                  end_time_utc: pulumi.Input[str],
@@ -384,70 +448,6 @@ class JitNetworkAccessRequestVirtualMachineArgs:
     @ports.setter
     def ports(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestPortArgs']]]):
         pulumi.set(self, "ports", value)
-
-
-@pulumi.input_type
-class JitNetworkAccessRequestArgs:
-    def __init__(__self__, *,
-                 requestor: pulumi.Input[str],
-                 start_time_utc: pulumi.Input[str],
-                 virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]],
-                 justification: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] requestor: The identity of the person who made the request
-        :param pulumi.Input[str] start_time_utc: The start time of the request in UTC
-        :param pulumi.Input[str] justification: The justification for making the initiate request
-        """
-        pulumi.set(__self__, "requestor", requestor)
-        pulumi.set(__self__, "start_time_utc", start_time_utc)
-        pulumi.set(__self__, "virtual_machines", virtual_machines)
-        if justification is not None:
-            pulumi.set(__self__, "justification", justification)
-
-    @property
-    @pulumi.getter
-    def requestor(self) -> pulumi.Input[str]:
-        """
-        The identity of the person who made the request
-        """
-        return pulumi.get(self, "requestor")
-
-    @requestor.setter
-    def requestor(self, value: pulumi.Input[str]):
-        pulumi.set(self, "requestor", value)
-
-    @property
-    @pulumi.getter(name="startTimeUtc")
-    def start_time_utc(self) -> pulumi.Input[str]:
-        """
-        The start time of the request in UTC
-        """
-        return pulumi.get(self, "start_time_utc")
-
-    @start_time_utc.setter
-    def start_time_utc(self, value: pulumi.Input[str]):
-        pulumi.set(self, "start_time_utc", value)
-
-    @property
-    @pulumi.getter(name="virtualMachines")
-    def virtual_machines(self) -> pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]:
-        return pulumi.get(self, "virtual_machines")
-
-    @virtual_machines.setter
-    def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessRequestVirtualMachineArgs']]]):
-        pulumi.set(self, "virtual_machines", value)
-
-    @property
-    @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[str]]:
-        """
-        The justification for making the initiate request
-        """
-        return pulumi.get(self, "justification")
-
-    @justification.setter
-    def justification(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "justification", value)
 
 
 @pulumi.input_type

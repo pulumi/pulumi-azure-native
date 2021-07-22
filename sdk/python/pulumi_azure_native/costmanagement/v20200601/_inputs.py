@@ -10,8 +10,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ExportDatasetConfigurationArgs',
     'ExportDatasetArgs',
+    'ExportDatasetConfigurationArgs',
     'ExportDefinitionArgs',
     'ExportDeliveryDestinationArgs',
     'ExportDeliveryInfoArgs',
@@ -22,37 +22,13 @@ __all__ = [
     'PivotPropertiesArgs',
     'ReportConfigAggregationArgs',
     'ReportConfigComparisonExpressionArgs',
-    'ReportConfigDatasetConfigurationArgs',
     'ReportConfigDatasetArgs',
+    'ReportConfigDatasetConfigurationArgs',
     'ReportConfigFilterArgs',
     'ReportConfigGroupingArgs',
     'ReportConfigSortingArgs',
     'ReportConfigTimePeriodArgs',
 ]
-
-@pulumi.input_type
-class ExportDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
-
 
 @pulumi.input_type
 class ExportDatasetArgs:
@@ -92,6 +68,30 @@ class ExportDatasetArgs:
     @granularity.setter
     def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
+
+
+@pulumi.input_type
+class ExportDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type
@@ -562,30 +562,6 @@ class ReportConfigComparisonExpressionArgs:
 
 
 @pulumi.input_type
-class ReportConfigDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The configuration of dataset in the report.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
-
-
-@pulumi.input_type
 class ReportConfigDatasetArgs:
     def __init__(__self__, *,
                  aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportConfigAggregationArgs']]]] = None,
@@ -687,6 +663,30 @@ class ReportConfigDatasetArgs:
     @sorting.setter
     def sorting(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigSortingArgs']]]]):
         pulumi.set(self, "sorting", value)
+
+
+@pulumi.input_type
+class ReportConfigDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration of dataset in the report.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type

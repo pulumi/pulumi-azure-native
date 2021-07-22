@@ -10,8 +10,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ExportDatasetConfigurationArgs',
     'ExportDatasetArgs',
+    'ExportDatasetConfigurationArgs',
     'ExportDefinitionArgs',
     'ExportDeliveryDestinationArgs',
     'ExportDeliveryInfoArgs',
@@ -19,30 +19,6 @@ __all__ = [
     'ExportScheduleArgs',
     'ExportTimePeriodArgs',
 ]
-
-@pulumi.input_type
-class ExportDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
-
 
 @pulumi.input_type
 class ExportDatasetArgs:
@@ -82,6 +58,30 @@ class ExportDatasetArgs:
     @granularity.setter
     def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
+
+
+@pulumi.input_type
+class ExportDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type

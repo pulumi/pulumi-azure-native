@@ -14,4 +14,3 @@ class TemplateSpecArtifactKind(str, Enum):
     The kind of artifact.
     """
     TEMPLATE = "template"
-    """The artifact represents an embedded Azure Resource Manager template."""

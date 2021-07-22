@@ -10,8 +10,8 @@ from ... import _utilities
 
 __all__ = [
     'DashboardLensArgs',
-    'DashboardPartsPositionArgs',
     'DashboardPartsArgs',
+    'DashboardPartsPositionArgs',
 ]
 
 @pulumi.input_type
@@ -65,6 +65,45 @@ class DashboardLensArgs:
 
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
+class DashboardPartsArgs:
+    def __init__(__self__, *,
+                 position: pulumi.Input['DashboardPartsPositionArgs'],
+                 metadata: Optional[Any] = None):
+        """
+        A dashboard part.
+        :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
+        :param Any metadata: A dashboard part metadata.
+        """
+        pulumi.set(__self__, "position", position)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def position(self) -> pulumi.Input['DashboardPartsPositionArgs']:
+        """
+        The dashboard's part position.
+        """
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: pulumi.Input['DashboardPartsPositionArgs']):
+        pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        A dashboard part metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 
@@ -149,45 +188,6 @@ class DashboardPartsPositionArgs:
 
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "metadata", value)
-
-
-@pulumi.input_type
-class DashboardPartsArgs:
-    def __init__(__self__, *,
-                 position: pulumi.Input['DashboardPartsPositionArgs'],
-                 metadata: Optional[Any] = None):
-        """
-        A dashboard part.
-        :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
-        :param Any metadata: A dashboard part metadata.
-        """
-        pulumi.set(__self__, "position", position)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-
-    @property
-    @pulumi.getter
-    def position(self) -> pulumi.Input['DashboardPartsPositionArgs']:
-        """
-        The dashboard's part position.
-        """
-        return pulumi.get(self, "position")
-
-    @position.setter
-    def position(self, value: pulumi.Input['DashboardPartsPositionArgs']):
-        pulumi.set(self, "position", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Any]:
-        """
-        A dashboard part metadata.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
 
 

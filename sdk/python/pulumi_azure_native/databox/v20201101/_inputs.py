@@ -31,9 +31,9 @@ __all__ = [
     'SkuArgs',
     'StorageAccountDetailsArgs',
     'TransferAllDetailsArgs',
+    'TransferConfigurationArgs',
     'TransferConfigurationTransferAllDetailsArgs',
     'TransferConfigurationTransferFilterDetailsArgs',
-    'TransferConfigurationArgs',
     'TransferFilterDetailsArgs',
     'TransportPreferencesArgs',
     'UserAssignedPropertiesArgs',
@@ -1554,54 +1554,6 @@ class TransferAllDetailsArgs:
 
 
 @pulumi.input_type
-class TransferConfigurationTransferAllDetailsArgs:
-    def __init__(__self__, *,
-                 include: Optional[pulumi.Input['TransferAllDetailsArgs']] = None):
-        """
-        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
-        :param pulumi.Input['TransferAllDetailsArgs'] include: Details to transfer all data.
-        """
-        if include is not None:
-            pulumi.set(__self__, "include", include)
-
-    @property
-    @pulumi.getter
-    def include(self) -> Optional[pulumi.Input['TransferAllDetailsArgs']]:
-        """
-        Details to transfer all data.
-        """
-        return pulumi.get(self, "include")
-
-    @include.setter
-    def include(self, value: Optional[pulumi.Input['TransferAllDetailsArgs']]):
-        pulumi.set(self, "include", value)
-
-
-@pulumi.input_type
-class TransferConfigurationTransferFilterDetailsArgs:
-    def __init__(__self__, *,
-                 include: Optional[pulumi.Input['TransferFilterDetailsArgs']] = None):
-        """
-        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
-        :param pulumi.Input['TransferFilterDetailsArgs'] include: Details of the filtering the transfer of data.
-        """
-        if include is not None:
-            pulumi.set(__self__, "include", include)
-
-    @property
-    @pulumi.getter
-    def include(self) -> Optional[pulumi.Input['TransferFilterDetailsArgs']]:
-        """
-        Details of the filtering the transfer of data.
-        """
-        return pulumi.get(self, "include")
-
-    @include.setter
-    def include(self, value: Optional[pulumi.Input['TransferFilterDetailsArgs']]):
-        pulumi.set(self, "include", value)
-
-
-@pulumi.input_type
 class TransferConfigurationArgs:
     def __init__(__self__, *,
                  transfer_configuration_type: pulumi.Input[Union[str, 'TransferConfigurationType']],
@@ -1654,6 +1606,54 @@ class TransferConfigurationArgs:
     @transfer_filter_details.setter
     def transfer_filter_details(self, value: Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']]):
         pulumi.set(self, "transfer_filter_details", value)
+
+
+@pulumi.input_type
+class TransferConfigurationTransferAllDetailsArgs:
+    def __init__(__self__, *,
+                 include: Optional[pulumi.Input['TransferAllDetailsArgs']] = None):
+        """
+        Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
+        :param pulumi.Input['TransferAllDetailsArgs'] include: Details to transfer all data.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input['TransferAllDetailsArgs']]:
+        """
+        Details to transfer all data.
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input['TransferAllDetailsArgs']]):
+        pulumi.set(self, "include", value)
+
+
+@pulumi.input_type
+class TransferConfigurationTransferFilterDetailsArgs:
+    def __init__(__self__, *,
+                 include: Optional[pulumi.Input['TransferFilterDetailsArgs']] = None):
+        """
+        Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
+        :param pulumi.Input['TransferFilterDetailsArgs'] include: Details of the filtering the transfer of data.
+        """
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input['TransferFilterDetailsArgs']]:
+        """
+        Details of the filtering the transfer of data.
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input['TransferFilterDetailsArgs']]):
+        pulumi.set(self, "include", value)
 
 
 @pulumi.input_type

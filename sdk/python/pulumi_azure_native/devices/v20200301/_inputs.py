@@ -22,8 +22,8 @@ __all__ = [
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
     'MessagingEndpointPropertiesArgs',
-    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RoutePropertiesArgs',
     'RoutingEndpointsArgs',
@@ -32,8 +32,8 @@ __all__ = [
     'RoutingServiceBusQueueEndpointPropertiesArgs',
     'RoutingServiceBusTopicEndpointPropertiesArgs',
     'RoutingStorageContainerPropertiesArgs',
-    'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
     'SharedAccessSignatureAuthorizationRuleArgs',
+    'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
     'StorageEndpointPropertiesArgs',
     'TargetIpFilterRuleArgs',
 ]
@@ -939,29 +939,6 @@ class MessagingEndpointPropertiesArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        """
-        The properties of a private endpoint connection
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
-        """
-        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
-        """
-        The current state of a private endpoint connection
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
@@ -982,6 +959,29 @@ class PrivateEndpointConnectionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        """
+        The properties of a private endpoint connection
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The current state of a private endpoint connection
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        The current state of a private endpoint connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 @pulumi.input_type
@@ -1870,76 +1870,6 @@ class RoutingStorageContainerPropertiesArgs:
 
 
 @pulumi.input_type
-class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
-    def __init__(__self__, *,
-                 key_name: pulumi.Input[str],
-                 rights: pulumi.Input[Union[str, 'AccessRightsDescription']],
-                 primary_key: Optional[pulumi.Input[str]] = None,
-                 secondary_key: Optional[pulumi.Input[str]] = None):
-        """
-        Description of the shared access key.
-        :param pulumi.Input[str] key_name: Name of the key.
-        :param pulumi.Input[Union[str, 'AccessRightsDescription']] rights: Rights that this key has.
-        :param pulumi.Input[str] primary_key: Primary SAS key value.
-        :param pulumi.Input[str] secondary_key: Secondary SAS key value.
-        """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "rights", rights)
-        if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
-        if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[str]:
-        """
-        Name of the key.
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_name", value)
-
-    @property
-    @pulumi.getter
-    def rights(self) -> pulumi.Input[Union[str, 'AccessRightsDescription']]:
-        """
-        Rights that this key has.
-        """
-        return pulumi.get(self, "rights")
-
-    @rights.setter
-    def rights(self, value: pulumi.Input[Union[str, 'AccessRightsDescription']]):
-        pulumi.set(self, "rights", value)
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Primary SAS key value.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_key", value)
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secondary SAS key value.
-        """
-        return pulumi.get(self, "secondary_key")
-
-    @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secondary_key", value)
-
-
-@pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
@@ -2001,6 +1931,76 @@ class SharedAccessSignatureAuthorizationRuleArgs:
     def secondary_key(self) -> Optional[pulumi.Input[str]]:
         """
         The secondary key.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+
+@pulumi.input_type
+class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 rights: pulumi.Input[Union[str, 'AccessRightsDescription']],
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None):
+        """
+        Description of the shared access key.
+        :param pulumi.Input[str] key_name: Name of the key.
+        :param pulumi.Input[Union[str, 'AccessRightsDescription']] rights: Rights that this key has.
+        :param pulumi.Input[str] primary_key: Primary SAS key value.
+        :param pulumi.Input[str] secondary_key: Secondary SAS key value.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "rights", rights)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        Name of the key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter
+    def rights(self) -> pulumi.Input[Union[str, 'AccessRightsDescription']]:
+        """
+        Rights that this key has.
+        """
+        return pulumi.get(self, "rights")
+
+    @rights.setter
+    def rights(self, value: pulumi.Input[Union[str, 'AccessRightsDescription']]):
+        pulumi.set(self, "rights", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Primary SAS key value.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary SAS key value.
         """
         return pulumi.get(self, "secondary_key")
 

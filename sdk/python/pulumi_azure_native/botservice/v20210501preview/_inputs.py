@@ -10,80 +10,42 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AlexaChannelPropertiesArgs',
     'AlexaChannelArgs',
+    'AlexaChannelPropertiesArgs',
     'BotPropertiesArgs',
     'ConnectionSettingParameterArgs',
     'ConnectionSettingPropertiesArgs',
-    'DirectLineChannelPropertiesArgs',
     'DirectLineChannelArgs',
+    'DirectLineChannelPropertiesArgs',
     'DirectLineSiteArgs',
-    'DirectLineSpeechChannelPropertiesArgs',
     'DirectLineSpeechChannelArgs',
-    'EmailChannelPropertiesArgs',
+    'DirectLineSpeechChannelPropertiesArgs',
     'EmailChannelArgs',
-    'FacebookChannelPropertiesArgs',
+    'EmailChannelPropertiesArgs',
     'FacebookChannelArgs',
+    'FacebookChannelPropertiesArgs',
     'FacebookPageArgs',
-    'KikChannelPropertiesArgs',
     'KikChannelArgs',
-    'LineChannelPropertiesArgs',
+    'KikChannelPropertiesArgs',
     'LineChannelArgs',
+    'LineChannelPropertiesArgs',
     'LineRegistrationArgs',
-    'MsTeamsChannelPropertiesArgs',
     'MsTeamsChannelArgs',
+    'MsTeamsChannelPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
-    'SkypeChannelPropertiesArgs',
     'SkypeChannelArgs',
-    'SlackChannelPropertiesArgs',
+    'SkypeChannelPropertiesArgs',
     'SlackChannelArgs',
-    'SmsChannelPropertiesArgs',
+    'SlackChannelPropertiesArgs',
     'SmsChannelArgs',
-    'TelegramChannelPropertiesArgs',
+    'SmsChannelPropertiesArgs',
     'TelegramChannelArgs',
-    'WebChatChannelPropertiesArgs',
+    'TelegramChannelPropertiesArgs',
     'WebChatChannelArgs',
+    'WebChatChannelPropertiesArgs',
     'WebChatSiteArgs',
 ]
-
-@pulumi.input_type
-class AlexaChannelPropertiesArgs:
-    def __init__(__self__, *,
-                 alexa_skill_id: pulumi.Input[str],
-                 is_enabled: pulumi.Input[bool]):
-        """
-        The parameters to provide for the Alexa channel.
-        :param pulumi.Input[str] alexa_skill_id: The Alexa skill Id
-        :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
-        """
-        pulumi.set(__self__, "alexa_skill_id", alexa_skill_id)
-        pulumi.set(__self__, "is_enabled", is_enabled)
-
-    @property
-    @pulumi.getter(name="alexaSkillId")
-    def alexa_skill_id(self) -> pulumi.Input[str]:
-        """
-        The Alexa skill Id
-        """
-        return pulumi.get(self, "alexa_skill_id")
-
-    @alexa_skill_id.setter
-    def alexa_skill_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "alexa_skill_id", value)
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> pulumi.Input[bool]:
-        """
-        Whether this channel is enabled for the bot
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @is_enabled.setter
-    def is_enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "is_enabled", value)
-
 
 @pulumi.input_type
 class AlexaChannelArgs:
@@ -124,6 +86,44 @@ class AlexaChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['AlexaChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class AlexaChannelPropertiesArgs:
+    def __init__(__self__, *,
+                 alexa_skill_id: pulumi.Input[str],
+                 is_enabled: pulumi.Input[bool]):
+        """
+        The parameters to provide for the Alexa channel.
+        :param pulumi.Input[str] alexa_skill_id: The Alexa skill Id
+        :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
+        """
+        pulumi.set(__self__, "alexa_skill_id", alexa_skill_id)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+
+    @property
+    @pulumi.getter(name="alexaSkillId")
+    def alexa_skill_id(self) -> pulumi.Input[str]:
+        """
+        The Alexa skill Id
+        """
+        return pulumi.get(self, "alexa_skill_id")
+
+    @alexa_skill_id.setter
+    def alexa_skill_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alexa_skill_id", value)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether this channel is enabled for the bot
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
 
 
 @pulumi.input_type
@@ -500,30 +500,6 @@ class ConnectionSettingPropertiesArgs:
 
 
 @pulumi.input_type
-class DirectLineChannelPropertiesArgs:
-    def __init__(__self__, *,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]] = None):
-        """
-        The parameters to provide for the Direct Line channel.
-        :param pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]] sites: The list of Direct Line sites
-        """
-        if sites is not None:
-            pulumi.set(__self__, "sites", sites)
-
-    @property
-    @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]]:
-        """
-        The list of Direct Line sites
-        """
-        return pulumi.get(self, "sites")
-
-    @sites.setter
-    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]]):
-        pulumi.set(self, "sites", value)
-
-
-@pulumi.input_type
 class DirectLineChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
@@ -562,6 +538,30 @@ class DirectLineChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class DirectLineChannelPropertiesArgs:
+    def __init__(__self__, *,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]] = None):
+        """
+        The parameters to provide for the Direct Line channel.
+        :param pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]] sites: The list of Direct Line sites
+        """
+        if sites is not None:
+            pulumi.set(__self__, "sites", sites)
+
+    @property
+    @pulumi.getter
+    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]]:
+        """
+        The list of Direct Line sites
+        """
+        return pulumi.get(self, "sites")
+
+    @sites.setter
+    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]]):
+        pulumi.set(self, "sites", value)
 
 
 @pulumi.input_type
@@ -662,6 +662,47 @@ class DirectLineSiteArgs:
     @trusted_origins.setter
     def trusted_origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "trusted_origins", value)
+
+
+@pulumi.input_type
+class DirectLineSpeechChannelArgs:
+    def __init__(__self__, *,
+                 channel_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None):
+        """
+        DirectLine Speech channel definition
+        :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'DirectLineSpeechChannel'.
+        :param pulumi.Input['DirectLineSpeechChannelPropertiesArgs'] properties: The set of properties specific to DirectLine Speech channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[str]:
+        """
+        The channel name
+        Expected value is 'DirectLineSpeechChannel'.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']]:
+        """
+        The set of properties specific to DirectLine Speech channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -767,17 +808,17 @@ class DirectLineSpeechChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class DirectLineSpeechChannelArgs:
+class EmailChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None):
         """
-        DirectLine Speech channel definition
+        Email channel definition
         :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'DirectLineSpeechChannel'.
-        :param pulumi.Input['DirectLineSpeechChannelPropertiesArgs'] properties: The set of properties specific to DirectLine Speech channel resource
+               Expected value is 'EmailChannel'.
+        :param pulumi.Input['EmailChannelPropertiesArgs'] properties: The set of properties specific to email channel resource
         """
-        pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
+        pulumi.set(__self__, "channel_name", 'EmailChannel')
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -786,7 +827,7 @@ class DirectLineSpeechChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
-        Expected value is 'DirectLineSpeechChannel'.
+        Expected value is 'EmailChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -796,14 +837,14 @@ class DirectLineSpeechChannelArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['EmailChannelPropertiesArgs']]:
         """
-        The set of properties specific to DirectLine Speech channel resource
+        The set of properties specific to email channel resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['EmailChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -862,17 +903,17 @@ class EmailChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class EmailChannelArgs:
+class FacebookChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None):
         """
-        Email channel definition
+        Facebook channel definition
         :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'EmailChannel'.
-        :param pulumi.Input['EmailChannelPropertiesArgs'] properties: The set of properties specific to email channel resource
+               Expected value is 'FacebookChannel'.
+        :param pulumi.Input['FacebookChannelPropertiesArgs'] properties: The set of properties specific to bot facebook channel
         """
-        pulumi.set(__self__, "channel_name", 'EmailChannel')
+        pulumi.set(__self__, "channel_name", 'FacebookChannel')
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -881,7 +922,7 @@ class EmailChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
-        Expected value is 'EmailChannel'.
+        Expected value is 'FacebookChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -891,14 +932,14 @@ class EmailChannelArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['EmailChannelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['FacebookChannelPropertiesArgs']]:
         """
-        The set of properties specific to email channel resource
+        The set of properties specific to bot facebook channel
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['EmailChannelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['FacebookChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -973,47 +1014,6 @@ class FacebookChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class FacebookChannelArgs:
-    def __init__(__self__, *,
-                 channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None):
-        """
-        Facebook channel definition
-        :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'FacebookChannel'.
-        :param pulumi.Input['FacebookChannelPropertiesArgs'] properties: The set of properties specific to bot facebook channel
-        """
-        pulumi.set(__self__, "channel_name", 'FacebookChannel')
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[str]:
-        """
-        The channel name
-        Expected value is 'FacebookChannel'.
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "channel_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['FacebookChannelPropertiesArgs']]:
-        """
-        The set of properties specific to bot facebook channel
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['FacebookChannelPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class FacebookPageArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -1050,6 +1050,47 @@ class FacebookPageArgs:
     @access_token.setter
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
+
+
+@pulumi.input_type
+class KikChannelArgs:
+    def __init__(__self__, *,
+                 channel_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['KikChannelPropertiesArgs']] = None):
+        """
+        Kik channel definition
+        :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'KikChannel'.
+        :param pulumi.Input['KikChannelPropertiesArgs'] properties: The set of properties specific to Kik channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'KikChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[str]:
+        """
+        The channel name
+        Expected value is 'KikChannel'.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['KikChannelPropertiesArgs']]:
+        """
+        The set of properties specific to Kik channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['KikChannelPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -1123,70 +1164,6 @@ class KikChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class KikChannelArgs:
-    def __init__(__self__, *,
-                 channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['KikChannelPropertiesArgs']] = None):
-        """
-        Kik channel definition
-        :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'KikChannel'.
-        :param pulumi.Input['KikChannelPropertiesArgs'] properties: The set of properties specific to Kik channel resource
-        """
-        pulumi.set(__self__, "channel_name", 'KikChannel')
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[str]:
-        """
-        The channel name
-        Expected value is 'KikChannel'.
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "channel_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['KikChannelPropertiesArgs']]:
-        """
-        The set of properties specific to Kik channel resource
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['KikChannelPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
-class LineChannelPropertiesArgs:
-    def __init__(__self__, *,
-                 line_registrations: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]):
-        """
-        The parameters to provide for the Line channel.
-        :param pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]] line_registrations: The list of line channel registrations
-        """
-        pulumi.set(__self__, "line_registrations", line_registrations)
-
-    @property
-    @pulumi.getter(name="lineRegistrations")
-    def line_registrations(self) -> pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]:
-        """
-        The list of line channel registrations
-        """
-        return pulumi.get(self, "line_registrations")
-
-    @line_registrations.setter
-    def line_registrations(self, value: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]):
-        pulumi.set(self, "line_registrations", value)
-
-
-@pulumi.input_type
 class LineChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
@@ -1228,6 +1205,29 @@ class LineChannelArgs:
 
 
 @pulumi.input_type
+class LineChannelPropertiesArgs:
+    def __init__(__self__, *,
+                 line_registrations: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]):
+        """
+        The parameters to provide for the Line channel.
+        :param pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]] line_registrations: The list of line channel registrations
+        """
+        pulumi.set(__self__, "line_registrations", line_registrations)
+
+    @property
+    @pulumi.getter(name="lineRegistrations")
+    def line_registrations(self) -> pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]:
+        """
+        The list of line channel registrations
+        """
+        return pulumi.get(self, "line_registrations")
+
+    @line_registrations.setter
+    def line_registrations(self, value: pulumi.Input[Sequence[pulumi.Input['LineRegistrationArgs']]]):
+        pulumi.set(self, "line_registrations", value)
+
+
+@pulumi.input_type
 class LineRegistrationArgs:
     def __init__(__self__, *,
                  channel_access_token: Optional[pulumi.Input[str]] = None,
@@ -1265,6 +1265,47 @@ class LineRegistrationArgs:
     @channel_secret.setter
     def channel_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "channel_secret", value)
+
+
+@pulumi.input_type
+class MsTeamsChannelArgs:
+    def __init__(__self__, *,
+                 channel_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None):
+        """
+        Microsoft Teams channel definition
+        :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'MsTeamsChannel'.
+        :param pulumi.Input['MsTeamsChannelPropertiesArgs'] properties: The set of properties specific to Microsoft Teams channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[str]:
+        """
+        The channel name
+        Expected value is 'MsTeamsChannel'.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]:
+        """
+        The set of properties specific to Microsoft Teams channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -1320,47 +1361,6 @@ class MsTeamsChannelPropertiesArgs:
     @enable_calling.setter
     def enable_calling(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_calling", value)
-
-
-@pulumi.input_type
-class MsTeamsChannelArgs:
-    def __init__(__self__, *,
-                 channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None):
-        """
-        Microsoft Teams channel definition
-        :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'MsTeamsChannel'.
-        :param pulumi.Input['MsTeamsChannelPropertiesArgs'] properties: The set of properties specific to Microsoft Teams channel resource
-        """
-        pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[str]:
-        """
-        The channel name
-        Expected value is 'MsTeamsChannel'.
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "channel_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]:
-        """
-        The set of properties specific to Microsoft Teams channel resource
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -1440,6 +1440,47 @@ class SkuArgs:
     @name.setter
     def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SkypeChannelArgs:
+    def __init__(__self__, *,
+                 channel_name: pulumi.Input[str],
+                 properties: Optional[pulumi.Input['SkypeChannelPropertiesArgs']] = None):
+        """
+        Skype channel definition
+        :param pulumi.Input[str] channel_name: The channel name
+               Expected value is 'SkypeChannel'.
+        :param pulumi.Input['SkypeChannelPropertiesArgs'] properties: The set of properties specific to Skype channel resource
+        """
+        pulumi.set(__self__, "channel_name", 'SkypeChannel')
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[str]:
+        """
+        The channel name
+        Expected value is 'SkypeChannel'.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['SkypeChannelPropertiesArgs']]:
+        """
+        The set of properties specific to Skype channel resource
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['SkypeChannelPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -1594,17 +1635,17 @@ class SkypeChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class SkypeChannelArgs:
+class SlackChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['SkypeChannelPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['SlackChannelPropertiesArgs']] = None):
         """
-        Skype channel definition
+        Slack channel definition
         :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'SkypeChannel'.
-        :param pulumi.Input['SkypeChannelPropertiesArgs'] properties: The set of properties specific to Skype channel resource
+               Expected value is 'SlackChannel'.
+        :param pulumi.Input['SlackChannelPropertiesArgs'] properties: The set of properties specific to Slack channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SkypeChannel')
+        pulumi.set(__self__, "channel_name", 'SlackChannel')
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1613,7 +1654,7 @@ class SkypeChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
-        Expected value is 'SkypeChannel'.
+        Expected value is 'SlackChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1623,14 +1664,14 @@ class SkypeChannelArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SkypeChannelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['SlackChannelPropertiesArgs']]:
         """
-        The set of properties specific to Skype channel resource
+        The set of properties specific to Slack channel resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SkypeChannelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['SlackChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -1738,17 +1779,17 @@ class SlackChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class SlackChannelArgs:
+class SmsChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['SlackChannelPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['SmsChannelPropertiesArgs']] = None):
         """
-        Slack channel definition
+        Sms channel definition
         :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'SlackChannel'.
-        :param pulumi.Input['SlackChannelPropertiesArgs'] properties: The set of properties specific to Slack channel resource
+               Expected value is 'SmsChannel'.
+        :param pulumi.Input['SmsChannelPropertiesArgs'] properties: The set of properties specific to Sms channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SlackChannel')
+        pulumi.set(__self__, "channel_name", 'SmsChannel')
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1757,7 +1798,7 @@ class SlackChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
-        Expected value is 'SlackChannel'.
+        Expected value is 'SmsChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1767,14 +1808,14 @@ class SlackChannelArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SlackChannelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['SmsChannelPropertiesArgs']]:
         """
-        The set of properties specific to Slack channel resource
+        The set of properties specific to Sms channel resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SlackChannelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['SmsChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -1864,17 +1905,17 @@ class SmsChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class SmsChannelArgs:
+class TelegramChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['SmsChannelPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None):
         """
-        Sms channel definition
+        Telegram channel definition
         :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'SmsChannel'.
-        :param pulumi.Input['SmsChannelPropertiesArgs'] properties: The set of properties specific to Sms channel resource
+               Expected value is 'TelegramChannel'.
+        :param pulumi.Input['TelegramChannelPropertiesArgs'] properties: The set of properties specific to Telegram channel resource
         """
-        pulumi.set(__self__, "channel_name", 'SmsChannel')
+        pulumi.set(__self__, "channel_name", 'TelegramChannel')
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1883,7 +1924,7 @@ class SmsChannelArgs:
     def channel_name(self) -> pulumi.Input[str]:
         """
         The channel name
-        Expected value is 'SmsChannel'.
+        Expected value is 'TelegramChannel'.
         """
         return pulumi.get(self, "channel_name")
 
@@ -1893,14 +1934,14 @@ class SmsChannelArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SmsChannelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['TelegramChannelPropertiesArgs']]:
         """
-        The set of properties specific to Sms channel resource
+        The set of properties specific to Telegram channel resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SmsChannelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['TelegramChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -1960,71 +2001,6 @@ class TelegramChannelPropertiesArgs:
 
 
 @pulumi.input_type
-class TelegramChannelArgs:
-    def __init__(__self__, *,
-                 channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None):
-        """
-        Telegram channel definition
-        :param pulumi.Input[str] channel_name: The channel name
-               Expected value is 'TelegramChannel'.
-        :param pulumi.Input['TelegramChannelPropertiesArgs'] properties: The set of properties specific to Telegram channel resource
-        """
-        pulumi.set(__self__, "channel_name", 'TelegramChannel')
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[str]:
-        """
-        The channel name
-        Expected value is 'TelegramChannel'.
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "channel_name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['TelegramChannelPropertiesArgs']]:
-        """
-        The set of properties specific to Telegram channel resource
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['TelegramChannelPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
-class WebChatChannelPropertiesArgs:
-    def __init__(__self__, *,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]] = None):
-        """
-        The parameters to provide for the Web Chat channel.
-        :param pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]] sites: The list of Web Chat sites
-        """
-        if sites is not None:
-            pulumi.set(__self__, "sites", sites)
-
-    @property
-    @pulumi.getter
-    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]]:
-        """
-        The list of Web Chat sites
-        """
-        return pulumi.get(self, "sites")
-
-    @sites.setter
-    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]]):
-        pulumi.set(self, "sites", value)
-
-
-@pulumi.input_type
 class WebChatChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
@@ -2063,6 +2039,30 @@ class WebChatChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['WebChatChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
+class WebChatChannelPropertiesArgs:
+    def __init__(__self__, *,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]] = None):
+        """
+        The parameters to provide for the Web Chat channel.
+        :param pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]] sites: The list of Web Chat sites
+        """
+        if sites is not None:
+            pulumi.set(__self__, "sites", sites)
+
+    @property
+    @pulumi.getter
+    def sites(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]]:
+        """
+        The list of Web Chat sites
+        """
+        return pulumi.get(self, "sites")
+
+    @sites.setter
+    def sites(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebChatSiteArgs']]]]):
+        pulumi.set(self, "sites", value)
 
 
 @pulumi.input_type

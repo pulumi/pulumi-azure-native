@@ -12,10 +12,10 @@ from ._enums import *
 __all__ = [
     'CreationDataArgs',
     'DiskSkuArgs',
+    'EncryptionArgs',
     'EncryptionSetIdentityArgs',
     'EncryptionSettingsCollectionArgs',
     'EncryptionSettingsElementArgs',
-    'EncryptionArgs',
     'ImageDiskReferenceArgs',
     'KeyVaultAndKeyReferenceArgs',
     'KeyVaultAndSecretReferenceArgs',
@@ -167,6 +167,46 @@ class DiskSkuArgs:
 
 
 @pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None):
+        """
+        Encryption at rest settings for disk or snapshot
+        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
+        :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
+        """
+        The type of key used to encrypt the data of the disk.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class EncryptionSetIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']]] = None):
@@ -283,46 +323,6 @@ class EncryptionSettingsElementArgs:
     @key_encryption_key.setter
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultAndKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
-
-
-@pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None):
-        """
-        Encryption at rest settings for disk or snapshot
-        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
-        :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
-        """
-        if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ResourceId of the disk encryption set to use for enabling encryption at rest.
-        """
-        return pulumi.get(self, "disk_encryption_set_id")
-
-    @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_encryption_set_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
-        """
-        The type of key used to encrypt the data of the disk.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

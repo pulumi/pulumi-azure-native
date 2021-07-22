@@ -14,8 +14,5 @@ class ServiceLevel(str, Enum):
     The service level of the file system
     """
     STANDARD = "Standard"
-    """Standard service level"""
     PREMIUM = "Premium"
-    """Premium service level"""
     ULTRA = "Ultra"
-    """Ultra service level"""

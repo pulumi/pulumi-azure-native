@@ -15,8 +15,8 @@ __all__ = [
     'EventHubPropertiesArgs',
     'FallbackRoutePropertiesArgs',
     'FeedbackPropertiesArgs',
-    'IotHubPropertiesDeviceStreamsArgs',
     'IotHubPropertiesArgs',
+    'IotHubPropertiesDeviceStreamsArgs',
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
     'MessagingEndpointPropertiesArgs',
@@ -322,30 +322,6 @@ class FeedbackPropertiesArgs:
 
 
 @pulumi.input_type
-class IotHubPropertiesDeviceStreamsArgs:
-    def __init__(__self__, *,
-                 streaming_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The device streams properties of iothub.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_endpoints: List of Device Streams Endpoints.
-        """
-        if streaming_endpoints is not None:
-            pulumi.set(__self__, "streaming_endpoints", streaming_endpoints)
-
-    @property
-    @pulumi.getter(name="streamingEndpoints")
-    def streaming_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Device Streams Endpoints.
-        """
-        return pulumi.get(self, "streaming_endpoints")
-
-    @streaming_endpoints.setter
-    def streaming_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "streaming_endpoints", value)
-
-
-@pulumi.input_type
 class IotHubPropertiesArgs:
     def __init__(__self__, *,
                  authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]] = None,
@@ -527,6 +503,30 @@ class IotHubPropertiesArgs:
     @storage_endpoints.setter
     def storage_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]]]):
         pulumi.set(self, "storage_endpoints", value)
+
+
+@pulumi.input_type
+class IotHubPropertiesDeviceStreamsArgs:
+    def __init__(__self__, *,
+                 streaming_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The device streams properties of iothub.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_endpoints: List of Device Streams Endpoints.
+        """
+        if streaming_endpoints is not None:
+            pulumi.set(__self__, "streaming_endpoints", streaming_endpoints)
+
+    @property
+    @pulumi.getter(name="streamingEndpoints")
+    def streaming_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Device Streams Endpoints.
+        """
+        return pulumi.get(self, "streaming_endpoints")
+
+    @streaming_endpoints.setter
+    def streaming_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "streaming_endpoints", value)
 
 
 @pulumi.input_type

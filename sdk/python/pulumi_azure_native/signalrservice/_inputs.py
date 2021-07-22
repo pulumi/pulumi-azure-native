@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'NetworkACLArgs',
-    'PrivateEndpointACLArgs',
     'PrivateEndpointArgs',
+    'PrivateEndpointACLArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ResourceSkuArgs',
     'ServerlessUpstreamSettingsArgs',
@@ -60,6 +60,30 @@ class NetworkACLArgs:
     @deny.setter
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
+
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Private endpoint
+        :param pulumi.Input[str] id: Full qualified Id of the private endpoint
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full qualified Id of the private endpoint
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -115,30 +139,6 @@ class PrivateEndpointACLArgs:
     @deny.setter
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
-
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint
-        :param pulumi.Input[str] id: Full qualified Id of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Full qualified Id of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

@@ -9,14 +9,59 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
 
 __all__ = [
-    'DataSourceConfigurationArgs',
     'DataSourceArgs',
+    'DataSourceConfigurationArgs',
     'EtwEventConfigurationArgs',
     'EtwProviderConfigurationArgs',
     'EventLogConfigurationArgs',
     'PerformanceCounterConfigurationArgs',
     'SinkConfigurationArgs',
 ]
+
+@pulumi.input_type
+class DataSourceArgs:
+    def __init__(__self__, *,
+                 configuration: pulumi.Input['DataSourceConfigurationArgs'],
+                 kind: pulumi.Input[str],
+                 sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
+        """
+        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+        :param pulumi.Input[str] kind: Datasource kind
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "sinks", sinks)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['DataSourceConfigurationArgs']:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['DataSourceConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Datasource kind
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]:
+        return pulumi.get(self, "sinks")
+
+    @sinks.setter
+    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
+        pulumi.set(self, "sinks", value)
+
 
 @pulumi.input_type
 class DataSourceConfigurationArgs:
@@ -71,51 +116,6 @@ class DataSourceConfigurationArgs:
     @providers.setter
     def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]]]):
         pulumi.set(self, "providers", value)
-
-
-@pulumi.input_type
-class DataSourceArgs:
-    def __init__(__self__, *,
-                 configuration: pulumi.Input['DataSourceConfigurationArgs'],
-                 kind: pulumi.Input[str],
-                 sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
-        """
-        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
-        :param pulumi.Input[str] kind: Datasource kind
-        """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "sinks", sinks)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> pulumi.Input['DataSourceConfigurationArgs']:
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: pulumi.Input['DataSourceConfigurationArgs']):
-        pulumi.set(self, "configuration", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        Datasource kind
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]:
-        return pulumi.get(self, "sinks")
-
-    @sinks.setter
-    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
-        pulumi.set(self, "sinks", value)
 
 
 @pulumi.input_type

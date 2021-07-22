@@ -13,9 +13,9 @@ __all__ = [
     'IdentityArgs',
     'IpRuleArgs',
     'NetworkRuleSetArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionPropertiesPrivateEndpointArgs',
     'PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
-    'PrivateEndpointConnectionPropertiesArgs',
     'SkuArgs',
 ]
 
@@ -109,6 +109,46 @@ class NetworkRuleSetArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 private_endpoint: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs'] private_endpoint: The private endpoint resource from Microsoft.Network provider.
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        """
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]:
+        """
+        The private endpoint resource from Microsoft.Network provider.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]:
+        """
+        Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionPropertiesPrivateEndpointArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -188,46 +228,6 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class PrivateEndpointConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None):
-        """
-        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs'] private_endpoint: The private endpoint resource from Microsoft.Network provider.
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-        """
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]:
-        """
-        The private endpoint resource from Microsoft.Network provider.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateEndpointArgs']]):
-        pulumi.set(self, "private_endpoint", value)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]:
-        """
-        Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
 
 
 @pulumi.input_type

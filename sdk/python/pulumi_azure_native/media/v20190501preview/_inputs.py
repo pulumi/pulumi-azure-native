@@ -18,12 +18,12 @@ __all__ = [
     'IPRangeArgs',
     'LiveEventEncodingArgs',
     'LiveEventEndpointArgs',
+    'LiveEventInputArgs',
     'LiveEventInputAccessControlArgs',
     'LiveEventInputTrackSelectionArgs',
-    'LiveEventInputArgs',
     'LiveEventOutputTranscriptionTrackArgs',
-    'LiveEventPreviewAccessControlArgs',
     'LiveEventPreviewArgs',
+    'LiveEventPreviewAccessControlArgs',
     'LiveEventTranscriptionArgs',
     'StreamingEndpointAccessControlArgs',
 ]
@@ -333,86 +333,6 @@ class LiveEventEndpointArgs:
 
 
 @pulumi.input_type
-class LiveEventInputAccessControlArgs:
-    def __init__(__self__, *,
-                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
-        """
-        The IP access control for Live Event Input.
-        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
-        """
-        The IP access control properties.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
-        pulumi.set(self, "ip", value)
-
-
-@pulumi.input_type
-class LiveEventInputTrackSelectionArgs:
-    def __init__(__self__, *,
-                 operation: Optional[pulumi.Input[str]] = None,
-                 property: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        A track selection condition.
-        :param pulumi.Input[str] operation: Comparing operation.
-        :param pulumi.Input[str] property: Property name to select.
-        :param pulumi.Input[str] value: Property value to select.
-        """
-        if operation is not None:
-            pulumi.set(__self__, "operation", operation)
-        if property is not None:
-            pulumi.set(__self__, "property", property)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[str]]:
-        """
-        Comparing operation.
-        """
-        return pulumi.get(self, "operation")
-
-    @operation.setter
-    def operation(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "operation", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Property value to select.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def property(self) -> Optional[pulumi.Input[str]]:
-        """
-        Property name to select.
-        """
-        return pulumi.get(self, "property")
-
-    @property.setter
-    def property(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "property", value)
-
-
-@pulumi.input_type
 class LiveEventInputArgs:
     def __init__(__self__, *,
                  streaming_protocol: pulumi.Input[Union[str, 'LiveEventInputProtocol']],
@@ -500,6 +420,86 @@ class LiveEventInputArgs:
 
 
 @pulumi.input_type
+class LiveEventInputAccessControlArgs:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
+        """
+        The IP access control for Live Event Input.
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
+        pulumi.set(self, "ip", value)
+
+
+@pulumi.input_type
+class LiveEventInputTrackSelectionArgs:
+    def __init__(__self__, *,
+                 operation: Optional[pulumi.Input[str]] = None,
+                 property: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A track selection condition.
+        :param pulumi.Input[str] operation: Comparing operation.
+        :param pulumi.Input[str] property: Property name to select.
+        :param pulumi.Input[str] value: Property value to select.
+        """
+        if operation is not None:
+            pulumi.set(__self__, "operation", operation)
+        if property is not None:
+            pulumi.set(__self__, "property", property)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comparing operation.
+        """
+        return pulumi.get(self, "operation")
+
+    @operation.setter
+    def operation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operation", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property value to select.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def property(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property name to select.
+        """
+        return pulumi.get(self, "property")
+
+    @property.setter
+    def property(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property", value)
+
+
+@pulumi.input_type
 class LiveEventOutputTranscriptionTrackArgs:
     def __init__(__self__, *,
                  track_name: pulumi.Input[str]):
@@ -520,30 +520,6 @@ class LiveEventOutputTranscriptionTrackArgs:
     @track_name.setter
     def track_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "track_name", value)
-
-
-@pulumi.input_type
-class LiveEventPreviewAccessControlArgs:
-    def __init__(__self__, *,
-                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
-        """
-        The IP access control for Live Event preview.
-        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
-        """
-        The IP access control properties.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
-        pulumi.set(self, "ip", value)
 
 
 @pulumi.input_type
@@ -632,6 +608,30 @@ class LiveEventPreviewArgs:
     @streaming_policy_name.setter
     def streaming_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "streaming_policy_name", value)
+
+
+@pulumi.input_type
+class LiveEventPreviewAccessControlArgs:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
+        """
+        The IP access control for Live Event preview.
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
+        pulumi.set(self, "ip", value)
 
 
 @pulumi.input_type

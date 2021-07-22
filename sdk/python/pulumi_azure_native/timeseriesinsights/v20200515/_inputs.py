@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'Gen2StorageConfigurationInputArgs',
-    'LocalTimestampTimeZoneOffsetArgs',
     'LocalTimestampArgs',
+    'LocalTimestampTimeZoneOffsetArgs',
     'ReferenceDataSetKeyPropertyArgs',
     'SkuArgs',
     'TimeSeriesIdPropertyArgs',
@@ -58,30 +58,6 @@ class Gen2StorageConfigurationInputArgs:
 
 
 @pulumi.input_type
-class LocalTimestampTimeZoneOffsetArgs:
-    def __init__(__self__, *,
-                 property_name: Optional[pulumi.Input[str]] = None):
-        """
-        An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-        :param pulumi.Input[str] property_name: The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
-        """
-        if property_name is not None:
-            pulumi.set(__self__, "property_name", property_name)
-
-    @property
-    @pulumi.getter(name="propertyName")
-    def property_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
-        """
-        return pulumi.get(self, "property_name")
-
-    @property_name.setter
-    def property_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "property_name", value)
-
-
-@pulumi.input_type
 class LocalTimestampArgs:
     def __init__(__self__, *,
                  format: Optional[pulumi.Input[Union[str, 'LocalTimestampFormat']]] = None,
@@ -119,6 +95,30 @@ class LocalTimestampArgs:
     @time_zone_offset.setter
     def time_zone_offset(self, value: Optional[pulumi.Input['LocalTimestampTimeZoneOffsetArgs']]):
         pulumi.set(self, "time_zone_offset", value)
+
+
+@pulumi.input_type
+class LocalTimestampTimeZoneOffsetArgs:
+    def __init__(__self__, *,
+                 property_name: Optional[pulumi.Input[str]] = None):
+        """
+        An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+        :param pulumi.Input[str] property_name: The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+        """
+        if property_name is not None:
+            pulumi.set(__self__, "property_name", property_name)
+
+    @property
+    @pulumi.getter(name="propertyName")
+    def property_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
+        """
+        return pulumi.get(self, "property_name")
+
+    @property_name.setter
+    def property_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "property_name", value)
 
 
 @pulumi.input_type

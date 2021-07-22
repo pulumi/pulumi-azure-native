@@ -12,34 +12,34 @@ from ._enums import *
 __all__ = [
     'AzureBackupServerContainerArgs',
     'AzureFileShareProtectionPolicyArgs',
-    'AzureFileshareProtectedItemExtendedInfoArgs',
     'AzureFileshareProtectedItemArgs',
+    'AzureFileshareProtectedItemExtendedInfoArgs',
     'AzureIaaSClassicComputeVMContainerArgs',
     'AzureIaaSClassicComputeVMProtectedItemArgs',
     'AzureIaaSComputeVMContainerArgs',
     'AzureIaaSComputeVMProtectedItemArgs',
-    'AzureIaaSVMProtectedItemExtendedInfoArgs',
     'AzureIaaSVMProtectedItemArgs',
+    'AzureIaaSVMProtectedItemExtendedInfoArgs',
     'AzureIaaSVMProtectionPolicyArgs',
     'AzureSQLAGWorkloadContainerProtectionContainerArgs',
     'AzureSqlContainerArgs',
-    'AzureSqlProtectedItemExtendedInfoArgs',
     'AzureSqlProtectedItemArgs',
+    'AzureSqlProtectedItemExtendedInfoArgs',
     'AzureSqlProtectionPolicyArgs',
     'AzureStorageContainerArgs',
     'AzureVMAppContainerProtectionContainerArgs',
-    'AzureVmWorkloadProtectedItemExtendedInfoArgs',
     'AzureVmWorkloadProtectedItemArgs',
+    'AzureVmWorkloadProtectedItemExtendedInfoArgs',
     'AzureVmWorkloadProtectionPolicyArgs',
     'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs',
     'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs',
     'AzureVmWorkloadSQLDatabaseProtectedItemArgs',
-    'AzureWorkloadContainerExtendedInfoArgs',
     'AzureWorkloadContainerArgs',
+    'AzureWorkloadContainerExtendedInfoArgs',
     'ContainerIdentityInfoArgs',
     'DPMContainerExtendedInfoArgs',
-    'DPMProtectedItemExtendedInfoArgs',
     'DPMProtectedItemArgs',
+    'DPMProtectedItemExtendedInfoArgs',
     'DailyRetentionFormatArgs',
     'DailyRetentionScheduleArgs',
     'DayArgs',
@@ -47,8 +47,8 @@ __all__ = [
     'DistributedNodesInfoArgs',
     'DpmContainerArgs',
     'ExtendedPropertiesArgs',
-    'GenericContainerExtendedInfoArgs',
     'GenericContainerArgs',
+    'GenericContainerExtendedInfoArgs',
     'GenericProtectedItemArgs',
     'GenericProtectionPolicyArgs',
     'IaaSVMContainerArgs',
@@ -60,14 +60,14 @@ __all__ = [
     'LongTermRetentionPolicyArgs',
     'LongTermSchedulePolicyArgs',
     'MABContainerHealthDetailsArgs',
-    'MabContainerExtendedInfoArgs',
     'MabContainerArgs',
-    'MabFileFolderProtectedItemExtendedInfoArgs',
+    'MabContainerExtendedInfoArgs',
     'MabFileFolderProtectedItemArgs',
+    'MabFileFolderProtectedItemExtendedInfoArgs',
     'MabProtectionPolicyArgs',
     'MonthlyRetentionScheduleArgs',
-    'PrivateEndpointConnectionArgs',
     'PrivateEndpointArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RetentionDurationArgs',
     'SettingsArgs',
@@ -406,62 +406,6 @@ class AzureFileShareProtectionPolicyArgs:
     @work_load_type.setter
     def work_load_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
         pulumi.set(self, "work_load_type", value)
-
-
-@pulumi.input_type
-class AzureFileshareProtectedItemExtendedInfoArgs:
-    def __init__(__self__, *,
-                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[int]] = None):
-        """
-        Additional information about Azure File Share backup item.
-        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
-        :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
-        """
-        if oldest_recovery_point is not None:
-            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
-        if policy_state is not None:
-            pulumi.set(__self__, "policy_state", policy_state)
-        if recovery_point_count is not None:
-            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
-
-    @property
-    @pulumi.getter(name="oldestRecoveryPoint")
-    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        The oldest backup copy available for this item in the service.
-        """
-        return pulumi.get(self, "oldest_recovery_point")
-
-    @oldest_recovery_point.setter
-    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="policyState")
-    def policy_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates consistency of policy object and policy applied to this backup item.
-        """
-        return pulumi.get(self, "policy_state")
-
-    @policy_state.setter
-    def policy_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_state", value)
-
-    @property
-    @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of available backup copies associated with this backup item.
-        """
-        return pulumi.get(self, "recovery_point_count")
-
-    @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "recovery_point_count", value)
 
 
 @pulumi.input_type
@@ -807,6 +751,62 @@ class AzureFileshareProtectedItemArgs:
     @workload_type.setter
     def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class AzureFileshareProtectedItemExtendedInfoArgs:
+    def __init__(__self__, *,
+                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 policy_state: Optional[pulumi.Input[str]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
+        """
+        Additional information about Azure File Share backup item.
+        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
+        :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
+        """
+        if oldest_recovery_point is not None:
+            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if policy_state is not None:
+            pulumi.set(__self__, "policy_state", policy_state)
+        if recovery_point_count is not None:
+            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPoint")
+    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        The oldest backup copy available for this item in the service.
+        """
+        return pulumi.get(self, "oldest_recovery_point")
+
+    @oldest_recovery_point.setter
+    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="policyState")
+    def policy_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        return pulumi.get(self, "policy_state")
+
+    @policy_state.setter
+    def policy_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_state", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointCount")
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of available backup copies associated with this backup item.
+        """
+        return pulumi.get(self, "recovery_point_count")
+
+    @recovery_point_count.setter
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_count", value)
 
 
 @pulumi.input_type
@@ -1914,62 +1914,6 @@ class AzureIaaSComputeVMProtectedItemArgs:
 
 
 @pulumi.input_type
-class AzureIaaSVMProtectedItemExtendedInfoArgs:
-    def __init__(__self__, *,
-                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 policy_inconsistent: Optional[pulumi.Input[bool]] = None,
-                 recovery_point_count: Optional[pulumi.Input[int]] = None):
-        """
-        Additional information on Azure IaaS VM specific backup item.
-        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
-        :param pulumi.Input[bool] policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
-        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
-        """
-        if oldest_recovery_point is not None:
-            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
-        if policy_inconsistent is not None:
-            pulumi.set(__self__, "policy_inconsistent", policy_inconsistent)
-        if recovery_point_count is not None:
-            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
-
-    @property
-    @pulumi.getter(name="oldestRecoveryPoint")
-    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        The oldest backup copy available for this backup item.
-        """
-        return pulumi.get(self, "oldest_recovery_point")
-
-    @oldest_recovery_point.setter
-    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="policyInconsistent")
-    def policy_inconsistent(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Specifies if backup policy associated with the backup item is inconsistent.
-        """
-        return pulumi.get(self, "policy_inconsistent")
-
-    @policy_inconsistent.setter
-    def policy_inconsistent(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "policy_inconsistent", value)
-
-    @property
-    @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of backup copies available for this backup item.
-        """
-        return pulumi.get(self, "recovery_point_count")
-
-    @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "recovery_point_count", value)
-
-
-@pulumi.input_type
 class AzureIaaSVMProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
@@ -2379,6 +2323,62 @@ class AzureIaaSVMProtectedItemArgs:
 
 
 @pulumi.input_type
+class AzureIaaSVMProtectedItemExtendedInfoArgs:
+    def __init__(__self__, *,
+                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 policy_inconsistent: Optional[pulumi.Input[bool]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
+        """
+        Additional information on Azure IaaS VM specific backup item.
+        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
+        :param pulumi.Input[bool] policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
+        """
+        if oldest_recovery_point is not None:
+            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if policy_inconsistent is not None:
+            pulumi.set(__self__, "policy_inconsistent", policy_inconsistent)
+        if recovery_point_count is not None:
+            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPoint")
+    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        The oldest backup copy available for this backup item.
+        """
+        return pulumi.get(self, "oldest_recovery_point")
+
+    @oldest_recovery_point.setter
+    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="policyInconsistent")
+    def policy_inconsistent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if backup policy associated with the backup item is inconsistent.
+        """
+        return pulumi.get(self, "policy_inconsistent")
+
+    @policy_inconsistent.setter
+    def policy_inconsistent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "policy_inconsistent", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointCount")
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of backup copies available for this backup item.
+        """
+        return pulumi.get(self, "recovery_point_count")
+
+    @recovery_point_count.setter
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_count", value)
+
+
+@pulumi.input_type
 class AzureIaaSVMProtectionPolicyArgs:
     def __init__(__self__, *,
                  backup_management_type: pulumi.Input[str],
@@ -2766,62 +2766,6 @@ class AzureSqlContainerArgs:
 
 
 @pulumi.input_type
-class AzureSqlProtectedItemExtendedInfoArgs:
-    def __init__(__self__, *,
-                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[int]] = None):
-        """
-        Additional information on Azure Sql specific protected item.
-        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
-        :param pulumi.Input[str] policy_state: State of the backup policy associated with this backup item.
-        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
-        """
-        if oldest_recovery_point is not None:
-            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
-        if policy_state is not None:
-            pulumi.set(__self__, "policy_state", policy_state)
-        if recovery_point_count is not None:
-            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
-
-    @property
-    @pulumi.getter(name="oldestRecoveryPoint")
-    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        The oldest backup copy available for this item in the service.
-        """
-        return pulumi.get(self, "oldest_recovery_point")
-
-    @oldest_recovery_point.setter
-    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="policyState")
-    def policy_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        State of the backup policy associated with this backup item.
-        """
-        return pulumi.get(self, "policy_state")
-
-    @policy_state.setter
-    def policy_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_state", value)
-
-    @property
-    @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of available backup copies associated with this backup item.
-        """
-        return pulumi.get(self, "recovery_point_count")
-
-    @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "recovery_point_count", value)
-
-
-@pulumi.input_type
 class AzureSqlProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
@@ -3100,6 +3044,62 @@ class AzureSqlProtectedItemArgs:
     @workload_type.setter
     def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class AzureSqlProtectedItemExtendedInfoArgs:
+    def __init__(__self__, *,
+                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 policy_state: Optional[pulumi.Input[str]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
+        """
+        Additional information on Azure Sql specific protected item.
+        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this item in the service.
+        :param pulumi.Input[str] policy_state: State of the backup policy associated with this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of available backup copies associated with this backup item.
+        """
+        if oldest_recovery_point is not None:
+            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if policy_state is not None:
+            pulumi.set(__self__, "policy_state", policy_state)
+        if recovery_point_count is not None:
+            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPoint")
+    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        The oldest backup copy available for this item in the service.
+        """
+        return pulumi.get(self, "oldest_recovery_point")
+
+    @oldest_recovery_point.setter
+    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="policyState")
+    def policy_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the backup policy associated with this backup item.
+        """
+        return pulumi.get(self, "policy_state")
+
+    @policy_state.setter
+    def policy_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_state", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointCount")
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of available backup copies associated with this backup item.
+        """
+        return pulumi.get(self, "recovery_point_count")
+
+    @recovery_point_count.setter
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_count", value)
 
 
 @pulumi.input_type
@@ -3491,62 +3491,6 @@ class AzureVMAppContainerProtectionContainerArgs:
     @workload_type.setter
     def workload_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
         pulumi.set(self, "workload_type", value)
-
-
-@pulumi.input_type
-class AzureVmWorkloadProtectedItemExtendedInfoArgs:
-    def __init__(__self__, *,
-                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 policy_state: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[int]] = None):
-        """
-        Additional information on Azure Workload for SQL specific backup item.
-        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
-        :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
-        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
-        """
-        if oldest_recovery_point is not None:
-            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
-        if policy_state is not None:
-            pulumi.set(__self__, "policy_state", policy_state)
-        if recovery_point_count is not None:
-            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
-
-    @property
-    @pulumi.getter(name="oldestRecoveryPoint")
-    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        The oldest backup copy available for this backup item.
-        """
-        return pulumi.get(self, "oldest_recovery_point")
-
-    @oldest_recovery_point.setter
-    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="policyState")
-    def policy_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates consistency of policy object and policy applied to this backup item.
-        """
-        return pulumi.get(self, "policy_state")
-
-    @policy_state.setter
-    def policy_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_state", value)
-
-    @property
-    @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of backup copies available for this backup item.
-        """
-        return pulumi.get(self, "recovery_point_count")
-
-    @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "recovery_point_count", value)
 
 
 @pulumi.input_type
@@ -3972,6 +3916,62 @@ class AzureVmWorkloadProtectedItemArgs:
     @workload_type.setter
     def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class AzureVmWorkloadProtectedItemExtendedInfoArgs:
+    def __init__(__self__, *,
+                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 policy_state: Optional[pulumi.Input[str]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
+        """
+        Additional information on Azure Workload for SQL specific backup item.
+        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available for this backup item.
+        :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies available for this backup item.
+        """
+        if oldest_recovery_point is not None:
+            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if policy_state is not None:
+            pulumi.set(__self__, "policy_state", policy_state)
+        if recovery_point_count is not None:
+            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPoint")
+    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        The oldest backup copy available for this backup item.
+        """
+        return pulumi.get(self, "oldest_recovery_point")
+
+    @oldest_recovery_point.setter
+    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="policyState")
+    def policy_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        return pulumi.get(self, "policy_state")
+
+    @policy_state.setter
+    def policy_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_state", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointCount")
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of backup copies available for this backup item.
+        """
+        return pulumi.get(self, "recovery_point_count")
+
+    @recovery_point_count.setter
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_count", value)
 
 
 @pulumi.input_type
@@ -5355,62 +5355,6 @@ class AzureVmWorkloadSQLDatabaseProtectedItemArgs:
 
 
 @pulumi.input_type
-class AzureWorkloadContainerExtendedInfoArgs:
-    def __init__(__self__, *,
-                 host_server_name: Optional[pulumi.Input[str]] = None,
-                 inquiry_info: Optional[pulumi.Input['InquiryInfoArgs']] = None,
-                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
-        """
-        Extended information of the container.
-        :param pulumi.Input[str] host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        :param pulumi.Input['InquiryInfoArgs'] inquiry_info: Inquiry Status for the container.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
-        """
-        if host_server_name is not None:
-            pulumi.set(__self__, "host_server_name", host_server_name)
-        if inquiry_info is not None:
-            pulumi.set(__self__, "inquiry_info", inquiry_info)
-        if nodes_list is not None:
-            pulumi.set(__self__, "nodes_list", nodes_list)
-
-    @property
-    @pulumi.getter(name="hostServerName")
-    def host_server_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        """
-        return pulumi.get(self, "host_server_name")
-
-    @host_server_name.setter
-    def host_server_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "host_server_name", value)
-
-    @property
-    @pulumi.getter(name="inquiryInfo")
-    def inquiry_info(self) -> Optional[pulumi.Input['InquiryInfoArgs']]:
-        """
-        Inquiry Status for the container.
-        """
-        return pulumi.get(self, "inquiry_info")
-
-    @inquiry_info.setter
-    def inquiry_info(self, value: Optional[pulumi.Input['InquiryInfoArgs']]):
-        pulumi.set(self, "inquiry_info", value)
-
-    @property
-    @pulumi.getter(name="nodesList")
-    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
-        """
-        List of the nodes in case of distributed container.
-        """
-        return pulumi.get(self, "nodes_list")
-
-    @nodes_list.setter
-    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
-        pulumi.set(self, "nodes_list", value)
-
-
-@pulumi.input_type
 class AzureWorkloadContainerArgs:
     def __init__(__self__, *,
                  container_type: pulumi.Input[str],
@@ -5586,6 +5530,62 @@ class AzureWorkloadContainerArgs:
 
 
 @pulumi.input_type
+class AzureWorkloadContainerExtendedInfoArgs:
+    def __init__(__self__, *,
+                 host_server_name: Optional[pulumi.Input[str]] = None,
+                 inquiry_info: Optional[pulumi.Input['InquiryInfoArgs']] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
+        """
+        Extended information of the container.
+        :param pulumi.Input[str] host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+        :param pulumi.Input['InquiryInfoArgs'] inquiry_info: Inquiry Status for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
+        """
+        if host_server_name is not None:
+            pulumi.set(__self__, "host_server_name", host_server_name)
+        if inquiry_info is not None:
+            pulumi.set(__self__, "inquiry_info", inquiry_info)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
+
+    @property
+    @pulumi.getter(name="hostServerName")
+    def host_server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+        """
+        return pulumi.get(self, "host_server_name")
+
+    @host_server_name.setter
+    def host_server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_server_name", value)
+
+    @property
+    @pulumi.getter(name="inquiryInfo")
+    def inquiry_info(self) -> Optional[pulumi.Input['InquiryInfoArgs']]:
+        """
+        Inquiry Status for the container.
+        """
+        return pulumi.get(self, "inquiry_info")
+
+    @inquiry_info.setter
+    def inquiry_info(self, value: Optional[pulumi.Input['InquiryInfoArgs']]):
+        pulumi.set(self, "inquiry_info", value)
+
+    @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
+
+
+@pulumi.input_type
 class ContainerIdentityInfoArgs:
     def __init__(__self__, *,
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -5679,238 +5679,6 @@ class DPMContainerExtendedInfoArgs:
     @last_refreshed_at.setter
     def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_refreshed_at", value)
-
-
-@pulumi.input_type
-class DPMProtectedItemExtendedInfoArgs:
-    def __init__(__self__, *,
-                 disk_storage_used_in_bytes: Optional[pulumi.Input[str]] = None,
-                 is_collocated: Optional[pulumi.Input[bool]] = None,
-                 is_present_on_cloud: Optional[pulumi.Input[bool]] = None,
-                 last_backup_status: Optional[pulumi.Input[str]] = None,
-                 last_refreshed_at: Optional[pulumi.Input[str]] = None,
-                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 on_premise_latest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 on_premise_oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 on_premise_recovery_point_count: Optional[pulumi.Input[int]] = None,
-                 protectable_object_load_path: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 protected: Optional[pulumi.Input[bool]] = None,
-                 protection_group_name: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[int]] = None,
-                 total_disk_storage_size_in_bytes: Optional[pulumi.Input[str]] = None):
-        """
-        Additional information of DPM Protected item.
-        :param pulumi.Input[str] disk_storage_used_in_bytes: Used Disk storage in bytes.
-        :param pulumi.Input[bool] is_collocated: To check if backup item is collocated.
-        :param pulumi.Input[bool] is_present_on_cloud: To check if backup item is cloud protected.
-        :param pulumi.Input[str] last_backup_status: Last backup status information on backup item.
-        :param pulumi.Input[str] last_refreshed_at: Last refresh time on backup item.
-        :param pulumi.Input[str] oldest_recovery_point: Oldest cloud recovery point time.
-        :param pulumi.Input[str] on_premise_latest_recovery_point: latest disk recovery point time.
-        :param pulumi.Input[str] on_premise_oldest_recovery_point: Oldest disk recovery point time.
-        :param pulumi.Input[int] on_premise_recovery_point_count: disk recovery point count.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] protectable_object_load_path: Attribute to provide information on various DBs.
-        :param pulumi.Input[bool] protected: To check if backup item is disk protected.
-        :param pulumi.Input[str] protection_group_name: Protection group name of the backup item.
-        :param pulumi.Input[int] recovery_point_count: cloud recovery point count.
-        :param pulumi.Input[str] total_disk_storage_size_in_bytes: total Disk storage in bytes.
-        """
-        if disk_storage_used_in_bytes is not None:
-            pulumi.set(__self__, "disk_storage_used_in_bytes", disk_storage_used_in_bytes)
-        if is_collocated is not None:
-            pulumi.set(__self__, "is_collocated", is_collocated)
-        if is_present_on_cloud is not None:
-            pulumi.set(__self__, "is_present_on_cloud", is_present_on_cloud)
-        if last_backup_status is not None:
-            pulumi.set(__self__, "last_backup_status", last_backup_status)
-        if last_refreshed_at is not None:
-            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
-        if oldest_recovery_point is not None:
-            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
-        if on_premise_latest_recovery_point is not None:
-            pulumi.set(__self__, "on_premise_latest_recovery_point", on_premise_latest_recovery_point)
-        if on_premise_oldest_recovery_point is not None:
-            pulumi.set(__self__, "on_premise_oldest_recovery_point", on_premise_oldest_recovery_point)
-        if on_premise_recovery_point_count is not None:
-            pulumi.set(__self__, "on_premise_recovery_point_count", on_premise_recovery_point_count)
-        if protectable_object_load_path is not None:
-            pulumi.set(__self__, "protectable_object_load_path", protectable_object_load_path)
-        if protected is not None:
-            pulumi.set(__self__, "protected", protected)
-        if protection_group_name is not None:
-            pulumi.set(__self__, "protection_group_name", protection_group_name)
-        if recovery_point_count is not None:
-            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
-        if total_disk_storage_size_in_bytes is not None:
-            pulumi.set(__self__, "total_disk_storage_size_in_bytes", total_disk_storage_size_in_bytes)
-
-    @property
-    @pulumi.getter(name="diskStorageUsedInBytes")
-    def disk_storage_used_in_bytes(self) -> Optional[pulumi.Input[str]]:
-        """
-        Used Disk storage in bytes.
-        """
-        return pulumi.get(self, "disk_storage_used_in_bytes")
-
-    @disk_storage_used_in_bytes.setter
-    def disk_storage_used_in_bytes(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_storage_used_in_bytes", value)
-
-    @property
-    @pulumi.getter(name="isCollocated")
-    def is_collocated(self) -> Optional[pulumi.Input[bool]]:
-        """
-        To check if backup item is collocated.
-        """
-        return pulumi.get(self, "is_collocated")
-
-    @is_collocated.setter
-    def is_collocated(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_collocated", value)
-
-    @property
-    @pulumi.getter(name="isPresentOnCloud")
-    def is_present_on_cloud(self) -> Optional[pulumi.Input[bool]]:
-        """
-        To check if backup item is cloud protected.
-        """
-        return pulumi.get(self, "is_present_on_cloud")
-
-    @is_present_on_cloud.setter
-    def is_present_on_cloud(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_present_on_cloud", value)
-
-    @property
-    @pulumi.getter(name="lastBackupStatus")
-    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last backup status information on backup item.
-        """
-        return pulumi.get(self, "last_backup_status")
-
-    @last_backup_status.setter
-    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_backup_status", value)
-
-    @property
-    @pulumi.getter(name="lastRefreshedAt")
-    def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Last refresh time on backup item.
-        """
-        return pulumi.get(self, "last_refreshed_at")
-
-    @last_refreshed_at.setter
-    def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_refreshed_at", value)
-
-    @property
-    @pulumi.getter(name="oldestRecoveryPoint")
-    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        Oldest cloud recovery point time.
-        """
-        return pulumi.get(self, "oldest_recovery_point")
-
-    @oldest_recovery_point.setter
-    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="onPremiseLatestRecoveryPoint")
-    def on_premise_latest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        latest disk recovery point time.
-        """
-        return pulumi.get(self, "on_premise_latest_recovery_point")
-
-    @on_premise_latest_recovery_point.setter
-    def on_premise_latest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "on_premise_latest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="onPremiseOldestRecoveryPoint")
-    def on_premise_oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
-        """
-        Oldest disk recovery point time.
-        """
-        return pulumi.get(self, "on_premise_oldest_recovery_point")
-
-    @on_premise_oldest_recovery_point.setter
-    def on_premise_oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "on_premise_oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="onPremiseRecoveryPointCount")
-    def on_premise_recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        disk recovery point count.
-        """
-        return pulumi.get(self, "on_premise_recovery_point_count")
-
-    @on_premise_recovery_point_count.setter
-    def on_premise_recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "on_premise_recovery_point_count", value)
-
-    @property
-    @pulumi.getter(name="protectableObjectLoadPath")
-    def protectable_object_load_path(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Attribute to provide information on various DBs.
-        """
-        return pulumi.get(self, "protectable_object_load_path")
-
-    @protectable_object_load_path.setter
-    def protectable_object_load_path(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "protectable_object_load_path", value)
-
-    @property
-    @pulumi.getter
-    def protected(self) -> Optional[pulumi.Input[bool]]:
-        """
-        To check if backup item is disk protected.
-        """
-        return pulumi.get(self, "protected")
-
-    @protected.setter
-    def protected(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "protected", value)
-
-    @property
-    @pulumi.getter(name="protectionGroupName")
-    def protection_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Protection group name of the backup item.
-        """
-        return pulumi.get(self, "protection_group_name")
-
-    @protection_group_name.setter
-    def protection_group_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "protection_group_name", value)
-
-    @property
-    @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        cloud recovery point count.
-        """
-        return pulumi.get(self, "recovery_point_count")
-
-    @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "recovery_point_count", value)
-
-    @property
-    @pulumi.getter(name="totalDiskStorageSizeInBytes")
-    def total_disk_storage_size_in_bytes(self) -> Optional[pulumi.Input[str]]:
-        """
-        total Disk storage in bytes.
-        """
-        return pulumi.get(self, "total_disk_storage_size_in_bytes")
-
-    @total_disk_storage_size_in_bytes.setter
-    def total_disk_storage_size_in_bytes(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "total_disk_storage_size_in_bytes", value)
 
 
 @pulumi.input_type
@@ -6208,6 +5976,238 @@ class DPMProtectedItemArgs:
     @workload_type.setter
     def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
+
+
+@pulumi.input_type
+class DPMProtectedItemExtendedInfoArgs:
+    def __init__(__self__, *,
+                 disk_storage_used_in_bytes: Optional[pulumi.Input[str]] = None,
+                 is_collocated: Optional[pulumi.Input[bool]] = None,
+                 is_present_on_cloud: Optional[pulumi.Input[bool]] = None,
+                 last_backup_status: Optional[pulumi.Input[str]] = None,
+                 last_refreshed_at: Optional[pulumi.Input[str]] = None,
+                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 on_premise_latest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 on_premise_oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 on_premise_recovery_point_count: Optional[pulumi.Input[int]] = None,
+                 protectable_object_load_path: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 protected: Optional[pulumi.Input[bool]] = None,
+                 protection_group_name: Optional[pulumi.Input[str]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None,
+                 total_disk_storage_size_in_bytes: Optional[pulumi.Input[str]] = None):
+        """
+        Additional information of DPM Protected item.
+        :param pulumi.Input[str] disk_storage_used_in_bytes: Used Disk storage in bytes.
+        :param pulumi.Input[bool] is_collocated: To check if backup item is collocated.
+        :param pulumi.Input[bool] is_present_on_cloud: To check if backup item is cloud protected.
+        :param pulumi.Input[str] last_backup_status: Last backup status information on backup item.
+        :param pulumi.Input[str] last_refreshed_at: Last refresh time on backup item.
+        :param pulumi.Input[str] oldest_recovery_point: Oldest cloud recovery point time.
+        :param pulumi.Input[str] on_premise_latest_recovery_point: latest disk recovery point time.
+        :param pulumi.Input[str] on_premise_oldest_recovery_point: Oldest disk recovery point time.
+        :param pulumi.Input[int] on_premise_recovery_point_count: disk recovery point count.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] protectable_object_load_path: Attribute to provide information on various DBs.
+        :param pulumi.Input[bool] protected: To check if backup item is disk protected.
+        :param pulumi.Input[str] protection_group_name: Protection group name of the backup item.
+        :param pulumi.Input[int] recovery_point_count: cloud recovery point count.
+        :param pulumi.Input[str] total_disk_storage_size_in_bytes: total Disk storage in bytes.
+        """
+        if disk_storage_used_in_bytes is not None:
+            pulumi.set(__self__, "disk_storage_used_in_bytes", disk_storage_used_in_bytes)
+        if is_collocated is not None:
+            pulumi.set(__self__, "is_collocated", is_collocated)
+        if is_present_on_cloud is not None:
+            pulumi.set(__self__, "is_present_on_cloud", is_present_on_cloud)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_refreshed_at is not None:
+            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
+        if oldest_recovery_point is not None:
+            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if on_premise_latest_recovery_point is not None:
+            pulumi.set(__self__, "on_premise_latest_recovery_point", on_premise_latest_recovery_point)
+        if on_premise_oldest_recovery_point is not None:
+            pulumi.set(__self__, "on_premise_oldest_recovery_point", on_premise_oldest_recovery_point)
+        if on_premise_recovery_point_count is not None:
+            pulumi.set(__self__, "on_premise_recovery_point_count", on_premise_recovery_point_count)
+        if protectable_object_load_path is not None:
+            pulumi.set(__self__, "protectable_object_load_path", protectable_object_load_path)
+        if protected is not None:
+            pulumi.set(__self__, "protected", protected)
+        if protection_group_name is not None:
+            pulumi.set(__self__, "protection_group_name", protection_group_name)
+        if recovery_point_count is not None:
+            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+        if total_disk_storage_size_in_bytes is not None:
+            pulumi.set(__self__, "total_disk_storage_size_in_bytes", total_disk_storage_size_in_bytes)
+
+    @property
+    @pulumi.getter(name="diskStorageUsedInBytes")
+    def disk_storage_used_in_bytes(self) -> Optional[pulumi.Input[str]]:
+        """
+        Used Disk storage in bytes.
+        """
+        return pulumi.get(self, "disk_storage_used_in_bytes")
+
+    @disk_storage_used_in_bytes.setter
+    def disk_storage_used_in_bytes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_storage_used_in_bytes", value)
+
+    @property
+    @pulumi.getter(name="isCollocated")
+    def is_collocated(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To check if backup item is collocated.
+        """
+        return pulumi.get(self, "is_collocated")
+
+    @is_collocated.setter
+    def is_collocated(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_collocated", value)
+
+    @property
+    @pulumi.getter(name="isPresentOnCloud")
+    def is_present_on_cloud(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To check if backup item is cloud protected.
+        """
+        return pulumi.get(self, "is_present_on_cloud")
+
+    @is_present_on_cloud.setter
+    def is_present_on_cloud(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_present_on_cloud", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last backup status information on backup item.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastRefreshedAt")
+    def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last refresh time on backup item.
+        """
+        return pulumi.get(self, "last_refreshed_at")
+
+    @last_refreshed_at.setter
+    def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_refreshed_at", value)
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPoint")
+    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Oldest cloud recovery point time.
+        """
+        return pulumi.get(self, "oldest_recovery_point")
+
+    @oldest_recovery_point.setter
+    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="onPremiseLatestRecoveryPoint")
+    def on_premise_latest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        latest disk recovery point time.
+        """
+        return pulumi.get(self, "on_premise_latest_recovery_point")
+
+    @on_premise_latest_recovery_point.setter
+    def on_premise_latest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_premise_latest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="onPremiseOldestRecoveryPoint")
+    def on_premise_oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        Oldest disk recovery point time.
+        """
+        return pulumi.get(self, "on_premise_oldest_recovery_point")
+
+    @on_premise_oldest_recovery_point.setter
+    def on_premise_oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_premise_oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="onPremiseRecoveryPointCount")
+    def on_premise_recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        disk recovery point count.
+        """
+        return pulumi.get(self, "on_premise_recovery_point_count")
+
+    @on_premise_recovery_point_count.setter
+    def on_premise_recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "on_premise_recovery_point_count", value)
+
+    @property
+    @pulumi.getter(name="protectableObjectLoadPath")
+    def protectable_object_load_path(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Attribute to provide information on various DBs.
+        """
+        return pulumi.get(self, "protectable_object_load_path")
+
+    @protectable_object_load_path.setter
+    def protectable_object_load_path(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "protectable_object_load_path", value)
+
+    @property
+    @pulumi.getter
+    def protected(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To check if backup item is disk protected.
+        """
+        return pulumi.get(self, "protected")
+
+    @protected.setter
+    def protected(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "protected", value)
+
+    @property
+    @pulumi.getter(name="protectionGroupName")
+    def protection_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Protection group name of the backup item.
+        """
+        return pulumi.get(self, "protection_group_name")
+
+    @protection_group_name.setter
+    def protection_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_group_name", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointCount")
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        cloud recovery point count.
+        """
+        return pulumi.get(self, "recovery_point_count")
+
+    @recovery_point_count.setter
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_count", value)
+
+    @property
+    @pulumi.getter(name="totalDiskStorageSizeInBytes")
+    def total_disk_storage_size_in_bytes(self) -> Optional[pulumi.Input[str]]:
+        """
+        total Disk storage in bytes.
+        """
+        return pulumi.get(self, "total_disk_storage_size_in_bytes")
+
+    @total_disk_storage_size_in_bytes.setter
+    def total_disk_storage_size_in_bytes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "total_disk_storage_size_in_bytes", value)
 
 
 @pulumi.input_type
@@ -6643,62 +6643,6 @@ class ExtendedPropertiesArgs:
 
 
 @pulumi.input_type
-class GenericContainerExtendedInfoArgs:
-    def __init__(__self__, *,
-                 container_identity_info: Optional[pulumi.Input['ContainerIdentityInfoArgs']] = None,
-                 raw_cert_data: Optional[pulumi.Input[str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        Container extended information
-        :param pulumi.Input['ContainerIdentityInfoArgs'] container_identity_info: Container identity information
-        :param pulumi.Input[str] raw_cert_data: Public key of container cert
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] service_endpoints: Azure Backup Service Endpoints for the container
-        """
-        if container_identity_info is not None:
-            pulumi.set(__self__, "container_identity_info", container_identity_info)
-        if raw_cert_data is not None:
-            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
-        if service_endpoints is not None:
-            pulumi.set(__self__, "service_endpoints", service_endpoints)
-
-    @property
-    @pulumi.getter(name="containerIdentityInfo")
-    def container_identity_info(self) -> Optional[pulumi.Input['ContainerIdentityInfoArgs']]:
-        """
-        Container identity information
-        """
-        return pulumi.get(self, "container_identity_info")
-
-    @container_identity_info.setter
-    def container_identity_info(self, value: Optional[pulumi.Input['ContainerIdentityInfoArgs']]):
-        pulumi.set(self, "container_identity_info", value)
-
-    @property
-    @pulumi.getter(name="rawCertData")
-    def raw_cert_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Public key of container cert
-        """
-        return pulumi.get(self, "raw_cert_data")
-
-    @raw_cert_data.setter
-    def raw_cert_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "raw_cert_data", value)
-
-    @property
-    @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Azure Backup Service Endpoints for the container
-        """
-        return pulumi.get(self, "service_endpoints")
-
-    @service_endpoints.setter
-    def service_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "service_endpoints", value)
-
-
-@pulumi.input_type
 class GenericContainerArgs:
     def __init__(__self__, *,
                  container_type: pulumi.Input[str],
@@ -6823,6 +6767,62 @@ class GenericContainerArgs:
     @registration_status.setter
     def registration_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registration_status", value)
+
+
+@pulumi.input_type
+class GenericContainerExtendedInfoArgs:
+    def __init__(__self__, *,
+                 container_identity_info: Optional[pulumi.Input['ContainerIdentityInfoArgs']] = None,
+                 raw_cert_data: Optional[pulumi.Input[str]] = None,
+                 service_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container extended information
+        :param pulumi.Input['ContainerIdentityInfoArgs'] container_identity_info: Container identity information
+        :param pulumi.Input[str] raw_cert_data: Public key of container cert
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] service_endpoints: Azure Backup Service Endpoints for the container
+        """
+        if container_identity_info is not None:
+            pulumi.set(__self__, "container_identity_info", container_identity_info)
+        if raw_cert_data is not None:
+            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
+
+    @property
+    @pulumi.getter(name="containerIdentityInfo")
+    def container_identity_info(self) -> Optional[pulumi.Input['ContainerIdentityInfoArgs']]:
+        """
+        Container identity information
+        """
+        return pulumi.get(self, "container_identity_info")
+
+    @container_identity_info.setter
+    def container_identity_info(self, value: Optional[pulumi.Input['ContainerIdentityInfoArgs']]):
+        pulumi.set(self, "container_identity_info", value)
+
+    @property
+    @pulumi.getter(name="rawCertData")
+    def raw_cert_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public key of container cert
+        """
+        return pulumi.get(self, "raw_cert_data")
+
+    @raw_cert_data.setter
+    def raw_cert_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "raw_cert_data", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Azure Backup Service Endpoints for the container
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @service_endpoints.setter
+    def service_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "service_endpoints", value)
 
 
 @pulumi.input_type
@@ -7735,94 +7735,6 @@ class MABContainerHealthDetailsArgs:
 
 
 @pulumi.input_type
-class MabContainerExtendedInfoArgs:
-    def __init__(__self__, *,
-                 backup_item_type: Optional[pulumi.Input[Union[str, 'BackupItemType']]] = None,
-                 backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 last_backup_status: Optional[pulumi.Input[str]] = None,
-                 last_refreshed_at: Optional[pulumi.Input[str]] = None,
-                 policy_name: Optional[pulumi.Input[str]] = None):
-        """
-        Additional information of the container.
-        :param pulumi.Input[Union[str, 'BackupItemType']] backup_item_type: Type of backup items associated with this container.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
-        :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
-        :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
-        :param pulumi.Input[str] policy_name: Backup policy associated with this container.
-        """
-        if backup_item_type is not None:
-            pulumi.set(__self__, "backup_item_type", backup_item_type)
-        if backup_items is not None:
-            pulumi.set(__self__, "backup_items", backup_items)
-        if last_backup_status is not None:
-            pulumi.set(__self__, "last_backup_status", last_backup_status)
-        if last_refreshed_at is not None:
-            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
-
-    @property
-    @pulumi.getter(name="backupItemType")
-    def backup_item_type(self) -> Optional[pulumi.Input[Union[str, 'BackupItemType']]]:
-        """
-        Type of backup items associated with this container.
-        """
-        return pulumi.get(self, "backup_item_type")
-
-    @backup_item_type.setter
-    def backup_item_type(self, value: Optional[pulumi.Input[Union[str, 'BackupItemType']]]):
-        pulumi.set(self, "backup_item_type", value)
-
-    @property
-    @pulumi.getter(name="backupItems")
-    def backup_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of backup items associated with this container.
-        """
-        return pulumi.get(self, "backup_items")
-
-    @backup_items.setter
-    def backup_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "backup_items", value)
-
-    @property
-    @pulumi.getter(name="lastBackupStatus")
-    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Latest backup status of this container.
-        """
-        return pulumi.get(self, "last_backup_status")
-
-    @last_backup_status.setter
-    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_backup_status", value)
-
-    @property
-    @pulumi.getter(name="lastRefreshedAt")
-    def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Time stamp when this container was refreshed.
-        """
-        return pulumi.get(self, "last_refreshed_at")
-
-    @last_refreshed_at.setter
-    def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_refreshed_at", value)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Backup policy associated with this container.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_name", value)
-
-
-@pulumi.input_type
 class MabContainerArgs:
     def __init__(__self__, *,
                  container_type: pulumi.Input[str],
@@ -8030,29 +7942,73 @@ class MabContainerArgs:
 
 
 @pulumi.input_type
-class MabFileFolderProtectedItemExtendedInfoArgs:
+class MabContainerExtendedInfoArgs:
     def __init__(__self__, *,
+                 backup_item_type: Optional[pulumi.Input[Union[str, 'BackupItemType']]] = None,
+                 backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 last_backup_status: Optional[pulumi.Input[str]] = None,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None,
-                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
-                 recovery_point_count: Optional[pulumi.Input[int]] = None):
+                 policy_name: Optional[pulumi.Input[str]] = None):
         """
-        Additional information on the backed up item.
-        :param pulumi.Input[str] last_refreshed_at: Last time when the agent data synced to service.
-        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available.
-        :param pulumi.Input[int] recovery_point_count: Number of backup copies associated with the backup item.
+        Additional information of the container.
+        :param pulumi.Input[Union[str, 'BackupItemType']] backup_item_type: Type of backup items associated with this container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
+        :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
+        :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
+        :param pulumi.Input[str] policy_name: Backup policy associated with this container.
         """
+        if backup_item_type is not None:
+            pulumi.set(__self__, "backup_item_type", backup_item_type)
+        if backup_items is not None:
+            pulumi.set(__self__, "backup_items", backup_items)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
         if last_refreshed_at is not None:
             pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
-        if oldest_recovery_point is not None:
-            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
-        if recovery_point_count is not None:
-            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="backupItemType")
+    def backup_item_type(self) -> Optional[pulumi.Input[Union[str, 'BackupItemType']]]:
+        """
+        Type of backup items associated with this container.
+        """
+        return pulumi.get(self, "backup_item_type")
+
+    @backup_item_type.setter
+    def backup_item_type(self, value: Optional[pulumi.Input[Union[str, 'BackupItemType']]]):
+        pulumi.set(self, "backup_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupItems")
+    def backup_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of backup items associated with this container.
+        """
+        return pulumi.get(self, "backup_items")
+
+    @backup_items.setter
+    def backup_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backup_items", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Latest backup status of this container.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_status", value)
 
     @property
     @pulumi.getter(name="lastRefreshedAt")
     def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
         """
-        Last time when the agent data synced to service.
+        Time stamp when this container was refreshed.
         """
         return pulumi.get(self, "last_refreshed_at")
 
@@ -8061,28 +8017,16 @@ class MabFileFolderProtectedItemExtendedInfoArgs:
         pulumi.set(self, "last_refreshed_at", value)
 
     @property
-    @pulumi.getter(name="oldestRecoveryPoint")
-    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The oldest backup copy available.
+        Backup policy associated with this container.
         """
-        return pulumi.get(self, "oldest_recovery_point")
+        return pulumi.get(self, "policy_name")
 
-    @oldest_recovery_point.setter
-    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "oldest_recovery_point", value)
-
-    @property
-    @pulumi.getter(name="recoveryPointCount")
-    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Number of backup copies associated with the backup item.
-        """
-        return pulumi.get(self, "recovery_point_count")
-
-    @recovery_point_count.setter
-    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "recovery_point_count", value)
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
 
 
 @pulumi.input_type
@@ -8431,6 +8375,62 @@ class MabFileFolderProtectedItemArgs:
 
 
 @pulumi.input_type
+class MabFileFolderProtectedItemExtendedInfoArgs:
+    def __init__(__self__, *,
+                 last_refreshed_at: Optional[pulumi.Input[str]] = None,
+                 oldest_recovery_point: Optional[pulumi.Input[str]] = None,
+                 recovery_point_count: Optional[pulumi.Input[int]] = None):
+        """
+        Additional information on the backed up item.
+        :param pulumi.Input[str] last_refreshed_at: Last time when the agent data synced to service.
+        :param pulumi.Input[str] oldest_recovery_point: The oldest backup copy available.
+        :param pulumi.Input[int] recovery_point_count: Number of backup copies associated with the backup item.
+        """
+        if last_refreshed_at is not None:
+            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
+        if oldest_recovery_point is not None:
+            pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if recovery_point_count is not None:
+            pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+
+    @property
+    @pulumi.getter(name="lastRefreshedAt")
+    def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Last time when the agent data synced to service.
+        """
+        return pulumi.get(self, "last_refreshed_at")
+
+    @last_refreshed_at.setter
+    def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_refreshed_at", value)
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPoint")
+    def oldest_recovery_point(self) -> Optional[pulumi.Input[str]]:
+        """
+        The oldest backup copy available.
+        """
+        return pulumi.get(self, "oldest_recovery_point")
+
+    @oldest_recovery_point.setter
+    def oldest_recovery_point(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "oldest_recovery_point", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointCount")
+    def recovery_point_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of backup copies associated with the backup item.
+        """
+        return pulumi.get(self, "recovery_point_count")
+
+    @recovery_point_count.setter
+    def recovery_point_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_point_count", value)
+
+
+@pulumi.input_type
 class MabProtectionPolicyArgs:
     def __init__(__self__, *,
                  backup_management_type: pulumi.Input[str],
@@ -8592,6 +8592,30 @@ class MonthlyRetentionScheduleArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The Private Endpoint network resource that is linked to the Private Endpoint connection
+        :param pulumi.Input[str] id: Gets or sets id
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets id
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
@@ -8645,30 +8669,6 @@ class PrivateEndpointConnectionArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
-
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        The Private Endpoint network resource that is linked to the Private Endpoint connection
-        :param pulumi.Input[str] id: Gets or sets id
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
