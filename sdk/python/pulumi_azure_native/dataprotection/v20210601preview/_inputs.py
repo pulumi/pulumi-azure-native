@@ -24,8 +24,8 @@ __all__ = [
     'CopyOnExpiryOptionArgs',
     'CustomCopyOptionArgs',
     'DataStoreInfoBaseArgs',
-    'DatasourceSetArgs',
     'DatasourceArgs',
+    'DatasourceSetArgs',
     'DayArgs',
     'DppIdentityDetailsArgs',
     'ImmediateCopyOptionArgs',
@@ -686,7 +686,7 @@ class DataStoreInfoBaseArgs:
 
 
 @pulumi.input_type
-class DatasourceSetArgs:
+class DatasourceArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  datasource_type: Optional[pulumi.Input[str]] = None,
@@ -696,7 +696,7 @@ class DatasourceSetArgs:
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
-        DatasourceSet details of datasource to be backed up
+        Datasource to be backed up
         :param pulumi.Input[str] resource_id: Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
         :param pulumi.Input[str] datasource_type: DatasourceType of the resource.
         :param pulumi.Input[str] object_type: Type of Datasource object, used to initialize the right inherited type
@@ -805,7 +805,7 @@ class DatasourceSetArgs:
 
 
 @pulumi.input_type
-class DatasourceArgs:
+class DatasourceSetArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  datasource_type: Optional[pulumi.Input[str]] = None,
@@ -815,7 +815,7 @@ class DatasourceArgs:
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
-        Datasource to be backed up
+        DatasourceSet details of datasource to be backed up
         :param pulumi.Input[str] resource_id: Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault.
         :param pulumi.Input[str] datasource_type: DatasourceType of the resource.
         :param pulumi.Input[str] object_type: Type of Datasource object, used to initialize the right inherited type

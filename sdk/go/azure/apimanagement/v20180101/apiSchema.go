@@ -126,9 +126,25 @@ func GetApiSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiSchema resources.
 type apiSchemaState struct {
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType *string `pulumi:"contentType"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
+	// Json escaped string defining the document representing the Schema.
+	Value *string `pulumi:"value"`
 }
 
 type ApiSchemaState struct {
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
+	// Json escaped string defining the document representing the Schema.
+	Value pulumi.StringPtrInput
 }
 
 func (ApiSchemaState) ElementType() reflect.Type {

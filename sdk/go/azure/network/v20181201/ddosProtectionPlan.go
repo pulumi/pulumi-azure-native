@@ -215,9 +215,41 @@ func GetDdosProtectionPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DdosProtectionPlan resources.
 type ddosProtectionPlanState struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+	VirtualNetworks []SubResourceResponse `pulumi:"virtualNetworks"`
 }
 
 type DdosProtectionPlanState struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+	VirtualNetworks SubResourceResponseArrayInput
 }
 
 func (DdosProtectionPlanState) ElementType() reflect.Type {

@@ -82,9 +82,21 @@ func GetAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The properties of an addon resource
+	Properties interface{} `pulumi:"properties"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type AddonState struct {
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The properties of an addon resource
+	Properties pulumi.Input
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (AddonState) ElementType() reflect.Type {

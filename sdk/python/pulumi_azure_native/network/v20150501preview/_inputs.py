@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'AddressSpaceArgs',
-    'ApplicationGatewayBackendAddressPoolArgs',
     'ApplicationGatewayBackendAddressArgs',
+    'ApplicationGatewayBackendAddressPoolArgs',
     'ApplicationGatewayBackendHttpSettingsArgs',
     'ApplicationGatewayFrontendIPConfigurationArgs',
     'ApplicationGatewayFrontendPortArgs',
@@ -24,8 +24,8 @@ __all__ = [
     'BackendAddressPoolArgs',
     'DhcpOptionsArgs',
     'ExpressRouteCircuitAuthorizationArgs',
-    'ExpressRouteCircuitPeeringConfigArgs',
     'ExpressRouteCircuitPeeringArgs',
+    'ExpressRouteCircuitPeeringConfigArgs',
     'ExpressRouteCircuitServiceProviderPropertiesArgs',
     'ExpressRouteCircuitSkuArgs',
     'ExpressRouteCircuitStatsArgs',
@@ -66,6 +66,46 @@ class AddressSpaceArgs:
     @address_prefixes.setter
     def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_prefixes", value)
+
+
+@pulumi.input_type
+class ApplicationGatewayBackendAddressArgs:
+    def __init__(__self__, *,
+                 fqdn: Optional[pulumi.Input[str]] = None,
+                 ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        Backend Address of application gateway
+        :param pulumi.Input[str] fqdn: Gets or sets the dns name
+        :param pulumi.Input[str] ip_address: Gets or sets the ip address
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the dns name
+        """
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ip address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address", value)
 
 
 @pulumi.input_type
@@ -170,46 +210,6 @@ class ApplicationGatewayBackendAddressPoolArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provisioning_state", value)
-
-
-@pulumi.input_type
-class ApplicationGatewayBackendAddressArgs:
-    def __init__(__self__, *,
-                 fqdn: Optional[pulumi.Input[str]] = None,
-                 ip_address: Optional[pulumi.Input[str]] = None):
-        """
-        Backend Address of application gateway
-        :param pulumi.Input[str] fqdn: Gets or sets the dns name
-        :param pulumi.Input[str] ip_address: Gets or sets the ip address
-        """
-        if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
-        if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
-
-    @property
-    @pulumi.getter
-    def fqdn(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the dns name
-        """
-        return pulumi.get(self, "fqdn")
-
-    @fqdn.setter
-    def fqdn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "fqdn", value)
-
-    @property
-    @pulumi.getter(name="ipAddress")
-    def ip_address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the ip address
-        """
-        return pulumi.get(self, "ip_address")
-
-    @ip_address.setter
-    def ip_address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ip_address", value)
 
 
 @pulumi.input_type
@@ -1341,78 +1341,6 @@ class ExpressRouteCircuitAuthorizationArgs:
 
 
 @pulumi.input_type
-class ExpressRouteCircuitPeeringConfigArgs:
-    def __init__(__self__, *,
-                 advertised_public_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 advertised_public_prefixes_state: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]] = None,
-                 customer_asn: Optional[pulumi.Input[int]] = None,
-                 routing_registry_name: Optional[pulumi.Input[str]] = None):
-        """
-        Specifies the peering config
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: Gets or sets the reference of AdvertisedPublicPrefixes
-        :param pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']] advertised_public_prefixes_state: Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-        :param pulumi.Input[int] customer_asn: Gets or Sets CustomerAsn of the peering.
-        :param pulumi.Input[str] routing_registry_name: Gets or Sets RoutingRegistryName of the config.
-        """
-        if advertised_public_prefixes is not None:
-            pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
-        if advertised_public_prefixes_state is not None:
-            pulumi.set(__self__, "advertised_public_prefixes_state", advertised_public_prefixes_state)
-        if customer_asn is not None:
-            pulumi.set(__self__, "customer_asn", customer_asn)
-        if routing_registry_name is not None:
-            pulumi.set(__self__, "routing_registry_name", routing_registry_name)
-
-    @property
-    @pulumi.getter(name="advertisedPublicPrefixes")
-    def advertised_public_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Gets or sets the reference of AdvertisedPublicPrefixes
-        """
-        return pulumi.get(self, "advertised_public_prefixes")
-
-    @advertised_public_prefixes.setter
-    def advertised_public_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "advertised_public_prefixes", value)
-
-    @property
-    @pulumi.getter(name="advertisedPublicPrefixesState")
-    def advertised_public_prefixes_state(self) -> Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]]:
-        """
-        Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-        """
-        return pulumi.get(self, "advertised_public_prefixes_state")
-
-    @advertised_public_prefixes_state.setter
-    def advertised_public_prefixes_state(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]]):
-        pulumi.set(self, "advertised_public_prefixes_state", value)
-
-    @property
-    @pulumi.getter(name="customerASN")
-    def customer_asn(self) -> Optional[pulumi.Input[int]]:
-        """
-        Gets or Sets CustomerAsn of the peering.
-        """
-        return pulumi.get(self, "customer_asn")
-
-    @customer_asn.setter
-    def customer_asn(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "customer_asn", value)
-
-    @property
-    @pulumi.getter(name="routingRegistryName")
-    def routing_registry_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or Sets RoutingRegistryName of the config.
-        """
-        return pulumi.get(self, "routing_registry_name")
-
-    @routing_registry_name.setter
-    def routing_registry_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "routing_registry_name", value)
-
-
-@pulumi.input_type
 class ExpressRouteCircuitPeeringArgs:
     def __init__(__self__, *,
                  azure_asn: Optional[pulumi.Input[int]] = None,
@@ -1674,6 +1602,78 @@ class ExpressRouteCircuitPeeringArgs:
     @vlan_id.setter
     def vlan_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vlan_id", value)
+
+
+@pulumi.input_type
+class ExpressRouteCircuitPeeringConfigArgs:
+    def __init__(__self__, *,
+                 advertised_public_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 advertised_public_prefixes_state: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]] = None,
+                 customer_asn: Optional[pulumi.Input[int]] = None,
+                 routing_registry_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the peering config
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] advertised_public_prefixes: Gets or sets the reference of AdvertisedPublicPrefixes
+        :param pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']] advertised_public_prefixes_state: Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+        :param pulumi.Input[int] customer_asn: Gets or Sets CustomerAsn of the peering.
+        :param pulumi.Input[str] routing_registry_name: Gets or Sets RoutingRegistryName of the config.
+        """
+        if advertised_public_prefixes is not None:
+            pulumi.set(__self__, "advertised_public_prefixes", advertised_public_prefixes)
+        if advertised_public_prefixes_state is not None:
+            pulumi.set(__self__, "advertised_public_prefixes_state", advertised_public_prefixes_state)
+        if customer_asn is not None:
+            pulumi.set(__self__, "customer_asn", customer_asn)
+        if routing_registry_name is not None:
+            pulumi.set(__self__, "routing_registry_name", routing_registry_name)
+
+    @property
+    @pulumi.getter(name="advertisedPublicPrefixes")
+    def advertised_public_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets the reference of AdvertisedPublicPrefixes
+        """
+        return pulumi.get(self, "advertised_public_prefixes")
+
+    @advertised_public_prefixes.setter
+    def advertised_public_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "advertised_public_prefixes", value)
+
+    @property
+    @pulumi.getter(name="advertisedPublicPrefixesState")
+    def advertised_public_prefixes_state(self) -> Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]]:
+        """
+        Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+        """
+        return pulumi.get(self, "advertised_public_prefixes_state")
+
+    @advertised_public_prefixes_state.setter
+    def advertised_public_prefixes_state(self, value: Optional[pulumi.Input[Union[str, 'ExpressRouteCircuitPeeringAdvertisedPublicPrefixState']]]):
+        pulumi.set(self, "advertised_public_prefixes_state", value)
+
+    @property
+    @pulumi.getter(name="customerASN")
+    def customer_asn(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or Sets CustomerAsn of the peering.
+        """
+        return pulumi.get(self, "customer_asn")
+
+    @customer_asn.setter
+    def customer_asn(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "customer_asn", value)
+
+    @property
+    @pulumi.getter(name="routingRegistryName")
+    def routing_registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or Sets RoutingRegistryName of the config.
+        """
+        return pulumi.get(self, "routing_registry_name")
+
+    @routing_registry_name.setter
+    def routing_registry_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "routing_registry_name", value)
 
 
 @pulumi.input_type

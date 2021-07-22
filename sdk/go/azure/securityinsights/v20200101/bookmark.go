@@ -108,9 +108,73 @@ func GetBookmark(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Bookmark resources.
 type bookmarkState struct {
+	// The time the bookmark was created
+	Created *string `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy *UserInfoResponse `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName *string `pulumi:"displayName"`
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// The bookmark event time
+	EventTime *string `pulumi:"eventTime"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// The notes of the bookmark
+	Notes *string `pulumi:"notes"`
+	// The query of the bookmark.
+	Query *string `pulumi:"query"`
+	// The end time for the query
+	QueryEndTime *string `pulumi:"queryEndTime"`
+	// The query result of the bookmark.
+	QueryResult *string `pulumi:"queryResult"`
+	// The start time for the query
+	QueryStartTime *string `pulumi:"queryStartTime"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
+	// The last time the bookmark was updated
+	Updated *string `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy *UserInfoResponse `pulumi:"updatedBy"`
 }
 
 type BookmarkState struct {
+	// The time the bookmark was created
+	Created pulumi.StringPtrInput
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoResponsePtrInput
+	// The display name of the bookmark
+	DisplayName pulumi.StringPtrInput
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput
+	// The bookmark event time
+	EventTime pulumi.StringPtrInput
+	// Describes an incident that relates to bookmark
+	IncidentInfo IncidentInfoResponsePtrInput
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// The notes of the bookmark
+	Notes pulumi.StringPtrInput
+	// The query of the bookmark.
+	Query pulumi.StringPtrInput
+	// The end time for the query
+	QueryEndTime pulumi.StringPtrInput
+	// The query result of the bookmark.
+	QueryResult pulumi.StringPtrInput
+	// The start time for the query
+	QueryStartTime pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
+	// The last time the bookmark was updated
+	Updated pulumi.StringPtrInput
+	// Describes a user that updated the bookmark
+	UpdatedBy UserInfoResponsePtrInput
 }
 
 func (BookmarkState) ElementType() reflect.Type {

@@ -94,9 +94,25 @@ func GetRegistrationDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistrationDefinition resources.
 type registrationDefinitionState struct {
+	// Name of the registration definition.
+	Name *string `pulumi:"name"`
+	// Plan details for the managed services.
+	Plan *PlanResponse `pulumi:"plan"`
+	// Properties of a registration definition.
+	Properties *RegistrationDefinitionPropertiesResponse `pulumi:"properties"`
+	// Type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type RegistrationDefinitionState struct {
+	// Name of the registration definition.
+	Name pulumi.StringPtrInput
+	// Plan details for the managed services.
+	Plan PlanResponsePtrInput
+	// Properties of a registration definition.
+	Properties RegistrationDefinitionPropertiesResponsePtrInput
+	// Type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (RegistrationDefinitionState) ElementType() reflect.Type {

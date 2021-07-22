@@ -147,9 +147,61 @@ func GetPolicyAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAssignment resources.
 type policyAssignmentState struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode *string `pulumi:"enforcementMode"`
+	// The managed identity associated with the policy assignment.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The location of the policy assignment. Only required when utilizing managed identity.
+	Location *string `pulumi:"location"`
+	// The policy assignment metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// The name of the policy assignment.
+	Name *string `pulumi:"name"`
+	// The policy's excluded scopes.
+	NotScopes []string `pulumi:"notScopes"`
+	// Required if a parameter is used in policy rule.
+	Parameters interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
+	Scope *string `pulumi:"scope"`
+	// The policy sku. This property is optional, obsolete, and will be ignored.
+	Sku *PolicySkuResponse `pulumi:"sku"`
+	// The type of the policy assignment.
+	Type *string `pulumi:"type"`
 }
 
 type PolicyAssignmentState struct {
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrInput
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput
+	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+	EnforcementMode pulumi.StringPtrInput
+	// The managed identity associated with the policy assignment.
+	Identity IdentityResponsePtrInput
+	// The location of the policy assignment. Only required when utilizing managed identity.
+	Location pulumi.StringPtrInput
+	// The policy assignment metadata.
+	Metadata pulumi.Input
+	// The name of the policy assignment.
+	Name pulumi.StringPtrInput
+	// The policy's excluded scopes.
+	NotScopes pulumi.StringArrayInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.Input
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The scope for the policy assignment.
+	Scope pulumi.StringPtrInput
+	// The policy sku. This property is optional, obsolete, and will be ignored.
+	Sku PolicySkuResponsePtrInput
+	// The type of the policy assignment.
+	Type pulumi.StringPtrInput
 }
 
 func (PolicyAssignmentState) ElementType() reflect.Type {

@@ -119,9 +119,41 @@ func GetJobStep(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobStep resources.
 type jobStepState struct {
+	// The action payload of the job step.
+	Action *JobStepActionResponse `pulumi:"action"`
+	// The resource ID of the job credential that will be used to connect to the targets.
+	Credential *string `pulumi:"credential"`
+	// Execution options for the job step.
+	ExecutionOptions *JobStepExecutionOptionsResponse `pulumi:"executionOptions"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Output destination properties of the job step.
+	Output *JobStepOutputResponse `pulumi:"output"`
+	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
+	StepId *int `pulumi:"stepId"`
+	// The resource ID of the target group that the job step will be executed on.
+	TargetGroup *string `pulumi:"targetGroup"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type JobStepState struct {
+	// The action payload of the job step.
+	Action JobStepActionResponsePtrInput
+	// The resource ID of the job credential that will be used to connect to the targets.
+	Credential pulumi.StringPtrInput
+	// Execution options for the job step.
+	ExecutionOptions JobStepExecutionOptionsResponsePtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Output destination properties of the job step.
+	Output JobStepOutputResponsePtrInput
+	// The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
+	StepId pulumi.IntPtrInput
+	// The resource ID of the target group that the job step will be executed on.
+	TargetGroup pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (JobStepState) ElementType() reflect.Type {

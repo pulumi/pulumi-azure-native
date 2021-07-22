@@ -121,9 +121,47 @@ func GetSqlDWTableDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlDWTableDataSet resources.
 type sqlDWTableDataSetState struct {
+	// Unique id for identifying a data set resource
+	DataSetId *string `pulumi:"dataSetId"`
+	// DataWarehouse name of the source data set
+	DataWarehouseName *string `pulumi:"dataWarehouseName"`
+	// Kind of data set.
+	// Expected value is 'SqlDWTable'.
+	Kind *string `pulumi:"kind"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// Schema of the table. Default value is dbo.
+	SchemaName *string `pulumi:"schemaName"`
+	// Resource id of SQL server
+	SqlServerResourceId *string `pulumi:"sqlServerResourceId"`
+	// System Data of the Azure resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// SQL DW table name.
+	TableName *string `pulumi:"tableName"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
 }
 
 type SqlDWTableDataSetState struct {
+	// Unique id for identifying a data set resource
+	DataSetId pulumi.StringPtrInput
+	// DataWarehouse name of the source data set
+	DataWarehouseName pulumi.StringPtrInput
+	// Kind of data set.
+	// Expected value is 'SqlDWTable'.
+	Kind pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// Schema of the table. Default value is dbo.
+	SchemaName pulumi.StringPtrInput
+	// Resource id of SQL server
+	SqlServerResourceId pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData SystemDataResponsePtrInput
+	// SQL DW table name.
+	TableName pulumi.StringPtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
 }
 
 func (SqlDWTableDataSetState) ElementType() reflect.Type {

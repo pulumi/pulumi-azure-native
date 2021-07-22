@@ -31,9 +31,9 @@ __all__ = [
     'ResourceIdentityArgs',
     'ServerInfoArgs',
     'SkuArgs',
-    'SyncGroupSchemaTableColumnArgs',
-    'SyncGroupSchemaTableArgs',
     'SyncGroupSchemaArgs',
+    'SyncGroupSchemaTableArgs',
+    'SyncGroupSchemaTableColumnArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
 ]
 
@@ -1076,6 +1076,86 @@ class SkuArgs:
 
 
 @pulumi.input_type
+class SyncGroupSchemaArgs:
+    def __init__(__self__, *,
+                 master_sync_member_name: Optional[pulumi.Input[str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
+        """
+        Properties of sync group schema.
+        :param pulumi.Input[str] master_sync_member_name: Name of master sync member where the schema is from.
+        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
+        """
+        if master_sync_member_name is not None:
+            pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="masterSyncMemberName")
+    def master_sync_member_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of master sync member where the schema is from.
+        """
+        return pulumi.get(self, "master_sync_member_name")
+
+    @master_sync_member_name.setter
+    def master_sync_member_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_sync_member_name", value)
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]:
+        """
+        List of tables in sync group schema.
+        """
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
+        pulumi.set(self, "tables", value)
+
+
+@pulumi.input_type
+class SyncGroupSchemaTableArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
+                 quoted_name: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of table in sync group schema.
+        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
+        :param pulumi.Input[str] quoted_name: Quoted name of sync group schema table.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if quoted_name is not None:
+            pulumi.set(__self__, "quoted_name", quoted_name)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]:
+        """
+        List of columns in sync group schema.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter(name="quotedName")
+    def quoted_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Quoted name of sync group schema table.
+        """
+        return pulumi.get(self, "quoted_name")
+
+    @quoted_name.setter
+    def quoted_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "quoted_name", value)
+
+
+@pulumi.input_type
 class SyncGroupSchemaTableColumnArgs:
     def __init__(__self__, *,
                  data_size: Optional[pulumi.Input[str]] = None,
@@ -1129,86 +1209,6 @@ class SyncGroupSchemaTableColumnArgs:
     @quoted_name.setter
     def quoted_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "quoted_name", value)
-
-
-@pulumi.input_type
-class SyncGroupSchemaTableArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]] = None,
-                 quoted_name: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of table in sync group schema.
-        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]] columns: List of columns in sync group schema.
-        :param pulumi.Input[str] quoted_name: Quoted name of sync group schema table.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-        if quoted_name is not None:
-            pulumi.set(__self__, "quoted_name", quoted_name)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]:
-        """
-        List of columns in sync group schema.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableColumnArgs']]]]):
-        pulumi.set(self, "columns", value)
-
-    @property
-    @pulumi.getter(name="quotedName")
-    def quoted_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Quoted name of sync group schema table.
-        """
-        return pulumi.get(self, "quoted_name")
-
-    @quoted_name.setter
-    def quoted_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "quoted_name", value)
-
-
-@pulumi.input_type
-class SyncGroupSchemaArgs:
-    def __init__(__self__, *,
-                 master_sync_member_name: Optional[pulumi.Input[str]] = None,
-                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]] = None):
-        """
-        Properties of sync group schema.
-        :param pulumi.Input[str] master_sync_member_name: Name of master sync member where the schema is from.
-        :param pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]] tables: List of tables in sync group schema.
-        """
-        if master_sync_member_name is not None:
-            pulumi.set(__self__, "master_sync_member_name", master_sync_member_name)
-        if tables is not None:
-            pulumi.set(__self__, "tables", tables)
-
-    @property
-    @pulumi.getter(name="masterSyncMemberName")
-    def master_sync_member_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of master sync member where the schema is from.
-        """
-        return pulumi.get(self, "master_sync_member_name")
-
-    @master_sync_member_name.setter
-    def master_sync_member_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "master_sync_member_name", value)
-
-    @property
-    @pulumi.getter
-    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]:
-        """
-        List of tables in sync group schema.
-        """
-        return pulumi.get(self, "tables")
-
-    @tables.setter
-    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SyncGroupSchemaTableArgs']]]]):
-        pulumi.set(self, "tables", value)
 
 
 @pulumi.input_type

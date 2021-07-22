@@ -151,9 +151,69 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// The cluster data ingestion URI.
+	DataIngestionUri *string `pulumi:"dataIngestionUri"`
+	// A boolean value that indicates if the cluster's disks are encrypted.
+	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// A boolean value that indicates if the streaming ingest is enabled.
+	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Optimized auto scale definition.
+	OptimizedAutoscale *OptimizedAutoscaleResponse `pulumi:"optimizedAutoscale"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The SKU of the cluster.
+	Sku *AzureSkuResponse `pulumi:"sku"`
+	// The state of the resource.
+	State *string `pulumi:"state"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The cluster's external tenants.
+	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
+	// The cluster URI.
+	Uri *string `pulumi:"uri"`
+	// Virtual network definition.
+	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse `pulumi:"virtualNetworkConfiguration"`
+	// The availability zones of the cluster.
+	Zones []string `pulumi:"zones"`
 }
 
 type ClusterState struct {
+	// The cluster data ingestion URI.
+	DataIngestionUri pulumi.StringPtrInput
+	// A boolean value that indicates if the cluster's disks are encrypted.
+	EnableDiskEncryption pulumi.BoolPtrInput
+	// A boolean value that indicates if the streaming ingest is enabled.
+	EnableStreamingIngest pulumi.BoolPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Optimized auto scale definition.
+	OptimizedAutoscale OptimizedAutoscaleResponsePtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The SKU of the cluster.
+	Sku AzureSkuResponsePtrInput
+	// The state of the resource.
+	State pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The cluster's external tenants.
+	TrustedExternalTenants TrustedExternalTenantResponseArrayInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
+	// The cluster URI.
+	Uri pulumi.StringPtrInput
+	// Virtual network definition.
+	VirtualNetworkConfiguration VirtualNetworkConfigurationResponsePtrInput
+	// The availability zones of the cluster.
+	Zones pulumi.StringArrayInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

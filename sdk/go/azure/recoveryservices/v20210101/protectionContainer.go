@@ -133,9 +133,33 @@ func GetProtectionContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionContainer resources.
 type protectionContainerState struct {
+	// Optional ETag.
+	ETag *string `pulumi:"eTag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name associated with the resource.
+	Name *string `pulumi:"name"`
+	// ProtectionContainerResource properties
+	Properties interface{} `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type *string `pulumi:"type"`
 }
 
 type ProtectionContainerState struct {
+	// Optional ETag.
+	ETag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name associated with the resource.
+	Name pulumi.StringPtrInput
+	// ProtectionContainerResource properties
+	Properties pulumi.Input
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type pulumi.StringPtrInput
 }
 
 func (ProtectionContainerState) ElementType() reflect.Type {

@@ -88,9 +88,29 @@ func GetIntegrationAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccount resources.
 type integrationAccountState struct {
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The sku.
+	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountState struct {
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The sku.
+	Sku IntegrationAccountSkuResponsePtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountState) ElementType() reflect.Type {

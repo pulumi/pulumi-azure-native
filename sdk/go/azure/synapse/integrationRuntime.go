@@ -106,9 +106,25 @@ func GetIntegrationRuntime(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationRuntime resources.
 type integrationRuntimeState struct {
+	// Resource Etag.
+	Etag *string `pulumi:"etag"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Integration runtime properties.
+	Properties interface{} `pulumi:"properties"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationRuntimeState struct {
+	// Resource Etag.
+	Etag pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Integration runtime properties.
+	Properties pulumi.Input
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationRuntimeState) ElementType() reflect.Type {

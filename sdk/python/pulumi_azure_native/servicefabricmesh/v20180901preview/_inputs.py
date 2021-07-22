@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'AddRemoveReplicaScalingMechanismArgs',
-    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs',
     'ApplicationScopedVolumeArgs',
+    'ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs',
     'AutoScalingPolicyArgs',
     'AutoScalingResourceMetricArgs',
     'AverageLoadScalingTriggerArgs',
@@ -117,62 +117,6 @@ class AddRemoveReplicaScalingMechanismArgs:
 
 
 @pulumi.input_type
-class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
-    def __init__(__self__, *,
-                 kind: pulumi.Input[str],
-                 size_disk: pulumi.Input[Union[str, 'SizeTypes']],
-                 description: Optional[pulumi.Input[str]] = None):
-        """
-        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
-        :param pulumi.Input[str] kind: Specifies the application-scoped volume kind.
-               Expected value is 'ServiceFabricVolumeDisk'.
-        :param pulumi.Input[Union[str, 'SizeTypes']] size_disk: Volume size
-        :param pulumi.Input[str] description: User readable description of the volume.
-        """
-        pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
-        pulumi.set(__self__, "size_disk", size_disk)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        Specifies the application-scoped volume kind.
-        Expected value is 'ServiceFabricVolumeDisk'.
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter(name="sizeDisk")
-    def size_disk(self) -> pulumi.Input[Union[str, 'SizeTypes']]:
-        """
-        Volume size
-        """
-        return pulumi.get(self, "size_disk")
-
-    @size_disk.setter
-    def size_disk(self, value: pulumi.Input[Union[str, 'SizeTypes']]):
-        pulumi.set(self, "size_disk", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        User readable description of the volume.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-
-@pulumi.input_type
 class ApplicationScopedVolumeArgs:
     def __init__(__self__, *,
                  creation_parameters: pulumi.Input['ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs'],
@@ -239,6 +183,62 @@ class ApplicationScopedVolumeArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+
+@pulumi.input_type
+class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 size_disk: pulumi.Input[Union[str, 'SizeTypes']],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
+        :param pulumi.Input[str] kind: Specifies the application-scoped volume kind.
+               Expected value is 'ServiceFabricVolumeDisk'.
+        :param pulumi.Input[Union[str, 'SizeTypes']] size_disk: Volume size
+        :param pulumi.Input[str] description: User readable description of the volume.
+        """
+        pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
+        pulumi.set(__self__, "size_disk", size_disk)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies the application-scoped volume kind.
+        Expected value is 'ServiceFabricVolumeDisk'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="sizeDisk")
+    def size_disk(self) -> pulumi.Input[Union[str, 'SizeTypes']]:
+        """
+        Volume size
+        """
+        return pulumi.get(self, "size_disk")
+
+    @size_disk.setter
+    def size_disk(self, value: pulumi.Input[Union[str, 'SizeTypes']]):
+        pulumi.set(self, "size_disk", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User readable description of the volume.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

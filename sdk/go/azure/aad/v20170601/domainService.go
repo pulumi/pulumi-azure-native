@@ -135,9 +135,109 @@ func GetDomainService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainService resources.
 type domainServiceState struct {
+	// Deployment Id
+	DeploymentId *string `pulumi:"deploymentId"`
+	// Domain Configuration Type
+	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
+	// List of Domain Controller IP Address
+	DomainControllerIpAddress []string `pulumi:"domainControllerIpAddress"`
+	// The name of the Azure domain that the user would like to deploy Domain Services to.
+	DomainName *string `pulumi:"domainName"`
+	// DomainSecurity Settings
+	DomainSecuritySettings *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
+	// Resource etag
+	Etag *string `pulumi:"etag"`
+	// Enabled or Disabled flag to turn on Group-based filtered sync
+	FilteredSync *string `pulumi:"filteredSync"`
+	// List of Domain Health Alerts
+	HealthAlerts []HealthAlertResponse `pulumi:"healthAlerts"`
+	// Last domain evaluation run DateTime
+	HealthLastEvaluated *string `pulumi:"healthLastEvaluated"`
+	// List of Domain Health Monitors
+	HealthMonitors []HealthMonitorResponse `pulumi:"healthMonitors"`
+	// Secure LDAP Settings
+	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Migration Properties
+	MigrationProperties *MigrationPropertiesResponse `pulumi:"migrationProperties"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Notification Settings
+	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	// the current deployment or provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource Forest Settings
+	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
+	// Status of Domain Service instance
+	ServiceStatus *string `pulumi:"serviceStatus"`
+	// Sku Type
+	Sku *string `pulumi:"sku"`
+	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+	SubnetId *string `pulumi:"subnetId"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Azure Active Directory Tenant Id
+	TenantId *string `pulumi:"tenantId"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// Data Model Version
+	Version *int `pulumi:"version"`
+	// Virtual network site id
+	VnetSiteId *string `pulumi:"vnetSiteId"`
 }
 
 type DomainServiceState struct {
+	// Deployment Id
+	DeploymentId pulumi.StringPtrInput
+	// Domain Configuration Type
+	DomainConfigurationType pulumi.StringPtrInput
+	// List of Domain Controller IP Address
+	DomainControllerIpAddress pulumi.StringArrayInput
+	// The name of the Azure domain that the user would like to deploy Domain Services to.
+	DomainName pulumi.StringPtrInput
+	// DomainSecurity Settings
+	DomainSecuritySettings DomainSecuritySettingsResponsePtrInput
+	// Resource etag
+	Etag pulumi.StringPtrInput
+	// Enabled or Disabled flag to turn on Group-based filtered sync
+	FilteredSync pulumi.StringPtrInput
+	// List of Domain Health Alerts
+	HealthAlerts HealthAlertResponseArrayInput
+	// Last domain evaluation run DateTime
+	HealthLastEvaluated pulumi.StringPtrInput
+	// List of Domain Health Monitors
+	HealthMonitors HealthMonitorResponseArrayInput
+	// Secure LDAP Settings
+	LdapsSettings LdapsSettingsResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Migration Properties
+	MigrationProperties MigrationPropertiesResponsePtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Notification Settings
+	NotificationSettings NotificationSettingsResponsePtrInput
+	// the current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource Forest Settings
+	ResourceForestSettings ResourceForestSettingsResponsePtrInput
+	// Status of Domain Service instance
+	ServiceStatus pulumi.StringPtrInput
+	// Sku Type
+	Sku pulumi.StringPtrInput
+	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+	SubnetId pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Azure Active Directory Tenant Id
+	TenantId pulumi.StringPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// Data Model Version
+	Version pulumi.IntPtrInput
+	// Virtual network site id
+	VnetSiteId pulumi.StringPtrInput
 }
 
 func (DomainServiceState) ElementType() reflect.Type {

@@ -118,9 +118,81 @@ func GetPackage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Package resources.
 type packageState struct {
+	// Application name
+	ApplicationName *string `pulumi:"applicationName"`
+	// The file path of the package.
+	BlobPath *string `pulumi:"blobPath"`
+	// Resource Etag.
+	Etag *string `pulumi:"etag"`
+	// The flighting ring for feature update.
+	FlightingRing *string `pulumi:"flightingRing"`
+	// Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// The UTC timestamp when the package was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The status of the package.
+	PackageStatus *string `pulumi:"packageStatus"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system metadata relating to this resource
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the target OSs of specific OS Update types.
+	TargetOSList []TargetOSInfoResponse `pulumi:"targetOSList"`
+	// OOB, functional or both. Mapped to the data in 'tests' property.
+	TestTypes []string `pulumi:"testTypes"`
+	// The detailed test information.
+	Tests []TestResponse `pulumi:"tests"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The validation results. There's validation on package when it's created or updated.
+	ValidationResults []PackageValidationResultResponse `pulumi:"validationResults"`
+	// Application version
+	Version *string `pulumi:"version"`
 }
 
 type PackageState struct {
+	// Application name
+	ApplicationName pulumi.StringPtrInput
+	// The file path of the package.
+	BlobPath pulumi.StringPtrInput
+	// Resource Etag.
+	Etag pulumi.StringPtrInput
+	// The flighting ring for feature update.
+	FlightingRing pulumi.StringPtrInput
+	// Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
+	IsEnabled pulumi.BoolPtrInput
+	// The UTC timestamp when the package was last modified.
+	LastModifiedTime pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The status of the package.
+	PackageStatus pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The system metadata relating to this resource
+	SystemData SystemDataResponsePtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// Specifies the target OSs of specific OS Update types.
+	TargetOSList TargetOSInfoResponseArrayInput
+	// OOB, functional or both. Mapped to the data in 'tests' property.
+	TestTypes pulumi.StringArrayInput
+	// The detailed test information.
+	Tests TestResponseArrayInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The validation results. There's validation on package when it's created or updated.
+	ValidationResults PackageValidationResultResponseArrayInput
+	// Application version
+	Version pulumi.StringPtrInput
 }
 
 func (PackageState) ElementType() reflect.Type {

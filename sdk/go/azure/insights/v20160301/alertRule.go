@@ -98,9 +98,53 @@ func GetAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRule resources.
 type alertRuleState struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action interface{} `pulumi:"action"`
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []interface{} `pulumi:"actions"`
+	// the condition that results in the alert rule being activated.
+	Condition interface{} `pulumi:"condition"`
+	// the description of the alert rule that will be included in the alert email.
+	Description *string `pulumi:"description"`
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// the provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type AlertRuleState struct {
+	// action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+	Action pulumi.Input
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions pulumi.ArrayInput
+	// the condition that results in the alert rule being activated.
+	Condition pulumi.Input
+	// the description of the alert rule that will be included in the alert email.
+	Description pulumi.StringPtrInput
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled pulumi.BoolPtrInput
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// the provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AlertRuleState) ElementType() reflect.Type {

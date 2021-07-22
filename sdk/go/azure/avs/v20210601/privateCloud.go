@@ -131,9 +131,89 @@ func GetPrivateCloud(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateCloud resources.
 type privateCloudState struct {
+	// An ExpressRoute Circuit
+	Circuit *CircuitResponse `pulumi:"circuit"`
+	// The endpoints
+	Endpoints *EndpointsResponse `pulumi:"endpoints"`
+	// Array of cloud link IDs from other clouds that connect to this one
+	ExternalCloudLinks []string `pulumi:"externalCloudLinks"`
+	// vCenter Single Sign On Identity Sources
+	IdentitySources []IdentitySourceResponse `pulumi:"identitySources"`
+	// Connectivity to internet is enabled or disabled
+	Internet *string `pulumi:"internet"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// The default cluster used for management
+	ManagementCluster *ManagementClusterResponse `pulumi:"managementCluster"`
+	// Network used to access vCenter Server and NSX-T Manager
+	ManagementNetwork *string `pulumi:"managementNetwork"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+	NetworkBlock *string `pulumi:"networkBlock"`
+	// Thumbprint of the NSX-T Manager SSL certificate
+	NsxtCertificateThumbprint *string `pulumi:"nsxtCertificateThumbprint"`
+	// Optionally, set the NSX-T Manager password when the private cloud is created
+	NsxtPassword *string `pulumi:"nsxtPassword"`
+	// Used for virtual machine cold migration, cloning, and snapshot migration
+	ProvisioningNetwork *string `pulumi:"provisioningNetwork"`
+	// The provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The private cloud SKU
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Thumbprint of the vCenter Server SSL certificate
+	VcenterCertificateThumbprint *string `pulumi:"vcenterCertificateThumbprint"`
+	// Optionally, set the vCenter admin password when the private cloud is created
+	VcenterPassword *string `pulumi:"vcenterPassword"`
+	// Used for live migration of virtual machines
+	VmotionNetwork *string `pulumi:"vmotionNetwork"`
 }
 
 type PrivateCloudState struct {
+	// An ExpressRoute Circuit
+	Circuit CircuitResponsePtrInput
+	// The endpoints
+	Endpoints EndpointsResponsePtrInput
+	// Array of cloud link IDs from other clouds that connect to this one
+	ExternalCloudLinks pulumi.StringArrayInput
+	// vCenter Single Sign On Identity Sources
+	IdentitySources IdentitySourceResponseArrayInput
+	// Connectivity to internet is enabled or disabled
+	Internet pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// The default cluster used for management
+	ManagementCluster ManagementClusterResponsePtrInput
+	// Network used to access vCenter Server and NSX-T Manager
+	ManagementNetwork pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+	NetworkBlock pulumi.StringPtrInput
+	// Thumbprint of the NSX-T Manager SSL certificate
+	NsxtCertificateThumbprint pulumi.StringPtrInput
+	// Optionally, set the NSX-T Manager password when the private cloud is created
+	NsxtPassword pulumi.StringPtrInput
+	// Used for virtual machine cold migration, cloning, and snapshot migration
+	ProvisioningNetwork pulumi.StringPtrInput
+	// The provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// The private cloud SKU
+	Sku SkuResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Thumbprint of the vCenter Server SSL certificate
+	VcenterCertificateThumbprint pulumi.StringPtrInput
+	// Optionally, set the vCenter admin password when the private cloud is created
+	VcenterPassword pulumi.StringPtrInput
+	// Used for live migration of virtual machines
+	VmotionNetwork pulumi.StringPtrInput
 }
 
 func (PrivateCloudState) ElementType() reflect.Type {

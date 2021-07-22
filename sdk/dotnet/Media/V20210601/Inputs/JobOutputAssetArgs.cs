@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.Media.V20210601.Inputs
         /// A preset used to override the preset in the corresponding transform output.
         /// </summary>
         [Input("presetOverride")]
-        public object? PresetOverride { get; set; }
+        public Input<object>? PresetOverride { get; set; }
 
         public JobOutputAssetArgs()
         {

@@ -629,7 +629,7 @@ func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicati
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActions struct {
 	// Predefined action to be taken.
-	ActionType *AutoHealActionType `pulumi:"actionType"`
+	ActionType *string `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction *AutoHealCustomAction `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -651,7 +651,7 @@ type AutoHealActionsInput interface {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// Predefined action to be taken.
-	ActionType AutoHealActionTypePtrInput `pulumi:"actionType"`
+	ActionType *AutoHealActionType `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -738,8 +738,8 @@ func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutputWithContext(ctx context
 }
 
 // Predefined action to be taken.
-func (o AutoHealActionsOutput) ActionType() AutoHealActionTypePtrOutput {
-	return o.ApplyT(func(v AutoHealActions) *AutoHealActionType { return v.ActionType }).(AutoHealActionTypePtrOutput)
+func (o AutoHealActionsOutput) ActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoHealActions) *string { return v.ActionType }).(pulumi.StringPtrOutput)
 }
 
 // Custom action to be taken.
@@ -772,13 +772,13 @@ func (o AutoHealActionsPtrOutput) Elem() AutoHealActionsOutput {
 }
 
 // Predefined action to be taken.
-func (o AutoHealActionsPtrOutput) ActionType() AutoHealActionTypePtrOutput {
-	return o.ApplyT(func(v *AutoHealActions) *AutoHealActionType {
+func (o AutoHealActionsPtrOutput) ActionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoHealActions) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ActionType
-	}).(AutoHealActionTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Custom action to be taken.
@@ -1981,7 +1981,7 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfig struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -2004,7 +2004,7 @@ type AzureBlobStorageApplicationLogsConfigInput interface {
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevelPtrInput `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -2092,8 +2092,8 @@ func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicati
 }
 
 // Log level.
-func (o AzureBlobStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
+func (o AzureBlobStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // Retention in days.
@@ -2127,13 +2127,13 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Elem() AzureBlobStorageA
 }
 
 // Log level.
-func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *LogLevel {
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(LogLevelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Retention in days.
@@ -2711,7 +2711,7 @@ type AzureStorageInfoValue struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName *string `pulumi:"shareName"`
 	// Type of storage.
-	Type *AzureStorageType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // AzureStorageInfoValueInput is an input type that accepts AzureStorageInfoValueArgs and AzureStorageInfoValueOutput values.
@@ -2736,7 +2736,7 @@ type AzureStorageInfoValueArgs struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// Type of storage.
-	Type AzureStorageTypePtrInput `pulumi:"type"`
+	Type *AzureStorageType `pulumi:"type"`
 }
 
 func (AzureStorageInfoValueArgs) ElementType() reflect.Type {
@@ -2812,8 +2812,8 @@ func (o AzureStorageInfoValueOutput) ShareName() pulumi.StringPtrOutput {
 }
 
 // Type of storage.
-func (o AzureStorageInfoValueOutput) Type() AzureStorageTypePtrOutput {
-	return o.ApplyT(func(v AzureStorageInfoValue) *AzureStorageType { return v.Type }).(AzureStorageTypePtrOutput)
+func (o AzureStorageInfoValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type AzureStorageInfoValueMapOutput struct{ *pulumi.OutputState }
@@ -2984,7 +2984,7 @@ func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) A
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfig struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level *string `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl string `pulumi:"sasUrl"`
 }
@@ -3003,7 +3003,7 @@ type AzureTableStorageApplicationLogsConfigInput interface {
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevelPtrInput `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
@@ -3087,8 +3087,8 @@ func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplica
 }
 
 // Log level.
-func (o AzureTableStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
+func (o AzureTableStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 // SAS URL to an Azure table with add/query/delete permissions.
@@ -3115,13 +3115,13 @@ func (o AzureTableStorageApplicationLogsConfigPtrOutput) Elem() AzureTableStorag
 }
 
 // Log level.
-func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *LogLevel {
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(LogLevelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SAS URL to an Azure table with add/query/delete permissions.
@@ -3294,7 +3294,7 @@ type BackupSchedule struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval int `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
+	FrequencyUnit string `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -3319,7 +3319,7 @@ type BackupScheduleArgs struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit FrequencyUnitInput `pulumi:"frequencyUnit"`
+	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -3412,8 +3412,8 @@ func (o BackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
 }
 
 // The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupScheduleOutput) FrequencyUnit() FrequencyUnitOutput {
-	return o.ApplyT(func(v BackupSchedule) FrequencyUnit { return v.FrequencyUnit }).(FrequencyUnitOutput)
+func (o BackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
 }
 
 // True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -3460,13 +3460,13 @@ func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
 }
 
 // The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupSchedulePtrOutput) FrequencyUnit() FrequencyUnitPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *FrequencyUnit {
+func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.FrequencyUnit
-	}).(FrequencyUnitPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -4475,7 +4475,7 @@ type ConnStringInfo struct {
 	// Name of connection string.
 	Name *string `pulumi:"name"`
 	// Type of database.
-	Type *ConnectionStringType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ConnStringInfoInput is an input type that accepts ConnStringInfoArgs and ConnStringInfoOutput values.
@@ -4496,7 +4496,7 @@ type ConnStringInfoArgs struct {
 	// Name of connection string.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of database.
-	Type ConnectionStringTypePtrInput `pulumi:"type"`
+	Type *ConnectionStringType `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -4562,8 +4562,8 @@ func (o ConnStringInfoOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of database.
-func (o ConnStringInfoOutput) Type() ConnectionStringTypePtrOutput {
-	return o.ApplyT(func(v ConnStringInfo) *ConnectionStringType { return v.Type }).(ConnectionStringTypePtrOutput)
+func (o ConnStringInfoOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnStringInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ConnStringInfoArrayOutput struct{ *pulumi.OutputState }
@@ -4707,7 +4707,7 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 // Database connection string value to type pair.
 type ConnStringValueTypePair struct {
 	// Type of database.
-	Type ConnectionStringType `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// Value of pair.
 	Value string `pulumi:"value"`
 }
@@ -4726,7 +4726,7 @@ type ConnStringValueTypePairInput interface {
 // Database connection string value to type pair.
 type ConnStringValueTypePairArgs struct {
 	// Type of database.
-	Type ConnectionStringTypeInput `pulumi:"type"`
+	Type ConnectionStringType `pulumi:"type"`
 	// Value of pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -4784,8 +4784,8 @@ func (o ConnStringValueTypePairOutput) ToConnStringValueTypePairOutputWithContex
 }
 
 // Type of database.
-func (o ConnStringValueTypePairOutput) Type() ConnectionStringTypeOutput {
-	return o.ApplyT(func(v ConnStringValueTypePair) ConnectionStringType { return v.Type }).(ConnectionStringTypeOutput)
+func (o ConnStringValueTypePairOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Value of pair.
@@ -6045,7 +6045,7 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfig struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level *string `pulumi:"level"`
 }
 
 // FileSystemApplicationLogsConfigInput is an input type that accepts FileSystemApplicationLogsConfigArgs and FileSystemApplicationLogsConfigOutput values.
@@ -6062,7 +6062,7 @@ type FileSystemApplicationLogsConfigInput interface {
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfigArgs struct {
 	// Log level.
-	Level LogLevelPtrInput `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 }
 
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -6144,8 +6144,8 @@ func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfig
 }
 
 // Log level.
-func (o FileSystemApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
+func (o FileSystemApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
 
 type FileSystemApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
@@ -6167,13 +6167,13 @@ func (o FileSystemApplicationLogsConfigPtrOutput) Elem() FileSystemApplicationLo
 }
 
 // Log level.
-func (o FileSystemApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *LogLevel {
+func (o FileSystemApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(LogLevelPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Application logs to file system configuration.
@@ -7149,11 +7149,11 @@ func (o HandlerMappingResponseArrayOutput) Index(i pulumi.IntInput) HandlerMappi
 // SSL-enabled hostname.
 type HostNameSslState struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *HostType `pulumi:"hostType"`
+	HostType *string `pulumi:"hostType"`
 	// Hostname.
 	Name *string `pulumi:"name"`
 	// SSL type.
-	SslState *SslState `pulumi:"sslState"`
+	SslState *string `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -7176,11 +7176,11 @@ type HostNameSslStateInput interface {
 // SSL-enabled hostname.
 type HostNameSslStateArgs struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType HostTypePtrInput `pulumi:"hostType"`
+	HostType *HostType `pulumi:"hostType"`
 	// Hostname.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// SSL type.
-	SslState SslStatePtrInput `pulumi:"sslState"`
+	SslState *SslState `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -7242,8 +7242,8 @@ func (o HostNameSslStateOutput) ToHostNameSslStateOutputWithContext(ctx context.
 }
 
 // Indicates whether the hostname is a standard or repository hostname.
-func (o HostNameSslStateOutput) HostType() HostTypePtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *HostType { return v.HostType }).(HostTypePtrOutput)
+func (o HostNameSslStateOutput) HostType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *string { return v.HostType }).(pulumi.StringPtrOutput)
 }
 
 // Hostname.
@@ -7252,8 +7252,8 @@ func (o HostNameSslStateOutput) Name() pulumi.StringPtrOutput {
 }
 
 // SSL type.
-func (o HostNameSslStateOutput) SslState() SslStatePtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *SslState { return v.SslState }).(SslStatePtrOutput)
+func (o HostNameSslStateOutput) SslState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *string { return v.SslState }).(pulumi.StringPtrOutput)
 }
 
 // SSL certificate thumbprint.
@@ -8195,7 +8195,7 @@ type IpSecurityRestriction struct {
 	// (internal) Subnet traffic tag
 	SubnetTrafficTag *int `pulumi:"subnetTrafficTag"`
 	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag *IpFilterTag `pulumi:"tag"`
+	Tag *string `pulumi:"tag"`
 	// Virtual network resource id
 	VnetSubnetResourceId *string `pulumi:"vnetSubnetResourceId"`
 	// (internal) Vnet traffic tag
@@ -8233,7 +8233,7 @@ type IpSecurityRestrictionArgs struct {
 	// (internal) Subnet traffic tag
 	SubnetTrafficTag pulumi.IntPtrInput `pulumi:"subnetTrafficTag"`
 	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag IpFilterTagPtrInput `pulumi:"tag"`
+	Tag *IpFilterTag `pulumi:"tag"`
 	// Virtual network resource id
 	VnetSubnetResourceId pulumi.StringPtrInput `pulumi:"vnetSubnetResourceId"`
 	// (internal) Vnet traffic tag
@@ -8331,8 +8331,8 @@ func (o IpSecurityRestrictionOutput) SubnetTrafficTag() pulumi.IntPtrOutput {
 }
 
 // Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-func (o IpSecurityRestrictionOutput) Tag() IpFilterTagPtrOutput {
-	return o.ApplyT(func(v IpSecurityRestriction) *IpFilterTag { return v.Tag }).(IpFilterTagPtrOutput)
+func (o IpSecurityRestrictionOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.Tag }).(pulumi.StringPtrOutput)
 }
 
 // Virtual network resource id
@@ -9228,7 +9228,7 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 // Network access control entry.
 type NetworkAccessControlEntry struct {
 	// Action object.
-	Action *AccessControlEntryAction `pulumi:"action"`
+	Action *string `pulumi:"action"`
 	// Description of network access control entry.
 	Description *string `pulumi:"description"`
 	// Order of precedence.
@@ -9251,7 +9251,7 @@ type NetworkAccessControlEntryInput interface {
 // Network access control entry.
 type NetworkAccessControlEntryArgs struct {
 	// Action object.
-	Action AccessControlEntryActionPtrInput `pulumi:"action"`
+	Action *AccessControlEntryAction `pulumi:"action"`
 	// Description of network access control entry.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Order of precedence.
@@ -9313,8 +9313,8 @@ func (o NetworkAccessControlEntryOutput) ToNetworkAccessControlEntryOutputWithCo
 }
 
 // Action object.
-func (o NetworkAccessControlEntryOutput) Action() AccessControlEntryActionPtrOutput {
-	return o.ApplyT(func(v NetworkAccessControlEntry) *AccessControlEntryAction { return v.Action }).(AccessControlEntryActionPtrOutput)
+func (o NetworkAccessControlEntryOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NetworkAccessControlEntry) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
 // Description of network access control entry.
@@ -10681,13 +10681,13 @@ type SiteConfig struct {
 	// Linux App Framework and version
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
+	LoadBalancing *string `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -10801,13 +10801,13 @@ type SiteConfigArgs struct {
 	// Linux App Framework and version
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing SiteLoadBalancingPtrInput `pulumi:"loadBalancing"`
+	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode ManagedPipelineModePtrInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -11058,8 +11058,8 @@ func (o SiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // Site load balancing.
-func (o SiteConfigOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteLoadBalancing { return v.LoadBalancing }).(SiteLoadBalancingPtrOutput)
+func (o SiteConfigOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -11073,8 +11073,8 @@ func (o SiteConfigOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode.
-func (o SiteConfigOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
-	return o.ApplyT(func(v SiteConfig) *ManagedPipelineMode { return v.ManagedPipelineMode }).(ManagedPipelineModePtrOutput)
+func (o SiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
 }
 
 // Managed Service Identity Id
@@ -11457,13 +11457,13 @@ func (o SiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // Site load balancing.
-func (o SiteConfigPtrOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *SiteLoadBalancing {
+func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.LoadBalancing
-	}).(SiteLoadBalancingPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -11487,13 +11487,13 @@ func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode.
-func (o SiteConfigPtrOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *ManagedPipelineMode {
+func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedPipelineMode
-	}).(ManagedPipelineModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Managed Service Identity Id
@@ -16419,7 +16419,7 @@ func (o VnetRouteResponseArrayOutput) Index(i pulumi.IntInput) VnetRouteResponse
 // Worker pool of an App Service Environment.
 type WorkerPool struct {
 	// Shared or dedicated app hosting.
-	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
+	ComputeMode *string `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount *int `pulumi:"workerCount"`
 	// VM size of the worker pool instances.
@@ -16442,7 +16442,7 @@ type WorkerPoolInput interface {
 // Worker pool of an App Service Environment.
 type WorkerPoolArgs struct {
 	// Shared or dedicated app hosting.
-	ComputeMode ComputeModeOptionsPtrInput `pulumi:"computeMode"`
+	ComputeMode *ComputeModeOptions `pulumi:"computeMode"`
 	// Number of instances in the worker pool.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
 	// VM size of the worker pool instances.
@@ -16504,8 +16504,8 @@ func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) Wor
 }
 
 // Shared or dedicated app hosting.
-func (o WorkerPoolOutput) ComputeMode() ComputeModeOptionsPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *ComputeModeOptions { return v.ComputeMode }).(ComputeModeOptionsPtrOutput)
+func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
 }
 
 // Number of instances in the worker pool.

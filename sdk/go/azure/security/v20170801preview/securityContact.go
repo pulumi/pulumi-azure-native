@@ -85,9 +85,33 @@ func GetSecurityContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityContact resources.
 type securityContactState struct {
+	// Whether to send security alerts notifications to the security contact
+	AlertNotifications *string `pulumi:"alertNotifications"`
+	// Whether to send security alerts notifications to subscription admins
+	AlertsToAdmins *string `pulumi:"alertsToAdmins"`
+	// The email of this security contact
+	Email *string `pulumi:"email"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The phone number of this security contact
+	Phone *string `pulumi:"phone"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type SecurityContactState struct {
+	// Whether to send security alerts notifications to the security contact
+	AlertNotifications pulumi.StringPtrInput
+	// Whether to send security alerts notifications to subscription admins
+	AlertsToAdmins pulumi.StringPtrInput
+	// The email of this security contact
+	Email pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The phone number of this security contact
+	Phone pulumi.StringPtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (SecurityContactState) ElementType() reflect.Type {

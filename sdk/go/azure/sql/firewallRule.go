@@ -103,9 +103,25 @@ func GetFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type firewallRuleState struct {
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	EndIpAddress *string `pulumi:"endIpAddress"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	StartIpAddress *string `pulumi:"startIpAddress"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
+	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	EndIpAddress pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
+	StartIpAddress pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (FirewallRuleState) ElementType() reflect.Type {

@@ -89,9 +89,57 @@ func GetBillingRoleAssignmentByEnrollmentAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BillingRoleAssignmentByEnrollmentAccount resources.
 type billingRoleAssignmentByEnrollmentAccountState struct {
+	// The principal Id of the user who created the role assignment.
+	CreatedByPrincipalId *string `pulumi:"createdByPrincipalId"`
+	// The tenant Id of the user who created the role assignment.
+	CreatedByPrincipalTenantId *string `pulumi:"createdByPrincipalTenantId"`
+	// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+	CreatedByUserEmailAddress *string `pulumi:"createdByUserEmailAddress"`
+	// The date the role assignment was created.
+	CreatedOn *string `pulumi:"createdOn"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The principal id of the user to whom the role was assigned.
+	PrincipalId *string `pulumi:"principalId"`
+	// The principal tenant id of the user to whom the role was assigned.
+	PrincipalTenantId *string `pulumi:"principalTenantId"`
+	// The ID of the role definition.
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The scope at which the role was assigned.
+	Scope *string `pulumi:"scope"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+	UserAuthenticationType *string `pulumi:"userAuthenticationType"`
+	// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+	UserEmailAddress *string `pulumi:"userEmailAddress"`
 }
 
 type BillingRoleAssignmentByEnrollmentAccountState struct {
+	// The principal Id of the user who created the role assignment.
+	CreatedByPrincipalId pulumi.StringPtrInput
+	// The tenant Id of the user who created the role assignment.
+	CreatedByPrincipalTenantId pulumi.StringPtrInput
+	// The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+	CreatedByUserEmailAddress pulumi.StringPtrInput
+	// The date the role assignment was created.
+	CreatedOn pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The principal id of the user to whom the role was assigned.
+	PrincipalId pulumi.StringPtrInput
+	// The principal tenant id of the user to whom the role was assigned.
+	PrincipalTenantId pulumi.StringPtrInput
+	// The ID of the role definition.
+	RoleDefinitionId pulumi.StringPtrInput
+	// The scope at which the role was assigned.
+	Scope pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+	UserAuthenticationType pulumi.StringPtrInput
+	// The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+	UserEmailAddress pulumi.StringPtrInput
 }
 
 func (BillingRoleAssignmentByEnrollmentAccountState) ElementType() reflect.Type {

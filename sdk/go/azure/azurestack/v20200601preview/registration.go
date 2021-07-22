@@ -96,9 +96,49 @@ func GetRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registration resources.
 type registrationState struct {
+	// Specifies the billing mode for the Azure Stack registration.
+	BillingModel *string `pulumi:"billingModel"`
+	// The identifier of the registered Azure Stack.
+	CloudId *string `pulumi:"cloudId"`
+	// The entity tag used for optimistic concurrency when modifying the resource.
+	Etag *string `pulumi:"etag"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// Location of the resource.
+	Location *string `pulumi:"location"`
+	// Name of the resource.
+	Name *string `pulumi:"name"`
+	// The object identifier associated with the Azure Stack connecting to Azure.
+	ObjectId *string `pulumi:"objectId"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Custom tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of Resource.
+	Type *string `pulumi:"type"`
 }
 
 type RegistrationState struct {
+	// Specifies the billing mode for the Azure Stack registration.
+	BillingModel pulumi.StringPtrInput
+	// The identifier of the registered Azure Stack.
+	CloudId pulumi.StringPtrInput
+	// The entity tag used for optimistic concurrency when modifying the resource.
+	Etag pulumi.StringPtrInput
+	// The kind of the resource.
+	Kind pulumi.StringPtrInput
+	// Location of the resource.
+	Location pulumi.StringPtrInput
+	// Name of the resource.
+	Name pulumi.StringPtrInput
+	// The object identifier associated with the Azure Stack connecting to Azure.
+	ObjectId pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Custom tags for the resource.
+	Tags pulumi.StringMapInput
+	// Type of Resource.
+	Type pulumi.StringPtrInput
 }
 
 func (RegistrationState) ElementType() reflect.Type {

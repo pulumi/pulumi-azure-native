@@ -86,9 +86,47 @@ func GetAFDCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AFDCustomDomain resources.
 type afdcustomDomainState struct {
+	// Resource reference to the Azure DNS zone
+	AzureDnsZone     *ResourceReferenceResponse `pulumi:"azureDnsZone"`
+	DeploymentStatus *string                    `pulumi:"deploymentStatus"`
+	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
+	DomainValidationState *string `pulumi:"domainValidationState"`
+	// The host name of the domain. Must be a domain name.
+	HostName *string `pulumi:"hostName"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Provisioning status
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
+	TlsSettings *AFDDomainHttpsParametersResponse `pulumi:"tlsSettings"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Values the customer needs to validate domain ownership
+	ValidationProperties *DomainValidationPropertiesResponse `pulumi:"validationProperties"`
 }
 
 type AFDCustomDomainState struct {
+	// Resource reference to the Azure DNS zone
+	AzureDnsZone     ResourceReferenceResponsePtrInput
+	DeploymentStatus pulumi.StringPtrInput
+	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
+	DomainValidationState pulumi.StringPtrInput
+	// The host name of the domain. Must be a domain name.
+	HostName pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Provisioning status
+	ProvisioningState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
+	// The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
+	TlsSettings AFDDomainHttpsParametersResponsePtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Values the customer needs to validate domain ownership
+	ValidationProperties DomainValidationPropertiesResponsePtrInput
 }
 
 func (AFDCustomDomainState) ElementType() reflect.Type {

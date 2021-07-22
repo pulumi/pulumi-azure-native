@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'IdentityArgs',
-    'ParameterDefinitionsValueMetadataArgs',
     'ParameterDefinitionsValueArgs',
+    'ParameterDefinitionsValueMetadataArgs',
     'ParameterValuesValueArgs',
     'PolicyDefinitionGroupArgs',
     'PolicyDefinitionReferenceArgs',
@@ -41,46 +41,6 @@ class IdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ParameterDefinitionsValueMetadataArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None):
-        """
-        General metadata for the parameter.
-        :param pulumi.Input[str] description: The description of the parameter.
-        :param pulumi.Input[str] display_name: The display name for the parameter.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the parameter.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The display name for the parameter.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type
@@ -153,6 +113,46 @@ class ParameterDefinitionsValueArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ParameterType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ParameterDefinitionsValueMetadataArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None):
+        """
+        General metadata for the parameter.
+        :param pulumi.Input[str] description: The description of the parameter.
+        :param pulumi.Input[str] display_name: The display name for the parameter.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the parameter.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name for the parameter.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
 
 @pulumi.input_type

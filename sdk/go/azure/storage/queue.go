@@ -96,9 +96,25 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
+	// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+	ApproximateMessageCount *int `pulumi:"approximateMessageCount"`
+	// A name-value pair that represents queue metadata.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type QueueState struct {
+	// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+	ApproximateMessageCount pulumi.IntPtrInput
+	// A name-value pair that represents queue metadata.
+	Metadata pulumi.StringMapInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (QueueState) ElementType() reflect.Type {

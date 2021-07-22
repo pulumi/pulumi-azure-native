@@ -96,9 +96,41 @@ func GetScopeMap(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScopeMap resources.
 type scopeMapState struct {
+	// The list of scoped permissions for registry artifacts.
+	// E.g. repositories/repository-name/content/read,
+	// repositories/repository-name/metadata/write
+	Actions []string `pulumi:"actions"`
+	// The creation date of scope map.
+	CreationDate *string `pulumi:"creationDate"`
+	// The user friendly description of the scope map.
+	Description *string `pulumi:"description"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type ScopeMapState struct {
+	// The list of scoped permissions for registry artifacts.
+	// E.g. repositories/repository-name/content/read,
+	// repositories/repository-name/metadata/write
+	Actions pulumi.StringArrayInput
+	// The creation date of scope map.
+	CreationDate pulumi.StringPtrInput
+	// The user friendly description of the scope map.
+	Description pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ScopeMapState) ElementType() reflect.Type {

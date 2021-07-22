@@ -110,9 +110,35 @@ func GetIotDpsResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotDpsResource resources.
 type iotDpsResourceState struct {
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag *string `pulumi:"etag"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The resource name.
+	Name       *string                              `pulumi:"name"`
+	Properties *IotDpsPropertiesDescriptionResponse `pulumi:"properties"`
+	// List of possible provisioning service SKUs.
+	Sku *IotDpsSkuInfoResponse `pulumi:"sku"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IotDpsResourceState struct {
+	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+	Etag pulumi.StringPtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The resource name.
+	Name       pulumi.StringPtrInput
+	Properties IotDpsPropertiesDescriptionResponsePtrInput
+	// List of possible provisioning service SKUs.
+	Sku IotDpsSkuInfoResponsePtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IotDpsResourceState) ElementType() reflect.Type {

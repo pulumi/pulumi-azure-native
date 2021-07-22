@@ -120,9 +120,77 @@ func GetFrontDoor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FrontDoor resources.
 type frontDoorState struct {
+	// Backend pools available to routing rules.
+	BackendPools []BackendPoolResponse `pulumi:"backendPools"`
+	// Settings for all backendPools
+	BackendPoolsSettings *BackendPoolsSettingsResponse `pulumi:"backendPoolsSettings"`
+	// The host that each frontendEndpoint must CNAME to.
+	Cname *string `pulumi:"cname"`
+	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState *string `pulumi:"enabledState"`
+	// A friendly name for the frontDoor
+	FriendlyName *string `pulumi:"friendlyName"`
+	// The Id of the frontdoor.
+	FrontdoorId *string `pulumi:"frontdoorId"`
+	// Frontend endpoints available to routing rules.
+	FrontendEndpoints []FrontendEndpointResponse `pulumi:"frontendEndpoints"`
+	// Health probe settings associated with this Front Door instance.
+	HealthProbeSettings []HealthProbeSettingsModelResponse `pulumi:"healthProbeSettings"`
+	// Load balancing settings associated with this Front Door instance.
+	LoadBalancingSettings []LoadBalancingSettingsModelResponse `pulumi:"loadBalancingSettings"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Provisioning state of the Front Door.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the Front Door.
+	ResourceState *string `pulumi:"resourceState"`
+	// Routing rules associated with this Front Door.
+	RoutingRules []RoutingRuleResponse `pulumi:"routingRules"`
+	// Rules Engine Configurations available to routing rules.
+	RulesEngines []RulesEngineResponse `pulumi:"rulesEngines"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type FrontDoorState struct {
+	// Backend pools available to routing rules.
+	BackendPools BackendPoolResponseArrayInput
+	// Settings for all backendPools
+	BackendPoolsSettings BackendPoolsSettingsResponsePtrInput
+	// The host that each frontendEndpoint must CNAME to.
+	Cname pulumi.StringPtrInput
+	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState pulumi.StringPtrInput
+	// A friendly name for the frontDoor
+	FriendlyName pulumi.StringPtrInput
+	// The Id of the frontdoor.
+	FrontdoorId pulumi.StringPtrInput
+	// Frontend endpoints available to routing rules.
+	FrontendEndpoints FrontendEndpointResponseArrayInput
+	// Health probe settings associated with this Front Door instance.
+	HealthProbeSettings HealthProbeSettingsModelResponseArrayInput
+	// Load balancing settings associated with this Front Door instance.
+	LoadBalancingSettings LoadBalancingSettingsModelResponseArrayInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Provisioning state of the Front Door.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the Front Door.
+	ResourceState pulumi.StringPtrInput
+	// Routing rules associated with this Front Door.
+	RoutingRules RoutingRuleResponseArrayInput
+	// Rules Engine Configurations available to routing rules.
+	RulesEngines RulesEngineResponseArrayInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (FrontDoorState) ElementType() reflect.Type {

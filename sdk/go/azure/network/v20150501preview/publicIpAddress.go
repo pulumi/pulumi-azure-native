@@ -307,9 +307,57 @@ func GetPublicIpAddress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicIpAddress resources.
 type publicIpAddressState struct {
+	// Gets or sets FQDN of the DNS record associated with the public IP address
+	DnsSettings *PublicIpAddressDnsSettingsResponse `pulumi:"dnsSettings"`
+	// Gets a unique read-only string that changes whenever the resource is updated
+	Etag *string `pulumi:"etag"`
+	// Gets or sets the idle timeout of the public IP address
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// Gets the assigned public IP address
+	IpAddress *string `pulumi:"ipAddress"`
+	// Gets a reference to the network interface IP configurations using this public IP address
+	IpConfiguration *SubResourceResponse `pulumi:"ipConfiguration"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets PublicIP allocation method (Static/Dynamic)
+	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
+	// Gets or sets resource guid property of the PublicIP resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type PublicIpAddressState struct {
+	// Gets or sets FQDN of the DNS record associated with the public IP address
+	DnsSettings PublicIpAddressDnsSettingsResponsePtrInput
+	// Gets a unique read-only string that changes whenever the resource is updated
+	Etag pulumi.StringPtrInput
+	// Gets or sets the idle timeout of the public IP address
+	IdleTimeoutInMinutes pulumi.IntPtrInput
+	// Gets the assigned public IP address
+	IpAddress pulumi.StringPtrInput
+	// Gets a reference to the network interface IP configurations using this public IP address
+	IpConfiguration SubResourceResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets PublicIP allocation method (Static/Dynamic)
+	PublicIPAllocationMethod pulumi.StringPtrInput
+	// Gets or sets resource guid property of the PublicIP resource
+	ResourceGuid pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (PublicIpAddressState) ElementType() reflect.Type {

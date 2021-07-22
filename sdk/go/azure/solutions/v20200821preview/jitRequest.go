@@ -100,9 +100,57 @@ func GetJitRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JitRequest resources.
 type jitRequestState struct {
+	// The parent application id.
+	ApplicationResourceId *string `pulumi:"applicationResourceId"`
+	// The client entity that created the JIT request.
+	CreatedBy *ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	// The JIT authorization policies.
+	JitAuthorizationPolicies []JitAuthorizationPoliciesResponse `pulumi:"jitAuthorizationPolicies"`
+	// The JIT request state.
+	JitRequestState *string `pulumi:"jitRequestState"`
+	// The JIT request properties.
+	JitSchedulingPolicy *JitSchedulingPolicyResponse `pulumi:"jitSchedulingPolicy"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The JIT request provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publisher tenant id.
+	PublisherTenantId *string `pulumi:"publisherTenantId"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy *ApplicationClientDetailsResponse `pulumi:"updatedBy"`
 }
 
 type JitRequestState struct {
+	// The parent application id.
+	ApplicationResourceId pulumi.StringPtrInput
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponsePtrInput
+	// The JIT authorization policies.
+	JitAuthorizationPolicies JitAuthorizationPoliciesResponseArrayInput
+	// The JIT request state.
+	JitRequestState pulumi.StringPtrInput
+	// The JIT request properties.
+	JitSchedulingPolicy JitSchedulingPolicyResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The JIT request provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The publisher tenant id.
+	PublisherTenantId pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponsePtrInput
 }
 
 func (JitRequestState) ElementType() reflect.Type {

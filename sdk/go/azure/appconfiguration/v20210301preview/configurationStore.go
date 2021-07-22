@@ -122,9 +122,65 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate *string `pulumi:"creationDate"`
+	// Disables all authentication methods other than AAD authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
+	// The encryption settings of the configuration store.
+	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint *string `pulumi:"endpoint"`
+	// The managed identity information, if configured.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections []PrivateEndpointConnectionReferenceResponse `pulumi:"privateEndpointConnections"`
+	// The provisioning state of the configuration store.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The sku of the configuration store.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource system metadata.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ConfigurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate pulumi.StringPtrInput
+	// Disables all authentication methods other than AAD authentication.
+	DisableLocalAuth pulumi.BoolPtrInput
+	// The encryption settings of the configuration store.
+	Encryption EncryptionPropertiesResponsePtrInput
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint pulumi.StringPtrInput
+	// The managed identity information, if configured.
+	Identity ResourceIdentityResponsePtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The list of private endpoint connections that are set up for this resource.
+	PrivateEndpointConnections PrivateEndpointConnectionReferenceResponseArrayInput
+	// The provisioning state of the configuration store.
+	ProvisioningState pulumi.StringPtrInput
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput
+	// The sku of the configuration store.
+	Sku SkuResponsePtrInput
+	// Resource system metadata.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationStoreState) ElementType() reflect.Type {

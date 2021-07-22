@@ -108,9 +108,29 @@ func GetSecret(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Secret resources.
 type secretState struct {
+	// Azure location of the key vault resource.
+	Location *string `pulumi:"location"`
+	// Name of the key vault resource.
+	Name *string `pulumi:"name"`
+	// Properties of the secret
+	Properties *SecretPropertiesResponse `pulumi:"properties"`
+	// Tags assigned to the key vault resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type of the key vault resource.
+	Type *string `pulumi:"type"`
 }
 
 type SecretState struct {
+	// Azure location of the key vault resource.
+	Location pulumi.StringPtrInput
+	// Name of the key vault resource.
+	Name pulumi.StringPtrInput
+	// Properties of the secret
+	Properties SecretPropertiesResponsePtrInput
+	// Tags assigned to the key vault resource.
+	Tags pulumi.StringMapInput
+	// Resource type of the key vault resource.
+	Type pulumi.StringPtrInput
 }
 
 func (SecretState) ElementType() reflect.Type {

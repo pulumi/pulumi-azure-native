@@ -19319,7 +19319,7 @@ func (o IdAssetReferenceResponseOutput) ReferenceType() pulumi.StringOutput {
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -19338,7 +19338,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -19422,8 +19422,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The user assigned identities associated with the resource.
@@ -19450,13 +19450,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The user assigned identities associated with the resource.
@@ -30252,7 +30252,7 @@ type RecurrenceSchedule struct {
 	// The minutes.
 	Minutes []int `pulumi:"minutes"`
 	// The days of the week.
-	WeekDays []DaysOfWeek `pulumi:"weekDays"`
+	WeekDays []string `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -30365,8 +30365,8 @@ func (o RecurrenceScheduleOutput) Minutes() pulumi.IntArrayOutput {
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -30408,13 +30408,13 @@ func (o RecurrenceSchedulePtrOutput) Minutes() pulumi.IntArrayOutput {
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
+func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(DaysOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The recurrence schedule

@@ -89,9 +89,41 @@ func GetDigitalTwin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DigitalTwin resources.
 type digitalTwinState struct {
+	// Time when DigitalTwinsInstance was created.
+	CreatedTime *string `pulumi:"createdTime"`
+	// Api endpoint to work with DigitalTwinsInstance.
+	HostName *string `pulumi:"hostName"`
+	// Time when DigitalTwinsInstance was updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type DigitalTwinState struct {
+	// Time when DigitalTwinsInstance was created.
+	CreatedTime pulumi.StringPtrInput
+	// Api endpoint to work with DigitalTwinsInstance.
+	HostName pulumi.StringPtrInput
+	// Time when DigitalTwinsInstance was updated.
+	LastUpdatedTime pulumi.StringPtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (DigitalTwinState) ElementType() reflect.Type {

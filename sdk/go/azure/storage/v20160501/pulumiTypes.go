@@ -1371,7 +1371,7 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 // The SKU of the storage account.
 type Sku struct {
 	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -1388,7 +1388,7 @@ type SkuInput interface {
 // The SKU of the storage account.
 type SkuArgs struct {
 	// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -1470,8 +1470,8 @@ func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
 }
 
 // Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1493,13 +1493,13 @@ func (o SkuPtrOutput) Elem() SkuOutput {
 }
 
 // Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The SKU of the storage account.

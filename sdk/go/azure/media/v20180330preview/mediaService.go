@@ -109,9 +109,33 @@ func GetMediaService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MediaService resources.
 type mediaServiceState struct {
+	// The Azure Region of the resource.
+	Location *string `pulumi:"location"`
+	// The Media Services account ID.
+	MediaServiceId *string `pulumi:"mediaServiceId"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The storage accounts for this resource.
+	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type MediaServiceState struct {
+	// The Azure Region of the resource.
+	Location pulumi.StringPtrInput
+	// The Media Services account ID.
+	MediaServiceId pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The storage accounts for this resource.
+	StorageAccounts StorageAccountResponseArrayInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (MediaServiceState) ElementType() reflect.Type {

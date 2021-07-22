@@ -137,9 +137,101 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
+	// The ADLA resource ID.
+	AdlaResourceId *string `pulumi:"adlaResourceId"`
+	// Connectivity endpoints
+	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
+	// Initial workspace AAD admin properties for a CSP subscription
+	CspWorkspaceAdminProperties *CspWorkspaceAdminPropertiesResponse `pulumi:"cspWorkspaceAdminProperties"`
+	// Workspace default data lake storage account details
+	DefaultDataLakeStorage *DataLakeStorageAccountDetailsResponse `pulumi:"defaultDataLakeStorage"`
+	// The encryption details of the workspace
+	Encryption *EncryptionDetailsResponse `pulumi:"encryption"`
+	// Workspace level configs and feature flags
+	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
+	// Identity of the workspace
+	Identity *ManagedIdentityResponse `pulumi:"identity"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
+	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
+	ManagedVirtualNetwork *string `pulumi:"managedVirtualNetwork"`
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings *ManagedVirtualNetworkSettingsResponse `pulumi:"managedVirtualNetworkSettings"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Private endpoint connections to the workspace
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Resource provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Enable or Disable public network access to workspace
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Purview Configuration
+	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
+	// Login for workspace SQL active directory administrator
+	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
+	// SQL administrator login password
+	SqlAdministratorLoginPassword *string `pulumi:"sqlAdministratorLoginPassword"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
+	// Virtual Network profile
+	VirtualNetworkProfile *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+	// Git integration settings
+	WorkspaceRepositoryConfiguration *WorkspaceRepositoryConfigurationResponse `pulumi:"workspaceRepositoryConfiguration"`
+	// The workspace unique identifier
+	WorkspaceUID *string `pulumi:"workspaceUID"`
 }
 
 type WorkspaceState struct {
+	// The ADLA resource ID.
+	AdlaResourceId pulumi.StringPtrInput
+	// Connectivity endpoints
+	ConnectivityEndpoints pulumi.StringMapInput
+	// Initial workspace AAD admin properties for a CSP subscription
+	CspWorkspaceAdminProperties CspWorkspaceAdminPropertiesResponsePtrInput
+	// Workspace default data lake storage account details
+	DefaultDataLakeStorage DataLakeStorageAccountDetailsResponsePtrInput
+	// The encryption details of the workspace
+	Encryption EncryptionDetailsResponsePtrInput
+	// Workspace level configs and feature flags
+	ExtraProperties pulumi.MapInput
+	// Identity of the workspace
+	Identity ManagedIdentityResponsePtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
+	ManagedResourceGroupName pulumi.StringPtrInput
+	// Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
+	ManagedVirtualNetwork pulumi.StringPtrInput
+	// Managed Virtual Network Settings
+	ManagedVirtualNetworkSettings ManagedVirtualNetworkSettingsResponsePtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Private endpoint connections to the workspace
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// Resource provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// Enable or Disable public network access to workspace
+	PublicNetworkAccess pulumi.StringPtrInput
+	// Purview Configuration
+	PurviewConfiguration PurviewConfigurationResponsePtrInput
+	// Login for workspace SQL active directory administrator
+	SqlAdministratorLogin pulumi.StringPtrInput
+	// SQL administrator login password
+	SqlAdministratorLoginPassword pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
+	// Virtual Network profile
+	VirtualNetworkProfile VirtualNetworkProfileResponsePtrInput
+	// Git integration settings
+	WorkspaceRepositoryConfiguration WorkspaceRepositoryConfigurationResponsePtrInput
+	// The workspace unique identifier
+	WorkspaceUID pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

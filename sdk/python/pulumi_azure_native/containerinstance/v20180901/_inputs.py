@@ -11,13 +11,13 @@ from ._enums import *
 
 __all__ = [
     'AzureFileVolumeArgs',
+    'ContainerArgs',
     'ContainerExecArgs',
     'ContainerGroupDiagnosticsArgs',
     'ContainerGroupNetworkProfileArgs',
     'ContainerHttpGetArgs',
     'ContainerPortArgs',
     'ContainerProbeArgs',
-    'ContainerArgs',
     'EnvironmentVariableArgs',
     'GitRepoVolumeArgs',
     'ImageRegistryCredentialArgs',
@@ -27,8 +27,8 @@ __all__ = [
     'ResourceLimitsArgs',
     'ResourceRequestsArgs',
     'ResourceRequirementsArgs',
-    'VolumeMountArgs',
     'VolumeArgs',
+    'VolumeMountArgs',
 ]
 
 @pulumi.input_type
@@ -99,6 +99,155 @@ class AzureFileVolumeArgs:
     @storage_account_key.setter
     def storage_account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_key", value)
+
+
+@pulumi.input_type
+class ContainerArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resources: pulumi.Input['ResourceRequirementsArgs'],
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
+                 liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
+                 readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+        """
+        A container instance.
+        :param pulumi.Input[str] image: The name of the image used to create the container instance.
+        :param pulumi.Input[str] name: The user-provided name of the container instance.
+        :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
+        :param pulumi.Input['ContainerProbeArgs'] liveness_probe: The liveness probe.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
+        :param pulumi.Input['ContainerProbeArgs'] readiness_probe: The readiness probe.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
+        """
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resources", resources)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        The name of the image used to create the container instance.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The user-provided name of the container instance.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def resources(self) -> pulumi.Input['ResourceRequirementsArgs']:
+        """
+        The resource requirements of the container instance.
+        """
+        return pulumi.get(self, "resources")
+
+    @resources.setter
+    def resources(self, value: pulumi.Input['ResourceRequirementsArgs']):
+        pulumi.set(self, "resources", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The commands to execute within the container instance in exec form.
+        """
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
+        """
+        The environment variables to set in the container instance.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @environment_variables.setter
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
+        pulumi.set(self, "environment_variables", value)
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional[pulumi.Input['ContainerProbeArgs']]:
+        """
+        The liveness probe.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @liveness_probe.setter
+    def liveness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
+        pulumi.set(self, "liveness_probe", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]:
+        """
+        The exposed ports on the container instance.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]):
+        pulumi.set(self, "ports", value)
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional[pulumi.Input['ContainerProbeArgs']]:
+        """
+        The readiness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @readiness_probe.setter
+    def readiness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
+        pulumi.set(self, "readiness_probe", value)
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
+        """
+        The volume mounts available to the container instance.
+        """
+        return pulumi.get(self, "volume_mounts")
+
+    @volume_mounts.setter
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
+        pulumi.set(self, "volume_mounts", value)
 
 
 @pulumi.input_type
@@ -384,155 +533,6 @@ class ContainerProbeArgs:
     @timeout_seconds.setter
     def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_seconds", value)
-
-
-@pulumi.input_type
-class ContainerArgs:
-    def __init__(__self__, *,
-                 image: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 resources: pulumi.Input['ResourceRequirementsArgs'],
-                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]] = None,
-                 liveness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]] = None,
-                 readiness_probe: Optional[pulumi.Input['ContainerProbeArgs']] = None,
-                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
-        """
-        A container instance.
-        :param pulumi.Input[str] image: The name of the image used to create the container instance.
-        :param pulumi.Input[str] name: The user-provided name of the container instance.
-        :param pulumi.Input['ResourceRequirementsArgs'] resources: The resource requirements of the container instance.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The commands to execute within the container instance in exec form.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]] environment_variables: The environment variables to set in the container instance.
-        :param pulumi.Input['ContainerProbeArgs'] liveness_probe: The liveness probe.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]] ports: The exposed ports on the container instance.
-        :param pulumi.Input['ContainerProbeArgs'] readiness_probe: The readiness probe.
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]] volume_mounts: The volume mounts available to the container instance.
-        """
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resources", resources)
-        if command is not None:
-            pulumi.set(__self__, "command", command)
-        if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
-        if liveness_probe is not None:
-            pulumi.set(__self__, "liveness_probe", liveness_probe)
-        if ports is not None:
-            pulumi.set(__self__, "ports", ports)
-        if readiness_probe is not None:
-            pulumi.set(__self__, "readiness_probe", readiness_probe)
-        if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
-
-    @property
-    @pulumi.getter
-    def image(self) -> pulumi.Input[str]:
-        """
-        The name of the image used to create the container instance.
-        """
-        return pulumi.get(self, "image")
-
-    @image.setter
-    def image(self, value: pulumi.Input[str]):
-        pulumi.set(self, "image", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The user-provided name of the container instance.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def resources(self) -> pulumi.Input['ResourceRequirementsArgs']:
-        """
-        The resource requirements of the container instance.
-        """
-        return pulumi.get(self, "resources")
-
-    @resources.setter
-    def resources(self, value: pulumi.Input['ResourceRequirementsArgs']):
-        pulumi.set(self, "resources", value)
-
-    @property
-    @pulumi.getter
-    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The commands to execute within the container instance in exec form.
-        """
-        return pulumi.get(self, "command")
-
-    @command.setter
-    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "command", value)
-
-    @property
-    @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]:
-        """
-        The environment variables to set in the container instance.
-        """
-        return pulumi.get(self, "environment_variables")
-
-    @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentVariableArgs']]]]):
-        pulumi.set(self, "environment_variables", value)
-
-    @property
-    @pulumi.getter(name="livenessProbe")
-    def liveness_probe(self) -> Optional[pulumi.Input['ContainerProbeArgs']]:
-        """
-        The liveness probe.
-        """
-        return pulumi.get(self, "liveness_probe")
-
-    @liveness_probe.setter
-    def liveness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
-        pulumi.set(self, "liveness_probe", value)
-
-    @property
-    @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]:
-        """
-        The exposed ports on the container instance.
-        """
-        return pulumi.get(self, "ports")
-
-    @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerPortArgs']]]]):
-        pulumi.set(self, "ports", value)
-
-    @property
-    @pulumi.getter(name="readinessProbe")
-    def readiness_probe(self) -> Optional[pulumi.Input['ContainerProbeArgs']]:
-        """
-        The readiness probe.
-        """
-        return pulumi.get(self, "readiness_probe")
-
-    @readiness_probe.setter
-    def readiness_probe(self, value: Optional[pulumi.Input['ContainerProbeArgs']]):
-        pulumi.set(self, "readiness_probe", value)
-
-    @property
-    @pulumi.getter(name="volumeMounts")
-    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
-        """
-        The volume mounts available to the container instance.
-        """
-        return pulumi.get(self, "volume_mounts")
-
-    @volume_mounts.setter
-    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
-        pulumi.set(self, "volume_mounts", value)
 
 
 @pulumi.input_type
@@ -996,60 +996,6 @@ class ResourceRequirementsArgs:
 
 
 @pulumi.input_type
-class VolumeMountArgs:
-    def __init__(__self__, *,
-                 mount_path: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 read_only: Optional[pulumi.Input[bool]] = None):
-        """
-        The properties of the volume mount.
-        :param pulumi.Input[str] mount_path: The path within the container where the volume should be mounted. Must not contain colon (:).
-        :param pulumi.Input[str] name: The name of the volume mount.
-        :param pulumi.Input[bool] read_only: The flag indicating whether the volume mount is read-only.
-        """
-        pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "name", name)
-        if read_only is not None:
-            pulumi.set(__self__, "read_only", read_only)
-
-    @property
-    @pulumi.getter(name="mountPath")
-    def mount_path(self) -> pulumi.Input[str]:
-        """
-        The path within the container where the volume should be mounted. Must not contain colon (:).
-        """
-        return pulumi.get(self, "mount_path")
-
-    @mount_path.setter
-    def mount_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "mount_path", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the volume mount.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="readOnly")
-    def read_only(self) -> Optional[pulumi.Input[bool]]:
-        """
-        The flag indicating whether the volume mount is read-only.
-        """
-        return pulumi.get(self, "read_only")
-
-    @read_only.setter
-    def read_only(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "read_only", value)
-
-
-@pulumi.input_type
 class VolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -1134,5 +1080,59 @@ class VolumeArgs:
     @secret.setter
     def secret(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "secret", value)
+
+
+@pulumi.input_type
+class VolumeMountArgs:
+    def __init__(__self__, *,
+                 mount_path: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 read_only: Optional[pulumi.Input[bool]] = None):
+        """
+        The properties of the volume mount.
+        :param pulumi.Input[str] mount_path: The path within the container where the volume should be mounted. Must not contain colon (:).
+        :param pulumi.Input[str] name: The name of the volume mount.
+        :param pulumi.Input[bool] read_only: The flag indicating whether the volume mount is read-only.
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "name", name)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+
+    @property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> pulumi.Input[str]:
+        """
+        The path within the container where the volume should be mounted. Must not contain colon (:).
+        """
+        return pulumi.get(self, "mount_path")
+
+    @mount_path.setter
+    def mount_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mount_path", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the volume mount.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag indicating whether the volume mount is read-only.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_only", value)
 
 

@@ -104,9 +104,41 @@ func GetOriginGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OriginGroup resources.
 type originGroupState struct {
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The source of the content being delivered via CDN within given origin group.
+	Origins []ResourceReferenceResponse `pulumi:"origins"`
+	// Provisioning status of the origin group.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the origin group.
+	ResourceState *string `pulumi:"resourceState"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type OriginGroupState struct {
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings HealthProbeParametersResponsePtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The source of the content being delivered via CDN within given origin group.
+	Origins ResourceReferenceResponseArrayInput
+	// Provisioning status of the origin group.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the origin group.
+	ResourceState pulumi.StringPtrInput
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrInput
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (OriginGroupState) ElementType() reflect.Type {

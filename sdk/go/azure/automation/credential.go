@@ -98,9 +98,33 @@ func GetCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Credential resources.
 type credentialState struct {
+	// Gets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// Gets the user name of the credential.
+	UserName *string `pulumi:"userName"`
 }
 
 type CredentialState struct {
+	// Gets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// Gets the user name of the credential.
+	UserName pulumi.StringPtrInput
 }
 
 func (CredentialState) ElementType() reflect.Type {

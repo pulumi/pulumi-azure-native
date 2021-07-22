@@ -99,9 +99,53 @@ func GetSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SoftwareUpdateConfigurationByName resources.
 type softwareUpdateConfigurationByNameState struct {
+	// CreatedBy property, which only appears in the response.
+	CreatedBy *string `pulumi:"createdBy"`
+	// Creation time of the resource, which only appears in the response.
+	CreationTime *string `pulumi:"creationTime"`
+	// Details of provisioning error
+	Error *ErrorResponseResponse `pulumi:"error"`
+	// LastModifiedBy property, which only appears in the response.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// Last time resource was modified, which only appears in the response.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Provisioning state for the software update configuration, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Schedule information for the Software update configuration
+	ScheduleInfo *SUCSchedulePropertiesResponse `pulumi:"scheduleInfo"`
+	// Tasks information for the Software update configuration.
+	Tasks *SoftwareUpdateConfigurationTasksResponse `pulumi:"tasks"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// update specific properties for the Software update configuration
+	UpdateConfiguration *UpdateConfigurationResponse `pulumi:"updateConfiguration"`
 }
 
 type SoftwareUpdateConfigurationByNameState struct {
+	// CreatedBy property, which only appears in the response.
+	CreatedBy pulumi.StringPtrInput
+	// Creation time of the resource, which only appears in the response.
+	CreationTime pulumi.StringPtrInput
+	// Details of provisioning error
+	Error ErrorResponseResponsePtrInput
+	// LastModifiedBy property, which only appears in the response.
+	LastModifiedBy pulumi.StringPtrInput
+	// Last time resource was modified, which only appears in the response.
+	LastModifiedTime pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Provisioning state for the software update configuration, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Schedule information for the Software update configuration
+	ScheduleInfo SUCSchedulePropertiesResponsePtrInput
+	// Tasks information for the Software update configuration.
+	Tasks SoftwareUpdateConfigurationTasksResponsePtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// update specific properties for the Software update configuration
+	UpdateConfiguration UpdateConfigurationResponsePtrInput
 }
 
 func (SoftwareUpdateConfigurationByNameState) ElementType() reflect.Type {

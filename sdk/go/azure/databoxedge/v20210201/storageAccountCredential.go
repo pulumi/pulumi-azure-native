@@ -143,9 +143,53 @@ func GetStorageAccountCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccountCredential resources.
 type storageAccountCredentialState struct {
+	// Encrypted storage key.
+	AccountKey *AsymmetricEncryptedSecretResponse `pulumi:"accountKey"`
+	// Type of storage accessed on the storage account.
+	AccountType *string `pulumi:"accountType"`
+	// Alias for the storage account.
+	Alias *string `pulumi:"alias"`
+	// Blob end point for private clouds.
+	BlobDomainName *string `pulumi:"blobDomainName"`
+	// Connection string for the storage account. Use this string if username and account key are not specified.
+	ConnectionString *string `pulumi:"connectionString"`
+	// The object name.
+	Name *string `pulumi:"name"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus *string `pulumi:"sslStatus"`
+	// Id of the storage account.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// StorageAccountCredential object
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
+	// Username for the storage account.
+	UserName *string `pulumi:"userName"`
 }
 
 type StorageAccountCredentialState struct {
+	// Encrypted storage key.
+	AccountKey AsymmetricEncryptedSecretResponsePtrInput
+	// Type of storage accessed on the storage account.
+	AccountType pulumi.StringPtrInput
+	// Alias for the storage account.
+	Alias pulumi.StringPtrInput
+	// Blob end point for private clouds.
+	BlobDomainName pulumi.StringPtrInput
+	// Connection string for the storage account. Use this string if username and account key are not specified.
+	ConnectionString pulumi.StringPtrInput
+	// The object name.
+	Name pulumi.StringPtrInput
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus pulumi.StringPtrInput
+	// Id of the storage account.
+	StorageAccountId pulumi.StringPtrInput
+	// StorageAccountCredential object
+	SystemData SystemDataResponsePtrInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
+	// Username for the storage account.
+	UserName pulumi.StringPtrInput
 }
 
 func (StorageAccountCredentialState) ElementType() reflect.Type {

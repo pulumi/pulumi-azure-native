@@ -37,4 +37,32 @@ namespace Pulumi.AzureNative.Network.V20201101.Inputs
         {
         }
     }
+
+    /// <summary>
+    /// Application gateway probe health response match.
+    /// </summary>
+    public sealed class ApplicationGatewayProbeHealthResponseMatch : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Body that must be contained in the health response. Default value is empty.
+        /// </summary>
+        [Input("body")]
+        public string? Body { get; set; }
+
+        [Input("statusCodes")]
+        private List<string>? _statusCodes;
+
+        /// <summary>
+        /// Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        /// </summary>
+        public List<string> StatusCodes
+        {
+            get => _statusCodes ?? (_statusCodes = new List<string>());
+            set => _statusCodes = value;
+        }
+
+        public ApplicationGatewayProbeHealthResponseMatch()
+        {
+        }
+    }
 }

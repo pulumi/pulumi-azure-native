@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// action rule properties
         /// </summary>
         [Input("properties")]
-        public object? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// Resource group name where the resource is created.

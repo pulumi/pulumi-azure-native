@@ -306,7 +306,7 @@ type DataControllerProperties struct {
 	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
 	ExtensionId *string `pulumi:"extensionId"`
 	// The infrastructure the data controller is running on.
-	Infrastructure *Infrastructure `pulumi:"infrastructure"`
+	Infrastructure *string `pulumi:"infrastructure"`
 	// The raw kubernetes information
 	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
@@ -341,7 +341,7 @@ type DataControllerPropertiesArgs struct {
 	// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
 	ExtensionId pulumi.StringPtrInput `pulumi:"extensionId"`
 	// The infrastructure the data controller is running on.
-	Infrastructure InfrastructurePtrInput `pulumi:"infrastructure"`
+	Infrastructure *Infrastructure `pulumi:"infrastructure"`
 	// The raw kubernetes information
 	K8sRaw pulumi.Input `pulumi:"k8sRaw"`
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
@@ -450,8 +450,8 @@ func (o DataControllerPropertiesOutput) ExtensionId() pulumi.StringPtrOutput {
 }
 
 // The infrastructure the data controller is running on.
-func (o DataControllerPropertiesOutput) Infrastructure() InfrastructurePtrOutput {
-	return o.ApplyT(func(v DataControllerProperties) *Infrastructure { return v.Infrastructure }).(InfrastructurePtrOutput)
+func (o DataControllerPropertiesOutput) Infrastructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataControllerProperties) *string { return v.Infrastructure }).(pulumi.StringPtrOutput)
 }
 
 // The raw kubernetes information
@@ -533,13 +533,13 @@ func (o DataControllerPropertiesPtrOutput) ExtensionId() pulumi.StringPtrOutput 
 }
 
 // The infrastructure the data controller is running on.
-func (o DataControllerPropertiesPtrOutput) Infrastructure() InfrastructurePtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *Infrastructure {
+func (o DataControllerPropertiesPtrOutput) Infrastructure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataControllerProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Infrastructure
-	}).(InfrastructurePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The raw kubernetes information
@@ -3300,7 +3300,7 @@ type SqlManagedInstanceProperties struct {
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate *string `pulumi:"lastUploadedDate"`
 	// The license type to apply for this managed instance.
-	LicenseType *ArcSqlManagedInstanceLicenseType `pulumi:"licenseType"`
+	LicenseType *string `pulumi:"licenseType"`
 	// The instance start time
 	StartTime *string `pulumi:"startTime"`
 }
@@ -3335,7 +3335,7 @@ type SqlManagedInstancePropertiesArgs struct {
 	// Last uploaded date from Kubernetes cluster. Defaults to current date time
 	LastUploadedDate pulumi.StringPtrInput `pulumi:"lastUploadedDate"`
 	// The license type to apply for this managed instance.
-	LicenseType ArcSqlManagedInstanceLicenseTypePtrInput `pulumi:"licenseType"`
+	LicenseType *ArcSqlManagedInstanceLicenseType `pulumi:"licenseType"`
 	// The instance start time
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 }
@@ -3459,8 +3459,8 @@ func (o SqlManagedInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrO
 }
 
 // The license type to apply for this managed instance.
-func (o SqlManagedInstancePropertiesOutput) LicenseType() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceProperties) *ArcSqlManagedInstanceLicenseType { return v.LicenseType }).(ArcSqlManagedInstanceLicenseTypePtrOutput)
+func (o SqlManagedInstancePropertiesOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 // The instance start time
@@ -3567,13 +3567,13 @@ func (o SqlManagedInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringP
 }
 
 // The license type to apply for this managed instance.
-func (o SqlManagedInstancePropertiesPtrOutput) LicenseType() ArcSqlManagedInstanceLicenseTypePtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *ArcSqlManagedInstanceLicenseType {
+func (o SqlManagedInstancePropertiesPtrOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.LicenseType
-	}).(ArcSqlManagedInstanceLicenseTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The instance start time
@@ -3919,7 +3919,7 @@ type SqlManagedInstanceSku struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size *string `pulumi:"size"`
 	// The pricing tier for the instance.
-	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // SqlManagedInstanceSkuInput is an input type that accepts SqlManagedInstanceSkuArgs and SqlManagedInstanceSkuOutput values.
@@ -3944,7 +3944,7 @@ type SqlManagedInstanceSkuArgs struct {
 	// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
 	Size pulumi.StringPtrInput `pulumi:"size"`
 	// The pricing tier for the instance.
-	Tier SqlManagedInstanceSkuTierPtrInput `pulumi:"tier"`
+	Tier *SqlManagedInstanceSkuTier `pulumi:"tier"`
 }
 
 func (SqlManagedInstanceSkuArgs) ElementType() reflect.Type {
@@ -4048,8 +4048,8 @@ func (o SqlManagedInstanceSkuOutput) Size() pulumi.StringPtrOutput {
 }
 
 // The pricing tier for the instance.
-func (o SqlManagedInstanceSkuOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
-	return o.ApplyT(func(v SqlManagedInstanceSku) *SqlManagedInstanceSkuTier { return v.Tier }).(SqlManagedInstanceSkuTierPtrOutput)
+func (o SqlManagedInstanceSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlManagedInstanceSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type SqlManagedInstanceSkuPtrOutput struct{ *pulumi.OutputState }
@@ -4119,13 +4119,13 @@ func (o SqlManagedInstanceSkuPtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // The pricing tier for the instance.
-func (o SqlManagedInstanceSkuPtrOutput) Tier() SqlManagedInstanceSkuTierPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceSku) *SqlManagedInstanceSkuTier {
+func (o SqlManagedInstanceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlManagedInstanceSku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(SqlManagedInstanceSkuTierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The resource model definition representing SKU for Azure Managed Instance - Azure Arc

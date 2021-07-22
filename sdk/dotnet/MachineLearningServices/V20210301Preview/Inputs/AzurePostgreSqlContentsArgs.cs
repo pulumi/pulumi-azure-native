@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         /// Account credentials.
         /// </summary>
         [Input("credentials", required: true)]
-        public object Credentials { get; set; } = null!;
+        public Input<object> Credentials { get; set; } = null!;
 
         /// <summary>
         /// Azure SQL database name.

@@ -112,9 +112,21 @@ func GetRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleAssignment resources.
 type roleAssignmentState struct {
+	// The role assignment name.
+	Name *string `pulumi:"name"`
+	// Role assignment properties.
+	Properties *RoleAssignmentPropertiesWithScopeResponse `pulumi:"properties"`
+	// The role assignment type.
+	Type *string `pulumi:"type"`
 }
 
 type RoleAssignmentState struct {
+	// The role assignment name.
+	Name pulumi.StringPtrInput
+	// Role assignment properties.
+	Properties RoleAssignmentPropertiesWithScopeResponsePtrInput
+	// The role assignment type.
+	Type pulumi.StringPtrInput
 }
 
 func (RoleAssignmentState) ElementType() reflect.Type {

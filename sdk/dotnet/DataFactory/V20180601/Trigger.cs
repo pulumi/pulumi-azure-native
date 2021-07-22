@@ -102,7 +102,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// Properties of the trigger.
         /// </summary>
         [Input("properties", required: true)]
-        public object Properties { get; set; } = null!;
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

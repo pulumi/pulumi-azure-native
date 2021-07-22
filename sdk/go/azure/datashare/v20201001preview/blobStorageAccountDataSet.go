@@ -112,9 +112,43 @@ func GetBlobStorageAccountDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobStorageAccountDataSet resources.
 type blobStorageAccountDataSetState struct {
+	// Unique id for identifying a data set resource
+	DataSetId *string `pulumi:"dataSetId"`
+	// Kind of data set.
+	// Expected value is 'BlobStorageAccount'.
+	Kind *string `pulumi:"kind"`
+	// Location of the storage account.
+	Location *string `pulumi:"location"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// A list of storage account paths.
+	Paths []BlobStorageAccountPathResponse `pulumi:"paths"`
+	// Resource id of the storage account.
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+	// System Data of the Azure resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
 }
 
 type BlobStorageAccountDataSetState struct {
+	// Unique id for identifying a data set resource
+	DataSetId pulumi.StringPtrInput
+	// Kind of data set.
+	// Expected value is 'BlobStorageAccount'.
+	Kind pulumi.StringPtrInput
+	// Location of the storage account.
+	Location pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// A list of storage account paths.
+	Paths BlobStorageAccountPathResponseArrayInput
+	// Resource id of the storage account.
+	StorageAccountResourceId pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData SystemDataResponsePtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
 }
 
 func (BlobStorageAccountDataSetState) ElementType() reflect.Type {

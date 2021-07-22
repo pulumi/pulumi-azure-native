@@ -83,9 +83,45 @@ func GetTaskRun(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TaskRun resources.
 type taskRunState struct {
+	// How the run should be forced to rerun even if the run request configuration has not changed
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// Identity for the resource.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The location of the resource
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of this task run
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The request (parameters) for the run
+	RunRequest interface{} `pulumi:"runRequest"`
+	// The result of this task run
+	RunResult *RunResponse `pulumi:"runResult"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type TaskRunState struct {
+	// How the run should be forced to rerun even if the run request configuration has not changed
+	ForceUpdateTag pulumi.StringPtrInput
+	// Identity for the resource.
+	Identity IdentityPropertiesResponsePtrInput
+	// The location of the resource
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of this task run
+	ProvisioningState pulumi.StringPtrInput
+	// The request (parameters) for the run
+	RunRequest pulumi.Input
+	// The result of this task run
+	RunResult RunResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (TaskRunState) ElementType() reflect.Type {

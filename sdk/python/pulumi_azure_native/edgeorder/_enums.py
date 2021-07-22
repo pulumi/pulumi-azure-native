@@ -19,11 +19,8 @@ class AddressType(str, Enum):
     Type of address.
     """
     NONE = "None"
-    """Address type not known."""
     RESIDENTIAL = "Residential"
-    """Residential Address."""
     COMMERCIAL = "Commercial"
-    """Commercial Address."""
 
 
 class DoubleEncryptionStatus(str, Enum):
@@ -31,9 +28,7 @@ class DoubleEncryptionStatus(str, Enum):
     Defines secondary layer of software-based encryption enablement.
     """
     DISABLED = "Disabled"
-    """Double encryption is disabled"""
     ENABLED = "Enabled"
-    """Double encryption is enabled"""
 
 
 class NotificationStageName(str, Enum):
@@ -41,9 +36,7 @@ class NotificationStageName(str, Enum):
     Name of the stage.
     """
     SHIPPED = "Shipped"
-    """Notification at order item shipped from microsoft datacenter."""
     DELIVERED = "Delivered"
-    """Notification at order item delivered to customer."""
 
 
 class OrderItemType(str, Enum):
@@ -51,9 +44,7 @@ class OrderItemType(str, Enum):
     Order item type.
     """
     PURCHASE = "Purchase"
-    """Purchase OrderItem."""
     RENTAL = "Rental"
-    """Rental OrderItem."""
 
 
 class SupportedFilterTypes(str, Enum):
@@ -61,9 +52,7 @@ class SupportedFilterTypes(str, Enum):
     Type of product filter.
     """
     SHIP_TO_COUNTRIES = "ShipToCountries"
-    """Ship to country"""
     DOUBLE_ENCRYPTION_STATUS = "DoubleEncryptionStatus"
-    """Double encryption status"""
 
 
 class TransportShipmentTypes(str, Enum):
@@ -71,6 +60,4 @@ class TransportShipmentTypes(str, Enum):
     Indicates Shipment Logistics type that the customer preferred.
     """
     CUSTOMER_MANAGED = "CustomerManaged"
-    """Shipment Logistics is handled by the customer."""
     MICROSOFT_MANAGED = "MicrosoftManaged"
-    """Shipment Logistics is handled by Microsoft."""

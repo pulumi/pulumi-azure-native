@@ -11,7 +11,7 @@ import (
 )
 
 // Gets or sets maintenanceScope of the configuration
-type MaintenanceScope string
+type MaintenanceScope pulumi.String
 
 const (
 	MaintenanceScopeAll                = MaintenanceScope("All")
@@ -26,23 +26,7 @@ const (
 )
 
 func (MaintenanceScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceScope)(nil)).Elem()
-}
-
-func (e MaintenanceScope) ToMaintenanceScopeOutput() MaintenanceScopeOutput {
-	return pulumi.ToOutput(e).(MaintenanceScopeOutput)
-}
-
-func (e MaintenanceScope) ToMaintenanceScopeOutputWithContext(ctx context.Context) MaintenanceScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(MaintenanceScopeOutput)
-}
-
-func (e MaintenanceScope) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return e.ToMaintenanceScopePtrOutputWithContext(context.Background())
-}
-
-func (e MaintenanceScope) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return MaintenanceScope(e).ToMaintenanceScopeOutputWithContext(ctx).ToMaintenanceScopePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e MaintenanceScope) ToStringOutput() pulumi.StringOutput {
@@ -61,129 +45,8 @@ func (e MaintenanceScope) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type MaintenanceScopeOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceScope)(nil)).Elem()
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopeOutput() MaintenanceScopeOutput {
-	return o
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopeOutputWithContext(ctx context.Context) MaintenanceScopeOutput {
-	return o
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return o.ToMaintenanceScopePtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopeOutput) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceScope) *MaintenanceScope {
-		return &v
-	}).(MaintenanceScopePtrOutput)
-}
-
-func (o MaintenanceScopeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MaintenanceScope) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o MaintenanceScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e MaintenanceScope) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type MaintenanceScopePtrOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceScopePtrOutput) ElementType() reflect.Type {
-	return maintenanceScopePtrType
-}
-
-func (o MaintenanceScopePtrOutput) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return o
-}
-
-func (o MaintenanceScopePtrOutput) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return o
-}
-
-func (o MaintenanceScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MaintenanceScope) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o MaintenanceScopePtrOutput) Elem() MaintenanceScopeOutput {
-	return o.ApplyT(func(v *MaintenanceScope) MaintenanceScope {
-		var ret MaintenanceScope
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(MaintenanceScopeOutput)
-}
-
-// MaintenanceScopeInput is an input type that accepts MaintenanceScopeArgs and MaintenanceScopeOutput values.
-// You can construct a concrete instance of `MaintenanceScopeInput` via:
-//
-//          MaintenanceScopeArgs{...}
-type MaintenanceScopeInput interface {
-	pulumi.Input
-
-	ToMaintenanceScopeOutput() MaintenanceScopeOutput
-	ToMaintenanceScopeOutputWithContext(context.Context) MaintenanceScopeOutput
-}
-
-var maintenanceScopePtrType = reflect.TypeOf((**MaintenanceScope)(nil)).Elem()
-
-type MaintenanceScopePtrInput interface {
-	pulumi.Input
-
-	ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput
-	ToMaintenanceScopePtrOutputWithContext(context.Context) MaintenanceScopePtrOutput
-}
-
-type maintenanceScopePtr string
-
-func MaintenanceScopePtr(v string) MaintenanceScopePtrInput {
-	return (*maintenanceScopePtr)(&v)
-}
-
-func (*maintenanceScopePtr) ElementType() reflect.Type {
-	return maintenanceScopePtrType
-}
-
-func (in *maintenanceScopePtr) ToMaintenanceScopePtrOutput() MaintenanceScopePtrOutput {
-	return pulumi.ToOutput(in).(MaintenanceScopePtrOutput)
-}
-
-func (in *maintenanceScopePtr) ToMaintenanceScopePtrOutputWithContext(ctx context.Context) MaintenanceScopePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(MaintenanceScopePtrOutput)
-}
-
 // Gets or sets the visibility of the configuration
-type Visibility string
+type Visibility pulumi.String
 
 const (
 	VisibilityCustom = Visibility("Custom")
@@ -191,23 +54,7 @@ const (
 )
 
 func (Visibility) ElementType() reflect.Type {
-	return reflect.TypeOf((*Visibility)(nil)).Elem()
-}
-
-func (e Visibility) ToVisibilityOutput() VisibilityOutput {
-	return pulumi.ToOutput(e).(VisibilityOutput)
-}
-
-func (e Visibility) ToVisibilityOutputWithContext(ctx context.Context) VisibilityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(VisibilityOutput)
-}
-
-func (e Visibility) ToVisibilityPtrOutput() VisibilityPtrOutput {
-	return e.ToVisibilityPtrOutputWithContext(context.Background())
-}
-
-func (e Visibility) ToVisibilityPtrOutputWithContext(ctx context.Context) VisibilityPtrOutput {
-	return Visibility(e).ToVisibilityOutputWithContext(ctx).ToVisibilityPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e Visibility) ToStringOutput() pulumi.StringOutput {
@@ -224,132 +71,4 @@ func (e Visibility) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e Visibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type VisibilityOutput struct{ *pulumi.OutputState }
-
-func (VisibilityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Visibility)(nil)).Elem()
-}
-
-func (o VisibilityOutput) ToVisibilityOutput() VisibilityOutput {
-	return o
-}
-
-func (o VisibilityOutput) ToVisibilityOutputWithContext(ctx context.Context) VisibilityOutput {
-	return o
-}
-
-func (o VisibilityOutput) ToVisibilityPtrOutput() VisibilityPtrOutput {
-	return o.ToVisibilityPtrOutputWithContext(context.Background())
-}
-
-func (o VisibilityOutput) ToVisibilityPtrOutputWithContext(ctx context.Context) VisibilityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Visibility) *Visibility {
-		return &v
-	}).(VisibilityPtrOutput)
-}
-
-func (o VisibilityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o VisibilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Visibility) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o VisibilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o VisibilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e Visibility) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type VisibilityPtrOutput struct{ *pulumi.OutputState }
-
-func (VisibilityPtrOutput) ElementType() reflect.Type {
-	return visibilityPtrType
-}
-
-func (o VisibilityPtrOutput) ToVisibilityPtrOutput() VisibilityPtrOutput {
-	return o
-}
-
-func (o VisibilityPtrOutput) ToVisibilityPtrOutputWithContext(ctx context.Context) VisibilityPtrOutput {
-	return o
-}
-
-func (o VisibilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o VisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Visibility) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o VisibilityPtrOutput) Elem() VisibilityOutput {
-	return o.ApplyT(func(v *Visibility) Visibility {
-		var ret Visibility
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(VisibilityOutput)
-}
-
-// VisibilityInput is an input type that accepts VisibilityArgs and VisibilityOutput values.
-// You can construct a concrete instance of `VisibilityInput` via:
-//
-//          VisibilityArgs{...}
-type VisibilityInput interface {
-	pulumi.Input
-
-	ToVisibilityOutput() VisibilityOutput
-	ToVisibilityOutputWithContext(context.Context) VisibilityOutput
-}
-
-var visibilityPtrType = reflect.TypeOf((**Visibility)(nil)).Elem()
-
-type VisibilityPtrInput interface {
-	pulumi.Input
-
-	ToVisibilityPtrOutput() VisibilityPtrOutput
-	ToVisibilityPtrOutputWithContext(context.Context) VisibilityPtrOutput
-}
-
-type visibilityPtr string
-
-func VisibilityPtr(v string) VisibilityPtrInput {
-	return (*visibilityPtr)(&v)
-}
-
-func (*visibilityPtr) ElementType() reflect.Type {
-	return visibilityPtrType
-}
-
-func (in *visibilityPtr) ToVisibilityPtrOutput() VisibilityPtrOutput {
-	return pulumi.ToOutput(in).(VisibilityPtrOutput)
-}
-
-func (in *visibilityPtr) ToVisibilityPtrOutputWithContext(ctx context.Context) VisibilityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(VisibilityPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(MaintenanceScopeOutput{})
-	pulumi.RegisterOutputType(MaintenanceScopePtrOutput{})
-	pulumi.RegisterOutputType(VisibilityOutput{})
-	pulumi.RegisterOutputType(VisibilityPtrOutput{})
 }

@@ -81,9 +81,29 @@ func GetServiceRunner(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceRunner resources.
 type serviceRunnerState struct {
+	// The identity of the resource.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type ServiceRunnerState struct {
+	// The identity of the resource.
+	Identity IdentityPropertiesResponsePtrInput
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ServiceRunnerState) ElementType() reflect.Type {

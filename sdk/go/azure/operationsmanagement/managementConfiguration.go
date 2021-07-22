@@ -70,9 +70,25 @@ func GetManagementConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementConfiguration resources.
 type managementConfigurationState struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
+	Properties *ManagementConfigurationPropertiesResponse `pulumi:"properties"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ManagementConfigurationState struct {
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
+	Properties ManagementConfigurationPropertiesResponsePtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ManagementConfigurationState) ElementType() reflect.Type {

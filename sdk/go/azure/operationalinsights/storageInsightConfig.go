@@ -96,9 +96,41 @@ func GetStorageInsightConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageInsightConfig resources.
 type storageInsightConfigState struct {
+	// The names of the blob containers that the workspace should read
+	Containers []string `pulumi:"containers"`
+	// The ETag of the storage insight.
+	ETag *string `pulumi:"eTag"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The status of the storage insight
+	Status *StorageInsightStatusResponse `pulumi:"status"`
+	// The storage account connection details
+	StorageAccount *StorageAccountResponse `pulumi:"storageAccount"`
+	// The names of the Azure tables that the workspace should read
+	Tables []string `pulumi:"tables"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type StorageInsightConfigState struct {
+	// The names of the blob containers that the workspace should read
+	Containers pulumi.StringArrayInput
+	// The ETag of the storage insight.
+	ETag pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The status of the storage insight
+	Status StorageInsightStatusResponsePtrInput
+	// The storage account connection details
+	StorageAccount StorageAccountResponsePtrInput
+	// The names of the Azure tables that the workspace should read
+	Tables pulumi.StringArrayInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (StorageInsightConfigState) ElementType() reflect.Type {

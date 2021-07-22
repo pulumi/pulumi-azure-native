@@ -113,9 +113,63 @@ func GetEventHubDataConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventHubDataConnection resources.
 type eventHubDataConnectionState struct {
+	// The event hub messages compression type
+	Compression *string `pulumi:"compression"`
+	// The event hub consumer group.
+	ConsumerGroup *string `pulumi:"consumerGroup"`
+	// The data format of the message. Optionally the data format can be added to each message.
+	DataFormat *string `pulumi:"dataFormat"`
+	// The resource ID of the event hub to be used to create a data connection.
+	EventHubResourceId *string `pulumi:"eventHubResourceId"`
+	// System properties of the event hub
+	EventSystemProperties []string `pulumi:"eventSystemProperties"`
+	// Kind of the endpoint for the data connection
+	// Expected value is 'EventHub'.
+	Kind *string `pulumi:"kind"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+	MappingRuleName *string `pulumi:"mappingRuleName"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The table where the data should be ingested. Optionally the table information can be added to each message.
+	TableName *string `pulumi:"tableName"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type EventHubDataConnectionState struct {
+	// The event hub messages compression type
+	Compression pulumi.StringPtrInput
+	// The event hub consumer group.
+	ConsumerGroup pulumi.StringPtrInput
+	// The data format of the message. Optionally the data format can be added to each message.
+	DataFormat pulumi.StringPtrInput
+	// The resource ID of the event hub to be used to create a data connection.
+	EventHubResourceId pulumi.StringPtrInput
+	// System properties of the event hub
+	EventSystemProperties pulumi.StringArrayInput
+	// Kind of the endpoint for the data connection
+	// Expected value is 'EventHub'.
+	Kind pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+	MappingRuleName pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// The table where the data should be ingested. Optionally the table information can be added to each message.
+	TableName pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (EventHubDataConnectionState) ElementType() reflect.Type {

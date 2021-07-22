@@ -90,9 +90,37 @@ func GetWorkloadNetworkVMGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkVMGroup resources.
 type workloadNetworkVMGroupState struct {
+	// Display name of the VM group.
+	DisplayName *string `pulumi:"displayName"`
+	// Virtual machine members of this group.
+	Members []string `pulumi:"members"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// NSX revision number.
+	Revision *float64 `pulumi:"revision"`
+	// VM Group status.
+	Status *string `pulumi:"status"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkVMGroupState struct {
+	// Display name of the VM group.
+	DisplayName pulumi.StringPtrInput
+	// Virtual machine members of this group.
+	Members pulumi.StringArrayInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// NSX revision number.
+	Revision pulumi.Float64PtrInput
+	// VM Group status.
+	Status pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkVMGroupState) ElementType() reflect.Type {

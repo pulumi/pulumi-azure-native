@@ -252,7 +252,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// The properties of a task step.
         /// </summary>
         [Input("step")]
-        public object? Step { get; set; }
+        public Input<object>? Step { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

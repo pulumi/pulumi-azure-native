@@ -16,8 +16,8 @@ __all__ = [
     'NotificationReceiverValueArgs',
     'SubscriptionReceiverValueArgs',
     'TargetOSInfoArgs',
-    'TestBaseAccountSKUArgs',
     'TestArgs',
+    'TestBaseAccountSKUArgs',
     'UserObjectReceiverValueArgs',
 ]
 
@@ -400,6 +400,60 @@ class TargetOSInfoArgs:
 
 
 @pulumi.input_type
+class TestArgs:
+    def __init__(__self__, *,
+                 commands: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]],
+                 test_type: pulumi.Input[Union[str, 'TestType']],
+                 is_active: Optional[pulumi.Input[bool]] = None):
+        """
+        The definition of a Test.
+        :param pulumi.Input[Sequence[pulumi.Input['CommandArgs']]] commands: The commands used in the test.
+        :param pulumi.Input[Union[str, 'TestType']] test_type: The type of the test.
+        :param pulumi.Input[bool] is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
+        """
+        pulumi.set(__self__, "commands", commands)
+        pulumi.set(__self__, "test_type", test_type)
+        if is_active is not None:
+            pulumi.set(__self__, "is_active", is_active)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]:
+        """
+        The commands used in the test.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter(name="testType")
+    def test_type(self) -> pulumi.Input[Union[str, 'TestType']]:
+        """
+        The type of the test.
+        """
+        return pulumi.get(self, "test_type")
+
+    @test_type.setter
+    def test_type(self, value: pulumi.Input[Union[str, 'TestType']]):
+        pulumi.set(self, "test_type", value)
+
+    @property
+    @pulumi.getter(name="isActive")
+    def is_active(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if this test is active.It doesn't schedule test for not active Test.
+        """
+        return pulumi.get(self, "is_active")
+
+    @is_active.setter
+    def is_active(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_active", value)
+
+
+@pulumi.input_type
 class TestBaseAccountSKUArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -467,60 +521,6 @@ class TestBaseAccountSKUArgs:
     @resource_type.setter
     def resource_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_type", value)
-
-
-@pulumi.input_type
-class TestArgs:
-    def __init__(__self__, *,
-                 commands: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]],
-                 test_type: pulumi.Input[Union[str, 'TestType']],
-                 is_active: Optional[pulumi.Input[bool]] = None):
-        """
-        The definition of a Test.
-        :param pulumi.Input[Sequence[pulumi.Input['CommandArgs']]] commands: The commands used in the test.
-        :param pulumi.Input[Union[str, 'TestType']] test_type: The type of the test.
-        :param pulumi.Input[bool] is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
-        """
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "test_type", test_type)
-        if is_active is not None:
-            pulumi.set(__self__, "is_active", is_active)
-
-    @property
-    @pulumi.getter
-    def commands(self) -> pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]:
-        """
-        The commands used in the test.
-        """
-        return pulumi.get(self, "commands")
-
-    @commands.setter
-    def commands(self, value: pulumi.Input[Sequence[pulumi.Input['CommandArgs']]]):
-        pulumi.set(self, "commands", value)
-
-    @property
-    @pulumi.getter(name="testType")
-    def test_type(self) -> pulumi.Input[Union[str, 'TestType']]:
-        """
-        The type of the test.
-        """
-        return pulumi.get(self, "test_type")
-
-    @test_type.setter
-    def test_type(self, value: pulumi.Input[Union[str, 'TestType']]):
-        pulumi.set(self, "test_type", value)
-
-    @property
-    @pulumi.getter(name="isActive")
-    def is_active(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if this test is active.It doesn't schedule test for not active Test.
-        """
-        return pulumi.get(self, "is_active")
-
-    @is_active.setter
-    def is_active(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_active", value)
 
 
 @pulumi.input_type

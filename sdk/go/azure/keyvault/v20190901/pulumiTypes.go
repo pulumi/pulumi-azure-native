@@ -3004,7 +3004,7 @@ type Sku struct {
 	// SKU family name
 	Family string `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -3023,7 +3023,7 @@ type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -3110,8 +3110,8 @@ func (o SkuOutput) Family() pulumi.StringOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -3143,13 +3143,13 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU details
@@ -3310,7 +3310,7 @@ type VaultProperties struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies []AccessPolicyEntry `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *CreateMode `pulumi:"createMode"`
+	CreateMode *string `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -3353,7 +3353,7 @@ type VaultPropertiesArgs struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode CreateModePtrInput `pulumi:"createMode"`
+	CreateMode *CreateMode `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored. When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -3464,8 +3464,8 @@ func (o VaultPropertiesOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 }
 
 // The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesOutput) CreateMode() CreateModePtrOutput {
-	return o.ApplyT(func(v VaultProperties) *CreateMode { return v.CreateMode }).(CreateModePtrOutput)
+func (o VaultPropertiesOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VaultProperties) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -3557,13 +3557,13 @@ func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput 
 }
 
 // The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesPtrOutput) CreateMode() CreateModePtrOutput {
-	return o.ApplyT(func(v *VaultProperties) *CreateMode {
+func (o VaultPropertiesPtrOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.CreateMode
-	}).(CreateModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.

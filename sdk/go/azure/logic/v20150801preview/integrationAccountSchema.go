@@ -105,9 +105,57 @@ func GetIntegrationAccountSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountSchema resources.
 type integrationAccountSchemaState struct {
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The content.
+	Content interface{} `pulumi:"content"`
+	// The content link.
+	ContentLink *IntegrationAccountContentLinkResponse `pulumi:"contentLink"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata interface{} `pulumi:"metadata"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The schema type.
+	SchemaType *string `pulumi:"schemaType"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The target namespace.
+	TargetNamespace *string `pulumi:"targetNamespace"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountSchemaState struct {
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The content.
+	Content pulumi.Input
+	// The content link.
+	ContentLink IntegrationAccountContentLinkResponsePtrInput
+	// The content type.
+	ContentType pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.Input
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The schema type.
+	SchemaType pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The target namespace.
+	TargetNamespace pulumi.StringPtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountSchemaState) ElementType() reflect.Type {
@@ -134,7 +182,7 @@ type integrationAccountSchemaArgs struct {
 	// The integration account schema name.
 	SchemaName *string `pulumi:"schemaName"`
 	// The schema type.
-	SchemaType *SchemaType `pulumi:"schemaType"`
+	SchemaType *string `pulumi:"schemaType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The target namespace.
@@ -164,7 +212,7 @@ type IntegrationAccountSchemaArgs struct {
 	// The integration account schema name.
 	SchemaName pulumi.StringPtrInput
 	// The schema type.
-	SchemaType SchemaTypePtrInput
+	SchemaType *SchemaType
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The target namespace.

@@ -98,9 +98,53 @@ func GetScheduleResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduleResource resources.
 type scheduleResourceState struct {
+	// The daily recurrence of the schedule.
+	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
+	// The hourly recurrence of the schedule.
+	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the schedule.
+	Status *string `pulumi:"status"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The task type of the schedule.
+	TaskType *string `pulumi:"taskType"`
+	// The time zone id.
+	TimeZoneId *string `pulumi:"timeZoneId"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
+	// The weekly recurrence of the schedule.
+	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
 }
 
 type ScheduleResourceState struct {
+	// The daily recurrence of the schedule.
+	DailyRecurrence DayDetailsResponsePtrInput
+	// The hourly recurrence of the schedule.
+	HourlyRecurrence HourDetailsResponsePtrInput
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The status of the schedule.
+	Status pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The task type of the schedule.
+	TaskType pulumi.StringPtrInput
+	// The time zone id.
+	TimeZoneId pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
+	// The weekly recurrence of the schedule.
+	WeeklyRecurrence WeekDetailsResponsePtrInput
 }
 
 func (ScheduleResourceState) ElementType() reflect.Type {

@@ -102,9 +102,65 @@ func GetOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrchestratorInstanceServiceDetails resources.
 type orchestratorInstanceServiceDetailsState struct {
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	ApiServerEndpoint *string `pulumi:"apiServerEndpoint"`
+	// RootCA certificate of kubernetes cluster base64 encoded
+	ClusterRootCA *string `pulumi:"clusterRootCA"`
+	// Properties of the controller.
+	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
+	// The identity of the orchestrator
+	Identity *OrchestratorIdentityResponse `pulumi:"identity"`
+	// The kind of workbook. Choices are user and shared.
+	Kind *string `pulumi:"kind"`
+	// Location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// AAD ID used with apiserver
+	OrchestratorAppId *string `pulumi:"orchestratorAppId"`
+	// TenantID of server App ID
+	OrchestratorTenantId *string `pulumi:"orchestratorTenantId"`
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
+	// The current state of orchestratorInstance resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource guid.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of resource.
+	Type *string `pulumi:"type"`
 }
 
 type OrchestratorInstanceServiceDetailsState struct {
+	// K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	ApiServerEndpoint pulumi.StringPtrInput
+	// RootCA certificate of kubernetes cluster base64 encoded
+	ClusterRootCA pulumi.StringPtrInput
+	// Properties of the controller.
+	ControllerDetails ControllerDetailsResponsePtrInput
+	// The identity of the orchestrator
+	Identity OrchestratorIdentityResponsePtrInput
+	// The kind of workbook. Choices are user and shared.
+	Kind pulumi.StringPtrInput
+	// Location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// AAD ID used with apiserver
+	OrchestratorAppId pulumi.StringPtrInput
+	// TenantID of server App ID
+	OrchestratorTenantId pulumi.StringPtrInput
+	// private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+	PrivateLinkResourceId pulumi.StringPtrInput
+	// The current state of orchestratorInstance resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource guid.
+	ResourceGuid pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The type of resource.
+	Type pulumi.StringPtrInput
 }
 
 func (OrchestratorInstanceServiceDetailsState) ElementType() reflect.Type {

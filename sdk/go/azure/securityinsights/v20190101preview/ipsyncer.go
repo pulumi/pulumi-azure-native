@@ -87,9 +87,29 @@ func GetIPSyncer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IPSyncer resources.
 type ipsyncerState struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// Determines whether the setting is enable or disabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Expected value is 'IPSyncer'.
+	Kind *string `pulumi:"kind"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type IPSyncerState struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput
+	// Determines whether the setting is enable or disabled.
+	IsEnabled pulumi.BoolPtrInput
+	// Expected value is 'IPSyncer'.
+	Kind pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (IPSyncerState) ElementType() reflect.Type {

@@ -763,7 +763,7 @@ func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type string `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -782,7 +782,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityTypeInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -866,8 +866,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() IdentityTypeOutput {
-	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
+func (o IdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -894,13 +894,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *IdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(IdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.

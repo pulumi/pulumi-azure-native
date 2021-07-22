@@ -40,12 +40,6 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CloudType == nil {
-		return nil, errors.New("invalid value for required argument 'CloudType'")
-	}
-	if args.EnableSSL == nil {
-		return nil, errors.New("invalid value for required argument 'EnableSSL'")
-	}
 	if args.EndPoint == nil {
 		return nil, errors.New("invalid value for required argument 'EndPoint'")
 	}
@@ -98,9 +92,41 @@ func GetStorageAccountCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccountCredential resources.
 type storageAccountCredentialState struct {
+	// The details of the storage account password
+	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
+	// The cloud service provider
+	CloudType *string `pulumi:"cloudType"`
+	// SSL needs to be enabled or not
+	EnableSSL *string `pulumi:"enableSSL"`
+	// The storage endpoint
+	EndPoint *string `pulumi:"endPoint"`
+	// The storage account's geo location
+	Location *string `pulumi:"location"`
+	// The storage account login
+	Login *string `pulumi:"login"`
+	// The name.
+	Name *string `pulumi:"name"`
+	// The type.
+	Type *string `pulumi:"type"`
 }
 
 type StorageAccountCredentialState struct {
+	// The details of the storage account password
+	AccessKey AsymmetricEncryptedSecretResponsePtrInput
+	// The cloud service provider
+	CloudType pulumi.StringPtrInput
+	// SSL needs to be enabled or not
+	EnableSSL pulumi.StringPtrInput
+	// The storage endpoint
+	EndPoint pulumi.StringPtrInput
+	// The storage account's geo location
+	Location pulumi.StringPtrInput
+	// The storage account login
+	Login pulumi.StringPtrInput
+	// The name.
+	Name pulumi.StringPtrInput
+	// The type.
+	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountCredentialState) ElementType() reflect.Type {
@@ -111,11 +137,11 @@ type storageAccountCredentialArgs struct {
 	// The details of the storage account password
 	AccessKey *AsymmetricEncryptedSecret `pulumi:"accessKey"`
 	// The cloud service provider
-	CloudType CloudType `pulumi:"cloudType"`
+	CloudType string `pulumi:"cloudType"`
 	// The credential name.
 	CredentialName *string `pulumi:"credentialName"`
 	// SSL needs to be enabled or not
-	EnableSSL SslStatus `pulumi:"enableSSL"`
+	EnableSSL string `pulumi:"enableSSL"`
 	// The storage endpoint
 	EndPoint string `pulumi:"endPoint"`
 	// The storage account's geo location
@@ -133,11 +159,11 @@ type StorageAccountCredentialArgs struct {
 	// The details of the storage account password
 	AccessKey AsymmetricEncryptedSecretPtrInput
 	// The cloud service provider
-	CloudType CloudTypeInput
+	CloudType CloudType
 	// The credential name.
 	CredentialName pulumi.StringPtrInput
 	// SSL needs to be enabled or not
-	EnableSSL SslStatusInput
+	EnableSSL SslStatus
 	// The storage endpoint
 	EndPoint pulumi.StringInput
 	// The storage account's geo location

@@ -119,9 +119,55 @@ func GetScheduledTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledTrigger resources.
 type scheduledTriggerState struct {
+	// Time at which the trigger was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Kind of synchronization on trigger.
+	// Expected value is 'ScheduleBased'.
+	Kind *string `pulumi:"kind"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// Gets the provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Recurrence Interval
+	RecurrenceInterval *string `pulumi:"recurrenceInterval"`
+	// Synchronization mode
+	SynchronizationMode *string `pulumi:"synchronizationMode"`
+	// Synchronization time
+	SynchronizationTime *string `pulumi:"synchronizationTime"`
+	// System Data of the Azure resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Gets the trigger state
+	TriggerStatus *string `pulumi:"triggerStatus"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
+	// Name of the user who created the trigger.
+	UserName *string `pulumi:"userName"`
 }
 
 type ScheduledTriggerState struct {
+	// Time at which the trigger was created.
+	CreatedAt pulumi.StringPtrInput
+	// Kind of synchronization on trigger.
+	// Expected value is 'ScheduleBased'.
+	Kind pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// Gets the provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// Recurrence Interval
+	RecurrenceInterval pulumi.StringPtrInput
+	// Synchronization mode
+	SynchronizationMode pulumi.StringPtrInput
+	// Synchronization time
+	SynchronizationTime pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData SystemDataResponsePtrInput
+	// Gets the trigger state
+	TriggerStatus pulumi.StringPtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
+	// Name of the user who created the trigger.
+	UserName pulumi.StringPtrInput
 }
 
 func (ScheduledTriggerState) ElementType() reflect.Type {

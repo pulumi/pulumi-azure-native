@@ -67,9 +67,21 @@ func GetBuildStep(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BuildStep resources.
 type buildStepState struct {
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The properties of a build step.
+	Properties *DockerBuildStepResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type BuildStepState struct {
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The properties of a build step.
+	Properties DockerBuildStepResponsePtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (BuildStepState) ElementType() reflect.Type {

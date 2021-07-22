@@ -85,9 +85,45 @@ func GetFactory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Factory resources.
 type factoryState struct {
+	// Time the factory was created in ISO8601 format.
+	CreateTime *string `pulumi:"createTime"`
+	// Managed service identity of the factory.
+	Identity *FactoryIdentityResponse `pulumi:"identity"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// Factory provisioning state, example Succeeded.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The resource type.
+	Type *string `pulumi:"type"`
+	// Version of the factory.
+	Version *string `pulumi:"version"`
+	// VSTS repo information of the factory.
+	VstsConfiguration *FactoryVSTSConfigurationResponse `pulumi:"vstsConfiguration"`
 }
 
 type FactoryState struct {
+	// Time the factory was created in ISO8601 format.
+	CreateTime pulumi.StringPtrInput
+	// Managed service identity of the factory.
+	Identity FactoryIdentityResponsePtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// Factory provisioning state, example Succeeded.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The resource type.
+	Type pulumi.StringPtrInput
+	// Version of the factory.
+	Version pulumi.StringPtrInput
+	// VSTS repo information of the factory.
+	VstsConfiguration FactoryVSTSConfigurationResponsePtrInput
 }
 
 func (FactoryState) ElementType() reflect.Type {

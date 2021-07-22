@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
         /// DigitalTwinsInstance endpoint resource properties.
         /// </summary>
         [Input("properties")]
-        public object? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

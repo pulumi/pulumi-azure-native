@@ -73,9 +73,33 @@ func GetEnterpriseKnowledgeGraph(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnterpriseKnowledgeGraph resources.
 type enterpriseKnowledgeGraphState struct {
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name *string `pulumi:"name"`
+	// The set of properties specific to EnterpriseKnowledgeGraph resource
+	Properties *EnterpriseKnowledgeGraphPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the SKU of the resource.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type EnterpriseKnowledgeGraphState struct {
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput
+	// Specifies the name of the resource.
+	Name pulumi.StringPtrInput
+	// The set of properties specific to EnterpriseKnowledgeGraph resource
+	Properties EnterpriseKnowledgeGraphPropertiesResponsePtrInput
+	// Gets or sets the SKU of the resource.
+	Sku SkuResponsePtrInput
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput
+	// Specifies the type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (EnterpriseKnowledgeGraphState) ElementType() reflect.Type {

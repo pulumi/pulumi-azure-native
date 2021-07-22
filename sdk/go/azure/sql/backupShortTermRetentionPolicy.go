@@ -98,9 +98,21 @@ func GetBackupShortTermRetentionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupShortTermRetentionPolicy resources.
 type backupShortTermRetentionPolicyState struct {
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	RetentionDays *int `pulumi:"retentionDays"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type BackupShortTermRetentionPolicyState struct {
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
+	RetentionDays pulumi.IntPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (BackupShortTermRetentionPolicyState) ElementType() reflect.Type {

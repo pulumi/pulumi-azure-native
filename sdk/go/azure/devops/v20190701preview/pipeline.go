@@ -92,9 +92,41 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
+	// Configuration used to bootstrap the Pipeline.
+	BootstrapConfiguration *BootstrapConfigurationResponse `pulumi:"bootstrapConfiguration"`
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Reference to the Azure DevOps Organization containing the Pipeline.
+	Organization *OrganizationReferenceResponse `pulumi:"organization"`
+	// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
+	PipelineId *int `pulumi:"pipelineId"`
+	// Reference to the Azure DevOps Project containing the Pipeline.
+	Project *ProjectReferenceResponse `pulumi:"project"`
+	// Resource Tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource Type
+	Type *string `pulumi:"type"`
 }
 
 type PipelineState struct {
+	// Configuration used to bootstrap the Pipeline.
+	BootstrapConfiguration BootstrapConfigurationResponsePtrInput
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Reference to the Azure DevOps Organization containing the Pipeline.
+	Organization OrganizationReferenceResponsePtrInput
+	// Unique identifier of the Azure Pipeline within the Azure DevOps Project.
+	PipelineId pulumi.IntPtrInput
+	// Reference to the Azure DevOps Project containing the Pipeline.
+	Project ProjectReferenceResponsePtrInput
+	// Resource Tags
+	Tags pulumi.StringMapInput
+	// Resource Type
+	Type pulumi.StringPtrInput
 }
 
 func (PipelineState) ElementType() reflect.Type {

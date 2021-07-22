@@ -93,9 +93,61 @@ func GetConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connector resources.
 type connectorState struct {
+	// Collection information
+	Collection *ConnectorCollectionInfoResponse `pulumi:"collection"`
+	// Connector definition creation datetime
+	CreatedOn *string `pulumi:"createdOn"`
+	// Credentials authentication key (eg AWS ARN)
+	CredentialsKey *string `pulumi:"credentialsKey"`
+	// Connector DisplayName (defaults to Name)
+	DisplayName *string `pulumi:"displayName"`
+	// Connector kind (eg aws)
+	Kind *string `pulumi:"kind"`
+	// Connector location
+	Location *string `pulumi:"location"`
+	// Connector last modified datetime
+	ModifiedOn *string `pulumi:"modifiedOn"`
+	// Connector name
+	Name *string `pulumi:"name"`
+	// Connector providerAccountId (determined from credentials)
+	ProviderAccountId *string `pulumi:"providerAccountId"`
+	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+	ReportId *string `pulumi:"reportId"`
+	// Connector status
+	Status *string `pulumi:"status"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Connector type
+	Type *string `pulumi:"type"`
 }
 
 type ConnectorState struct {
+	// Collection information
+	Collection ConnectorCollectionInfoResponsePtrInput
+	// Connector definition creation datetime
+	CreatedOn pulumi.StringPtrInput
+	// Credentials authentication key (eg AWS ARN)
+	CredentialsKey pulumi.StringPtrInput
+	// Connector DisplayName (defaults to Name)
+	DisplayName pulumi.StringPtrInput
+	// Connector kind (eg aws)
+	Kind pulumi.StringPtrInput
+	// Connector location
+	Location pulumi.StringPtrInput
+	// Connector last modified datetime
+	ModifiedOn pulumi.StringPtrInput
+	// Connector name
+	Name pulumi.StringPtrInput
+	// Connector providerAccountId (determined from credentials)
+	ProviderAccountId pulumi.StringPtrInput
+	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
+	ReportId pulumi.StringPtrInput
+	// Connector status
+	Status pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Connector type
+	Type pulumi.StringPtrInput
 }
 
 func (ConnectorState) ElementType() reflect.Type {

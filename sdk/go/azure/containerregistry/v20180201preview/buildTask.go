@@ -116,9 +116,53 @@ func GetBuildTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BuildTask resources.
 type buildTaskState struct {
+	// The alternative updatable name for a build task.
+	Alias *string `pulumi:"alias"`
+	// The creation date of build task.
+	CreationDate *string `pulumi:"creationDate"`
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The platform properties against which the build has to happen.
+	Platform *PlatformPropertiesResponse `pulumi:"platform"`
+	// The provisioning state of the build task.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The properties that describes the source(code) for the build task.
+	SourceRepository *SourceRepositoryPropertiesResponse `pulumi:"sourceRepository"`
+	// The current status of build task.
+	Status *string `pulumi:"status"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Build timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type BuildTaskState struct {
+	// The alternative updatable name for a build task.
+	Alias pulumi.StringPtrInput
+	// The creation date of build task.
+	CreationDate pulumi.StringPtrInput
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The platform properties against which the build has to happen.
+	Platform PlatformPropertiesResponsePtrInput
+	// The provisioning state of the build task.
+	ProvisioningState pulumi.StringPtrInput
+	// The properties that describes the source(code) for the build task.
+	SourceRepository SourceRepositoryPropertiesResponsePtrInput
+	// The current status of build task.
+	Status pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// Build timeout in seconds.
+	Timeout pulumi.IntPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (BuildTaskState) ElementType() reflect.Type {

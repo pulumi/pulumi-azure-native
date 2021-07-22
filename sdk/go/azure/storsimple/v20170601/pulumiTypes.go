@@ -13,7 +13,7 @@ import (
 // Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecret struct {
 	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm string `pulumi:"encryptionAlgorithm"`
 	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 	EncryptionCertThumbprint *string `pulumi:"encryptionCertThumbprint"`
 	// The value of the secret.
@@ -34,7 +34,7 @@ type AsymmetricEncryptedSecretInput interface {
 // Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretArgs struct {
 	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm EncryptionAlgorithmInput `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
 	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
 	// The value of the secret.
@@ -120,8 +120,8 @@ func (o AsymmetricEncryptedSecretOutput) ToAsymmetricEncryptedSecretPtrOutputWit
 }
 
 // The algorithm used to encrypt "Value".
-func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() EncryptionAlgorithmOutput {
-	return o.ApplyT(func(v AsymmetricEncryptedSecret) EncryptionAlgorithm { return v.EncryptionAlgorithm }).(EncryptionAlgorithmOutput)
+func (o AsymmetricEncryptedSecretOutput) EncryptionAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v AsymmetricEncryptedSecret) string { return v.EncryptionAlgorithm }).(pulumi.StringOutput)
 }
 
 // Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
@@ -153,13 +153,13 @@ func (o AsymmetricEncryptedSecretPtrOutput) Elem() AsymmetricEncryptedSecretOutp
 }
 
 // The algorithm used to encrypt "Value".
-func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() EncryptionAlgorithmPtrOutput {
-	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *EncryptionAlgorithm {
+func (o AsymmetricEncryptedSecretPtrOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AsymmetricEncryptedSecret) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.EncryptionAlgorithm
-	}).(EncryptionAlgorithmPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
@@ -357,7 +357,7 @@ func (o AsymmetricEncryptedSecretResponsePtrOutput) Value() pulumi.StringPtrOutp
 // The schedule for bandwidth setting.
 type BandwidthSchedule struct {
 	// The days of the week when this schedule is applicable.
-	Days []DayOfWeek `pulumi:"days"`
+	Days []string `pulumi:"days"`
 	// The rate in Mbps.
 	RateInMbps int `pulumi:"rateInMbps"`
 	// The start time of the schedule.
@@ -442,8 +442,8 @@ func (o BandwidthScheduleOutput) ToBandwidthScheduleOutputWithContext(ctx contex
 }
 
 // The days of the week when this schedule is applicable.
-func (o BandwidthScheduleOutput) Days() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v BandwidthSchedule) []DayOfWeek { return v.Days }).(DayOfWeekArrayOutput)
+func (o BandwidthScheduleOutput) Days() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BandwidthSchedule) []string { return v.Days }).(pulumi.StringArrayOutput)
 }
 
 // The rate in Mbps.
@@ -1063,7 +1063,7 @@ func (o FailoverTargetResponseArrayOutput) Index(i pulumi.IntInput) FailoverTarg
 // Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettings struct {
 	// The type of StorSimple Manager.
-	Type ManagerType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // ManagerIntrinsicSettingsInput is an input type that accepts ManagerIntrinsicSettingsArgs and ManagerIntrinsicSettingsOutput values.
@@ -1080,7 +1080,7 @@ type ManagerIntrinsicSettingsInput interface {
 // Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsArgs struct {
 	// The type of StorSimple Manager.
-	Type ManagerTypeInput `pulumi:"type"`
+	Type ManagerType `pulumi:"type"`
 }
 
 func (ManagerIntrinsicSettingsArgs) ElementType() reflect.Type {
@@ -1162,8 +1162,8 @@ func (o ManagerIntrinsicSettingsOutput) ToManagerIntrinsicSettingsPtrOutputWithC
 }
 
 // The type of StorSimple Manager.
-func (o ManagerIntrinsicSettingsOutput) Type() ManagerTypeOutput {
-	return o.ApplyT(func(v ManagerIntrinsicSettings) ManagerType { return v.Type }).(ManagerTypeOutput)
+func (o ManagerIntrinsicSettingsOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerIntrinsicSettings) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ManagerIntrinsicSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1185,13 +1185,13 @@ func (o ManagerIntrinsicSettingsPtrOutput) Elem() ManagerIntrinsicSettingsOutput
 }
 
 // The type of StorSimple Manager.
-func (o ManagerIntrinsicSettingsPtrOutput) Type() ManagerTypePtrOutput {
-	return o.ApplyT(func(v *ManagerIntrinsicSettings) *ManagerType {
+func (o ManagerIntrinsicSettingsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerIntrinsicSettings) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(ManagerTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Intrinsic settings which refers to the type of the StorSimple Manager.
@@ -1331,7 +1331,7 @@ func (o ManagerIntrinsicSettingsResponsePtrOutput) Type() pulumi.StringPtrOutput
 // The Sku.
 type ManagerSku struct {
 	// Refers to the sku name which should be "Standard"
-	Name ManagerSkuType `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // ManagerSkuInput is an input type that accepts ManagerSkuArgs and ManagerSkuOutput values.
@@ -1348,7 +1348,7 @@ type ManagerSkuInput interface {
 // The Sku.
 type ManagerSkuArgs struct {
 	// Refers to the sku name which should be "Standard"
-	Name ManagerSkuTypeInput `pulumi:"name"`
+	Name ManagerSkuType `pulumi:"name"`
 }
 
 func (ManagerSkuArgs) ElementType() reflect.Type {
@@ -1430,8 +1430,8 @@ func (o ManagerSkuOutput) ToManagerSkuPtrOutputWithContext(ctx context.Context) 
 }
 
 // Refers to the sku name which should be "Standard"
-func (o ManagerSkuOutput) Name() ManagerSkuTypeOutput {
-	return o.ApplyT(func(v ManagerSku) ManagerSkuType { return v.Name }).(ManagerSkuTypeOutput)
+func (o ManagerSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagerSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type ManagerSkuPtrOutput struct{ *pulumi.OutputState }
@@ -1453,13 +1453,13 @@ func (o ManagerSkuPtrOutput) Elem() ManagerSkuOutput {
 }
 
 // Refers to the sku name which should be "Standard"
-func (o ManagerSkuPtrOutput) Name() ManagerSkuTypePtrOutput {
-	return o.ApplyT(func(v *ManagerSku) *ManagerSkuType {
+func (o ManagerSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagerSku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(ManagerSkuTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Sku.
@@ -1599,11 +1599,11 @@ func (o ManagerSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 // The schedule recurrence.
 type ScheduleRecurrence struct {
 	// The recurrence type.
-	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
+	RecurrenceType string `pulumi:"recurrenceType"`
 	// The recurrence value.
 	RecurrenceValue int `pulumi:"recurrenceValue"`
 	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList []DayOfWeek `pulumi:"weeklyDaysList"`
+	WeeklyDaysList []string `pulumi:"weeklyDaysList"`
 }
 
 // ScheduleRecurrenceInput is an input type that accepts ScheduleRecurrenceArgs and ScheduleRecurrenceOutput values.
@@ -1620,7 +1620,7 @@ type ScheduleRecurrenceInput interface {
 // The schedule recurrence.
 type ScheduleRecurrenceArgs struct {
 	// The recurrence type.
-	RecurrenceType RecurrenceTypeInput `pulumi:"recurrenceType"`
+	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
 	// The recurrence value.
 	RecurrenceValue pulumi.IntInput `pulumi:"recurrenceValue"`
 	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
@@ -1706,8 +1706,8 @@ func (o ScheduleRecurrenceOutput) ToScheduleRecurrencePtrOutputWithContext(ctx c
 }
 
 // The recurrence type.
-func (o ScheduleRecurrenceOutput) RecurrenceType() RecurrenceTypeOutput {
-	return o.ApplyT(func(v ScheduleRecurrence) RecurrenceType { return v.RecurrenceType }).(RecurrenceTypeOutput)
+func (o ScheduleRecurrenceOutput) RecurrenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) string { return v.RecurrenceType }).(pulumi.StringOutput)
 }
 
 // The recurrence value.
@@ -1716,8 +1716,8 @@ func (o ScheduleRecurrenceOutput) RecurrenceValue() pulumi.IntOutput {
 }
 
 // The week days list. Applicable only for schedules of recurrence type 'weekly'.
-func (o ScheduleRecurrenceOutput) WeeklyDaysList() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v ScheduleRecurrence) []DayOfWeek { return v.WeeklyDaysList }).(DayOfWeekArrayOutput)
+func (o ScheduleRecurrenceOutput) WeeklyDaysList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleRecurrence) []string { return v.WeeklyDaysList }).(pulumi.StringArrayOutput)
 }
 
 type ScheduleRecurrencePtrOutput struct{ *pulumi.OutputState }
@@ -1739,13 +1739,13 @@ func (o ScheduleRecurrencePtrOutput) Elem() ScheduleRecurrenceOutput {
 }
 
 // The recurrence type.
-func (o ScheduleRecurrencePtrOutput) RecurrenceType() RecurrenceTypePtrOutput {
-	return o.ApplyT(func(v *ScheduleRecurrence) *RecurrenceType {
+func (o ScheduleRecurrencePtrOutput) RecurrenceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.RecurrenceType
-	}).(RecurrenceTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The recurrence value.
@@ -1759,13 +1759,13 @@ func (o ScheduleRecurrencePtrOutput) RecurrenceValue() pulumi.IntPtrOutput {
 }
 
 // The week days list. Applicable only for schedules of recurrence type 'weekly'.
-func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() DayOfWeekArrayOutput {
-	return o.ApplyT(func(v *ScheduleRecurrence) []DayOfWeek {
+func (o ScheduleRecurrencePtrOutput) WeeklyDaysList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduleRecurrence) []string {
 		if v == nil {
 			return nil
 		}
 		return v.WeeklyDaysList
-	}).(DayOfWeekArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The schedule recurrence.

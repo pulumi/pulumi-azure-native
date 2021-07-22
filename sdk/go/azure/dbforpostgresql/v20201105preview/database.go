@@ -72,9 +72,25 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
+	// The charset of the database.
+	Charset *string `pulumi:"charset"`
+	// The collation of the database.
+	Collation *string `pulumi:"collation"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type DatabaseState struct {
+	// The charset of the database.
+	Charset pulumi.StringPtrInput
+	// The collation of the database.
+	Collation pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {

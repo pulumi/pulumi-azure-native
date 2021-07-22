@@ -85,9 +85,45 @@ func GetAlertsSuppressionRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertsSuppressionRule resources.
 type alertsSuppressionRuleState struct {
+	// Type of the alert to automatically suppress. For all alert types, use '*'
+	AlertType *string `pulumi:"alertType"`
+	// Any comment regarding the rule
+	Comment *string `pulumi:"comment"`
+	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+	ExpirationDateUtc *string `pulumi:"expirationDateUtc"`
+	// The last time this rule was modified
+	LastModifiedUtc *string `pulumi:"lastModifiedUtc"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// The reason for dismissing the alert
+	Reason *string `pulumi:"reason"`
+	// Possible states of the rule
+	State *string `pulumi:"state"`
+	// The suppression conditions
+	SuppressionAlertsScope *SuppressionAlertsScopeResponse `pulumi:"suppressionAlertsScope"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type AlertsSuppressionRuleState struct {
+	// Type of the alert to automatically suppress. For all alert types, use '*'
+	AlertType pulumi.StringPtrInput
+	// Any comment regarding the rule
+	Comment pulumi.StringPtrInput
+	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
+	ExpirationDateUtc pulumi.StringPtrInput
+	// The last time this rule was modified
+	LastModifiedUtc pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// The reason for dismissing the alert
+	Reason pulumi.StringPtrInput
+	// Possible states of the rule
+	State pulumi.StringPtrInput
+	// The suppression conditions
+	SuppressionAlertsScope SuppressionAlertsScopeResponsePtrInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AlertsSuppressionRuleState) ElementType() reflect.Type {

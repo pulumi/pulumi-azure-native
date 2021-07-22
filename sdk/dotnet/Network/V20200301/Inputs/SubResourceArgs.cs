@@ -25,4 +25,20 @@ namespace Pulumi.AzureNative.Network.V20200301.Inputs
         {
         }
     }
+
+    /// <summary>
+    /// Reference to another subresource.
+    /// </summary>
+    public sealed class SubResource : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public string? Id { get; set; }
+
+        public SubResource()
+        {
+        }
+    }
 }

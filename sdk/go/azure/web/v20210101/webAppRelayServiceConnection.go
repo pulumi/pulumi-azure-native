@@ -137,9 +137,35 @@ func GetWebAppRelayServiceConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppRelayServiceConnection resources.
 type webAppRelayServiceConnectionState struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             *string `pulumi:"entityName"`
+	Hostname               *string `pulumi:"hostname"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name                     *string `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
+	ResourceType             *string `pulumi:"resourceType"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WebAppRelayServiceConnectionState struct {
+	BiztalkUri             pulumi.StringPtrInput
+	EntityConnectionString pulumi.StringPtrInput
+	EntityName             pulumi.StringPtrInput
+	Hostname               pulumi.StringPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name                     pulumi.StringPtrInput
+	Port                     pulumi.IntPtrInput
+	ResourceConnectionString pulumi.StringPtrInput
+	ResourceType             pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WebAppRelayServiceConnectionState) ElementType() reflect.Type {

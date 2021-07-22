@@ -117,9 +117,49 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
+	// Customer provided correlation data that will be returned in Job completed events.
+	CorrelationData map[string]string `pulumi:"correlationData"`
+	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created *string `pulumi:"created"`
+	// Optional customer supplied description of the Job.
+	Description *string `pulumi:"description"`
+	// The inputs for the Job.
+	Input interface{} `pulumi:"input"`
+	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified *string `pulumi:"lastModified"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The outputs for the Job.
+	Outputs []JobOutputAssetResponse `pulumi:"outputs"`
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority *string `pulumi:"priority"`
+	// The current state of the job.
+	State *string `pulumi:"state"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
+	// Customer provided correlation data that will be returned in Job completed events.
+	CorrelationData pulumi.StringMapInput
+	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created pulumi.StringPtrInput
+	// Optional customer supplied description of the Job.
+	Description pulumi.StringPtrInput
+	// The inputs for the Job.
+	Input pulumi.Input
+	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The outputs for the Job.
+	Outputs JobOutputAssetResponseArrayInput
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority pulumi.StringPtrInput
+	// The current state of the job.
+	State pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {

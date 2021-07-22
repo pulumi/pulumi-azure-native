@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The data compression method used for the Amazon S3 object.
         /// </summary>
         [Input("compression")]
-        public object? Compression { get; set; }
+        public Input<object>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The format of files.
         /// </summary>
         [Input("format")]
-        public object? Format { get; set; }
+        public Input<object>? Format { get; set; }
 
         /// <summary>
         /// The key of the Amazon S3 object. Type: string (or Expression with resultType string).

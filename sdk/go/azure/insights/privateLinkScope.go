@@ -74,9 +74,33 @@ func GetPrivateLinkScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkScope resources.
 type privateLinkScopeState struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// List of private endpoint connections.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type PrivateLinkScopeState struct {
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// List of private endpoint connections.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// Current state of this PrivateLinkScope: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (PrivateLinkScopeState) ElementType() reflect.Type {

@@ -138,9 +138,25 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates *bool `pulumi:"allowUpdates"`
+	// The package to use if a client requests the application but does not specify a version.
+	DefaultVersion *string `pulumi:"defaultVersion"`
+	// The display name for the application.
+	DisplayName *string `pulumi:"displayName"`
+	// The list of packages under this application.
+	Packages []ApplicationPackageResponse `pulumi:"packages"`
 }
 
 type ApplicationState struct {
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates pulumi.BoolPtrInput
+	// The package to use if a client requests the application but does not specify a version.
+	DefaultVersion pulumi.StringPtrInput
+	// The display name for the application.
+	DisplayName pulumi.StringPtrInput
+	// The list of packages under this application.
+	Packages ApplicationPackageResponseArrayInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {

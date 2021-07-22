@@ -104,9 +104,65 @@ func GetNotificationHubAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationHubAuthorizationRule resources.
 type notificationHubAuthorizationRuleState struct {
+	// A string that describes the claim type
+	ClaimType *string `pulumi:"claimType"`
+	// A string that describes the claim value
+	ClaimValue *string `pulumi:"claimValue"`
+	// The created time for this rule
+	CreatedTime *string `pulumi:"createdTime"`
+	// A string that describes the authorization rule.
+	KeyName *string `pulumi:"keyName"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// The last modified time for this rule
+	ModifiedTime *string `pulumi:"modifiedTime"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// The revision number for the rule
+	Revision *int `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+	// The sku of the created namespace
+	Sku *SkuResponse `pulumi:"sku"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type NotificationHubAuthorizationRuleState struct {
+	// A string that describes the claim type
+	ClaimType pulumi.StringPtrInput
+	// A string that describes the claim value
+	ClaimValue pulumi.StringPtrInput
+	// The created time for this rule
+	CreatedTime pulumi.StringPtrInput
+	// A string that describes the authorization rule.
+	KeyName pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// The last modified time for this rule
+	ModifiedTime pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey pulumi.StringPtrInput
+	// The revision number for the rule
+	Revision pulumi.IntPtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey pulumi.StringPtrInput
+	// The sku of the created namespace
+	Sku SkuResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (NotificationHubAuthorizationRuleState) ElementType() reflect.Type {

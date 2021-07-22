@@ -97,9 +97,49 @@ func GetTemplateSpecVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSpecVersion resources.
 type templateSpecVersionState struct {
+	// Template Spec version description.
+	Description *string `pulumi:"description"`
+	// An array of linked template artifacts.
+	LinkedTemplates []LinkedTemplateArtifactResponse `pulumi:"linkedTemplates"`
+	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
+	Location *string `pulumi:"location"`
+	// The main Azure Resource Manager template content.
+	MainTemplate interface{} `pulumi:"mainTemplate"`
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
+	// Name of this resource.
+	Name *string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of this resource.
+	Type *string `pulumi:"type"`
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition interface{} `pulumi:"uiFormDefinition"`
 }
 
 type TemplateSpecVersionState struct {
+	// Template Spec version description.
+	Description pulumi.StringPtrInput
+	// An array of linked template artifacts.
+	LinkedTemplates LinkedTemplateArtifactResponseArrayInput
+	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
+	Location pulumi.StringPtrInput
+	// The main Azure Resource Manager template content.
+	MainTemplate pulumi.Input
+	// The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.Input
+	// Name of this resource.
+	Name pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Type of this resource.
+	Type pulumi.StringPtrInput
+	// The Azure Resource Manager template UI definition content.
+	UiFormDefinition pulumi.Input
 }
 
 func (TemplateSpecVersionState) ElementType() reflect.Type {

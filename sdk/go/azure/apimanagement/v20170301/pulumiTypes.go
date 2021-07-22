@@ -4539,7 +4539,7 @@ type HostnameConfiguration struct {
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// Hostname type.
-	Type HostnameType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // HostnameConfigurationInput is an input type that accepts HostnameConfigurationArgs and HostnameConfigurationOutput values.
@@ -4568,7 +4568,7 @@ type HostnameConfigurationArgs struct {
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 	// Hostname type.
-	Type HostnameTypeInput `pulumi:"type"`
+	Type HostnameType `pulumi:"type"`
 }
 
 func (HostnameConfigurationArgs) ElementType() reflect.Type {
@@ -4654,8 +4654,8 @@ func (o HostnameConfigurationOutput) NegotiateClientCertificate() pulumi.BoolPtr
 }
 
 // Hostname type.
-func (o HostnameConfigurationOutput) Type() HostnameTypeOutput {
-	return o.ApplyT(func(v HostnameConfiguration) HostnameType { return v.Type }).(HostnameTypeOutput)
+func (o HostnameConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HostnameConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type HostnameConfigurationArrayOutput struct{ *pulumi.OutputState }

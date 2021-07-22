@@ -81,9 +81,37 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
+	// List of References to Assessments created on this group.
+	Assessments []string `pulumi:"assessments"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp *string `pulumi:"createdTimestamp"`
+	// For optimistic concurrency control.
+	ETag *string `pulumi:"eTag"`
+	// List of machine names that are part of this group.
+	Machines []string `pulumi:"machines"`
+	// Name of the group.
+	Name *string `pulumi:"name"`
+	// Type of the object = [Microsoft.Migrate/projects/groups].
+	Type *string `pulumi:"type"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp *string `pulumi:"updatedTimestamp"`
 }
 
 type GroupState struct {
+	// List of References to Assessments created on this group.
+	Assessments pulumi.StringArrayInput
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp pulumi.StringPtrInput
+	// For optimistic concurrency control.
+	ETag pulumi.StringPtrInput
+	// List of machine names that are part of this group.
+	Machines pulumi.StringArrayInput
+	// Name of the group.
+	Name pulumi.StringPtrInput
+	// Type of the object = [Microsoft.Migrate/projects/groups].
+	Type pulumi.StringPtrInput
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {

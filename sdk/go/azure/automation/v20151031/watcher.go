@@ -104,9 +104,65 @@ func GetWatcher(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Watcher resources.
 type watcherState struct {
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the etag of the resource.
+	Etag *string `pulumi:"etag"`
+	// Gets or sets the frequency at which the watcher is invoked.
+	ExecutionFrequencyInSeconds *float64 `pulumi:"executionFrequencyInSeconds"`
+	// Details of the user who last modified the watcher.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The Azure Region where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+	ScriptName *string `pulumi:"scriptName"`
+	// Gets or sets the parameters of the script.
+	ScriptParameters map[string]string `pulumi:"scriptParameters"`
+	// Gets or sets the name of the hybrid worker group the watcher will run on.
+	ScriptRunOn *string `pulumi:"scriptRunOn"`
+	// Gets the current status of the watcher.
+	Status *string `pulumi:"status"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type WatcherState struct {
+	// Gets or sets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets or sets the etag of the resource.
+	Etag pulumi.StringPtrInput
+	// Gets or sets the frequency at which the watcher is invoked.
+	ExecutionFrequencyInSeconds pulumi.Float64PtrInput
+	// Details of the user who last modified the watcher.
+	LastModifiedBy pulumi.StringPtrInput
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
+	// The Azure Region where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+	ScriptName pulumi.StringPtrInput
+	// Gets or sets the parameters of the script.
+	ScriptParameters pulumi.StringMapInput
+	// Gets or sets the name of the hybrid worker group the watcher will run on.
+	ScriptRunOn pulumi.StringPtrInput
+	// Gets the current status of the watcher.
+	Status pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (WatcherState) ElementType() reflect.Type {

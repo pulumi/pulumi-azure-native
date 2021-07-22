@@ -103,9 +103,33 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
+	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
+	Etag *string `pulumi:"etag"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Gets or sets the properties of the zone.
+	Properties *ZonePropertiesResponse `pulumi:"properties"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ZoneState struct {
+	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
+	Etag pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Gets or sets the properties of the zone.
+	Properties ZonePropertiesResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ZoneState) ElementType() reflect.Type {

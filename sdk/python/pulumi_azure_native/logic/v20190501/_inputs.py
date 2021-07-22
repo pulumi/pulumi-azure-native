@@ -42,30 +42,30 @@ __all__ = [
     'EdifactSchemaReferenceArgs',
     'EdifactValidationOverrideArgs',
     'EdifactValidationSettingsArgs',
-    'FlowAccessControlConfigurationPolicyArgs',
     'FlowAccessControlConfigurationArgs',
-    'FlowEndpointsConfigurationArgs',
+    'FlowAccessControlConfigurationPolicyArgs',
     'FlowEndpointsArgs',
+    'FlowEndpointsConfigurationArgs',
     'IntegrationAccountMapPropertiesParametersSchemaArgs',
     'IntegrationAccountSkuArgs',
     'IntegrationServiceEnvironmenEncryptionConfigurationArgs',
     'IntegrationServiceEnvironmenEncryptionKeyReferenceArgs',
+    'IntegrationServiceEnvironmentArgs',
     'IntegrationServiceEnvironmentAccessEndpointArgs',
     'IntegrationServiceEnvironmentPropertiesArgs',
     'IntegrationServiceEnvironmentSkuArgs',
-    'IntegrationServiceEnvironmentArgs',
-    'IpAddressRangeArgs',
     'IpAddressArgs',
-    'KeyVaultKeyReferenceKeyVaultArgs',
+    'IpAddressRangeArgs',
     'KeyVaultKeyReferenceArgs',
+    'KeyVaultKeyReferenceKeyVaultArgs',
     'KeyVaultReference',
     'NetworkConfigurationArgs',
     'OpenAuthenticationAccessPoliciesArgs',
     'OpenAuthenticationAccessPolicyArgs',
     'OpenAuthenticationPolicyClaimArgs',
     'PartnerContentArgs',
-    'RecurrenceScheduleOccurrenceArgs',
     'RecurrenceScheduleArgs',
+    'RecurrenceScheduleOccurrenceArgs',
     'ResourceReferenceArgs',
     'WorkflowParameterArgs',
     'WorkflowTriggerRecurrenceArgs',
@@ -3782,46 +3782,6 @@ class EdifactValidationSettingsArgs:
 
 
 @pulumi.input_type
-class FlowAccessControlConfigurationPolicyArgs:
-    def __init__(__self__, *,
-                 allowed_caller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]] = None,
-                 open_authentication_policies: Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']] = None):
-        """
-        The access control configuration policy.
-        :param pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]] allowed_caller_ip_addresses: The allowed caller IP address ranges.
-        :param pulumi.Input['OpenAuthenticationAccessPoliciesArgs'] open_authentication_policies: The authentication policies for workflow.
-        """
-        if allowed_caller_ip_addresses is not None:
-            pulumi.set(__self__, "allowed_caller_ip_addresses", allowed_caller_ip_addresses)
-        if open_authentication_policies is not None:
-            pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
-
-    @property
-    @pulumi.getter(name="allowedCallerIpAddresses")
-    def allowed_caller_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]]:
-        """
-        The allowed caller IP address ranges.
-        """
-        return pulumi.get(self, "allowed_caller_ip_addresses")
-
-    @allowed_caller_ip_addresses.setter
-    def allowed_caller_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]]):
-        pulumi.set(self, "allowed_caller_ip_addresses", value)
-
-    @property
-    @pulumi.getter(name="openAuthenticationPolicies")
-    def open_authentication_policies(self) -> Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']]:
-        """
-        The authentication policies for workflow.
-        """
-        return pulumi.get(self, "open_authentication_policies")
-
-    @open_authentication_policies.setter
-    def open_authentication_policies(self, value: Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']]):
-        pulumi.set(self, "open_authentication_policies", value)
-
-
-@pulumi.input_type
 class FlowAccessControlConfigurationArgs:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input['FlowAccessControlConfigurationPolicyArgs']] = None,
@@ -3894,43 +3854,43 @@ class FlowAccessControlConfigurationArgs:
 
 
 @pulumi.input_type
-class FlowEndpointsConfigurationArgs:
+class FlowAccessControlConfigurationPolicyArgs:
     def __init__(__self__, *,
-                 connector: Optional[pulumi.Input['FlowEndpointsArgs']] = None,
-                 workflow: Optional[pulumi.Input['FlowEndpointsArgs']] = None):
+                 allowed_caller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]] = None,
+                 open_authentication_policies: Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']] = None):
         """
-        The endpoints configuration.
-        :param pulumi.Input['FlowEndpointsArgs'] connector: The connector endpoints.
-        :param pulumi.Input['FlowEndpointsArgs'] workflow: The workflow endpoints.
+        The access control configuration policy.
+        :param pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]] allowed_caller_ip_addresses: The allowed caller IP address ranges.
+        :param pulumi.Input['OpenAuthenticationAccessPoliciesArgs'] open_authentication_policies: The authentication policies for workflow.
         """
-        if connector is not None:
-            pulumi.set(__self__, "connector", connector)
-        if workflow is not None:
-            pulumi.set(__self__, "workflow", workflow)
+        if allowed_caller_ip_addresses is not None:
+            pulumi.set(__self__, "allowed_caller_ip_addresses", allowed_caller_ip_addresses)
+        if open_authentication_policies is not None:
+            pulumi.set(__self__, "open_authentication_policies", open_authentication_policies)
 
     @property
-    @pulumi.getter
-    def connector(self) -> Optional[pulumi.Input['FlowEndpointsArgs']]:
+    @pulumi.getter(name="allowedCallerIpAddresses")
+    def allowed_caller_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]]:
         """
-        The connector endpoints.
+        The allowed caller IP address ranges.
         """
-        return pulumi.get(self, "connector")
+        return pulumi.get(self, "allowed_caller_ip_addresses")
 
-    @connector.setter
-    def connector(self, value: Optional[pulumi.Input['FlowEndpointsArgs']]):
-        pulumi.set(self, "connector", value)
+    @allowed_caller_ip_addresses.setter
+    def allowed_caller_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressRangeArgs']]]]):
+        pulumi.set(self, "allowed_caller_ip_addresses", value)
 
     @property
-    @pulumi.getter
-    def workflow(self) -> Optional[pulumi.Input['FlowEndpointsArgs']]:
+    @pulumi.getter(name="openAuthenticationPolicies")
+    def open_authentication_policies(self) -> Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']]:
         """
-        The workflow endpoints.
+        The authentication policies for workflow.
         """
-        return pulumi.get(self, "workflow")
+        return pulumi.get(self, "open_authentication_policies")
 
-    @workflow.setter
-    def workflow(self, value: Optional[pulumi.Input['FlowEndpointsArgs']]):
-        pulumi.set(self, "workflow", value)
+    @open_authentication_policies.setter
+    def open_authentication_policies(self, value: Optional[pulumi.Input['OpenAuthenticationAccessPoliciesArgs']]):
+        pulumi.set(self, "open_authentication_policies", value)
 
 
 @pulumi.input_type
@@ -3971,6 +3931,46 @@ class FlowEndpointsArgs:
     @outgoing_ip_addresses.setter
     def outgoing_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpAddressArgs']]]]):
         pulumi.set(self, "outgoing_ip_addresses", value)
+
+
+@pulumi.input_type
+class FlowEndpointsConfigurationArgs:
+    def __init__(__self__, *,
+                 connector: Optional[pulumi.Input['FlowEndpointsArgs']] = None,
+                 workflow: Optional[pulumi.Input['FlowEndpointsArgs']] = None):
+        """
+        The endpoints configuration.
+        :param pulumi.Input['FlowEndpointsArgs'] connector: The connector endpoints.
+        :param pulumi.Input['FlowEndpointsArgs'] workflow: The workflow endpoints.
+        """
+        if connector is not None:
+            pulumi.set(__self__, "connector", connector)
+        if workflow is not None:
+            pulumi.set(__self__, "workflow", workflow)
+
+    @property
+    @pulumi.getter
+    def connector(self) -> Optional[pulumi.Input['FlowEndpointsArgs']]:
+        """
+        The connector endpoints.
+        """
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: Optional[pulumi.Input['FlowEndpointsArgs']]):
+        pulumi.set(self, "connector", value)
+
+    @property
+    @pulumi.getter
+    def workflow(self) -> Optional[pulumi.Input['FlowEndpointsArgs']]:
+        """
+        The workflow endpoints.
+        """
+        return pulumi.get(self, "workflow")
+
+    @workflow.setter
+    def workflow(self, value: Optional[pulumi.Input['FlowEndpointsArgs']]):
+        pulumi.set(self, "workflow", value)
 
 
 @pulumi.input_type
@@ -4098,6 +4098,78 @@ class IntegrationServiceEnvironmenEncryptionKeyReferenceArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class IntegrationServiceEnvironmentArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']] = None,
+                 sku: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The integration service environment.
+        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs'] properties: The integration service environment properties.
+        :param pulumi.Input['IntegrationServiceEnvironmentSkuArgs'] sku: The sku.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]:
+        """
+        The integration service environment properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]:
+        """
+        The sku.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -4269,102 +4341,6 @@ class IntegrationServiceEnvironmentSkuArgs:
 
 
 @pulumi.input_type
-class IntegrationServiceEnvironmentArgs:
-    def __init__(__self__, *,
-                 location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']] = None,
-                 sku: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        The integration service environment.
-        :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs'] properties: The integration service environment properties.
-        :param pulumi.Input['IntegrationServiceEnvironmentSkuArgs'] sku: The sku.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        """
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource location.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]:
-        """
-        The integration service environment properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]:
-        """
-        The sku.
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['IntegrationServiceEnvironmentSkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class IpAddressRangeArgs:
-    def __init__(__self__, *,
-                 address_range: Optional[pulumi.Input[str]] = None):
-        """
-        The ip address range.
-        :param pulumi.Input[str] address_range: The IP address range.
-        """
-        if address_range is not None:
-            pulumi.set(__self__, "address_range", address_range)
-
-    @property
-    @pulumi.getter(name="addressRange")
-    def address_range(self) -> Optional[pulumi.Input[str]]:
-        """
-        The IP address range.
-        """
-        return pulumi.get(self, "address_range")
-
-    @address_range.setter
-    def address_range(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address_range", value)
-
-
-@pulumi.input_type
 class IpAddressArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None):
@@ -4389,27 +4365,27 @@ class IpAddressArgs:
 
 
 @pulumi.input_type
-class KeyVaultKeyReferenceKeyVaultArgs:
+class IpAddressRangeArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
+                 address_range: Optional[pulumi.Input[str]] = None):
         """
-        The key vault reference.
-        :param pulumi.Input[str] id: The resource id.
+        The ip address range.
+        :param pulumi.Input[str] address_range: The IP address range.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if address_range is not None:
+            pulumi.set(__self__, "address_range", address_range)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="addressRange")
+    def address_range(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource id.
+        The IP address range.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "address_range")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
+    @address_range.setter
+    def address_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_range", value)
 
 
 @pulumi.input_type
@@ -4464,6 +4440,30 @@ class KeyVaultKeyReferenceArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class KeyVaultKeyReferenceKeyVaultArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The key vault reference.
+        :param pulumi.Input[str] id: The resource id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -4675,46 +4675,6 @@ class PartnerContentArgs:
 
 
 @pulumi.input_type
-class RecurrenceScheduleOccurrenceArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input['DayOfWeek']] = None,
-                 occurrence: Optional[pulumi.Input[int]] = None):
-        """
-        The recurrence schedule occurrence.
-        :param pulumi.Input['DayOfWeek'] day: The day of the week.
-        :param pulumi.Input[int] occurrence: The occurrence.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[int]]:
-        """
-        The occurrence.
-        """
-        return pulumi.get(self, "occurrence")
-
-    @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "occurrence", value)
-
-
-@pulumi.input_type
 class RecurrenceScheduleArgs:
     def __init__(__self__, *,
                  hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -4800,6 +4760,46 @@ class RecurrenceScheduleArgs:
     @week_days.setter
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
         pulumi.set(self, "week_days", value)
+
+
+@pulumi.input_type
+class RecurrenceScheduleOccurrenceArgs:
+    def __init__(__self__, *,
+                 day: Optional[pulumi.Input['DayOfWeek']] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
+        """
+        The recurrence schedule occurrence.
+        :param pulumi.Input['DayOfWeek'] day: The day of the week.
+        :param pulumi.Input[int] occurrence: The occurrence.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
+        """
+        The day of the week.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        The occurrence.
+        """
+        return pulumi.get(self, "occurrence")
+
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type

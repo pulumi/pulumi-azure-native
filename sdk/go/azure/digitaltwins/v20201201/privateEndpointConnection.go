@@ -72,9 +72,19 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
+	// The resource name.
+	Name       *string                                      `pulumi:"name"`
+	Properties *PrivateEndpointConnectionResponseProperties `pulumi:"properties"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
+	// The resource name.
+	Name       pulumi.StringPtrInput
+	Properties PrivateEndpointConnectionResponsePropertiesPtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionState) ElementType() reflect.Type {

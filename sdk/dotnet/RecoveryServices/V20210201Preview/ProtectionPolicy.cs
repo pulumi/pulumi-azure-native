@@ -142,7 +142,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
         /// ProtectionPolicyResource properties
         /// </summary>
         [Input("properties")]
-        public object? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

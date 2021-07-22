@@ -81,9 +81,21 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
+	// Gets the job resource name.
+	Name *string `pulumi:"name"`
+	// Gets or sets the job properties.
+	Properties *JobPropertiesResponse `pulumi:"properties"`
+	// Gets the job resource type.
+	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
+	// Gets the job resource name.
+	Name pulumi.StringPtrInput
+	// Gets or sets the job properties.
+	Properties JobPropertiesResponsePtrInput
+	// Gets the job resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {

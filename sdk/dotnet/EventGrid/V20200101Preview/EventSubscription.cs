@@ -166,7 +166,7 @@ namespace Pulumi.AzureNative.EventGrid.V20200101Preview
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Input("destination")]
-        public object? Destination { get; set; }
+        public Input<object>? Destination { get; set; }
 
         /// <summary>
         /// The event delivery schema for the event subscription.

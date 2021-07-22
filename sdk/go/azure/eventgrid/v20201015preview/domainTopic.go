@@ -108,9 +108,25 @@ func GetDomainTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainTopic resources.
 type domainTopicState struct {
+	// Name of the resource.
+	Name *string `pulumi:"name"`
+	// Provisioning state of the domain topic.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The system metadata relating to Domain Topic resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type DomainTopicState struct {
+	// Name of the resource.
+	Name pulumi.StringPtrInput
+	// Provisioning state of the domain topic.
+	ProvisioningState pulumi.StringPtrInput
+	// The system metadata relating to Domain Topic resource.
+	SystemData SystemDataResponsePtrInput
+	// Type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (DomainTopicState) ElementType() reflect.Type {

@@ -138,9 +138,49 @@ func GetApiDiagnostic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiDiagnostic resources.
 type apiDiagnosticState struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog *string `pulumi:"alwaysLog"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend *PipelineDiagnosticSettingsResponse `pulumi:"backend"`
+	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+	EnableHttpCorrelationHeaders *bool `pulumi:"enableHttpCorrelationHeaders"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
+	// Sets correlation protocol to use for Application Insights diagnostics.
+	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
+	// Resource Id of a target logger.
+	LoggerId *string `pulumi:"loggerId"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Sampling settings for Diagnostic.
+	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
+	// The verbosity level applied to traces emitted by trace policies.
+	Verbosity *string `pulumi:"verbosity"`
 }
 
 type ApiDiagnosticState struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog pulumi.StringPtrInput
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend PipelineDiagnosticSettingsResponsePtrInput
+	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+	EnableHttpCorrelationHeaders pulumi.BoolPtrInput
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend PipelineDiagnosticSettingsResponsePtrInput
+	// Sets correlation protocol to use for Application Insights diagnostics.
+	HttpCorrelationProtocol pulumi.StringPtrInput
+	// Resource Id of a target logger.
+	LoggerId pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Sampling settings for Diagnostic.
+	Sampling SamplingSettingsResponsePtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
+	// The verbosity level applied to traces emitted by trace policies.
+	Verbosity pulumi.StringPtrInput
 }
 
 func (ApiDiagnosticState) ElementType() reflect.Type {

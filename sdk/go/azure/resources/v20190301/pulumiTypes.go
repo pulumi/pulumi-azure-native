@@ -740,7 +740,7 @@ type DeploymentProperties struct {
 	// The debug setting of the deployment.
 	DebugSetting *DebugSetting `pulumi:"debugSetting"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode DeploymentMode `pulumi:"mode"`
+	Mode string `pulumi:"mode"`
 	// The deployment on error behavior.
 	OnErrorDeployment *OnErrorDeployment `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -769,7 +769,7 @@ type DeploymentPropertiesArgs struct {
 	// The debug setting of the deployment.
 	DebugSetting DebugSettingPtrInput `pulumi:"debugSetting"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode DeploymentModeInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// The deployment on error behavior.
 	OnErrorDeployment OnErrorDeploymentPtrInput `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -866,8 +866,8 @@ func (o DeploymentPropertiesOutput) DebugSetting() DebugSettingPtrOutput {
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-func (o DeploymentPropertiesOutput) Mode() DeploymentModeOutput {
-	return o.ApplyT(func(v DeploymentProperties) DeploymentMode { return v.Mode }).(DeploymentModeOutput)
+func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 // The deployment on error behavior.
@@ -924,13 +924,13 @@ func (o DeploymentPropertiesPtrOutput) DebugSetting() DebugSettingPtrOutput {
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
+func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Mode
-	}).(DeploymentModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The deployment on error behavior.
@@ -1350,7 +1350,7 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Timestamp() pulumi.String
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -1369,7 +1369,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -1453,8 +1453,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -1481,13 +1481,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -1804,7 +1804,7 @@ type OnErrorDeployment struct {
 	// The deployment to be used on error case.
 	DeploymentName *string `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type *OnErrorDeploymentType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // OnErrorDeploymentInput is an input type that accepts OnErrorDeploymentArgs and OnErrorDeploymentOutput values.
@@ -1823,7 +1823,7 @@ type OnErrorDeploymentArgs struct {
 	// The deployment to be used on error case.
 	DeploymentName pulumi.StringPtrInput `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type OnErrorDeploymentTypePtrInput `pulumi:"type"`
+	Type *OnErrorDeploymentType `pulumi:"type"`
 }
 
 func (OnErrorDeploymentArgs) ElementType() reflect.Type {
@@ -1910,8 +1910,8 @@ func (o OnErrorDeploymentOutput) DeploymentName() pulumi.StringPtrOutput {
 }
 
 // The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-func (o OnErrorDeploymentOutput) Type() OnErrorDeploymentTypePtrOutput {
-	return o.ApplyT(func(v OnErrorDeployment) *OnErrorDeploymentType { return v.Type }).(OnErrorDeploymentTypePtrOutput)
+func (o OnErrorDeploymentOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OnErrorDeployment) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type OnErrorDeploymentPtrOutput struct{ *pulumi.OutputState }
@@ -1943,13 +1943,13 @@ func (o OnErrorDeploymentPtrOutput) DeploymentName() pulumi.StringPtrOutput {
 }
 
 // The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-func (o OnErrorDeploymentPtrOutput) Type() OnErrorDeploymentTypePtrOutput {
-	return o.ApplyT(func(v *OnErrorDeployment) *OnErrorDeploymentType {
+func (o OnErrorDeploymentPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OnErrorDeployment) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(OnErrorDeploymentTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Deployment on error behavior with additional details.

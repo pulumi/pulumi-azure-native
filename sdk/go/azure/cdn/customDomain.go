@@ -155,9 +155,45 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
+	// Provisioning status of Custom Https of the custom domain.
+	CustomHttpsProvisioningState *string `pulumi:"customHttpsProvisioningState"`
+	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+	CustomHttpsProvisioningSubstate *string `pulumi:"customHttpsProvisioningSubstate"`
+	// The host name of the custom domain. Must be a domain name.
+	HostName *string `pulumi:"hostName"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Provisioning status of the custom domain.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the custom domain.
+	ResourceState *string `pulumi:"resourceState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+	ValidationData *string `pulumi:"validationData"`
 }
 
 type CustomDomainState struct {
+	// Provisioning status of Custom Https of the custom domain.
+	CustomHttpsProvisioningState pulumi.StringPtrInput
+	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+	CustomHttpsProvisioningSubstate pulumi.StringPtrInput
+	// The host name of the custom domain. Must be a domain name.
+	HostName pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Provisioning status of the custom domain.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the custom domain.
+	ResourceState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+	ValidationData pulumi.StringPtrInput
 }
 
 func (CustomDomainState) ElementType() reflect.Type {

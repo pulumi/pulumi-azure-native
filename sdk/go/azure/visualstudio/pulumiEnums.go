@@ -11,7 +11,7 @@ import (
 )
 
 // The type of the operation.
-type AccountResourceRequestOperationType string
+type AccountResourceRequestOperationType pulumi.String
 
 const (
 	AccountResourceRequestOperationTypeUnknown = AccountResourceRequestOperationType("unknown")
@@ -21,23 +21,7 @@ const (
 )
 
 func (AccountResourceRequestOperationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountResourceRequestOperationType)(nil)).Elem()
-}
-
-func (e AccountResourceRequestOperationType) ToAccountResourceRequestOperationTypeOutput() AccountResourceRequestOperationTypeOutput {
-	return pulumi.ToOutput(e).(AccountResourceRequestOperationTypeOutput)
-}
-
-func (e AccountResourceRequestOperationType) ToAccountResourceRequestOperationTypeOutputWithContext(ctx context.Context) AccountResourceRequestOperationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(AccountResourceRequestOperationTypeOutput)
-}
-
-func (e AccountResourceRequestOperationType) ToAccountResourceRequestOperationTypePtrOutput() AccountResourceRequestOperationTypePtrOutput {
-	return e.ToAccountResourceRequestOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (e AccountResourceRequestOperationType) ToAccountResourceRequestOperationTypePtrOutputWithContext(ctx context.Context) AccountResourceRequestOperationTypePtrOutput {
-	return AccountResourceRequestOperationType(e).ToAccountResourceRequestOperationTypeOutputWithContext(ctx).ToAccountResourceRequestOperationTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e AccountResourceRequestOperationType) ToStringOutput() pulumi.StringOutput {
@@ -54,130 +38,4 @@ func (e AccountResourceRequestOperationType) ToStringPtrOutput() pulumi.StringPt
 
 func (e AccountResourceRequestOperationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type AccountResourceRequestOperationTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountResourceRequestOperationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountResourceRequestOperationType)(nil)).Elem()
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToAccountResourceRequestOperationTypeOutput() AccountResourceRequestOperationTypeOutput {
-	return o
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToAccountResourceRequestOperationTypeOutputWithContext(ctx context.Context) AccountResourceRequestOperationTypeOutput {
-	return o
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToAccountResourceRequestOperationTypePtrOutput() AccountResourceRequestOperationTypePtrOutput {
-	return o.ToAccountResourceRequestOperationTypePtrOutputWithContext(context.Background())
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToAccountResourceRequestOperationTypePtrOutputWithContext(ctx context.Context) AccountResourceRequestOperationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountResourceRequestOperationType) *AccountResourceRequestOperationType {
-		return &v
-	}).(AccountResourceRequestOperationTypePtrOutput)
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountResourceRequestOperationType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccountResourceRequestOperationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccountResourceRequestOperationType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type AccountResourceRequestOperationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (AccountResourceRequestOperationTypePtrOutput) ElementType() reflect.Type {
-	return accountResourceRequestOperationTypePtrType
-}
-
-func (o AccountResourceRequestOperationTypePtrOutput) ToAccountResourceRequestOperationTypePtrOutput() AccountResourceRequestOperationTypePtrOutput {
-	return o
-}
-
-func (o AccountResourceRequestOperationTypePtrOutput) ToAccountResourceRequestOperationTypePtrOutputWithContext(ctx context.Context) AccountResourceRequestOperationTypePtrOutput {
-	return o
-}
-
-func (o AccountResourceRequestOperationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o AccountResourceRequestOperationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccountResourceRequestOperationType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AccountResourceRequestOperationTypePtrOutput) Elem() AccountResourceRequestOperationTypeOutput {
-	return o.ApplyT(func(v *AccountResourceRequestOperationType) AccountResourceRequestOperationType {
-		var ret AccountResourceRequestOperationType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(AccountResourceRequestOperationTypeOutput)
-}
-
-// AccountResourceRequestOperationTypeInput is an input type that accepts AccountResourceRequestOperationTypeArgs and AccountResourceRequestOperationTypeOutput values.
-// You can construct a concrete instance of `AccountResourceRequestOperationTypeInput` via:
-//
-//          AccountResourceRequestOperationTypeArgs{...}
-type AccountResourceRequestOperationTypeInput interface {
-	pulumi.Input
-
-	ToAccountResourceRequestOperationTypeOutput() AccountResourceRequestOperationTypeOutput
-	ToAccountResourceRequestOperationTypeOutputWithContext(context.Context) AccountResourceRequestOperationTypeOutput
-}
-
-var accountResourceRequestOperationTypePtrType = reflect.TypeOf((**AccountResourceRequestOperationType)(nil)).Elem()
-
-type AccountResourceRequestOperationTypePtrInput interface {
-	pulumi.Input
-
-	ToAccountResourceRequestOperationTypePtrOutput() AccountResourceRequestOperationTypePtrOutput
-	ToAccountResourceRequestOperationTypePtrOutputWithContext(context.Context) AccountResourceRequestOperationTypePtrOutput
-}
-
-type accountResourceRequestOperationTypePtr string
-
-func AccountResourceRequestOperationTypePtr(v string) AccountResourceRequestOperationTypePtrInput {
-	return (*accountResourceRequestOperationTypePtr)(&v)
-}
-
-func (*accountResourceRequestOperationTypePtr) ElementType() reflect.Type {
-	return accountResourceRequestOperationTypePtrType
-}
-
-func (in *accountResourceRequestOperationTypePtr) ToAccountResourceRequestOperationTypePtrOutput() AccountResourceRequestOperationTypePtrOutput {
-	return pulumi.ToOutput(in).(AccountResourceRequestOperationTypePtrOutput)
-}
-
-func (in *accountResourceRequestOperationTypePtr) ToAccountResourceRequestOperationTypePtrOutputWithContext(ctx context.Context) AccountResourceRequestOperationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(AccountResourceRequestOperationTypePtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(AccountResourceRequestOperationTypeOutput{})
-	pulumi.RegisterOutputType(AccountResourceRequestOperationTypePtrOutput{})
 }

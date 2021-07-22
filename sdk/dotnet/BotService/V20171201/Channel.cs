@@ -150,7 +150,7 @@ namespace Pulumi.AzureNative.BotService.V20171201
         /// The set of properties specific to bot channel resource
         /// </summary>
         [Input("properties")]
-        public object? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.

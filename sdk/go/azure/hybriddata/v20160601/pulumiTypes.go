@@ -13,7 +13,7 @@ import (
 // The pair of customer secret.
 type CustomerSecret struct {
 	// The encryption algorithm used to encrypt data.
-	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
+	Algorithm string `pulumi:"algorithm"`
 	// The identifier to the data service input object which this secret corresponds to.
 	KeyIdentifier string `pulumi:"keyIdentifier"`
 	// It contains the encrypted customer secret.
@@ -34,7 +34,7 @@ type CustomerSecretInput interface {
 // The pair of customer secret.
 type CustomerSecretArgs struct {
 	// The encryption algorithm used to encrypt data.
-	Algorithm SupportedAlgorithmInput `pulumi:"algorithm"`
+	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
 	// The identifier to the data service input object which this secret corresponds to.
 	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
 	// It contains the encrypted customer secret.
@@ -94,8 +94,8 @@ func (o CustomerSecretOutput) ToCustomerSecretOutputWithContext(ctx context.Cont
 }
 
 // The encryption algorithm used to encrypt data.
-func (o CustomerSecretOutput) Algorithm() SupportedAlgorithmOutput {
-	return o.ApplyT(func(v CustomerSecret) SupportedAlgorithm { return v.Algorithm }).(SupportedAlgorithmOutput)
+func (o CustomerSecretOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerSecret) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
 // The identifier to the data service input object which this secret corresponds to.

@@ -10,9 +10,9 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ConfigDiagnosticsValidatorResultIssueArgs',
-    'ConfigDiagnosticsValidatorResultArgs',
     'ConfigDiagnosticsArgs',
+    'ConfigDiagnosticsValidatorResultArgs',
+    'ConfigDiagnosticsValidatorResultIssueArgs',
     'DomainSecuritySettingsArgs',
     'ForestTrustArgs',
     'LdapsSettingsArgs',
@@ -22,43 +22,43 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ConfigDiagnosticsValidatorResultIssueArgs:
+class ConfigDiagnosticsArgs:
     def __init__(__self__, *,
-                 description_params: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 id: Optional[pulumi.Input[str]] = None):
+                 last_executed: Optional[pulumi.Input[str]] = None,
+                 validator_results: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None):
         """
-        Specific issue for a particular config diagnostics validator
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] description_params: List of domain resource property name or values used to compose a rich description.
-        :param pulumi.Input[str] id: Validation issue identifier.
+        Configuration Diagnostics
+        :param pulumi.Input[str] last_executed: Last domain configuration diagnostics DateTime
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
         """
-        if description_params is not None:
-            pulumi.set(__self__, "description_params", description_params)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        if last_executed is not None:
+            pulumi.set(__self__, "last_executed", last_executed)
+        if validator_results is not None:
+            pulumi.set(__self__, "validator_results", validator_results)
 
     @property
-    @pulumi.getter(name="descriptionParams")
-    def description_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    @pulumi.getter(name="lastExecuted")
+    def last_executed(self) -> Optional[pulumi.Input[str]]:
         """
-        List of domain resource property name or values used to compose a rich description.
+        Last domain configuration diagnostics DateTime
         """
-        return pulumi.get(self, "description_params")
+        return pulumi.get(self, "last_executed")
 
-    @description_params.setter
-    def description_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "description_params", value)
+    @last_executed.setter
+    def last_executed(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_executed", value)
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="validatorResults")
+    def validator_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]:
         """
-        Validation issue identifier.
+        List of Configuration Diagnostics validator results.
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "validator_results")
 
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
+    @validator_results.setter
+    def validator_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]):
+        pulumi.set(self, "validator_results", value)
 
 
 @pulumi.input_type
@@ -136,43 +136,43 @@ class ConfigDiagnosticsValidatorResultArgs:
 
 
 @pulumi.input_type
-class ConfigDiagnosticsArgs:
+class ConfigDiagnosticsValidatorResultIssueArgs:
     def __init__(__self__, *,
-                 last_executed: Optional[pulumi.Input[str]] = None,
-                 validator_results: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]] = None):
+                 description_params: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 id: Optional[pulumi.Input[str]] = None):
         """
-        Configuration Diagnostics
-        :param pulumi.Input[str] last_executed: Last domain configuration diagnostics DateTime
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]] validator_results: List of Configuration Diagnostics validator results.
+        Specific issue for a particular config diagnostics validator
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] description_params: List of domain resource property name or values used to compose a rich description.
+        :param pulumi.Input[str] id: Validation issue identifier.
         """
-        if last_executed is not None:
-            pulumi.set(__self__, "last_executed", last_executed)
-        if validator_results is not None:
-            pulumi.set(__self__, "validator_results", validator_results)
+        if description_params is not None:
+            pulumi.set(__self__, "description_params", description_params)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
-    @pulumi.getter(name="lastExecuted")
-    def last_executed(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="descriptionParams")
+    def description_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Last domain configuration diagnostics DateTime
+        List of domain resource property name or values used to compose a rich description.
         """
-        return pulumi.get(self, "last_executed")
+        return pulumi.get(self, "description_params")
 
-    @last_executed.setter
-    def last_executed(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_executed", value)
+    @description_params.setter
+    def description_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "description_params", value)
 
     @property
-    @pulumi.getter(name="validatorResults")
-    def validator_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]:
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
-        List of Configuration Diagnostics validator results.
+        Validation issue identifier.
         """
-        return pulumi.get(self, "validator_results")
+        return pulumi.get(self, "id")
 
-    @validator_results.setter
-    def validator_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigDiagnosticsValidatorResultArgs']]]]):
-        pulumi.set(self, "validator_results", value)
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

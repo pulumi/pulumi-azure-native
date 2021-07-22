@@ -25,10 +25,10 @@ __all__ = [
     'DiskEncryptionSettingsArgs',
     'DiskSecurityProfileArgs',
     'DiskSkuArgs',
+    'EncryptionArgs',
     'EncryptionSetIdentityArgs',
     'EncryptionSettingsCollectionArgs',
     'EncryptionSettingsElementArgs',
-    'EncryptionArgs',
     'ExtendedLocationArgs',
     'HardwareProfileArgs',
     'ImageDataDiskArgs',
@@ -75,19 +75,19 @@ __all__ = [
     'VirtualMachineIdentityArgs',
     'VirtualMachineRunCommandScriptSourceArgs',
     'VirtualMachineScaleSetDataDiskArgs',
-    'VirtualMachineScaleSetExtensionProfileArgs',
     'VirtualMachineScaleSetExtensionArgs',
+    'VirtualMachineScaleSetExtensionProfileArgs',
     'VirtualMachineScaleSetIPConfigurationArgs',
     'VirtualMachineScaleSetIdentityArgs',
     'VirtualMachineScaleSetIpTagArgs',
     'VirtualMachineScaleSetManagedDiskParametersArgs',
-    'VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs',
     'VirtualMachineScaleSetNetworkConfigurationArgs',
+    'VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs',
     'VirtualMachineScaleSetNetworkProfileArgs',
     'VirtualMachineScaleSetOSDiskArgs',
     'VirtualMachineScaleSetOSProfileArgs',
-    'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs',
     'VirtualMachineScaleSetPublicIPAddressConfigurationArgs',
+    'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs',
     'VirtualMachineScaleSetStorageProfileArgs',
     'VirtualMachineScaleSetVMNetworkProfileConfigurationArgs',
     'VirtualMachineScaleSetVMProfileArgs',
@@ -871,6 +871,46 @@ class DiskSkuArgs:
 
 
 @pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None):
+        """
+        Encryption at rest settings for disk or snapshot
+        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
+        :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
+        """
+        The type of key used to encrypt the data of the disk.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class EncryptionSetIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetIdentityType']]] = None):
@@ -987,46 +1027,6 @@ class EncryptionSettingsElementArgs:
     @key_encryption_key.setter
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultAndKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
-
-
-@pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None):
-        """
-        Encryption at rest settings for disk or snapshot
-        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
-        :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
-        """
-        if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ResourceId of the disk encryption set to use for enabling encryption at rest.
-        """
-        return pulumi.get(self, "disk_encryption_set_id")
-
-    @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_encryption_set_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
-        """
-        The type of key used to encrypt the data of the disk.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -3694,46 +3694,6 @@ class VirtualMachineScaleSetDataDiskArgs:
 
 
 @pulumi.input_type
-class VirtualMachineScaleSetExtensionProfileArgs:
-    def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a virtual machine scale set extension profile.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
-        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
-        """
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
-        if extensions_time_budget is not None:
-            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
-        """
-        The virtual machine scale set child extension resources.
-        """
-        return pulumi.get(self, "extensions")
-
-    @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
-        pulumi.set(self, "extensions", value)
-
-    @property
-    @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
-        """
-        return pulumi.get(self, "extensions_time_budget")
-
-    @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "extensions_time_budget", value)
-
-
-@pulumi.input_type
 class VirtualMachineScaleSetExtensionArgs:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
@@ -3899,6 +3859,46 @@ class VirtualMachineScaleSetExtensionArgs:
     @type_handler_version.setter
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
+
+
+@pulumi.input_type
+class VirtualMachineScaleSetExtensionProfileArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None,
+                 extensions_time_budget: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a virtual machine scale set extension profile.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if extensions_time_budget is not None:
+            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
+        """
+        The virtual machine scale set child extension resources.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
+    @pulumi.getter(name="extensionsTimeBudget")
+    def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
+        """
+        return pulumi.get(self, "extensions_time_budget")
+
+    @extensions_time_budget.setter
+    def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extensions_time_budget", value)
 
 
 @pulumi.input_type
@@ -4189,30 +4189,6 @@ class VirtualMachineScaleSetManagedDiskParametersArgs:
 
 
 @pulumi.input_type
-class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
-    def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Describes a virtual machines scale sets network configuration's DNS settings.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
-        """
-        if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of DNS servers IP addresses
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dns_servers", value)
-
-
-@pulumi.input_type
 class VirtualMachineScaleSetNetworkConfigurationArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]],
@@ -4360,6 +4336,30 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     @primary.setter
     def primary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "primary", value)
+
+
+@pulumi.input_type
+class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DNS servers IP addresses
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
 
 
 @pulumi.input_type
@@ -4690,29 +4690,6 @@ class VirtualMachineScaleSetOSProfileArgs:
 
 
 @pulumi.input_type
-class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
-    def __init__(__self__, *,
-                 domain_name_label: pulumi.Input[str]):
-        """
-        Describes a virtual machines scale sets network configuration's DNS settings.
-        :param pulumi.Input[str] domain_name_label: The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-        """
-        pulumi.set(__self__, "domain_name_label", domain_name_label)
-
-    @property
-    @pulumi.getter(name="domainNameLabel")
-    def domain_name_label(self) -> pulumi.Input[str]:
-        """
-        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-        """
-        return pulumi.get(self, "domain_name_label")
-
-    @domain_name_label.setter
-    def domain_name_label(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name_label", value)
-
-
-@pulumi.input_type
 class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -4813,6 +4790,29 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     @public_ip_prefix.setter
     def public_ip_prefix(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "public_ip_prefix", value)
+
+
+@pulumi.input_type
+class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
+    def __init__(__self__, *,
+                 domain_name_label: pulumi.Input[str]):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        :param pulumi.Input[str] domain_name_label: The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+        pulumi.set(__self__, "domain_name_label", domain_name_label)
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> pulumi.Input[str]:
+        """
+        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @domain_name_label.setter
+    def domain_name_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name_label", value)
 
 
 @pulumi.input_type

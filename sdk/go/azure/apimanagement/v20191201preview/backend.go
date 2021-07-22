@@ -152,9 +152,53 @@ func GetBackend(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Backend resources.
 type backendState struct {
+	// Backend Credentials Contract Properties
+	Credentials *BackendCredentialsContractResponse `pulumi:"credentials"`
+	// Backend Description.
+	Description *string `pulumi:"description"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Backend Properties contract
+	Properties *BackendPropertiesResponse `pulumi:"properties"`
+	// Backend communication protocol.
+	Protocol *string `pulumi:"protocol"`
+	// Backend Proxy Contract Properties
+	Proxy *BackendProxyContractResponse `pulumi:"proxy"`
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	ResourceId *string `pulumi:"resourceId"`
+	// Backend Title.
+	Title *string `pulumi:"title"`
+	// Backend TLS Properties
+	Tls *BackendTlsPropertiesResponse `pulumi:"tls"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
+	// Runtime Url of the Backend.
+	Url *string `pulumi:"url"`
 }
 
 type BackendState struct {
+	// Backend Credentials Contract Properties
+	Credentials BackendCredentialsContractResponsePtrInput
+	// Backend Description.
+	Description pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Backend Properties contract
+	Properties BackendPropertiesResponsePtrInput
+	// Backend communication protocol.
+	Protocol pulumi.StringPtrInput
+	// Backend Proxy Contract Properties
+	Proxy BackendProxyContractResponsePtrInput
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	ResourceId pulumi.StringPtrInput
+	// Backend Title.
+	Title pulumi.StringPtrInput
+	// Backend TLS Properties
+	Tls BackendTlsPropertiesResponsePtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
+	// Runtime Url of the Backend.
+	Url pulumi.StringPtrInput
 }
 
 func (BackendState) ElementType() reflect.Type {

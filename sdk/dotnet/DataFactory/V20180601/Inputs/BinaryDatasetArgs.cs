@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The data compression method used for the binary dataset.
         /// </summary>
         [Input("compression")]
-        public object? Compression { get; set; }
+        public Input<object>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The location of the Binary storage.
         /// </summary>
         [Input("location", required: true)]
-        public object Location { get; set; } = null!;
+        public Input<object> Location { get; set; } = null!;
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

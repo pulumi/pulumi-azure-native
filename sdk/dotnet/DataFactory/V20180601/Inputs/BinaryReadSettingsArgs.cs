@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// Compression settings.
         /// </summary>
         [Input("compressionProperties")]
-        public object? CompressionProperties { get; set; }
+        public Input<object>? CompressionProperties { get; set; }
 
         /// <summary>
         /// The read setting type.

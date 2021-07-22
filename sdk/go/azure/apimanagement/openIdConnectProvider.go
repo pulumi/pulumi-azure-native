@@ -148,9 +148,37 @@ func GetOpenIdConnectProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenIdConnectProvider resources.
 type openIdConnectProviderState struct {
+	// Client ID of developer console which is the client application.
+	ClientId *string `pulumi:"clientId"`
+	// Client Secret of developer console which is the client application.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// User-friendly description of OpenID Connect Provider.
+	Description *string `pulumi:"description"`
+	// User-friendly OpenID Connect Provider name.
+	DisplayName *string `pulumi:"displayName"`
+	// Metadata endpoint URI.
+	MetadataEndpoint *string `pulumi:"metadataEndpoint"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
 }
 
 type OpenIdConnectProviderState struct {
+	// Client ID of developer console which is the client application.
+	ClientId pulumi.StringPtrInput
+	// Client Secret of developer console which is the client application.
+	ClientSecret pulumi.StringPtrInput
+	// User-friendly description of OpenID Connect Provider.
+	Description pulumi.StringPtrInput
+	// User-friendly OpenID Connect Provider name.
+	DisplayName pulumi.StringPtrInput
+	// Metadata endpoint URI.
+	MetadataEndpoint pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
 }
 
 func (OpenIdConnectProviderState) ElementType() reflect.Type {

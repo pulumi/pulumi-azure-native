@@ -69,6 +69,9 @@ func NewVolume(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
+	if args.UsageThreshold == nil {
+		return nil, errors.New("invalid value for required argument 'UsageThreshold'")
+	}
 	if args.ServiceLevel == nil {
 		args.ServiceLevel = pulumi.StringPtr("Premium")
 	}
@@ -217,9 +220,69 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
+	// Unique Baremetal Tenant Identifier.
+	BaremetalTenantId *string `pulumi:"baremetalTenantId"`
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken *string `pulumi:"creationToken"`
+	// Set of export policy rules
+	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
+	// Unique FileSystem Identifier.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// List of mount targets
+	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Set of protocol types
+	ProtocolTypes []string `pulumi:"protocolTypes"`
+	// Azure lifecycle management
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// UUID v4 used to identify the Snapshot
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId *string `pulumi:"subnetId"`
+	// Resource tags
+	Tags interface{} `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold *float64 `pulumi:"usageThreshold"`
 }
 
 type VolumeState struct {
+	// Unique Baremetal Tenant Identifier.
+	BaremetalTenantId pulumi.StringPtrInput
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken pulumi.StringPtrInput
+	// Set of export policy rules
+	ExportPolicy VolumePropertiesResponseExportPolicyPtrInput
+	// Unique FileSystem Identifier.
+	FileSystemId pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// List of mount targets
+	MountTargets MountTargetPropertiesResponseArrayInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Set of protocol types
+	ProtocolTypes pulumi.StringArrayInput
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringPtrInput
+	// The service level of the file system
+	ServiceLevel pulumi.StringPtrInput
+	// UUID v4 used to identify the Snapshot
+	SnapshotId pulumi.StringPtrInput
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.Input
+	// Resource type
+	Type pulumi.StringPtrInput
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold pulumi.Float64PtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {

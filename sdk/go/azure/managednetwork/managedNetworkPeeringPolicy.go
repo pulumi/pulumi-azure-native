@@ -73,9 +73,25 @@ func GetManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedNetworkPeeringPolicy resources.
 type managedNetworkPeeringPolicyState struct {
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Gets or sets the properties of a Managed Network Policy
+	Properties *ManagedNetworkPeeringPolicyPropertiesResponse `pulumi:"properties"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type *string `pulumi:"type"`
 }
 
 type ManagedNetworkPeeringPolicyState struct {
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Gets or sets the properties of a Managed Network Policy
+	Properties ManagedNetworkPeeringPolicyPropertiesResponsePtrInput
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringPtrInput
 }
 
 func (ManagedNetworkPeeringPolicyState) ElementType() reflect.Type {

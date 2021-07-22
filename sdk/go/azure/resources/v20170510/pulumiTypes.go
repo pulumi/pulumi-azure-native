@@ -740,7 +740,7 @@ type DeploymentProperties struct {
 	// The debug setting of the deployment.
 	DebugSetting *DebugSetting `pulumi:"debugSetting"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode DeploymentMode `pulumi:"mode"`
+	Mode string `pulumi:"mode"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
 	Parameters interface{} `pulumi:"parameters"`
 	// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -767,7 +767,7 @@ type DeploymentPropertiesArgs struct {
 	// The debug setting of the deployment.
 	DebugSetting DebugSettingPtrInput `pulumi:"debugSetting"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode DeploymentModeInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
 	Parameters pulumi.Input `pulumi:"parameters"`
 	// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
@@ -862,8 +862,8 @@ func (o DeploymentPropertiesOutput) DebugSetting() DebugSettingPtrOutput {
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-func (o DeploymentPropertiesOutput) Mode() DeploymentModeOutput {
-	return o.ApplyT(func(v DeploymentProperties) DeploymentMode { return v.Mode }).(DeploymentModeOutput)
+func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 // Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -915,13 +915,13 @@ func (o DeploymentPropertiesPtrOutput) DebugSetting() DebugSettingPtrOutput {
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
+func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Mode
-	}).(DeploymentModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -1310,7 +1310,7 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) Timestamp() pulumi.String
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1327,7 +1327,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1409,8 +1409,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -1432,13 +1432,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Identity for the resource.

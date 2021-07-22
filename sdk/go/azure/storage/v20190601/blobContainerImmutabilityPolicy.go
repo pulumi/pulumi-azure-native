@@ -133,9 +133,33 @@ func GetBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobContainerImmutabilityPolicy resources.
 type blobContainerImmutabilityPolicyState struct {
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	AllowProtectedAppendWrites *bool `pulumi:"allowProtectedAppendWrites"`
+	// Resource Etag.
+	Etag *string `pulumi:"etag"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State *string `pulumi:"state"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type BlobContainerImmutabilityPolicyState struct {
+	// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+	AllowProtectedAppendWrites pulumi.BoolPtrInput
+	// Resource Etag.
+	Etag pulumi.StringPtrInput
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (BlobContainerImmutabilityPolicyState) ElementType() reflect.Type {

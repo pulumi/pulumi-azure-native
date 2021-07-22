@@ -130,9 +130,87 @@ func GetScheduledQueryRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledQueryRule resources.
 type scheduledQueryRuleState struct {
+	Actions []ActionResponse `pulumi:"actions"`
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion *string `pulumi:"createdWithApiVersion"`
+	// The rule criteria that defines the conditions of the scheduled query rule.
+	Criteria *ScheduledQueryRuleCriteriaResponse `pulumi:"criteria"`
+	// The description of the scheduled query rule.
+	Description *string `pulumi:"description"`
+	// The display name of the alert rule
+	DisplayName *string `pulumi:"displayName"`
+	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+	Enabled *bool `pulumi:"enabled"`
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag *string `pulumi:"etag"`
+	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency *string `pulumi:"evaluationFrequency"`
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule *bool `pulumi:"isLegacyLogAnalyticsRule"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+	MuteActionsDuration *string `pulumi:"muteActionsDuration"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange *string `pulumi:"overrideQueryTimeRange"`
+	// The list of resource id's that this scheduled query rule is scoped to.
+	Scopes []string `pulumi:"scopes"`
+	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+	Severity *float64 `pulumi:"severity"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+	TargetResourceTypes []string `pulumi:"targetResourceTypes"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
+	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+	WindowSize *string `pulumi:"windowSize"`
 }
 
 type ScheduledQueryRuleState struct {
+	Actions ActionResponseArrayInput
+	// The api-version used when creating this alert rule
+	CreatedWithApiVersion pulumi.StringPtrInput
+	// The rule criteria that defines the conditions of the scheduled query rule.
+	Criteria ScheduledQueryRuleCriteriaResponsePtrInput
+	// The description of the scheduled query rule.
+	Description pulumi.StringPtrInput
+	// The display name of the alert rule
+	DisplayName pulumi.StringPtrInput
+	// The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
+	Enabled pulumi.BoolPtrInput
+	// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
+	Etag pulumi.StringPtrInput
+	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency pulumi.StringPtrInput
+	// True if alert rule is legacy Log Analytic rule
+	IsLegacyLogAnalyticsRule pulumi.BoolPtrInput
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+	Kind pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.
+	MuteActionsDuration pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods)
+	OverrideQueryTimeRange pulumi.StringPtrInput
+	// The list of resource id's that this scheduled query rule is scoped to.
+	Scopes pulumi.StringArrayInput
+	// Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+	Severity pulumi.Float64PtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
+	TargetResourceTypes pulumi.StringArrayInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
+	// The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
+	WindowSize pulumi.StringPtrInput
 }
 
 func (ScheduledQueryRuleState) ElementType() reflect.Type {

@@ -1273,7 +1273,7 @@ func (o CorrelationFilterResponsePtrOutput) To() pulumi.StringPtrOutput {
 // Properties to configure Encryption
 type Encryption struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource *KeySource `pulumi:"keySource"`
+	KeySource *string `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties []KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// Enable Infrastructure Encryption (Double Encryption)
@@ -1294,7 +1294,7 @@ type EncryptionInput interface {
 // Properties to configure Encryption
 type EncryptionArgs struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySourcePtrInput `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
 	// Enable Infrastructure Encryption (Double Encryption)
@@ -1380,8 +1380,8 @@ func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) 
 }
 
 // Enumerates the possible value of keySource for Encryption
-func (o EncryptionOutput) KeySource() KeySourcePtrOutput {
-	return o.ApplyT(func(v Encryption) *KeySource { return v.KeySource }).(KeySourcePtrOutput)
+func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
 // Properties of KeyVault
@@ -1413,13 +1413,13 @@ func (o EncryptionPtrOutput) Elem() EncryptionOutput {
 }
 
 // Enumerates the possible value of keySource for Encryption
-func (o EncryptionPtrOutput) KeySource() KeySourcePtrOutput {
-	return o.ApplyT(func(v *Encryption) *KeySource {
+func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
 			return nil
 		}
 		return v.KeySource
-	}).(KeySourcePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties of KeyVault
@@ -1617,7 +1617,7 @@ func (o EncryptionResponsePtrOutput) RequireInfrastructureEncryption() pulumi.Bo
 // Properties to configure User Assigned Identities for Bring your Own Keys
 type Identity struct {
 	// Type of managed service identity.
-	Type *ManagedServiceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Properties for User Assigned Identities
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -1636,7 +1636,7 @@ type IdentityInput interface {
 // Properties to configure User Assigned Identities for Bring your Own Keys
 type IdentityArgs struct {
 	// Type of managed service identity.
-	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	Type *ManagedServiceIdentityType `pulumi:"type"`
 	// Properties for User Assigned Identities
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -1720,8 +1720,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // Type of managed service identity.
-func (o IdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Properties for User Assigned Identities
@@ -1748,13 +1748,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // Type of managed service identity.
-func (o IdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ManagedServiceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ManagedServiceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties for User Assigned Identities
@@ -3743,9 +3743,9 @@ type SBSku struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity *int `pulumi:"capacity"`
 	// Name of this SKU.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier *SkuTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // SBSkuInput is an input type that accepts SBSkuArgs and SBSkuOutput values.
@@ -3764,9 +3764,9 @@ type SBSkuArgs struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of this SKU.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier SkuTierPtrInput `pulumi:"tier"`
+	Tier *SkuTier `pulumi:"tier"`
 }
 
 func (SBSkuArgs) ElementType() reflect.Type {
@@ -3853,13 +3853,13 @@ func (o SBSkuOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // Name of this SKU.
-func (o SBSkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v SBSku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SBSkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SBSku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The billing tier of this particular SKU.
-func (o SBSkuOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v SBSku) *SkuTier { return v.Tier }).(SkuTierPtrOutput)
+func (o SBSkuOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SBSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type SBSkuPtrOutput struct{ *pulumi.OutputState }
@@ -3891,23 +3891,23 @@ func (o SBSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // Name of this SKU.
-func (o SBSkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *SBSku) *SkuName {
+func (o SBSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SBSku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The billing tier of this particular SKU.
-func (o SBSkuPtrOutput) Tier() SkuTierPtrOutput {
-	return o.ApplyT(func(v *SBSku) *SkuTier {
+func (o SBSkuPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SBSku) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(SkuTierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU of the namespace.

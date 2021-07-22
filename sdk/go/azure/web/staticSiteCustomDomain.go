@@ -95,9 +95,39 @@ func GetStaticSiteCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticSiteCustomDomain resources.
 type staticSiteCustomDomainState struct {
+	// The date and time on which the custom domain was created for the static site.
+	CreatedOn *string `pulumi:"createdOn"`
+	// The domain name for the static site custom domain.
+	DomainName   *string `pulumi:"domainName"`
+	ErrorMessage *string `pulumi:"errorMessage"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// The status of the custom domain
+	Status *string `pulumi:"status"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The TXT record validation token
+	ValidationToken *string `pulumi:"validationToken"`
 }
 
 type StaticSiteCustomDomainState struct {
+	// The date and time on which the custom domain was created for the static site.
+	CreatedOn pulumi.StringPtrInput
+	// The domain name for the static site custom domain.
+	DomainName   pulumi.StringPtrInput
+	ErrorMessage pulumi.StringPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// The status of the custom domain
+	Status pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The TXT record validation token
+	ValidationToken pulumi.StringPtrInput
 }
 
 func (StaticSiteCustomDomainState) ElementType() reflect.Type {

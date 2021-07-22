@@ -71,9 +71,25 @@ func GetVendor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vendor resources.
 type vendorState struct {
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provisioning state of the vendor resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// A list of IDs of the vendor skus offered by the vendor.
+	Skus []SubResourceResponse `pulumi:"skus"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type VendorState struct {
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provisioning state of the vendor resource.
+	ProvisioningState pulumi.StringPtrInput
+	// A list of IDs of the vendor skus offered by the vendor.
+	Skus SubResourceResponseArrayInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (VendorState) ElementType() reflect.Type {

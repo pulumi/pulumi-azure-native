@@ -24,11 +24,8 @@ class AssessmentStatusCode(str, Enum):
     Programmatic code for the status of the assessment
     """
     HEALTHY = "Healthy"
-    """The resource is healthy"""
     UNHEALTHY = "Unhealthy"
-    """The resource has a security issue that needs to be addressed"""
     NOT_APPLICABLE = "NotApplicable"
-    """Assessment for this resource did not happen"""
 
 
 class AssessmentType(str, Enum):
@@ -36,13 +33,9 @@ class AssessmentType(str, Enum):
     BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
     """
     BUILT_IN = "BuiltIn"
-    """Azure Security Center managed assessments"""
     CUSTOM_POLICY = "CustomPolicy"
-    """User defined policies that are automatically ingested from Azure Policy to Azure Security Center"""
     CUSTOMER_MANAGED = "CustomerManaged"
-    """User assessments pushed directly by the user or other third party to Azure Security Center"""
     VERIFIED_PARTNER = "VerifiedPartner"
-    """An assessment that was created by a verified 3rd party if the user connected it to ASC"""
 
 
 class Categories(str, Enum):
@@ -85,11 +78,8 @@ class Source(str, Enum):
     The platform where the assessed resource resides
     """
     AZURE = "Azure"
-    """Resource is in Azure"""
     ON_PREMISE = "OnPremise"
-    """Resource in an on premise machine connected to Azure cloud"""
     ON_PREMISE_SQL = "OnPremiseSql"
-    """SQL Resource in an on premise machine connected to Azure cloud"""
 
 
 class Status(str, Enum):

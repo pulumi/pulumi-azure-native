@@ -77,9 +77,33 @@ func GetWorkloadNetworkPublicIP(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkPublicIP resources.
 type workloadNetworkPublicIPState struct {
+	// Display name of the Public IP Block.
+	DisplayName *string `pulumi:"displayName"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Number of Public IPs requested.
+	NumberOfPublicIPs *float64 `pulumi:"numberOfPublicIPs"`
+	// The provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// CIDR Block of the Public IP Block.
+	PublicIPBlock *string `pulumi:"publicIPBlock"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkPublicIPState struct {
+	// Display name of the Public IP Block.
+	DisplayName pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Number of Public IPs requested.
+	NumberOfPublicIPs pulumi.Float64PtrInput
+	// The provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// CIDR Block of the Public IP Block.
+	PublicIPBlock pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkPublicIPState) ElementType() reflect.Type {

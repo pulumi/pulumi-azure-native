@@ -1885,7 +1885,7 @@ func (o MpnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
 // SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRuleProperties struct {
 	// The rights associated with the rule.
-	Rights []AccessRights `pulumi:"rights"`
+	Rights []string `pulumi:"rights"`
 }
 
 // SharedAccessAuthorizationRulePropertiesInput is an input type that accepts SharedAccessAuthorizationRulePropertiesArgs and SharedAccessAuthorizationRulePropertiesOutput values.
@@ -2009,8 +2009,8 @@ func (o SharedAccessAuthorizationRulePropertiesOutput) ToSharedAccessAuthorizati
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []AccessRights { return v.Rights }).(AccessRightsArrayOutput)
+func (o SharedAccessAuthorizationRulePropertiesOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleProperties) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2032,13 +2032,13 @@ func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Elem() SharedAccessAut
 }
 
 // The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() AccessRightsArrayOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []AccessRights {
+func (o SharedAccessAuthorizationRulePropertiesPtrOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SharedAccessAuthorizationRuleProperties) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Rights
-	}).(AccessRightsArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 type SharedAccessAuthorizationRulePropertiesArrayOutput struct{ *pulumi.OutputState }

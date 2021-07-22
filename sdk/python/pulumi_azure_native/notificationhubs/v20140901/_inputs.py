@@ -10,22 +10,46 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AdmCredentialPropertiesArgs',
     'AdmCredentialArgs',
-    'ApnsCredentialPropertiesArgs',
+    'AdmCredentialPropertiesArgs',
     'ApnsCredentialArgs',
-    'BaiduCredentialPropertiesArgs',
+    'ApnsCredentialPropertiesArgs',
     'BaiduCredentialArgs',
-    'GcmCredentialPropertiesArgs',
+    'BaiduCredentialPropertiesArgs',
     'GcmCredentialArgs',
-    'MpnsCredentialPropertiesArgs',
+    'GcmCredentialPropertiesArgs',
     'MpnsCredentialArgs',
+    'MpnsCredentialPropertiesArgs',
     'NamespacePropertiesArgs',
     'NotificationHubPropertiesArgs',
     'SharedAccessAuthorizationRulePropertiesArgs',
-    'WnsCredentialPropertiesArgs',
     'WnsCredentialArgs',
+    'WnsCredentialPropertiesArgs',
 ]
+
+@pulumi.input_type
+class AdmCredentialArgs:
+    def __init__(__self__, *,
+                 properties: Optional[pulumi.Input['AdmCredentialPropertiesArgs']] = None):
+        """
+        Description of a NotificationHub AdmCredential.
+        :param pulumi.Input['AdmCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub AdmCredential.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AdmCredentialPropertiesArgs']]:
+        """
+        Gets or sets properties of NotificationHub AdmCredential.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AdmCredentialPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
 
 @pulumi.input_type
 class AdmCredentialPropertiesArgs:
@@ -84,26 +108,26 @@ class AdmCredentialPropertiesArgs:
 
 
 @pulumi.input_type
-class AdmCredentialArgs:
+class ApnsCredentialArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['AdmCredentialPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['ApnsCredentialPropertiesArgs']] = None):
         """
-        Description of a NotificationHub AdmCredential.
-        :param pulumi.Input['AdmCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub AdmCredential.
+        Description of a NotificationHub ApnsCredential.
+        :param pulumi.Input['ApnsCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub ApnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AdmCredentialPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ApnsCredentialPropertiesArgs']]:
         """
-        Gets or sets properties of NotificationHub AdmCredential.
+        Gets or sets properties of NotificationHub ApnsCredential.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AdmCredentialPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ApnsCredentialPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -180,26 +204,26 @@ class ApnsCredentialPropertiesArgs:
 
 
 @pulumi.input_type
-class ApnsCredentialArgs:
+class BaiduCredentialArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['ApnsCredentialPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['BaiduCredentialPropertiesArgs']] = None):
         """
-        Description of a NotificationHub ApnsCredential.
-        :param pulumi.Input['ApnsCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub ApnsCredential.
+        Description of a NotificationHub BaiduCredential.
+        :param pulumi.Input['BaiduCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub BaiduCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ApnsCredentialPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['BaiduCredentialPropertiesArgs']]:
         """
-        Gets or sets properties of NotificationHub ApnsCredential.
+        Gets or sets properties of NotificationHub BaiduCredential.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ApnsCredentialPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['BaiduCredentialPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -260,26 +284,26 @@ class BaiduCredentialPropertiesArgs:
 
 
 @pulumi.input_type
-class BaiduCredentialArgs:
+class GcmCredentialArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['BaiduCredentialPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['GcmCredentialPropertiesArgs']] = None):
         """
-        Description of a NotificationHub BaiduCredential.
-        :param pulumi.Input['BaiduCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub BaiduCredential.
+        Description of a NotificationHub GcmCredential.
+        :param pulumi.Input['GcmCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub GcmCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BaiduCredentialPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['GcmCredentialPropertiesArgs']]:
         """
-        Gets or sets properties of NotificationHub BaiduCredential.
+        Gets or sets properties of NotificationHub GcmCredential.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BaiduCredentialPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['GcmCredentialPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -324,26 +348,26 @@ class GcmCredentialPropertiesArgs:
 
 
 @pulumi.input_type
-class GcmCredentialArgs:
+class MpnsCredentialArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['GcmCredentialPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['MpnsCredentialPropertiesArgs']] = None):
         """
-        Description of a NotificationHub GcmCredential.
-        :param pulumi.Input['GcmCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub GcmCredential.
+        Description of a NotificationHub MpnsCredential.
+        :param pulumi.Input['MpnsCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub MpnsCredential.
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['GcmCredentialPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['MpnsCredentialPropertiesArgs']]:
         """
-        Gets or sets properties of NotificationHub GcmCredential.
+        Gets or sets properties of NotificationHub MpnsCredential.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['GcmCredentialPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['MpnsCredentialPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -401,30 +425,6 @@ class MpnsCredentialPropertiesArgs:
     @thumbprint.setter
     def thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbprint", value)
-
-
-@pulumi.input_type
-class MpnsCredentialArgs:
-    def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['MpnsCredentialPropertiesArgs']] = None):
-        """
-        Description of a NotificationHub MpnsCredential.
-        :param pulumi.Input['MpnsCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub MpnsCredential.
-        """
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['MpnsCredentialPropertiesArgs']]:
-        """
-        Gets or sets properties of NotificationHub MpnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['MpnsCredentialPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -916,6 +916,30 @@ class SharedAccessAuthorizationRulePropertiesArgs:
 
 
 @pulumi.input_type
+class WnsCredentialArgs:
+    def __init__(__self__, *,
+                 properties: Optional[pulumi.Input['WnsCredentialPropertiesArgs']] = None):
+        """
+        Description of a NotificationHub WnsCredential.
+        :param pulumi.Input['WnsCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub WnsCredential.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['WnsCredentialPropertiesArgs']]:
+        """
+        Gets or sets properties of NotificationHub WnsCredential.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['WnsCredentialPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
 class WnsCredentialPropertiesArgs:
     def __init__(__self__, *,
                  package_sid: Optional[pulumi.Input[str]] = None,
@@ -969,29 +993,5 @@ class WnsCredentialPropertiesArgs:
     @windows_live_endpoint.setter
     def windows_live_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "windows_live_endpoint", value)
-
-
-@pulumi.input_type
-class WnsCredentialArgs:
-    def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['WnsCredentialPropertiesArgs']] = None):
-        """
-        Description of a NotificationHub WnsCredential.
-        :param pulumi.Input['WnsCredentialPropertiesArgs'] properties: Gets or sets properties of NotificationHub WnsCredential.
-        """
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['WnsCredentialPropertiesArgs']]:
-        """
-        Gets or sets properties of NotificationHub WnsCredential.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['WnsCredentialPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
 

@@ -79,9 +79,43 @@ func GetObjectAnchorsAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ObjectAnchorsAccount resources.
 type objectAnchorsAccountState struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain *string `pulumi:"accountDomain"`
+	// unique id of certain account.
+	AccountId *string                               `pulumi:"accountId"`
+	Identity  *ObjectAnchorsAccountResponseIdentity `pulumi:"identity"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The name of the storage account associated with this accountId
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The system metadata related to an object anchors account.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ObjectAnchorsAccountState struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain pulumi.StringPtrInput
+	// unique id of certain account.
+	AccountId pulumi.StringPtrInput
+	Identity  ObjectAnchorsAccountResponseIdentityPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The name of the storage account associated with this accountId
+	StorageAccountName pulumi.StringPtrInput
+	// The system metadata related to an object anchors account.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ObjectAnchorsAccountState) ElementType() reflect.Type {

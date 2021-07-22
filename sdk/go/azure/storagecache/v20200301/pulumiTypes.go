@@ -434,7 +434,7 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 // Cache identity properties.
 type CacheIdentity struct {
 	// The type of identity used for the cache
-	Type *CacheIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // CacheIdentityInput is an input type that accepts CacheIdentityArgs and CacheIdentityOutput values.
@@ -451,7 +451,7 @@ type CacheIdentityInput interface {
 // Cache identity properties.
 type CacheIdentityArgs struct {
 	// The type of identity used for the cache
-	Type CacheIdentityTypePtrInput `pulumi:"type"`
+	Type *CacheIdentityType `pulumi:"type"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {
@@ -533,8 +533,8 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
+func (o CacheIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type CacheIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -556,13 +556,13 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
-	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
+func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(CacheIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cache identity properties.

@@ -46,6 +46,9 @@ func NewPool(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.ServiceLevel == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceLevel'")
+	}
 	if args.Size == nil {
 		return nil, errors.New("invalid value for required argument 'Size'")
 	}
@@ -194,9 +197,41 @@ func GetPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pool resources.
 type poolState struct {
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// UUID v4 used to identify the Pool
+	PoolId *string `pulumi:"poolId"`
+	// Azure lifecycle management
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size *float64 `pulumi:"size"`
+	// Resource tags
+	Tags interface{} `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type PoolState struct {
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// UUID v4 used to identify the Pool
+	PoolId pulumi.StringPtrInput
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringPtrInput
+	// The service level of the file system
+	ServiceLevel pulumi.StringPtrInput
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size pulumi.Float64PtrInput
+	// Resource tags
+	Tags pulumi.Input
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (PoolState) ElementType() reflect.Type {

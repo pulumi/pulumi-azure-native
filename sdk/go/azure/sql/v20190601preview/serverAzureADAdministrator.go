@@ -123,9 +123,37 @@ func GetServerAzureADAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerAzureADAdministrator resources.
 type serverAzureADAdministratorState struct {
+	// Type of the sever administrator.
+	AdministratorType *string `pulumi:"administratorType"`
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
+	// Login name of the server administrator.
+	Login *string `pulumi:"login"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// SID (object ID) of the server administrator.
+	Sid *string `pulumi:"sid"`
+	// Tenant ID of the administrator.
+	TenantId *string `pulumi:"tenantId"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ServerAzureADAdministratorState struct {
+	// Type of the sever administrator.
+	AdministratorType pulumi.StringPtrInput
+	// Azure Active Directory only Authentication enabled.
+	AzureADOnlyAuthentication pulumi.BoolPtrInput
+	// Login name of the server administrator.
+	Login pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// SID (object ID) of the server administrator.
+	Sid pulumi.StringPtrInput
+	// Tenant ID of the administrator.
+	TenantId pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ServerAzureADAdministratorState) ElementType() reflect.Type {

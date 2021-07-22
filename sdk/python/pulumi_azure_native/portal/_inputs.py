@@ -12,12 +12,12 @@ from ._enums import *
 __all__ = [
     'ConsoleCreatePropertiesArgs',
     'DashboardLensArgs',
-    'DashboardPartsPositionArgs',
     'DashboardPartsArgs',
-    'MarkdownPartMetadataContentArgs',
-    'MarkdownPartMetadataSettingsSettingsArgs',
-    'MarkdownPartMetadataSettingsArgs',
+    'DashboardPartsPositionArgs',
     'MarkdownPartMetadataArgs',
+    'MarkdownPartMetadataContentArgs',
+    'MarkdownPartMetadataSettingsArgs',
+    'MarkdownPartMetadataSettingsSettingsArgs',
     'StorageProfileArgs',
     'TerminalSettingsArgs',
     'UserPropertiesArgs',
@@ -133,6 +133,45 @@ class DashboardLensArgs:
 
 
 @pulumi.input_type
+class DashboardPartsArgs:
+    def __init__(__self__, *,
+                 position: pulumi.Input['DashboardPartsPositionArgs'],
+                 metadata: Optional[pulumi.Input['MarkdownPartMetadataArgs']] = None):
+        """
+        A dashboard part.
+        :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
+        :param pulumi.Input['MarkdownPartMetadataArgs'] metadata: The dashboard part's metadata.
+        """
+        pulumi.set(__self__, "position", position)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @property
+    @pulumi.getter
+    def position(self) -> pulumi.Input['DashboardPartsPositionArgs']:
+        """
+        The dashboard's part position.
+        """
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: pulumi.Input['DashboardPartsPositionArgs']):
+        pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['MarkdownPartMetadataArgs']]:
+        """
+        The dashboard part's metadata.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['MarkdownPartMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+
+@pulumi.input_type
 class DashboardPartsPositionArgs:
     def __init__(__self__, *,
                  col_span: pulumi.Input[int],
@@ -217,42 +256,60 @@ class DashboardPartsPositionArgs:
 
 
 @pulumi.input_type
-class DashboardPartsArgs:
+class MarkdownPartMetadataArgs:
     def __init__(__self__, *,
-                 position: pulumi.Input['DashboardPartsPositionArgs'],
-                 metadata: Optional[pulumi.Input['MarkdownPartMetadataArgs']] = None):
+                 type: pulumi.Input[str],
+                 inputs: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']] = None):
         """
-        A dashboard part.
-        :param pulumi.Input['DashboardPartsPositionArgs'] position: The dashboard's part position.
-        :param pulumi.Input['MarkdownPartMetadataArgs'] metadata: The dashboard part's metadata.
+        Markdown part metadata.
+        :param pulumi.Input[str] type: The type of dashboard part.
+               Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
+        :param pulumi.Input[Sequence[Any]] inputs: Input to dashboard part.
+        :param pulumi.Input['MarkdownPartMetadataSettingsArgs'] settings: Markdown part settings.
         """
-        pulumi.set(__self__, "position", position)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+        pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
-    def position(self) -> pulumi.Input['DashboardPartsPositionArgs']:
+    def type(self) -> pulumi.Input[str]:
         """
-        The dashboard's part position.
+        The type of dashboard part.
+        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
         """
-        return pulumi.get(self, "position")
+        return pulumi.get(self, "type")
 
-    @position.setter
-    def position(self, value: pulumi.Input['DashboardPartsPositionArgs']):
-        pulumi.set(self, "position", value)
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['MarkdownPartMetadataArgs']]:
+    def inputs(self) -> Optional[pulumi.Input[Sequence[Any]]]:
         """
-        The dashboard part's metadata.
+        Input to dashboard part.
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "inputs")
 
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['MarkdownPartMetadataArgs']]):
-        pulumi.set(self, "metadata", value)
+    @inputs.setter
+    def inputs(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "inputs", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']]:
+        """
+        Markdown part settings.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']]):
+        pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type
@@ -277,6 +334,30 @@ class MarkdownPartMetadataContentArgs:
     @settings.setter
     def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsSettingsArgs']]):
         pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class MarkdownPartMetadataSettingsArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']] = None):
+        """
+        Markdown part settings.
+        :param pulumi.Input['MarkdownPartMetadataContentArgs'] content: The content of markdown part.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]:
+        """
+        The content of markdown part.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]):
+        pulumi.set(self, "content", value)
 
 
 @pulumi.input_type
@@ -365,87 +446,6 @@ class MarkdownPartMetadataSettingsSettingsArgs:
     @title.setter
     def title(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "title", value)
-
-
-@pulumi.input_type
-class MarkdownPartMetadataSettingsArgs:
-    def __init__(__self__, *,
-                 content: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']] = None):
-        """
-        Markdown part settings.
-        :param pulumi.Input['MarkdownPartMetadataContentArgs'] content: The content of markdown part.
-        """
-        if content is not None:
-            pulumi.set(__self__, "content", content)
-
-    @property
-    @pulumi.getter
-    def content(self) -> Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]:
-        """
-        The content of markdown part.
-        """
-        return pulumi.get(self, "content")
-
-    @content.setter
-    def content(self, value: Optional[pulumi.Input['MarkdownPartMetadataContentArgs']]):
-        pulumi.set(self, "content", value)
-
-
-@pulumi.input_type
-class MarkdownPartMetadataArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 inputs: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 settings: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']] = None):
-        """
-        Markdown part metadata.
-        :param pulumi.Input[str] type: The type of dashboard part.
-               Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
-        :param pulumi.Input[Sequence[Any]] inputs: Input to dashboard part.
-        :param pulumi.Input['MarkdownPartMetadataSettingsArgs'] settings: Markdown part settings.
-        """
-        pulumi.set(__self__, "type", 'Extension/HubsExtension/PartType/MarkdownPart')
-        if inputs is not None:
-            pulumi.set(__self__, "inputs", inputs)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of dashboard part.
-        Expected value is 'Extension/HubsExtension/PartType/MarkdownPart'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        Input to dashboard part.
-        """
-        return pulumi.get(self, "inputs")
-
-    @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "inputs", value)
-
-    @property
-    @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']]:
-        """
-        Markdown part settings.
-        """
-        return pulumi.get(self, "settings")
-
-    @settings.setter
-    def settings(self, value: Optional[pulumi.Input['MarkdownPartMetadataSettingsArgs']]):
-        pulumi.set(self, "settings", value)
 
 
 @pulumi.input_type

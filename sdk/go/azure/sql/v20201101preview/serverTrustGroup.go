@@ -96,9 +96,25 @@ func GetServerTrustGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerTrustGroup resources.
 type serverTrustGroupState struct {
+	// Group members information for the server trust group.
+	GroupMembers []ServerInfoResponse `pulumi:"groupMembers"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Trust scope of the server trust group.
+	TrustScopes []string `pulumi:"trustScopes"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type ServerTrustGroupState struct {
+	// Group members information for the server trust group.
+	GroupMembers ServerInfoResponseArrayInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Trust scope of the server trust group.
+	TrustScopes pulumi.StringArrayInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (ServerTrustGroupState) ElementType() reflect.Type {

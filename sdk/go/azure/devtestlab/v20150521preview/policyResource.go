@@ -101,9 +101,53 @@ func GetPolicyResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyResource resources.
 type policyResourceState struct {
+	// The description of the policy.
+	Description *string `pulumi:"description"`
+	// The evaluator type of the policy.
+	EvaluatorType *string `pulumi:"evaluatorType"`
+	// The fact data of the policy.
+	FactData *string `pulumi:"factData"`
+	// The fact name of the policy.
+	FactName *string `pulumi:"factName"`
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the policy.
+	Status *string `pulumi:"status"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The threshold of the policy.
+	Threshold *string `pulumi:"threshold"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type PolicyResourceState struct {
+	// The description of the policy.
+	Description pulumi.StringPtrInput
+	// The evaluator type of the policy.
+	EvaluatorType pulumi.StringPtrInput
+	// The fact data of the policy.
+	FactData pulumi.StringPtrInput
+	// The fact name of the policy.
+	FactName pulumi.StringPtrInput
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The status of the policy.
+	Status pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The threshold of the policy.
+	Threshold pulumi.StringPtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (PolicyResourceState) ElementType() reflect.Type {

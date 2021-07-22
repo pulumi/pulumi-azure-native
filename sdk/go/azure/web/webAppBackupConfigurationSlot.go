@@ -147,9 +147,41 @@ func GetWebAppBackupConfigurationSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppBackupConfigurationSlot resources.
 type webAppBackupConfigurationSlotState struct {
+	// Name of the backup.
+	BackupName *string `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// SAS URL to the container.
+	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WebAppBackupConfigurationSlotState struct {
+	// Name of the backup.
+	BackupName pulumi.StringPtrInput
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule BackupScheduleResponsePtrInput
+	// Databases included in the backup.
+	Databases DatabaseBackupSettingResponseArrayInput
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled pulumi.BoolPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// SAS URL to the container.
+	StorageAccountUrl pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WebAppBackupConfigurationSlotState) ElementType() reflect.Type {

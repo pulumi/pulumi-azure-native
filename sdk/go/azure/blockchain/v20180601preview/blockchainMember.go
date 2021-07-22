@@ -99,9 +99,85 @@ func GetBlockchainMember(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlockchainMember resources.
 type blockchainMemberState struct {
+	// Gets or sets the consortium for the blockchain member.
+	Consortium *string `pulumi:"consortium"`
+	// Gets the managed consortium management account address.
+	ConsortiumManagementAccountAddress *string `pulumi:"consortiumManagementAccountAddress"`
+	// Sets the managed consortium management account password.
+	ConsortiumManagementAccountPassword *string `pulumi:"consortiumManagementAccountPassword"`
+	// Gets the display name of the member in the consortium.
+	ConsortiumMemberDisplayName *string `pulumi:"consortiumMemberDisplayName"`
+	// Gets the role of the member in the consortium.
+	ConsortiumRole *string `pulumi:"consortiumRole"`
+	// Gets the dns endpoint of the blockchain member.
+	Dns *string `pulumi:"dns"`
+	// Gets or sets firewall rules
+	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	// The GEO location of the blockchain service.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Sets the basic auth password of the blockchain member.
+	Password *string `pulumi:"password"`
+	// Gets or sets the blockchain protocol.
+	Protocol *string `pulumi:"protocol"`
+	// Gets or sets the blockchain member provision state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets the public key of the blockchain member (default transaction node).
+	PublicKey *string `pulumi:"publicKey"`
+	// Gets the Ethereum root contract address of the blockchain.
+	RootContractAddress *string `pulumi:"rootContractAddress"`
+	// Gets or sets the blockchain member Sku.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Tags of the service which is a list of key value pairs that describes the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the service - e.g. "Microsoft.Blockchain"
+	Type *string `pulumi:"type"`
+	// Gets the auth user name of the blockchain member.
+	UserName *string `pulumi:"userName"`
+	// Gets or sets the blockchain validator nodes Sku.
+	ValidatorNodesSku *BlockchainMemberNodesSkuResponse `pulumi:"validatorNodesSku"`
 }
 
 type BlockchainMemberState struct {
+	// Gets or sets the consortium for the blockchain member.
+	Consortium pulumi.StringPtrInput
+	// Gets the managed consortium management account address.
+	ConsortiumManagementAccountAddress pulumi.StringPtrInput
+	// Sets the managed consortium management account password.
+	ConsortiumManagementAccountPassword pulumi.StringPtrInput
+	// Gets the display name of the member in the consortium.
+	ConsortiumMemberDisplayName pulumi.StringPtrInput
+	// Gets the role of the member in the consortium.
+	ConsortiumRole pulumi.StringPtrInput
+	// Gets the dns endpoint of the blockchain member.
+	Dns pulumi.StringPtrInput
+	// Gets or sets firewall rules
+	FirewallRules FirewallRuleResponseArrayInput
+	// The GEO location of the blockchain service.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Sets the basic auth password of the blockchain member.
+	Password pulumi.StringPtrInput
+	// Gets or sets the blockchain protocol.
+	Protocol pulumi.StringPtrInput
+	// Gets or sets the blockchain member provision state.
+	ProvisioningState pulumi.StringPtrInput
+	// Gets the public key of the blockchain member (default transaction node).
+	PublicKey pulumi.StringPtrInput
+	// Gets the Ethereum root contract address of the blockchain.
+	RootContractAddress pulumi.StringPtrInput
+	// Gets or sets the blockchain member Sku.
+	Sku SkuResponsePtrInput
+	// Tags of the service which is a list of key value pairs that describes the resource.
+	Tags pulumi.StringMapInput
+	// The type of the service - e.g. "Microsoft.Blockchain"
+	Type pulumi.StringPtrInput
+	// Gets the auth user name of the blockchain member.
+	UserName pulumi.StringPtrInput
+	// Gets or sets the blockchain validator nodes Sku.
+	ValidatorNodesSku BlockchainMemberNodesSkuResponsePtrInput
 }
 
 func (BlockchainMemberState) ElementType() reflect.Type {

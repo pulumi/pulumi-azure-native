@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The data compression method used for the item(s) in the Azure Data Lake Store.
         /// </summary>
         [Input("compression")]
-        public object? Compression { get; set; }
+        public Input<object>? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The format of the Data Lake Store.
         /// </summary>
         [Input("format")]
-        public object? Format { get; set; }
+        public Input<object>? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.

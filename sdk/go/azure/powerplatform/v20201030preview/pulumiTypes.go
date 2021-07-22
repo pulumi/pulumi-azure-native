@@ -13,7 +13,7 @@ import (
 // The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentity struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // EnterprisePolicyIdentityInput is an input type that accepts EnterprisePolicyIdentityArgs and EnterprisePolicyIdentityOutput values.
@@ -30,7 +30,7 @@ type EnterprisePolicyIdentityInput interface {
 // The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityArgs struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (EnterprisePolicyIdentityArgs) ElementType() reflect.Type {
@@ -112,8 +112,8 @@ func (o EnterprisePolicyIdentityOutput) ToEnterprisePolicyIdentityPtrOutputWithC
 }
 
 // The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o EnterprisePolicyIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v EnterprisePolicyIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o EnterprisePolicyIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EnterprisePolicyIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type EnterprisePolicyIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -135,13 +135,13 @@ func (o EnterprisePolicyIdentityPtrOutput) Elem() EnterprisePolicyIdentityOutput
 }
 
 // The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o EnterprisePolicyIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *EnterprisePolicyIdentity) *ResourceIdentityType {
+func (o EnterprisePolicyIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EnterprisePolicyIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The identity of the EnterprisePolicy.

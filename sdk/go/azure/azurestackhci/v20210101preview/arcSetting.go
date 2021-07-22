@@ -88,9 +88,57 @@ func GetArcSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ArcSetting resources.
 type arcSettingState struct {
+	// Aggregate state of Arc agent across the nodes in this HCI cluster.
+	AggregateState *string `pulumi:"aggregateState"`
+	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+	ArcInstanceResourceGroup *string `pulumi:"arcInstanceResourceGroup"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// State of Arc agent in each of the nodes.
+	PerNodeDetails []PerNodeStateResponse `pulumi:"perNodeDetails"`
+	// Provisioning state of the ArcSetting proxy resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ArcSettingState struct {
+	// Aggregate state of Arc agent across the nodes in this HCI cluster.
+	AggregateState pulumi.StringPtrInput
+	// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+	ArcInstanceResourceGroup pulumi.StringPtrInput
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// State of Arc agent in each of the nodes.
+	PerNodeDetails PerNodeStateResponseArrayInput
+	// Provisioning state of the ArcSetting proxy resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ArcSettingState) ElementType() reflect.Type {

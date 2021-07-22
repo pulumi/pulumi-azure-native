@@ -14,8 +14,8 @@ __all__ = [
     'DigitalTwinsIdentityArgs',
     'EventGridArgs',
     'EventHubArgs',
-    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'ServiceBusArgs',
 ]
 
@@ -353,6 +353,25 @@ class EventHubArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        """
+        The private endpoint connection of a Digital Twin.
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -385,25 +404,6 @@ class PrivateEndpointConnectionPropertiesArgs:
     @private_link_service_connection_state.setter
     def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
-        """
-        The private endpoint connection of a Digital Twin.
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

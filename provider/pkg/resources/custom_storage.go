@@ -236,7 +236,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					Description: "The access tier of a storage blob.",
 					Type:        "string",
 				},
-				Enum: []schema.EnumValueSpec{
+				Enum: []*schema.EnumValueSpec{
 					{
 						Value:       "Hot",
 						Description: "Optimized for storing data that is accessed frequently.",
@@ -256,7 +256,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					Description: "The type of a storage blob to be created.",
 					Type:        "string",
 				},
-				Enum: []schema.EnumValueSpec{
+				Enum: []*schema.EnumValueSpec{
 					{
 						Value:       "Block",
 						Description: "Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.",

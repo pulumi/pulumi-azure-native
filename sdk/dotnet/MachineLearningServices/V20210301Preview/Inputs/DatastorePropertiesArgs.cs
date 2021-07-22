@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         /// Reference to the datastore storage contents.
         /// </summary>
         [Input("contents", required: true)]
-        public object Contents { get; set; } = null!;
+        public Input<object> Contents { get; set; } = null!;
 
         /// <summary>
         /// The asset description text.

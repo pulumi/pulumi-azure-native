@@ -117,9 +117,49 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints []EndpointResponse `pulumi:"endpoints"`
+	// The Azure Region where the resource lives
+	Location *string `pulumi:"location"`
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The status of the Traffic Manager profile.
+	ProfileStatus *string `pulumi:"profileStatus"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
+	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+	Type *string `pulumi:"type"`
 }
 
 type ProfileState struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig DnsConfigResponsePtrInput
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints EndpointResponseArrayInput
+	// The Azure Region where the resource lives
+	Location pulumi.StringPtrInput
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig MonitorConfigResponsePtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The status of the Traffic Manager profile.
+	ProfileStatus pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod pulumi.StringPtrInput
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus pulumi.StringPtrInput
+	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+	Type pulumi.StringPtrInput
 }
 
 func (ProfileState) ElementType() reflect.Type {

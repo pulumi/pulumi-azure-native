@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// Reference to the model asset for the endpoint deployment.
         /// </summary>
         [Input("model")]
-        public object? Model { get; set; }
+        public Input<object>? Model { get; set; }
 
         /// <summary>
         /// Output configuration for the batch inference operation.

@@ -258,7 +258,7 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 // Deployment properties.
 type DeploymentProperties struct {
 	// Gets or sets the deployment mode.
-	Mode *DeploymentMode `pulumi:"mode"`
+	Mode *string `pulumi:"mode"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
 	Parameters interface{} `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
@@ -283,7 +283,7 @@ type DeploymentPropertiesInput interface {
 // Deployment properties.
 type DeploymentPropertiesArgs struct {
 	// Gets or sets the deployment mode.
-	Mode DeploymentModePtrInput `pulumi:"mode"`
+	Mode *DeploymentMode `pulumi:"mode"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
 	Parameters pulumi.Input `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
@@ -373,8 +373,8 @@ func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(c
 }
 
 // Gets or sets the deployment mode.
-func (o DeploymentPropertiesOutput) Mode() DeploymentModePtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *DeploymentMode { return v.Mode }).(DeploymentModePtrOutput)
+func (o DeploymentPropertiesOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentProperties) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 // Deployment parameters. Use only one of Parameters or ParametersLink.
@@ -416,13 +416,13 @@ func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
 }
 
 // Gets or sets the deployment mode.
-func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
+func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(DeploymentModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Deployment parameters. Use only one of Parameters or ParametersLink.

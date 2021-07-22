@@ -95,9 +95,41 @@ func GetExportPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExportPipeline resources.
 type exportPipelineState struct {
+	// The identity of the export pipeline.
+	Identity *IdentityPropertiesResponse `pulumi:"identity"`
+	// The location of the export pipeline.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The list of all options configured for the pipeline.
+	Options []string `pulumi:"options"`
+	// The provisioning state of the pipeline at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The target properties of the export pipeline.
+	Target *ExportPipelineTargetPropertiesResponse `pulumi:"target"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type ExportPipelineState struct {
+	// The identity of the export pipeline.
+	Identity IdentityPropertiesResponsePtrInput
+	// The location of the export pipeline.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The list of all options configured for the pipeline.
+	Options pulumi.StringArrayInput
+	// The provisioning state of the pipeline at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// The target properties of the export pipeline.
+	Target ExportPipelineTargetPropertiesResponsePtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ExportPipelineState) ElementType() reflect.Type {

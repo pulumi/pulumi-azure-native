@@ -47,9 +47,6 @@ func NewDataStore(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.State == nil {
-		return nil, errors.New("invalid value for required argument 'State'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:hybriddata/v20190601:DataStore"),
@@ -90,9 +87,37 @@ func GetDataStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataStore resources.
 type dataStoreState struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
+	// The arm id of the data store type.
+	DataStoreTypeId *string `pulumi:"dataStoreTypeId"`
+	// A generic json used differently by each data source type.
+	ExtendedProperties interface{} `pulumi:"extendedProperties"`
+	// Name of the object.
+	Name *string `pulumi:"name"`
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// State of the data source.
+	State *string `pulumi:"state"`
+	// Type of the object.
+	Type *string `pulumi:"type"`
 }
 
 type DataStoreState struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets CustomerSecretResponseArrayInput
+	// The arm id of the data store type.
+	DataStoreTypeId pulumi.StringPtrInput
+	// A generic json used differently by each data source type.
+	ExtendedProperties pulumi.Input
+	// Name of the object.
+	Name pulumi.StringPtrInput
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId pulumi.StringPtrInput
+	// State of the data source.
+	State pulumi.StringPtrInput
+	// Type of the object.
+	Type pulumi.StringPtrInput
 }
 
 func (DataStoreState) ElementType() reflect.Type {
@@ -115,7 +140,7 @@ type dataStoreArgs struct {
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// State of the data source.
-	State State `pulumi:"state"`
+	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a DataStore resource.
@@ -135,7 +160,7 @@ type DataStoreArgs struct {
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// State of the data source.
-	State StateInput
+	State State
 }
 
 func (DataStoreArgs) ElementType() reflect.Type {

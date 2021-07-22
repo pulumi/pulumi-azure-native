@@ -77,9 +77,29 @@ func GetBandwidthSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BandwidthSetting resources.
 type bandwidthSettingState struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind *string `pulumi:"kind"`
+	// The name of the object.
+	Name *string `pulumi:"name"`
+	// The schedules.
+	Schedules []BandwidthScheduleResponse `pulumi:"schedules"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
+	// The number of volumes that uses the bandwidth setting.
+	VolumeCount *int `pulumi:"volumeCount"`
 }
 
 type BandwidthSettingState struct {
+	// The Kind of the object. Currently only Series8000 is supported
+	Kind pulumi.StringPtrInput
+	// The name of the object.
+	Name pulumi.StringPtrInput
+	// The schedules.
+	Schedules BandwidthScheduleResponseArrayInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
+	// The number of volumes that uses the bandwidth setting.
+	VolumeCount pulumi.IntPtrInput
 }
 
 func (BandwidthSettingState) ElementType() reflect.Type {
@@ -90,7 +110,7 @@ type bandwidthSettingArgs struct {
 	// The bandwidth setting name.
 	BandwidthSettingName *string `pulumi:"bandwidthSettingName"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind `pulumi:"kind"`
+	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -104,7 +124,7 @@ type BandwidthSettingArgs struct {
 	// The bandwidth setting name.
 	BandwidthSettingName pulumi.StringPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind KindPtrInput
+	Kind *Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

@@ -262,9 +262,81 @@ func GetConnectionMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConnectionMonitor resources.
 type connectionMonitorState struct {
+	// Determines if the connection monitor will start automatically once created.
+	AutoStart *bool `pulumi:"autoStart"`
+	// Type of connection monitor.
+	ConnectionMonitorType *string `pulumi:"connectionMonitorType"`
+	// Describes the destination of connection monitor.
+	Destination *ConnectionMonitorDestinationResponse `pulumi:"destination"`
+	// List of connection monitor endpoints.
+	Endpoints []ConnectionMonitorEndpointResponse `pulumi:"endpoints"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Connection monitor location.
+	Location *string `pulumi:"location"`
+	// Monitoring interval in seconds.
+	MonitoringIntervalInSeconds *int `pulumi:"monitoringIntervalInSeconds"`
+	// The monitoring status of the connection monitor.
+	MonitoringStatus *string `pulumi:"monitoringStatus"`
+	// Name of the connection monitor.
+	Name *string `pulumi:"name"`
+	// Optional notes to be associated with the connection monitor.
+	Notes *string `pulumi:"notes"`
+	// List of connection monitor outputs.
+	Outputs []ConnectionMonitorOutputResponse `pulumi:"outputs"`
+	// The provisioning state of the connection monitor.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes the source of connection monitor.
+	Source *ConnectionMonitorSourceResponse `pulumi:"source"`
+	// The date and time when the connection monitor was started.
+	StartTime *string `pulumi:"startTime"`
+	// Connection monitor tags.
+	Tags map[string]string `pulumi:"tags"`
+	// List of connection monitor test configurations.
+	TestConfigurations []ConnectionMonitorTestConfigurationResponse `pulumi:"testConfigurations"`
+	// List of connection monitor test groups.
+	TestGroups []ConnectionMonitorTestGroupResponse `pulumi:"testGroups"`
+	// Connection monitor type.
+	Type *string `pulumi:"type"`
 }
 
 type ConnectionMonitorState struct {
+	// Determines if the connection monitor will start automatically once created.
+	AutoStart pulumi.BoolPtrInput
+	// Type of connection monitor.
+	ConnectionMonitorType pulumi.StringPtrInput
+	// Describes the destination of connection monitor.
+	Destination ConnectionMonitorDestinationResponsePtrInput
+	// List of connection monitor endpoints.
+	Endpoints ConnectionMonitorEndpointResponseArrayInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Connection monitor location.
+	Location pulumi.StringPtrInput
+	// Monitoring interval in seconds.
+	MonitoringIntervalInSeconds pulumi.IntPtrInput
+	// The monitoring status of the connection monitor.
+	MonitoringStatus pulumi.StringPtrInput
+	// Name of the connection monitor.
+	Name pulumi.StringPtrInput
+	// Optional notes to be associated with the connection monitor.
+	Notes pulumi.StringPtrInput
+	// List of connection monitor outputs.
+	Outputs ConnectionMonitorOutputResponseArrayInput
+	// The provisioning state of the connection monitor.
+	ProvisioningState pulumi.StringPtrInput
+	// Describes the source of connection monitor.
+	Source ConnectionMonitorSourceResponsePtrInput
+	// The date and time when the connection monitor was started.
+	StartTime pulumi.StringPtrInput
+	// Connection monitor tags.
+	Tags pulumi.StringMapInput
+	// List of connection monitor test configurations.
+	TestConfigurations ConnectionMonitorTestConfigurationResponseArrayInput
+	// List of connection monitor test groups.
+	TestGroups ConnectionMonitorTestGroupResponseArrayInput
+	// Connection monitor type.
+	Type pulumi.StringPtrInput
 }
 
 func (ConnectionMonitorState) ElementType() reflect.Type {

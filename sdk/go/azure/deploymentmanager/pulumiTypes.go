@@ -13,7 +13,7 @@ import (
 // ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthentication struct {
 	// The location of the authentication key/value pair in the request.
-	In RestAuthLocation `pulumi:"in"`
+	In string `pulumi:"in"`
 	// The key name of the authentication key/value pair.
 	Name string `pulumi:"name"`
 	// The authentication type.
@@ -37,7 +37,7 @@ type ApiKeyAuthenticationInput interface {
 // ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationArgs struct {
 	// The location of the authentication key/value pair in the request.
-	In RestAuthLocationInput `pulumi:"in"`
+	In RestAuthLocation `pulumi:"in"`
 	// The key name of the authentication key/value pair.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The authentication type.
@@ -75,8 +75,8 @@ func (o ApiKeyAuthenticationOutput) ToApiKeyAuthenticationOutputWithContext(ctx 
 }
 
 // The location of the authentication key/value pair in the request.
-func (o ApiKeyAuthenticationOutput) In() RestAuthLocationOutput {
-	return o.ApplyT(func(v ApiKeyAuthentication) RestAuthLocation { return v.In }).(RestAuthLocationOutput)
+func (o ApiKeyAuthenticationOutput) In() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyAuthentication) string { return v.In }).(pulumi.StringOutput)
 }
 
 // The key name of the authentication key/value pair.
@@ -1739,7 +1739,7 @@ type RestRequest struct {
 	// The authentication information required in the request to the health provider.
 	Authentication interface{} `pulumi:"authentication"`
 	// The HTTP method to use for the request.
-	Method RestRequestMethod `pulumi:"method"`
+	Method string `pulumi:"method"`
 	// The HTTP URI to use for the request.
 	Uri string `pulumi:"uri"`
 }
@@ -1760,7 +1760,7 @@ type RestRequestArgs struct {
 	// The authentication information required in the request to the health provider.
 	Authentication pulumi.Input `pulumi:"authentication"`
 	// The HTTP method to use for the request.
-	Method RestRequestMethodInput `pulumi:"method"`
+	Method RestRequestMethod `pulumi:"method"`
 	// The HTTP URI to use for the request.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -1798,8 +1798,8 @@ func (o RestRequestOutput) Authentication() pulumi.AnyOutput {
 }
 
 // The HTTP method to use for the request.
-func (o RestRequestOutput) Method() RestRequestMethodOutput {
-	return o.ApplyT(func(v RestRequest) RestRequestMethod { return v.Method }).(RestRequestMethodOutput)
+func (o RestRequestOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v RestRequest) string { return v.Method }).(pulumi.StringOutput)
 }
 
 // The HTTP URI to use for the request.
@@ -2036,7 +2036,7 @@ func (o RestResponsePtrOutput) SuccessStatusCodes() pulumi.StringArrayOutput {
 // The regular expressions to match the response content with.
 type RestResponseRegex struct {
 	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
+	MatchQuantifier *string `pulumi:"matchQuantifier"`
 	// The list of regular expressions.
 	Matches []string `pulumi:"matches"`
 }
@@ -2055,7 +2055,7 @@ type RestResponseRegexInput interface {
 // The regular expressions to match the response content with.
 type RestResponseRegexArgs struct {
 	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier RestMatchQuantifierPtrInput `pulumi:"matchQuantifier"`
+	MatchQuantifier *RestMatchQuantifier `pulumi:"matchQuantifier"`
 	// The list of regular expressions.
 	Matches pulumi.StringArrayInput `pulumi:"matches"`
 }
@@ -2139,8 +2139,8 @@ func (o RestResponseRegexOutput) ToRestResponseRegexPtrOutputWithContext(ctx con
 }
 
 // Indicates whether any or all of the expressions should match with the response content.
-func (o RestResponseRegexOutput) MatchQuantifier() RestMatchQuantifierPtrOutput {
-	return o.ApplyT(func(v RestResponseRegex) *RestMatchQuantifier { return v.MatchQuantifier }).(RestMatchQuantifierPtrOutput)
+func (o RestResponseRegexOutput) MatchQuantifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RestResponseRegex) *string { return v.MatchQuantifier }).(pulumi.StringPtrOutput)
 }
 
 // The list of regular expressions.
@@ -2167,13 +2167,13 @@ func (o RestResponseRegexPtrOutput) Elem() RestResponseRegexOutput {
 }
 
 // Indicates whether any or all of the expressions should match with the response content.
-func (o RestResponseRegexPtrOutput) MatchQuantifier() RestMatchQuantifierPtrOutput {
-	return o.ApplyT(func(v *RestResponseRegex) *RestMatchQuantifier {
+func (o RestResponseRegexPtrOutput) MatchQuantifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestResponseRegex) *string {
 		if v == nil {
 			return nil
 		}
 		return v.MatchQuantifier
-	}).(RestMatchQuantifierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The list of regular expressions.

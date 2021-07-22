@@ -95,9 +95,21 @@ func GetTableServiceProperties(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TableServiceProperties resources.
 type tableServicePropertiesState struct {
+	// Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
+	Cors *CorsRulesResponse `pulumi:"cors"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type TableServicePropertiesState struct {
+	// Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
+	Cors CorsRulesResponsePtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (TableServicePropertiesState) ElementType() reflect.Type {

@@ -83,9 +83,47 @@ func GetAFDEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AFDEndpoint resources.
 type afdendpointState struct {
+	DeploymentStatus *string `pulumi:"deploymentStatus"`
+	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState *string `pulumi:"enabledState"`
+	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+	HostName *string `pulumi:"hostName"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds *int `pulumi:"originResponseTimeoutSeconds"`
+	// Provisioning status
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type AFDEndpointState struct {
+	DeploymentStatus pulumi.StringPtrInput
+	// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState pulumi.StringPtrInput
+	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+	HostName pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+	OriginResponseTimeoutSeconds pulumi.IntPtrInput
+	// Provisioning status
+	ProvisioningState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (AFDEndpointState) ElementType() reflect.Type {

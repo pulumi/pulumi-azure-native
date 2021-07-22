@@ -70,9 +70,25 @@ func GetSaasSubscriptionLevel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SaasSubscriptionLevel resources.
 type saasSubscriptionLevelState struct {
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// saas properties
+	Properties *SaasResourceResponseProperties `pulumi:"properties"`
+	// the resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type SaasSubscriptionLevelState struct {
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// saas properties
+	Properties SaasResourceResponsePropertiesPtrInput
+	// the resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (SaasSubscriptionLevelState) ElementType() reflect.Type {

@@ -78,9 +78,49 @@ func GetBlueprint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Blueprint resources.
 type blueprintState struct {
+	// Multi-line explain this resource.
+	Description *string `pulumi:"description"`
+	// One-liner string explain this resource.
+	DisplayName *string `pulumi:"displayName"`
+	// Layout view of the blueprint, for UI reference.
+	Layout interface{} `pulumi:"layout"`
+	// Name of this resource.
+	Name *string `pulumi:"name"`
+	// Parameters required by this Blueprint definition.
+	Parameters map[string]ParameterDefinitionResponse `pulumi:"parameters"`
+	// Resource group placeholders defined by this Blueprint definition.
+	ResourceGroups map[string]ResourceGroupDefinitionResponse `pulumi:"resourceGroups"`
+	// Status of the Blueprint. This field is readonly.
+	Status *BlueprintStatusResponse `pulumi:"status"`
+	// The scope where this Blueprint can be applied.
+	TargetScope *string `pulumi:"targetScope"`
+	// Type of this resource.
+	Type *string `pulumi:"type"`
+	// Published versions of this blueprint.
+	Versions interface{} `pulumi:"versions"`
 }
 
 type BlueprintState struct {
+	// Multi-line explain this resource.
+	Description pulumi.StringPtrInput
+	// One-liner string explain this resource.
+	DisplayName pulumi.StringPtrInput
+	// Layout view of the blueprint, for UI reference.
+	Layout pulumi.Input
+	// Name of this resource.
+	Name pulumi.StringPtrInput
+	// Parameters required by this Blueprint definition.
+	Parameters ParameterDefinitionResponseMapInput
+	// Resource group placeholders defined by this Blueprint definition.
+	ResourceGroups ResourceGroupDefinitionResponseMapInput
+	// Status of the Blueprint. This field is readonly.
+	Status BlueprintStatusResponsePtrInput
+	// The scope where this Blueprint can be applied.
+	TargetScope pulumi.StringPtrInput
+	// Type of this resource.
+	Type pulumi.StringPtrInput
+	// Published versions of this blueprint.
+	Versions pulumi.Input
 }
 
 func (BlueprintState) ElementType() reflect.Type {

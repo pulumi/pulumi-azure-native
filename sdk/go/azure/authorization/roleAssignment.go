@@ -141,9 +141,65 @@ func GetRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleAssignment resources.
 type roleAssignmentState struct {
+	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+	Condition *string `pulumi:"condition"`
+	// Version of the condition. Currently accepted value is '2.0'
+	ConditionVersion *string `pulumi:"conditionVersion"`
+	// Id of the user who created the assignment
+	CreatedBy *string `pulumi:"createdBy"`
+	// Time it was created
+	CreatedOn *string `pulumi:"createdOn"`
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
+	// Description of role assignment
+	Description *string `pulumi:"description"`
+	// The role assignment name.
+	Name *string `pulumi:"name"`
+	// The principal ID.
+	PrincipalId *string `pulumi:"principalId"`
+	// The principal type of the assigned principal ID.
+	PrincipalType *string `pulumi:"principalType"`
+	// The role definition ID.
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	// The role assignment scope.
+	Scope *string `pulumi:"scope"`
+	// The role assignment type.
+	Type *string `pulumi:"type"`
+	// Id of the user who updated the assignment
+	UpdatedBy *string `pulumi:"updatedBy"`
+	// Time it was updated
+	UpdatedOn *string `pulumi:"updatedOn"`
 }
 
 type RoleAssignmentState struct {
+	// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
+	Condition pulumi.StringPtrInput
+	// Version of the condition. Currently accepted value is '2.0'
+	ConditionVersion pulumi.StringPtrInput
+	// Id of the user who created the assignment
+	CreatedBy pulumi.StringPtrInput
+	// Time it was created
+	CreatedOn pulumi.StringPtrInput
+	// Id of the delegated managed identity resource
+	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
+	// Description of role assignment
+	Description pulumi.StringPtrInput
+	// The role assignment name.
+	Name pulumi.StringPtrInput
+	// The principal ID.
+	PrincipalId pulumi.StringPtrInput
+	// The principal type of the assigned principal ID.
+	PrincipalType pulumi.StringPtrInput
+	// The role definition ID.
+	RoleDefinitionId pulumi.StringPtrInput
+	// The role assignment scope.
+	Scope pulumi.StringPtrInput
+	// The role assignment type.
+	Type pulumi.StringPtrInput
+	// Id of the user who updated the assignment
+	UpdatedBy pulumi.StringPtrInput
+	// Time it was updated
+	UpdatedOn pulumi.StringPtrInput
 }
 
 func (RoleAssignmentState) ElementType() reflect.Type {

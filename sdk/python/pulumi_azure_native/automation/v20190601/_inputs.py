@@ -10,8 +10,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AdvancedScheduleMonthlyOccurrenceArgs',
     'AdvancedScheduleArgs',
+    'AdvancedScheduleMonthlyOccurrenceArgs',
     'AzureQueryPropertiesArgs',
     'ConnectionTypeAssociationPropertyArgs',
     'ContentHashArgs',
@@ -37,46 +37,6 @@ __all__ = [
     'UpdateConfigurationArgs',
     'WindowsPropertiesArgs',
 ]
-
-@pulumi.input_type
-class AdvancedScheduleMonthlyOccurrenceArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input[Union[str, 'ScheduleDay']]] = None,
-                 occurrence: Optional[pulumi.Input[int]] = None):
-        """
-        The properties of the create advanced schedule monthly occurrence.
-        :param pulumi.Input[Union[str, 'ScheduleDay']] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between 1 and 5
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[Union[str, 'ScheduleDay']]]:
-        """
-        Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input[Union[str, 'ScheduleDay']]]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[int]]:
-        """
-        Occurrence of the week within the month. Must be between 1 and 5
-        """
-        return pulumi.get(self, "occurrence")
-
-    @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "occurrence", value)
-
 
 @pulumi.input_type
 class AdvancedScheduleArgs:
@@ -132,6 +92,46 @@ class AdvancedScheduleArgs:
     @week_days.setter
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
+
+
+@pulumi.input_type
+class AdvancedScheduleMonthlyOccurrenceArgs:
+    def __init__(__self__, *,
+                 day: Optional[pulumi.Input[Union[str, 'ScheduleDay']]] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
+        """
+        The properties of the create advanced schedule monthly occurrence.
+        :param pulumi.Input[Union[str, 'ScheduleDay']] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between 1 and 5
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[pulumi.Input[Union[str, 'ScheduleDay']]]:
+        """
+        Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: Optional[pulumi.Input[Union[str, 'ScheduleDay']]]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        Occurrence of the week within the month. Must be between 1 and 5
+        """
+        return pulumi.get(self, "occurrence")
+
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type

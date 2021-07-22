@@ -132,9 +132,37 @@ func GetWebAppPublicCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppPublicCertificate resources.
 type webAppPublicCertificateState struct {
+	// Public Certificate byte array
+	Blob *string `pulumi:"blob"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Public Certificate Location
+	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
+	// The system metadata relating to this resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Certificate Thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WebAppPublicCertificateState struct {
+	// Public Certificate byte array
+	Blob pulumi.StringPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Public Certificate Location
+	PublicCertificateLocation pulumi.StringPtrInput
+	// The system metadata relating to this resource.
+	SystemData SystemDataResponsePtrInput
+	// Certificate Thumbprint
+	Thumbprint pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WebAppPublicCertificateState) ElementType() reflect.Type {
@@ -149,7 +177,7 @@ type webAppPublicCertificateArgs struct {
 	// Name of the app.
 	Name string `pulumi:"name"`
 	// Public Certificate Location
-	PublicCertificateLocation *PublicCertificateLocation `pulumi:"publicCertificateLocation"`
+	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
 	// Public certificate name.
 	PublicCertificateName *string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
@@ -165,7 +193,7 @@ type WebAppPublicCertificateArgs struct {
 	// Name of the app.
 	Name pulumi.StringInput
 	// Public Certificate Location
-	PublicCertificateLocation PublicCertificateLocationPtrInput
+	PublicCertificateLocation *PublicCertificateLocation
 	// Public certificate name.
 	PublicCertificateName pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

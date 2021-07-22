@@ -122,9 +122,67 @@ func GetGen2Environment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gen2Environment resources.
 type gen2EnvironmentState struct {
+	// The time the resource was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessFqdn *string `pulumi:"dataAccessFqdn"`
+	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessId *string `pulumi:"dataAccessId"`
+	// The kind of the environment.
+	// Expected value is 'Gen2'.
+	Kind *string `pulumi:"kind"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+	Sku *SkuResponse `pulumi:"sku"`
+	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+	Status *EnvironmentStatusResponse `pulumi:"status"`
+	// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+	StorageConfiguration *Gen2StorageConfigurationOutputResponse `pulumi:"storageConfiguration"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// The list of event properties which will be used to define the environment's time series id.
+	TimeSeriesIdProperties []TimeSeriesIdPropertyResponse `pulumi:"timeSeriesIdProperties"`
+	// Resource type
+	Type *string `pulumi:"type"`
+	// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+	WarmStoreConfiguration *WarmStoreConfigurationPropertiesResponse `pulumi:"warmStoreConfiguration"`
 }
 
 type Gen2EnvironmentState struct {
+	// The time the resource was created.
+	CreationTime pulumi.StringPtrInput
+	// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessFqdn pulumi.StringPtrInput
+	// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+	DataAccessId pulumi.StringPtrInput
+	// The kind of the environment.
+	// Expected value is 'Gen2'.
+	Kind pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+	Sku SkuResponsePtrInput
+	// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+	Status EnvironmentStatusResponsePtrInput
+	// The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
+	StorageConfiguration Gen2StorageConfigurationOutputResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// The list of event properties which will be used to define the environment's time series id.
+	TimeSeriesIdProperties TimeSeriesIdPropertyResponseArrayInput
+	// Resource type
+	Type pulumi.StringPtrInput
+	// The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
+	WarmStoreConfiguration WarmStoreConfigurationPropertiesResponsePtrInput
 }
 
 func (Gen2EnvironmentState) ElementType() reflect.Type {

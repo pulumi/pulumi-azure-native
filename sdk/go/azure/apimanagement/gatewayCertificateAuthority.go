@@ -86,9 +86,21 @@ func GetGatewayCertificateAuthority(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GatewayCertificateAuthority resources.
 type gatewayCertificateAuthorityState struct {
+	// Determines whether certificate authority is trusted.
+	IsTrusted *bool `pulumi:"isTrusted"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
 }
 
 type GatewayCertificateAuthorityState struct {
+	// Determines whether certificate authority is trusted.
+	IsTrusted pulumi.BoolPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
 }
 
 func (GatewayCertificateAuthorityState) ElementType() reflect.Type {

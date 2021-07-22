@@ -96,9 +96,25 @@ func GetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gateway resources.
 type gatewayState struct {
+	// Gateway description
+	Description *string `pulumi:"description"`
+	// Gateway location.
+	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
 }
 
 type GatewayState struct {
+	// Gateway description
+	Description pulumi.StringPtrInput
+	// Gateway location.
+	LocationData ResourceLocationDataContractResponsePtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
 }
 
 func (GatewayState) ElementType() reflect.Type {

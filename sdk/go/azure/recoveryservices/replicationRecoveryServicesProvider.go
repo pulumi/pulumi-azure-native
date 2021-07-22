@@ -103,9 +103,25 @@ func GetReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationRecoveryServicesProvider resources.
 type replicationRecoveryServicesProviderState struct {
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Provider properties.
+	Properties *RecoveryServicesProviderPropertiesResponse `pulumi:"properties"`
+	// Resource Type
+	Type *string `pulumi:"type"`
 }
 
 type ReplicationRecoveryServicesProviderState struct {
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Provider properties.
+	Properties RecoveryServicesProviderPropertiesResponsePtrInput
+	// Resource Type
+	Type pulumi.StringPtrInput
 }
 
 func (ReplicationRecoveryServicesProviderState) ElementType() reflect.Type {

@@ -28,8 +28,8 @@ __all__ = [
     'BodyDiagnosticSettingsArgs',
     'CertificateConfigurationArgs',
     'CertificateInformationArgs',
-    'DataMaskingEntityArgs',
     'DataMaskingArgs',
+    'DataMaskingEntityArgs',
     'EmailTemplateParametersContractPropertiesArgs',
     'HostnameConfigurationArgs',
     'HttpMessageDiagnosticArgs',
@@ -1043,45 +1043,6 @@ class CertificateInformationArgs:
 
 
 @pulumi.input_type
-class DataMaskingEntityArgs:
-    def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[Union[str, 'DataMaskingMode']] mode: Data masking mode.
-        :param pulumi.Input[str] value: The name of an entity to mask (e.g. a name of a header or a query parameter).
-        """
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]:
-        """
-        Data masking mode.
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of an entity to mask (e.g. a name of a header or a query parameter).
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DataMaskingArgs:
     def __init__(__self__, *,
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None,
@@ -1118,6 +1079,45 @@ class DataMaskingArgs:
     @query_params.setter
     def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
         pulumi.set(self, "query_params", value)
+
+
+@pulumi.input_type
+class DataMaskingEntityArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Union[str, 'DataMaskingMode']] mode: Data masking mode.
+        :param pulumi.Input[str] value: The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]:
+        """
+        Data masking mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an entity to mask (e.g. a name of a header or a query parameter).
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

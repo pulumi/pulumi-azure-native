@@ -96,9 +96,21 @@ func GetDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSetMapping resources.
 type dataSetMappingState struct {
+	// Kind of data set mapping.
+	Kind *string `pulumi:"kind"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
 }
 
 type DataSetMappingState struct {
+	// Kind of data set mapping.
+	Kind pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
 }
 
 func (DataSetMappingState) ElementType() reflect.Type {

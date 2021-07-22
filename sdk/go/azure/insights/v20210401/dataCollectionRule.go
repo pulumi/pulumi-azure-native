@@ -94,9 +94,63 @@ func GetDataCollectionRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCollectionRule resources.
 type dataCollectionRuleState struct {
+	// The specification of data flows.
+	DataFlows []DataFlowResponse `pulumi:"dataFlows"`
+	// The specification of data sources.
+	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+	DataSources *DataCollectionRuleResponseDataSources `pulumi:"dataSources"`
+	// Description of the data collection rule.
+	Description *string `pulumi:"description"`
+	// The specification of destinations.
+	Destinations *DataCollectionRuleResponseDestinations `pulumi:"destinations"`
+	// Resource entity tag (ETag).
+	Etag *string `pulumi:"etag"`
+	// The immutable ID of this data collection rule. This property is READ-ONLY.
+	ImmutableId *string `pulumi:"immutableId"`
+	// The kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The resource provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *DataCollectionRuleResourceResponseSystemData `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type DataCollectionRuleState struct {
+	// The specification of data flows.
+	DataFlows DataFlowResponseArrayInput
+	// The specification of data sources.
+	// This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+	DataSources DataCollectionRuleResponseDataSourcesPtrInput
+	// Description of the data collection rule.
+	Description pulumi.StringPtrInput
+	// The specification of destinations.
+	Destinations DataCollectionRuleResponseDestinationsPtrInput
+	// Resource entity tag (ETag).
+	Etag pulumi.StringPtrInput
+	// The immutable ID of this data collection rule. This property is READ-ONLY.
+	ImmutableId pulumi.StringPtrInput
+	// The kind of the resource.
+	Kind pulumi.StringPtrInput
+	// The geo-location where the resource lives.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The resource provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData DataCollectionRuleResourceResponseSystemDataPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (DataCollectionRuleState) ElementType() reflect.Type {

@@ -114,9 +114,25 @@ func GetStorageAccountManagementPolicies(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccountManagementPolicies resources.
 type storageAccountManagementPoliciesState struct {
+	// Returns the date and time the ManagementPolicies was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+	Policy interface{} `pulumi:"policy"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type StorageAccountManagementPoliciesState struct {
+	// Returns the date and time the ManagementPolicies was last modified.
+	LastModifiedTime pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The Storage Account ManagementPolicies Rules, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+	Policy pulumi.Input
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountManagementPoliciesState) ElementType() reflect.Type {

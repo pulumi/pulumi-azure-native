@@ -93,9 +93,49 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Resource Etag.
+	Etag *string `pulumi:"etag"`
+	// Identity for the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The Kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Properties of Cognitive Services account.
+	Properties *AccountPropertiesResponse `pulumi:"properties"`
+	// The resource model definition representing SKU
+	Sku *SkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
+	// Resource Etag.
+	Etag pulumi.StringPtrInput
+	// Identity for the resource.
+	Identity IdentityResponsePtrInput
+	// The Kind of the resource.
+	Kind pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Properties of Cognitive Services account.
+	Properties AccountPropertiesResponsePtrInput
+	// The resource model definition representing SKU
+	Sku SkuResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {

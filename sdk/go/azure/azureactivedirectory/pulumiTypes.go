@@ -13,9 +13,9 @@ import (
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKU struct {
 	// The name of the SKU for the tenant.
-	Name *B2CResourceSKUName `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// The tier of the tenant.
-	Tier *B2CResourceSKUTier `pulumi:"tier"`
+	Tier *string `pulumi:"tier"`
 }
 
 // B2CResourceSKUInput is an input type that accepts B2CResourceSKUArgs and B2CResourceSKUOutput values.
@@ -32,9 +32,9 @@ type B2CResourceSKUInput interface {
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).
 type B2CResourceSKUArgs struct {
 	// The name of the SKU for the tenant.
-	Name B2CResourceSKUNamePtrInput `pulumi:"name"`
+	Name *B2CResourceSKUName `pulumi:"name"`
 	// The tier of the tenant.
-	Tier B2CResourceSKUTierPtrInput `pulumi:"tier"`
+	Tier *B2CResourceSKUTier `pulumi:"tier"`
 }
 
 func (B2CResourceSKUArgs) ElementType() reflect.Type {
@@ -116,13 +116,13 @@ func (o B2CResourceSKUOutput) ToB2CResourceSKUPtrOutputWithContext(ctx context.C
 }
 
 // The name of the SKU for the tenant.
-func (o B2CResourceSKUOutput) Name() B2CResourceSKUNamePtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKUName { return v.Name }).(B2CResourceSKUNamePtrOutput)
+func (o B2CResourceSKUOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKU) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The tier of the tenant.
-func (o B2CResourceSKUOutput) Tier() B2CResourceSKUTierPtrOutput {
-	return o.ApplyT(func(v B2CResourceSKU) *B2CResourceSKUTier { return v.Tier }).(B2CResourceSKUTierPtrOutput)
+func (o B2CResourceSKUOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v B2CResourceSKU) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
 type B2CResourceSKUPtrOutput struct{ *pulumi.OutputState }
@@ -144,23 +144,23 @@ func (o B2CResourceSKUPtrOutput) Elem() B2CResourceSKUOutput {
 }
 
 // The name of the SKU for the tenant.
-func (o B2CResourceSKUPtrOutput) Name() B2CResourceSKUNamePtrOutput {
-	return o.ApplyT(func(v *B2CResourceSKU) *B2CResourceSKUName {
+func (o B2CResourceSKUPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *B2CResourceSKU) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(B2CResourceSKUNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tier of the tenant.
-func (o B2CResourceSKUPtrOutput) Tier() B2CResourceSKUTierPtrOutput {
-	return o.ApplyT(func(v *B2CResourceSKU) *B2CResourceSKUTier {
+func (o B2CResourceSKUPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *B2CResourceSKU) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Tier
-	}).(B2CResourceSKUTierPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU properties of the Azure AD B2C tenant. Learn more about Azure AD B2C billing at [aka.ms/b2cBilling](https://aka.ms/b2cBilling).

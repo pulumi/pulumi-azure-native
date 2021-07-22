@@ -85,9 +85,25 @@ func GetBackupInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupInstance resources.
 type backupInstanceState struct {
+	// Resource name associated with the resource.
+	Name *string `pulumi:"name"`
+	// BackupInstanceResource properties
+	Properties *BackupInstanceResponse `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type *string `pulumi:"type"`
 }
 
 type BackupInstanceState struct {
+	// Resource name associated with the resource.
+	Name pulumi.StringPtrInput
+	// BackupInstanceResource properties
+	Properties BackupInstanceResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+	Type pulumi.StringPtrInput
 }
 
 func (BackupInstanceState) ElementType() reflect.Type {

@@ -94,9 +94,37 @@ func GetMachineLearningDatastore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MachineLearningDatastore resources.
 type machineLearningDatastoreState struct {
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// Specifies the location of the resource.
+	Location *string `pulumi:"location"`
+	// Specifies the name of the resource.
+	Name *string `pulumi:"name"`
+	// Datastore properties
+	Properties *DatastoreResponse `pulumi:"properties"`
+	// The sku of the workspace.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Contains resource tags defined as key/value pairs.
+	Tags map[string]string `pulumi:"tags"`
+	// Specifies the type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type MachineLearningDatastoreState struct {
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// Specifies the location of the resource.
+	Location pulumi.StringPtrInput
+	// Specifies the name of the resource.
+	Name pulumi.StringPtrInput
+	// Datastore properties
+	Properties DatastoreResponsePtrInput
+	// The sku of the workspace.
+	Sku SkuResponsePtrInput
+	// Contains resource tags defined as key/value pairs.
+	Tags pulumi.StringMapInput
+	// Specifies the type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (MachineLearningDatastoreState) ElementType() reflect.Type {

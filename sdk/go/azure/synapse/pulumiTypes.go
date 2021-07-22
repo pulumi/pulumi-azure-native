@@ -6963,7 +6963,7 @@ func (o LinkedIntegrationRuntimeResponseArrayOutput) Index(i pulumi.IntInput) Li
 // The workspace managed identity
 type ManagedIdentity struct {
 	// The type of managed identity for the workspace
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -6980,7 +6980,7 @@ type ManagedIdentityInput interface {
 // The workspace managed identity
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the workspace
-	Type ResourceIdentityTypePtrInput `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -7062,8 +7062,8 @@ func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context
 }
 
 // The type of managed identity for the workspace
-func (o ManagedIdentityOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
+func (o ManagedIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -7085,13 +7085,13 @@ func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
 }
 
 // The type of managed identity for the workspace
-func (o ManagedIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *ManagedIdentity) *ResourceIdentityType {
+func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedIdentity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ResourceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The workspace managed identity

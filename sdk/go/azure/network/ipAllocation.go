@@ -131,9 +131,57 @@ func GetIpAllocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpAllocation resources.
 type ipAllocationState struct {
+	// IpAllocation tags.
+	AllocationTags map[string]string `pulumi:"allocationTags"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// The IPAM allocation ID.
+	IpamAllocationId *string `pulumi:"ipamAllocationId"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The address prefix for the IpAllocation.
+	Prefix *string `pulumi:"prefix"`
+	// The address prefix length for the IpAllocation.
+	PrefixLength *int `pulumi:"prefixLength"`
+	// The address prefix Type for the IpAllocation.
+	PrefixType *string `pulumi:"prefixType"`
+	// The Subnet that using the prefix of this IpAllocation resource.
+	Subnet *SubResourceResponse `pulumi:"subnet"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// The VirtualNetwork that using the prefix of this IpAllocation resource.
+	VirtualNetwork *SubResourceResponse `pulumi:"virtualNetwork"`
 }
 
 type IpAllocationState struct {
+	// IpAllocation tags.
+	AllocationTags pulumi.StringMapInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// The IPAM allocation ID.
+	IpamAllocationId pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The address prefix for the IpAllocation.
+	Prefix pulumi.StringPtrInput
+	// The address prefix length for the IpAllocation.
+	PrefixLength pulumi.IntPtrInput
+	// The address prefix Type for the IpAllocation.
+	PrefixType pulumi.StringPtrInput
+	// The Subnet that using the prefix of this IpAllocation resource.
+	Subnet SubResourceResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// The VirtualNetwork that using the prefix of this IpAllocation resource.
+	VirtualNetwork SubResourceResponsePtrInput
 }
 
 func (IpAllocationState) ElementType() reflect.Type {

@@ -126,9 +126,25 @@ func GetWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppDomainOwnershipIdentifier resources.
 type webAppDomainOwnershipIdentifierState struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// String representation of the identity.
+	Value *string `pulumi:"value"`
 }
 
 type WebAppDomainOwnershipIdentifierState struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// String representation of the identity.
+	Value pulumi.StringPtrInput
 }
 
 func (WebAppDomainOwnershipIdentifierState) ElementType() reflect.Type {

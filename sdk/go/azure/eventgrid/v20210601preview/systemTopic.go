@@ -93,9 +93,49 @@ func GetSystemTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SystemTopic resources.
 type systemTopicState struct {
+	// Identity information for the resource.
+	Identity *IdentityInfoResponse `pulumi:"identity"`
+	// Location of the resource.
+	Location *string `pulumi:"location"`
+	// Metric resource id for the system topic.
+	MetricResourceId *string `pulumi:"metricResourceId"`
+	// Name of the resource.
+	Name *string `pulumi:"name"`
+	// Provisioning state of the system topic.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Source for the system topic.
+	Source *string `pulumi:"source"`
+	// The system metadata relating to System Topic resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// TopicType for the system topic.
+	TopicType *string `pulumi:"topicType"`
+	// Type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type SystemTopicState struct {
+	// Identity information for the resource.
+	Identity IdentityInfoResponsePtrInput
+	// Location of the resource.
+	Location pulumi.StringPtrInput
+	// Metric resource id for the system topic.
+	MetricResourceId pulumi.StringPtrInput
+	// Name of the resource.
+	Name pulumi.StringPtrInput
+	// Provisioning state of the system topic.
+	ProvisioningState pulumi.StringPtrInput
+	// Source for the system topic.
+	Source pulumi.StringPtrInput
+	// The system metadata relating to System Topic resource.
+	SystemData SystemDataResponsePtrInput
+	// Tags of the resource.
+	Tags pulumi.StringMapInput
+	// TopicType for the system topic.
+	TopicType pulumi.StringPtrInput
+	// Type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (SystemTopicState) ElementType() reflect.Type {

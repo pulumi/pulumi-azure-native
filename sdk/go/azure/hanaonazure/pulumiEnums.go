@@ -11,7 +11,7 @@ import (
 )
 
 // Name of the hardware type (vendor and/or their product name)
-type HanaHardwareTypeNamesEnum string
+type HanaHardwareTypeNamesEnum pulumi.String
 
 const (
 	HanaHardwareTypeNamesEnum_Cisco_UCS = HanaHardwareTypeNamesEnum("Cisco_UCS")
@@ -19,23 +19,7 @@ const (
 )
 
 func (HanaHardwareTypeNamesEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaHardwareTypeNamesEnum)(nil)).Elem()
-}
-
-func (e HanaHardwareTypeNamesEnum) ToHanaHardwareTypeNamesEnumOutput() HanaHardwareTypeNamesEnumOutput {
-	return pulumi.ToOutput(e).(HanaHardwareTypeNamesEnumOutput)
-}
-
-func (e HanaHardwareTypeNamesEnum) ToHanaHardwareTypeNamesEnumOutputWithContext(ctx context.Context) HanaHardwareTypeNamesEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HanaHardwareTypeNamesEnumOutput)
-}
-
-func (e HanaHardwareTypeNamesEnum) ToHanaHardwareTypeNamesEnumPtrOutput() HanaHardwareTypeNamesEnumPtrOutput {
-	return e.ToHanaHardwareTypeNamesEnumPtrOutputWithContext(context.Background())
-}
-
-func (e HanaHardwareTypeNamesEnum) ToHanaHardwareTypeNamesEnumPtrOutputWithContext(ctx context.Context) HanaHardwareTypeNamesEnumPtrOutput {
-	return HanaHardwareTypeNamesEnum(e).ToHanaHardwareTypeNamesEnumOutputWithContext(ctx).ToHanaHardwareTypeNamesEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HanaHardwareTypeNamesEnum) ToStringOutput() pulumi.StringOutput {
@@ -54,129 +38,8 @@ func (e HanaHardwareTypeNamesEnum) ToStringPtrOutputWithContext(ctx context.Cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HanaHardwareTypeNamesEnumOutput struct{ *pulumi.OutputState }
-
-func (HanaHardwareTypeNamesEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaHardwareTypeNamesEnum)(nil)).Elem()
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToHanaHardwareTypeNamesEnumOutput() HanaHardwareTypeNamesEnumOutput {
-	return o
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToHanaHardwareTypeNamesEnumOutputWithContext(ctx context.Context) HanaHardwareTypeNamesEnumOutput {
-	return o
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToHanaHardwareTypeNamesEnumPtrOutput() HanaHardwareTypeNamesEnumPtrOutput {
-	return o.ToHanaHardwareTypeNamesEnumPtrOutputWithContext(context.Background())
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToHanaHardwareTypeNamesEnumPtrOutputWithContext(ctx context.Context) HanaHardwareTypeNamesEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HanaHardwareTypeNamesEnum) *HanaHardwareTypeNamesEnum {
-		return &v
-	}).(HanaHardwareTypeNamesEnumPtrOutput)
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaHardwareTypeNamesEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaHardwareTypeNamesEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaHardwareTypeNamesEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HanaHardwareTypeNamesEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (HanaHardwareTypeNamesEnumPtrOutput) ElementType() reflect.Type {
-	return hanaHardwareTypeNamesEnumPtrType
-}
-
-func (o HanaHardwareTypeNamesEnumPtrOutput) ToHanaHardwareTypeNamesEnumPtrOutput() HanaHardwareTypeNamesEnumPtrOutput {
-	return o
-}
-
-func (o HanaHardwareTypeNamesEnumPtrOutput) ToHanaHardwareTypeNamesEnumPtrOutputWithContext(ctx context.Context) HanaHardwareTypeNamesEnumPtrOutput {
-	return o
-}
-
-func (o HanaHardwareTypeNamesEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaHardwareTypeNamesEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HanaHardwareTypeNamesEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HanaHardwareTypeNamesEnumPtrOutput) Elem() HanaHardwareTypeNamesEnumOutput {
-	return o.ApplyT(func(v *HanaHardwareTypeNamesEnum) HanaHardwareTypeNamesEnum {
-		var ret HanaHardwareTypeNamesEnum
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HanaHardwareTypeNamesEnumOutput)
-}
-
-// HanaHardwareTypeNamesEnumInput is an input type that accepts HanaHardwareTypeNamesEnumArgs and HanaHardwareTypeNamesEnumOutput values.
-// You can construct a concrete instance of `HanaHardwareTypeNamesEnumInput` via:
-//
-//          HanaHardwareTypeNamesEnumArgs{...}
-type HanaHardwareTypeNamesEnumInput interface {
-	pulumi.Input
-
-	ToHanaHardwareTypeNamesEnumOutput() HanaHardwareTypeNamesEnumOutput
-	ToHanaHardwareTypeNamesEnumOutputWithContext(context.Context) HanaHardwareTypeNamesEnumOutput
-}
-
-var hanaHardwareTypeNamesEnumPtrType = reflect.TypeOf((**HanaHardwareTypeNamesEnum)(nil)).Elem()
-
-type HanaHardwareTypeNamesEnumPtrInput interface {
-	pulumi.Input
-
-	ToHanaHardwareTypeNamesEnumPtrOutput() HanaHardwareTypeNamesEnumPtrOutput
-	ToHanaHardwareTypeNamesEnumPtrOutputWithContext(context.Context) HanaHardwareTypeNamesEnumPtrOutput
-}
-
-type hanaHardwareTypeNamesEnumPtr string
-
-func HanaHardwareTypeNamesEnumPtr(v string) HanaHardwareTypeNamesEnumPtrInput {
-	return (*hanaHardwareTypeNamesEnumPtr)(&v)
-}
-
-func (*hanaHardwareTypeNamesEnumPtr) ElementType() reflect.Type {
-	return hanaHardwareTypeNamesEnumPtrType
-}
-
-func (in *hanaHardwareTypeNamesEnumPtr) ToHanaHardwareTypeNamesEnumPtrOutput() HanaHardwareTypeNamesEnumPtrOutput {
-	return pulumi.ToOutput(in).(HanaHardwareTypeNamesEnumPtrOutput)
-}
-
-func (in *hanaHardwareTypeNamesEnumPtr) ToHanaHardwareTypeNamesEnumPtrOutputWithContext(ctx context.Context) HanaHardwareTypeNamesEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HanaHardwareTypeNamesEnumPtrOutput)
-}
-
 // Resource power state
-type HanaInstancePowerStateEnum string
+type HanaInstancePowerStateEnum pulumi.String
 
 const (
 	HanaInstancePowerStateEnumStarting   = HanaInstancePowerStateEnum("starting")
@@ -188,23 +51,7 @@ const (
 )
 
 func (HanaInstancePowerStateEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstancePowerStateEnum)(nil)).Elem()
-}
-
-func (e HanaInstancePowerStateEnum) ToHanaInstancePowerStateEnumOutput() HanaInstancePowerStateEnumOutput {
-	return pulumi.ToOutput(e).(HanaInstancePowerStateEnumOutput)
-}
-
-func (e HanaInstancePowerStateEnum) ToHanaInstancePowerStateEnumOutputWithContext(ctx context.Context) HanaInstancePowerStateEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HanaInstancePowerStateEnumOutput)
-}
-
-func (e HanaInstancePowerStateEnum) ToHanaInstancePowerStateEnumPtrOutput() HanaInstancePowerStateEnumPtrOutput {
-	return e.ToHanaInstancePowerStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (e HanaInstancePowerStateEnum) ToHanaInstancePowerStateEnumPtrOutputWithContext(ctx context.Context) HanaInstancePowerStateEnumPtrOutput {
-	return HanaInstancePowerStateEnum(e).ToHanaInstancePowerStateEnumOutputWithContext(ctx).ToHanaInstancePowerStateEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HanaInstancePowerStateEnum) ToStringOutput() pulumi.StringOutput {
@@ -223,129 +70,8 @@ func (e HanaInstancePowerStateEnum) ToStringPtrOutputWithContext(ctx context.Con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HanaInstancePowerStateEnumOutput struct{ *pulumi.OutputState }
-
-func (HanaInstancePowerStateEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstancePowerStateEnum)(nil)).Elem()
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToHanaInstancePowerStateEnumOutput() HanaInstancePowerStateEnumOutput {
-	return o
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToHanaInstancePowerStateEnumOutputWithContext(ctx context.Context) HanaInstancePowerStateEnumOutput {
-	return o
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToHanaInstancePowerStateEnumPtrOutput() HanaInstancePowerStateEnumPtrOutput {
-	return o.ToHanaInstancePowerStateEnumPtrOutputWithContext(context.Background())
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToHanaInstancePowerStateEnumPtrOutputWithContext(ctx context.Context) HanaInstancePowerStateEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HanaInstancePowerStateEnum) *HanaInstancePowerStateEnum {
-		return &v
-	}).(HanaInstancePowerStateEnumPtrOutput)
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaInstancePowerStateEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaInstancePowerStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaInstancePowerStateEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HanaInstancePowerStateEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (HanaInstancePowerStateEnumPtrOutput) ElementType() reflect.Type {
-	return hanaInstancePowerStateEnumPtrType
-}
-
-func (o HanaInstancePowerStateEnumPtrOutput) ToHanaInstancePowerStateEnumPtrOutput() HanaInstancePowerStateEnumPtrOutput {
-	return o
-}
-
-func (o HanaInstancePowerStateEnumPtrOutput) ToHanaInstancePowerStateEnumPtrOutputWithContext(ctx context.Context) HanaInstancePowerStateEnumPtrOutput {
-	return o
-}
-
-func (o HanaInstancePowerStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaInstancePowerStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HanaInstancePowerStateEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HanaInstancePowerStateEnumPtrOutput) Elem() HanaInstancePowerStateEnumOutput {
-	return o.ApplyT(func(v *HanaInstancePowerStateEnum) HanaInstancePowerStateEnum {
-		var ret HanaInstancePowerStateEnum
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HanaInstancePowerStateEnumOutput)
-}
-
-// HanaInstancePowerStateEnumInput is an input type that accepts HanaInstancePowerStateEnumArgs and HanaInstancePowerStateEnumOutput values.
-// You can construct a concrete instance of `HanaInstancePowerStateEnumInput` via:
-//
-//          HanaInstancePowerStateEnumArgs{...}
-type HanaInstancePowerStateEnumInput interface {
-	pulumi.Input
-
-	ToHanaInstancePowerStateEnumOutput() HanaInstancePowerStateEnumOutput
-	ToHanaInstancePowerStateEnumOutputWithContext(context.Context) HanaInstancePowerStateEnumOutput
-}
-
-var hanaInstancePowerStateEnumPtrType = reflect.TypeOf((**HanaInstancePowerStateEnum)(nil)).Elem()
-
-type HanaInstancePowerStateEnumPtrInput interface {
-	pulumi.Input
-
-	ToHanaInstancePowerStateEnumPtrOutput() HanaInstancePowerStateEnumPtrOutput
-	ToHanaInstancePowerStateEnumPtrOutputWithContext(context.Context) HanaInstancePowerStateEnumPtrOutput
-}
-
-type hanaInstancePowerStateEnumPtr string
-
-func HanaInstancePowerStateEnumPtr(v string) HanaInstancePowerStateEnumPtrInput {
-	return (*hanaInstancePowerStateEnumPtr)(&v)
-}
-
-func (*hanaInstancePowerStateEnumPtr) ElementType() reflect.Type {
-	return hanaInstancePowerStateEnumPtrType
-}
-
-func (in *hanaInstancePowerStateEnumPtr) ToHanaInstancePowerStateEnumPtrOutput() HanaInstancePowerStateEnumPtrOutput {
-	return pulumi.ToOutput(in).(HanaInstancePowerStateEnumPtrOutput)
-}
-
-func (in *hanaInstancePowerStateEnumPtr) ToHanaInstancePowerStateEnumPtrOutputWithContext(ctx context.Context) HanaInstancePowerStateEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HanaInstancePowerStateEnumPtrOutput)
-}
-
 // Specifies the HANA instance SKU.
-type HanaInstanceSizeNamesEnum string
+type HanaInstanceSizeNamesEnum pulumi.String
 
 const (
 	HanaInstanceSizeNamesEnumS72m    = HanaInstanceSizeNamesEnum("S72m")
@@ -394,23 +120,7 @@ const (
 )
 
 func (HanaInstanceSizeNamesEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstanceSizeNamesEnum)(nil)).Elem()
-}
-
-func (e HanaInstanceSizeNamesEnum) ToHanaInstanceSizeNamesEnumOutput() HanaInstanceSizeNamesEnumOutput {
-	return pulumi.ToOutput(e).(HanaInstanceSizeNamesEnumOutput)
-}
-
-func (e HanaInstanceSizeNamesEnum) ToHanaInstanceSizeNamesEnumOutputWithContext(ctx context.Context) HanaInstanceSizeNamesEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HanaInstanceSizeNamesEnumOutput)
-}
-
-func (e HanaInstanceSizeNamesEnum) ToHanaInstanceSizeNamesEnumPtrOutput() HanaInstanceSizeNamesEnumPtrOutput {
-	return e.ToHanaInstanceSizeNamesEnumPtrOutputWithContext(context.Background())
-}
-
-func (e HanaInstanceSizeNamesEnum) ToHanaInstanceSizeNamesEnumPtrOutputWithContext(ctx context.Context) HanaInstanceSizeNamesEnumPtrOutput {
-	return HanaInstanceSizeNamesEnum(e).ToHanaInstanceSizeNamesEnumOutputWithContext(ctx).ToHanaInstanceSizeNamesEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HanaInstanceSizeNamesEnum) ToStringOutput() pulumi.StringOutput {
@@ -429,129 +139,8 @@ func (e HanaInstanceSizeNamesEnum) ToStringPtrOutputWithContext(ctx context.Cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type HanaInstanceSizeNamesEnumOutput struct{ *pulumi.OutputState }
-
-func (HanaInstanceSizeNamesEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaInstanceSizeNamesEnum)(nil)).Elem()
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToHanaInstanceSizeNamesEnumOutput() HanaInstanceSizeNamesEnumOutput {
-	return o
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToHanaInstanceSizeNamesEnumOutputWithContext(ctx context.Context) HanaInstanceSizeNamesEnumOutput {
-	return o
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToHanaInstanceSizeNamesEnumPtrOutput() HanaInstanceSizeNamesEnumPtrOutput {
-	return o.ToHanaInstanceSizeNamesEnumPtrOutputWithContext(context.Background())
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToHanaInstanceSizeNamesEnumPtrOutputWithContext(ctx context.Context) HanaInstanceSizeNamesEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HanaInstanceSizeNamesEnum) *HanaInstanceSizeNamesEnum {
-		return &v
-	}).(HanaInstanceSizeNamesEnumPtrOutput)
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaInstanceSizeNamesEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaInstanceSizeNamesEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaInstanceSizeNamesEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HanaInstanceSizeNamesEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (HanaInstanceSizeNamesEnumPtrOutput) ElementType() reflect.Type {
-	return hanaInstanceSizeNamesEnumPtrType
-}
-
-func (o HanaInstanceSizeNamesEnumPtrOutput) ToHanaInstanceSizeNamesEnumPtrOutput() HanaInstanceSizeNamesEnumPtrOutput {
-	return o
-}
-
-func (o HanaInstanceSizeNamesEnumPtrOutput) ToHanaInstanceSizeNamesEnumPtrOutputWithContext(ctx context.Context) HanaInstanceSizeNamesEnumPtrOutput {
-	return o
-}
-
-func (o HanaInstanceSizeNamesEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaInstanceSizeNamesEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HanaInstanceSizeNamesEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HanaInstanceSizeNamesEnumPtrOutput) Elem() HanaInstanceSizeNamesEnumOutput {
-	return o.ApplyT(func(v *HanaInstanceSizeNamesEnum) HanaInstanceSizeNamesEnum {
-		var ret HanaInstanceSizeNamesEnum
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HanaInstanceSizeNamesEnumOutput)
-}
-
-// HanaInstanceSizeNamesEnumInput is an input type that accepts HanaInstanceSizeNamesEnumArgs and HanaInstanceSizeNamesEnumOutput values.
-// You can construct a concrete instance of `HanaInstanceSizeNamesEnumInput` via:
-//
-//          HanaInstanceSizeNamesEnumArgs{...}
-type HanaInstanceSizeNamesEnumInput interface {
-	pulumi.Input
-
-	ToHanaInstanceSizeNamesEnumOutput() HanaInstanceSizeNamesEnumOutput
-	ToHanaInstanceSizeNamesEnumOutputWithContext(context.Context) HanaInstanceSizeNamesEnumOutput
-}
-
-var hanaInstanceSizeNamesEnumPtrType = reflect.TypeOf((**HanaInstanceSizeNamesEnum)(nil)).Elem()
-
-type HanaInstanceSizeNamesEnumPtrInput interface {
-	pulumi.Input
-
-	ToHanaInstanceSizeNamesEnumPtrOutput() HanaInstanceSizeNamesEnumPtrOutput
-	ToHanaInstanceSizeNamesEnumPtrOutputWithContext(context.Context) HanaInstanceSizeNamesEnumPtrOutput
-}
-
-type hanaInstanceSizeNamesEnumPtr string
-
-func HanaInstanceSizeNamesEnumPtr(v string) HanaInstanceSizeNamesEnumPtrInput {
-	return (*hanaInstanceSizeNamesEnumPtr)(&v)
-}
-
-func (*hanaInstanceSizeNamesEnumPtr) ElementType() reflect.Type {
-	return hanaInstanceSizeNamesEnumPtrType
-}
-
-func (in *hanaInstanceSizeNamesEnumPtr) ToHanaInstanceSizeNamesEnumPtrOutput() HanaInstanceSizeNamesEnumPtrOutput {
-	return pulumi.ToOutput(in).(HanaInstanceSizeNamesEnumPtrOutput)
-}
-
-func (in *hanaInstanceSizeNamesEnumPtr) ToHanaInstanceSizeNamesEnumPtrOutputWithContext(ctx context.Context) HanaInstanceSizeNamesEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HanaInstanceSizeNamesEnumPtrOutput)
-}
-
 // State of provisioning of the HanaInstance
-type HanaProvisioningStatesEnum string
+type HanaProvisioningStatesEnum pulumi.String
 
 const (
 	HanaProvisioningStatesEnumAccepted  = HanaProvisioningStatesEnum("Accepted")
@@ -564,23 +153,7 @@ const (
 )
 
 func (HanaProvisioningStatesEnum) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaProvisioningStatesEnum)(nil)).Elem()
-}
-
-func (e HanaProvisioningStatesEnum) ToHanaProvisioningStatesEnumOutput() HanaProvisioningStatesEnumOutput {
-	return pulumi.ToOutput(e).(HanaProvisioningStatesEnumOutput)
-}
-
-func (e HanaProvisioningStatesEnum) ToHanaProvisioningStatesEnumOutputWithContext(ctx context.Context) HanaProvisioningStatesEnumOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(HanaProvisioningStatesEnumOutput)
-}
-
-func (e HanaProvisioningStatesEnum) ToHanaProvisioningStatesEnumPtrOutput() HanaProvisioningStatesEnumPtrOutput {
-	return e.ToHanaProvisioningStatesEnumPtrOutputWithContext(context.Background())
-}
-
-func (e HanaProvisioningStatesEnum) ToHanaProvisioningStatesEnumPtrOutputWithContext(ctx context.Context) HanaProvisioningStatesEnumPtrOutput {
-	return HanaProvisioningStatesEnum(e).ToHanaProvisioningStatesEnumOutputWithContext(ctx).ToHanaProvisioningStatesEnumPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e HanaProvisioningStatesEnum) ToStringOutput() pulumi.StringOutput {
@@ -597,136 +170,4 @@ func (e HanaProvisioningStatesEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e HanaProvisioningStatesEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type HanaProvisioningStatesEnumOutput struct{ *pulumi.OutputState }
-
-func (HanaProvisioningStatesEnumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HanaProvisioningStatesEnum)(nil)).Elem()
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToHanaProvisioningStatesEnumOutput() HanaProvisioningStatesEnumOutput {
-	return o
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToHanaProvisioningStatesEnumOutputWithContext(ctx context.Context) HanaProvisioningStatesEnumOutput {
-	return o
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToHanaProvisioningStatesEnumPtrOutput() HanaProvisioningStatesEnumPtrOutput {
-	return o.ToHanaProvisioningStatesEnumPtrOutputWithContext(context.Background())
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToHanaProvisioningStatesEnumPtrOutputWithContext(ctx context.Context) HanaProvisioningStatesEnumPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HanaProvisioningStatesEnum) *HanaProvisioningStatesEnum {
-		return &v
-	}).(HanaProvisioningStatesEnumPtrOutput)
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaProvisioningStatesEnum) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaProvisioningStatesEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e HanaProvisioningStatesEnum) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type HanaProvisioningStatesEnumPtrOutput struct{ *pulumi.OutputState }
-
-func (HanaProvisioningStatesEnumPtrOutput) ElementType() reflect.Type {
-	return hanaProvisioningStatesEnumPtrType
-}
-
-func (o HanaProvisioningStatesEnumPtrOutput) ToHanaProvisioningStatesEnumPtrOutput() HanaProvisioningStatesEnumPtrOutput {
-	return o
-}
-
-func (o HanaProvisioningStatesEnumPtrOutput) ToHanaProvisioningStatesEnumPtrOutputWithContext(ctx context.Context) HanaProvisioningStatesEnumPtrOutput {
-	return o
-}
-
-func (o HanaProvisioningStatesEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o HanaProvisioningStatesEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HanaProvisioningStatesEnum) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o HanaProvisioningStatesEnumPtrOutput) Elem() HanaProvisioningStatesEnumOutput {
-	return o.ApplyT(func(v *HanaProvisioningStatesEnum) HanaProvisioningStatesEnum {
-		var ret HanaProvisioningStatesEnum
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(HanaProvisioningStatesEnumOutput)
-}
-
-// HanaProvisioningStatesEnumInput is an input type that accepts HanaProvisioningStatesEnumArgs and HanaProvisioningStatesEnumOutput values.
-// You can construct a concrete instance of `HanaProvisioningStatesEnumInput` via:
-//
-//          HanaProvisioningStatesEnumArgs{...}
-type HanaProvisioningStatesEnumInput interface {
-	pulumi.Input
-
-	ToHanaProvisioningStatesEnumOutput() HanaProvisioningStatesEnumOutput
-	ToHanaProvisioningStatesEnumOutputWithContext(context.Context) HanaProvisioningStatesEnumOutput
-}
-
-var hanaProvisioningStatesEnumPtrType = reflect.TypeOf((**HanaProvisioningStatesEnum)(nil)).Elem()
-
-type HanaProvisioningStatesEnumPtrInput interface {
-	pulumi.Input
-
-	ToHanaProvisioningStatesEnumPtrOutput() HanaProvisioningStatesEnumPtrOutput
-	ToHanaProvisioningStatesEnumPtrOutputWithContext(context.Context) HanaProvisioningStatesEnumPtrOutput
-}
-
-type hanaProvisioningStatesEnumPtr string
-
-func HanaProvisioningStatesEnumPtr(v string) HanaProvisioningStatesEnumPtrInput {
-	return (*hanaProvisioningStatesEnumPtr)(&v)
-}
-
-func (*hanaProvisioningStatesEnumPtr) ElementType() reflect.Type {
-	return hanaProvisioningStatesEnumPtrType
-}
-
-func (in *hanaProvisioningStatesEnumPtr) ToHanaProvisioningStatesEnumPtrOutput() HanaProvisioningStatesEnumPtrOutput {
-	return pulumi.ToOutput(in).(HanaProvisioningStatesEnumPtrOutput)
-}
-
-func (in *hanaProvisioningStatesEnumPtr) ToHanaProvisioningStatesEnumPtrOutputWithContext(ctx context.Context) HanaProvisioningStatesEnumPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(HanaProvisioningStatesEnumPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(HanaHardwareTypeNamesEnumOutput{})
-	pulumi.RegisterOutputType(HanaHardwareTypeNamesEnumPtrOutput{})
-	pulumi.RegisterOutputType(HanaInstancePowerStateEnumOutput{})
-	pulumi.RegisterOutputType(HanaInstancePowerStateEnumPtrOutput{})
-	pulumi.RegisterOutputType(HanaInstanceSizeNamesEnumOutput{})
-	pulumi.RegisterOutputType(HanaInstanceSizeNamesEnumPtrOutput{})
-	pulumi.RegisterOutputType(HanaProvisioningStatesEnumOutput{})
-	pulumi.RegisterOutputType(HanaProvisioningStatesEnumPtrOutput{})
 }

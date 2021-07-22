@@ -81,9 +81,41 @@ func GetDedicatedCloudService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedCloudService resources.
 type dedicatedCloudServiceState struct {
+	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+	GatewaySubnet *string `pulumi:"gatewaySubnet"`
+	// indicates whether account onboarded or not in a given region
+	IsAccountOnboarded *string `pulumi:"isAccountOnboarded"`
+	// Azure region
+	Location *string `pulumi:"location"`
+	// {dedicatedCloudServiceName}
+	Name *string `pulumi:"name"`
+	// total nodes purchased
+	Nodes *int `pulumi:"nodes"`
+	// link to a service management web portal
+	ServiceURL *string `pulumi:"serviceURL"`
+	// The list of tags
+	Tags map[string]string `pulumi:"tags"`
+	// {resourceProviderNamespace}/{resourceType}
+	Type *string `pulumi:"type"`
 }
 
 type DedicatedCloudServiceState struct {
+	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+	GatewaySubnet pulumi.StringPtrInput
+	// indicates whether account onboarded or not in a given region
+	IsAccountOnboarded pulumi.StringPtrInput
+	// Azure region
+	Location pulumi.StringPtrInput
+	// {dedicatedCloudServiceName}
+	Name pulumi.StringPtrInput
+	// total nodes purchased
+	Nodes pulumi.IntPtrInput
+	// link to a service management web portal
+	ServiceURL pulumi.StringPtrInput
+	// The list of tags
+	Tags pulumi.StringMapInput
+	// {resourceProviderNamespace}/{resourceType}
+	Type pulumi.StringPtrInput
 }
 
 func (DedicatedCloudServiceState) ElementType() reflect.Type {

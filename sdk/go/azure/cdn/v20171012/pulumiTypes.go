@@ -1469,7 +1469,7 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Rules
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilter struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActions `pulumi:"action"`
+	Action string `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes []string `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -1490,7 +1490,7 @@ type GeoFilterInput interface {
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilterArgs struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActionsInput `pulumi:"action"`
+	Action GeoFilterActions `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -1550,8 +1550,8 @@ func (o GeoFilterOutput) ToGeoFilterOutputWithContext(ctx context.Context) GeoFi
 }
 
 // Action of the geo filter, i.e. allow or block access.
-func (o GeoFilterOutput) Action() GeoFilterActionsOutput {
-	return o.ApplyT(func(v GeoFilter) GeoFilterActions { return v.Action }).(GeoFilterActionsOutput)
+func (o GeoFilterOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GeoFilter) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.

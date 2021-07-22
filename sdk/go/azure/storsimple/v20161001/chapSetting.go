@@ -70,9 +70,21 @@ func GetChapSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ChapSetting resources.
 type chapSettingState struct {
+	// The name.
+	Name *string `pulumi:"name"`
+	// The chap password.
+	Password *AsymmetricEncryptedSecretResponse `pulumi:"password"`
+	// The type.
+	Type *string `pulumi:"type"`
 }
 
 type ChapSettingState struct {
+	// The name.
+	Name pulumi.StringPtrInput
+	// The chap password.
+	Password AsymmetricEncryptedSecretResponsePtrInput
+	// The type.
+	Type pulumi.StringPtrInput
 }
 
 func (ChapSettingState) ElementType() reflect.Type {

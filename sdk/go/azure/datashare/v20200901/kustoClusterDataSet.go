@@ -109,9 +109,43 @@ func GetKustoClusterDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KustoClusterDataSet resources.
 type kustoClusterDataSetState struct {
+	// Unique id for identifying a data set resource
+	DataSetId *string `pulumi:"dataSetId"`
+	// Kind of data set.
+	// Expected value is 'KustoCluster'.
+	Kind *string `pulumi:"kind"`
+	// Resource id of the kusto cluster.
+	KustoClusterResourceId *string `pulumi:"kustoClusterResourceId"`
+	// Location of the kusto cluster.
+	Location *string `pulumi:"location"`
+	// Name of the azure resource
+	Name *string `pulumi:"name"`
+	// Provisioning state of the kusto cluster data set.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// System Data of the Azure resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Type of the azure resource
+	Type *string `pulumi:"type"`
 }
 
 type KustoClusterDataSetState struct {
+	// Unique id for identifying a data set resource
+	DataSetId pulumi.StringPtrInput
+	// Kind of data set.
+	// Expected value is 'KustoCluster'.
+	Kind pulumi.StringPtrInput
+	// Resource id of the kusto cluster.
+	KustoClusterResourceId pulumi.StringPtrInput
+	// Location of the kusto cluster.
+	Location pulumi.StringPtrInput
+	// Name of the azure resource
+	Name pulumi.StringPtrInput
+	// Provisioning state of the kusto cluster data set.
+	ProvisioningState pulumi.StringPtrInput
+	// System Data of the Azure resource.
+	SystemData SystemDataResponsePtrInput
+	// Type of the azure resource
+	Type pulumi.StringPtrInput
 }
 
 func (KustoClusterDataSetState) ElementType() reflect.Type {

@@ -149,9 +149,53 @@ func GetWebAppPremierAddOnSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppPremierAddOnSlot resources.
 type webAppPremierAddOnSlotState struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location *string `pulumi:"location"`
+	// Premier add on Marketplace offer.
+	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Premier add on Name.
+	PremierAddOnName *string `pulumi:"premierAddOnName"`
+	// Premier add on Product.
+	Product *string `pulumi:"product"`
+	// Premier add on SKU.
+	Sku *string `pulumi:"sku"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Premier add on Vendor.
+	Vendor *string `pulumi:"vendor"`
 }
 
 type WebAppPremierAddOnSlotState struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Location.
+	Location pulumi.StringPtrInput
+	// Premier add on Marketplace offer.
+	MarketplaceOffer pulumi.StringPtrInput
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Premier add on Name.
+	PremierAddOnName pulumi.StringPtrInput
+	// Premier add on Product.
+	Product pulumi.StringPtrInput
+	// Premier add on SKU.
+	Sku pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Premier add on Vendor.
+	Vendor pulumi.StringPtrInput
 }
 
 func (WebAppPremierAddOnSlotState) ElementType() reflect.Type {

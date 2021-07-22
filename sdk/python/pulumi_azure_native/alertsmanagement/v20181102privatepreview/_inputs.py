@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'ActionRulePropertiesArgs',
-    'ConditionsArgs',
     'ConditionArgs',
+    'ConditionsArgs',
     'ScopeArgs',
     'SuppressionConfigArgs',
     'SuppressionScheduleArgs',
@@ -104,6 +104,46 @@ class ActionRulePropertiesArgs:
     @suppression_config.setter
     def suppression_config(self, value: Optional[pulumi.Input['SuppressionConfigArgs']]):
         pulumi.set(self, "suppression_config", value)
+
+
+@pulumi.input_type
+class ConditionArgs:
+    def __init__(__self__, *,
+                 operator: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        condition to trigger an action rule
+        :param pulumi.Input[Union[str, 'ScopeType']] operator: operator for a given condition
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of values to match for a given condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'ScopeType']]]:
+        """
+        operator for a given condition
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'ScopeType']]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -288,46 +328,6 @@ class ConditionsArgs:
     @target_resource_type.setter
     def target_resource_type(self, value: Optional[pulumi.Input['ConditionArgs']]):
         pulumi.set(self, "target_resource_type", value)
-
-
-@pulumi.input_type
-class ConditionArgs:
-    def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        condition to trigger an action rule
-        :param pulumi.Input[Union[str, 'ScopeType']] operator: operator for a given condition
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of values to match for a given condition.
-        """
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[str, 'ScopeType']]]:
-        """
-        operator for a given condition
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[str, 'ScopeType']]]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type

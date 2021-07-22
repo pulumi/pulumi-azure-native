@@ -64,12 +64,6 @@ func NewGalleryImage(ctx *pulumi.Context,
 	if args.Identifier == nil {
 		return nil, errors.New("invalid value for required argument 'Identifier'")
 	}
-	if args.OsState == nil {
-		return nil, errors.New("invalid value for required argument 'OsState'")
-	}
-	if args.OsType == nil {
-		return nil, errors.New("invalid value for required argument 'OsType'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -131,9 +125,77 @@ func GetGalleryImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryImage resources.
 type galleryImageState struct {
+	// The description of this gallery Image Definition resource. This property is updatable.
+	Description *string `pulumi:"description"`
+	// Describes the disallowed disk types.
+	Disallowed *DisallowedResponse `pulumi:"disallowed"`
+	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// The Eula agreement for the gallery Image Definition.
+	Eula *string `pulumi:"eula"`
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// This is the gallery Image Definition identifier.
+	Identifier *GalleryImageIdentifierResponse `pulumi:"identifier"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+	OsState *string `pulumi:"osState"`
+	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	OsType *string `pulumi:"osType"`
+	// The privacy statement uri.
+	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
+	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
+	// The release note uri.
+	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type GalleryImageState struct {
+	// The description of this gallery Image Definition resource. This property is updatable.
+	Description pulumi.StringPtrInput
+	// Describes the disallowed disk types.
+	Disallowed DisallowedResponsePtrInput
+	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate pulumi.StringPtrInput
+	// The Eula agreement for the gallery Image Definition.
+	Eula pulumi.StringPtrInput
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration pulumi.StringPtrInput
+	// This is the gallery Image Definition identifier.
+	Identifier GalleryImageIdentifierResponsePtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+	OsState pulumi.StringPtrInput
+	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	OsType pulumi.StringPtrInput
+	// The privacy statement uri.
+	PrivacyStatementUri pulumi.StringPtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	PurchasePlan ImagePurchasePlanResponsePtrInput
+	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+	Recommended RecommendedMachineConfigurationResponsePtrInput
+	// The release note uri.
+	ReleaseNoteUri pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (GalleryImageState) ElementType() reflect.Type {
@@ -160,9 +222,9 @@ type galleryImageArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState OperatingSystemStateTypes `pulumi:"osState"`
+	OsState string `pulumi:"osState"`
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType OperatingSystemTypes `pulumi:"osType"`
+	OsType string `pulumi:"osType"`
 	// The privacy statement uri.
 	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
 	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
@@ -198,9 +260,9 @@ type GalleryImageArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState OperatingSystemStateTypesInput
+	OsState OperatingSystemStateTypes
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType OperatingSystemTypesInput
+	OsType OperatingSystemTypes
 	// The privacy statement uri.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.

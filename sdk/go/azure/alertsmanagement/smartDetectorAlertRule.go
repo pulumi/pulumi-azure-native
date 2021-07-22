@@ -119,9 +119,57 @@ func GetSmartDetectorAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SmartDetectorAlertRule resources.
 type smartDetectorAlertRuleState struct {
+	// The alert rule actions.
+	ActionGroups *ActionGroupsInformationResponse `pulumi:"actionGroups"`
+	// The alert rule description.
+	Description *string `pulumi:"description"`
+	// The alert rule's detector.
+	Detector *DetectorResponse `pulumi:"detector"`
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency *string `pulumi:"frequency"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// The resource name.
+	Name *string `pulumi:"name"`
+	// The alert rule resources scope.
+	Scope []string `pulumi:"scope"`
+	// The alert rule severity.
+	Severity *string `pulumi:"severity"`
+	// The alert rule state.
+	State *string `pulumi:"state"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The alert rule throttling information.
+	Throttling *ThrottlingInformationResponse `pulumi:"throttling"`
+	// The resource type.
+	Type *string `pulumi:"type"`
 }
 
 type SmartDetectorAlertRuleState struct {
+	// The alert rule actions.
+	ActionGroups ActionGroupsInformationResponsePtrInput
+	// The alert rule description.
+	Description pulumi.StringPtrInput
+	// The alert rule's detector.
+	Detector DetectorResponsePtrInput
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency pulumi.StringPtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// The resource name.
+	Name pulumi.StringPtrInput
+	// The alert rule resources scope.
+	Scope pulumi.StringArrayInput
+	// The alert rule severity.
+	Severity pulumi.StringPtrInput
+	// The alert rule state.
+	State pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// The alert rule throttling information.
+	Throttling ThrottlingInformationResponsePtrInput
+	// The resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (SmartDetectorAlertRuleState) ElementType() reflect.Type {

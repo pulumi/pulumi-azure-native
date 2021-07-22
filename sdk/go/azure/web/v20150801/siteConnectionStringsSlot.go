@@ -139,9 +139,33 @@ func GetSiteConnectionStringsSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteConnectionStringsSlot resources.
 type siteConnectionStringsSlotState struct {
+	// Kind of resource
+	Kind *string `pulumi:"kind"`
+	// Resource Location
+	Location *string `pulumi:"location"`
+	// Resource Name
+	Name *string `pulumi:"name"`
+	// Connection strings
+	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type SiteConnectionStringsSlotState struct {
+	// Kind of resource
+	Kind pulumi.StringPtrInput
+	// Resource Location
+	Location pulumi.StringPtrInput
+	// Resource Name
+	Name pulumi.StringPtrInput
+	// Connection strings
+	Properties ConnStringValueTypePairResponseMapInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (SiteConnectionStringsSlotState) ElementType() reflect.Type {

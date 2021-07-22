@@ -112,9 +112,45 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate *string `pulumi:"creationDate"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint *string `pulumi:"endpoint"`
+	// The managed identity information, if configured.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the configuration store.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The sku of the configuration store.
+	Sku *SkuResponse `pulumi:"sku"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type ConfigurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate pulumi.StringPtrInput
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint pulumi.StringPtrInput
+	// The managed identity information, if configured.
+	Identity ResourceIdentityResponsePtrInput
+	// The location of the resource. This cannot be changed after the resource is created.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the configuration store.
+	ProvisioningState pulumi.StringPtrInput
+	// The sku of the configuration store.
+	Sku SkuResponsePtrInput
+	// The tags of the resource.
+	Tags pulumi.StringMapInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (ConfigurationStoreState) ElementType() reflect.Type {

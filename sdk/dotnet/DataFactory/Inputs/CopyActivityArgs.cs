@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Copy activity sink.
         /// </summary>
         [Input("sink", required: true)]
-        public object Sink { get; set; } = null!;
+        public Input<object> Sink { get; set; } = null!;
 
         /// <summary>
         /// Specify the fault tolerance for data consistency.
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Copy activity source.
         /// </summary>
         [Input("source", required: true)]
-        public object Source { get; set; } = null!;
+        public Input<object> Source { get; set; } = null!;
 
         /// <summary>
         /// Specifies interim staging settings when EnableStaging is true.

@@ -90,9 +90,49 @@ func GetGraphQuery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GraphQuery resources.
 type graphQueryState struct {
+	// The description of a graph query.
+	Description *string `pulumi:"description"`
+	// This will be used to handle Optimistic Concurrency.
+	Etag *string `pulumi:"etag"`
+	// The location of the resource
+	Location *string `pulumi:"location"`
+	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+	Name *string `pulumi:"name"`
+	// KQL query that will be graph.
+	Query *string `pulumi:"query"`
+	// Enum indicating a type of graph query.
+	ResultKind *string `pulumi:"resultKind"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Date and time in UTC of the last modification that was made to this graph query definition.
+	TimeModified *string `pulumi:"timeModified"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type GraphQueryState struct {
+	// The description of a graph query.
+	Description pulumi.StringPtrInput
+	// This will be used to handle Optimistic Concurrency.
+	Etag pulumi.StringPtrInput
+	// The location of the resource
+	Location pulumi.StringPtrInput
+	// Azure resource name. This is GUID value. The display name should be assigned within properties field.
+	Name pulumi.StringPtrInput
+	// KQL query that will be graph.
+	Query pulumi.StringPtrInput
+	// Enum indicating a type of graph query.
+	ResultKind pulumi.StringPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Date and time in UTC of the last modification that was made to this graph query definition.
+	TimeModified pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (GraphQueryState) ElementType() reflect.Type {

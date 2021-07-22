@@ -114,9 +114,77 @@ func GetWorkflow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workflow resources.
 type workflowState struct {
+	// The access control configuration.
+	AccessControl *FlowAccessControlConfigurationResponse `pulumi:"accessControl"`
+	// Gets the access endpoint.
+	AccessEndpoint *string `pulumi:"accessEndpoint"`
+	// Gets the changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// Gets the created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The definition.
+	Definition interface{} `pulumi:"definition"`
+	// The endpoints configuration.
+	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
+	// The integration account.
+	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
+	// The integration service environment.
+	IntegrationServiceEnvironment *ResourceReferenceResponse `pulumi:"integrationServiceEnvironment"`
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// Gets the resource name.
+	Name *string `pulumi:"name"`
+	// The parameters.
+	Parameters map[string]WorkflowParameterResponse `pulumi:"parameters"`
+	// Gets the provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The sku.
+	Sku *SkuResponse `pulumi:"sku"`
+	// The state.
+	State *string `pulumi:"state"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets the resource type.
+	Type *string `pulumi:"type"`
+	// Gets the version.
+	Version *string `pulumi:"version"`
 }
 
 type WorkflowState struct {
+	// The access control configuration.
+	AccessControl FlowAccessControlConfigurationResponsePtrInput
+	// Gets the access endpoint.
+	AccessEndpoint pulumi.StringPtrInput
+	// Gets the changed time.
+	ChangedTime pulumi.StringPtrInput
+	// Gets the created time.
+	CreatedTime pulumi.StringPtrInput
+	// The definition.
+	Definition pulumi.Input
+	// The endpoints configuration.
+	EndpointsConfiguration FlowEndpointsConfigurationResponsePtrInput
+	// The integration account.
+	IntegrationAccount ResourceReferenceResponsePtrInput
+	// The integration service environment.
+	IntegrationServiceEnvironment ResourceReferenceResponsePtrInput
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// Gets the resource name.
+	Name pulumi.StringPtrInput
+	// The parameters.
+	Parameters WorkflowParameterResponseMapInput
+	// Gets the provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The sku.
+	Sku SkuResponsePtrInput
+	// The state.
+	State pulumi.StringPtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// Gets the resource type.
+	Type pulumi.StringPtrInput
+	// Gets the version.
+	Version pulumi.StringPtrInput
 }
 
 func (WorkflowState) ElementType() reflect.Type {

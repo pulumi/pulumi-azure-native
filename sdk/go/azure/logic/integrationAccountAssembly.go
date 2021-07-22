@@ -90,9 +90,29 @@ func GetIntegrationAccountAssembly(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountAssembly resources.
 type integrationAccountAssemblyState struct {
+	// The resource location.
+	Location *string `pulumi:"location"`
+	// Gets the resource name.
+	Name *string `pulumi:"name"`
+	// The assembly properties.
+	Properties *AssemblyPropertiesResponse `pulumi:"properties"`
+	// The resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets the resource type.
+	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountAssemblyState struct {
+	// The resource location.
+	Location pulumi.StringPtrInput
+	// Gets the resource name.
+	Name pulumi.StringPtrInput
+	// The assembly properties.
+	Properties AssemblyPropertiesResponsePtrInput
+	// The resource tags.
+	Tags pulumi.StringMapInput
+	// Gets the resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountAssemblyState) ElementType() reflect.Type {

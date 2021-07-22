@@ -11,7 +11,7 @@ import (
 )
 
 // The private link service connection status.
-type ConnectionStatus string
+type ConnectionStatus pulumi.String
 
 const (
 	ConnectionStatusPending      = ConnectionStatus("Pending")
@@ -21,23 +21,7 @@ const (
 )
 
 func (ConnectionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionStatus)(nil)).Elem()
-}
-
-func (e ConnectionStatus) ToConnectionStatusOutput() ConnectionStatusOutput {
-	return pulumi.ToOutput(e).(ConnectionStatusOutput)
-}
-
-func (e ConnectionStatus) ToConnectionStatusOutputWithContext(ctx context.Context) ConnectionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(ConnectionStatusOutput)
-}
-
-func (e ConnectionStatus) ToConnectionStatusPtrOutput() ConnectionStatusPtrOutput {
-	return e.ToConnectionStatusPtrOutputWithContext(context.Background())
-}
-
-func (e ConnectionStatus) ToConnectionStatusPtrOutputWithContext(ctx context.Context) ConnectionStatusPtrOutput {
-	return ConnectionStatus(e).ToConnectionStatusOutputWithContext(ctx).ToConnectionStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e ConnectionStatus) ToStringOutput() pulumi.StringOutput {
@@ -56,129 +40,8 @@ func (e ConnectionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ConnectionStatusOutput struct{ *pulumi.OutputState }
-
-func (ConnectionStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionStatus)(nil)).Elem()
-}
-
-func (o ConnectionStatusOutput) ToConnectionStatusOutput() ConnectionStatusOutput {
-	return o
-}
-
-func (o ConnectionStatusOutput) ToConnectionStatusOutputWithContext(ctx context.Context) ConnectionStatusOutput {
-	return o
-}
-
-func (o ConnectionStatusOutput) ToConnectionStatusPtrOutput() ConnectionStatusPtrOutput {
-	return o.ToConnectionStatusPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionStatusOutput) ToConnectionStatusPtrOutputWithContext(ctx context.Context) ConnectionStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStatus) *ConnectionStatus {
-		return &v
-	}).(ConnectionStatusPtrOutput)
-}
-
-func (o ConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o ConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o ConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConnectionStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectionStatusPtrOutput) ElementType() reflect.Type {
-	return connectionStatusPtrType
-}
-
-func (o ConnectionStatusPtrOutput) ToConnectionStatusPtrOutput() ConnectionStatusPtrOutput {
-	return o
-}
-
-func (o ConnectionStatusPtrOutput) ToConnectionStatusPtrOutputWithContext(ctx context.Context) ConnectionStatusPtrOutput {
-	return o
-}
-
-func (o ConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectionStatusPtrOutput) Elem() ConnectionStatusOutput {
-	return o.ApplyT(func(v *ConnectionStatus) ConnectionStatus {
-		var ret ConnectionStatus
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ConnectionStatusOutput)
-}
-
-// ConnectionStatusInput is an input type that accepts ConnectionStatusArgs and ConnectionStatusOutput values.
-// You can construct a concrete instance of `ConnectionStatusInput` via:
-//
-//          ConnectionStatusArgs{...}
-type ConnectionStatusInput interface {
-	pulumi.Input
-
-	ToConnectionStatusOutput() ConnectionStatusOutput
-	ToConnectionStatusOutputWithContext(context.Context) ConnectionStatusOutput
-}
-
-var connectionStatusPtrType = reflect.TypeOf((**ConnectionStatus)(nil)).Elem()
-
-type ConnectionStatusPtrInput interface {
-	pulumi.Input
-
-	ToConnectionStatusPtrOutput() ConnectionStatusPtrOutput
-	ToConnectionStatusPtrOutputWithContext(context.Context) ConnectionStatusPtrOutput
-}
-
-type connectionStatusPtr string
-
-func ConnectionStatusPtr(v string) ConnectionStatusPtrInput {
-	return (*connectionStatusPtr)(&v)
-}
-
-func (*connectionStatusPtr) ElementType() reflect.Type {
-	return connectionStatusPtrType
-}
-
-func (in *connectionStatusPtr) ToConnectionStatusPtrOutput() ConnectionStatusPtrOutput {
-	return pulumi.ToOutput(in).(ConnectionStatusPtrOutput)
-}
-
-func (in *connectionStatusPtr) ToConnectionStatusPtrOutputWithContext(ctx context.Context) ConnectionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(ConnectionStatusPtrOutput)
-}
-
 // The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-type IdentityType string
+type IdentityType pulumi.String
 
 const (
 	IdentityTypeNone                         = IdentityType("None")
@@ -188,23 +51,7 @@ const (
 )
 
 func (IdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (e IdentityType) ToIdentityTypeOutput() IdentityTypeOutput {
-	return pulumi.ToOutput(e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(IdentityTypeOutput)
-}
-
-func (e IdentityType) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return e.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (e IdentityType) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return IdentityType(e).ToIdentityTypeOutputWithContext(ctx).ToIdentityTypePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e IdentityType) ToStringOutput() pulumi.StringOutput {
@@ -223,129 +70,8 @@ func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type IdentityTypeOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityType)(nil)).Elem()
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutput() IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypeOutputWithContext(ctx context.Context) IdentityTypeOutput {
-	return o
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o.ToIdentityTypePtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityType) *IdentityType {
-		return &v
-	}).(IdentityTypePtrOutput)
-}
-
-func (o IdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e IdentityType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type IdentityTypePtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityTypePtrOutput) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return o
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IdentityType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o IdentityTypePtrOutput) Elem() IdentityTypeOutput {
-	return o.ApplyT(func(v *IdentityType) IdentityType {
-		var ret IdentityType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(IdentityTypeOutput)
-}
-
-// IdentityTypeInput is an input type that accepts IdentityTypeArgs and IdentityTypeOutput values.
-// You can construct a concrete instance of `IdentityTypeInput` via:
-//
-//          IdentityTypeArgs{...}
-type IdentityTypeInput interface {
-	pulumi.Input
-
-	ToIdentityTypeOutput() IdentityTypeOutput
-	ToIdentityTypeOutputWithContext(context.Context) IdentityTypeOutput
-}
-
-var identityTypePtrType = reflect.TypeOf((**IdentityType)(nil)).Elem()
-
-type IdentityTypePtrInput interface {
-	pulumi.Input
-
-	ToIdentityTypePtrOutput() IdentityTypePtrOutput
-	ToIdentityTypePtrOutputWithContext(context.Context) IdentityTypePtrOutput
-}
-
-type identityTypePtr string
-
-func IdentityTypePtr(v string) IdentityTypePtrInput {
-	return (*identityTypePtr)(&v)
-}
-
-func (*identityTypePtr) ElementType() reflect.Type {
-	return identityTypePtrType
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutput() IdentityTypePtrOutput {
-	return pulumi.ToOutput(in).(IdentityTypePtrOutput)
-}
-
-func (in *identityTypePtr) ToIdentityTypePtrOutputWithContext(ctx context.Context) IdentityTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(IdentityTypePtrOutput)
-}
-
 // Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-type PublicNetworkAccess string
+type PublicNetworkAccess pulumi.String
 
 const (
 	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
@@ -353,23 +79,7 @@ const (
 )
 
 func (PublicNetworkAccess) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicNetworkAccess)(nil)).Elem()
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessOutput() PublicNetworkAccessOutput {
-	return pulumi.ToOutput(e).(PublicNetworkAccessOutput)
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessOutputWithContext(ctx context.Context) PublicNetworkAccessOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PublicNetworkAccessOutput)
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return e.ToPublicNetworkAccessPtrOutputWithContext(context.Background())
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return PublicNetworkAccess(e).ToPublicNetworkAccessOutputWithContext(ctx).ToPublicNetworkAccessPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PublicNetworkAccess) ToStringOutput() pulumi.StringOutput {
@@ -386,134 +96,4 @@ func (e PublicNetworkAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type PublicNetworkAccessOutput struct{ *pulumi.OutputState }
-
-func (PublicNetworkAccessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicNetworkAccess)(nil)).Elem()
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessOutput() PublicNetworkAccessOutput {
-	return o
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessOutputWithContext(ctx context.Context) PublicNetworkAccessOutput {
-	return o
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return o.ToPublicNetworkAccessPtrOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicNetworkAccess) *PublicNetworkAccess {
-		return &v
-	}).(PublicNetworkAccessPtrOutput)
-}
-
-func (o PublicNetworkAccessOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublicNetworkAccess) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PublicNetworkAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublicNetworkAccess) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PublicNetworkAccessPtrOutput struct{ *pulumi.OutputState }
-
-func (PublicNetworkAccessPtrOutput) ElementType() reflect.Type {
-	return publicNetworkAccessPtrType
-}
-
-func (o PublicNetworkAccessPtrOutput) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return o
-}
-
-func (o PublicNetworkAccessPtrOutput) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return o
-}
-
-func (o PublicNetworkAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PublicNetworkAccess) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PublicNetworkAccessPtrOutput) Elem() PublicNetworkAccessOutput {
-	return o.ApplyT(func(v *PublicNetworkAccess) PublicNetworkAccess {
-		var ret PublicNetworkAccess
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PublicNetworkAccessOutput)
-}
-
-// PublicNetworkAccessInput is an input type that accepts PublicNetworkAccessArgs and PublicNetworkAccessOutput values.
-// You can construct a concrete instance of `PublicNetworkAccessInput` via:
-//
-//          PublicNetworkAccessArgs{...}
-type PublicNetworkAccessInput interface {
-	pulumi.Input
-
-	ToPublicNetworkAccessOutput() PublicNetworkAccessOutput
-	ToPublicNetworkAccessOutputWithContext(context.Context) PublicNetworkAccessOutput
-}
-
-var publicNetworkAccessPtrType = reflect.TypeOf((**PublicNetworkAccess)(nil)).Elem()
-
-type PublicNetworkAccessPtrInput interface {
-	pulumi.Input
-
-	ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput
-	ToPublicNetworkAccessPtrOutputWithContext(context.Context) PublicNetworkAccessPtrOutput
-}
-
-type publicNetworkAccessPtr string
-
-func PublicNetworkAccessPtr(v string) PublicNetworkAccessPtrInput {
-	return (*publicNetworkAccessPtr)(&v)
-}
-
-func (*publicNetworkAccessPtr) ElementType() reflect.Type {
-	return publicNetworkAccessPtrType
-}
-
-func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return pulumi.ToOutput(in).(PublicNetworkAccessPtrOutput)
-}
-
-func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(ConnectionStatusOutput{})
-	pulumi.RegisterOutputType(ConnectionStatusPtrOutput{})
-	pulumi.RegisterOutputType(IdentityTypeOutput{})
-	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
-	pulumi.RegisterOutputType(PublicNetworkAccessOutput{})
-	pulumi.RegisterOutputType(PublicNetworkAccessPtrOutput{})
 }

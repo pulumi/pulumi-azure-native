@@ -76,9 +76,17 @@ func GetOperationByProviderRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OperationByProviderRegistration resources.
 type operationByProviderRegistrationState struct {
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type OperationByProviderRegistrationState struct {
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (OperationByProviderRegistrationState) ElementType() reflect.Type {

@@ -11,30 +11,14 @@ import (
 )
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
-type EncryptionKeySource string
+type EncryptionKeySource pulumi.String
 
 const (
 	EncryptionKeySource_Microsoft_Keyvault = EncryptionKeySource("Microsoft.Keyvault")
 )
 
 func (EncryptionKeySource) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionKeySource)(nil)).Elem()
-}
-
-func (e EncryptionKeySource) ToEncryptionKeySourceOutput() EncryptionKeySourceOutput {
-	return pulumi.ToOutput(e).(EncryptionKeySourceOutput)
-}
-
-func (e EncryptionKeySource) ToEncryptionKeySourceOutputWithContext(ctx context.Context) EncryptionKeySourceOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(EncryptionKeySourceOutput)
-}
-
-func (e EncryptionKeySource) ToEncryptionKeySourcePtrOutput() EncryptionKeySourcePtrOutput {
-	return e.ToEncryptionKeySourcePtrOutputWithContext(context.Background())
-}
-
-func (e EncryptionKeySource) ToEncryptionKeySourcePtrOutputWithContext(ctx context.Context) EncryptionKeySourcePtrOutput {
-	return EncryptionKeySource(e).ToEncryptionKeySourceOutputWithContext(ctx).ToEncryptionKeySourcePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e EncryptionKeySource) ToStringOutput() pulumi.StringOutput {
@@ -53,129 +37,8 @@ func (e EncryptionKeySource) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type EncryptionKeySourceOutput struct{ *pulumi.OutputState }
-
-func (EncryptionKeySourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionKeySource)(nil)).Elem()
-}
-
-func (o EncryptionKeySourceOutput) ToEncryptionKeySourceOutput() EncryptionKeySourceOutput {
-	return o
-}
-
-func (o EncryptionKeySourceOutput) ToEncryptionKeySourceOutputWithContext(ctx context.Context) EncryptionKeySourceOutput {
-	return o
-}
-
-func (o EncryptionKeySourceOutput) ToEncryptionKeySourcePtrOutput() EncryptionKeySourcePtrOutput {
-	return o.ToEncryptionKeySourcePtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionKeySourceOutput) ToEncryptionKeySourcePtrOutputWithContext(ctx context.Context) EncryptionKeySourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionKeySource) *EncryptionKeySource {
-		return &v
-	}).(EncryptionKeySourcePtrOutput)
-}
-
-func (o EncryptionKeySourceOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o EncryptionKeySourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncryptionKeySource) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o EncryptionKeySourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionKeySourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e EncryptionKeySource) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type EncryptionKeySourcePtrOutput struct{ *pulumi.OutputState }
-
-func (EncryptionKeySourcePtrOutput) ElementType() reflect.Type {
-	return encryptionKeySourcePtrType
-}
-
-func (o EncryptionKeySourcePtrOutput) ToEncryptionKeySourcePtrOutput() EncryptionKeySourcePtrOutput {
-	return o
-}
-
-func (o EncryptionKeySourcePtrOutput) ToEncryptionKeySourcePtrOutputWithContext(ctx context.Context) EncryptionKeySourcePtrOutput {
-	return o
-}
-
-func (o EncryptionKeySourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionKeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EncryptionKeySource) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o EncryptionKeySourcePtrOutput) Elem() EncryptionKeySourceOutput {
-	return o.ApplyT(func(v *EncryptionKeySource) EncryptionKeySource {
-		var ret EncryptionKeySource
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(EncryptionKeySourceOutput)
-}
-
-// EncryptionKeySourceInput is an input type that accepts EncryptionKeySourceArgs and EncryptionKeySourceOutput values.
-// You can construct a concrete instance of `EncryptionKeySourceInput` via:
-//
-//          EncryptionKeySourceArgs{...}
-type EncryptionKeySourceInput interface {
-	pulumi.Input
-
-	ToEncryptionKeySourceOutput() EncryptionKeySourceOutput
-	ToEncryptionKeySourceOutputWithContext(context.Context) EncryptionKeySourceOutput
-}
-
-var encryptionKeySourcePtrType = reflect.TypeOf((**EncryptionKeySource)(nil)).Elem()
-
-type EncryptionKeySourcePtrInput interface {
-	pulumi.Input
-
-	ToEncryptionKeySourcePtrOutput() EncryptionKeySourcePtrOutput
-	ToEncryptionKeySourcePtrOutputWithContext(context.Context) EncryptionKeySourcePtrOutput
-}
-
-type encryptionKeySourcePtr string
-
-func EncryptionKeySourcePtr(v string) EncryptionKeySourcePtrInput {
-	return (*encryptionKeySourcePtr)(&v)
-}
-
-func (*encryptionKeySourcePtr) ElementType() reflect.Type {
-	return encryptionKeySourcePtrType
-}
-
-func (in *encryptionKeySourcePtr) ToEncryptionKeySourcePtrOutput() EncryptionKeySourcePtrOutput {
-	return pulumi.ToOutput(in).(EncryptionKeySourcePtrOutput)
-}
-
-func (in *encryptionKeySourcePtr) ToEncryptionKeySourcePtrOutputWithContext(ctx context.Context) EncryptionKeySourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(EncryptionKeySourcePtrOutput)
-}
-
 // The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
-type KeySource string
+type KeySource pulumi.String
 
 const (
 	KeySourceDefault             = KeySource("Default")
@@ -183,23 +46,7 @@ const (
 )
 
 func (KeySource) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySource)(nil)).Elem()
-}
-
-func (e KeySource) ToKeySourceOutput() KeySourceOutput {
-	return pulumi.ToOutput(e).(KeySourceOutput)
-}
-
-func (e KeySource) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(KeySourceOutput)
-}
-
-func (e KeySource) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return e.ToKeySourcePtrOutputWithContext(context.Background())
-}
-
-func (e KeySource) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return KeySource(e).ToKeySourceOutputWithContext(ctx).ToKeySourcePtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e KeySource) ToStringOutput() pulumi.StringOutput {
@@ -218,129 +65,8 @@ func (e KeySource) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KeySourceOutput struct{ *pulumi.OutputState }
-
-func (KeySourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySource)(nil)).Elem()
-}
-
-func (o KeySourceOutput) ToKeySourceOutput() KeySourceOutput {
-	return o
-}
-
-func (o KeySourceOutput) ToKeySourceOutputWithContext(ctx context.Context) KeySourceOutput {
-	return o
-}
-
-func (o KeySourceOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return o.ToKeySourcePtrOutputWithContext(context.Background())
-}
-
-func (o KeySourceOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeySource) *KeySource {
-		return &v
-	}).(KeySourcePtrOutput)
-}
-
-func (o KeySourceOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o KeySourceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o KeySourceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o KeySourceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e KeySource) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type KeySourcePtrOutput struct{ *pulumi.OutputState }
-
-func (KeySourcePtrOutput) ElementType() reflect.Type {
-	return keySourcePtrType
-}
-
-func (o KeySourcePtrOutput) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return o
-}
-
-func (o KeySourcePtrOutput) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return o
-}
-
-func (o KeySourcePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o KeySourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KeySource) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o KeySourcePtrOutput) Elem() KeySourceOutput {
-	return o.ApplyT(func(v *KeySource) KeySource {
-		var ret KeySource
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(KeySourceOutput)
-}
-
-// KeySourceInput is an input type that accepts KeySourceArgs and KeySourceOutput values.
-// You can construct a concrete instance of `KeySourceInput` via:
-//
-//          KeySourceArgs{...}
-type KeySourceInput interface {
-	pulumi.Input
-
-	ToKeySourceOutput() KeySourceOutput
-	ToKeySourceOutputWithContext(context.Context) KeySourceOutput
-}
-
-var keySourcePtrType = reflect.TypeOf((**KeySource)(nil)).Elem()
-
-type KeySourcePtrInput interface {
-	pulumi.Input
-
-	ToKeySourcePtrOutput() KeySourcePtrOutput
-	ToKeySourcePtrOutputWithContext(context.Context) KeySourcePtrOutput
-}
-
-type keySourcePtr string
-
-func KeySourcePtr(v string) KeySourcePtrInput {
-	return (*keySourcePtr)(&v)
-}
-
-func (*keySourcePtr) ElementType() reflect.Type {
-	return keySourcePtrType
-}
-
-func (in *keySourcePtr) ToKeySourcePtrOutput() KeySourcePtrOutput {
-	return pulumi.ToOutput(in).(KeySourcePtrOutput)
-}
-
-func (in *keySourcePtr) ToKeySourcePtrOutputWithContext(ctx context.Context) KeySourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(KeySourcePtrOutput)
-}
-
 // The status of a private endpoint connection
-type PrivateLinkServiceConnectionStatus string
+type PrivateLinkServiceConnectionStatus pulumi.String
 
 const (
 	PrivateLinkServiceConnectionStatusPending      = PrivateLinkServiceConnectionStatus("Pending")
@@ -350,23 +76,7 @@ const (
 )
 
 func (PrivateLinkServiceConnectionStatus) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStatus)(nil)).Elem()
-}
-
-func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusOutput() PrivateLinkServiceConnectionStatusOutput {
-	return pulumi.ToOutput(e).(PrivateLinkServiceConnectionStatusOutput)
-}
-
-func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PrivateLinkServiceConnectionStatusOutput)
-}
-
-func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
-	return e.ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(context.Background())
-}
-
-func (e PrivateLinkServiceConnectionStatus) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
-	return PrivateLinkServiceConnectionStatus(e).ToPrivateLinkServiceConnectionStatusOutputWithContext(ctx).ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PrivateLinkServiceConnectionStatus) ToStringOutput() pulumi.StringOutput {
@@ -385,129 +95,8 @@ func (e PrivateLinkServiceConnectionStatus) ToStringPtrOutputWithContext(ctx con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PrivateLinkServiceConnectionStatusOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStatus)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusOutput() PrivateLinkServiceConnectionStatusOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
-	return o.ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatus) *PrivateLinkServiceConnectionStatus {
-		return &v
-	}).(PrivateLinkServiceConnectionStatusPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateLinkServiceConnectionStatus) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrivateLinkServiceConnectionStatus) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PrivateLinkServiceConnectionStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStatusPtrOutput) ElementType() reflect.Type {
-	return privateLinkServiceConnectionStatusPtrType
-}
-
-func (o PrivateLinkServiceConnectionStatusPtrOutput) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatusPtrOutput) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrivateLinkServiceConnectionStatus) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatusPtrOutput) Elem() PrivateLinkServiceConnectionStatusOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatus) PrivateLinkServiceConnectionStatus {
-		var ret PrivateLinkServiceConnectionStatus
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PrivateLinkServiceConnectionStatusOutput)
-}
-
-// PrivateLinkServiceConnectionStatusInput is an input type that accepts PrivateLinkServiceConnectionStatusArgs and PrivateLinkServiceConnectionStatusOutput values.
-// You can construct a concrete instance of `PrivateLinkServiceConnectionStatusInput` via:
-//
-//          PrivateLinkServiceConnectionStatusArgs{...}
-type PrivateLinkServiceConnectionStatusInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatusOutput() PrivateLinkServiceConnectionStatusOutput
-	ToPrivateLinkServiceConnectionStatusOutputWithContext(context.Context) PrivateLinkServiceConnectionStatusOutput
-}
-
-var privateLinkServiceConnectionStatusPtrType = reflect.TypeOf((**PrivateLinkServiceConnectionStatus)(nil)).Elem()
-
-type PrivateLinkServiceConnectionStatusPtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput
-	ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatusPtrOutput
-}
-
-type privateLinkServiceConnectionStatusPtr string
-
-func PrivateLinkServiceConnectionStatusPtr(v string) PrivateLinkServiceConnectionStatusPtrInput {
-	return (*privateLinkServiceConnectionStatusPtr)(&v)
-}
-
-func (*privateLinkServiceConnectionStatusPtr) ElementType() reflect.Type {
-	return privateLinkServiceConnectionStatusPtrType
-}
-
-func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionStatusPtrOutput() PrivateLinkServiceConnectionStatusPtrOutput {
-	return pulumi.ToOutput(in).(PrivateLinkServiceConnectionStatusPtrOutput)
-}
-
-func (in *privateLinkServiceConnectionStatusPtr) ToPrivateLinkServiceConnectionStatusPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PrivateLinkServiceConnectionStatusPtrOutput)
-}
-
 // The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-type PublicNetworkAccess string
+type PublicNetworkAccess pulumi.String
 
 const (
 	PublicNetworkAccessEnabled  = PublicNetworkAccess("Enabled")
@@ -515,23 +104,7 @@ const (
 )
 
 func (PublicNetworkAccess) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicNetworkAccess)(nil)).Elem()
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessOutput() PublicNetworkAccessOutput {
-	return pulumi.ToOutput(e).(PublicNetworkAccessOutput)
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessOutputWithContext(ctx context.Context) PublicNetworkAccessOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(PublicNetworkAccessOutput)
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return e.ToPublicNetworkAccessPtrOutputWithContext(context.Background())
-}
-
-func (e PublicNetworkAccess) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return PublicNetworkAccess(e).ToPublicNetworkAccessOutputWithContext(ctx).ToPublicNetworkAccessPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e PublicNetworkAccess) ToStringOutput() pulumi.StringOutput {
@@ -550,129 +123,8 @@ func (e PublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type PublicNetworkAccessOutput struct{ *pulumi.OutputState }
-
-func (PublicNetworkAccessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicNetworkAccess)(nil)).Elem()
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessOutput() PublicNetworkAccessOutput {
-	return o
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessOutputWithContext(ctx context.Context) PublicNetworkAccessOutput {
-	return o
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return o.ToPublicNetworkAccessPtrOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessOutput) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicNetworkAccess) *PublicNetworkAccess {
-		return &v
-	}).(PublicNetworkAccessPtrOutput)
-}
-
-func (o PublicNetworkAccessOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublicNetworkAccess) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o PublicNetworkAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e PublicNetworkAccess) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type PublicNetworkAccessPtrOutput struct{ *pulumi.OutputState }
-
-func (PublicNetworkAccessPtrOutput) ElementType() reflect.Type {
-	return publicNetworkAccessPtrType
-}
-
-func (o PublicNetworkAccessPtrOutput) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return o
-}
-
-func (o PublicNetworkAccessPtrOutput) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return o
-}
-
-func (o PublicNetworkAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o PublicNetworkAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PublicNetworkAccess) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PublicNetworkAccessPtrOutput) Elem() PublicNetworkAccessOutput {
-	return o.ApplyT(func(v *PublicNetworkAccess) PublicNetworkAccess {
-		var ret PublicNetworkAccess
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PublicNetworkAccessOutput)
-}
-
-// PublicNetworkAccessInput is an input type that accepts PublicNetworkAccessArgs and PublicNetworkAccessOutput values.
-// You can construct a concrete instance of `PublicNetworkAccessInput` via:
-//
-//          PublicNetworkAccessArgs{...}
-type PublicNetworkAccessInput interface {
-	pulumi.Input
-
-	ToPublicNetworkAccessOutput() PublicNetworkAccessOutput
-	ToPublicNetworkAccessOutputWithContext(context.Context) PublicNetworkAccessOutput
-}
-
-var publicNetworkAccessPtrType = reflect.TypeOf((**PublicNetworkAccess)(nil)).Elem()
-
-type PublicNetworkAccessPtrInput interface {
-	pulumi.Input
-
-	ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput
-	ToPublicNetworkAccessPtrOutputWithContext(context.Context) PublicNetworkAccessPtrOutput
-}
-
-type publicNetworkAccessPtr string
-
-func PublicNetworkAccessPtr(v string) PublicNetworkAccessPtrInput {
-	return (*publicNetworkAccessPtr)(&v)
-}
-
-func (*publicNetworkAccessPtr) ElementType() reflect.Type {
-	return publicNetworkAccessPtrType
-}
-
-func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutput() PublicNetworkAccessPtrOutput {
-	return pulumi.ToOutput(in).(PublicNetworkAccessPtrOutput)
-}
-
-func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx context.Context) PublicNetworkAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(PublicNetworkAccessPtrOutput)
-}
-
 // Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
-type RequiredNsgRules string
+type RequiredNsgRules pulumi.String
 
 const (
 	RequiredNsgRulesAllRules               = RequiredNsgRules("AllRules")
@@ -681,23 +133,7 @@ const (
 )
 
 func (RequiredNsgRules) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequiredNsgRules)(nil)).Elem()
-}
-
-func (e RequiredNsgRules) ToRequiredNsgRulesOutput() RequiredNsgRulesOutput {
-	return pulumi.ToOutput(e).(RequiredNsgRulesOutput)
-}
-
-func (e RequiredNsgRules) ToRequiredNsgRulesOutputWithContext(ctx context.Context) RequiredNsgRulesOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(RequiredNsgRulesOutput)
-}
-
-func (e RequiredNsgRules) ToRequiredNsgRulesPtrOutput() RequiredNsgRulesPtrOutput {
-	return e.ToRequiredNsgRulesPtrOutputWithContext(context.Background())
-}
-
-func (e RequiredNsgRules) ToRequiredNsgRulesPtrOutputWithContext(ctx context.Context) RequiredNsgRulesPtrOutput {
-	return RequiredNsgRules(e).ToRequiredNsgRulesOutputWithContext(ctx).ToRequiredNsgRulesPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e RequiredNsgRules) ToStringOutput() pulumi.StringOutput {
@@ -714,138 +150,4 @@ func (e RequiredNsgRules) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e RequiredNsgRules) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type RequiredNsgRulesOutput struct{ *pulumi.OutputState }
-
-func (RequiredNsgRulesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RequiredNsgRules)(nil)).Elem()
-}
-
-func (o RequiredNsgRulesOutput) ToRequiredNsgRulesOutput() RequiredNsgRulesOutput {
-	return o
-}
-
-func (o RequiredNsgRulesOutput) ToRequiredNsgRulesOutputWithContext(ctx context.Context) RequiredNsgRulesOutput {
-	return o
-}
-
-func (o RequiredNsgRulesOutput) ToRequiredNsgRulesPtrOutput() RequiredNsgRulesPtrOutput {
-	return o.ToRequiredNsgRulesPtrOutputWithContext(context.Background())
-}
-
-func (o RequiredNsgRulesOutput) ToRequiredNsgRulesPtrOutputWithContext(ctx context.Context) RequiredNsgRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequiredNsgRules) *RequiredNsgRules {
-		return &v
-	}).(RequiredNsgRulesPtrOutput)
-}
-
-func (o RequiredNsgRulesOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o RequiredNsgRulesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RequiredNsgRules) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o RequiredNsgRulesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RequiredNsgRulesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e RequiredNsgRules) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type RequiredNsgRulesPtrOutput struct{ *pulumi.OutputState }
-
-func (RequiredNsgRulesPtrOutput) ElementType() reflect.Type {
-	return requiredNsgRulesPtrType
-}
-
-func (o RequiredNsgRulesPtrOutput) ToRequiredNsgRulesPtrOutput() RequiredNsgRulesPtrOutput {
-	return o
-}
-
-func (o RequiredNsgRulesPtrOutput) ToRequiredNsgRulesPtrOutputWithContext(ctx context.Context) RequiredNsgRulesPtrOutput {
-	return o
-}
-
-func (o RequiredNsgRulesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o RequiredNsgRulesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RequiredNsgRules) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RequiredNsgRulesPtrOutput) Elem() RequiredNsgRulesOutput {
-	return o.ApplyT(func(v *RequiredNsgRules) RequiredNsgRules {
-		var ret RequiredNsgRules
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(RequiredNsgRulesOutput)
-}
-
-// RequiredNsgRulesInput is an input type that accepts RequiredNsgRulesArgs and RequiredNsgRulesOutput values.
-// You can construct a concrete instance of `RequiredNsgRulesInput` via:
-//
-//          RequiredNsgRulesArgs{...}
-type RequiredNsgRulesInput interface {
-	pulumi.Input
-
-	ToRequiredNsgRulesOutput() RequiredNsgRulesOutput
-	ToRequiredNsgRulesOutputWithContext(context.Context) RequiredNsgRulesOutput
-}
-
-var requiredNsgRulesPtrType = reflect.TypeOf((**RequiredNsgRules)(nil)).Elem()
-
-type RequiredNsgRulesPtrInput interface {
-	pulumi.Input
-
-	ToRequiredNsgRulesPtrOutput() RequiredNsgRulesPtrOutput
-	ToRequiredNsgRulesPtrOutputWithContext(context.Context) RequiredNsgRulesPtrOutput
-}
-
-type requiredNsgRulesPtr string
-
-func RequiredNsgRulesPtr(v string) RequiredNsgRulesPtrInput {
-	return (*requiredNsgRulesPtr)(&v)
-}
-
-func (*requiredNsgRulesPtr) ElementType() reflect.Type {
-	return requiredNsgRulesPtrType
-}
-
-func (in *requiredNsgRulesPtr) ToRequiredNsgRulesPtrOutput() RequiredNsgRulesPtrOutput {
-	return pulumi.ToOutput(in).(RequiredNsgRulesPtrOutput)
-}
-
-func (in *requiredNsgRulesPtr) ToRequiredNsgRulesPtrOutputWithContext(ctx context.Context) RequiredNsgRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(RequiredNsgRulesPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(EncryptionKeySourceOutput{})
-	pulumi.RegisterOutputType(EncryptionKeySourcePtrOutput{})
-	pulumi.RegisterOutputType(KeySourceOutput{})
-	pulumi.RegisterOutputType(KeySourcePtrOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatusOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatusPtrOutput{})
-	pulumi.RegisterOutputType(PublicNetworkAccessOutput{})
-	pulumi.RegisterOutputType(PublicNetworkAccessPtrOutput{})
-	pulumi.RegisterOutputType(RequiredNsgRulesOutput{})
-	pulumi.RegisterOutputType(RequiredNsgRulesPtrOutput{})
 }

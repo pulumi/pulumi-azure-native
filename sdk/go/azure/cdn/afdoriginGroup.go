@@ -84,9 +84,47 @@ func GetAFDOriginGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AFDOriginGroup resources.
 type afdoriginGroupState struct {
+	DeploymentStatus *string `pulumi:"deploymentStatus"`
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	// Load balancing settings for a backend pool
+	LoadBalancingSettings *LoadBalancingSettingsParametersResponse `pulumi:"loadBalancingSettings"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Provisioning status
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedAfdOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedAfdOriginErrorDetectionSettings"`
+	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+	SessionAffinityState *string `pulumi:"sessionAffinityState"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type AFDOriginGroupState struct {
+	DeploymentStatus pulumi.StringPtrInput
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings HealthProbeParametersResponsePtrInput
+	// Load balancing settings for a backend pool
+	LoadBalancingSettings LoadBalancingSettingsParametersResponsePtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Provisioning status
+	ProvisioningState pulumi.StringPtrInput
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedAfdOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrInput
+	// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+	SessionAffinityState pulumi.StringPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (AFDOriginGroupState) ElementType() reflect.Type {

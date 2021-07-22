@@ -86,9 +86,29 @@ func GetAccountFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountFilter resources.
 type accountFilterState struct {
+	// The first quality.
+	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// The presentation time range.
+	PresentationTimeRange *PresentationTimeRangeResponse `pulumi:"presentationTimeRange"`
+	// The tracks selection conditions.
+	Tracks []FilterTrackSelectionResponse `pulumi:"tracks"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type AccountFilterState struct {
+	// The first quality.
+	FirstQuality FirstQualityResponsePtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// The presentation time range.
+	PresentationTimeRange PresentationTimeRangeResponsePtrInput
+	// The tracks selection conditions.
+	Tracks FilterTrackSelectionResponseArrayInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (AccountFilterState) ElementType() reflect.Type {

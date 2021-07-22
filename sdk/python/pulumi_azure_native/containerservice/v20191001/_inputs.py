@@ -19,10 +19,10 @@ __all__ = [
     'ManagedClusterAddonProfileArgs',
     'ManagedClusterAgentPoolProfileArgs',
     'ManagedClusterIdentityArgs',
+    'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgs',
-    'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterServicePrincipalProfileArgs',
     'ManagedClusterWindowsProfileArgs',
     'ResourceReferenceArgs',
@@ -711,6 +711,78 @@ class ManagedClusterIdentityArgs:
 
 
 @pulumi.input_type
+class ManagedClusterLoadBalancerProfileArgs:
+    def __init__(__self__, *,
+                 effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
+                 managed_outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']] = None,
+                 outbound_ip_prefixes: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']] = None,
+                 outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']] = None):
+        """
+        Profile of the managed cluster load balancer
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
+        :param pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs'] managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
+        :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs'] outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
+        :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs'] outbound_ips: Desired outbound IP resources for the cluster load balancer.
+        """
+        if effective_outbound_ips is not None:
+            pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+        if managed_outbound_ips is not None:
+            pulumi.set(__self__, "managed_outbound_ips", managed_outbound_ips)
+        if outbound_ip_prefixes is not None:
+            pulumi.set(__self__, "outbound_ip_prefixes", outbound_ip_prefixes)
+        if outbound_ips is not None:
+            pulumi.set(__self__, "outbound_ips", outbound_ips)
+
+    @property
+    @pulumi.getter(name="effectiveOutboundIPs")
+    def effective_outbound_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        The effective outbound IP resources of the cluster load balancer.
+        """
+        return pulumi.get(self, "effective_outbound_ips")
+
+    @effective_outbound_ips.setter
+    def effective_outbound_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "effective_outbound_ips", value)
+
+    @property
+    @pulumi.getter(name="managedOutboundIPs")
+    def managed_outbound_ips(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]:
+        """
+        Desired managed outbound IPs for the cluster load balancer.
+        """
+        return pulumi.get(self, "managed_outbound_ips")
+
+    @managed_outbound_ips.setter
+    def managed_outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]):
+        pulumi.set(self, "managed_outbound_ips", value)
+
+    @property
+    @pulumi.getter(name="outboundIPPrefixes")
+    def outbound_ip_prefixes(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]:
+        """
+        Desired outbound IP Prefix resources for the cluster load balancer.
+        """
+        return pulumi.get(self, "outbound_ip_prefixes")
+
+    @outbound_ip_prefixes.setter
+    def outbound_ip_prefixes(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]):
+        pulumi.set(self, "outbound_ip_prefixes", value)
+
+    @property
+    @pulumi.getter(name="outboundIPs")
+    def outbound_ips(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]:
+        """
+        Desired outbound IP resources for the cluster load balancer.
+        """
+        return pulumi.get(self, "outbound_ips")
+
+    @outbound_ips.setter
+    def outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]):
+        pulumi.set(self, "outbound_ips", value)
+
+
+@pulumi.input_type
 class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None):
@@ -782,78 +854,6 @@ class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
     @public_ips.setter
     def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
         pulumi.set(self, "public_ips", value)
-
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileArgs:
-    def __init__(__self__, *,
-                 effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
-                 managed_outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']] = None,
-                 outbound_ip_prefixes: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']] = None,
-                 outbound_ips: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']] = None):
-        """
-        Profile of the managed cluster load balancer
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
-        :param pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs'] managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
-        :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs'] outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
-        :param pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs'] outbound_ips: Desired outbound IP resources for the cluster load balancer.
-        """
-        if effective_outbound_ips is not None:
-            pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
-        if managed_outbound_ips is not None:
-            pulumi.set(__self__, "managed_outbound_ips", managed_outbound_ips)
-        if outbound_ip_prefixes is not None:
-            pulumi.set(__self__, "outbound_ip_prefixes", outbound_ip_prefixes)
-        if outbound_ips is not None:
-            pulumi.set(__self__, "outbound_ips", outbound_ips)
-
-    @property
-    @pulumi.getter(name="effectiveOutboundIPs")
-    def effective_outbound_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        The effective outbound IP resources of the cluster load balancer.
-        """
-        return pulumi.get(self, "effective_outbound_ips")
-
-    @effective_outbound_ips.setter
-    def effective_outbound_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "effective_outbound_ips", value)
-
-    @property
-    @pulumi.getter(name="managedOutboundIPs")
-    def managed_outbound_ips(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]:
-        """
-        Desired managed outbound IPs for the cluster load balancer.
-        """
-        return pulumi.get(self, "managed_outbound_ips")
-
-    @managed_outbound_ips.setter
-    def managed_outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs']]):
-        pulumi.set(self, "managed_outbound_ips", value)
-
-    @property
-    @pulumi.getter(name="outboundIPPrefixes")
-    def outbound_ip_prefixes(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]:
-        """
-        Desired outbound IP Prefix resources for the cluster load balancer.
-        """
-        return pulumi.get(self, "outbound_ip_prefixes")
-
-    @outbound_ip_prefixes.setter
-    def outbound_ip_prefixes(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs']]):
-        pulumi.set(self, "outbound_ip_prefixes", value)
-
-    @property
-    @pulumi.getter(name="outboundIPs")
-    def outbound_ips(self) -> Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]:
-        """
-        Desired outbound IP resources for the cluster load balancer.
-        """
-        return pulumi.get(self, "outbound_ips")
-
-    @outbound_ips.setter
-    def outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]):
-        pulumi.set(self, "outbound_ips", value)
 
 
 @pulumi.input_type

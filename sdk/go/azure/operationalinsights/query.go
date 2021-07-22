@@ -95,9 +95,57 @@ func GetQuery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Query resources.
 type queryState struct {
+	// Object Id of user creating the query.
+	Author *string `pulumi:"author"`
+	// Body of the query.
+	Body *string `pulumi:"body"`
+	// Description of the query.
+	Description *string `pulumi:"description"`
+	// Unique display name for your query within the Query Pack.
+	DisplayName *string `pulumi:"displayName"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Additional properties that can be set for the query.
+	Properties interface{} `pulumi:"properties"`
+	// The related metadata items for the function.
+	Related *LogAnalyticsQueryPackQueryPropertiesResponseRelated `pulumi:"related"`
+	// Read only system data
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Tags associated with the query.
+	Tags map[string][]string `pulumi:"tags"`
+	// Creation Date for the Log Analytics Query, in ISO 8601 format.
+	TimeCreated *string `pulumi:"timeCreated"`
+	// Last modified date of the Log Analytics Query, in ISO 8601 format.
+	TimeModified *string `pulumi:"timeModified"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type QueryState struct {
+	// Object Id of user creating the query.
+	Author pulumi.StringPtrInput
+	// Body of the query.
+	Body pulumi.StringPtrInput
+	// Description of the query.
+	Description pulumi.StringPtrInput
+	// Unique display name for your query within the Query Pack.
+	DisplayName pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Additional properties that can be set for the query.
+	Properties pulumi.Input
+	// The related metadata items for the function.
+	Related LogAnalyticsQueryPackQueryPropertiesResponseRelatedPtrInput
+	// Read only system data
+	SystemData SystemDataResponsePtrInput
+	// Tags associated with the query.
+	Tags pulumi.StringArrayMapInput
+	// Creation Date for the Log Analytics Query, in ISO 8601 format.
+	TimeCreated pulumi.StringPtrInput
+	// Last modified date of the Log Analytics Query, in ISO 8601 format.
+	TimeModified pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (QueryState) ElementType() reflect.Type {

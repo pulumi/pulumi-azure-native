@@ -43,9 +43,7 @@ class PublicNetworkAccessType(str, Enum):
     The network access type for accessing Log Analytics query.
     """
     ENABLED = "Enabled"
-    """Enables connectivity to Log Analytics through public DNS."""
     DISABLED = "Disabled"
-    """Disables public connectivity to Log Analytics through public DNS."""
 
 
 class WorkspaceEntityStatus(str, Enum):

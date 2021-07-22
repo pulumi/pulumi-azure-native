@@ -11,7 +11,7 @@ import (
 )
 
 // The level code.
-type StatusLevelTypes string
+type StatusLevelTypes pulumi.String
 
 const (
 	StatusLevelTypesInfo    = StatusLevelTypes("Info")
@@ -20,23 +20,7 @@ const (
 )
 
 func (StatusLevelTypes) ElementType() reflect.Type {
-	return reflect.TypeOf((*StatusLevelTypes)(nil)).Elem()
-}
-
-func (e StatusLevelTypes) ToStatusLevelTypesOutput() StatusLevelTypesOutput {
-	return pulumi.ToOutput(e).(StatusLevelTypesOutput)
-}
-
-func (e StatusLevelTypes) ToStatusLevelTypesOutputWithContext(ctx context.Context) StatusLevelTypesOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(StatusLevelTypesOutput)
-}
-
-func (e StatusLevelTypes) ToStatusLevelTypesPtrOutput() StatusLevelTypesPtrOutput {
-	return e.ToStatusLevelTypesPtrOutputWithContext(context.Background())
-}
-
-func (e StatusLevelTypes) ToStatusLevelTypesPtrOutputWithContext(ctx context.Context) StatusLevelTypesPtrOutput {
-	return StatusLevelTypes(e).ToStatusLevelTypesOutputWithContext(ctx).ToStatusLevelTypesPtrOutputWithContext(ctx)
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
 }
 
 func (e StatusLevelTypes) ToStringOutput() pulumi.StringOutput {
@@ -53,130 +37,4 @@ func (e StatusLevelTypes) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e StatusLevelTypes) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type StatusLevelTypesOutput struct{ *pulumi.OutputState }
-
-func (StatusLevelTypesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StatusLevelTypes)(nil)).Elem()
-}
-
-func (o StatusLevelTypesOutput) ToStatusLevelTypesOutput() StatusLevelTypesOutput {
-	return o
-}
-
-func (o StatusLevelTypesOutput) ToStatusLevelTypesOutputWithContext(ctx context.Context) StatusLevelTypesOutput {
-	return o
-}
-
-func (o StatusLevelTypesOutput) ToStatusLevelTypesPtrOutput() StatusLevelTypesPtrOutput {
-	return o.ToStatusLevelTypesPtrOutputWithContext(context.Background())
-}
-
-func (o StatusLevelTypesOutput) ToStatusLevelTypesPtrOutputWithContext(ctx context.Context) StatusLevelTypesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StatusLevelTypes) *StatusLevelTypes {
-		return &v
-	}).(StatusLevelTypesPtrOutput)
-}
-
-func (o StatusLevelTypesOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o StatusLevelTypesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StatusLevelTypes) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o StatusLevelTypesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StatusLevelTypesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e StatusLevelTypes) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type StatusLevelTypesPtrOutput struct{ *pulumi.OutputState }
-
-func (StatusLevelTypesPtrOutput) ElementType() reflect.Type {
-	return statusLevelTypesPtrType
-}
-
-func (o StatusLevelTypesPtrOutput) ToStatusLevelTypesPtrOutput() StatusLevelTypesPtrOutput {
-	return o
-}
-
-func (o StatusLevelTypesPtrOutput) ToStatusLevelTypesPtrOutputWithContext(ctx context.Context) StatusLevelTypesPtrOutput {
-	return o
-}
-
-func (o StatusLevelTypesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o StatusLevelTypesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StatusLevelTypes) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StatusLevelTypesPtrOutput) Elem() StatusLevelTypesOutput {
-	return o.ApplyT(func(v *StatusLevelTypes) StatusLevelTypes {
-		var ret StatusLevelTypes
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(StatusLevelTypesOutput)
-}
-
-// StatusLevelTypesInput is an input type that accepts StatusLevelTypesArgs and StatusLevelTypesOutput values.
-// You can construct a concrete instance of `StatusLevelTypesInput` via:
-//
-//          StatusLevelTypesArgs{...}
-type StatusLevelTypesInput interface {
-	pulumi.Input
-
-	ToStatusLevelTypesOutput() StatusLevelTypesOutput
-	ToStatusLevelTypesOutputWithContext(context.Context) StatusLevelTypesOutput
-}
-
-var statusLevelTypesPtrType = reflect.TypeOf((**StatusLevelTypes)(nil)).Elem()
-
-type StatusLevelTypesPtrInput interface {
-	pulumi.Input
-
-	ToStatusLevelTypesPtrOutput() StatusLevelTypesPtrOutput
-	ToStatusLevelTypesPtrOutputWithContext(context.Context) StatusLevelTypesPtrOutput
-}
-
-type statusLevelTypesPtr string
-
-func StatusLevelTypesPtr(v string) StatusLevelTypesPtrInput {
-	return (*statusLevelTypesPtr)(&v)
-}
-
-func (*statusLevelTypesPtr) ElementType() reflect.Type {
-	return statusLevelTypesPtrType
-}
-
-func (in *statusLevelTypesPtr) ToStatusLevelTypesPtrOutput() StatusLevelTypesPtrOutput {
-	return pulumi.ToOutput(in).(StatusLevelTypesPtrOutput)
-}
-
-func (in *statusLevelTypesPtr) ToStatusLevelTypesPtrOutputWithContext(ctx context.Context) StatusLevelTypesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(StatusLevelTypesPtrOutput)
-}
-
-func init() {
-	pulumi.RegisterOutputType(StatusLevelTypesOutput{})
-	pulumi.RegisterOutputType(StatusLevelTypesPtrOutput{})
 }

@@ -166,9 +166,99 @@ func GetAppServicePlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AppServicePlan resources.
 type appServicePlanState struct {
+	// App Service plan administration site.
+	AdminSiteName *string `pulumi:"adminSiteName"`
+	// Geographical location for the App Service plan.
+	GeoRegion *string `pulumi:"geoRegion"`
+	// Specification for the App Service Environment to use for the App Service plan.
+	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// If <code>true</code>, this App Service Plan owns spot instances.
+	IsSpot *bool `pulumi:"isSpot"`
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Location.
+	Location *string `pulumi:"location"`
+	// Maximum number of instances that can be assigned to this App Service plan.
+	MaximumNumberOfWorkers *int `pulumi:"maximumNumberOfWorkers"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Number of apps assigned to this App Service plan.
+	NumberOfSites *int `pulumi:"numberOfSites"`
+	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	// Provisioning state of the App Service Environment.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+	Reserved *bool `pulumi:"reserved"`
+	// Resource group of the App Service plan.
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// Description of a SKU for a scalable resource.
+	Sku *SkuDescriptionResponse `pulumi:"sku"`
+	// The time when the server farm expires. Valid only if it is a spot server farm.
+	SpotExpirationTime *string `pulumi:"spotExpirationTime"`
+	// App Service plan status.
+	Status *string `pulumi:"status"`
+	// App Service plan subscription.
+	Subscription *string `pulumi:"subscription"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Scaling worker count.
+	TargetWorkerCount *int `pulumi:"targetWorkerCount"`
+	// Scaling worker size ID.
+	TargetWorkerSizeId *int `pulumi:"targetWorkerSizeId"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Target worker tier assigned to the App Service plan.
+	WorkerTierName *string `pulumi:"workerTierName"`
 }
 
 type AppServicePlanState struct {
+	// App Service plan administration site.
+	AdminSiteName pulumi.StringPtrInput
+	// Geographical location for the App Service plan.
+	GeoRegion pulumi.StringPtrInput
+	// Specification for the App Service Environment to use for the App Service plan.
+	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrInput
+	// If <code>true</code>, this App Service Plan owns spot instances.
+	IsSpot pulumi.BoolPtrInput
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Location.
+	Location pulumi.StringPtrInput
+	// Maximum number of instances that can be assigned to this App Service plan.
+	MaximumNumberOfWorkers pulumi.IntPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Number of apps assigned to this App Service plan.
+	NumberOfSites pulumi.IntPtrInput
+	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+	PerSiteScaling pulumi.BoolPtrInput
+	// Provisioning state of the App Service Environment.
+	ProvisioningState pulumi.StringPtrInput
+	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+	Reserved pulumi.BoolPtrInput
+	// Resource group of the App Service plan.
+	ResourceGroup pulumi.StringPtrInput
+	// Description of a SKU for a scalable resource.
+	Sku SkuDescriptionResponsePtrInput
+	// The time when the server farm expires. Valid only if it is a spot server farm.
+	SpotExpirationTime pulumi.StringPtrInput
+	// App Service plan status.
+	Status pulumi.StringPtrInput
+	// App Service plan subscription.
+	Subscription pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Scaling worker count.
+	TargetWorkerCount pulumi.IntPtrInput
+	// Scaling worker size ID.
+	TargetWorkerSizeId pulumi.IntPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Target worker tier assigned to the App Service plan.
+	WorkerTierName pulumi.StringPtrInput
 }
 
 func (AppServicePlanState) ElementType() reflect.Type {

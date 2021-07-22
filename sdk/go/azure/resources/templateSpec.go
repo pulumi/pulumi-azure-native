@@ -92,9 +92,45 @@ func GetTemplateSpec(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateSpec resources.
 type templateSpecState struct {
+	// Template Spec description.
+	Description *string `pulumi:"description"`
+	// Template Spec display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
+	Location *string `pulumi:"location"`
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata interface{} `pulumi:"metadata"`
+	// Name of this resource.
+	Name *string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Type of this resource.
+	Type *string `pulumi:"type"`
+	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+	Versions map[string]TemplateSpecVersionInfoResponse `pulumi:"versions"`
 }
 
 type TemplateSpecState struct {
+	// Template Spec description.
+	Description pulumi.StringPtrInput
+	// Template Spec display name.
+	DisplayName pulumi.StringPtrInput
+	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
+	Location pulumi.StringPtrInput
+	// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+	Metadata pulumi.Input
+	// Name of this resource.
+	Name pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Type of this resource.
+	Type pulumi.StringPtrInput
+	// High-level information about the versions within this Template Spec. The keys are the version names. Only populated if the $expand query parameter is set to 'versions'.
+	Versions TemplateSpecVersionInfoResponseMapInput
 }
 
 func (TemplateSpecState) ElementType() reflect.Type {

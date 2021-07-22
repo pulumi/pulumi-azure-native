@@ -89,9 +89,25 @@ func GetAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRule resources.
 type alertRuleState struct {
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// The alert rule kind
+	Kind *string `pulumi:"kind"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type AlertRuleState struct {
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput
+	// The alert rule kind
+	Kind pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AlertRuleState) ElementType() reflect.Type {

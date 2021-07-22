@@ -116,9 +116,29 @@ func GetBlobServiceProperties(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobServiceProperties resources.
 type blobServicePropertiesState struct {
+	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+	Cors *CorsRulesResponse `pulumi:"cors"`
+	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+	DefaultServiceVersion *string `pulumi:"defaultServiceVersion"`
+	// The blob service properties for soft delete.
+	DeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"deleteRetentionPolicy"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type BlobServicePropertiesState struct {
+	// Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
+	Cors CorsRulesResponsePtrInput
+	// DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
+	DefaultServiceVersion pulumi.StringPtrInput
+	// The blob service properties for soft delete.
+	DeleteRetentionPolicy DeleteRetentionPolicyResponsePtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (BlobServicePropertiesState) ElementType() reflect.Type {

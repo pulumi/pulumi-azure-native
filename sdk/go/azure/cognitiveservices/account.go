@@ -92,9 +92,45 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Entity Tag
+	Etag *string `pulumi:"etag"`
+	// The identity of Cognitive Services account.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// The Kind of the resource.
+	Kind *string `pulumi:"kind"`
+	// The location of the resource
+	Location *string `pulumi:"location"`
+	// The name of the created account
+	Name *string `pulumi:"name"`
+	// Properties of Cognitive Services account.
+	Properties *CognitiveServicesAccountPropertiesResponse `pulumi:"properties"`
+	// The SKU of Cognitive Services account.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
+	// Entity Tag
+	Etag pulumi.StringPtrInput
+	// The identity of Cognitive Services account.
+	Identity IdentityResponsePtrInput
+	// The Kind of the resource.
+	Kind pulumi.StringPtrInput
+	// The location of the resource
+	Location pulumi.StringPtrInput
+	// The name of the created account
+	Name pulumi.StringPtrInput
+	// Properties of Cognitive Services account.
+	Properties CognitiveServicesAccountPropertiesResponsePtrInput
+	// The SKU of Cognitive Services account.
+	Sku SkuResponsePtrInput
+	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {

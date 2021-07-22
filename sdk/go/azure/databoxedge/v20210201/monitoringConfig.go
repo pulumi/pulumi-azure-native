@@ -102,9 +102,25 @@ func GetMonitoringConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MonitoringConfig resources.
 type monitoringConfigState struct {
+	// The metrics configuration details
+	MetricConfigurations []MetricConfigurationResponse `pulumi:"metricConfigurations"`
+	// The object name.
+	Name *string `pulumi:"name"`
+	// MonitoringConfiguration on ASE device
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The hierarchical type of the object.
+	Type *string `pulumi:"type"`
 }
 
 type MonitoringConfigState struct {
+	// The metrics configuration details
+	MetricConfigurations MetricConfigurationResponseArrayInput
+	// The object name.
+	Name pulumi.StringPtrInput
+	// MonitoringConfiguration on ASE device
+	SystemData SystemDataResponsePtrInput
+	// The hierarchical type of the object.
+	Type pulumi.StringPtrInput
 }
 
 func (MonitoringConfigState) ElementType() reflect.Type {

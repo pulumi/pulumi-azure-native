@@ -92,9 +92,29 @@ func GetApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering App resources.
 type appState struct {
+	// The Managed Identity type of the app resource
+	Identity *ManagedIdentityPropertiesResponse `pulumi:"identity"`
+	// The GEO location of the application, always the same with its parent resource
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Properties of the App resource
+	Properties *AppResourcePropertiesResponse `pulumi:"properties"`
+	// The type of the resource.
+	Type *string `pulumi:"type"`
 }
 
 type AppState struct {
+	// The Managed Identity type of the app resource
+	Identity ManagedIdentityPropertiesResponsePtrInput
+	// The GEO location of the application, always the same with its parent resource
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Properties of the App resource
+	Properties AppResourcePropertiesResponsePtrInput
+	// The type of the resource.
+	Type pulumi.StringPtrInput
 }
 
 func (AppState) ElementType() reflect.Type {

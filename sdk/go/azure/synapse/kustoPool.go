@@ -102,9 +102,65 @@ func GetKustoPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KustoPool resources.
 type kustoPoolState struct {
+	// The Kusto Pool data ingestion URI.
+	DataIngestionUri *string `pulumi:"dataIngestionUri"`
+	// The engine type
+	EngineType *string `pulumi:"engineType"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provisioned state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The SKU of the kusto pool.
+	Sku *AzureSkuResponse `pulumi:"sku"`
+	// The state of the resource.
+	State *string `pulumi:"state"`
+	// The reason for the Kusto Pool's current state.
+	StateReason *string `pulumi:"stateReason"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
+	// The Kusto Pool URI.
+	Uri *string `pulumi:"uri"`
+	// The workspace unique identifier.
+	WorkspaceUid *string `pulumi:"workspaceUid"`
 }
 
 type KustoPoolState struct {
+	// The Kusto Pool data ingestion URI.
+	DataIngestionUri pulumi.StringPtrInput
+	// The engine type
+	EngineType pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provisioned state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The SKU of the kusto pool.
+	Sku AzureSkuResponsePtrInput
+	// The state of the resource.
+	State pulumi.StringPtrInput
+	// The reason for the Kusto Pool's current state.
+	StateReason pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
+	// The Kusto Pool URI.
+	Uri pulumi.StringPtrInput
+	// The workspace unique identifier.
+	WorkspaceUid pulumi.StringPtrInput
 }
 
 func (KustoPoolState) ElementType() reflect.Type {

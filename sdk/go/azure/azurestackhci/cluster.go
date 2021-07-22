@@ -122,9 +122,93 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// App id of cluster AAD identity.
+	AadClientId *string `pulumi:"aadClientId"`
+	// Tenant id of cluster AAD identity.
+	AadTenantId *string `pulumi:"aadTenantId"`
+	// Type of billing applied to the resource.
+	BillingModel *string `pulumi:"billingModel"`
+	// Unique, immutable resource id.
+	CloudId *string `pulumi:"cloudId"`
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// Most recent billing meter timestamp.
+	LastBillingTimestamp *string `pulumi:"lastBillingTimestamp"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+	// Most recent cluster sync timestamp.
+	LastSyncTimestamp *string `pulumi:"lastSyncTimestamp"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// First cluster sync timestamp.
+	RegistrationTimestamp *string `pulumi:"registrationTimestamp"`
+	// Properties reported by cluster agent.
+	ReportedProperties *ClusterReportedPropertiesResponse `pulumi:"reportedProperties"`
+	// Status of the cluster agent.
+	Status *string `pulumi:"status"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Number of days remaining in the trial period.
+	TrialDaysRemaining *float64 `pulumi:"trialDaysRemaining"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type ClusterState struct {
+	// App id of cluster AAD identity.
+	AadClientId pulumi.StringPtrInput
+	// Tenant id of cluster AAD identity.
+	AadTenantId pulumi.StringPtrInput
+	// Type of billing applied to the resource.
+	BillingModel pulumi.StringPtrInput
+	// Unique, immutable resource id.
+	CloudId pulumi.StringPtrInput
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput
+	// Most recent billing meter timestamp.
+	LastBillingTimestamp pulumi.StringPtrInput
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput
+	// Most recent cluster sync timestamp.
+	LastSyncTimestamp pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// First cluster sync timestamp.
+	RegistrationTimestamp pulumi.StringPtrInput
+	// Properties reported by cluster agent.
+	ReportedProperties ClusterReportedPropertiesResponsePtrInput
+	// Status of the cluster agent.
+	Status pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Number of days remaining in the trial period.
+	TrialDaysRemaining pulumi.Float64PtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

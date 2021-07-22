@@ -91,9 +91,45 @@ func GetAutoscaleSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoscaleSetting resources.
 type autoscaleSettingState struct {
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled *bool `pulumi:"enabled"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// the collection of notifications.
+	Notifications []AutoscaleNotificationResponse `pulumi:"notifications"`
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles []AutoscaleProfileResponse `pulumi:"profiles"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation *string `pulumi:"targetResourceLocation"`
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri *string `pulumi:"targetResourceUri"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type AutoscaleSettingState struct {
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled pulumi.BoolPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// the collection of notifications.
+	Notifications AutoscaleNotificationResponseArrayInput
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles AutoscaleProfileResponseArrayInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// the location of the resource that the autoscale setting should be added to.
+	TargetResourceLocation pulumi.StringPtrInput
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (AutoscaleSettingState) ElementType() reflect.Type {

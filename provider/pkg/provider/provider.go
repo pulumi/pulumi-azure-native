@@ -1146,11 +1146,6 @@ func (k *azureNativeProvider) Construct(_ context.Context, _ *rpc.ConstructReque
 	return nil, status.Error(codes.Unimplemented, "Construct is not yet implemented")
 }
 
-// Call dynamically executes a method in the provider associated with a component resource.
-func (k *azureNativeProvider) Call(_ context.Context, _ *rpc.CallRequest) (*rpc.CallResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "Call is not yet implemented")
-}
-
 // GetPluginInfo returns generic information about this plugin, like its version.
 func (k *azureNativeProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*rpc.PluginInfo, error) {
 	return &rpc.PluginInfo{

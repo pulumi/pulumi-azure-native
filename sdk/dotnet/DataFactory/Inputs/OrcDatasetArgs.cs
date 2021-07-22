@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// The location of the ORC data storage.
         /// </summary>
         [Input("location", required: true)]
-        public object Location { get; set; } = null!;
+        public Input<object> Location { get; set; } = null!;
 
         /// <summary>
         /// The data orcCompressionCodec. Type: string (or Expression with resultType string).

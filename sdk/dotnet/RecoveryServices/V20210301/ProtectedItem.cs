@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301
         /// ProtectedItemResource properties
         /// </summary>
         [Input("properties")]
-        public object? Properties { get; set; }
+        public Input<object>? Properties { get; set; }
 
         /// <summary>
         /// Item name to be backed up.

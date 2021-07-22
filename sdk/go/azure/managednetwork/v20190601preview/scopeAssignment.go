@@ -73,9 +73,33 @@ func GetScopeAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScopeAssignment resources.
 type scopeAssignmentState struct {
+	// The managed network ID with scope will be assigned to.
+	AssignedManagedNetwork *string `pulumi:"assignedManagedNetwork"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// Provisioning state of the ManagedNetwork resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type *string `pulumi:"type"`
 }
 
 type ScopeAssignmentState struct {
+	// The managed network ID with scope will be assigned to.
+	AssignedManagedNetwork pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// Provisioning state of the ManagedNetwork resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+	Type pulumi.StringPtrInput
 }
 
 func (ScopeAssignmentState) ElementType() reflect.Type {

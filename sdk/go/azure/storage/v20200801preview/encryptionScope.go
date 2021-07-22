@@ -102,9 +102,37 @@ func GetEncryptionScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EncryptionScope resources.
 type encryptionScopeState struct {
+	// Gets the creation date and time of the encryption scope in UTC.
+	CreationTime *string `pulumi:"creationTime"`
+	// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+	KeyVaultProperties *EncryptionScopeKeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// Gets the last modification date and time of the encryption scope in UTC.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// The name of the resource
+	Name *string `pulumi:"name"`
+	// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+	Source *string `pulumi:"source"`
+	// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+	State *string `pulumi:"state"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type *string `pulumi:"type"`
 }
 
 type EncryptionScopeState struct {
+	// Gets the creation date and time of the encryption scope in UTC.
+	CreationTime pulumi.StringPtrInput
+	// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+	KeyVaultProperties EncryptionScopeKeyVaultPropertiesResponsePtrInput
+	// Gets the last modification date and time of the encryption scope in UTC.
+	LastModifiedTime pulumi.StringPtrInput
+	// The name of the resource
+	Name pulumi.StringPtrInput
+	// The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
+	Source pulumi.StringPtrInput
+	// The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
+	State pulumi.StringPtrInput
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringPtrInput
 }
 
 func (EncryptionScopeState) ElementType() reflect.Type {

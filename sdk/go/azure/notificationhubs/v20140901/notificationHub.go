@@ -89,9 +89,29 @@ func GetNotificationHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationHub resources.
 type notificationHubState struct {
+	// Gets or sets datacenter location of the NotificationHub.
+	Location *string `pulumi:"location"`
+	// Gets or sets name of the NotificationHub.
+	Name *string `pulumi:"name"`
+	// Gets or sets properties of the NotificationHub.
+	Properties *NotificationHubPropertiesResponse `pulumi:"properties"`
+	// Gets or sets tags of the NotificationHub.
+	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets resource type of the NotificationHub.
+	Type *string `pulumi:"type"`
 }
 
 type NotificationHubState struct {
+	// Gets or sets datacenter location of the NotificationHub.
+	Location pulumi.StringPtrInput
+	// Gets or sets name of the NotificationHub.
+	Name pulumi.StringPtrInput
+	// Gets or sets properties of the NotificationHub.
+	Properties NotificationHubPropertiesResponsePtrInput
+	// Gets or sets tags of the NotificationHub.
+	Tags pulumi.StringMapInput
+	// Gets or sets resource type of the NotificationHub.
+	Type pulumi.StringPtrInput
 }
 
 func (NotificationHubState) ElementType() reflect.Type {

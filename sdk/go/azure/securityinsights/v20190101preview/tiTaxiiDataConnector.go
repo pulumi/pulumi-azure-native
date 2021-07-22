@@ -120,9 +120,65 @@ func GetTiTaxiiDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TiTaxiiDataConnector resources.
 type tiTaxiiDataConnectorState struct {
+	// The collection id of the TAXII server.
+	CollectionId *string `pulumi:"collectionId"`
+	// The available data types for Threat Intelligence TAXII data connector.
+	DataTypes *TiTaxiiDataConnectorDataTypesResponse `pulumi:"dataTypes"`
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// The friendly name for the TAXII server.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Expected value is 'ThreatIntelligenceTaxii'.
+	Kind *string `pulumi:"kind"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// The password for the TAXII server.
+	Password *string `pulumi:"password"`
+	// The polling frequency for the TAXII server.
+	PollingFrequency *string `pulumi:"pollingFrequency"`
+	// The lookback period for the TAXII server.
+	TaxiiLookbackPeriod *string `pulumi:"taxiiLookbackPeriod"`
+	// The API root for the TAXII server.
+	TaxiiServer *string `pulumi:"taxiiServer"`
+	// The tenant id to connect to, and get the data from.
+	TenantId *string `pulumi:"tenantId"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
+	// The userName for the TAXII server.
+	UserName *string `pulumi:"userName"`
+	// The workspace id.
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type TiTaxiiDataConnectorState struct {
+	// The collection id of the TAXII server.
+	CollectionId pulumi.StringPtrInput
+	// The available data types for Threat Intelligence TAXII data connector.
+	DataTypes TiTaxiiDataConnectorDataTypesResponsePtrInput
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput
+	// The friendly name for the TAXII server.
+	FriendlyName pulumi.StringPtrInput
+	// Expected value is 'ThreatIntelligenceTaxii'.
+	Kind pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// The password for the TAXII server.
+	Password pulumi.StringPtrInput
+	// The polling frequency for the TAXII server.
+	PollingFrequency pulumi.StringPtrInput
+	// The lookback period for the TAXII server.
+	TaxiiLookbackPeriod pulumi.StringPtrInput
+	// The API root for the TAXII server.
+	TaxiiServer pulumi.StringPtrInput
+	// The tenant id to connect to, and get the data from.
+	TenantId pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
+	// The userName for the TAXII server.
+	UserName pulumi.StringPtrInput
+	// The workspace id.
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (TiTaxiiDataConnectorState) ElementType() reflect.Type {

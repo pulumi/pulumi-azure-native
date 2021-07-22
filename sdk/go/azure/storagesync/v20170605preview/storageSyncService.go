@@ -127,9 +127,33 @@ func GetStorageSyncService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageSyncService resources.
 type storageSyncServiceState struct {
+	// The location of the resource.
+	Location *string `pulumi:"location"`
+	// The name of the resource.
+	Name *string `pulumi:"name"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus *int `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
+	// The tags of the resource.
+	Tags interface{} `pulumi:"tags"`
+	// The type of the resource
+	Type *string `pulumi:"type"`
 }
 
 type StorageSyncServiceState struct {
+	// The location of the resource.
+	Location pulumi.StringPtrInput
+	// The name of the resource.
+	Name pulumi.StringPtrInput
+	// Storage Sync service status.
+	StorageSyncServiceStatus pulumi.IntPtrInput
+	// Storage Sync service Uid
+	StorageSyncServiceUid pulumi.StringPtrInput
+	// The tags of the resource.
+	Tags pulumi.Input
+	// The type of the resource
+	Type pulumi.StringPtrInput
 }
 
 func (StorageSyncServiceState) ElementType() reflect.Type {

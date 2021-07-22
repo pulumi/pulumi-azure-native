@@ -107,9 +107,53 @@ func GetCustomIPPrefix(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomIPPrefix resources.
 type customIPPrefixState struct {
+	// The prefix range in CIDR notation. Should include the start address and the prefix length.
+	Cidr *string `pulumi:"cidr"`
+	// The commissioned state of the Custom IP Prefix.
+	CommissionedState *string `pulumi:"commissionedState"`
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the custom IP prefix resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The list of all referenced PublicIpPrefixes.
+	PublicIpPrefixes []SubResourceResponse `pulumi:"publicIpPrefixes"`
+	// The resource GUID property of the custom IP prefix resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// A list of availability zones denoting the IP allocated for the resource needs to come from.
+	Zones []string `pulumi:"zones"`
 }
 
 type CustomIPPrefixState struct {
+	// The prefix range in CIDR notation. Should include the start address and the prefix length.
+	Cidr pulumi.StringPtrInput
+	// The commissioned state of the Custom IP Prefix.
+	CommissionedState pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the custom IP prefix resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The list of all referenced PublicIpPrefixes.
+	PublicIpPrefixes SubResourceResponseArrayInput
+	// The resource GUID property of the custom IP prefix resource.
+	ResourceGuid pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// A list of availability zones denoting the IP allocated for the resource needs to come from.
+	Zones pulumi.StringArrayInput
 }
 
 func (CustomIPPrefixState) ElementType() reflect.Type {

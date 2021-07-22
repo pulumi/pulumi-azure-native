@@ -290,9 +290,29 @@ func GetExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuitAuthorization resources.
 type expressRouteCircuitAuthorizationState struct {
+	// Gets or sets the authorization key
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Gets or sets AuthorizationUseStatus
+	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
+	// A unique read-only string that changes whenever the resource is updated
+	Etag *string `pulumi:"etag"`
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+	Name *string `pulumi:"name"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 type ExpressRouteCircuitAuthorizationState struct {
+	// Gets or sets the authorization key
+	AuthorizationKey pulumi.StringPtrInput
+	// Gets or sets AuthorizationUseStatus
+	AuthorizationUseStatus pulumi.StringPtrInput
+	// A unique read-only string that changes whenever the resource is updated
+	Etag pulumi.StringPtrInput
+	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+	Name pulumi.StringPtrInput
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 }
 
 func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {

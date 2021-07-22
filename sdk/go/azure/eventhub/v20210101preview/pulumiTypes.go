@@ -17,7 +17,7 @@ type CaptureDescription struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
+	Encoding *string `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -44,7 +44,7 @@ type CaptureDescriptionArgs struct {
 	// A value that indicates whether capture description is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-	Encoding EncodingCaptureDescriptionPtrInput `pulumi:"encoding"`
+	Encoding *EncodingCaptureDescription `pulumi:"encoding"`
 	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
 	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
 	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
@@ -142,8 +142,8 @@ func (o CaptureDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v CaptureDescription) *EncodingCaptureDescription { return v.Encoding }).(EncodingCaptureDescriptionPtrOutput)
+func (o CaptureDescriptionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -200,13 +200,13 @@ func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-func (o CaptureDescriptionPtrOutput) Encoding() EncodingCaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v *CaptureDescription) *EncodingCaptureDescription {
+func (o CaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Encoding
-	}).(EncodingCaptureDescriptionPtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
@@ -1159,7 +1159,7 @@ func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPt
 // Properties to configure Encryption
 type Encryption struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource *KeySource `pulumi:"keySource"`
+	KeySource *string `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties []KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// Enable Infrastructure Encryption (Double Encryption)
@@ -1180,7 +1180,7 @@ type EncryptionInput interface {
 // Properties to configure Encryption
 type EncryptionArgs struct {
 	// Enumerates the possible value of keySource for Encryption
-	KeySource KeySourcePtrInput `pulumi:"keySource"`
+	KeySource *KeySource `pulumi:"keySource"`
 	// Properties of KeyVault
 	KeyVaultProperties KeyVaultPropertiesArrayInput `pulumi:"keyVaultProperties"`
 	// Enable Infrastructure Encryption (Double Encryption)
@@ -1266,8 +1266,8 @@ func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) 
 }
 
 // Enumerates the possible value of keySource for Encryption
-func (o EncryptionOutput) KeySource() KeySourcePtrOutput {
-	return o.ApplyT(func(v Encryption) *KeySource { return v.KeySource }).(KeySourcePtrOutput)
+func (o EncryptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Encryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
 // Properties of KeyVault
@@ -1299,13 +1299,13 @@ func (o EncryptionPtrOutput) Elem() EncryptionOutput {
 }
 
 // Enumerates the possible value of keySource for Encryption
-func (o EncryptionPtrOutput) KeySource() KeySourcePtrOutput {
-	return o.ApplyT(func(v *Encryption) *KeySource {
+func (o EncryptionPtrOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Encryption) *string {
 		if v == nil {
 			return nil
 		}
 		return v.KeySource
-	}).(KeySourcePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties of KeyVault
@@ -1503,7 +1503,7 @@ func (o EncryptionResponsePtrOutput) RequireInfrastructureEncryption() pulumi.Bo
 // Properties to configure Identity for Bring your Own Keys
 type Identity struct {
 	// Type of managed service identity.
-	Type *ManagedServiceIdentityType `pulumi:"type"`
+	Type *string `pulumi:"type"`
 	// Properties for User Assigned Identities
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -1522,7 +1522,7 @@ type IdentityInput interface {
 // Properties to configure Identity for Bring your Own Keys
 type IdentityArgs struct {
 	// Type of managed service identity.
-	Type ManagedServiceIdentityTypePtrInput `pulumi:"type"`
+	Type *ManagedServiceIdentityType `pulumi:"type"`
 	// Properties for User Assigned Identities
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -1606,8 +1606,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // Type of managed service identity.
-func (o IdentityOutput) Type() ManagedServiceIdentityTypePtrOutput {
-	return o.ApplyT(func(v Identity) *ManagedServiceIdentityType { return v.Type }).(ManagedServiceIdentityTypePtrOutput)
+func (o IdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // Properties for User Assigned Identities
@@ -1634,13 +1634,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // Type of managed service identity.
-func (o IdentityPtrOutput) Type() ManagedServiceIdentityTypePtrOutput {
-	return o.ApplyT(func(v *Identity) *ManagedServiceIdentityType {
+func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Identity) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(ManagedServiceIdentityTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties for User Assigned Identities

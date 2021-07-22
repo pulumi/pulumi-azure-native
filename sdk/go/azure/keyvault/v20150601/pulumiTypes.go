@@ -415,7 +415,7 @@ type Sku struct {
 	// SKU family name
 	Family string `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -434,7 +434,7 @@ type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuNameInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -521,8 +521,8 @@ func (o SkuOutput) Family() pulumi.StringOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() SkuNameOutput {
-	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
+func (o SkuOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -554,13 +554,13 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() SkuNamePtrOutput {
-	return o.ApplyT(func(v *Sku) *SkuName {
+func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(SkuNamePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // SKU details

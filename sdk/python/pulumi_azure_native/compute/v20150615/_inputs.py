@@ -37,8 +37,8 @@ __all__ = [
     'VaultSecretGroupArgs',
     'VirtualHardDiskArgs',
     'VirtualMachineExtensionInstanceViewArgs',
-    'VirtualMachineScaleSetExtensionProfileArgs',
     'VirtualMachineScaleSetExtensionArgs',
+    'VirtualMachineScaleSetExtensionProfileArgs',
     'VirtualMachineScaleSetIPConfigurationArgs',
     'VirtualMachineScaleSetNetworkConfigurationArgs',
     'VirtualMachineScaleSetNetworkProfileArgs',
@@ -1487,30 +1487,6 @@ class VirtualMachineExtensionInstanceViewArgs:
 
 
 @pulumi.input_type
-class VirtualMachineScaleSetExtensionProfileArgs:
-    def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None):
-        """
-        Describes a virtual machine scale set extension profile.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
-        """
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
-        """
-        The virtual machine scale set child extension resources.
-        """
-        return pulumi.get(self, "extensions")
-
-    @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
-        pulumi.set(self, "extensions", value)
-
-
-@pulumi.input_type
 class VirtualMachineScaleSetExtensionArgs:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
@@ -1644,6 +1620,30 @@ class VirtualMachineScaleSetExtensionArgs:
     @type_handler_version.setter
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
+
+
+@pulumi.input_type
+class VirtualMachineScaleSetExtensionProfileArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None):
+        """
+        Describes a virtual machine scale set extension profile.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
+        """
+        The virtual machine scale set child extension resources.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
 
 
 @pulumi.input_type

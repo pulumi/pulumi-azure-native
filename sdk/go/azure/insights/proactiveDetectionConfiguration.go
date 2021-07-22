@@ -83,9 +83,33 @@ func GetProactiveDetectionConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProactiveDetectionConfiguration resources.
 type proactiveDetectionConfigurationState struct {
+	// Custom email addresses for this rule notifications
+	CustomEmails []string `pulumi:"customEmails"`
+	// A flag that indicates whether this rule is enabled by the user
+	Enabled *bool `pulumi:"enabled"`
+	// The last time this rule was updated
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// The rule name
+	Name *string `pulumi:"name"`
+	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+	RuleDefinitions *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions `pulumi:"ruleDefinitions"`
+	// A flag that indicated whether notifications on this rule should be sent to subscription owners
+	SendEmailsToSubscriptionOwners *bool `pulumi:"sendEmailsToSubscriptionOwners"`
 }
 
 type ProactiveDetectionConfigurationState struct {
+	// Custom email addresses for this rule notifications
+	CustomEmails pulumi.StringArrayInput
+	// A flag that indicates whether this rule is enabled by the user
+	Enabled pulumi.BoolPtrInput
+	// The last time this rule was updated
+	LastUpdatedTime pulumi.StringPtrInput
+	// The rule name
+	Name pulumi.StringPtrInput
+	// Static definitions of the ProactiveDetection configuration rule (same values for all components).
+	RuleDefinitions ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrInput
+	// A flag that indicated whether notifications on this rule should be sent to subscription owners
+	SendEmailsToSubscriptionOwners pulumi.BoolPtrInput
 }
 
 func (ProactiveDetectionConfigurationState) ElementType() reflect.Type {

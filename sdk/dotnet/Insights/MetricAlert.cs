@@ -191,7 +191,7 @@ namespace Pulumi.AzureNative.Insights
         /// defines the specific alert criteria information.
         /// </summary>
         [Input("criteria", required: true)]
-        public object Criteria { get; set; } = null!;
+        public Input<object> Criteria { get; set; } = null!;
 
         /// <summary>
         /// the description of the metric alert that will be included in the alert email.

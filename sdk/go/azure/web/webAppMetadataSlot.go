@@ -136,9 +136,25 @@ func GetWebAppMetadataSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppMetadataSlot resources.
 type webAppMetadataSlotState struct {
+	// Kind of resource.
+	Kind *string `pulumi:"kind"`
+	// Resource Name.
+	Name *string `pulumi:"name"`
+	// Settings.
+	Properties map[string]string `pulumi:"properties"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type WebAppMetadataSlotState struct {
+	// Kind of resource.
+	Kind pulumi.StringPtrInput
+	// Resource Name.
+	Name pulumi.StringPtrInput
+	// Settings.
+	Properties pulumi.StringMapInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (WebAppMetadataSlotState) ElementType() reflect.Type {

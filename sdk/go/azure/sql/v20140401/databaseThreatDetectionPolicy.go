@@ -122,9 +122,53 @@ func GetDatabaseThreatDetectionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DatabaseThreatDetectionPolicy resources.
 type databaseThreatDetectionPolicyState struct {
+	// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
+	DisabledAlerts *string `pulumi:"disabledAlerts"`
+	// Specifies that the alert is sent to the account administrators.
+	EmailAccountAdmins *string `pulumi:"emailAccountAdmins"`
+	// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
+	EmailAddresses *string `pulumi:"emailAddresses"`
+	// Resource kind.
+	Kind *string `pulumi:"kind"`
+	// The geo-location where the resource lives
+	Location *string `pulumi:"location"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays *int `pulumi:"retentionDays"`
+	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+	State *string `pulumi:"state"`
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
+	StorageEndpoint *string `pulumi:"storageEndpoint"`
+	// Resource type.
+	Type *string `pulumi:"type"`
+	// Specifies whether to use the default server policy.
+	UseServerDefault *string `pulumi:"useServerDefault"`
 }
 
 type DatabaseThreatDetectionPolicyState struct {
+	// Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
+	DisabledAlerts pulumi.StringPtrInput
+	// Specifies that the alert is sent to the account administrators.
+	EmailAccountAdmins pulumi.StringPtrInput
+	// Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
+	EmailAddresses pulumi.StringPtrInput
+	// Resource kind.
+	Kind pulumi.StringPtrInput
+	// The geo-location where the resource lives
+	Location pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Specifies the number of days to keep in the Threat Detection audit logs.
+	RetentionDays pulumi.IntPtrInput
+	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+	State pulumi.StringPtrInput
+	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
+	StorageEndpoint pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
+	// Specifies whether to use the default server policy.
+	UseServerDefault pulumi.StringPtrInput
 }
 
 func (DatabaseThreatDetectionPolicyState) ElementType() reflect.Type {

@@ -101,9 +101,39 @@ func GetOfficeATPDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OfficeATPDataConnector resources.
 type officeATPDataConnectorState struct {
+	// The available data types for the connector.
+	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
+	// Etag of the azure resource
+	Etag *string `pulumi:"etag"`
+	// The kind of the data connector
+	// Expected value is 'OfficeATP'.
+	Kind *string `pulumi:"kind"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// The tenant id to connect to, and get the data from.
+	TenantId *string `pulumi:"tenantId"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type OfficeATPDataConnectorState struct {
+	// The available data types for the connector.
+	DataTypes AlertsDataTypeOfDataConnectorResponsePtrInput
+	// Etag of the azure resource
+	Etag pulumi.StringPtrInput
+	// The kind of the data connector
+	// Expected value is 'OfficeATP'.
+	Kind pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponsePtrInput
+	// The tenant id to connect to, and get the data from.
+	TenantId pulumi.StringPtrInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (OfficeATPDataConnectorState) ElementType() reflect.Type {

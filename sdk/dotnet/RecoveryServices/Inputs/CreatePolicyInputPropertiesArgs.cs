@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// The ReplicationProviderSettings.
         /// </summary>
         [Input("providerSpecificInput")]
-        public object? ProviderSpecificInput { get; set; }
+        public Input<object>? ProviderSpecificInput { get; set; }
 
         public CreatePolicyInputPropertiesArgs()
         {

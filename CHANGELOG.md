@@ -2,13 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+
 - Updates Authorization::RoleAssignment to force replace on principalId or scope change (fixes [771](https://github.com/pulumi/pulumi-azure-native/issues/771))
-
-#### Dependencies
-
-- Updated `pulumi/pulumi` dependencies to 3.7.1
-- The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
-- Support inputty Go enums
 
 ---
 

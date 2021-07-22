@@ -68,8 +68,8 @@ __all__ = [
     'CouchbaseLinkedServiceArgs',
     'CouchbaseSourceArgs',
     'CouchbaseTableDatasetArgs',
-    'CustomActivityReferenceObjectArgs',
     'CustomActivityArgs',
+    'CustomActivityReferenceObjectArgs',
     'CustomDataSourceLinkedServiceArgs',
     'CustomDatasetArgs',
     'DataLakeAnalyticsUSQLActivityArgs',
@@ -199,8 +199,8 @@ __all__ = [
     'QuickBooksLinkedServiceArgs',
     'QuickBooksObjectDatasetArgs',
     'QuickBooksSourceArgs',
-    'RecurrenceScheduleOccurrenceArgs',
     'RecurrenceScheduleArgs',
+    'RecurrenceScheduleOccurrenceArgs',
     'RedirectIncompatibleRowSettingsArgs',
     'RedshiftUnloadSettingsArgs',
     'RelationalSourceArgs',
@@ -231,8 +231,8 @@ __all__ = [
     'SapEccResourceDatasetArgs',
     'SapEccSourceArgs',
     'SapHanaLinkedServiceArgs',
-    'ScheduleTriggerRecurrenceArgs',
     'ScheduleTriggerArgs',
+    'ScheduleTriggerRecurrenceArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'ServiceNowLinkedServiceArgs',
@@ -267,8 +267,8 @@ __all__ = [
     'VerticaSourceArgs',
     'VerticaTableDatasetArgs',
     'WaitActivityArgs',
-    'WebActivityAuthenticationArgs',
     'WebActivityArgs',
+    'WebActivityAuthenticationArgs',
     'WebAnonymousAuthenticationArgs',
     'WebBasicAuthenticationArgs',
     'WebClientCertificateAuthenticationArgs',
@@ -7730,46 +7730,6 @@ class CouchbaseTableDatasetArgs:
 
 
 @pulumi.input_type
-class CustomActivityReferenceObjectArgs:
-    def __init__(__self__, *,
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
-                 linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
-        """
-        Reference objects for custom activity
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: Dataset references.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: Linked service references.
-        """
-        if datasets is not None:
-            pulumi.set(__self__, "datasets", datasets)
-        if linked_services is not None:
-            pulumi.set(__self__, "linked_services", linked_services)
-
-    @property
-    @pulumi.getter
-    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
-        """
-        Dataset references.
-        """
-        return pulumi.get(self, "datasets")
-
-    @datasets.setter
-    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
-        pulumi.set(self, "datasets", value)
-
-    @property
-    @pulumi.getter(name="linkedServices")
-    def linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
-        """
-        Linked service references.
-        """
-        return pulumi.get(self, "linked_services")
-
-    @linked_services.setter
-    def linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
-        pulumi.set(self, "linked_services", value)
-
-
-@pulumi.input_type
 class CustomActivityArgs:
     def __init__(__self__, *,
                  command: Any,
@@ -7950,6 +7910,46 @@ class CustomActivityArgs:
     @resource_linked_service.setter
     def resource_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
         pulumi.set(self, "resource_linked_service", value)
+
+
+@pulumi.input_type
+class CustomActivityReferenceObjectArgs:
+    def __init__(__self__, *,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        Reference objects for custom activity
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: Dataset references.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: Linked service references.
+        """
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if linked_services is not None:
+            pulumi.set(__self__, "linked_services", linked_services)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        Dataset references.
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="linkedServices")
+    def linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Linked service references.
+        """
+        return pulumi.get(self, "linked_services")
+
+    @linked_services.setter
+    def linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "linked_services", value)
 
 
 @pulumi.input_type
@@ -24020,46 +24020,6 @@ class QuickBooksSourceArgs:
 
 
 @pulumi.input_type
-class RecurrenceScheduleOccurrenceArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input['DayOfWeek']] = None,
-                 occurrence: Optional[pulumi.Input[int]] = None):
-        """
-        The recurrence schedule occurrence.
-        :param pulumi.Input['DayOfWeek'] day: The day of the week.
-        :param pulumi.Input[int] occurrence: The occurrence.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[int]]:
-        """
-        The occurrence.
-        """
-        return pulumi.get(self, "occurrence")
-
-    @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "occurrence", value)
-
-
-@pulumi.input_type
 class RecurrenceScheduleArgs:
     def __init__(__self__, *,
                  hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -24145,6 +24105,46 @@ class RecurrenceScheduleArgs:
     @week_days.setter
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
         pulumi.set(self, "week_days", value)
+
+
+@pulumi.input_type
+class RecurrenceScheduleOccurrenceArgs:
+    def __init__(__self__, *,
+                 day: Optional[pulumi.Input['DayOfWeek']] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
+        """
+        The recurrence schedule occurrence.
+        :param pulumi.Input['DayOfWeek'] day: The day of the week.
+        :param pulumi.Input[int] occurrence: The occurrence.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
+        """
+        The day of the week.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        The occurrence.
+        """
+        return pulumi.get(self, "occurrence")
+
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type
@@ -27178,6 +27178,78 @@ class SapHanaLinkedServiceArgs:
 
 
 @pulumi.input_type
+class ScheduleTriggerArgs:
+    def __init__(__self__, *,
+                 recurrence: pulumi.Input['ScheduleTriggerRecurrenceArgs'],
+                 type: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
+        """
+        Trigger that creates pipeline runs periodically, on schedule.
+        :param pulumi.Input['ScheduleTriggerRecurrenceArgs'] recurrence: Recurrence schedule configuration.
+        :param pulumi.Input[str] type: Trigger type.
+               Expected value is 'ScheduleTrigger'.
+        :param pulumi.Input[str] description: Trigger description.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        """
+        pulumi.set(__self__, "recurrence", recurrence)
+        pulumi.set(__self__, "type", 'ScheduleTrigger')
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> pulumi.Input['ScheduleTriggerRecurrenceArgs']:
+        """
+        Recurrence schedule configuration.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: pulumi.Input['ScheduleTriggerRecurrenceArgs']):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Trigger type.
+        Expected value is 'ScheduleTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+        pulumi.set(self, "pipelines", value)
+
+
+@pulumi.input_type
 class ScheduleTriggerRecurrenceArgs:
     def __init__(__self__, *,
                  end_time: Optional[pulumi.Input[str]] = None,
@@ -27279,78 +27351,6 @@ class ScheduleTriggerRecurrenceArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
-
-
-@pulumi.input_type
-class ScheduleTriggerArgs:
-    def __init__(__self__, *,
-                 recurrence: pulumi.Input['ScheduleTriggerRecurrenceArgs'],
-                 type: pulumi.Input[str],
-                 description: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
-        """
-        Trigger that creates pipeline runs periodically, on schedule.
-        :param pulumi.Input['ScheduleTriggerRecurrenceArgs'] recurrence: Recurrence schedule configuration.
-        :param pulumi.Input[str] type: Trigger type.
-               Expected value is 'ScheduleTrigger'.
-        :param pulumi.Input[str] description: Trigger description.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
-        """
-        pulumi.set(__self__, "recurrence", recurrence)
-        pulumi.set(__self__, "type", 'ScheduleTrigger')
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
-
-    @property
-    @pulumi.getter
-    def recurrence(self) -> pulumi.Input['ScheduleTriggerRecurrenceArgs']:
-        """
-        Recurrence schedule configuration.
-        """
-        return pulumi.get(self, "recurrence")
-
-    @recurrence.setter
-    def recurrence(self, value: pulumi.Input['ScheduleTriggerRecurrenceArgs']):
-        pulumi.set(self, "recurrence", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Trigger type.
-        Expected value is 'ScheduleTrigger'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Trigger description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
-        """
-        Pipelines that need to be started.
-        """
-        return pulumi.get(self, "pipelines")
-
-    @pipelines.setter
-    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
-        pulumi.set(self, "pipelines", value)
 
 
 @pulumi.input_type
@@ -31652,93 +31652,6 @@ class WaitActivityArgs:
 
 
 @pulumi.input_type
-class WebActivityAuthenticationArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[str],
-                 password: Optional[pulumi.Input['SecureStringArgs']] = None,
-                 pfx: Optional[pulumi.Input['SecureStringArgs']] = None,
-                 resource: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        Web activity authentication properties.
-        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI)
-        :param pulumi.Input['SecureStringArgs'] password: Password for the PFX file or basic authentication.
-        :param pulumi.Input['SecureStringArgs'] pfx: Base64-encoded contents of a PFX file.
-        :param pulumi.Input[str] resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
-        :param pulumi.Input[str] username: Web activity authentication user name for basic authentication.
-        """
-        pulumi.set(__self__, "type", type)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if pfx is not None:
-            pulumi.set(__self__, "pfx", pfx)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Web activity authentication (Basic/ClientCertificate/MSI)
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input['SecureStringArgs']]:
-        """
-        Password for the PFX file or basic authentication.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input['SecureStringArgs']]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def pfx(self) -> Optional[pulumi.Input['SecureStringArgs']]:
-        """
-        Base64-encoded contents of a PFX file.
-        """
-        return pulumi.get(self, "pfx")
-
-    @pfx.setter
-    def pfx(self, value: Optional[pulumi.Input['SecureStringArgs']]):
-        pulumi.set(self, "pfx", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource for which Azure Auth token will be requested when using MSI Authentication.
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        Web activity authentication user name for basic authentication.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
-
-
-@pulumi.input_type
 class WebActivityArgs:
     def __init__(__self__, *,
                  method: pulumi.Input[Union[str, 'WebActivityMethod']],
@@ -31950,6 +31863,93 @@ class WebActivityArgs:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input['ActivityPolicyArgs']]):
         pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
+class WebActivityAuthenticationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 password: Optional[pulumi.Input['SecureStringArgs']] = None,
+                 pfx: Optional[pulumi.Input['SecureStringArgs']] = None,
+                 resource: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Web activity authentication properties.
+        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI)
+        :param pulumi.Input['SecureStringArgs'] password: Password for the PFX file or basic authentication.
+        :param pulumi.Input['SecureStringArgs'] pfx: Base64-encoded contents of a PFX file.
+        :param pulumi.Input[str] resource: Resource for which Azure Auth token will be requested when using MSI Authentication.
+        :param pulumi.Input[str] username: Web activity authentication user name for basic authentication.
+        """
+        pulumi.set(__self__, "type", type)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pfx is not None:
+            pulumi.set(__self__, "pfx", pfx)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Web activity authentication (Basic/ClientCertificate/MSI)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        Password for the PFX file or basic authentication.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pfx(self) -> Optional[pulumi.Input['SecureStringArgs']]:
+        """
+        Base64-encoded contents of a PFX file.
+        """
+        return pulumi.get(self, "pfx")
+
+    @pfx.setter
+    def pfx(self, value: Optional[pulumi.Input['SecureStringArgs']]):
+        pulumi.set(self, "pfx", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource for which Azure Auth token will be requested when using MSI Authentication.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Web activity authentication user name for basic authentication.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

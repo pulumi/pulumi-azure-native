@@ -83,9 +83,45 @@ func GetAutoScaleVCore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutoScaleVCore resources.
 type autoScaleVCoreState struct {
+	// The maximum capacity of an auto scale v-core resource.
+	CapacityLimit *int `pulumi:"capacityLimit"`
+	// The object ID of the capacity resource associated with the auto scale v-core resource.
+	CapacityObjectId *string `pulumi:"capacityObjectId"`
+	// Location of the PowerBI Dedicated resource.
+	Location *string `pulumi:"location"`
+	// The name of the PowerBI Dedicated resource.
+	Name *string `pulumi:"name"`
+	// The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The SKU of the auto scale v-core resource.
+	Sku *AutoScaleVCoreSkuResponse `pulumi:"sku"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
+	// Key-value pairs of additional resource provisioning properties.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the PowerBI Dedicated resource.
+	Type *string `pulumi:"type"`
 }
 
 type AutoScaleVCoreState struct {
+	// The maximum capacity of an auto scale v-core resource.
+	CapacityLimit pulumi.IntPtrInput
+	// The object ID of the capacity resource associated with the auto scale v-core resource.
+	CapacityObjectId pulumi.StringPtrInput
+	// Location of the PowerBI Dedicated resource.
+	Location pulumi.StringPtrInput
+	// The name of the PowerBI Dedicated resource.
+	Name pulumi.StringPtrInput
+	// The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState pulumi.StringPtrInput
+	// The SKU of the auto scale v-core resource.
+	Sku AutoScaleVCoreSkuResponsePtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
+	// Key-value pairs of additional resource provisioning properties.
+	Tags pulumi.StringMapInput
+	// The type of the PowerBI Dedicated resource.
+	Type pulumi.StringPtrInput
 }
 
 func (AutoScaleVCoreState) ElementType() reflect.Type {

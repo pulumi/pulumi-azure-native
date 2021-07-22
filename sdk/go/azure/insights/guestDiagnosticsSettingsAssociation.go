@@ -75,9 +75,29 @@ func GetGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GuestDiagnosticsSettingsAssociation resources.
 type guestDiagnosticsSettingsAssociationState struct {
+	// The guest diagnostic settings name.
+	GuestDiagnosticSettingsName *string `pulumi:"guestDiagnosticSettingsName"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Azure resource name
+	Name *string `pulumi:"name"`
+	// Resource tags
+	Tags map[string]string `pulumi:"tags"`
+	// Azure resource type
+	Type *string `pulumi:"type"`
 }
 
 type GuestDiagnosticsSettingsAssociationState struct {
+	// The guest diagnostic settings name.
+	GuestDiagnosticSettingsName pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Azure resource name
+	Name pulumi.StringPtrInput
+	// Resource tags
+	Tags pulumi.StringMapInput
+	// Azure resource type
+	Type pulumi.StringPtrInput
 }
 
 func (GuestDiagnosticsSettingsAssociationState) ElementType() reflect.Type {

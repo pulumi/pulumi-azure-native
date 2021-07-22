@@ -161,9 +161,65 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
+	// Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	CreatedDate *string `pulumi:"createdDate"`
+	// The name of the subscription, or null if the subscription has no name.
+	DisplayName *string `pulumi:"displayName"`
+	// Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	EndDate *string `pulumi:"endDate"`
+	// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Resource name.
+	Name *string `pulumi:"name"`
+	// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	NotificationDate *string `pulumi:"notificationDate"`
+	// Subscription primary key.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.
+	ProductId *string `pulumi:"productId"`
+	// Subscription secondary key.
+	SecondaryKey *string `pulumi:"secondaryKey"`
+	// Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	StartDate *string `pulumi:"startDate"`
+	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+	State *string `pulumi:"state"`
+	// Optional subscription comment added by an administrator.
+	StateComment *string `pulumi:"stateComment"`
+	// Resource type for API Management resource.
+	Type *string `pulumi:"type"`
+	// The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.
+	UserId *string `pulumi:"userId"`
 }
 
 type SubscriptionState struct {
+	// Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	CreatedDate pulumi.StringPtrInput
+	// The name of the subscription, or null if the subscription has no name.
+	DisplayName pulumi.StringPtrInput
+	// Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	EndDate pulumi.StringPtrInput
+	// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	ExpirationDate pulumi.StringPtrInput
+	// Resource name.
+	Name pulumi.StringPtrInput
+	// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	NotificationDate pulumi.StringPtrInput
+	// Subscription primary key.
+	PrimaryKey pulumi.StringPtrInput
+	// The product resource identifier of the subscribed product. The value is a valid relative URL in the format of /products/{productId} where {productId} is a product identifier.
+	ProductId pulumi.StringPtrInput
+	// Subscription secondary key.
+	SecondaryKey pulumi.StringPtrInput
+	// Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	StartDate pulumi.StringPtrInput
+	// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+	State pulumi.StringPtrInput
+	// Optional subscription comment added by an administrator.
+	StateComment pulumi.StringPtrInput
+	// Resource type for API Management resource.
+	Type pulumi.StringPtrInput
+	// The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{uid} where {uid} is a user identifier.
+	UserId pulumi.StringPtrInput
 }
 
 func (SubscriptionState) ElementType() reflect.Type {
@@ -190,7 +246,7 @@ type subscriptionArgs struct {
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Sid *string `pulumi:"sid"`
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State *SubscriptionStateEnum `pulumi:"state"`
+	State *string `pulumi:"state"`
 	// User (user id path) for whom subscription is being created in form /users/{uid}
 	UserId string `pulumi:"userId"`
 }
@@ -216,7 +272,7 @@ type SubscriptionArgs struct {
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Sid pulumi.StringPtrInput
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State SubscriptionStateEnumPtrInput
+	State *SubscriptionStateEnum
 	// User (user id path) for whom subscription is being created in form /users/{uid}
 	UserId pulumi.StringInput
 }

@@ -23,7 +23,7 @@ type ListAgreementContentCallbackUrlArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The key type.
-	KeyType *KeyType `pulumi:"keyType"`
+	KeyType *string `pulumi:"keyType"`
 	// The expiry time.
 	NotAfter *string `pulumi:"notAfter"`
 	// The resource group name.

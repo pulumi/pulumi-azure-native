@@ -81,9 +81,41 @@ func GetVirtualNetworkGatewayNatRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkGatewayNatRule resources.
 type virtualNetworkGatewayNatRuleState struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag *string `pulumi:"etag"`
+	// The private IP address external mapping for NAT.
+	ExternalMappings []VpnNatRuleMappingResponse `pulumi:"externalMappings"`
+	// The private IP address internal mapping for NAT.
+	InternalMappings []VpnNatRuleMappingResponse `pulumi:"internalMappings"`
+	// The IP Configuration ID this NAT rule applies to.
+	IpConfigurationId *string `pulumi:"ipConfigurationId"`
+	// The Source NAT direction of a VPN NAT.
+	Mode *string `pulumi:"mode"`
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name *string `pulumi:"name"`
+	// The provisioning state of the NAT Rule resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource type.
+	Type *string `pulumi:"type"`
 }
 
 type VirtualNetworkGatewayNatRuleState struct {
+	// A unique read-only string that changes whenever the resource is updated.
+	Etag pulumi.StringPtrInput
+	// The private IP address external mapping for NAT.
+	ExternalMappings VpnNatRuleMappingResponseArrayInput
+	// The private IP address internal mapping for NAT.
+	InternalMappings VpnNatRuleMappingResponseArrayInput
+	// The IP Configuration ID this NAT rule applies to.
+	IpConfigurationId pulumi.StringPtrInput
+	// The Source NAT direction of a VPN NAT.
+	Mode pulumi.StringPtrInput
+	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+	Name pulumi.StringPtrInput
+	// The provisioning state of the NAT Rule resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource type.
+	Type pulumi.StringPtrInput
 }
 
 func (VirtualNetworkGatewayNatRuleState) ElementType() reflect.Type {

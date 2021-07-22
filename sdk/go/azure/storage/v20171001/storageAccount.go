@@ -66,9 +66,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Kind == nil {
-		return nil, errors.New("invalid value for required argument 'Kind'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -208,9 +205,93 @@ func GetStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccount resources.
 type storageAccountState struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier *string `pulumi:"accessTier"`
+	// Gets the creation date and time of the storage account in UTC.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets the custom domain the user assigned to this storage account.
+	CustomDomain *CustomDomainResponse `pulumi:"customDomain"`
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
+	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// The identity of the resource.
+	Identity *IdentityResponse `pulumi:"identity"`
+	// Gets the Kind.
+	Kind *string `pulumi:"kind"`
+	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	LastGeoFailoverTime *string `pulumi:"lastGeoFailoverTime"`
+	// Resource location
+	Location *string `pulumi:"location"`
+	// Resource name
+	Name *string `pulumi:"name"`
+	// Network rule set
+	NetworkRuleSet *NetworkRuleSetResponse `pulumi:"networkRuleSet"`
+	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+	PrimaryEndpoints *EndpointsResponse `pulumi:"primaryEndpoints"`
+	// Gets the location of the primary data center for the storage account.
+	PrimaryLocation *string `pulumi:"primaryLocation"`
+	// Gets the status of the storage account at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+	SecondaryEndpoints *EndpointsResponse `pulumi:"secondaryEndpoints"`
+	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	SecondaryLocation *string `pulumi:"secondaryLocation"`
+	// Gets the SKU.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+	StatusOfPrimary *string `pulumi:"statusOfPrimary"`
+	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+	StatusOfSecondary *string `pulumi:"statusOfSecondary"`
+	// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
+	Tags map[string]string `pulumi:"tags"`
+	// Resource type
+	Type *string `pulumi:"type"`
 }
 
 type StorageAccountState struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier pulumi.StringPtrInput
+	// Gets the creation date and time of the storage account in UTC.
+	CreationTime pulumi.StringPtrInput
+	// Gets the custom domain the user assigned to this storage account.
+	CustomDomain CustomDomainResponsePtrInput
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly pulumi.BoolPtrInput
+	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+	Encryption EncryptionResponsePtrInput
+	// The identity of the resource.
+	Identity IdentityResponsePtrInput
+	// Gets the Kind.
+	Kind pulumi.StringPtrInput
+	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	LastGeoFailoverTime pulumi.StringPtrInput
+	// Resource location
+	Location pulumi.StringPtrInput
+	// Resource name
+	Name pulumi.StringPtrInput
+	// Network rule set
+	NetworkRuleSet NetworkRuleSetResponsePtrInput
+	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+	PrimaryEndpoints EndpointsResponsePtrInput
+	// Gets the location of the primary data center for the storage account.
+	PrimaryLocation pulumi.StringPtrInput
+	// Gets the status of the storage account at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+	SecondaryEndpoints EndpointsResponsePtrInput
+	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	SecondaryLocation pulumi.StringPtrInput
+	// Gets the SKU.
+	Sku SkuResponsePtrInput
+	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+	StatusOfPrimary pulumi.StringPtrInput
+	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+	StatusOfSecondary pulumi.StringPtrInput
+	// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
+	Tags pulumi.StringMapInput
+	// Resource type
+	Type pulumi.StringPtrInput
 }
 
 func (StorageAccountState) ElementType() reflect.Type {
@@ -219,7 +300,7 @@ func (StorageAccountState) ElementType() reflect.Type {
 
 type storageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *AccessTier `pulumi:"accessTier"`
+	AccessTier *string `pulumi:"accessTier"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName *string `pulumi:"accountName"`
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -231,7 +312,7 @@ type storageAccountArgs struct {
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
 	// Required. Indicates the type of storage account.
-	Kind Kind `pulumi:"kind"`
+	Kind string `pulumi:"kind"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
 	// Network rule set
@@ -247,7 +328,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier AccessTierPtrInput
+	AccessTier *AccessTier
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringPtrInput
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -259,7 +340,7 @@ type StorageAccountArgs struct {
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// Required. Indicates the type of storage account.
-	Kind KindInput
+	Kind Kind
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
 	// Network rule set

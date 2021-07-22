@@ -44,9 +44,7 @@ class AlertDetail(str, Enum):
     Alert detail
     """
     DISPLAY_NAME = "DisplayName"
-    """Alert display name"""
     SEVERITY = "Severity"
-    """Alert severity"""
 
 
 class AlertRuleKind(str, Enum):
@@ -65,13 +63,9 @@ class AlertSeverity(str, Enum):
     The severity for alerts created by this alert rule.
     """
     HIGH = "High"
-    """High severity"""
     MEDIUM = "Medium"
-    """Medium severity"""
     LOW = "Low"
-    """Low severity"""
     INFORMATIONAL = "Informational"
-    """Informational severity"""
 
 
 class AttackTactic(str, Enum):
@@ -148,41 +142,23 @@ class EntityMappingType(str, Enum):
     The V3 type of the mapped entity
     """
     ACCOUNT = "Account"
-    """User account entity type"""
     HOST = "Host"
-    """Host entity type"""
     IP = "IP"
-    """IP address entity type"""
     MALWARE = "Malware"
-    """Malware entity type"""
     FILE = "File"
-    """System file entity type"""
     PROCESS = "Process"
-    """Process entity type"""
     CLOUD_APPLICATION = "CloudApplication"
-    """Cloud app entity type"""
     DNS = "DNS"
-    """DNS entity type"""
     AZURE_RESOURCE = "AzureResource"
-    """Azure resource entity type"""
     FILE_HASH = "FileHash"
-    """File-hash entity type"""
     REGISTRY_KEY = "RegistryKey"
-    """Registry key entity type"""
     REGISTRY_VALUE = "RegistryValue"
-    """Registry value entity type"""
     SECURITY_GROUP = "SecurityGroup"
-    """Security group entity type"""
     URL = "URL"
-    """URL entity type"""
     MAILBOX = "Mailbox"
-    """Mailbox entity type"""
     MAIL_CLUSTER = "MailCluster"
-    """Mail cluster entity type"""
     MAIL_MESSAGE = "MailMessage"
-    """Mail message entity type"""
     SUBMISSION_MAIL = "SubmissionMail"
-    """Submission mail entity type"""
 
 
 class EntityType(str, Enum):
@@ -190,47 +166,26 @@ class EntityType(str, Enum):
     The type of the query's source entity
     """
     ACCOUNT = "Account"
-    """Entity represents account in the system."""
     HOST = "Host"
-    """Entity represents host in the system."""
     FILE = "File"
-    """Entity represents file in the system."""
     AZURE_RESOURCE = "AzureResource"
-    """Entity represents azure resource in the system."""
     CLOUD_APPLICATION = "CloudApplication"
-    """Entity represents cloud application in the system."""
     DNS = "DNS"
-    """Entity represents dns in the system."""
     FILE_HASH = "FileHash"
-    """Entity represents file hash in the system."""
     IP = "IP"
-    """Entity represents ip in the system."""
     MALWARE = "Malware"
-    """Entity represents malware in the system."""
     PROCESS = "Process"
-    """Entity represents process in the system."""
     REGISTRY_KEY = "RegistryKey"
-    """Entity represents registry key in the system."""
     REGISTRY_VALUE = "RegistryValue"
-    """Entity represents registry value in the system."""
     SECURITY_GROUP = "SecurityGroup"
-    """Entity represents security group in the system."""
     URL = "URL"
-    """Entity represents url in the system."""
     IO_T_DEVICE = "IoTDevice"
-    """Entity represents IoT device in the system."""
     SECURITY_ALERT = "SecurityAlert"
-    """Entity represents security alert in the system."""
     HUNTING_BOOKMARK = "HuntingBookmark"
-    """Entity represents HuntingBookmark in the system."""
     MAIL_CLUSTER = "MailCluster"
-    """Entity represents mail cluster in the system."""
     MAIL_MESSAGE = "MailMessage"
-    """Entity represents mail message in the system."""
     MAILBOX = "Mailbox"
-    """Entity represents mailbox in the system."""
     SUBMISSION_MAIL = "SubmissionMail"
-    """Entity represents submission mail in the system."""
 
 
 class EventGroupingAggregationKind(str, Enum):
@@ -246,13 +201,9 @@ class IncidentClassification(str, Enum):
     The reason the incident was closed
     """
     UNDETERMINED = "Undetermined"
-    """Incident classification was undetermined"""
     TRUE_POSITIVE = "TruePositive"
-    """Incident was true positive"""
     BENIGN_POSITIVE = "BenignPositive"
-    """Incident was benign positive"""
     FALSE_POSITIVE = "FalsePositive"
-    """Incident was false positive"""
 
 
 class IncidentClassificationReason(str, Enum):
@@ -260,13 +211,9 @@ class IncidentClassificationReason(str, Enum):
     The classification reason the incident was closed with
     """
     SUSPICIOUS_ACTIVITY = "SuspiciousActivity"
-    """Classification reason was suspicious activity"""
     SUSPICIOUS_BUT_EXPECTED = "SuspiciousButExpected"
-    """Classification reason was suspicious but expected"""
     INCORRECT_ALERT_LOGIC = "IncorrectAlertLogic"
-    """Classification reason was incorrect alert logic"""
     INACCURATE_DATA = "InaccurateData"
-    """Classification reason was inaccurate data"""
 
 
 class IncidentSeverity(str, Enum):
@@ -274,13 +221,9 @@ class IncidentSeverity(str, Enum):
     The severity of the incident
     """
     HIGH = "High"
-    """High severity"""
     MEDIUM = "Medium"
-    """Medium severity"""
     LOW = "Low"
-    """Low severity"""
     INFORMATIONAL = "Informational"
-    """Informational severity"""
 
 
 class IncidentStatus(str, Enum):
@@ -288,11 +231,8 @@ class IncidentStatus(str, Enum):
     The status of the incident
     """
     NEW = "New"
-    """An active incident which isn't being handled currently"""
     ACTIVE = "Active"
-    """An active incident which is being handled"""
     CLOSED = "Closed"
-    """A non-active incident"""
 
 
 class Kind(str, Enum):
@@ -320,11 +260,8 @@ class MatchingMethod(str, Enum):
     Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
     """
     ALL_ENTITIES = "AllEntities"
-    """Grouping alerts into a single incident if all the entities match"""
     ANY_ALERT = "AnyAlert"
-    """Grouping any alerts triggered by this rule into a single incident"""
     SELECTED = "Selected"
-    """Grouping alerts into a single incident if the selected entities, custom details and alert details match"""
 
 
 class MicrosoftSecurityProductName(str, Enum):
@@ -362,11 +299,8 @@ class PollingFrequency(str, Enum):
     The polling frequency for the TAXII server.
     """
     ONCE_A_MINUTE = "OnceAMinute"
-    """Once a minute"""
     ONCE_AN_HOUR = "OnceAnHour"
-    """Once an hour"""
     ONCE_A_DAY = "OnceADay"
-    """Once a day"""
 
 
 class ProviderName(str, Enum):
