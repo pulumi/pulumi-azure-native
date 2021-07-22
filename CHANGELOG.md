@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.19.0 (2021-07-22)
+
 #### Enhancements:
 
 - Updates Authorization::RoleAssignment to force replace on principalId or scope change
@@ -34,8 +40,6 @@ CHANGELOG
 - `maxUnusedVersionsToKeep` in `servicefabric.ApplicationTypeVersionsCleanupPolicy` changed the type from
   integer to float (expects int64)
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15128))
-
----
 
 ## 1.18.0 (2021-07-19)
 
