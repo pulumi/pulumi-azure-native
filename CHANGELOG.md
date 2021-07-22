@@ -3,7 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-- Updates Authorization::RoleAssignment to force replace on principalId or scope change (fixes [771](https://github.com/pulumi/pulumi-azure-native/issues/771))
+- Updates authorization.RoleAssignment to force replace on principalId or scope change
+  [771](https://github.com/pulumi/pulumi-azure-native/issues/771)
+  
+- Support initialization failures by checkpointing partially created resources to state
+  [938](https://github.com/pulumi/pulumi-azure-native/issues/938)
 
 ---
 
