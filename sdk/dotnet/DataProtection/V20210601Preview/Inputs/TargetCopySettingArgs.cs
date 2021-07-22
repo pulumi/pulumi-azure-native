@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Inputs
         /// It can be CustomCopyOption or ImmediateCopyOption.
         /// </summary>
         [Input("copyAfter", required: true)]
-        public object CopyAfter { get; set; } = null!;
+        public Input<object> CopyAfter { get; set; } = null!;
 
         /// <summary>
         /// Info of target datastore

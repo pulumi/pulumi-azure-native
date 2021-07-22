@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// ORC store settings.
         /// </summary>
         [Input("storeSettings")]
-        public object? StoreSettings { get; set; }
+        public Input<object>? StoreSettings { get; set; }
 
         /// <summary>
         /// Copy sink type.

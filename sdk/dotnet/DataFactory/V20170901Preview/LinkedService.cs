@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
         /// Properties of linked service.
         /// </summary>
         [Input("properties", required: true)]
-        public object Properties { get; set; } = null!;
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

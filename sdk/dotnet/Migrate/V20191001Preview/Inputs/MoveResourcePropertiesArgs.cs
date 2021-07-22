@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001Preview.Inputs
         /// Gets or sets the resource settings.
         /// </summary>
         [Input("resourceSettings")]
-        public object? ResourceSettings { get; set; }
+        public Input<object>? ResourceSettings { get; set; }
 
         /// <summary>
         /// Gets or sets the Source ARM Id of the resource.

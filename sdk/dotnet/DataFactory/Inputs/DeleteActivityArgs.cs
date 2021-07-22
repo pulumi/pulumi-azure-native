@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Delete activity store settings.
         /// </summary>
         [Input("storeSettings")]
-        public object? StoreSettings { get; set; }
+        public Input<object>? StoreSettings { get; set; }
 
         /// <summary>
         /// Type of activity.

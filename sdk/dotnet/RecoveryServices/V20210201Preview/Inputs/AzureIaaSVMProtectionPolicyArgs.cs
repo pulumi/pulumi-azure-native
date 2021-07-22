@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Inputs
         /// Backup schedule specified as part of backup policy.
         /// </summary>
         [Input("schedulePolicy")]
-        public object? SchedulePolicy { get; set; }
+        public Input<object>? SchedulePolicy { get; set; }
 
         /// <summary>
         /// TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".

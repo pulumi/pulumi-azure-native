@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
         [Input("destination")]
-        public object? Destination { get; set; }
+        public Input<object>? Destination { get; set; }
 
         /// <summary>
         /// The identity to use when delivering events.

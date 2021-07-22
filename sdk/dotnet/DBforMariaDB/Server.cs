@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// Properties of the server.
         /// </summary>
         [Input("properties", required: true)]
-        public object Properties { get; set; } = null!;
+        public Input<object> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

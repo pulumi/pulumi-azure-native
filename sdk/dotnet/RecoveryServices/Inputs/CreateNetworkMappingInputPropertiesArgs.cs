@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// Fabric specific input properties.
         /// </summary>
         [Input("fabricSpecificDetails")]
-        public object? FabricSpecificDetails { get; set; }
+        public Input<object>? FabricSpecificDetails { get; set; }
 
         /// <summary>
         /// Recovery fabric Name.

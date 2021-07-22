@@ -208,7 +208,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214
         /// Specifies the properties used to describe the source image.
         /// </summary>
         [Input("source", required: true)]
-        public object Source { get; set; } = null!;
+        public Input<object> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

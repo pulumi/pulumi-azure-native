@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Scheduler.Inputs
         /// Gets or sets the authentication method of the request.
         /// </summary>
         [Input("authentication")]
-        public object? Authentication { get; set; }
+        public Input<object>? Authentication { get; set; }
 
         /// <summary>
         /// Gets or sets the request body.

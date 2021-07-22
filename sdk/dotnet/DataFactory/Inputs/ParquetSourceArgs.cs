@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Parquet store settings.
         /// </summary>
         [Input("storeSettings")]
-        public object? StoreSettings { get; set; }
+        public Input<object>? StoreSettings { get; set; }
 
         /// <summary>
         /// Copy source type.

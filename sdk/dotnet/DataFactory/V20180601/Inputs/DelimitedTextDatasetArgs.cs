@@ -85,7 +85,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// The location of the delimited text storage.
         /// </summary>
         [Input("location", required: true)]
-        public object Location { get; set; } = null!;
+        public Input<object> Location { get; set; } = null!;
 
         /// <summary>
         /// The null value string. Type: string (or Expression with resultType string).

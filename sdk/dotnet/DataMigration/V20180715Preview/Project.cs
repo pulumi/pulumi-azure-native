@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
         /// Information for connecting to source
         /// </summary>
         [Input("sourceConnectionInfo")]
-        public object? SourceConnectionInfo { get; set; }
+        public Input<object>? SourceConnectionInfo { get; set; }
 
         /// <summary>
         /// Source platform for the project
@@ -204,7 +204,7 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
         /// Information for connecting to target
         /// </summary>
         [Input("targetConnectionInfo")]
-        public object? TargetConnectionInfo { get; set; }
+        public Input<object>? TargetConnectionInfo { get; set; }
 
         /// <summary>
         /// Target platform for the project

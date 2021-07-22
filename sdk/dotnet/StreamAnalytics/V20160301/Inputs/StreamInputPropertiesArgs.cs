@@ -19,13 +19,13 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Inputs
         /// Describes an input data source that contains stream data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public object? Datasource { get; set; }
+        public Input<object>? Datasource { get; set; }
 
         /// <summary>
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serialization")]
-        public object? Serialization { get; set; }
+        public Input<object>? Serialization { get; set; }
 
         /// <summary>
         /// Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.

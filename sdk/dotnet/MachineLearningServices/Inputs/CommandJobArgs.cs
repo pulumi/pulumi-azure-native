@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.
         /// </summary>
         [Input("distribution")]
-        public object? Distribution { get; set; }
+        public Input<object>? Distribution { get; set; }
 
         /// <summary>
         /// The ARM resource ID of the Environment specification for the job.

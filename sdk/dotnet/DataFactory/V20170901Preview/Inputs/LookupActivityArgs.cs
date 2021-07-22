@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// Dataset-specific source properties, same as copy activity source.
         /// </summary>
         [Input("source", required: true)]
-        public object Source { get; set; } = null!;
+        public Input<object> Source { get; set; } = null!;
 
         /// <summary>
         /// Type of activity.
