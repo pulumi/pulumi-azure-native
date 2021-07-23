@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// <summary>
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
-        public readonly string? ActionRequired;
+        public readonly string? ActionsRequired;
         /// <summary>
         /// The reason for approval/rejection of the connection.
         /// </summary>
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
         [OutputConstructor]
         private PrivateLinkServiceConnectionStateResponse(
-            string? actionRequired,
+            string? actionsRequired,
 
             string? description,
 
             string? status)
         {
-            ActionRequired = actionRequired;
+            ActionsRequired = actionsRequired;
             Description = description;
             Status = status;
         }

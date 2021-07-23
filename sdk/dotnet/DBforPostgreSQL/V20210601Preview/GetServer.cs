@@ -67,10 +67,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Azure Active Directory identity of the server.
-        /// </summary>
-        public readonly Outputs.IdentityResponse? Identity;
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -133,8 +129,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
 
             string id,
 
-            Outputs.IdentityResponse? identity,
-
             string location,
 
             Outputs.MaintenanceWindowResponse? maintenanceWindow,
@@ -165,7 +159,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HighAvailability = highAvailability;
             Id = id;
-            Identity = identity;
             Location = location;
             MaintenanceWindow = maintenanceWindow;
             MinorVersion = minorVersion;

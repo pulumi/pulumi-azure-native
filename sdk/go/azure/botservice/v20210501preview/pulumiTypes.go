@@ -500,6 +500,8 @@ type BotProperties struct {
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights App Id
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
+	// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// The Name of the bot
 	DisplayName string `pulumi:"displayName"`
 	// The bot's endpoint
@@ -516,6 +518,12 @@ type BotProperties struct {
 	LuisKey *string `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId string `pulumi:"msaAppId"`
+	// Microsoft App Managed Identity Resource Id for the bot
+	MsaAppMSIResourceId *string `pulumi:"msaAppMSIResourceId"`
+	// Microsoft App Tenant Id for the bot
+	MsaAppTenantId *string `pulumi:"msaAppTenantId"`
+	// Microsoft App Type for the bot
+	MsaAppType *string `pulumi:"msaAppType"`
 	// The channel schema transformation version for the bot
 	SchemaTransformationVersion *string `pulumi:"schemaTransformationVersion"`
 }
@@ -543,6 +551,8 @@ type BotPropertiesArgs struct {
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights App Id
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput `pulumi:"developerAppInsightsApplicationId"`
+	// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
 	// The Name of the bot
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// The bot's endpoint
@@ -559,6 +569,12 @@ type BotPropertiesArgs struct {
 	LuisKey pulumi.StringPtrInput `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId pulumi.StringInput `pulumi:"msaAppId"`
+	// Microsoft App Managed Identity Resource Id for the bot
+	MsaAppMSIResourceId pulumi.StringPtrInput `pulumi:"msaAppMSIResourceId"`
+	// Microsoft App Tenant Id for the bot
+	MsaAppTenantId pulumi.StringPtrInput `pulumi:"msaAppTenantId"`
+	// Microsoft App Type for the bot
+	MsaAppType pulumi.StringPtrInput `pulumi:"msaAppType"`
 	// The channel schema transformation version for the bot
 	SchemaTransformationVersion pulumi.StringPtrInput `pulumi:"schemaTransformationVersion"`
 }
@@ -666,6 +682,11 @@ func (o BotPropertiesOutput) DeveloperAppInsightsApplicationId() pulumi.StringPt
 	return o.ApplyT(func(v BotProperties) *string { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o BotPropertiesOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotProperties) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
 // The Name of the bot
 func (o BotPropertiesOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v BotProperties) string { return v.DisplayName }).(pulumi.StringOutput)
@@ -704,6 +725,21 @@ func (o BotPropertiesOutput) LuisKey() pulumi.StringPtrOutput {
 // Microsoft App Id for the bot
 func (o BotPropertiesOutput) MsaAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotProperties) string { return v.MsaAppId }).(pulumi.StringOutput)
+}
+
+// Microsoft App Managed Identity Resource Id for the bot
+func (o BotPropertiesOutput) MsaAppMSIResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.MsaAppMSIResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Tenant Id for the bot
+func (o BotPropertiesOutput) MsaAppTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.MsaAppTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Type for the bot
+func (o BotPropertiesOutput) MsaAppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.MsaAppType }).(pulumi.StringPtrOutput)
 }
 
 // The channel schema transformation version for the bot
@@ -777,6 +813,16 @@ func (o BotPropertiesPtrOutput) DeveloperAppInsightsApplicationId() pulumi.Strin
 		}
 		return v.DeveloperAppInsightsApplicationId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o BotPropertiesPtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Name of the bot
@@ -859,6 +905,36 @@ func (o BotPropertiesPtrOutput) MsaAppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Microsoft App Managed Identity Resource Id for the bot
+func (o BotPropertiesPtrOutput) MsaAppMSIResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MsaAppMSIResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Tenant Id for the bot
+func (o BotPropertiesPtrOutput) MsaAppTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MsaAppTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Type for the bot
+func (o BotPropertiesPtrOutput) MsaAppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MsaAppType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The channel schema transformation version for the bot
 func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *string {
@@ -883,6 +959,8 @@ type BotPropertiesResponse struct {
 	DeveloperAppInsightsApiKey *string `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights App Id
 	DeveloperAppInsightsApplicationId *string `pulumi:"developerAppInsightsApplicationId"`
+	// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// The Name of the bot
 	DisplayName string `pulumi:"displayName"`
 	// Collection of channels for which the bot is enabled
@@ -903,6 +981,14 @@ type BotPropertiesResponse struct {
 	LuisKey *string `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId string `pulumi:"msaAppId"`
+	// Microsoft App Managed Identity Resource Id for the bot
+	MsaAppMSIResourceId *string `pulumi:"msaAppMSIResourceId"`
+	// Microsoft App Tenant Id for the bot
+	MsaAppTenantId *string `pulumi:"msaAppTenantId"`
+	// Microsoft App Type for the bot
+	MsaAppType *string `pulumi:"msaAppType"`
+	// List of Private Endpoint Connections configured for the bot
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The channel schema transformation version for the bot
 	SchemaTransformationVersion *string `pulumi:"schemaTransformationVersion"`
 }
@@ -932,6 +1018,8 @@ type BotPropertiesResponseArgs struct {
 	DeveloperAppInsightsApiKey pulumi.StringPtrInput `pulumi:"developerAppInsightsApiKey"`
 	// The Application Insights App Id
 	DeveloperAppInsightsApplicationId pulumi.StringPtrInput `pulumi:"developerAppInsightsApplicationId"`
+	// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+	DisableLocalAuth pulumi.BoolPtrInput `pulumi:"disableLocalAuth"`
 	// The Name of the bot
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
 	// Collection of channels for which the bot is enabled
@@ -952,6 +1040,14 @@ type BotPropertiesResponseArgs struct {
 	LuisKey pulumi.StringPtrInput `pulumi:"luisKey"`
 	// Microsoft App Id for the bot
 	MsaAppId pulumi.StringInput `pulumi:"msaAppId"`
+	// Microsoft App Managed Identity Resource Id for the bot
+	MsaAppMSIResourceId pulumi.StringPtrInput `pulumi:"msaAppMSIResourceId"`
+	// Microsoft App Tenant Id for the bot
+	MsaAppTenantId pulumi.StringPtrInput `pulumi:"msaAppTenantId"`
+	// Microsoft App Type for the bot
+	MsaAppType pulumi.StringPtrInput `pulumi:"msaAppType"`
+	// List of Private Endpoint Connections configured for the bot
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
 	// The channel schema transformation version for the bot
 	SchemaTransformationVersion pulumi.StringPtrInput `pulumi:"schemaTransformationVersion"`
 }
@@ -1064,6 +1160,11 @@ func (o BotPropertiesResponseOutput) DeveloperAppInsightsApplicationId() pulumi.
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.DeveloperAppInsightsApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o BotPropertiesResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
 // The Name of the bot
 func (o BotPropertiesResponseOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) string { return v.DisplayName }).(pulumi.StringOutput)
@@ -1112,6 +1213,26 @@ func (o BotPropertiesResponseOutput) LuisKey() pulumi.StringPtrOutput {
 // Microsoft App Id for the bot
 func (o BotPropertiesResponseOutput) MsaAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) string { return v.MsaAppId }).(pulumi.StringOutput)
+}
+
+// Microsoft App Managed Identity Resource Id for the bot
+func (o BotPropertiesResponseOutput) MsaAppMSIResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.MsaAppMSIResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Tenant Id for the bot
+func (o BotPropertiesResponseOutput) MsaAppTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.MsaAppTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Type for the bot
+func (o BotPropertiesResponseOutput) MsaAppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.MsaAppType }).(pulumi.StringPtrOutput)
+}
+
+// List of Private Endpoint Connections configured for the bot
+func (o BotPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
 // The channel schema transformation version for the bot
@@ -1195,6 +1316,16 @@ func (o BotPropertiesResponsePtrOutput) DeveloperAppInsightsApplicationId() pulu
 		}
 		return v.DeveloperAppInsightsApplicationId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+func (o BotPropertiesResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The Name of the bot
@@ -1295,6 +1426,46 @@ func (o BotPropertiesResponsePtrOutput) MsaAppId() pulumi.StringPtrOutput {
 		}
 		return &v.MsaAppId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Managed Identity Resource Id for the bot
+func (o BotPropertiesResponsePtrOutput) MsaAppMSIResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MsaAppMSIResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Tenant Id for the bot
+func (o BotPropertiesResponsePtrOutput) MsaAppTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MsaAppTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Microsoft App Type for the bot
+func (o BotPropertiesResponsePtrOutput) MsaAppType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MsaAppType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of Private Endpoint Connections configured for the bot
+func (o BotPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) []PrivateEndpointConnectionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateEndpointConnections
+	}).(PrivateEndpointConnectionResponseArrayOutput)
 }
 
 // The channel schema transformation version for the bot
@@ -6228,6 +6399,153 @@ func (o MsTeamsChannelResponseOutput) Properties() MsTeamsChannelPropertiesRespo
 	return o.ApplyT(func(v MsTeamsChannelResponse) *MsTeamsChannelPropertiesResponse { return v.Properties }).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
 
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// PrivateEndpointConnectionResponseInput is an input type that accepts PrivateEndpointConnectionResponseArgs and PrivateEndpointConnectionResponseOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionResponseInput` via:
+//
+//          PrivateEndpointConnectionResponseArgs{...}
+type PrivateEndpointConnectionResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput
+	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponseArgs struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the resource
+	Name pulumi.StringInput `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponsePtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return i.ToPrivateEndpointConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseOutput)
+}
+
+// PrivateEndpointConnectionResponseArrayInput is an input type that accepts PrivateEndpointConnectionResponseArray and PrivateEndpointConnectionResponseArrayOutput values.
+// You can construct a concrete instance of `PrivateEndpointConnectionResponseArrayInput` via:
+//
+//          PrivateEndpointConnectionResponseArray{ PrivateEndpointConnectionResponseArgs{...} }
+type PrivateEndpointConnectionResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput
+	ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionResponseArrayOutput
+}
+
+type PrivateEndpointConnectionResponseArray []PrivateEndpointConnectionResponseInput
+
+func (PrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
 // The Private Endpoint resource.
 type PrivateEndpointResponse struct {
 	// The ARM identifier for Private Endpoint
@@ -6365,7 +6683,7 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired *string `pulumi:"actionRequired"`
+	ActionsRequired *string `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description *string `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -6386,7 +6704,7 @@ type PrivateLinkServiceConnectionStateInput interface {
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -6472,8 +6790,8 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
 // The reason for approval/rejection of the connection.
@@ -6505,12 +6823,12 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6537,7 +6855,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired *string `pulumi:"actionRequired"`
+	ActionsRequired *string `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description *string `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -6558,7 +6876,7 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -6644,8 +6962,8 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
 // The reason for approval/rejection of the connection.
@@ -6679,12 +6997,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8252,6 +8570,8 @@ type SlackChannelProperties struct {
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The Slack landing page Url
 	LandingPageUrl *string `pulumi:"landingPageUrl"`
+	// The Slack permission scopes.
+	Scopes *string `pulumi:"scopes"`
 	// The Slack signing secret.
 	SigningSecret *string `pulumi:"signingSecret"`
 	// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -8279,6 +8599,8 @@ type SlackChannelPropertiesArgs struct {
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
 	// The Slack landing page Url
 	LandingPageUrl pulumi.StringPtrInput `pulumi:"landingPageUrl"`
+	// The Slack permission scopes.
+	Scopes pulumi.StringPtrInput `pulumi:"scopes"`
 	// The Slack signing secret.
 	SigningSecret pulumi.StringPtrInput `pulumi:"signingSecret"`
 	// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -8383,6 +8705,11 @@ func (o SlackChannelPropertiesOutput) LandingPageUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlackChannelProperties) *string { return v.LandingPageUrl }).(pulumi.StringPtrOutput)
 }
 
+// The Slack permission scopes.
+func (o SlackChannelPropertiesOutput) Scopes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlackChannelProperties) *string { return v.Scopes }).(pulumi.StringPtrOutput)
+}
+
 // The Slack signing secret.
 func (o SlackChannelPropertiesOutput) SigningSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlackChannelProperties) *string { return v.SigningSecret }).(pulumi.StringPtrOutput)
@@ -8451,6 +8778,16 @@ func (o SlackChannelPropertiesPtrOutput) LandingPageUrl() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Slack permission scopes.
+func (o SlackChannelPropertiesPtrOutput) Scopes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Slack signing secret.
 func (o SlackChannelPropertiesPtrOutput) SigningSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SlackChannelProperties) *string {
@@ -8489,6 +8826,8 @@ type SlackChannelPropertiesResponse struct {
 	RedirectAction string `pulumi:"redirectAction"`
 	// Whether to register the settings before OAuth validation is performed. Recommended to True.
 	RegisterBeforeOAuthFlow bool `pulumi:"registerBeforeOAuthFlow"`
+	// The Slack permission scopes.
+	Scopes *string `pulumi:"scopes"`
 	// The Slack signing secret.
 	SigningSecret *string `pulumi:"signingSecret"`
 	// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -8524,6 +8863,8 @@ type SlackChannelPropertiesResponseArgs struct {
 	RedirectAction pulumi.StringInput `pulumi:"redirectAction"`
 	// Whether to register the settings before OAuth validation is performed. Recommended to True.
 	RegisterBeforeOAuthFlow pulumi.BoolInput `pulumi:"registerBeforeOAuthFlow"`
+	// The Slack permission scopes.
+	Scopes pulumi.StringPtrInput `pulumi:"scopes"`
 	// The Slack signing secret.
 	SigningSecret pulumi.StringPtrInput `pulumi:"signingSecret"`
 	// The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -8648,6 +8989,11 @@ func (o SlackChannelPropertiesResponseOutput) RegisterBeforeOAuthFlow() pulumi.B
 	return o.ApplyT(func(v SlackChannelPropertiesResponse) bool { return v.RegisterBeforeOAuthFlow }).(pulumi.BoolOutput)
 }
 
+// The Slack permission scopes.
+func (o SlackChannelPropertiesResponseOutput) Scopes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SlackChannelPropertiesResponse) *string { return v.Scopes }).(pulumi.StringPtrOutput)
+}
+
 // The Slack signing secret.
 func (o SlackChannelPropertiesResponseOutput) SigningSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SlackChannelPropertiesResponse) *string { return v.SigningSecret }).(pulumi.StringPtrOutput)
@@ -8754,6 +9100,16 @@ func (o SlackChannelPropertiesResponsePtrOutput) RegisterBeforeOAuthFlow() pulum
 		}
 		return &v.RegisterBeforeOAuthFlow
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The Slack permission scopes.
+func (o SlackChannelPropertiesResponsePtrOutput) Scopes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SlackChannelPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Slack signing secret.
@@ -10632,6 +10988,8 @@ func init() {
 	pulumi.RegisterOutputType(MsTeamsChannelPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MsTeamsChannelResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})

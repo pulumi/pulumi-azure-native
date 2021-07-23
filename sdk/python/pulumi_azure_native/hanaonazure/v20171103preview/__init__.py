@@ -5,7 +5,6 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from ._enums import *
 from .get_hana_instance import *
 from .hana_instance import *
 from ._inputs import *

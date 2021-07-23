@@ -475,7 +475,7 @@ class QueryDatasetArgs:
         The definition of data present in the query.
         :param pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgs']]] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         :param pulumi.Input['QueryDatasetConfigurationArgs'] configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-        :param pulumi.Input['QueryFilterArgs'] filter: Has filter expression to use in the query.
+        :param pulumi.Input['QueryFilterArgs'] filter: The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
         :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the query.
         :param pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         """
@@ -518,7 +518,7 @@ class QueryDatasetArgs:
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['QueryFilterArgs']]:
         """
-        Has filter expression to use in the query.
+        The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
         """
         return pulumi.get(self, "filter")
 

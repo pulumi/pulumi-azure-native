@@ -38,15 +38,15 @@ export class HanaInstance extends pulumi.CustomResource {
     /**
      * Specifies the HANA instance unique ID.
      */
-    public readonly hanaInstanceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hanaInstanceId!: pulumi.Output<string>;
     /**
      * Specifies the hardware settings for the HANA instance.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.hanaonazure.v20171103preview.HardwareProfileResponse | undefined>;
+    public /*out*/ readonly hardwareProfile!: pulumi.Output<outputs.hanaonazure.v20171103preview.HardwareProfileResponse | undefined>;
     /**
      * Hardware revision of a HANA instance
      */
-    public readonly hwRevision!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly hwRevision!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -70,15 +70,15 @@ export class HanaInstance extends pulumi.CustomResource {
     /**
      * Resource power state
      */
-    public readonly powerState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly powerState!: pulumi.Output<string>;
     /**
      * State of provisioning of the HanaInstance
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource proximity placement group
      */
-    public readonly proximityPlacementGroup!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly proximityPlacementGroup!: pulumi.Output<string>;
     /**
      * Specifies the storage settings for the HANA instance disks.
      */
@@ -106,21 +106,21 @@ export class HanaInstance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hanaInstanceId"] = args ? args.hanaInstanceId : undefined;
             inputs["hanaInstanceName"] = args ? args.hanaInstanceName : undefined;
-            inputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            inputs["hwRevision"] = args ? args.hwRevision : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["osProfile"] = args ? args.osProfile : undefined;
             inputs["partnerNodeId"] = args ? args.partnerNodeId : undefined;
-            inputs["powerState"] = args ? args.powerState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["hanaInstanceId"] = undefined /*out*/;
+            inputs["hardwareProfile"] = undefined /*out*/;
+            inputs["hwRevision"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["powerState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["proximityPlacementGroup"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["hanaInstanceId"] = undefined /*out*/;
@@ -152,21 +152,9 @@ export class HanaInstance extends pulumi.CustomResource {
  */
 export interface HanaInstanceArgs {
     /**
-     * Specifies the HANA instance unique ID.
-     */
-    hanaInstanceId?: pulumi.Input<string>;
-    /**
      * Name of the SAP HANA on Azure instance.
      */
     hanaInstanceName?: pulumi.Input<string>;
-    /**
-     * Specifies the hardware settings for the HANA instance.
-     */
-    hardwareProfile?: pulumi.Input<inputs.hanaonazure.v20171103preview.HardwareProfileArgs>;
-    /**
-     * Hardware revision of a HANA instance
-     */
-    hwRevision?: pulumi.Input<string>;
     /**
      * Resource location
      */
@@ -183,18 +171,6 @@ export interface HanaInstanceArgs {
      * ARM ID of another HanaInstance that will share a network with this HanaInstance
      */
     partnerNodeId?: pulumi.Input<string>;
-    /**
-     * Resource power state
-     */
-    powerState?: pulumi.Input<string | enums.hanaonazure.v20171103preview.HanaInstancePowerStateEnum>;
-    /**
-     * State of provisioning of the HanaInstance
-     */
-    provisioningState?: pulumi.Input<string | enums.hanaonazure.v20171103preview.HanaProvisioningStatesEnum>;
-    /**
-     * Resource proximity placement group
-     */
-    proximityPlacementGroup?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

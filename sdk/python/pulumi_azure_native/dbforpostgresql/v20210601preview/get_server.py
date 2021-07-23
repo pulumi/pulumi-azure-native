@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, backup=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, sku=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, backup=None, fully_qualified_domain_name=None, high_availability=None, id=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, sku=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -39,9 +39,6 @@ class GetServerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -126,14 +123,6 @@ class GetServerResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional['outputs.IdentityResponse']:
-        """
-        The Azure Active Directory identity of the server.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -244,7 +233,6 @@ class AwaitableGetServerResult(GetServerResult):
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             high_availability=self.high_availability,
             id=self.id,
-            identity=self.identity,
             location=self.location,
             maintenance_window=self.maintenance_window,
             minor_version=self.minor_version,
@@ -285,7 +273,6 @@ def get_server(resource_group_name: Optional[str] = None,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         high_availability=__ret__.high_availability,
         id=__ret__.id,
-        identity=__ret__.identity,
         location=__ret__.location,
         maintenance_window=__ret__.maintenance_window,
         minor_version=__ret__.minor_version,

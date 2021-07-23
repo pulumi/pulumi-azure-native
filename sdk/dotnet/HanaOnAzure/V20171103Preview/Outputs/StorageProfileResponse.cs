@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Outputs
         /// <summary>
         /// IP Address to connect to storage.
         /// </summary>
-        public readonly string? NfsIpAddress;
+        public readonly string NfsIpAddress;
         /// <summary>
         /// Specifies information about the operating system disk used by the hana instance.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview.Outputs
         private StorageProfileResponse(
             ImmutableArray<Outputs.SAPSystemIDResponse> hanaSids,
 
-            string? nfsIpAddress,
+            string nfsIpAddress,
 
             ImmutableArray<Outputs.DiskResponse> osDisks)
         {

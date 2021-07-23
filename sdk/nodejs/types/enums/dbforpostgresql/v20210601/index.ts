@@ -34,15 +34,6 @@ export const HighAvailabilityMode = {
  */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
-export const ResourceIdentityType = {
-    SystemAssigned: "SystemAssigned",
-} as const;
-
-/**
- * The identity type.
- */
-export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
 export const ServerVersion = {
     ServerVersion_13: "13",
     ServerVersion_12: "12",

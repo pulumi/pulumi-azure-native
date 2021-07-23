@@ -23,7 +23,6 @@ class ServerArgs:
                  backup: Optional[pulumi.Input['BackupArgs']] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  network: Optional[pulumi.Input['NetworkArgs']] = None,
@@ -43,7 +42,6 @@ class ServerArgs:
         :param pulumi.Input['BackupArgs'] backup: Backup properties of a server.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
         :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability properties of a server.
-        :param pulumi.Input['IdentityArgs'] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window properties of a server.
         :param pulumi.Input['NetworkArgs'] network: Network properties of a server.
@@ -68,8 +66,6 @@ class ServerArgs:
             pulumi.set(__self__, "create_mode", create_mode)
         if high_availability is not None:
             pulumi.set(__self__, "high_availability", high_availability)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_window is not None:
@@ -174,18 +170,6 @@ class ServerArgs:
     @high_availability.setter
     def high_availability(self, value: Optional[pulumi.Input['HighAvailabilityArgs']]):
         pulumi.set(self, "high_availability", value)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
-        """
-        The Azure Active Directory identity of the server.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
-        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -319,7 +303,6 @@ class Server(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
@@ -343,7 +326,6 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BackupArgs']] backup: Backup properties of a server.
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
         :param pulumi.Input[pulumi.InputType['HighAvailabilityArgs']] high_availability: High availability properties of a server.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window properties of a server.
         :param pulumi.Input[pulumi.InputType['NetworkArgs']] network: Network properties of a server.
@@ -386,7 +368,6 @@ class Server(pulumi.CustomResource):
                  backup: Optional[pulumi.Input[pulumi.InputType['BackupArgs']]] = None,
                  create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  high_availability: Optional[pulumi.Input[pulumi.InputType['HighAvailabilityArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['NetworkArgs']]] = None,
@@ -416,7 +397,6 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["backup"] = backup
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["high_availability"] = high_availability
-            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["network"] = network
@@ -436,7 +416,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601preview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200214privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Server"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210615privatepreview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-native:dbforpostgresql/v20210601:Server',
@@ -465,7 +445,6 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["backup"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["high_availability"] = None
-        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["minor_version"] = None
@@ -519,14 +498,6 @@ class Server(pulumi.CustomResource):
         High availability properties of a server.
         """
         return pulumi.get(self, "high_availability")
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
-        """
-        The Azure Active Directory identity of the server.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

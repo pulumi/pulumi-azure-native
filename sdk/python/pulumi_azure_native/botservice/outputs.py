@@ -1884,8 +1884,8 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionRequired":
-            suggest = "action_required"
+        if key == "actionsRequired":
+            suggest = "actions_required"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1899,29 +1899,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_required: Optional[str] = None,
+                 actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
-        :param str action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param str description: The reason for approval/rejection of the connection.
         :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[str]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter

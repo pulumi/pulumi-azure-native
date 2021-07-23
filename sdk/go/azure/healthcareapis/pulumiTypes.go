@@ -10,6 +10,2281 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Authentication configuration information
+type DicomServiceAuthenticationConfigurationResponse struct {
+	// The audiences for the service
+	Audiences []string `pulumi:"audiences"`
+	// The authority url for the service
+	Authority string `pulumi:"authority"`
+}
+
+// DicomServiceAuthenticationConfigurationResponseInput is an input type that accepts DicomServiceAuthenticationConfigurationResponseArgs and DicomServiceAuthenticationConfigurationResponseOutput values.
+// You can construct a concrete instance of `DicomServiceAuthenticationConfigurationResponseInput` via:
+//
+//          DicomServiceAuthenticationConfigurationResponseArgs{...}
+type DicomServiceAuthenticationConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToDicomServiceAuthenticationConfigurationResponseOutput() DicomServiceAuthenticationConfigurationResponseOutput
+	ToDicomServiceAuthenticationConfigurationResponseOutputWithContext(context.Context) DicomServiceAuthenticationConfigurationResponseOutput
+}
+
+// Authentication configuration information
+type DicomServiceAuthenticationConfigurationResponseArgs struct {
+	// The audiences for the service
+	Audiences pulumi.StringArrayInput `pulumi:"audiences"`
+	// The authority url for the service
+	Authority pulumi.StringInput `pulumi:"authority"`
+}
+
+func (DicomServiceAuthenticationConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (i DicomServiceAuthenticationConfigurationResponseArgs) ToDicomServiceAuthenticationConfigurationResponseOutput() DicomServiceAuthenticationConfigurationResponseOutput {
+	return i.ToDicomServiceAuthenticationConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i DicomServiceAuthenticationConfigurationResponseArgs) ToDicomServiceAuthenticationConfigurationResponseOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationConfigurationResponseOutput)
+}
+
+func (i DicomServiceAuthenticationConfigurationResponseArgs) ToDicomServiceAuthenticationConfigurationResponsePtrOutput() DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return i.ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DicomServiceAuthenticationConfigurationResponseArgs) ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationConfigurationResponseOutput).ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// DicomServiceAuthenticationConfigurationResponsePtrInput is an input type that accepts DicomServiceAuthenticationConfigurationResponseArgs, DicomServiceAuthenticationConfigurationResponsePtr and DicomServiceAuthenticationConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `DicomServiceAuthenticationConfigurationResponsePtrInput` via:
+//
+//          DicomServiceAuthenticationConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DicomServiceAuthenticationConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToDicomServiceAuthenticationConfigurationResponsePtrOutput() DicomServiceAuthenticationConfigurationResponsePtrOutput
+	ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Context) DicomServiceAuthenticationConfigurationResponsePtrOutput
+}
+
+type dicomServiceAuthenticationConfigurationResponsePtrType DicomServiceAuthenticationConfigurationResponseArgs
+
+func DicomServiceAuthenticationConfigurationResponsePtr(v *DicomServiceAuthenticationConfigurationResponseArgs) DicomServiceAuthenticationConfigurationResponsePtrInput {
+	return (*dicomServiceAuthenticationConfigurationResponsePtrType)(v)
+}
+
+func (*dicomServiceAuthenticationConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (i *dicomServiceAuthenticationConfigurationResponsePtrType) ToDicomServiceAuthenticationConfigurationResponsePtrOutput() DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return i.ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dicomServiceAuthenticationConfigurationResponsePtrType) ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// Authentication configuration information
+type DicomServiceAuthenticationConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceAuthenticationConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DicomServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (o DicomServiceAuthenticationConfigurationResponseOutput) ToDicomServiceAuthenticationConfigurationResponseOutput() DicomServiceAuthenticationConfigurationResponseOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationConfigurationResponseOutput) ToDicomServiceAuthenticationConfigurationResponseOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponseOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationConfigurationResponseOutput) ToDicomServiceAuthenticationConfigurationResponsePtrOutput() DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return o.ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DicomServiceAuthenticationConfigurationResponseOutput) ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v DicomServiceAuthenticationConfigurationResponse) *DicomServiceAuthenticationConfigurationResponse {
+		return &v
+	}).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// The audiences for the service
+func (o DicomServiceAuthenticationConfigurationResponseOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DicomServiceAuthenticationConfigurationResponse) []string { return v.Audiences }).(pulumi.StringArrayOutput)
+}
+
+// The authority url for the service
+func (o DicomServiceAuthenticationConfigurationResponseOutput) Authority() pulumi.StringOutput {
+	return o.ApplyT(func(v DicomServiceAuthenticationConfigurationResponse) string { return v.Authority }).(pulumi.StringOutput)
+}
+
+type DicomServiceAuthenticationConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DicomServiceAuthenticationConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DicomServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) ToDicomServiceAuthenticationConfigurationResponsePtrOutput() DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) ToDicomServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) DicomServiceAuthenticationConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) Elem() DicomServiceAuthenticationConfigurationResponseOutput {
+	return o.ApplyT(func(v *DicomServiceAuthenticationConfigurationResponse) DicomServiceAuthenticationConfigurationResponse {
+		return *v
+	}).(DicomServiceAuthenticationConfigurationResponseOutput)
+}
+
+// The audiences for the service
+func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) Audiences() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DicomServiceAuthenticationConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Audiences
+	}).(pulumi.StringArrayOutput)
+}
+
+// The authority url for the service
+func (o DicomServiceAuthenticationConfigurationResponsePtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DicomServiceAuthenticationConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+// An access policy entry.
+type FhirServiceAccessPolicyEntry struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId string `pulumi:"objectId"`
+}
+
+// FhirServiceAccessPolicyEntryInput is an input type that accepts FhirServiceAccessPolicyEntryArgs and FhirServiceAccessPolicyEntryOutput values.
+// You can construct a concrete instance of `FhirServiceAccessPolicyEntryInput` via:
+//
+//          FhirServiceAccessPolicyEntryArgs{...}
+type FhirServiceAccessPolicyEntryInput interface {
+	pulumi.Input
+
+	ToFhirServiceAccessPolicyEntryOutput() FhirServiceAccessPolicyEntryOutput
+	ToFhirServiceAccessPolicyEntryOutputWithContext(context.Context) FhirServiceAccessPolicyEntryOutput
+}
+
+// An access policy entry.
+type FhirServiceAccessPolicyEntryArgs struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+}
+
+func (FhirServiceAccessPolicyEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAccessPolicyEntry)(nil)).Elem()
+}
+
+func (i FhirServiceAccessPolicyEntryArgs) ToFhirServiceAccessPolicyEntryOutput() FhirServiceAccessPolicyEntryOutput {
+	return i.ToFhirServiceAccessPolicyEntryOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAccessPolicyEntryArgs) ToFhirServiceAccessPolicyEntryOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAccessPolicyEntryOutput)
+}
+
+// FhirServiceAccessPolicyEntryArrayInput is an input type that accepts FhirServiceAccessPolicyEntryArray and FhirServiceAccessPolicyEntryArrayOutput values.
+// You can construct a concrete instance of `FhirServiceAccessPolicyEntryArrayInput` via:
+//
+//          FhirServiceAccessPolicyEntryArray{ FhirServiceAccessPolicyEntryArgs{...} }
+type FhirServiceAccessPolicyEntryArrayInput interface {
+	pulumi.Input
+
+	ToFhirServiceAccessPolicyEntryArrayOutput() FhirServiceAccessPolicyEntryArrayOutput
+	ToFhirServiceAccessPolicyEntryArrayOutputWithContext(context.Context) FhirServiceAccessPolicyEntryArrayOutput
+}
+
+type FhirServiceAccessPolicyEntryArray []FhirServiceAccessPolicyEntryInput
+
+func (FhirServiceAccessPolicyEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirServiceAccessPolicyEntry)(nil)).Elem()
+}
+
+func (i FhirServiceAccessPolicyEntryArray) ToFhirServiceAccessPolicyEntryArrayOutput() FhirServiceAccessPolicyEntryArrayOutput {
+	return i.ToFhirServiceAccessPolicyEntryArrayOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAccessPolicyEntryArray) ToFhirServiceAccessPolicyEntryArrayOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAccessPolicyEntryArrayOutput)
+}
+
+// An access policy entry.
+type FhirServiceAccessPolicyEntryOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAccessPolicyEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAccessPolicyEntry)(nil)).Elem()
+}
+
+func (o FhirServiceAccessPolicyEntryOutput) ToFhirServiceAccessPolicyEntryOutput() FhirServiceAccessPolicyEntryOutput {
+	return o
+}
+
+func (o FhirServiceAccessPolicyEntryOutput) ToFhirServiceAccessPolicyEntryOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryOutput {
+	return o
+}
+
+// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+func (o FhirServiceAccessPolicyEntryOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirServiceAccessPolicyEntry) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+type FhirServiceAccessPolicyEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAccessPolicyEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirServiceAccessPolicyEntry)(nil)).Elem()
+}
+
+func (o FhirServiceAccessPolicyEntryArrayOutput) ToFhirServiceAccessPolicyEntryArrayOutput() FhirServiceAccessPolicyEntryArrayOutput {
+	return o
+}
+
+func (o FhirServiceAccessPolicyEntryArrayOutput) ToFhirServiceAccessPolicyEntryArrayOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryArrayOutput {
+	return o
+}
+
+func (o FhirServiceAccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) FhirServiceAccessPolicyEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FhirServiceAccessPolicyEntry {
+		return vs[0].([]FhirServiceAccessPolicyEntry)[vs[1].(int)]
+	}).(FhirServiceAccessPolicyEntryOutput)
+}
+
+// An access policy entry.
+type FhirServiceAccessPolicyEntryResponse struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId string `pulumi:"objectId"`
+}
+
+// FhirServiceAccessPolicyEntryResponseInput is an input type that accepts FhirServiceAccessPolicyEntryResponseArgs and FhirServiceAccessPolicyEntryResponseOutput values.
+// You can construct a concrete instance of `FhirServiceAccessPolicyEntryResponseInput` via:
+//
+//          FhirServiceAccessPolicyEntryResponseArgs{...}
+type FhirServiceAccessPolicyEntryResponseInput interface {
+	pulumi.Input
+
+	ToFhirServiceAccessPolicyEntryResponseOutput() FhirServiceAccessPolicyEntryResponseOutput
+	ToFhirServiceAccessPolicyEntryResponseOutputWithContext(context.Context) FhirServiceAccessPolicyEntryResponseOutput
+}
+
+// An access policy entry.
+type FhirServiceAccessPolicyEntryResponseArgs struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+}
+
+func (FhirServiceAccessPolicyEntryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAccessPolicyEntryResponse)(nil)).Elem()
+}
+
+func (i FhirServiceAccessPolicyEntryResponseArgs) ToFhirServiceAccessPolicyEntryResponseOutput() FhirServiceAccessPolicyEntryResponseOutput {
+	return i.ToFhirServiceAccessPolicyEntryResponseOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAccessPolicyEntryResponseArgs) ToFhirServiceAccessPolicyEntryResponseOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAccessPolicyEntryResponseOutput)
+}
+
+// FhirServiceAccessPolicyEntryResponseArrayInput is an input type that accepts FhirServiceAccessPolicyEntryResponseArray and FhirServiceAccessPolicyEntryResponseArrayOutput values.
+// You can construct a concrete instance of `FhirServiceAccessPolicyEntryResponseArrayInput` via:
+//
+//          FhirServiceAccessPolicyEntryResponseArray{ FhirServiceAccessPolicyEntryResponseArgs{...} }
+type FhirServiceAccessPolicyEntryResponseArrayInput interface {
+	pulumi.Input
+
+	ToFhirServiceAccessPolicyEntryResponseArrayOutput() FhirServiceAccessPolicyEntryResponseArrayOutput
+	ToFhirServiceAccessPolicyEntryResponseArrayOutputWithContext(context.Context) FhirServiceAccessPolicyEntryResponseArrayOutput
+}
+
+type FhirServiceAccessPolicyEntryResponseArray []FhirServiceAccessPolicyEntryResponseInput
+
+func (FhirServiceAccessPolicyEntryResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirServiceAccessPolicyEntryResponse)(nil)).Elem()
+}
+
+func (i FhirServiceAccessPolicyEntryResponseArray) ToFhirServiceAccessPolicyEntryResponseArrayOutput() FhirServiceAccessPolicyEntryResponseArrayOutput {
+	return i.ToFhirServiceAccessPolicyEntryResponseArrayOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAccessPolicyEntryResponseArray) ToFhirServiceAccessPolicyEntryResponseArrayOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAccessPolicyEntryResponseArrayOutput)
+}
+
+// An access policy entry.
+type FhirServiceAccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAccessPolicyEntryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAccessPolicyEntryResponse)(nil)).Elem()
+}
+
+func (o FhirServiceAccessPolicyEntryResponseOutput) ToFhirServiceAccessPolicyEntryResponseOutput() FhirServiceAccessPolicyEntryResponseOutput {
+	return o
+}
+
+func (o FhirServiceAccessPolicyEntryResponseOutput) ToFhirServiceAccessPolicyEntryResponseOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryResponseOutput {
+	return o
+}
+
+// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+func (o FhirServiceAccessPolicyEntryResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirServiceAccessPolicyEntryResponse) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+type FhirServiceAccessPolicyEntryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAccessPolicyEntryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirServiceAccessPolicyEntryResponse)(nil)).Elem()
+}
+
+func (o FhirServiceAccessPolicyEntryResponseArrayOutput) ToFhirServiceAccessPolicyEntryResponseArrayOutput() FhirServiceAccessPolicyEntryResponseArrayOutput {
+	return o
+}
+
+func (o FhirServiceAccessPolicyEntryResponseArrayOutput) ToFhirServiceAccessPolicyEntryResponseArrayOutputWithContext(ctx context.Context) FhirServiceAccessPolicyEntryResponseArrayOutput {
+	return o
+}
+
+func (o FhirServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) FhirServiceAccessPolicyEntryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FhirServiceAccessPolicyEntryResponse {
+		return vs[0].([]FhirServiceAccessPolicyEntryResponse)[vs[1].(int)]
+	}).(FhirServiceAccessPolicyEntryResponseOutput)
+}
+
+// Azure container registry configuration information
+type FhirServiceAcrConfiguration struct {
+	// The list of the Azure container registry login servers.
+	LoginServers []string `pulumi:"loginServers"`
+}
+
+// FhirServiceAcrConfigurationInput is an input type that accepts FhirServiceAcrConfigurationArgs and FhirServiceAcrConfigurationOutput values.
+// You can construct a concrete instance of `FhirServiceAcrConfigurationInput` via:
+//
+//          FhirServiceAcrConfigurationArgs{...}
+type FhirServiceAcrConfigurationInput interface {
+	pulumi.Input
+
+	ToFhirServiceAcrConfigurationOutput() FhirServiceAcrConfigurationOutput
+	ToFhirServiceAcrConfigurationOutputWithContext(context.Context) FhirServiceAcrConfigurationOutput
+}
+
+// Azure container registry configuration information
+type FhirServiceAcrConfigurationArgs struct {
+	// The list of the Azure container registry login servers.
+	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
+}
+
+func (FhirServiceAcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAcrConfiguration)(nil)).Elem()
+}
+
+func (i FhirServiceAcrConfigurationArgs) ToFhirServiceAcrConfigurationOutput() FhirServiceAcrConfigurationOutput {
+	return i.ToFhirServiceAcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAcrConfigurationArgs) ToFhirServiceAcrConfigurationOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationOutput)
+}
+
+func (i FhirServiceAcrConfigurationArgs) ToFhirServiceAcrConfigurationPtrOutput() FhirServiceAcrConfigurationPtrOutput {
+	return i.ToFhirServiceAcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAcrConfigurationArgs) ToFhirServiceAcrConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationOutput).ToFhirServiceAcrConfigurationPtrOutputWithContext(ctx)
+}
+
+// FhirServiceAcrConfigurationPtrInput is an input type that accepts FhirServiceAcrConfigurationArgs, FhirServiceAcrConfigurationPtr and FhirServiceAcrConfigurationPtrOutput values.
+// You can construct a concrete instance of `FhirServiceAcrConfigurationPtrInput` via:
+//
+//          FhirServiceAcrConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceAcrConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceAcrConfigurationPtrOutput() FhirServiceAcrConfigurationPtrOutput
+	ToFhirServiceAcrConfigurationPtrOutputWithContext(context.Context) FhirServiceAcrConfigurationPtrOutput
+}
+
+type fhirServiceAcrConfigurationPtrType FhirServiceAcrConfigurationArgs
+
+func FhirServiceAcrConfigurationPtr(v *FhirServiceAcrConfigurationArgs) FhirServiceAcrConfigurationPtrInput {
+	return (*fhirServiceAcrConfigurationPtrType)(v)
+}
+
+func (*fhirServiceAcrConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAcrConfiguration)(nil)).Elem()
+}
+
+func (i *fhirServiceAcrConfigurationPtrType) ToFhirServiceAcrConfigurationPtrOutput() FhirServiceAcrConfigurationPtrOutput {
+	return i.ToFhirServiceAcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceAcrConfigurationPtrType) ToFhirServiceAcrConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationPtrOutput)
+}
+
+// Azure container registry configuration information
+type FhirServiceAcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAcrConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceAcrConfigurationOutput) ToFhirServiceAcrConfigurationOutput() FhirServiceAcrConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationOutput) ToFhirServiceAcrConfigurationOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationOutput) ToFhirServiceAcrConfigurationPtrOutput() FhirServiceAcrConfigurationPtrOutput {
+	return o.ToFhirServiceAcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceAcrConfigurationOutput) ToFhirServiceAcrConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationPtrOutput {
+	return o.ApplyT(func(v FhirServiceAcrConfiguration) *FhirServiceAcrConfiguration {
+		return &v
+	}).(FhirServiceAcrConfigurationPtrOutput)
+}
+
+// The list of the Azure container registry login servers.
+func (o FhirServiceAcrConfigurationOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceAcrConfiguration) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
+}
+
+type FhirServiceAcrConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAcrConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAcrConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceAcrConfigurationPtrOutput) ToFhirServiceAcrConfigurationPtrOutput() FhirServiceAcrConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationPtrOutput) ToFhirServiceAcrConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationPtrOutput) Elem() FhirServiceAcrConfigurationOutput {
+	return o.ApplyT(func(v *FhirServiceAcrConfiguration) FhirServiceAcrConfiguration { return *v }).(FhirServiceAcrConfigurationOutput)
+}
+
+// The list of the Azure container registry login servers.
+func (o FhirServiceAcrConfigurationPtrOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceAcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LoginServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Azure container registry configuration information
+type FhirServiceAcrConfigurationResponse struct {
+	// The list of the Azure container registry login servers.
+	LoginServers []string `pulumi:"loginServers"`
+}
+
+// FhirServiceAcrConfigurationResponseInput is an input type that accepts FhirServiceAcrConfigurationResponseArgs and FhirServiceAcrConfigurationResponseOutput values.
+// You can construct a concrete instance of `FhirServiceAcrConfigurationResponseInput` via:
+//
+//          FhirServiceAcrConfigurationResponseArgs{...}
+type FhirServiceAcrConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToFhirServiceAcrConfigurationResponseOutput() FhirServiceAcrConfigurationResponseOutput
+	ToFhirServiceAcrConfigurationResponseOutputWithContext(context.Context) FhirServiceAcrConfigurationResponseOutput
+}
+
+// Azure container registry configuration information
+type FhirServiceAcrConfigurationResponseArgs struct {
+	// The list of the Azure container registry login servers.
+	LoginServers pulumi.StringArrayInput `pulumi:"loginServers"`
+}
+
+func (FhirServiceAcrConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAcrConfigurationResponse)(nil)).Elem()
+}
+
+func (i FhirServiceAcrConfigurationResponseArgs) ToFhirServiceAcrConfigurationResponseOutput() FhirServiceAcrConfigurationResponseOutput {
+	return i.ToFhirServiceAcrConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAcrConfigurationResponseArgs) ToFhirServiceAcrConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationResponseOutput)
+}
+
+func (i FhirServiceAcrConfigurationResponseArgs) ToFhirServiceAcrConfigurationResponsePtrOutput() FhirServiceAcrConfigurationResponsePtrOutput {
+	return i.ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAcrConfigurationResponseArgs) ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationResponseOutput).ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// FhirServiceAcrConfigurationResponsePtrInput is an input type that accepts FhirServiceAcrConfigurationResponseArgs, FhirServiceAcrConfigurationResponsePtr and FhirServiceAcrConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `FhirServiceAcrConfigurationResponsePtrInput` via:
+//
+//          FhirServiceAcrConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceAcrConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceAcrConfigurationResponsePtrOutput() FhirServiceAcrConfigurationResponsePtrOutput
+	ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(context.Context) FhirServiceAcrConfigurationResponsePtrOutput
+}
+
+type fhirServiceAcrConfigurationResponsePtrType FhirServiceAcrConfigurationResponseArgs
+
+func FhirServiceAcrConfigurationResponsePtr(v *FhirServiceAcrConfigurationResponseArgs) FhirServiceAcrConfigurationResponsePtrInput {
+	return (*fhirServiceAcrConfigurationResponsePtrType)(v)
+}
+
+func (*fhirServiceAcrConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAcrConfigurationResponse)(nil)).Elem()
+}
+
+func (i *fhirServiceAcrConfigurationResponsePtrType) ToFhirServiceAcrConfigurationResponsePtrOutput() FhirServiceAcrConfigurationResponsePtrOutput {
+	return i.ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceAcrConfigurationResponsePtrType) ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAcrConfigurationResponsePtrOutput)
+}
+
+// Azure container registry configuration information
+type FhirServiceAcrConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAcrConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAcrConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfigurationResponseOutput() FhirServiceAcrConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfigurationResponsePtrOutput() FhirServiceAcrConfigurationResponsePtrOutput {
+	return o.ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceAcrConfigurationResponseOutput) ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v FhirServiceAcrConfigurationResponse) *FhirServiceAcrConfigurationResponse {
+		return &v
+	}).(FhirServiceAcrConfigurationResponsePtrOutput)
+}
+
+// The list of the Azure container registry login servers.
+func (o FhirServiceAcrConfigurationResponseOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceAcrConfigurationResponse) []string { return v.LoginServers }).(pulumi.StringArrayOutput)
+}
+
+type FhirServiceAcrConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAcrConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAcrConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceAcrConfigurationResponsePtrOutput) ToFhirServiceAcrConfigurationResponsePtrOutput() FhirServiceAcrConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationResponsePtrOutput) ToFhirServiceAcrConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAcrConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceAcrConfigurationResponsePtrOutput) Elem() FhirServiceAcrConfigurationResponseOutput {
+	return o.ApplyT(func(v *FhirServiceAcrConfigurationResponse) FhirServiceAcrConfigurationResponse { return *v }).(FhirServiceAcrConfigurationResponseOutput)
+}
+
+// The list of the Azure container registry login servers.
+func (o FhirServiceAcrConfigurationResponsePtrOutput) LoginServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceAcrConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LoginServers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Authentication configuration information
+type FhirServiceAuthenticationConfiguration struct {
+	// The audience url for the service
+	Audience *string `pulumi:"audience"`
+	// The authority url for the service
+	Authority *string `pulumi:"authority"`
+	// If the SMART on FHIR proxy is enabled
+	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
+}
+
+// FhirServiceAuthenticationConfigurationInput is an input type that accepts FhirServiceAuthenticationConfigurationArgs and FhirServiceAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `FhirServiceAuthenticationConfigurationInput` via:
+//
+//          FhirServiceAuthenticationConfigurationArgs{...}
+type FhirServiceAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToFhirServiceAuthenticationConfigurationOutput() FhirServiceAuthenticationConfigurationOutput
+	ToFhirServiceAuthenticationConfigurationOutputWithContext(context.Context) FhirServiceAuthenticationConfigurationOutput
+}
+
+// Authentication configuration information
+type FhirServiceAuthenticationConfigurationArgs struct {
+	// The audience url for the service
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// The authority url for the service
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
+	// If the SMART on FHIR proxy is enabled
+	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
+}
+
+func (FhirServiceAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i FhirServiceAuthenticationConfigurationArgs) ToFhirServiceAuthenticationConfigurationOutput() FhirServiceAuthenticationConfigurationOutput {
+	return i.ToFhirServiceAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAuthenticationConfigurationArgs) ToFhirServiceAuthenticationConfigurationOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationOutput)
+}
+
+func (i FhirServiceAuthenticationConfigurationArgs) ToFhirServiceAuthenticationConfigurationPtrOutput() FhirServiceAuthenticationConfigurationPtrOutput {
+	return i.ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAuthenticationConfigurationArgs) ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationOutput).ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// FhirServiceAuthenticationConfigurationPtrInput is an input type that accepts FhirServiceAuthenticationConfigurationArgs, FhirServiceAuthenticationConfigurationPtr and FhirServiceAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `FhirServiceAuthenticationConfigurationPtrInput` via:
+//
+//          FhirServiceAuthenticationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceAuthenticationConfigurationPtrOutput() FhirServiceAuthenticationConfigurationPtrOutput
+	ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(context.Context) FhirServiceAuthenticationConfigurationPtrOutput
+}
+
+type fhirServiceAuthenticationConfigurationPtrType FhirServiceAuthenticationConfigurationArgs
+
+func FhirServiceAuthenticationConfigurationPtr(v *FhirServiceAuthenticationConfigurationArgs) FhirServiceAuthenticationConfigurationPtrInput {
+	return (*fhirServiceAuthenticationConfigurationPtrType)(v)
+}
+
+func (*fhirServiceAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *fhirServiceAuthenticationConfigurationPtrType) ToFhirServiceAuthenticationConfigurationPtrOutput() FhirServiceAuthenticationConfigurationPtrOutput {
+	return i.ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceAuthenticationConfigurationPtrType) ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationPtrOutput)
+}
+
+// Authentication configuration information
+type FhirServiceAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceAuthenticationConfigurationOutput) ToFhirServiceAuthenticationConfigurationOutput() FhirServiceAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationOutput) ToFhirServiceAuthenticationConfigurationOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationOutput) ToFhirServiceAuthenticationConfigurationPtrOutput() FhirServiceAuthenticationConfigurationPtrOutput {
+	return o.ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceAuthenticationConfigurationOutput) ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfiguration) *FhirServiceAuthenticationConfiguration {
+		return &v
+	}).(FhirServiceAuthenticationConfigurationPtrOutput)
+}
+
+// The audience url for the service
+func (o FhirServiceAuthenticationConfigurationOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfiguration) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// The authority url for the service
+func (o FhirServiceAuthenticationConfigurationOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfiguration) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+// If the SMART on FHIR proxy is enabled
+func (o FhirServiceAuthenticationConfigurationOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfiguration) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type FhirServiceAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceAuthenticationConfigurationPtrOutput) ToFhirServiceAuthenticationConfigurationPtrOutput() FhirServiceAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationPtrOutput) ToFhirServiceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationPtrOutput) Elem() FhirServiceAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfiguration) FhirServiceAuthenticationConfiguration { return *v }).(FhirServiceAuthenticationConfigurationOutput)
+}
+
+// The audience url for the service
+func (o FhirServiceAuthenticationConfigurationPtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authority url for the service
+func (o FhirServiceAuthenticationConfigurationPtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the SMART on FHIR proxy is enabled
+func (o FhirServiceAuthenticationConfigurationPtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmartProxyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Authentication configuration information
+type FhirServiceAuthenticationConfigurationResponse struct {
+	// The audience url for the service
+	Audience *string `pulumi:"audience"`
+	// The authority url for the service
+	Authority *string `pulumi:"authority"`
+	// If the SMART on FHIR proxy is enabled
+	SmartProxyEnabled *bool `pulumi:"smartProxyEnabled"`
+}
+
+// FhirServiceAuthenticationConfigurationResponseInput is an input type that accepts FhirServiceAuthenticationConfigurationResponseArgs and FhirServiceAuthenticationConfigurationResponseOutput values.
+// You can construct a concrete instance of `FhirServiceAuthenticationConfigurationResponseInput` via:
+//
+//          FhirServiceAuthenticationConfigurationResponseArgs{...}
+type FhirServiceAuthenticationConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToFhirServiceAuthenticationConfigurationResponseOutput() FhirServiceAuthenticationConfigurationResponseOutput
+	ToFhirServiceAuthenticationConfigurationResponseOutputWithContext(context.Context) FhirServiceAuthenticationConfigurationResponseOutput
+}
+
+// Authentication configuration information
+type FhirServiceAuthenticationConfigurationResponseArgs struct {
+	// The audience url for the service
+	Audience pulumi.StringPtrInput `pulumi:"audience"`
+	// The authority url for the service
+	Authority pulumi.StringPtrInput `pulumi:"authority"`
+	// If the SMART on FHIR proxy is enabled
+	SmartProxyEnabled pulumi.BoolPtrInput `pulumi:"smartProxyEnabled"`
+}
+
+func (FhirServiceAuthenticationConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (i FhirServiceAuthenticationConfigurationResponseArgs) ToFhirServiceAuthenticationConfigurationResponseOutput() FhirServiceAuthenticationConfigurationResponseOutput {
+	return i.ToFhirServiceAuthenticationConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAuthenticationConfigurationResponseArgs) ToFhirServiceAuthenticationConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationResponseOutput)
+}
+
+func (i FhirServiceAuthenticationConfigurationResponseArgs) ToFhirServiceAuthenticationConfigurationResponsePtrOutput() FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return i.ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceAuthenticationConfigurationResponseArgs) ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationResponseOutput).ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// FhirServiceAuthenticationConfigurationResponsePtrInput is an input type that accepts FhirServiceAuthenticationConfigurationResponseArgs, FhirServiceAuthenticationConfigurationResponsePtr and FhirServiceAuthenticationConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `FhirServiceAuthenticationConfigurationResponsePtrInput` via:
+//
+//          FhirServiceAuthenticationConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceAuthenticationConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceAuthenticationConfigurationResponsePtrOutput() FhirServiceAuthenticationConfigurationResponsePtrOutput
+	ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Context) FhirServiceAuthenticationConfigurationResponsePtrOutput
+}
+
+type fhirServiceAuthenticationConfigurationResponsePtrType FhirServiceAuthenticationConfigurationResponseArgs
+
+func FhirServiceAuthenticationConfigurationResponsePtr(v *FhirServiceAuthenticationConfigurationResponseArgs) FhirServiceAuthenticationConfigurationResponsePtrInput {
+	return (*fhirServiceAuthenticationConfigurationResponsePtrType)(v)
+}
+
+func (*fhirServiceAuthenticationConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (i *fhirServiceAuthenticationConfigurationResponsePtrType) ToFhirServiceAuthenticationConfigurationResponsePtrOutput() FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return i.ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceAuthenticationConfigurationResponsePtrType) ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// Authentication configuration information
+type FhirServiceAuthenticationConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAuthenticationConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceAuthenticationConfigurationResponseOutput) ToFhirServiceAuthenticationConfigurationResponseOutput() FhirServiceAuthenticationConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationResponseOutput) ToFhirServiceAuthenticationConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationResponseOutput) ToFhirServiceAuthenticationConfigurationResponsePtrOutput() FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return o.ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceAuthenticationConfigurationResponseOutput) ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfigurationResponse) *FhirServiceAuthenticationConfigurationResponse {
+		return &v
+	}).(FhirServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// The audience url for the service
+func (o FhirServiceAuthenticationConfigurationResponseOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfigurationResponse) *string { return v.Audience }).(pulumi.StringPtrOutput)
+}
+
+// The authority url for the service
+func (o FhirServiceAuthenticationConfigurationResponseOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfigurationResponse) *string { return v.Authority }).(pulumi.StringPtrOutput)
+}
+
+// If the SMART on FHIR proxy is enabled
+func (o FhirServiceAuthenticationConfigurationResponseOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirServiceAuthenticationConfigurationResponse) *bool { return v.SmartProxyEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type FhirServiceAuthenticationConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceAuthenticationConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceAuthenticationConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) ToFhirServiceAuthenticationConfigurationResponsePtrOutput() FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) ToFhirServiceAuthenticationConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceAuthenticationConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) Elem() FhirServiceAuthenticationConfigurationResponseOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfigurationResponse) FhirServiceAuthenticationConfigurationResponse {
+		return *v
+	}).(FhirServiceAuthenticationConfigurationResponseOutput)
+}
+
+// The audience url for the service
+func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) Audience() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Audience
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authority url for the service
+func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) Authority() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authority
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the SMART on FHIR proxy is enabled
+func (o FhirServiceAuthenticationConfigurationResponsePtrOutput) SmartProxyEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirServiceAuthenticationConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SmartProxyEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type FhirServiceCorsConfiguration struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers []string `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge *int `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods []string `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins []string `pulumi:"origins"`
+}
+
+// FhirServiceCorsConfigurationInput is an input type that accepts FhirServiceCorsConfigurationArgs and FhirServiceCorsConfigurationOutput values.
+// You can construct a concrete instance of `FhirServiceCorsConfigurationInput` via:
+//
+//          FhirServiceCorsConfigurationArgs{...}
+type FhirServiceCorsConfigurationInput interface {
+	pulumi.Input
+
+	ToFhirServiceCorsConfigurationOutput() FhirServiceCorsConfigurationOutput
+	ToFhirServiceCorsConfigurationOutputWithContext(context.Context) FhirServiceCorsConfigurationOutput
+}
+
+// The settings for the CORS configuration of the service instance.
+type FhirServiceCorsConfigurationArgs struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods pulumi.StringArrayInput `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins pulumi.StringArrayInput `pulumi:"origins"`
+}
+
+func (FhirServiceCorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceCorsConfiguration)(nil)).Elem()
+}
+
+func (i FhirServiceCorsConfigurationArgs) ToFhirServiceCorsConfigurationOutput() FhirServiceCorsConfigurationOutput {
+	return i.ToFhirServiceCorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i FhirServiceCorsConfigurationArgs) ToFhirServiceCorsConfigurationOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationOutput)
+}
+
+func (i FhirServiceCorsConfigurationArgs) ToFhirServiceCorsConfigurationPtrOutput() FhirServiceCorsConfigurationPtrOutput {
+	return i.ToFhirServiceCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceCorsConfigurationArgs) ToFhirServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationOutput).ToFhirServiceCorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// FhirServiceCorsConfigurationPtrInput is an input type that accepts FhirServiceCorsConfigurationArgs, FhirServiceCorsConfigurationPtr and FhirServiceCorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `FhirServiceCorsConfigurationPtrInput` via:
+//
+//          FhirServiceCorsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceCorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceCorsConfigurationPtrOutput() FhirServiceCorsConfigurationPtrOutput
+	ToFhirServiceCorsConfigurationPtrOutputWithContext(context.Context) FhirServiceCorsConfigurationPtrOutput
+}
+
+type fhirServiceCorsConfigurationPtrType FhirServiceCorsConfigurationArgs
+
+func FhirServiceCorsConfigurationPtr(v *FhirServiceCorsConfigurationArgs) FhirServiceCorsConfigurationPtrInput {
+	return (*fhirServiceCorsConfigurationPtrType)(v)
+}
+
+func (*fhirServiceCorsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceCorsConfiguration)(nil)).Elem()
+}
+
+func (i *fhirServiceCorsConfigurationPtrType) ToFhirServiceCorsConfigurationPtrOutput() FhirServiceCorsConfigurationPtrOutput {
+	return i.ToFhirServiceCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceCorsConfigurationPtrType) ToFhirServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationPtrOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type FhirServiceCorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceCorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceCorsConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceCorsConfigurationOutput) ToFhirServiceCorsConfigurationOutput() FhirServiceCorsConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationOutput) ToFhirServiceCorsConfigurationOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationOutput) ToFhirServiceCorsConfigurationPtrOutput() FhirServiceCorsConfigurationPtrOutput {
+	return o.ToFhirServiceCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceCorsConfigurationOutput) ToFhirServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationPtrOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) *FhirServiceCorsConfiguration {
+		return &v
+	}).(FhirServiceCorsConfigurationPtrOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o FhirServiceCorsConfigurationOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o FhirServiceCorsConfigurationOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o FhirServiceCorsConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o FhirServiceCorsConfigurationOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) []string { return v.Methods }).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o FhirServiceCorsConfigurationOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfiguration) []string { return v.Origins }).(pulumi.StringArrayOutput)
+}
+
+type FhirServiceCorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceCorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceCorsConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceCorsConfigurationPtrOutput) ToFhirServiceCorsConfigurationPtrOutput() FhirServiceCorsConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationPtrOutput) ToFhirServiceCorsConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationPtrOutput) Elem() FhirServiceCorsConfigurationOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) FhirServiceCorsConfiguration { return *v }).(FhirServiceCorsConfigurationOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o FhirServiceCorsConfigurationPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o FhirServiceCorsConfigurationPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o FhirServiceCorsConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o FhirServiceCorsConfigurationPtrOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Methods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o FhirServiceCorsConfigurationPtrOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(pulumi.StringArrayOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type FhirServiceCorsConfigurationResponse struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers []string `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge *int `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods []string `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins []string `pulumi:"origins"`
+}
+
+// FhirServiceCorsConfigurationResponseInput is an input type that accepts FhirServiceCorsConfigurationResponseArgs and FhirServiceCorsConfigurationResponseOutput values.
+// You can construct a concrete instance of `FhirServiceCorsConfigurationResponseInput` via:
+//
+//          FhirServiceCorsConfigurationResponseArgs{...}
+type FhirServiceCorsConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToFhirServiceCorsConfigurationResponseOutput() FhirServiceCorsConfigurationResponseOutput
+	ToFhirServiceCorsConfigurationResponseOutputWithContext(context.Context) FhirServiceCorsConfigurationResponseOutput
+}
+
+// The settings for the CORS configuration of the service instance.
+type FhirServiceCorsConfigurationResponseArgs struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods pulumi.StringArrayInput `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins pulumi.StringArrayInput `pulumi:"origins"`
+}
+
+func (FhirServiceCorsConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceCorsConfigurationResponse)(nil)).Elem()
+}
+
+func (i FhirServiceCorsConfigurationResponseArgs) ToFhirServiceCorsConfigurationResponseOutput() FhirServiceCorsConfigurationResponseOutput {
+	return i.ToFhirServiceCorsConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i FhirServiceCorsConfigurationResponseArgs) ToFhirServiceCorsConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationResponseOutput)
+}
+
+func (i FhirServiceCorsConfigurationResponseArgs) ToFhirServiceCorsConfigurationResponsePtrOutput() FhirServiceCorsConfigurationResponsePtrOutput {
+	return i.ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceCorsConfigurationResponseArgs) ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationResponseOutput).ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// FhirServiceCorsConfigurationResponsePtrInput is an input type that accepts FhirServiceCorsConfigurationResponseArgs, FhirServiceCorsConfigurationResponsePtr and FhirServiceCorsConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `FhirServiceCorsConfigurationResponsePtrInput` via:
+//
+//          FhirServiceCorsConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceCorsConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceCorsConfigurationResponsePtrOutput() FhirServiceCorsConfigurationResponsePtrOutput
+	ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(context.Context) FhirServiceCorsConfigurationResponsePtrOutput
+}
+
+type fhirServiceCorsConfigurationResponsePtrType FhirServiceCorsConfigurationResponseArgs
+
+func FhirServiceCorsConfigurationResponsePtr(v *FhirServiceCorsConfigurationResponseArgs) FhirServiceCorsConfigurationResponsePtrInput {
+	return (*fhirServiceCorsConfigurationResponsePtrType)(v)
+}
+
+func (*fhirServiceCorsConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceCorsConfigurationResponse)(nil)).Elem()
+}
+
+func (i *fhirServiceCorsConfigurationResponsePtrType) ToFhirServiceCorsConfigurationResponsePtrOutput() FhirServiceCorsConfigurationResponsePtrOutput {
+	return i.ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceCorsConfigurationResponsePtrType) ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceCorsConfigurationResponsePtrOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type FhirServiceCorsConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceCorsConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceCorsConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceCorsConfigurationResponseOutput) ToFhirServiceCorsConfigurationResponseOutput() FhirServiceCorsConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationResponseOutput) ToFhirServiceCorsConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationResponseOutput) ToFhirServiceCorsConfigurationResponsePtrOutput() FhirServiceCorsConfigurationResponsePtrOutput {
+	return o.ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceCorsConfigurationResponseOutput) ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) *FhirServiceCorsConfigurationResponse {
+		return &v
+	}).(FhirServiceCorsConfigurationResponsePtrOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o FhirServiceCorsConfigurationResponseOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponseOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponseOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponseOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) []string { return v.Methods }).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponseOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FhirServiceCorsConfigurationResponse) []string { return v.Origins }).(pulumi.StringArrayOutput)
+}
+
+type FhirServiceCorsConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceCorsConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceCorsConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceCorsConfigurationResponsePtrOutput) ToFhirServiceCorsConfigurationResponsePtrOutput() FhirServiceCorsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationResponsePtrOutput) ToFhirServiceCorsConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceCorsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceCorsConfigurationResponsePtrOutput) Elem() FhirServiceCorsConfigurationResponseOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) FhirServiceCorsConfigurationResponse { return *v }).(FhirServiceCorsConfigurationResponseOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o FhirServiceCorsConfigurationResponsePtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponsePtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponsePtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponsePtrOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Methods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o FhirServiceCorsConfigurationResponsePtrOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FhirServiceCorsConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(pulumi.StringArrayOutput)
+}
+
+// Export operation configuration information
+type FhirServiceExportConfiguration struct {
+	// The name of the default export storage account.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+// FhirServiceExportConfigurationInput is an input type that accepts FhirServiceExportConfigurationArgs and FhirServiceExportConfigurationOutput values.
+// You can construct a concrete instance of `FhirServiceExportConfigurationInput` via:
+//
+//          FhirServiceExportConfigurationArgs{...}
+type FhirServiceExportConfigurationInput interface {
+	pulumi.Input
+
+	ToFhirServiceExportConfigurationOutput() FhirServiceExportConfigurationOutput
+	ToFhirServiceExportConfigurationOutputWithContext(context.Context) FhirServiceExportConfigurationOutput
+}
+
+// Export operation configuration information
+type FhirServiceExportConfigurationArgs struct {
+	// The name of the default export storage account.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+}
+
+func (FhirServiceExportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceExportConfiguration)(nil)).Elem()
+}
+
+func (i FhirServiceExportConfigurationArgs) ToFhirServiceExportConfigurationOutput() FhirServiceExportConfigurationOutput {
+	return i.ToFhirServiceExportConfigurationOutputWithContext(context.Background())
+}
+
+func (i FhirServiceExportConfigurationArgs) ToFhirServiceExportConfigurationOutputWithContext(ctx context.Context) FhirServiceExportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationOutput)
+}
+
+func (i FhirServiceExportConfigurationArgs) ToFhirServiceExportConfigurationPtrOutput() FhirServiceExportConfigurationPtrOutput {
+	return i.ToFhirServiceExportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceExportConfigurationArgs) ToFhirServiceExportConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationOutput).ToFhirServiceExportConfigurationPtrOutputWithContext(ctx)
+}
+
+// FhirServiceExportConfigurationPtrInput is an input type that accepts FhirServiceExportConfigurationArgs, FhirServiceExportConfigurationPtr and FhirServiceExportConfigurationPtrOutput values.
+// You can construct a concrete instance of `FhirServiceExportConfigurationPtrInput` via:
+//
+//          FhirServiceExportConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceExportConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceExportConfigurationPtrOutput() FhirServiceExportConfigurationPtrOutput
+	ToFhirServiceExportConfigurationPtrOutputWithContext(context.Context) FhirServiceExportConfigurationPtrOutput
+}
+
+type fhirServiceExportConfigurationPtrType FhirServiceExportConfigurationArgs
+
+func FhirServiceExportConfigurationPtr(v *FhirServiceExportConfigurationArgs) FhirServiceExportConfigurationPtrInput {
+	return (*fhirServiceExportConfigurationPtrType)(v)
+}
+
+func (*fhirServiceExportConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceExportConfiguration)(nil)).Elem()
+}
+
+func (i *fhirServiceExportConfigurationPtrType) ToFhirServiceExportConfigurationPtrOutput() FhirServiceExportConfigurationPtrOutput {
+	return i.ToFhirServiceExportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceExportConfigurationPtrType) ToFhirServiceExportConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationPtrOutput)
+}
+
+// Export operation configuration information
+type FhirServiceExportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceExportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceExportConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceExportConfigurationOutput) ToFhirServiceExportConfigurationOutput() FhirServiceExportConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationOutput) ToFhirServiceExportConfigurationOutputWithContext(ctx context.Context) FhirServiceExportConfigurationOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationOutput) ToFhirServiceExportConfigurationPtrOutput() FhirServiceExportConfigurationPtrOutput {
+	return o.ToFhirServiceExportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceExportConfigurationOutput) ToFhirServiceExportConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationPtrOutput {
+	return o.ApplyT(func(v FhirServiceExportConfiguration) *FhirServiceExportConfiguration {
+		return &v
+	}).(FhirServiceExportConfigurationPtrOutput)
+}
+
+// The name of the default export storage account.
+func (o FhirServiceExportConfigurationOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceExportConfiguration) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+type FhirServiceExportConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceExportConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceExportConfiguration)(nil)).Elem()
+}
+
+func (o FhirServiceExportConfigurationPtrOutput) ToFhirServiceExportConfigurationPtrOutput() FhirServiceExportConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationPtrOutput) ToFhirServiceExportConfigurationPtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationPtrOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationPtrOutput) Elem() FhirServiceExportConfigurationOutput {
+	return o.ApplyT(func(v *FhirServiceExportConfiguration) FhirServiceExportConfiguration { return *v }).(FhirServiceExportConfigurationOutput)
+}
+
+// The name of the default export storage account.
+func (o FhirServiceExportConfigurationPtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceExportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Export operation configuration information
+type FhirServiceExportConfigurationResponse struct {
+	// The name of the default export storage account.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+}
+
+// FhirServiceExportConfigurationResponseInput is an input type that accepts FhirServiceExportConfigurationResponseArgs and FhirServiceExportConfigurationResponseOutput values.
+// You can construct a concrete instance of `FhirServiceExportConfigurationResponseInput` via:
+//
+//          FhirServiceExportConfigurationResponseArgs{...}
+type FhirServiceExportConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToFhirServiceExportConfigurationResponseOutput() FhirServiceExportConfigurationResponseOutput
+	ToFhirServiceExportConfigurationResponseOutputWithContext(context.Context) FhirServiceExportConfigurationResponseOutput
+}
+
+// Export operation configuration information
+type FhirServiceExportConfigurationResponseArgs struct {
+	// The name of the default export storage account.
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+}
+
+func (FhirServiceExportConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceExportConfigurationResponse)(nil)).Elem()
+}
+
+func (i FhirServiceExportConfigurationResponseArgs) ToFhirServiceExportConfigurationResponseOutput() FhirServiceExportConfigurationResponseOutput {
+	return i.ToFhirServiceExportConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i FhirServiceExportConfigurationResponseArgs) ToFhirServiceExportConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationResponseOutput)
+}
+
+func (i FhirServiceExportConfigurationResponseArgs) ToFhirServiceExportConfigurationResponsePtrOutput() FhirServiceExportConfigurationResponsePtrOutput {
+	return i.ToFhirServiceExportConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FhirServiceExportConfigurationResponseArgs) ToFhirServiceExportConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationResponseOutput).ToFhirServiceExportConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// FhirServiceExportConfigurationResponsePtrInput is an input type that accepts FhirServiceExportConfigurationResponseArgs, FhirServiceExportConfigurationResponsePtr and FhirServiceExportConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `FhirServiceExportConfigurationResponsePtrInput` via:
+//
+//          FhirServiceExportConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FhirServiceExportConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToFhirServiceExportConfigurationResponsePtrOutput() FhirServiceExportConfigurationResponsePtrOutput
+	ToFhirServiceExportConfigurationResponsePtrOutputWithContext(context.Context) FhirServiceExportConfigurationResponsePtrOutput
+}
+
+type fhirServiceExportConfigurationResponsePtrType FhirServiceExportConfigurationResponseArgs
+
+func FhirServiceExportConfigurationResponsePtr(v *FhirServiceExportConfigurationResponseArgs) FhirServiceExportConfigurationResponsePtrInput {
+	return (*fhirServiceExportConfigurationResponsePtrType)(v)
+}
+
+func (*fhirServiceExportConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceExportConfigurationResponse)(nil)).Elem()
+}
+
+func (i *fhirServiceExportConfigurationResponsePtrType) ToFhirServiceExportConfigurationResponsePtrOutput() FhirServiceExportConfigurationResponsePtrOutput {
+	return i.ToFhirServiceExportConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *fhirServiceExportConfigurationResponsePtrType) ToFhirServiceExportConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceExportConfigurationResponsePtrOutput)
+}
+
+// Export operation configuration information
+type FhirServiceExportConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceExportConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceExportConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceExportConfigurationResponseOutput) ToFhirServiceExportConfigurationResponseOutput() FhirServiceExportConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationResponseOutput) ToFhirServiceExportConfigurationResponseOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponseOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationResponseOutput) ToFhirServiceExportConfigurationResponsePtrOutput() FhirServiceExportConfigurationResponsePtrOutput {
+	return o.ToFhirServiceExportConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FhirServiceExportConfigurationResponseOutput) ToFhirServiceExportConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v FhirServiceExportConfigurationResponse) *FhirServiceExportConfigurationResponse {
+		return &v
+	}).(FhirServiceExportConfigurationResponsePtrOutput)
+}
+
+// The name of the default export storage account.
+func (o FhirServiceExportConfigurationResponseOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceExportConfigurationResponse) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+type FhirServiceExportConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceExportConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FhirServiceExportConfigurationResponse)(nil)).Elem()
+}
+
+func (o FhirServiceExportConfigurationResponsePtrOutput) ToFhirServiceExportConfigurationResponsePtrOutput() FhirServiceExportConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationResponsePtrOutput) ToFhirServiceExportConfigurationResponsePtrOutputWithContext(ctx context.Context) FhirServiceExportConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o FhirServiceExportConfigurationResponsePtrOutput) Elem() FhirServiceExportConfigurationResponseOutput {
+	return o.ApplyT(func(v *FhirServiceExportConfigurationResponse) FhirServiceExportConfigurationResponse { return *v }).(FhirServiceExportConfigurationResponseOutput)
+}
+
+// The name of the default export storage account.
+func (o FhirServiceExportConfigurationResponsePtrOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FhirServiceExportConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event Hub ingestion endpoint configuration
+type IotEventHubIngestionEndpointConfiguration struct {
+	// Consumer group of the event hub to connected to.
+	ConsumerGroup *string `pulumi:"consumerGroup"`
+	// Event Hub name to connect to.
+	EventHubName *string `pulumi:"eventHubName"`
+	// Fully qualified namespace of the Event Hub to connect to.
+	FullyQualifiedEventHubNamespace *string `pulumi:"fullyQualifiedEventHubNamespace"`
+}
+
+// IotEventHubIngestionEndpointConfigurationInput is an input type that accepts IotEventHubIngestionEndpointConfigurationArgs and IotEventHubIngestionEndpointConfigurationOutput values.
+// You can construct a concrete instance of `IotEventHubIngestionEndpointConfigurationInput` via:
+//
+//          IotEventHubIngestionEndpointConfigurationArgs{...}
+type IotEventHubIngestionEndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToIotEventHubIngestionEndpointConfigurationOutput() IotEventHubIngestionEndpointConfigurationOutput
+	ToIotEventHubIngestionEndpointConfigurationOutputWithContext(context.Context) IotEventHubIngestionEndpointConfigurationOutput
+}
+
+// Event Hub ingestion endpoint configuration
+type IotEventHubIngestionEndpointConfigurationArgs struct {
+	// Consumer group of the event hub to connected to.
+	ConsumerGroup pulumi.StringPtrInput `pulumi:"consumerGroup"`
+	// Event Hub name to connect to.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// Fully qualified namespace of the Event Hub to connect to.
+	FullyQualifiedEventHubNamespace pulumi.StringPtrInput `pulumi:"fullyQualifiedEventHubNamespace"`
+}
+
+func (IotEventHubIngestionEndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotEventHubIngestionEndpointConfiguration)(nil)).Elem()
+}
+
+func (i IotEventHubIngestionEndpointConfigurationArgs) ToIotEventHubIngestionEndpointConfigurationOutput() IotEventHubIngestionEndpointConfigurationOutput {
+	return i.ToIotEventHubIngestionEndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i IotEventHubIngestionEndpointConfigurationArgs) ToIotEventHubIngestionEndpointConfigurationOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationOutput)
+}
+
+func (i IotEventHubIngestionEndpointConfigurationArgs) ToIotEventHubIngestionEndpointConfigurationPtrOutput() IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return i.ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i IotEventHubIngestionEndpointConfigurationArgs) ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationOutput).ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(ctx)
+}
+
+// IotEventHubIngestionEndpointConfigurationPtrInput is an input type that accepts IotEventHubIngestionEndpointConfigurationArgs, IotEventHubIngestionEndpointConfigurationPtr and IotEventHubIngestionEndpointConfigurationPtrOutput values.
+// You can construct a concrete instance of `IotEventHubIngestionEndpointConfigurationPtrInput` via:
+//
+//          IotEventHubIngestionEndpointConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type IotEventHubIngestionEndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToIotEventHubIngestionEndpointConfigurationPtrOutput() IotEventHubIngestionEndpointConfigurationPtrOutput
+	ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(context.Context) IotEventHubIngestionEndpointConfigurationPtrOutput
+}
+
+type iotEventHubIngestionEndpointConfigurationPtrType IotEventHubIngestionEndpointConfigurationArgs
+
+func IotEventHubIngestionEndpointConfigurationPtr(v *IotEventHubIngestionEndpointConfigurationArgs) IotEventHubIngestionEndpointConfigurationPtrInput {
+	return (*iotEventHubIngestionEndpointConfigurationPtrType)(v)
+}
+
+func (*iotEventHubIngestionEndpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotEventHubIngestionEndpointConfiguration)(nil)).Elem()
+}
+
+func (i *iotEventHubIngestionEndpointConfigurationPtrType) ToIotEventHubIngestionEndpointConfigurationPtrOutput() IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return i.ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *iotEventHubIngestionEndpointConfigurationPtrType) ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationPtrOutput)
+}
+
+// Event Hub ingestion endpoint configuration
+type IotEventHubIngestionEndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (IotEventHubIngestionEndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotEventHubIngestionEndpointConfiguration)(nil)).Elem()
+}
+
+func (o IotEventHubIngestionEndpointConfigurationOutput) ToIotEventHubIngestionEndpointConfigurationOutput() IotEventHubIngestionEndpointConfigurationOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationOutput) ToIotEventHubIngestionEndpointConfigurationOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationOutput) ToIotEventHubIngestionEndpointConfigurationPtrOutput() IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return o.ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o IotEventHubIngestionEndpointConfigurationOutput) ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfiguration) *IotEventHubIngestionEndpointConfiguration {
+		return &v
+	}).(IotEventHubIngestionEndpointConfigurationPtrOutput)
+}
+
+// Consumer group of the event hub to connected to.
+func (o IotEventHubIngestionEndpointConfigurationOutput) ConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfiguration) *string { return v.ConsumerGroup }).(pulumi.StringPtrOutput)
+}
+
+// Event Hub name to connect to.
+func (o IotEventHubIngestionEndpointConfigurationOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfiguration) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified namespace of the Event Hub to connect to.
+func (o IotEventHubIngestionEndpointConfigurationOutput) FullyQualifiedEventHubNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfiguration) *string { return v.FullyQualifiedEventHubNamespace }).(pulumi.StringPtrOutput)
+}
+
+type IotEventHubIngestionEndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (IotEventHubIngestionEndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotEventHubIngestionEndpointConfiguration)(nil)).Elem()
+}
+
+func (o IotEventHubIngestionEndpointConfigurationPtrOutput) ToIotEventHubIngestionEndpointConfigurationPtrOutput() IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationPtrOutput) ToIotEventHubIngestionEndpointConfigurationPtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationPtrOutput) Elem() IotEventHubIngestionEndpointConfigurationOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfiguration) IotEventHubIngestionEndpointConfiguration {
+		return *v
+	}).(IotEventHubIngestionEndpointConfigurationOutput)
+}
+
+// Consumer group of the event hub to connected to.
+func (o IotEventHubIngestionEndpointConfigurationPtrOutput) ConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsumerGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event Hub name to connect to.
+func (o IotEventHubIngestionEndpointConfigurationPtrOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified namespace of the Event Hub to connect to.
+func (o IotEventHubIngestionEndpointConfigurationPtrOutput) FullyQualifiedEventHubNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullyQualifiedEventHubNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event Hub ingestion endpoint configuration
+type IotEventHubIngestionEndpointConfigurationResponse struct {
+	// Consumer group of the event hub to connected to.
+	ConsumerGroup *string `pulumi:"consumerGroup"`
+	// Event Hub name to connect to.
+	EventHubName *string `pulumi:"eventHubName"`
+	// Fully qualified namespace of the Event Hub to connect to.
+	FullyQualifiedEventHubNamespace *string `pulumi:"fullyQualifiedEventHubNamespace"`
+}
+
+// IotEventHubIngestionEndpointConfigurationResponseInput is an input type that accepts IotEventHubIngestionEndpointConfigurationResponseArgs and IotEventHubIngestionEndpointConfigurationResponseOutput values.
+// You can construct a concrete instance of `IotEventHubIngestionEndpointConfigurationResponseInput` via:
+//
+//          IotEventHubIngestionEndpointConfigurationResponseArgs{...}
+type IotEventHubIngestionEndpointConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToIotEventHubIngestionEndpointConfigurationResponseOutput() IotEventHubIngestionEndpointConfigurationResponseOutput
+	ToIotEventHubIngestionEndpointConfigurationResponseOutputWithContext(context.Context) IotEventHubIngestionEndpointConfigurationResponseOutput
+}
+
+// Event Hub ingestion endpoint configuration
+type IotEventHubIngestionEndpointConfigurationResponseArgs struct {
+	// Consumer group of the event hub to connected to.
+	ConsumerGroup pulumi.StringPtrInput `pulumi:"consumerGroup"`
+	// Event Hub name to connect to.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// Fully qualified namespace of the Event Hub to connect to.
+	FullyQualifiedEventHubNamespace pulumi.StringPtrInput `pulumi:"fullyQualifiedEventHubNamespace"`
+}
+
+func (IotEventHubIngestionEndpointConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotEventHubIngestionEndpointConfigurationResponse)(nil)).Elem()
+}
+
+func (i IotEventHubIngestionEndpointConfigurationResponseArgs) ToIotEventHubIngestionEndpointConfigurationResponseOutput() IotEventHubIngestionEndpointConfigurationResponseOutput {
+	return i.ToIotEventHubIngestionEndpointConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i IotEventHubIngestionEndpointConfigurationResponseArgs) ToIotEventHubIngestionEndpointConfigurationResponseOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationResponseOutput)
+}
+
+func (i IotEventHubIngestionEndpointConfigurationResponseArgs) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutput() IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return i.ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IotEventHubIngestionEndpointConfigurationResponseArgs) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationResponseOutput).ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// IotEventHubIngestionEndpointConfigurationResponsePtrInput is an input type that accepts IotEventHubIngestionEndpointConfigurationResponseArgs, IotEventHubIngestionEndpointConfigurationResponsePtr and IotEventHubIngestionEndpointConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `IotEventHubIngestionEndpointConfigurationResponsePtrInput` via:
+//
+//          IotEventHubIngestionEndpointConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IotEventHubIngestionEndpointConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToIotEventHubIngestionEndpointConfigurationResponsePtrOutput() IotEventHubIngestionEndpointConfigurationResponsePtrOutput
+	ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(context.Context) IotEventHubIngestionEndpointConfigurationResponsePtrOutput
+}
+
+type iotEventHubIngestionEndpointConfigurationResponsePtrType IotEventHubIngestionEndpointConfigurationResponseArgs
+
+func IotEventHubIngestionEndpointConfigurationResponsePtr(v *IotEventHubIngestionEndpointConfigurationResponseArgs) IotEventHubIngestionEndpointConfigurationResponsePtrInput {
+	return (*iotEventHubIngestionEndpointConfigurationResponsePtrType)(v)
+}
+
+func (*iotEventHubIngestionEndpointConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotEventHubIngestionEndpointConfigurationResponse)(nil)).Elem()
+}
+
+func (i *iotEventHubIngestionEndpointConfigurationResponsePtrType) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutput() IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return i.ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *iotEventHubIngestionEndpointConfigurationResponsePtrType) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotEventHubIngestionEndpointConfigurationResponsePtrOutput)
+}
+
+// Event Hub ingestion endpoint configuration
+type IotEventHubIngestionEndpointConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (IotEventHubIngestionEndpointConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotEventHubIngestionEndpointConfigurationResponse)(nil)).Elem()
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ToIotEventHubIngestionEndpointConfigurationResponseOutput() IotEventHubIngestionEndpointConfigurationResponseOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ToIotEventHubIngestionEndpointConfigurationResponseOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponseOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutput() IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return o.ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfigurationResponse) *IotEventHubIngestionEndpointConfigurationResponse {
+		return &v
+	}).(IotEventHubIngestionEndpointConfigurationResponsePtrOutput)
+}
+
+// Consumer group of the event hub to connected to.
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) ConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfigurationResponse) *string { return v.ConsumerGroup }).(pulumi.StringPtrOutput)
+}
+
+// Event Hub name to connect to.
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfigurationResponse) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified namespace of the Event Hub to connect to.
+func (o IotEventHubIngestionEndpointConfigurationResponseOutput) FullyQualifiedEventHubNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IotEventHubIngestionEndpointConfigurationResponse) *string {
+		return v.FullyQualifiedEventHubNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type IotEventHubIngestionEndpointConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IotEventHubIngestionEndpointConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotEventHubIngestionEndpointConfigurationResponse)(nil)).Elem()
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutput() IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) ToIotEventHubIngestionEndpointConfigurationResponsePtrOutputWithContext(ctx context.Context) IotEventHubIngestionEndpointConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) Elem() IotEventHubIngestionEndpointConfigurationResponseOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfigurationResponse) IotEventHubIngestionEndpointConfigurationResponse {
+		return *v
+	}).(IotEventHubIngestionEndpointConfigurationResponseOutput)
+}
+
+// Consumer group of the event hub to connected to.
+func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) ConsumerGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConsumerGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// Event Hub name to connect to.
+func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Fully qualified namespace of the Event Hub to connect to.
+func (o IotEventHubIngestionEndpointConfigurationResponsePtrOutput) FullyQualifiedEventHubNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IotEventHubIngestionEndpointConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FullyQualifiedEventHubNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The mapping content.
+type IotMappingProperties struct {
+	// The mapping.
+	Content interface{} `pulumi:"content"`
+}
+
+// IotMappingPropertiesInput is an input type that accepts IotMappingPropertiesArgs and IotMappingPropertiesOutput values.
+// You can construct a concrete instance of `IotMappingPropertiesInput` via:
+//
+//          IotMappingPropertiesArgs{...}
+type IotMappingPropertiesInput interface {
+	pulumi.Input
+
+	ToIotMappingPropertiesOutput() IotMappingPropertiesOutput
+	ToIotMappingPropertiesOutputWithContext(context.Context) IotMappingPropertiesOutput
+}
+
+// The mapping content.
+type IotMappingPropertiesArgs struct {
+	// The mapping.
+	Content pulumi.Input `pulumi:"content"`
+}
+
+func (IotMappingPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotMappingProperties)(nil)).Elem()
+}
+
+func (i IotMappingPropertiesArgs) ToIotMappingPropertiesOutput() IotMappingPropertiesOutput {
+	return i.ToIotMappingPropertiesOutputWithContext(context.Background())
+}
+
+func (i IotMappingPropertiesArgs) ToIotMappingPropertiesOutputWithContext(ctx context.Context) IotMappingPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesOutput)
+}
+
+func (i IotMappingPropertiesArgs) ToIotMappingPropertiesPtrOutput() IotMappingPropertiesPtrOutput {
+	return i.ToIotMappingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IotMappingPropertiesArgs) ToIotMappingPropertiesPtrOutputWithContext(ctx context.Context) IotMappingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesOutput).ToIotMappingPropertiesPtrOutputWithContext(ctx)
+}
+
+// IotMappingPropertiesPtrInput is an input type that accepts IotMappingPropertiesArgs, IotMappingPropertiesPtr and IotMappingPropertiesPtrOutput values.
+// You can construct a concrete instance of `IotMappingPropertiesPtrInput` via:
+//
+//          IotMappingPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type IotMappingPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIotMappingPropertiesPtrOutput() IotMappingPropertiesPtrOutput
+	ToIotMappingPropertiesPtrOutputWithContext(context.Context) IotMappingPropertiesPtrOutput
+}
+
+type iotMappingPropertiesPtrType IotMappingPropertiesArgs
+
+func IotMappingPropertiesPtr(v *IotMappingPropertiesArgs) IotMappingPropertiesPtrInput {
+	return (*iotMappingPropertiesPtrType)(v)
+}
+
+func (*iotMappingPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotMappingProperties)(nil)).Elem()
+}
+
+func (i *iotMappingPropertiesPtrType) ToIotMappingPropertiesPtrOutput() IotMappingPropertiesPtrOutput {
+	return i.ToIotMappingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *iotMappingPropertiesPtrType) ToIotMappingPropertiesPtrOutputWithContext(ctx context.Context) IotMappingPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesPtrOutput)
+}
+
+// The mapping content.
+type IotMappingPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IotMappingPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotMappingProperties)(nil)).Elem()
+}
+
+func (o IotMappingPropertiesOutput) ToIotMappingPropertiesOutput() IotMappingPropertiesOutput {
+	return o
+}
+
+func (o IotMappingPropertiesOutput) ToIotMappingPropertiesOutputWithContext(ctx context.Context) IotMappingPropertiesOutput {
+	return o
+}
+
+func (o IotMappingPropertiesOutput) ToIotMappingPropertiesPtrOutput() IotMappingPropertiesPtrOutput {
+	return o.ToIotMappingPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IotMappingPropertiesOutput) ToIotMappingPropertiesPtrOutputWithContext(ctx context.Context) IotMappingPropertiesPtrOutput {
+	return o.ApplyT(func(v IotMappingProperties) *IotMappingProperties {
+		return &v
+	}).(IotMappingPropertiesPtrOutput)
+}
+
+// The mapping.
+func (o IotMappingPropertiesOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v IotMappingProperties) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
+type IotMappingPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IotMappingPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotMappingProperties)(nil)).Elem()
+}
+
+func (o IotMappingPropertiesPtrOutput) ToIotMappingPropertiesPtrOutput() IotMappingPropertiesPtrOutput {
+	return o
+}
+
+func (o IotMappingPropertiesPtrOutput) ToIotMappingPropertiesPtrOutputWithContext(ctx context.Context) IotMappingPropertiesPtrOutput {
+	return o
+}
+
+func (o IotMappingPropertiesPtrOutput) Elem() IotMappingPropertiesOutput {
+	return o.ApplyT(func(v *IotMappingProperties) IotMappingProperties { return *v }).(IotMappingPropertiesOutput)
+}
+
+// The mapping.
+func (o IotMappingPropertiesPtrOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IotMappingProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.AnyOutput)
+}
+
+// The mapping content.
+type IotMappingPropertiesResponse struct {
+	// The mapping.
+	Content interface{} `pulumi:"content"`
+}
+
+// IotMappingPropertiesResponseInput is an input type that accepts IotMappingPropertiesResponseArgs and IotMappingPropertiesResponseOutput values.
+// You can construct a concrete instance of `IotMappingPropertiesResponseInput` via:
+//
+//          IotMappingPropertiesResponseArgs{...}
+type IotMappingPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToIotMappingPropertiesResponseOutput() IotMappingPropertiesResponseOutput
+	ToIotMappingPropertiesResponseOutputWithContext(context.Context) IotMappingPropertiesResponseOutput
+}
+
+// The mapping content.
+type IotMappingPropertiesResponseArgs struct {
+	// The mapping.
+	Content pulumi.Input `pulumi:"content"`
+}
+
+func (IotMappingPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotMappingPropertiesResponse)(nil)).Elem()
+}
+
+func (i IotMappingPropertiesResponseArgs) ToIotMappingPropertiesResponseOutput() IotMappingPropertiesResponseOutput {
+	return i.ToIotMappingPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i IotMappingPropertiesResponseArgs) ToIotMappingPropertiesResponseOutputWithContext(ctx context.Context) IotMappingPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesResponseOutput)
+}
+
+func (i IotMappingPropertiesResponseArgs) ToIotMappingPropertiesResponsePtrOutput() IotMappingPropertiesResponsePtrOutput {
+	return i.ToIotMappingPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IotMappingPropertiesResponseArgs) ToIotMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) IotMappingPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesResponseOutput).ToIotMappingPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// IotMappingPropertiesResponsePtrInput is an input type that accepts IotMappingPropertiesResponseArgs, IotMappingPropertiesResponsePtr and IotMappingPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `IotMappingPropertiesResponsePtrInput` via:
+//
+//          IotMappingPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IotMappingPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToIotMappingPropertiesResponsePtrOutput() IotMappingPropertiesResponsePtrOutput
+	ToIotMappingPropertiesResponsePtrOutputWithContext(context.Context) IotMappingPropertiesResponsePtrOutput
+}
+
+type iotMappingPropertiesResponsePtrType IotMappingPropertiesResponseArgs
+
+func IotMappingPropertiesResponsePtr(v *IotMappingPropertiesResponseArgs) IotMappingPropertiesResponsePtrInput {
+	return (*iotMappingPropertiesResponsePtrType)(v)
+}
+
+func (*iotMappingPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotMappingPropertiesResponse)(nil)).Elem()
+}
+
+func (i *iotMappingPropertiesResponsePtrType) ToIotMappingPropertiesResponsePtrOutput() IotMappingPropertiesResponsePtrOutput {
+	return i.ToIotMappingPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *iotMappingPropertiesResponsePtrType) ToIotMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) IotMappingPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IotMappingPropertiesResponsePtrOutput)
+}
+
+// The mapping content.
+type IotMappingPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (IotMappingPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotMappingPropertiesResponse)(nil)).Elem()
+}
+
+func (o IotMappingPropertiesResponseOutput) ToIotMappingPropertiesResponseOutput() IotMappingPropertiesResponseOutput {
+	return o
+}
+
+func (o IotMappingPropertiesResponseOutput) ToIotMappingPropertiesResponseOutputWithContext(ctx context.Context) IotMappingPropertiesResponseOutput {
+	return o
+}
+
+func (o IotMappingPropertiesResponseOutput) ToIotMappingPropertiesResponsePtrOutput() IotMappingPropertiesResponsePtrOutput {
+	return o.ToIotMappingPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IotMappingPropertiesResponseOutput) ToIotMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) IotMappingPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v IotMappingPropertiesResponse) *IotMappingPropertiesResponse {
+		return &v
+	}).(IotMappingPropertiesResponsePtrOutput)
+}
+
+// The mapping.
+func (o IotMappingPropertiesResponseOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v IotMappingPropertiesResponse) interface{} { return v.Content }).(pulumi.AnyOutput)
+}
+
+type IotMappingPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IotMappingPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotMappingPropertiesResponse)(nil)).Elem()
+}
+
+func (o IotMappingPropertiesResponsePtrOutput) ToIotMappingPropertiesResponsePtrOutput() IotMappingPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o IotMappingPropertiesResponsePtrOutput) ToIotMappingPropertiesResponsePtrOutputWithContext(ctx context.Context) IotMappingPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o IotMappingPropertiesResponsePtrOutput) Elem() IotMappingPropertiesResponseOutput {
+	return o.ApplyT(func(v *IotMappingPropertiesResponse) IotMappingPropertiesResponse { return *v }).(IotMappingPropertiesResponseOutput)
+}
+
+// The mapping.
+func (o IotMappingPropertiesResponsePtrOutput) Content() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IotMappingPropertiesResponse) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.AnyOutput)
+}
+
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionType struct {
 	// A collection of information about the state of the connection between service consumer and provider.
@@ -2547,6 +4822,274 @@ func (o ServiceExportConfigurationInfoResponsePtrOutput) StorageAccountName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Setting indicating whether the service has a managed identity associated with it.
+type ServiceManagedIdentityIdentity struct {
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type *string `pulumi:"type"`
+}
+
+// ServiceManagedIdentityIdentityInput is an input type that accepts ServiceManagedIdentityIdentityArgs and ServiceManagedIdentityIdentityOutput values.
+// You can construct a concrete instance of `ServiceManagedIdentityIdentityInput` via:
+//
+//          ServiceManagedIdentityIdentityArgs{...}
+type ServiceManagedIdentityIdentityInput interface {
+	pulumi.Input
+
+	ToServiceManagedIdentityIdentityOutput() ServiceManagedIdentityIdentityOutput
+	ToServiceManagedIdentityIdentityOutputWithContext(context.Context) ServiceManagedIdentityIdentityOutput
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServiceManagedIdentityIdentityArgs struct {
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServiceManagedIdentityIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceManagedIdentityIdentity)(nil)).Elem()
+}
+
+func (i ServiceManagedIdentityIdentityArgs) ToServiceManagedIdentityIdentityOutput() ServiceManagedIdentityIdentityOutput {
+	return i.ToServiceManagedIdentityIdentityOutputWithContext(context.Background())
+}
+
+func (i ServiceManagedIdentityIdentityArgs) ToServiceManagedIdentityIdentityOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityIdentityOutput)
+}
+
+func (i ServiceManagedIdentityIdentityArgs) ToServiceManagedIdentityIdentityPtrOutput() ServiceManagedIdentityIdentityPtrOutput {
+	return i.ToServiceManagedIdentityIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceManagedIdentityIdentityArgs) ToServiceManagedIdentityIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityIdentityOutput).ToServiceManagedIdentityIdentityPtrOutputWithContext(ctx)
+}
+
+// ServiceManagedIdentityIdentityPtrInput is an input type that accepts ServiceManagedIdentityIdentityArgs, ServiceManagedIdentityIdentityPtr and ServiceManagedIdentityIdentityPtrOutput values.
+// You can construct a concrete instance of `ServiceManagedIdentityIdentityPtrInput` via:
+//
+//          ServiceManagedIdentityIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceManagedIdentityIdentityPtrInput interface {
+	pulumi.Input
+
+	ToServiceManagedIdentityIdentityPtrOutput() ServiceManagedIdentityIdentityPtrOutput
+	ToServiceManagedIdentityIdentityPtrOutputWithContext(context.Context) ServiceManagedIdentityIdentityPtrOutput
+}
+
+type serviceManagedIdentityIdentityPtrType ServiceManagedIdentityIdentityArgs
+
+func ServiceManagedIdentityIdentityPtr(v *ServiceManagedIdentityIdentityArgs) ServiceManagedIdentityIdentityPtrInput {
+	return (*serviceManagedIdentityIdentityPtrType)(v)
+}
+
+func (*serviceManagedIdentityIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceManagedIdentityIdentity)(nil)).Elem()
+}
+
+func (i *serviceManagedIdentityIdentityPtrType) ToServiceManagedIdentityIdentityPtrOutput() ServiceManagedIdentityIdentityPtrOutput {
+	return i.ToServiceManagedIdentityIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceManagedIdentityIdentityPtrType) ToServiceManagedIdentityIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityIdentityPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServiceManagedIdentityIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServiceManagedIdentityIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceManagedIdentityIdentity)(nil)).Elem()
+}
+
+func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityOutput() ServiceManagedIdentityIdentityOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityPtrOutput() ServiceManagedIdentityIdentityPtrOutput {
+	return o.ToServiceManagedIdentityIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceManagedIdentityIdentityOutput) ToServiceManagedIdentityIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityPtrOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityIdentity) *ServiceManagedIdentityIdentity {
+		return &v
+	}).(ServiceManagedIdentityIdentityPtrOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ServiceManagedIdentityIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ServiceManagedIdentityIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceManagedIdentityIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceManagedIdentityIdentity)(nil)).Elem()
+}
+
+func (o ServiceManagedIdentityIdentityPtrOutput) ToServiceManagedIdentityIdentityPtrOutput() ServiceManagedIdentityIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityIdentityPtrOutput) ToServiceManagedIdentityIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityIdentityPtrOutput) Elem() ServiceManagedIdentityIdentityOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityIdentity) ServiceManagedIdentityIdentity { return *v }).(ServiceManagedIdentityIdentityOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ServiceManagedIdentityIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServiceManagedIdentityResponseIdentity struct {
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type *string `pulumi:"type"`
+}
+
+// ServiceManagedIdentityResponseIdentityInput is an input type that accepts ServiceManagedIdentityResponseIdentityArgs and ServiceManagedIdentityResponseIdentityOutput values.
+// You can construct a concrete instance of `ServiceManagedIdentityResponseIdentityInput` via:
+//
+//          ServiceManagedIdentityResponseIdentityArgs{...}
+type ServiceManagedIdentityResponseIdentityInput interface {
+	pulumi.Input
+
+	ToServiceManagedIdentityResponseIdentityOutput() ServiceManagedIdentityResponseIdentityOutput
+	ToServiceManagedIdentityResponseIdentityOutputWithContext(context.Context) ServiceManagedIdentityResponseIdentityOutput
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServiceManagedIdentityResponseIdentityArgs struct {
+	// Type of identity being specified, currently SystemAssigned and None are allowed.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ServiceManagedIdentityResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceManagedIdentityResponseIdentity)(nil)).Elem()
+}
+
+func (i ServiceManagedIdentityResponseIdentityArgs) ToServiceManagedIdentityResponseIdentityOutput() ServiceManagedIdentityResponseIdentityOutput {
+	return i.ToServiceManagedIdentityResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i ServiceManagedIdentityResponseIdentityArgs) ToServiceManagedIdentityResponseIdentityOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityResponseIdentityOutput)
+}
+
+func (i ServiceManagedIdentityResponseIdentityArgs) ToServiceManagedIdentityResponseIdentityPtrOutput() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return i.ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceManagedIdentityResponseIdentityArgs) ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityResponseIdentityOutput).ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(ctx)
+}
+
+// ServiceManagedIdentityResponseIdentityPtrInput is an input type that accepts ServiceManagedIdentityResponseIdentityArgs, ServiceManagedIdentityResponseIdentityPtr and ServiceManagedIdentityResponseIdentityPtrOutput values.
+// You can construct a concrete instance of `ServiceManagedIdentityResponseIdentityPtrInput` via:
+//
+//          ServiceManagedIdentityResponseIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceManagedIdentityResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToServiceManagedIdentityResponseIdentityPtrOutput() ServiceManagedIdentityResponseIdentityPtrOutput
+	ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(context.Context) ServiceManagedIdentityResponseIdentityPtrOutput
+}
+
+type serviceManagedIdentityResponseIdentityPtrType ServiceManagedIdentityResponseIdentityArgs
+
+func ServiceManagedIdentityResponseIdentityPtr(v *ServiceManagedIdentityResponseIdentityArgs) ServiceManagedIdentityResponseIdentityPtrInput {
+	return (*serviceManagedIdentityResponseIdentityPtrType)(v)
+}
+
+func (*serviceManagedIdentityResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceManagedIdentityResponseIdentity)(nil)).Elem()
+}
+
+func (i *serviceManagedIdentityResponseIdentityPtrType) ToServiceManagedIdentityResponseIdentityPtrOutput() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return i.ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceManagedIdentityResponseIdentityPtrType) ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
+// Setting indicating whether the service has a managed identity associated with it.
+type ServiceManagedIdentityResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (ServiceManagedIdentityResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceManagedIdentityResponseIdentity)(nil)).Elem()
+}
+
+func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityResponseIdentityOutput() ServiceManagedIdentityResponseIdentityOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityResponseIdentityOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityResponseIdentityPtrOutput() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceManagedIdentityResponseIdentityOutput) ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) *ServiceManagedIdentityResponseIdentity {
+		return &v
+	}).(ServiceManagedIdentityResponseIdentityPtrOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ServiceManagedIdentityResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceManagedIdentityResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ServiceManagedIdentityResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceManagedIdentityResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceManagedIdentityResponseIdentity)(nil)).Elem()
+}
+
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) ToServiceManagedIdentityResponseIdentityPtrOutput() ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) ToServiceManagedIdentityResponseIdentityPtrOutputWithContext(ctx context.Context) ServiceManagedIdentityResponseIdentityPtrOutput {
+	return o
+}
+
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) Elem() ServiceManagedIdentityResponseIdentityOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) ServiceManagedIdentityResponseIdentity { return *v }).(ServiceManagedIdentityResponseIdentityOutput)
+}
+
+// Type of identity being specified, currently SystemAssigned and None are allowed.
+func (o ServiceManagedIdentityResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedIdentityResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // The properties of a service instance.
 type ServicesProperties struct {
 	// The access policies of the service instance.
@@ -3645,7 +6188,171 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Workspaces resource specific properties.
+type WorkspaceResponseProperties struct {
+	// The provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+// WorkspaceResponsePropertiesInput is an input type that accepts WorkspaceResponsePropertiesArgs and WorkspaceResponsePropertiesOutput values.
+// You can construct a concrete instance of `WorkspaceResponsePropertiesInput` via:
+//
+//          WorkspaceResponsePropertiesArgs{...}
+type WorkspaceResponsePropertiesInput interface {
+	pulumi.Input
+
+	ToWorkspaceResponsePropertiesOutput() WorkspaceResponsePropertiesOutput
+	ToWorkspaceResponsePropertiesOutputWithContext(context.Context) WorkspaceResponsePropertiesOutput
+}
+
+// Workspaces resource specific properties.
+type WorkspaceResponsePropertiesArgs struct {
+	// The provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+}
+
+func (WorkspaceResponsePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceResponseProperties)(nil)).Elem()
+}
+
+func (i WorkspaceResponsePropertiesArgs) ToWorkspaceResponsePropertiesOutput() WorkspaceResponsePropertiesOutput {
+	return i.ToWorkspaceResponsePropertiesOutputWithContext(context.Background())
+}
+
+func (i WorkspaceResponsePropertiesArgs) ToWorkspaceResponsePropertiesOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceResponsePropertiesOutput)
+}
+
+func (i WorkspaceResponsePropertiesArgs) ToWorkspaceResponsePropertiesPtrOutput() WorkspaceResponsePropertiesPtrOutput {
+	return i.ToWorkspaceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceResponsePropertiesArgs) ToWorkspaceResponsePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceResponsePropertiesOutput).ToWorkspaceResponsePropertiesPtrOutputWithContext(ctx)
+}
+
+// WorkspaceResponsePropertiesPtrInput is an input type that accepts WorkspaceResponsePropertiesArgs, WorkspaceResponsePropertiesPtr and WorkspaceResponsePropertiesPtrOutput values.
+// You can construct a concrete instance of `WorkspaceResponsePropertiesPtrInput` via:
+//
+//          WorkspaceResponsePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkspaceResponsePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceResponsePropertiesPtrOutput() WorkspaceResponsePropertiesPtrOutput
+	ToWorkspaceResponsePropertiesPtrOutputWithContext(context.Context) WorkspaceResponsePropertiesPtrOutput
+}
+
+type workspaceResponsePropertiesPtrType WorkspaceResponsePropertiesArgs
+
+func WorkspaceResponsePropertiesPtr(v *WorkspaceResponsePropertiesArgs) WorkspaceResponsePropertiesPtrInput {
+	return (*workspaceResponsePropertiesPtrType)(v)
+}
+
+func (*workspaceResponsePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceResponseProperties)(nil)).Elem()
+}
+
+func (i *workspaceResponsePropertiesPtrType) ToWorkspaceResponsePropertiesPtrOutput() WorkspaceResponsePropertiesPtrOutput {
+	return i.ToWorkspaceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceResponsePropertiesPtrType) ToWorkspaceResponsePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceResponsePropertiesPtrOutput)
+}
+
+// Workspaces resource specific properties.
+type WorkspaceResponsePropertiesOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceResponsePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceResponseProperties)(nil)).Elem()
+}
+
+func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesOutput() WorkspaceResponsePropertiesOutput {
+	return o
+}
+
+func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesOutput {
+	return o
+}
+
+func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesPtrOutput() WorkspaceResponsePropertiesPtrOutput {
+	return o.ToWorkspaceResponsePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceResponsePropertiesOutput) ToWorkspaceResponsePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v WorkspaceResponseProperties) *WorkspaceResponseProperties {
+		return &v
+	}).(WorkspaceResponsePropertiesPtrOutput)
+}
+
+// The provisioning state.
+func (o WorkspaceResponsePropertiesOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceResponseProperties) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type WorkspaceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceResponsePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceResponseProperties)(nil)).Elem()
+}
+
+func (o WorkspaceResponsePropertiesPtrOutput) ToWorkspaceResponsePropertiesPtrOutput() WorkspaceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspaceResponsePropertiesPtrOutput) ToWorkspaceResponsePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceResponsePropertiesPtrOutput {
+	return o
+}
+
+func (o WorkspaceResponsePropertiesPtrOutput) Elem() WorkspaceResponsePropertiesOutput {
+	return o.ApplyT(func(v *WorkspaceResponseProperties) WorkspaceResponseProperties { return *v }).(WorkspaceResponsePropertiesOutput)
+}
+
+// The provisioning state.
+func (o WorkspaceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(DicomServiceAuthenticationConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(DicomServiceAuthenticationConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceAccessPolicyEntryOutput{})
+	pulumi.RegisterOutputType(FhirServiceAccessPolicyEntryArrayOutput{})
+	pulumi.RegisterOutputType(FhirServiceAccessPolicyEntryResponseOutput{})
+	pulumi.RegisterOutputType(FhirServiceAccessPolicyEntryResponseArrayOutput{})
+	pulumi.RegisterOutputType(FhirServiceAcrConfigurationOutput{})
+	pulumi.RegisterOutputType(FhirServiceAcrConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceAcrConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(FhirServiceAcrConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(FhirServiceAuthenticationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceAuthenticationConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(FhirServiceAuthenticationConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceCorsConfigurationOutput{})
+	pulumi.RegisterOutputType(FhirServiceCorsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceCorsConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(FhirServiceCorsConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceExportConfigurationOutput{})
+	pulumi.RegisterOutputType(FhirServiceExportConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceExportConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(FhirServiceExportConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(IotEventHubIngestionEndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(IotEventHubIngestionEndpointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IotEventHubIngestionEndpointConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(IotEventHubIngestionEndpointConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(IotMappingPropertiesOutput{})
+	pulumi.RegisterOutputType(IotMappingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IotMappingPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(IotMappingPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -3680,6 +6387,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoPtrOutput{})
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoResponseOutput{})
 	pulumi.RegisterOutputType(ServiceExportConfigurationInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceManagedIdentityIdentityOutput{})
+	pulumi.RegisterOutputType(ServiceManagedIdentityIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ServiceManagedIdentityResponseIdentityOutput{})
+	pulumi.RegisterOutputType(ServiceManagedIdentityResponseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServicesPropertiesResponseOutput{})
@@ -3690,4 +6401,6 @@ func init() {
 	pulumi.RegisterOutputType(ServicesResourceResponseIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(WorkspaceResponsePropertiesPtrOutput{})
 }

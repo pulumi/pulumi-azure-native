@@ -6934,7 +6934,7 @@ func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionState struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired *string `pulumi:"actionRequired"`
+	ActionsRequired *string `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description *string `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -6955,7 +6955,7 @@ type PrivateLinkServiceConnectionStateInput interface {
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -7041,8 +7041,8 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
 // The reason for approval/rejection of the connection.
@@ -7074,12 +7074,12 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceCon
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStatePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7106,7 +7106,7 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOut
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponse struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired *string `pulumi:"actionRequired"`
+	ActionsRequired *string `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description *string `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -7127,7 +7127,7 @@ type PrivateLinkServiceConnectionStateResponseInput interface {
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateResponseArgs struct {
 	// A message indicating if changes on the service provider require any updates on the consumer.
-	ActionRequired pulumi.StringPtrInput `pulumi:"actionRequired"`
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
 	// The reason for approval/rejection of the connection.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
@@ -7213,8 +7213,8 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponseOutput) ActionRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionRequired }).(pulumi.StringPtrOutput)
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
 
 // The reason for approval/rejection of the connection.
@@ -7248,12 +7248,12 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkSe
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionRequired() pulumi.StringPtrOutput {
+func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ActionRequired
+		return v.ActionsRequired
 	}).(pulumi.StringPtrOutput)
 }
 

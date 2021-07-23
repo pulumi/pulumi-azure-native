@@ -80,6 +80,12 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:healthcareapis/v20210111:Service"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:Service"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:healthcareapis/v20210601preview:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

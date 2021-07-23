@@ -342,7 +342,7 @@ class QueryDatasetResponse(dict):
         The definition of data present in the query.
         :param Mapping[str, 'QueryAggregationResponse'] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         :param 'QueryDatasetConfigurationResponse' configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-        :param 'QueryFilterResponse' filter: Has filter expression to use in the query.
+        :param 'QueryFilterResponse' filter: The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
         :param str granularity: The granularity of rows in the query.
         :param Sequence['QueryGroupingResponse'] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         :param Sequence['QuerySortingConfigurationResponse'] sorting: Array of sorting by columns in query.
@@ -380,7 +380,7 @@ class QueryDatasetResponse(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.QueryFilterResponse']:
         """
-        Has filter expression to use in the query.
+        The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
         """
         return pulumi.get(self, "filter")
 

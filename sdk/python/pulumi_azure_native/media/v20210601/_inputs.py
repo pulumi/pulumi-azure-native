@@ -4879,7 +4879,7 @@ class LiveEventEncodingArgs:
                  stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None):
         """
         Specifies the live event type and optional encoding settings for encoding live events.
-        :param pulumi.Input[Union[str, 'LiveEventEncodingType']] encoding_type: Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        :param pulumi.Input[Union[str, 'LiveEventEncodingType']] encoding_type: Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         :param pulumi.Input[str] key_frame_interval: Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
         :param pulumi.Input[str] preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
         :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
@@ -4897,7 +4897,7 @@ class LiveEventEncodingArgs:
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]]:
         """
-        Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         """
         return pulumi.get(self, "encoding_type")
 

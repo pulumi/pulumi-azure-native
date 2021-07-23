@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string? DeveloperAppInsightsApplicationId;
         /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// The Name of the bot
         /// </summary>
         public readonly string DisplayName;
@@ -78,6 +82,22 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string MsaAppId;
         /// <summary>
+        /// Microsoft App Managed Identity Resource Id for the bot
+        /// </summary>
+        public readonly string? MsaAppMSIResourceId;
+        /// <summary>
+        /// Microsoft App Tenant Id for the bot
+        /// </summary>
+        public readonly string? MsaAppTenantId;
+        /// <summary>
+        /// Microsoft App Type for the bot
+        /// </summary>
+        public readonly string? MsaAppType;
+        /// <summary>
+        /// List of Private Endpoint Connections configured for the bot
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The channel schema transformation version for the bot
         /// </summary>
         public readonly string? SchemaTransformationVersion;
@@ -95,6 +115,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             string? developerAppInsightsApiKey,
 
             string? developerAppInsightsApplicationId,
+
+            bool? disableLocalAuth,
 
             string displayName,
 
@@ -116,6 +138,14 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string msaAppId,
 
+            string? msaAppMSIResourceId,
+
+            string? msaAppTenantId,
+
+            string? msaAppType,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string? schemaTransformationVersion)
         {
             CmekKeyVaultUrl = cmekKeyVaultUrl;
@@ -124,6 +154,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             DeveloperAppInsightKey = developerAppInsightKey;
             DeveloperAppInsightsApiKey = developerAppInsightsApiKey;
             DeveloperAppInsightsApplicationId = developerAppInsightsApplicationId;
+            DisableLocalAuth = disableLocalAuth;
             DisplayName = displayName;
             EnabledChannels = enabledChannels;
             Endpoint = endpoint;
@@ -134,6 +165,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
             MsaAppId = msaAppId;
+            MsaAppMSIResourceId = msaAppMSIResourceId;
+            MsaAppTenantId = msaAppTenantId;
+            MsaAppType = msaAppType;
+            PrivateEndpointConnections = privateEndpointConnections;
             SchemaTransformationVersion = schemaTransformationVersion;
         }
     }

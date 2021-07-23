@@ -86,6 +86,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.eventhub as eventhub
     import pulumi_azure_native.extendedlocation as extendedlocation
     import pulumi_azure_native.features as features
+    import pulumi_azure_native.fluidrelay as fluidrelay
     import pulumi_azure_native.guestconfiguration as guestconfiguration
     import pulumi_azure_native.hanaonazure as hanaonazure
     import pulumi_azure_native.hardwaresecuritymodules as hardwaresecuritymodules
@@ -255,6 +256,7 @@ else:
     eventhub = _utilities.lazy_import('pulumi_azure_native.eventhub')
     extendedlocation = _utilities.lazy_import('pulumi_azure_native.extendedlocation')
     features = _utilities.lazy_import('pulumi_azure_native.features')
+    fluidrelay = _utilities.lazy_import('pulumi_azure_native.fluidrelay')
     guestconfiguration = _utilities.lazy_import('pulumi_azure_native.guestconfiguration')
     hanaonazure = _utilities.lazy_import('pulumi_azure_native.hanaonazure')
     hardwaresecuritymodules = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules')
@@ -5077,6 +5079,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20210615privatepreview",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20210615privatepreview",
+  "classes": {
+   "azure-native:dbforpostgresql/v20210615privatepreview:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20210615privatepreview:Migration": "Migration",
+   "azure-native:dbforpostgresql/v20210615privatepreview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "delegatednetwork",
   "fqn": "pulumi_azure_native.delegatednetwork",
   "classes": {
@@ -6707,6 +6720,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "fluidrelay",
+  "fqn": "pulumi_azure_native.fluidrelay",
+  "classes": {
+   "azure-native:fluidrelay:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "fluidrelay/v20210312preview",
+  "fqn": "pulumi_azure_native.fluidrelay.v20210312preview",
+  "classes": {
+   "azure-native:fluidrelay/v20210312preview:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "guestconfiguration",
   "fqn": "pulumi_azure_native.guestconfiguration",
   "classes": {
@@ -6872,8 +6901,13 @@ _utilities.register(
   "mod": "healthcareapis",
   "fqn": "pulumi_azure_native.healthcareapis",
   "classes": {
+   "azure-native:healthcareapis:DicomService": "DicomService",
+   "azure-native:healthcareapis:FhirService": "FhirService",
+   "azure-native:healthcareapis:IotConnector": "IotConnector",
+   "azure-native:healthcareapis:IotConnectorFhirDestination": "IotConnectorFhirDestination",
    "azure-native:healthcareapis:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:healthcareapis:Service": "Service"
+   "azure-native:healthcareapis:Service": "Service",
+   "azure-native:healthcareapis:Workspace": "Workspace"
   }
  },
  {
@@ -6916,6 +6950,20 @@ _utilities.register(
   "classes": {
    "azure-native:healthcareapis/v20210111:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:healthcareapis/v20210111:Service": "Service"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "healthcareapis/v20210601preview",
+  "fqn": "pulumi_azure_native.healthcareapis.v20210601preview",
+  "classes": {
+   "azure-native:healthcareapis/v20210601preview:DicomService": "DicomService",
+   "azure-native:healthcareapis/v20210601preview:FhirService": "FhirService",
+   "azure-native:healthcareapis/v20210601preview:IotConnector": "IotConnector",
+   "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination": "IotConnectorFhirDestination",
+   "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:healthcareapis/v20210601preview:Service": "Service",
+   "azure-native:healthcareapis/v20210601preview:Workspace": "Workspace"
   }
  },
  {

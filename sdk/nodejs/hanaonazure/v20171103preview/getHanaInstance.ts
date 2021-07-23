@@ -40,7 +40,7 @@ export interface GetHanaInstanceResult {
     /**
      * Specifies the HANA instance unique ID.
      */
-    readonly hanaInstanceId?: string;
+    readonly hanaInstanceId: string;
     /**
      * Specifies the hardware settings for the HANA instance.
      */
@@ -48,7 +48,7 @@ export interface GetHanaInstanceResult {
     /**
      * Hardware revision of a HANA instance
      */
-    readonly hwRevision?: string;
+    readonly hwRevision: string;
     /**
      * Resource ID
      */
@@ -76,15 +76,15 @@ export interface GetHanaInstanceResult {
     /**
      * Resource power state
      */
-    readonly powerState?: string;
+    readonly powerState: string;
     /**
      * State of provisioning of the HanaInstance
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * Resource proximity placement group
      */
-    readonly proximityPlacementGroup?: string;
+    readonly proximityPlacementGroup: string;
     /**
      * Specifies the storage settings for the HANA instance disks.
      */

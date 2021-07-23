@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         /// Number of unused versions per application type to keep.
         /// </summary>
         [Input("maxUnusedVersionsToKeep", required: true)]
-        public Input<int> MaxUnusedVersionsToKeep { get; set; } = null!;
+        public Input<double> MaxUnusedVersionsToKeep { get; set; } = null!;
 
         public ApplicationTypeVersionsCleanupPolicyArgs()
         {

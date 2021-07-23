@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20191101Preview.Outputs
         /// <summary>
         /// Number of unused versions per application type to keep.
         /// </summary>
-        public readonly int MaxUnusedVersionsToKeep;
+        public readonly double MaxUnusedVersionsToKeep;
 
         [OutputConstructor]
-        private ApplicationTypeVersionsCleanupPolicyResponse(int maxUnusedVersionsToKeep)
+        private ApplicationTypeVersionsCleanupPolicyResponse(double maxUnusedVersionsToKeep)
         {
             MaxUnusedVersionsToKeep = maxUnusedVersionsToKeep;
         }

@@ -62,10 +62,6 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
-     * The Azure Active Directory identity of the server.
-     */
-    readonly identity?: outputs.dbforpostgresql.v20210601.IdentityResponse;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

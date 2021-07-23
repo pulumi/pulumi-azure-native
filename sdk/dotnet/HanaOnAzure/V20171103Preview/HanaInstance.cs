@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         /// Specifies the HANA instance unique ID.
         /// </summary>
         [Output("hanaInstanceId")]
-        public Output<string?> HanaInstanceId { get; private set; } = null!;
+        public Output<string> HanaInstanceId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the hardware settings for the HANA instance.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         /// Hardware revision of a HANA instance
         /// </summary>
         [Output("hwRevision")]
-        public Output<string?> HwRevision { get; private set; } = null!;
+        public Output<string> HwRevision { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -67,19 +67,19 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         /// Resource power state
         /// </summary>
         [Output("powerState")]
-        public Output<string?> PowerState { get; private set; } = null!;
+        public Output<string> PowerState { get; private set; } = null!;
 
         /// <summary>
         /// State of provisioning of the HanaInstance
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource proximity placement group
         /// </summary>
         [Output("proximityPlacementGroup")]
-        public Output<string?> ProximityPlacementGroup { get; private set; } = null!;
+        public Output<string> ProximityPlacementGroup { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the storage settings for the HANA instance disks.
@@ -151,28 +151,10 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
     public sealed class HanaInstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the HANA instance unique ID.
-        /// </summary>
-        [Input("hanaInstanceId")]
-        public Input<string>? HanaInstanceId { get; set; }
-
-        /// <summary>
         /// Name of the SAP HANA on Azure instance.
         /// </summary>
         [Input("hanaInstanceName")]
         public Input<string>? HanaInstanceName { get; set; }
-
-        /// <summary>
-        /// Specifies the hardware settings for the HANA instance.
-        /// </summary>
-        [Input("hardwareProfile")]
-        public Input<Inputs.HardwareProfileArgs>? HardwareProfile { get; set; }
-
-        /// <summary>
-        /// Hardware revision of a HANA instance
-        /// </summary>
-        [Input("hwRevision")]
-        public Input<string>? HwRevision { get; set; }
 
         /// <summary>
         /// Resource location
@@ -197,24 +179,6 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
         /// </summary>
         [Input("partnerNodeId")]
         public Input<string>? PartnerNodeId { get; set; }
-
-        /// <summary>
-        /// Resource power state
-        /// </summary>
-        [Input("powerState")]
-        public InputUnion<string, Pulumi.AzureNative.HanaOnAzure.V20171103Preview.HanaInstancePowerStateEnum>? PowerState { get; set; }
-
-        /// <summary>
-        /// State of provisioning of the HanaInstance
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.HanaOnAzure.V20171103Preview.HanaProvisioningStatesEnum>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Resource proximity placement group
-        /// </summary>
-        [Input("proximityPlacementGroup")]
-        public Input<string>? ProximityPlacementGroup { get; set; }
 
         /// <summary>
         /// Name of the resource group.

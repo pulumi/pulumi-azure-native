@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.CostManagement.V20191001.Inputs
         public Input<Inputs.QueryDatasetConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Has filter expression to use in the query.
+        /// The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.QueryFilterArgs>? Filter { get; set; }

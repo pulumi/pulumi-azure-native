@@ -11,6 +11,14 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DicomServiceAuthenticationConfigurationResponse',
+    'FhirServiceAccessPolicyEntryResponse',
+    'FhirServiceAcrConfigurationResponse',
+    'FhirServiceAuthenticationConfigurationResponse',
+    'FhirServiceCorsConfigurationResponse',
+    'FhirServiceExportConfigurationResponse',
+    'IotEventHubIngestionEndpointConfigurationResponse',
+    'IotMappingPropertiesResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
@@ -20,10 +28,409 @@ __all__ = [
     'ServiceCorsConfigurationInfoResponse',
     'ServiceCosmosDbConfigurationInfoResponse',
     'ServiceExportConfigurationInfoResponse',
+    'ServiceManagedIdentityResponseIdentity',
     'ServicesPropertiesResponse',
     'ServicesResourceResponseIdentity',
     'SystemDataResponse',
+    'WorkspaceResponseProperties',
 ]
+
+@pulumi.output_type
+class DicomServiceAuthenticationConfigurationResponse(dict):
+    """
+    Authentication configuration information
+    """
+    def __init__(__self__, *,
+                 audiences: Sequence[str],
+                 authority: str):
+        """
+        Authentication configuration information
+        :param Sequence[str] audiences: The audiences for the service
+        :param str authority: The authority url for the service
+        """
+        pulumi.set(__self__, "audiences", audiences)
+        pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> Sequence[str]:
+        """
+        The audiences for the service
+        """
+        return pulumi.get(self, "audiences")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> str:
+        """
+        The authority url for the service
+        """
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class FhirServiceAccessPolicyEntryResponse(dict):
+    """
+    An access policy entry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectId":
+            suggest = "object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceAccessPolicyEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceAccessPolicyEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceAccessPolicyEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_id: str):
+        """
+        An access policy entry.
+        :param str object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> str:
+        """
+        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        """
+        return pulumi.get(self, "object_id")
+
+
+@pulumi.output_type
+class FhirServiceAcrConfigurationResponse(dict):
+    """
+    Azure container registry configuration information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginServers":
+            suggest = "login_servers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceAcrConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceAcrConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceAcrConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login_servers: Optional[Sequence[str]] = None):
+        """
+        Azure container registry configuration information
+        :param Sequence[str] login_servers: The list of the Azure container registry login servers.
+        """
+        if login_servers is not None:
+            pulumi.set(__self__, "login_servers", login_servers)
+
+    @property
+    @pulumi.getter(name="loginServers")
+    def login_servers(self) -> Optional[Sequence[str]]:
+        """
+        The list of the Azure container registry login servers.
+        """
+        return pulumi.get(self, "login_servers")
+
+
+@pulumi.output_type
+class FhirServiceAuthenticationConfigurationResponse(dict):
+    """
+    Authentication configuration information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "smartProxyEnabled":
+            suggest = "smart_proxy_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceAuthenticationConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceAuthenticationConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceAuthenticationConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audience: Optional[str] = None,
+                 authority: Optional[str] = None,
+                 smart_proxy_enabled: Optional[bool] = None):
+        """
+        Authentication configuration information
+        :param str audience: The audience url for the service
+        :param str authority: The authority url for the service
+        :param bool smart_proxy_enabled: If the SMART on FHIR proxy is enabled
+        """
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+        if smart_proxy_enabled is not None:
+            pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[str]:
+        """
+        The audience url for the service
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[str]:
+        """
+        The authority url for the service
+        """
+        return pulumi.get(self, "authority")
+
+    @property
+    @pulumi.getter(name="smartProxyEnabled")
+    def smart_proxy_enabled(self) -> Optional[bool]:
+        """
+        If the SMART on FHIR proxy is enabled
+        """
+        return pulumi.get(self, "smart_proxy_enabled")
+
+
+@pulumi.output_type
+class FhirServiceCorsConfigurationResponse(dict):
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCredentials":
+            suggest = "allow_credentials"
+        elif key == "maxAge":
+            suggest = "max_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceCorsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceCorsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceCorsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_credentials: Optional[bool] = None,
+                 headers: Optional[Sequence[str]] = None,
+                 max_age: Optional[int] = None,
+                 methods: Optional[Sequence[str]] = None,
+                 origins: Optional[Sequence[str]] = None):
+        """
+        The settings for the CORS configuration of the service instance.
+        :param bool allow_credentials: If credentials are allowed via CORS.
+        :param Sequence[str] headers: The headers to be allowed via CORS.
+        :param int max_age: The max age to be allowed via CORS.
+        :param Sequence[str] methods: The methods to be allowed via CORS.
+        :param Sequence[str] origins: The origins to be allowed via CORS.
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+        if methods is not None:
+            pulumi.set(__self__, "methods", methods)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[bool]:
+        """
+        If credentials are allowed via CORS.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence[str]]:
+        """
+        The headers to be allowed via CORS.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[int]:
+        """
+        The max age to be allowed via CORS.
+        """
+        return pulumi.get(self, "max_age")
+
+    @property
+    @pulumi.getter
+    def methods(self) -> Optional[Sequence[str]]:
+        """
+        The methods to be allowed via CORS.
+        """
+        return pulumi.get(self, "methods")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[Sequence[str]]:
+        """
+        The origins to be allowed via CORS.
+        """
+        return pulumi.get(self, "origins")
+
+
+@pulumi.output_type
+class FhirServiceExportConfigurationResponse(dict):
+    """
+    Export operation configuration information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountName":
+            suggest = "storage_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceExportConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceExportConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceExportConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_account_name: Optional[str] = None):
+        """
+        Export operation configuration information
+        :param str storage_account_name: The name of the default export storage account.
+        """
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[str]:
+        """
+        The name of the default export storage account.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+
+@pulumi.output_type
+class IotEventHubIngestionEndpointConfigurationResponse(dict):
+    """
+    Event Hub ingestion endpoint configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "consumerGroup":
+            suggest = "consumer_group"
+        elif key == "eventHubName":
+            suggest = "event_hub_name"
+        elif key == "fullyQualifiedEventHubNamespace":
+            suggest = "fully_qualified_event_hub_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IotEventHubIngestionEndpointConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IotEventHubIngestionEndpointConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IotEventHubIngestionEndpointConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 consumer_group: Optional[str] = None,
+                 event_hub_name: Optional[str] = None,
+                 fully_qualified_event_hub_namespace: Optional[str] = None):
+        """
+        Event Hub ingestion endpoint configuration
+        :param str consumer_group: Consumer group of the event hub to connected to.
+        :param str event_hub_name: Event Hub name to connect to.
+        :param str fully_qualified_event_hub_namespace: Fully qualified namespace of the Event Hub to connect to.
+        """
+        if consumer_group is not None:
+            pulumi.set(__self__, "consumer_group", consumer_group)
+        if event_hub_name is not None:
+            pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if fully_qualified_event_hub_namespace is not None:
+            pulumi.set(__self__, "fully_qualified_event_hub_namespace", fully_qualified_event_hub_namespace)
+
+    @property
+    @pulumi.getter(name="consumerGroup")
+    def consumer_group(self) -> Optional[str]:
+        """
+        Consumer group of the event hub to connected to.
+        """
+        return pulumi.get(self, "consumer_group")
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[str]:
+        """
+        Event Hub name to connect to.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedEventHubNamespace")
+    def fully_qualified_event_hub_namespace(self) -> Optional[str]:
+        """
+        Fully qualified namespace of the Event Hub to connect to.
+        """
+        return pulumi.get(self, "fully_qualified_event_hub_namespace")
+
+
+@pulumi.output_type
+class IotMappingPropertiesResponse(dict):
+    """
+    The mapping content.
+    """
+    def __init__(__self__, *,
+                 content: Optional[Any] = None):
+        """
+        The mapping content.
+        :param Any content: The mapping.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[Any]:
+        """
+        The mapping.
+        """
+        return pulumi.get(self, "content")
+
 
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
@@ -538,6 +945,29 @@ class ServiceExportConfigurationInfoResponse(dict):
 
 
 @pulumi.output_type
+class ServiceManagedIdentityResponseIdentity(dict):
+    """
+    Setting indicating whether the service has a managed identity associated with it.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        :param str type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ServicesPropertiesResponse(dict):
     """
     The properties of a service instance.
@@ -860,5 +1290,44 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class WorkspaceResponseProperties(dict):
+    """
+    Workspaces resource specific properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str):
+        """
+        Workspaces resource specific properties.
+        :param str provisioning_state: The provisioning state.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 

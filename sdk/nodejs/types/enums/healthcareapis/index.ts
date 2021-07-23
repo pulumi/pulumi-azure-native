@@ -7,6 +7,7 @@ import * as v20190916 from "./v20190916";
 import * as v20200315 from "./v20200315";
 import * as v20200330 from "./v20200330";
 import * as v20210111 from "./v20210111";
+import * as v20210601preview from "./v20210601preview";
 
 export {
     v20180820preview,
@@ -14,7 +15,28 @@ export {
     v20200315,
     v20200330,
     v20210111,
+    v20210601preview,
 };
+
+export const FhirServiceKind = {
+    Fhir_Stu3: "fhir-Stu3",
+    Fhir_R4: "fhir-R4",
+} as const;
+
+/**
+ * The kind of the service.
+ */
+export type FhirServiceKind = (typeof FhirServiceKind)[keyof typeof FhirServiceKind];
+
+export const IotIdentityResolutionType = {
+    Create: "Create",
+    Lookup: "Lookup",
+} as const;
+
+/**
+ * Determines how resource identity is resolved on the destination.
+ */
+export type IotIdentityResolutionType = (typeof IotIdentityResolutionType)[keyof typeof IotIdentityResolutionType];
 
 export const Kind = {
     Fhir: "fhir",

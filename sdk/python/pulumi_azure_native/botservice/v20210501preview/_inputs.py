@@ -137,11 +137,15 @@ class BotPropertiesArgs:
                  developer_app_insight_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
                  is_cmek_enabled: Optional[pulumi.Input[bool]] = None,
                  is_isolated: Optional[pulumi.Input[bool]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
+                 msa_app_msi_resource_id: Optional[pulumi.Input[str]] = None,
+                 msa_app_tenant_id: Optional[pulumi.Input[str]] = None,
+                 msa_app_type: Optional[pulumi.Input[Union[str, 'MsaAppType']]] = None,
                  schema_transformation_version: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Bot.
@@ -153,11 +157,15 @@ class BotPropertiesArgs:
         :param pulumi.Input[str] developer_app_insight_key: The Application Insights key
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights App Id
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[str] icon_url: The Icon Url of the bot
         :param pulumi.Input[bool] is_cmek_enabled: Whether Cmek is enabled
         :param pulumi.Input[bool] is_isolated: Whether the bot is in an isolated network
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
+        :param pulumi.Input[str] msa_app_msi_resource_id: Microsoft App Managed Identity Resource Id for the bot
+        :param pulumi.Input[str] msa_app_tenant_id: Microsoft App Tenant Id for the bot
+        :param pulumi.Input[Union[str, 'MsaAppType']] msa_app_type: Microsoft App Type for the bot
         :param pulumi.Input[str] schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "display_name", display_name)
@@ -173,6 +181,8 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
             pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
         if is_cmek_enabled is not None:
@@ -183,6 +193,12 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if msa_app_msi_resource_id is not None:
+            pulumi.set(__self__, "msa_app_msi_resource_id", msa_app_msi_resource_id)
+        if msa_app_tenant_id is not None:
+            pulumi.set(__self__, "msa_app_tenant_id", msa_app_tenant_id)
+        if msa_app_type is not None:
+            pulumi.set(__self__, "msa_app_type", msa_app_type)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
@@ -283,6 +299,18 @@ class BotPropertiesArgs:
         pulumi.set(self, "developer_app_insights_application_id", value)
 
     @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -341,6 +369,42 @@ class BotPropertiesArgs:
     @luis_key.setter
     def luis_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "luis_key", value)
+
+    @property
+    @pulumi.getter(name="msaAppMSIResourceId")
+    def msa_app_msi_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Microsoft App Managed Identity Resource Id for the bot
+        """
+        return pulumi.get(self, "msa_app_msi_resource_id")
+
+    @msa_app_msi_resource_id.setter
+    def msa_app_msi_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msa_app_msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="msaAppTenantId")
+    def msa_app_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Microsoft App Tenant Id for the bot
+        """
+        return pulumi.get(self, "msa_app_tenant_id")
+
+    @msa_app_tenant_id.setter
+    def msa_app_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msa_app_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="msaAppType")
+    def msa_app_type(self) -> Optional[pulumi.Input[Union[str, 'MsaAppType']]]:
+        """
+        Microsoft App Type for the bot
+        """
+        return pulumi.get(self, "msa_app_type")
+
+    @msa_app_type.setter
+    def msa_app_type(self, value: Optional[pulumi.Input[Union[str, 'MsaAppType']]]):
+        pulumi.set(self, "msa_app_type", value)
 
     @property
     @pulumi.getter(name="schemaTransformationVersion")
@@ -1366,33 +1430,33 @@ class MsTeamsChannelPropertiesArgs:
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
-        :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
 
     @property
     @pulumi.getter
@@ -1682,6 +1746,7 @@ class SlackChannelPropertiesArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  landing_page_url: Optional[pulumi.Input[str]] = None,
+                 scopes: Optional[pulumi.Input[str]] = None,
                  signing_secret: Optional[pulumi.Input[str]] = None,
                  verification_token: Optional[pulumi.Input[str]] = None):
         """
@@ -1690,6 +1755,7 @@ class SlackChannelPropertiesArgs:
         :param pulumi.Input[str] client_id: The Slack client id
         :param pulumi.Input[str] client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[str] landing_page_url: The Slack landing page Url
+        :param pulumi.Input[str] scopes: The Slack permission scopes.
         :param pulumi.Input[str] signing_secret: The Slack signing secret.
         :param pulumi.Input[str] verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
         """
@@ -1700,6 +1766,8 @@ class SlackChannelPropertiesArgs:
             pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
         if signing_secret is not None:
             pulumi.set(__self__, "signing_secret", signing_secret)
         if verification_token is not None:
@@ -1752,6 +1820,18 @@ class SlackChannelPropertiesArgs:
     @landing_page_url.setter
     def landing_page_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "landing_page_url", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Slack permission scopes.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter(name="signingSecret")

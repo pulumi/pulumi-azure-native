@@ -69,7 +69,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="hanaInstanceId")
-    def hana_instance_id(self) -> Optional[str]:
+    def hana_instance_id(self) -> str:
         """
         Specifies the HANA instance unique ID.
         """
@@ -85,7 +85,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="hwRevision")
-    def hw_revision(self) -> Optional[str]:
+    def hw_revision(self) -> str:
         """
         Hardware revision of a HANA instance
         """
@@ -141,7 +141,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="powerState")
-    def power_state(self) -> Optional[str]:
+    def power_state(self) -> str:
         """
         Resource power state
         """
@@ -149,7 +149,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         State of provisioning of the HanaInstance
         """
@@ -157,7 +157,7 @@ class GetHanaInstanceResult:
 
     @property
     @pulumi.getter(name="proximityPlacementGroup")
-    def proximity_placement_group(self) -> Optional[str]:
+    def proximity_placement_group(self) -> str:
         """
         Resource proximity placement group
         """

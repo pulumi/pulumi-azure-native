@@ -948,19 +948,19 @@ func (e InterleaveOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
 type LiveEventEncodingType pulumi.String
 
 const (
-	// A contribution live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. It is also called the pass-through mode.
+	// This is the same as PassthroughStandard, please see description below. This enumeration value is being deprecated.
 	LiveEventEncodingTypeNone = LiveEventEncodingType("None")
 	// A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 720p in resolution.
 	LiveEventEncodingTypeStandard = LiveEventEncodingType("Standard")
 	// A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 1080p in resolution.
 	LiveEventEncodingTypePremium1080p = LiveEventEncodingType("Premium1080p")
-	// Pending update...
+	// The ingested stream passes through the live event from the contribution encoder without any further processing. In the PassthroughBasic mode, ingestion is limited to up to 5Mbps and only 1 concurrent live output is allowed. Live transcription is not available.
 	LiveEventEncodingTypePassthroughBasic = LiveEventEncodingType("PassthroughBasic")
-	// Pending update...
+	// The ingested stream passes through the live event from the contribution encoder without any further processing. Live transcription is available. Ingestion bitrate limits are much higher and up to 3 concurrent live outputs are allowed.
 	LiveEventEncodingTypePassthroughStandard = LiveEventEncodingType("PassthroughStandard")
 )
 

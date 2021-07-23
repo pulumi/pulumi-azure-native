@@ -69,8 +69,8 @@ import * as eventgrid from "./eventgrid";
 import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
 import * as features from "./features";
+import * as fluidrelay from "./fluidrelay";
 import * as guestconfiguration from "./guestconfiguration";
-import * as hanaonazure from "./hanaonazure";
 import * as hdinsight from "./hdinsight";
 import * as healthbot from "./healthbot";
 import * as healthcareapis from "./healthcareapis";
@@ -216,8 +216,8 @@ export {
     eventhub,
     extendedlocation,
     features,
+    fluidrelay,
     guestconfiguration,
-    hanaonazure,
     hdinsight,
     healthbot,
     healthcareapis,

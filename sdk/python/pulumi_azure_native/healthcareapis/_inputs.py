@@ -10,6 +10,13 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'FhirServiceAccessPolicyEntryArgs',
+    'FhirServiceAcrConfigurationArgs',
+    'FhirServiceAuthenticationConfigurationArgs',
+    'FhirServiceCorsConfigurationArgs',
+    'FhirServiceExportConfigurationArgs',
+    'IotEventHubIngestionEndpointConfigurationArgs',
+    'IotMappingPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ServiceAccessPolicyEntryArgs',
@@ -18,9 +25,305 @@ __all__ = [
     'ServiceCorsConfigurationInfoArgs',
     'ServiceCosmosDbConfigurationInfoArgs',
     'ServiceExportConfigurationInfoArgs',
+    'ServiceManagedIdentityIdentityArgs',
     'ServicesPropertiesArgs',
     'ServicesResourceIdentityArgs',
 ]
+
+@pulumi.input_type
+class FhirServiceAccessPolicyEntryArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str]):
+        """
+        An access policy entry.
+        :param pulumi.Input[str] object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+
+@pulumi.input_type
+class FhirServiceAcrConfigurationArgs:
+    def __init__(__self__, *,
+                 login_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Azure container registry configuration information
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] login_servers: The list of the Azure container registry login servers.
+        """
+        if login_servers is not None:
+            pulumi.set(__self__, "login_servers", login_servers)
+
+    @property
+    @pulumi.getter(name="loginServers")
+    def login_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of the Azure container registry login servers.
+        """
+        return pulumi.get(self, "login_servers")
+
+    @login_servers.setter
+    def login_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "login_servers", value)
+
+
+@pulumi.input_type
+class FhirServiceAuthenticationConfigurationArgs:
+    def __init__(__self__, *,
+                 audience: Optional[pulumi.Input[str]] = None,
+                 authority: Optional[pulumi.Input[str]] = None,
+                 smart_proxy_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Authentication configuration information
+        :param pulumi.Input[str] audience: The audience url for the service
+        :param pulumi.Input[str] authority: The authority url for the service
+        :param pulumi.Input[bool] smart_proxy_enabled: If the SMART on FHIR proxy is enabled
+        """
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+        if smart_proxy_enabled is not None:
+            pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        The audience url for the service
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audience", value)
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authority url for the service
+        """
+        return pulumi.get(self, "authority")
+
+    @authority.setter
+    def authority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authority", value)
+
+    @property
+    @pulumi.getter(name="smartProxyEnabled")
+    def smart_proxy_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the SMART on FHIR proxy is enabled
+        """
+        return pulumi.get(self, "smart_proxy_enabled")
+
+    @smart_proxy_enabled.setter
+    def smart_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "smart_proxy_enabled", value)
+
+
+@pulumi.input_type
+class FhirServiceCorsConfigurationArgs:
+    def __init__(__self__, *,
+                 allow_credentials: Optional[pulumi.Input[bool]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age: Optional[pulumi.Input[int]] = None,
+                 methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The settings for the CORS configuration of the service instance.
+        :param pulumi.Input[bool] allow_credentials: If credentials are allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: The headers to be allowed via CORS.
+        :param pulumi.Input[int] max_age: The max age to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] methods: The methods to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: The origins to be allowed via CORS.
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+        if methods is not None:
+            pulumi.set(__self__, "methods", methods)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If credentials are allowed via CORS.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @allow_credentials.setter
+    def allow_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_credentials", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The headers to be allowed via CORS.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max age to be allowed via CORS.
+        """
+        return pulumi.get(self, "max_age")
+
+    @max_age.setter
+    def max_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_age", value)
+
+    @property
+    @pulumi.getter
+    def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The methods to be allowed via CORS.
+        """
+        return pulumi.get(self, "methods")
+
+    @methods.setter
+    def methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "methods", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The origins to be allowed via CORS.
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "origins", value)
+
+
+@pulumi.input_type
+class FhirServiceExportConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        Export operation configuration information
+        :param pulumi.Input[str] storage_account_name: The name of the default export storage account.
+        """
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the default export storage account.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
+class IotEventHubIngestionEndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 consumer_group: Optional[pulumi.Input[str]] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
+                 fully_qualified_event_hub_namespace: Optional[pulumi.Input[str]] = None):
+        """
+        Event Hub ingestion endpoint configuration
+        :param pulumi.Input[str] consumer_group: Consumer group of the event hub to connected to.
+        :param pulumi.Input[str] event_hub_name: Event Hub name to connect to.
+        :param pulumi.Input[str] fully_qualified_event_hub_namespace: Fully qualified namespace of the Event Hub to connect to.
+        """
+        if consumer_group is not None:
+            pulumi.set(__self__, "consumer_group", consumer_group)
+        if event_hub_name is not None:
+            pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if fully_qualified_event_hub_namespace is not None:
+            pulumi.set(__self__, "fully_qualified_event_hub_namespace", fully_qualified_event_hub_namespace)
+
+    @property
+    @pulumi.getter(name="consumerGroup")
+    def consumer_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Consumer group of the event hub to connected to.
+        """
+        return pulumi.get(self, "consumer_group")
+
+    @consumer_group.setter
+    def consumer_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "consumer_group", value)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Event Hub name to connect to.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedEventHubNamespace")
+    def fully_qualified_event_hub_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified namespace of the Event Hub to connect to.
+        """
+        return pulumi.get(self, "fully_qualified_event_hub_namespace")
+
+    @fully_qualified_event_hub_namespace.setter
+    def fully_qualified_event_hub_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fully_qualified_event_hub_namespace", value)
+
+
+@pulumi.input_type
+class IotMappingPropertiesArgs:
+    def __init__(__self__, *,
+                 content: Optional[Any] = None):
+        """
+        The mapping content.
+        :param Any content: The mapping.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[Any]:
+        """
+        The mapping.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[Any]):
+        pulumi.set(self, "content", value)
+
 
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
@@ -354,6 +657,30 @@ class ServiceExportConfigurationInfoArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
+class ServiceManagedIdentityIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None):
+        """
+        Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
+        """
+        Type of identity being specified, currently SystemAssigned and None are allowed.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -238,164 +238,11 @@ func (o DiskResponseArrayOutput) Index(i pulumi.IntInput) DiskResponseOutput {
 }
 
 // Specifies the hardware settings for the HANA instance.
-type HardwareProfile struct {
-	// Specifies the HANA instance SKU.
-	HanaInstanceSize *string `pulumi:"hanaInstanceSize"`
-	// Name of the hardware type (vendor and/or their product name)
-	HardwareType *string `pulumi:"hardwareType"`
-}
-
-// HardwareProfileInput is an input type that accepts HardwareProfileArgs and HardwareProfileOutput values.
-// You can construct a concrete instance of `HardwareProfileInput` via:
-//
-//          HardwareProfileArgs{...}
-type HardwareProfileInput interface {
-	pulumi.Input
-
-	ToHardwareProfileOutput() HardwareProfileOutput
-	ToHardwareProfileOutputWithContext(context.Context) HardwareProfileOutput
-}
-
-// Specifies the hardware settings for the HANA instance.
-type HardwareProfileArgs struct {
-	// Specifies the HANA instance SKU.
-	HanaInstanceSize pulumi.StringPtrInput `pulumi:"hanaInstanceSize"`
-	// Name of the hardware type (vendor and/or their product name)
-	HardwareType pulumi.StringPtrInput `pulumi:"hardwareType"`
-}
-
-func (HardwareProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HardwareProfile)(nil)).Elem()
-}
-
-func (i HardwareProfileArgs) ToHardwareProfileOutput() HardwareProfileOutput {
-	return i.ToHardwareProfileOutputWithContext(context.Background())
-}
-
-func (i HardwareProfileArgs) ToHardwareProfileOutputWithContext(ctx context.Context) HardwareProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfileOutput)
-}
-
-func (i HardwareProfileArgs) ToHardwareProfilePtrOutput() HardwareProfilePtrOutput {
-	return i.ToHardwareProfilePtrOutputWithContext(context.Background())
-}
-
-func (i HardwareProfileArgs) ToHardwareProfilePtrOutputWithContext(ctx context.Context) HardwareProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfileOutput).ToHardwareProfilePtrOutputWithContext(ctx)
-}
-
-// HardwareProfilePtrInput is an input type that accepts HardwareProfileArgs, HardwareProfilePtr and HardwareProfilePtrOutput values.
-// You can construct a concrete instance of `HardwareProfilePtrInput` via:
-//
-//          HardwareProfileArgs{...}
-//
-//  or:
-//
-//          nil
-type HardwareProfilePtrInput interface {
-	pulumi.Input
-
-	ToHardwareProfilePtrOutput() HardwareProfilePtrOutput
-	ToHardwareProfilePtrOutputWithContext(context.Context) HardwareProfilePtrOutput
-}
-
-type hardwareProfilePtrType HardwareProfileArgs
-
-func HardwareProfilePtr(v *HardwareProfileArgs) HardwareProfilePtrInput {
-	return (*hardwareProfilePtrType)(v)
-}
-
-func (*hardwareProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HardwareProfile)(nil)).Elem()
-}
-
-func (i *hardwareProfilePtrType) ToHardwareProfilePtrOutput() HardwareProfilePtrOutput {
-	return i.ToHardwareProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *hardwareProfilePtrType) ToHardwareProfilePtrOutputWithContext(ctx context.Context) HardwareProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HardwareProfilePtrOutput)
-}
-
-// Specifies the hardware settings for the HANA instance.
-type HardwareProfileOutput struct{ *pulumi.OutputState }
-
-func (HardwareProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HardwareProfile)(nil)).Elem()
-}
-
-func (o HardwareProfileOutput) ToHardwareProfileOutput() HardwareProfileOutput {
-	return o
-}
-
-func (o HardwareProfileOutput) ToHardwareProfileOutputWithContext(ctx context.Context) HardwareProfileOutput {
-	return o
-}
-
-func (o HardwareProfileOutput) ToHardwareProfilePtrOutput() HardwareProfilePtrOutput {
-	return o.ToHardwareProfilePtrOutputWithContext(context.Background())
-}
-
-func (o HardwareProfileOutput) ToHardwareProfilePtrOutputWithContext(ctx context.Context) HardwareProfilePtrOutput {
-	return o.ApplyT(func(v HardwareProfile) *HardwareProfile {
-		return &v
-	}).(HardwareProfilePtrOutput)
-}
-
-// Specifies the HANA instance SKU.
-func (o HardwareProfileOutput) HanaInstanceSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HardwareProfile) *string { return v.HanaInstanceSize }).(pulumi.StringPtrOutput)
-}
-
-// Name of the hardware type (vendor and/or their product name)
-func (o HardwareProfileOutput) HardwareType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HardwareProfile) *string { return v.HardwareType }).(pulumi.StringPtrOutput)
-}
-
-type HardwareProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (HardwareProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HardwareProfile)(nil)).Elem()
-}
-
-func (o HardwareProfilePtrOutput) ToHardwareProfilePtrOutput() HardwareProfilePtrOutput {
-	return o
-}
-
-func (o HardwareProfilePtrOutput) ToHardwareProfilePtrOutputWithContext(ctx context.Context) HardwareProfilePtrOutput {
-	return o
-}
-
-func (o HardwareProfilePtrOutput) Elem() HardwareProfileOutput {
-	return o.ApplyT(func(v *HardwareProfile) HardwareProfile { return *v }).(HardwareProfileOutput)
-}
-
-// Specifies the HANA instance SKU.
-func (o HardwareProfilePtrOutput) HanaInstanceSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HardwareProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HanaInstanceSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the hardware type (vendor and/or their product name)
-func (o HardwareProfilePtrOutput) HardwareType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HardwareProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HardwareType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the hardware settings for the HANA instance.
 type HardwareProfileResponse struct {
 	// Specifies the HANA instance SKU.
-	HanaInstanceSize *string `pulumi:"hanaInstanceSize"`
+	HanaInstanceSize string `pulumi:"hanaInstanceSize"`
 	// Name of the hardware type (vendor and/or their product name)
-	HardwareType *string `pulumi:"hardwareType"`
+	HardwareType string `pulumi:"hardwareType"`
 }
 
 // HardwareProfileResponseInput is an input type that accepts HardwareProfileResponseArgs and HardwareProfileResponseOutput values.
@@ -412,9 +259,9 @@ type HardwareProfileResponseInput interface {
 // Specifies the hardware settings for the HANA instance.
 type HardwareProfileResponseArgs struct {
 	// Specifies the HANA instance SKU.
-	HanaInstanceSize pulumi.StringPtrInput `pulumi:"hanaInstanceSize"`
+	HanaInstanceSize pulumi.StringInput `pulumi:"hanaInstanceSize"`
 	// Name of the hardware type (vendor and/or their product name)
-	HardwareType pulumi.StringPtrInput `pulumi:"hardwareType"`
+	HardwareType pulumi.StringInput `pulumi:"hardwareType"`
 }
 
 func (HardwareProfileResponseArgs) ElementType() reflect.Type {
@@ -496,13 +343,13 @@ func (o HardwareProfileResponseOutput) ToHardwareProfileResponsePtrOutputWithCon
 }
 
 // Specifies the HANA instance SKU.
-func (o HardwareProfileResponseOutput) HanaInstanceSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HardwareProfileResponse) *string { return v.HanaInstanceSize }).(pulumi.StringPtrOutput)
+func (o HardwareProfileResponseOutput) HanaInstanceSize() pulumi.StringOutput {
+	return o.ApplyT(func(v HardwareProfileResponse) string { return v.HanaInstanceSize }).(pulumi.StringOutput)
 }
 
 // Name of the hardware type (vendor and/or their product name)
-func (o HardwareProfileResponseOutput) HardwareType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HardwareProfileResponse) *string { return v.HardwareType }).(pulumi.StringPtrOutput)
+func (o HardwareProfileResponseOutput) HardwareType() pulumi.StringOutput {
+	return o.ApplyT(func(v HardwareProfileResponse) string { return v.HardwareType }).(pulumi.StringOutput)
 }
 
 type HardwareProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -529,7 +376,7 @@ func (o HardwareProfileResponsePtrOutput) HanaInstanceSize() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return v.HanaInstanceSize
+		return &v.HanaInstanceSize
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -539,7 +386,7 @@ func (o HardwareProfileResponsePtrOutput) HardwareType() pulumi.StringPtrOutput 
 		if v == nil {
 			return nil
 		}
-		return v.HardwareType
+		return &v.HardwareType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -745,8 +592,6 @@ func (o IpAddressResponseArrayOutput) Index(i pulumi.IntInput) IpAddressResponse
 
 // Specifies the network settings for the HANA instance disks.
 type NetworkProfile struct {
-	// Specifies the circuit id for connecting to express route.
-	CircuitId *string `pulumi:"circuitId"`
 	// Specifies the network interfaces for the HANA instance.
 	NetworkInterfaces []IpAddress `pulumi:"networkInterfaces"`
 }
@@ -764,8 +609,6 @@ type NetworkProfileInput interface {
 
 // Specifies the network settings for the HANA instance disks.
 type NetworkProfileArgs struct {
-	// Specifies the circuit id for connecting to express route.
-	CircuitId pulumi.StringPtrInput `pulumi:"circuitId"`
 	// Specifies the network interfaces for the HANA instance.
 	NetworkInterfaces IpAddressArrayInput `pulumi:"networkInterfaces"`
 }
@@ -848,11 +691,6 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.C
 	}).(NetworkProfilePtrOutput)
 }
 
-// Specifies the circuit id for connecting to express route.
-func (o NetworkProfileOutput) CircuitId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkProfile) *string { return v.CircuitId }).(pulumi.StringPtrOutput)
-}
-
 // Specifies the network interfaces for the HANA instance.
 func (o NetworkProfileOutput) NetworkInterfaces() IpAddressArrayOutput {
 	return o.ApplyT(func(v NetworkProfile) []IpAddress { return v.NetworkInterfaces }).(IpAddressArrayOutput)
@@ -876,16 +714,6 @@ func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
 	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
 }
 
-// Specifies the circuit id for connecting to express route.
-func (o NetworkProfilePtrOutput) CircuitId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CircuitId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies the network interfaces for the HANA instance.
 func (o NetworkProfilePtrOutput) NetworkInterfaces() IpAddressArrayOutput {
 	return o.ApplyT(func(v *NetworkProfile) []IpAddress {
@@ -899,7 +727,7 @@ func (o NetworkProfilePtrOutput) NetworkInterfaces() IpAddressArrayOutput {
 // Specifies the network settings for the HANA instance disks.
 type NetworkProfileResponse struct {
 	// Specifies the circuit id for connecting to express route.
-	CircuitId *string `pulumi:"circuitId"`
+	CircuitId string `pulumi:"circuitId"`
 	// Specifies the network interfaces for the HANA instance.
 	NetworkInterfaces []IpAddressResponse `pulumi:"networkInterfaces"`
 }
@@ -918,7 +746,7 @@ type NetworkProfileResponseInput interface {
 // Specifies the network settings for the HANA instance disks.
 type NetworkProfileResponseArgs struct {
 	// Specifies the circuit id for connecting to express route.
-	CircuitId pulumi.StringPtrInput `pulumi:"circuitId"`
+	CircuitId pulumi.StringInput `pulumi:"circuitId"`
 	// Specifies the network interfaces for the HANA instance.
 	NetworkInterfaces IpAddressResponseArrayInput `pulumi:"networkInterfaces"`
 }
@@ -1002,8 +830,8 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithConte
 }
 
 // Specifies the circuit id for connecting to express route.
-func (o NetworkProfileResponseOutput) CircuitId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.CircuitId }).(pulumi.StringPtrOutput)
+func (o NetworkProfileResponseOutput) CircuitId() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkProfileResponse) string { return v.CircuitId }).(pulumi.StringOutput)
 }
 
 // Specifies the network interfaces for the HANA instance.
@@ -1035,7 +863,7 @@ func (o NetworkProfileResponsePtrOutput) CircuitId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.CircuitId
+		return &v.CircuitId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1053,12 +881,8 @@ func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() IpAddressResponseAr
 type OSProfile struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName *string `pulumi:"computerName"`
-	// This property allows you to specify the type of the OS.
-	OsType *string `pulumi:"osType"`
 	// Specifies the SSH public key used to access the operating system.
 	SshPublicKey *string `pulumi:"sshPublicKey"`
-	// Specifies version of operating system.
-	Version *string `pulumi:"version"`
 }
 
 // OSProfileInput is an input type that accepts OSProfileArgs and OSProfileOutput values.
@@ -1076,12 +900,8 @@ type OSProfileInput interface {
 type OSProfileArgs struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
-	// This property allows you to specify the type of the OS.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
 	// Specifies the SSH public key used to access the operating system.
 	SshPublicKey pulumi.StringPtrInput `pulumi:"sshPublicKey"`
-	// Specifies version of operating system.
-	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (OSProfileArgs) ElementType() reflect.Type {
@@ -1167,19 +987,9 @@ func (o OSProfileOutput) ComputerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSProfile) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
 }
 
-// This property allows you to specify the type of the OS.
-func (o OSProfileOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OSProfile) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
 // Specifies the SSH public key used to access the operating system.
 func (o OSProfileOutput) SshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OSProfile) *string { return v.SshPublicKey }).(pulumi.StringPtrOutput)
-}
-
-// Specifies version of operating system.
-func (o OSProfileOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OSProfile) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 type OSProfilePtrOutput struct{ *pulumi.OutputState }
@@ -1210,16 +1020,6 @@ func (o OSProfilePtrOutput) ComputerName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This property allows you to specify the type of the OS.
-func (o OSProfilePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OSProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies the SSH public key used to access the operating system.
 func (o OSProfilePtrOutput) SshPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OSProfile) *string {
@@ -1230,26 +1030,16 @@ func (o OSProfilePtrOutput) SshPublicKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies version of operating system.
-func (o OSProfilePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OSProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies the operating system settings for the HANA instance.
 type OSProfileResponse struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName *string `pulumi:"computerName"`
 	// This property allows you to specify the type of the OS.
-	OsType *string `pulumi:"osType"`
+	OsType string `pulumi:"osType"`
 	// Specifies the SSH public key used to access the operating system.
 	SshPublicKey *string `pulumi:"sshPublicKey"`
 	// Specifies version of operating system.
-	Version *string `pulumi:"version"`
+	Version string `pulumi:"version"`
 }
 
 // OSProfileResponseInput is an input type that accepts OSProfileResponseArgs and OSProfileResponseOutput values.
@@ -1268,11 +1058,11 @@ type OSProfileResponseArgs struct {
 	// Specifies the host OS name of the HANA instance.
 	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
 	// This property allows you to specify the type of the OS.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
+	OsType pulumi.StringInput `pulumi:"osType"`
 	// Specifies the SSH public key used to access the operating system.
 	SshPublicKey pulumi.StringPtrInput `pulumi:"sshPublicKey"`
 	// Specifies version of operating system.
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (OSProfileResponseArgs) ElementType() reflect.Type {
@@ -1359,8 +1149,8 @@ func (o OSProfileResponseOutput) ComputerName() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS.
-func (o OSProfileResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OSProfileResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+func (o OSProfileResponseOutput) OsType() pulumi.StringOutput {
+	return o.ApplyT(func(v OSProfileResponse) string { return v.OsType }).(pulumi.StringOutput)
 }
 
 // Specifies the SSH public key used to access the operating system.
@@ -1369,8 +1159,8 @@ func (o OSProfileResponseOutput) SshPublicKey() pulumi.StringPtrOutput {
 }
 
 // Specifies version of operating system.
-func (o OSProfileResponseOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OSProfileResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+func (o OSProfileResponseOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v OSProfileResponse) string { return v.Version }).(pulumi.StringOutput)
 }
 
 type OSProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1407,7 +1197,7 @@ func (o OSProfileResponsePtrOutput) OsType() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.OsType
+		return &v.OsType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1427,7 +1217,7 @@ func (o OSProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Version
+		return &v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1435,8 +1225,6 @@ func (o OSProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 type SAPSystemID struct {
 	// Group ID of the HANA database user.
 	Gid *string `pulumi:"gid"`
-	// Percent of memory to allocate to this SID.
-	MemoryAllocation *string `pulumi:"memoryAllocation"`
 	// SAP system ID as database identifier.
 	Sid *string `pulumi:"sid"`
 	// User ID of the HANA database user.
@@ -1460,8 +1248,6 @@ type SAPSystemIDInput interface {
 type SAPSystemIDArgs struct {
 	// Group ID of the HANA database user.
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
-	// Percent of memory to allocate to this SID.
-	MemoryAllocation pulumi.StringPtrInput `pulumi:"memoryAllocation"`
 	// SAP system ID as database identifier.
 	Sid pulumi.StringPtrInput `pulumi:"sid"`
 	// User ID of the HANA database user.
@@ -1527,11 +1313,6 @@ func (o SAPSystemIDOutput) Gid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SAPSystemID) *string { return v.Gid }).(pulumi.StringPtrOutput)
 }
 
-// Percent of memory to allocate to this SID.
-func (o SAPSystemIDOutput) MemoryAllocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SAPSystemID) *string { return v.MemoryAllocation }).(pulumi.StringPtrOutput)
-}
-
 // SAP system ID as database identifier.
 func (o SAPSystemIDOutput) Sid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SAPSystemID) *string { return v.Sid }).(pulumi.StringPtrOutput)
@@ -1572,7 +1353,7 @@ type SAPSystemIDResponse struct {
 	// Group ID of the HANA database user.
 	Gid *string `pulumi:"gid"`
 	// Percent of memory to allocate to this SID.
-	MemoryAllocation *string `pulumi:"memoryAllocation"`
+	MemoryAllocation string `pulumi:"memoryAllocation"`
 	// SAP system ID as database identifier.
 	Sid *string `pulumi:"sid"`
 	// User ID of the HANA database user.
@@ -1597,7 +1378,7 @@ type SAPSystemIDResponseArgs struct {
 	// Group ID of the HANA database user.
 	Gid pulumi.StringPtrInput `pulumi:"gid"`
 	// Percent of memory to allocate to this SID.
-	MemoryAllocation pulumi.StringPtrInput `pulumi:"memoryAllocation"`
+	MemoryAllocation pulumi.StringInput `pulumi:"memoryAllocation"`
 	// SAP system ID as database identifier.
 	Sid pulumi.StringPtrInput `pulumi:"sid"`
 	// User ID of the HANA database user.
@@ -1664,8 +1445,8 @@ func (o SAPSystemIDResponseOutput) Gid() pulumi.StringPtrOutput {
 }
 
 // Percent of memory to allocate to this SID.
-func (o SAPSystemIDResponseOutput) MemoryAllocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SAPSystemIDResponse) *string { return v.MemoryAllocation }).(pulumi.StringPtrOutput)
+func (o SAPSystemIDResponseOutput) MemoryAllocation() pulumi.StringOutput {
+	return o.ApplyT(func(v SAPSystemIDResponse) string { return v.MemoryAllocation }).(pulumi.StringOutput)
 }
 
 // SAP system ID as database identifier.
@@ -1707,8 +1488,6 @@ func (o SAPSystemIDResponseArrayOutput) Index(i pulumi.IntInput) SAPSystemIDResp
 type StorageProfile struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids []SAPSystemID `pulumi:"hanaSids"`
-	// IP Address to connect to storage.
-	NfsIpAddress *string `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
 	OsDisks []Disk `pulumi:"osDisks"`
 }
@@ -1728,8 +1507,6 @@ type StorageProfileInput interface {
 type StorageProfileArgs struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids SAPSystemIDArrayInput `pulumi:"hanaSids"`
-	// IP Address to connect to storage.
-	NfsIpAddress pulumi.StringPtrInput `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
 	OsDisks DiskArrayInput `pulumi:"osDisks"`
 }
@@ -1817,11 +1594,6 @@ func (o StorageProfileOutput) HanaSids() SAPSystemIDArrayOutput {
 	return o.ApplyT(func(v StorageProfile) []SAPSystemID { return v.HanaSids }).(SAPSystemIDArrayOutput)
 }
 
-// IP Address to connect to storage.
-func (o StorageProfileOutput) NfsIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageProfile) *string { return v.NfsIpAddress }).(pulumi.StringPtrOutput)
-}
-
 // Specifies information about the operating system disk used by the hana instance.
 func (o StorageProfileOutput) OsDisks() DiskArrayOutput {
 	return o.ApplyT(func(v StorageProfile) []Disk { return v.OsDisks }).(DiskArrayOutput)
@@ -1855,16 +1627,6 @@ func (o StorageProfilePtrOutput) HanaSids() SAPSystemIDArrayOutput {
 	}).(SAPSystemIDArrayOutput)
 }
 
-// IP Address to connect to storage.
-func (o StorageProfilePtrOutput) NfsIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NfsIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
 // Specifies information about the operating system disk used by the hana instance.
 func (o StorageProfilePtrOutput) OsDisks() DiskArrayOutput {
 	return o.ApplyT(func(v *StorageProfile) []Disk {
@@ -1880,7 +1642,7 @@ type StorageProfileResponse struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids []SAPSystemIDResponse `pulumi:"hanaSids"`
 	// IP Address to connect to storage.
-	NfsIpAddress *string `pulumi:"nfsIpAddress"`
+	NfsIpAddress string `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
 	OsDisks []DiskResponse `pulumi:"osDisks"`
 }
@@ -1901,7 +1663,7 @@ type StorageProfileResponseArgs struct {
 	// Specifies information related to SAP system IDs for the hana instance.
 	HanaSids SAPSystemIDResponseArrayInput `pulumi:"hanaSids"`
 	// IP Address to connect to storage.
-	NfsIpAddress pulumi.StringPtrInput `pulumi:"nfsIpAddress"`
+	NfsIpAddress pulumi.StringInput `pulumi:"nfsIpAddress"`
 	// Specifies information about the operating system disk used by the hana instance.
 	OsDisks DiskResponseArrayInput `pulumi:"osDisks"`
 }
@@ -1990,8 +1752,8 @@ func (o StorageProfileResponseOutput) HanaSids() SAPSystemIDResponseArrayOutput 
 }
 
 // IP Address to connect to storage.
-func (o StorageProfileResponseOutput) NfsIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *string { return v.NfsIpAddress }).(pulumi.StringPtrOutput)
+func (o StorageProfileResponseOutput) NfsIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageProfileResponse) string { return v.NfsIpAddress }).(pulumi.StringOutput)
 }
 
 // Specifies information about the operating system disk used by the hana instance.
@@ -2033,7 +1795,7 @@ func (o StorageProfileResponsePtrOutput) NfsIpAddress() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.NfsIpAddress
+		return &v.NfsIpAddress
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2052,8 +1814,6 @@ func init() {
 	pulumi.RegisterOutputType(DiskArrayOutput{})
 	pulumi.RegisterOutputType(DiskResponseOutput{})
 	pulumi.RegisterOutputType(DiskResponseArrayOutput{})
-	pulumi.RegisterOutputType(HardwareProfileOutput{})
-	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(IpAddressOutput{})

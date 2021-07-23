@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<string>? DeveloperAppInsightsApplicationId { get; set; }
 
         /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// The Name of the bot
         /// </summary>
         [Input("displayName", required: true)]
@@ -98,6 +104,24 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         /// </summary>
         [Input("msaAppId", required: true)]
         public Input<string> MsaAppId { get; set; } = null!;
+
+        /// <summary>
+        /// Microsoft App Managed Identity Resource Id for the bot
+        /// </summary>
+        [Input("msaAppMSIResourceId")]
+        public Input<string>? MsaAppMSIResourceId { get; set; }
+
+        /// <summary>
+        /// Microsoft App Tenant Id for the bot
+        /// </summary>
+        [Input("msaAppTenantId")]
+        public Input<string>? MsaAppTenantId { get; set; }
+
+        /// <summary>
+        /// Microsoft App Type for the bot
+        /// </summary>
+        [Input("msaAppType")]
+        public InputUnion<string, Pulumi.AzureNative.BotService.V20210501Preview.MsaAppType>? MsaAppType { get; set; }
 
         /// <summary>
         /// The channel schema transformation version for the bot

@@ -25,8 +25,6 @@ type Server struct {
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// High availability properties of a server.
 	HighAvailability HighAvailabilityResponsePtrOutput `pulumi:"highAvailability"`
-	// The Azure Active Directory identity of the server.
-	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maintenance window properties of a server.
@@ -91,6 +89,12 @@ func NewServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601preview:Server"),
 		},
+		{
+			Type: pulumi.String("azure-native:dbforpostgresql/v20210615privatepreview:Server"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210615privatepreview:Server"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Server
@@ -125,8 +129,6 @@ type serverState struct {
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// High availability properties of a server.
 	HighAvailability *HighAvailabilityResponse `pulumi:"highAvailability"`
-	// The Azure Active Directory identity of the server.
-	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Maintenance window properties of a server.
@@ -164,8 +166,6 @@ type ServerState struct {
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// High availability properties of a server.
 	HighAvailability HighAvailabilityResponsePtrInput
-	// The Azure Active Directory identity of the server.
-	Identity IdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Maintenance window properties of a server.
@@ -209,8 +209,6 @@ type serverArgs struct {
 	CreateMode *string `pulumi:"createMode"`
 	// High availability properties of a server.
 	HighAvailability *HighAvailability `pulumi:"highAvailability"`
-	// The Azure Active Directory identity of the server.
-	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Maintenance window properties of a server.
@@ -249,8 +247,6 @@ type ServerArgs struct {
 	CreateMode pulumi.StringPtrInput
 	// High availability properties of a server.
 	HighAvailability HighAvailabilityPtrInput
-	// The Azure Active Directory identity of the server.
-	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Maintenance window properties of a server.

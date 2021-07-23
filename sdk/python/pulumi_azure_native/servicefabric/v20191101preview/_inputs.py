@@ -222,22 +222,22 @@ class ApplicationMetricDescriptionArgs:
 @pulumi.input_type
 class ApplicationTypeVersionsCleanupPolicyArgs:
     def __init__(__self__, *,
-                 max_unused_versions_to_keep: pulumi.Input[int]):
+                 max_unused_versions_to_keep: pulumi.Input[float]):
         """
-        :param pulumi.Input[int] max_unused_versions_to_keep: Number of unused versions per application type to keep.
+        :param pulumi.Input[float] max_unused_versions_to_keep: Number of unused versions per application type to keep.
         """
         pulumi.set(__self__, "max_unused_versions_to_keep", max_unused_versions_to_keep)
 
     @property
     @pulumi.getter(name="maxUnusedVersionsToKeep")
-    def max_unused_versions_to_keep(self) -> pulumi.Input[int]:
+    def max_unused_versions_to_keep(self) -> pulumi.Input[float]:
         """
         Number of unused versions per application type to keep.
         """
         return pulumi.get(self, "max_unused_versions_to_keep")
 
     @max_unused_versions_to_keep.setter
-    def max_unused_versions_to_keep(self, value: pulumi.Input[int]):
+    def max_unused_versions_to_keep(self, value: pulumi.Input[float]):
         pulumi.set(self, "max_unused_versions_to_keep", value)
 
 
@@ -246,6 +246,7 @@ class ApplicationUpgradePolicyArgs:
     def __init__(__self__, *,
                  application_health_policy: Optional[pulumi.Input['ArmApplicationHealthPolicyArgs']] = None,
                  force_restart: Optional[pulumi.Input[bool]] = None,
+                 recreate_application: Optional[pulumi.Input[bool]] = None,
                  rolling_upgrade_monitoring_policy: Optional[pulumi.Input['ArmRollingUpgradeMonitoringPolicyArgs']] = None,
                  upgrade_mode: Optional[pulumi.Input[Union[str, 'RollingUpgradeMode']]] = None,
                  upgrade_replica_set_check_timeout: Optional[pulumi.Input[str]] = None):
@@ -253,6 +254,7 @@ class ApplicationUpgradePolicyArgs:
         Describes the policy for a monitored application upgrade.
         :param pulumi.Input['ArmApplicationHealthPolicyArgs'] application_health_policy: Defines a health policy used to evaluate the health of an application or one of its children entities.
         :param pulumi.Input[bool] force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+        :param pulumi.Input[bool] recreate_application: Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
         :param pulumi.Input['ArmRollingUpgradeMonitoringPolicyArgs'] rolling_upgrade_monitoring_policy: The policy used for monitoring the application upgrade
         :param pulumi.Input[Union[str, 'RollingUpgradeMode']] upgrade_mode: The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
         :param pulumi.Input[str] upgrade_replica_set_check_timeout: The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues. When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues. The timeout is reset at the start of each upgrade domain. Valid values are between 0 and 42949672925 inclusive. (unsigned 32-bit integer).
@@ -261,6 +263,8 @@ class ApplicationUpgradePolicyArgs:
             pulumi.set(__self__, "application_health_policy", application_health_policy)
         if force_restart is not None:
             pulumi.set(__self__, "force_restart", force_restart)
+        if recreate_application is not None:
+            pulumi.set(__self__, "recreate_application", recreate_application)
         if rolling_upgrade_monitoring_policy is not None:
             pulumi.set(__self__, "rolling_upgrade_monitoring_policy", rolling_upgrade_monitoring_policy)
         if upgrade_mode is not None:
@@ -291,6 +295,18 @@ class ApplicationUpgradePolicyArgs:
     @force_restart.setter
     def force_restart(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "force_restart", value)
+
+    @property
+    @pulumi.getter(name="recreateApplication")
+    def recreate_application(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether the application should be recreated on update. If value=true, the rest of the upgrade policy parameters are not allowed and it will result in availability loss.
+        """
+        return pulumi.get(self, "recreate_application")
+
+    @recreate_application.setter
+    def recreate_application(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "recreate_application", value)
 
     @property
     @pulumi.getter(name="rollingUpgradeMonitoringPolicy")
