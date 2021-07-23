@@ -3,7 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+- Support initialization failures by checkpointing partially created resources to state
+  [938](https://github.com/pulumi/pulumi-azure-native/issues/938)
 
 ---
 

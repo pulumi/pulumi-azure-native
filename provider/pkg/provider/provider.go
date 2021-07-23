@@ -8,6 +8,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	structpb "github.com/golang/protobuf/ptypes/struct"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	"io"
 	"io/ioutil"
 	"log"
@@ -840,8 +842,17 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		defer cancel()
 
 		// Submit the `PUT` against the ARM endpoint
-		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+		response, created, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
+			if created {
+				// Resource was created but failed to fully initialize.
+				// Try reading its state by ID and return a partial error if succeeded.
+				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, res, inputs)
+				if getErr != nil {
+					return nil, azureError(errors.Wrapf(err, "resource partially created but read failed %s", getErr))
+				}
+				return nil, partialError(id, err, checkpoint, req.GetProperties())
+			}
 			return nil, azureError(err)
 		}
 
@@ -869,6 +880,26 @@ func (k *azureNativeProvider) Create(ctx context.Context, req *rpc.CreateRequest
 		Id:         id,
 		Properties: checkpoint,
 	}, nil
+}
+
+// currentResourceStateCheckpoint reads the resource state by ID, converts it to outputs map, and
+// produces a checkpoint with these outputs and given inputs.
+func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context, id string, res resources.AzureAPIResource, inputs resource.PropertyMap) (*structpb.Struct, error) {
+	getResp, getErr := k.azureGet(ctx, id, res.APIVersion)
+	if getErr != nil {
+		return nil, getErr
+	}
+	outputs := k.converter.BodyPropertiesToSDK(res.Response, getResp)
+	obj := checkpointObject(inputs, outputs)
+	return plugin.MarshalProperties(
+		obj,
+		plugin.MarshalOptions{
+			Label: "currentResourceStateCheckpoint.checkpoint",
+			KeepSecrets: true,
+			KeepUnknowns: true,
+			SkipNulls: true,
+		},
+	)
 }
 
 // Read the current live state associated with a resource.
@@ -1059,8 +1090,17 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azureError(err)
 		}
 	default:
-		response, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+		response, updated, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
+			if updated {
+				// Resource was partially updated but the operation failed to complete.
+				// Try reading its state by ID and return a partial error if succeeded.
+				checkpoint, getErr := k.currentResourceStateCheckpoint(ctx, id, res, inputs)
+				if getErr != nil {
+					return nil, azureError(errors.Wrapf(err, "resource updated but read failed %s", getErr))
+				}
+				return nil, partialError(id, err, checkpoint, req.GetNews())
+			}
 			return nil, azureError(err)
 		}
 
@@ -1126,7 +1166,7 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 				requestBody := k.converter.SdkPropertiesToRequestBody(param.Body.Properties, res.DefaultBody)
 
 				queryParams := map[string]interface{}{"api-version": res.APIVersion}
-				_, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
+				_, _, err := k.azureCreateOrUpdate(ctx, id, requestBody, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 				if err != nil {
 					return nil, azureError(err)
 				}
@@ -1169,7 +1209,7 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	bodyProps map[string]interface{},
 	queryParameters map[string]interface{},
 	updateMethod string,
-	asyncStyle string) (map[string]interface{}, error) {
+	asyncStyle string) (map[string]interface{}, bool, error) {
 
 	var op autorest.PrepareDecorator
 	switch updateMethod {
@@ -1191,7 +1231,7 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	}
 	prepReq, err := autorest.Prepare((&http.Request{}).WithContext(ctx), decorators...)
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 	var resp *http.Response
 	resp, err = autorest.SendWithSender(
@@ -1200,7 +1240,7 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 		azure.DoRetryWithRegistration(k.client),
 	)
 	if err != nil {
-		return nil, err
+		return nil, false, err
 	}
 
 	// Some APIs are explicitly marked `x-ms-long-running-operation` and we are only supposed to do the
@@ -1208,18 +1248,23 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
 	// its API as long-running by an oversight.
 	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
+		// We have now created a resource. It is very important to ensure that from this point on,
+		// any other error below returns the ID using the `pulumirpc.ErrorResourceInitFailed` error
+		// details annotation. Otherwise, the resource is leaked. We ensure that we wrap any await
+		// errors as a partial error to the RPC.
+
 		// Ignore the style value for now, let go-autorest handle the headers.
 		future, err := azure.NewFutureFromResponse(resp)
 		if err != nil {
-			return nil, err
+			return nil, true, err
 		}
 		err = future.WaitForCompletionRef(ctx, k.client)
 		if err != nil {
-			return nil, err
+			return nil, true, err
 		}
 		resp, err = future.GetResult(k.client)
 		if err != nil {
-			return nil, err
+			return nil, true, err
 		}
 	}
 
@@ -1231,9 +1276,9 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
-		return nil, err
+		return nil, true, err
 	}
-	return outputs, nil
+	return outputs, true, nil
 }
 
 func (k *azureNativeProvider) azureDelete(ctx context.Context, id string, apiVersion string, asyncStyle string) error {
@@ -1697,6 +1742,18 @@ func azureError(err error) error {
 		return errors.New("operation timed out")
 	}
 	return err
+}
+
+// partialError creates an error for resources that did not complete an operation in progress.
+// The last known state of the object is included in the error so that it can be checkpointed.
+func partialError(id string, err error, state *structpb.Struct, inputs *structpb.Struct) error {
+	detail := rpc.ErrorResourceInitFailed{
+		Id:         id,
+		Properties: state,
+		Reasons:    []string{err.Error()},
+		Inputs:     inputs,
+	}
+	return rpcerror.WithDetails(rpcerror.New(codes.Unknown, err.Error()), &detail)
 }
 
 // withInspection is a copy of autorest's LoggingInspector.WithInspector. It uses our glog wrapper
