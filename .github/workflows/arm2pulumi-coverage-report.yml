@@ -38,7 +38,7 @@ jobs:
       - name: Cleanup SDK folder
         run: make clean
       - name: Update submodules
-        run: make update_submodules
+        run: make init_submodules
       - name: Build codegen binaries
         run: make codegen
       - name: Build Schema + SDKs
