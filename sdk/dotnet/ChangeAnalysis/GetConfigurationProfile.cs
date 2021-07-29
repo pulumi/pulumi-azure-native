@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
+        /// The location where the resource is to be deployed.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNative.ChangeAnalysis
 
             Outputs.ResourceIdentityResponse? identity,
 
+            string? location,
+
             string name,
 
             Outputs.ConfigurationProfileResourcePropertiesResponse properties,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         {
             Id = id;
             Identity = identity;
+            Location = location;
             Name = name;
             Properties = properties;
             SystemData = systemData;

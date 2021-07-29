@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class SapOpenHubSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("additionalColumns")]
-        private InputList<Inputs.AdditionalColumnsArgs>? _additionalColumns;
-
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public InputList<Inputs.AdditionalColumnsArgs> AdditionalColumns
-        {
-            get => _additionalColumns ?? (_additionalColumns = new InputList<Inputs.AdditionalColumnsArgs>());
-            set => _additionalColumns = value;
-        }
+        [Input("additionalColumns")]
+        public Input<object>? AdditionalColumns { get; set; }
 
         /// <summary>
         /// The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).

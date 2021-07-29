@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? SqlWriterTableType;
         /// <summary>
+        /// Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? SqlWriterUseTableLock;
+        /// <summary>
         /// SQL stored procedure parameters.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? StoredProcedureParameters;
@@ -59,6 +63,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// SQL upsert settings.
+        /// </summary>
+        public readonly Outputs.SqlUpsertSettingsResponse? UpsertSettings;
+        /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
         public readonly object? WriteBatchSize;
@@ -66,6 +74,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? WriteBatchTimeout;
+        /// <summary>
+        /// White behavior when copying data into azure SQL MI. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        /// </summary>
+        public readonly object? WriteBehavior;
 
         [OutputConstructor]
         private SqlMISinkResponse(
@@ -83,6 +95,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? sqlWriterTableType,
 
+            object? sqlWriterUseTableLock,
+
             ImmutableDictionary<string, Outputs.StoredProcedureParameterResponse>? storedProcedureParameters,
 
             object? storedProcedureTableTypeParameterName,
@@ -91,9 +105,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
+            Outputs.SqlUpsertSettingsResponse? upsertSettings,
+
             object? writeBatchSize,
 
-            object? writeBatchTimeout)
+            object? writeBatchTimeout,
+
+            object? writeBehavior)
         {
             DisableMetricsCollection = disableMetricsCollection;
             MaxConcurrentConnections = maxConcurrentConnections;
@@ -102,12 +120,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             SinkRetryWait = sinkRetryWait;
             SqlWriterStoredProcedureName = sqlWriterStoredProcedureName;
             SqlWriterTableType = sqlWriterTableType;
+            SqlWriterUseTableLock = sqlWriterUseTableLock;
             StoredProcedureParameters = storedProcedureParameters;
             StoredProcedureTableTypeParameterName = storedProcedureTableTypeParameterName;
             TableOption = tableOption;
             Type = type;
+            UpsertSettings = upsertSettings;
             WriteBatchSize = writeBatchSize;
             WriteBatchTimeout = writeBatchTimeout;
+            WriteBehavior = writeBehavior;
         }
     }
 }

@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.Insights.V20200202
         /// <summary>
         /// Retention period in days.
         /// </summary>
-        public readonly int RetentionInDays;
+        public readonly int? RetentionInDays;
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         /// </summary>
@@ -219,7 +219,7 @@ namespace Pulumi.AzureNative.Insights.V20200202
 
             string? requestSource,
 
-            int retentionInDays,
+            int? retentionInDays,
 
             double? samplingPercentage,
 

@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.Compute.V20210401
         public Output<Outputs.VirtualMachineScaleSetVMProfileResponse?> VirtualMachineProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
@@ -377,7 +377,7 @@ namespace Pulumi.AzureNative.Compute.V20210401
         public Input<string>? VmScaleSetName { get; set; }
 
         /// <summary>
-        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
         /// </summary>
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }

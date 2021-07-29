@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class SapTableSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("additionalColumns")]
-        private InputList<Inputs.AdditionalColumnsArgs>? _additionalColumns;
-
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public InputList<Inputs.AdditionalColumnsArgs> AdditionalColumns
-        {
-            get => _additionalColumns ?? (_additionalColumns = new InputList<Inputs.AdditionalColumnsArgs>());
-            set => _additionalColumns = value;
-        }
+        [Input("additionalColumns")]
+        public Input<object>? AdditionalColumns { get; set; }
 
         /// <summary>
         /// Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).

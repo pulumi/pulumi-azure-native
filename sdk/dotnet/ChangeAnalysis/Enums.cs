@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.ChangeAnalysis
 {
     /// <summary>
+    /// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChangeDetailsMode : IEquatable<ChangeDetailsMode>
+    {
+        private readonly string _value;
+
+        private ChangeDetailsMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChangeDetailsMode None { get; } = new ChangeDetailsMode("None");
+        public static ChangeDetailsMode Include { get; } = new ChangeDetailsMode("Include");
+        public static ChangeDetailsMode Exclude { get; } = new ChangeDetailsMode("Exclude");
+
+        public static bool operator ==(ChangeDetailsMode left, ChangeDetailsMode right) => left.Equals(right);
+        public static bool operator !=(ChangeDetailsMode left, ChangeDetailsMode right) => !left.Equals(right);
+
+        public static explicit operator string(ChangeDetailsMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChangeDetailsMode other && Equals(other);
+        public bool Equals(ChangeDetailsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
     /// </summary>
     [EnumType]

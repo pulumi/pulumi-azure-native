@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20210601.Outputs
     public sealed class CapacityReservationPropertiesResponse
     {
         /// <summary>
-        /// The capacity reservation level for this cluster
+        /// The capacity reservation level for this cluster in GB
         /// </summary>
         public readonly int CapacityReservationLevel;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// EventGrid Partner Namespace.
-        /// API Version: 2020-04-01-preview.
+        /// API Version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetPartnerNamespaceResult> InvokeAsync(GetPartnerNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPartnerNamespaceResult>("azure-native:eventgrid:getPartnerNamespace", args ?? new GetPartnerNamespaceArgs(), options.WithVersion());
@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetPartnerNamespaceResult
     {
         /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// Endpoint for the partner namespace.
         /// </summary>
         public readonly string Endpoint;
@@ -51,6 +55,10 @@ namespace Pulumi.AzureNative.EventGrid
         /// Fully qualified identifier of the resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundIpRuleResponse> InboundIpRules;
         /// <summary>
         /// Location of the resource.
         /// </summary>
@@ -64,10 +72,16 @@ namespace Pulumi.AzureNative.EventGrid
         /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
         /// </summary>
         public readonly string? PartnerRegistrationFullyQualifiedId;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the partner namespace.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" /&gt;
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The system metadata relating to Partner Namespace resource.
         /// </summary>
@@ -83,9 +97,13 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetPartnerNamespaceResult(
+            bool? disableLocalAuth,
+
             string endpoint,
 
             string id,
+
+            ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
 
             string location,
 
@@ -93,7 +111,11 @@ namespace Pulumi.AzureNative.EventGrid
 
             string? partnerRegistrationFullyQualifiedId,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SystemDataResponse systemData,
 
@@ -101,12 +123,16 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            DisableLocalAuth = disableLocalAuth;
             Endpoint = endpoint;
             Id = id;
+            InboundIpRules = inboundIpRules;
             Location = location;
             Name = name;
             PartnerRegistrationFullyQualifiedId = partnerRegistrationFullyQualifiedId;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             Tags = tags;
             Type = type;

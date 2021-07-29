@@ -13,6 +13,28 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// <summary>
     /// Client secret information for factory's bring your own app repository configuration.
     /// </summary>
+    public sealed class GitHubClientSecretArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Bring your own app client secret AKV URL.
+        /// </summary>
+        [Input("byoaSecretAkvUrl")]
+        public Input<string>? ByoaSecretAkvUrl { get; set; }
+
+        /// <summary>
+        /// Bring your own app client secret name in AKV.
+        /// </summary>
+        [Input("byoaSecretName")]
+        public Input<string>? ByoaSecretName { get; set; }
+
+        public GitHubClientSecretArgs()
+        {
+        }
+    }
+
+    /// <summary>
+    /// Client secret information for factory's bring your own app repository configuration.
+    /// </summary>
     public sealed class GitHubClientSecret : Pulumi.InvokeArgs
     {
         /// <summary>

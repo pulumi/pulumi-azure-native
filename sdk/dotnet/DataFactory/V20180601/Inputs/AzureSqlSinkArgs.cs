@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         [Input("sqlWriterTableType")]
         public Input<object>? SqlWriterTableType { get; set; }
 
+        /// <summary>
+        /// Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("sqlWriterUseTableLock")]
+        public Input<object>? SqlWriterUseTableLock { get; set; }
+
         [Input("storedProcedureParameters")]
         private InputMap<Inputs.StoredProcedureParameterArgs>? _storedProcedureParameters;
 
@@ -89,6 +95,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// SQL upsert settings.
+        /// </summary>
+        [Input("upsertSettings")]
+        public Input<Inputs.SqlUpsertSettingsArgs>? UpsertSettings { get; set; }
+
+        /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
         [Input("writeBatchSize")]
@@ -99,6 +111,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("writeBatchTimeout")]
         public Input<object>? WriteBatchTimeout { get; set; }
+
+        /// <summary>
+        /// Write behavior when copying data into Azure SQL. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        /// </summary>
+        [Input("writeBehavior")]
+        public Input<object>? WriteBehavior { get; set; }
 
         public AzureSqlSinkArgs()
         {

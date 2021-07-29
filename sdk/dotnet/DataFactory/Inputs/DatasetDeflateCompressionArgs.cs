@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? Level { get; set; }
 
         /// <summary>
-        /// Type of dataset compression.
+        /// Type of dataset compression. Type: string (or Expression with resultType string).
         /// Expected value is 'Deflate'.
         /// </summary>
         [Input("type", required: true)]

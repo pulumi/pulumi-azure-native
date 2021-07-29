@@ -163,7 +163,7 @@ namespace Pulumi.AzureNative.Insights.V20200202
         /// Retention period in days.
         /// </summary>
         [Output("retentionInDays")]
-        public Output<int> RetentionInDays { get; private set; } = null!;
+        public Output<int?> RetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
@@ -347,6 +347,12 @@ namespace Pulumi.AzureNative.Insights.V20200202
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
+
+        /// <summary>
+        /// Retention period in days.
+        /// </summary>
+        [Input("retentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
 
         /// <summary>
         /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.

@@ -91,6 +91,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20170228Preview
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:ReferenceDataSet"},
                     new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"},
+                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210630preview:ReferenceDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class CassandraSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("additionalColumns")]
-        private InputList<Inputs.AdditionalColumnsArgs>? _additionalColumns;
-
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public InputList<Inputs.AdditionalColumnsArgs> AdditionalColumns
-        {
-            get => _additionalColumns ?? (_additionalColumns = new InputList<Inputs.AdditionalColumnsArgs>());
-            set => _additionalColumns = value;
-        }
+        [Input("additionalColumns")]
+        public Input<object>? AdditionalColumns { get; set; }
 
         /// <summary>
         /// The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.

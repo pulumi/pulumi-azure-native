@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? SinkRetryWait { get; set; }
 
         /// <summary>
+        /// Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("sqlWriterUseTableLock")]
+        public Input<object>? SqlWriterUseTableLock { get; set; }
+
+        /// <summary>
         /// The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("tableOption")]
@@ -83,6 +89,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// SQL DW upsert settings.
+        /// </summary>
+        [Input("upsertSettings")]
+        public Input<Inputs.SqlDWUpsertSettingsArgs>? UpsertSettings { get; set; }
+
+        /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
         [Input("writeBatchSize")]
@@ -93,6 +105,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("writeBatchTimeout")]
         public Input<object>? WriteBatchTimeout { get; set; }
+
+        /// <summary>
+        /// Write behavior when copying data into azure SQL DW. Type: SqlDWWriteBehaviorEnum (or Expression with resultType SqlDWWriteBehaviorEnum)
+        /// </summary>
+        [Input("writeBehavior")]
+        public Input<object>? WriteBehavior { get; set; }
 
         public SqlDWSinkArgs()
         {

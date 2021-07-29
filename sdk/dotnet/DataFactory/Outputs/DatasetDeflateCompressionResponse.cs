@@ -18,7 +18,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Level;
         /// <summary>
-        /// Type of dataset compression.
+        /// Type of dataset compression. Type: string (or Expression with resultType string).
         /// Expected value is 'Deflate'.
         /// </summary>
         public readonly string Type;

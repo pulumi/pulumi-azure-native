@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SapEccSourceResponse
     {
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
+        public readonly object? AdditionalColumns;
         /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SapEccSourceResponse(
-            ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
+            object? additionalColumns,
 
             object? disableMetricsCollection,
 

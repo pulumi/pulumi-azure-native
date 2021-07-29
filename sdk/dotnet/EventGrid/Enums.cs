@@ -178,6 +178,39 @@ namespace Pulumi.AzureNative.EventGrid
     }
 
     /// <summary>
+    /// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType None { get; } = new IdentityType("None");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned, UserAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This determines the format that Event Grid should expect for incoming events published to the topic.
     /// </summary>
     [EnumType]

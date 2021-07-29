@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class SapOpenHubSourceResponse
     {
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
+        public readonly object? AdditionalColumns;
         /// <summary>
         /// The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         /// </summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private SapOpenHubSourceResponse(
-            ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
+            object? additionalColumns,
 
             object? baseRequestId,
 

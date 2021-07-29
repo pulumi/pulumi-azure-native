@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class DatasetTarCompressionResponse
     {
         /// <summary>
-        /// Type of dataset compression.
+        /// Type of dataset compression. Type: string (or Expression with resultType string).
         /// Expected value is 'Tar'.
         /// </summary>
         public readonly string Type;
