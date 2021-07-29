@@ -140,7 +140,7 @@ export interface GetComponentResult {
     /**
      * Retention period in days.
      */
-    readonly retentionInDays: number;
+    readonly retentionInDays?: number;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */

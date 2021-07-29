@@ -13,9 +13,11 @@ export * from "../types/enums/confidentialledger";
 
 // Export sub-modules:
 import * as v20201201preview from "./v20201201preview";
+import * as v20210513preview from "./v20210513preview";
 
 export {
     v20201201preview,
+    v20210513preview,
 };
 
 // Import resources to register:

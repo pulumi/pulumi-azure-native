@@ -128,7 +128,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.v20210401.VirtualMachineScaleSetVMProfileResponse | undefined>;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface VirtualMachineScaleSetArgs {
      */
     vmScaleSetName?: pulumi.Input<string>;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     zoneBalance?: pulumi.Input<boolean>;
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid System Topic.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-06-01-preview.
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
     if (!opts) {
@@ -42,6 +42,10 @@ export interface GetSystemTopicResult {
      * Fully qualified identifier of the resource.
      */
     readonly id: string;
+    /**
+     * Identity information for the resource.
+     */
+    readonly identity?: outputs.eventgrid.IdentityInfoResponse;
     /**
      * Location of the resource.
      */

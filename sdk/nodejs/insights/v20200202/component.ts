@@ -134,7 +134,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Retention period in days.
      */
-    public /*out*/ readonly retentionInDays!: pulumi.Output<number>;
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
@@ -192,6 +192,7 @@ export class Component extends pulumi.CustomResource {
             inputs["requestSource"] = (args ? args.requestSource : undefined) ?? "rest";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
@@ -205,7 +206,6 @@ export class Component extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["retentionInDays"] = undefined /*out*/;
             inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
@@ -317,6 +317,10 @@ export interface ComponentArgs {
      * The name of the Application Insights component resource.
      */
     resourceName?: pulumi.Input<string>;
+    /**
+     * Retention period in days.
+     */
+    retentionInDays?: pulumi.Input<number>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */

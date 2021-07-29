@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Shared access keys of the partner namespace.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-06-01-preview.
  */
 export function listPartnerNamespaceSharedAccessKeys(args: ListPartnerNamespaceSharedAccessKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListPartnerNamespaceSharedAccessKeysResult> {
     if (!opts) {

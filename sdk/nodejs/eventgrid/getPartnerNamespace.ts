@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Partner Namespace.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-06-01-preview.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
     if (!opts) {
@@ -39,6 +39,10 @@ export interface GetPartnerNamespaceArgs {
  */
 export interface GetPartnerNamespaceResult {
     /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
      * Endpoint for the partner namespace.
      */
     readonly endpoint: string;
@@ -46,6 +50,10 @@ export interface GetPartnerNamespaceResult {
      * Fully qualified identifier of the resource.
      */
     readonly id: string;
+    /**
+     * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+     */
+    readonly inboundIpRules?: outputs.eventgrid.InboundIpRuleResponse[];
     /**
      * Location of the resource.
      */
@@ -59,10 +67,16 @@ export interface GetPartnerNamespaceResult {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     readonly partnerRegistrationFullyQualifiedId?: string;
+    readonly privateEndpointConnections: outputs.eventgrid.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the partner namespace.
      */
     readonly provisioningState: string;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * The system metadata relating to Partner Namespace resource.
      */

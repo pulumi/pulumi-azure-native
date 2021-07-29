@@ -8,6 +8,17 @@ export {
     v20200401preview,
 };
 
+export const ChangeDetailsMode = {
+    None: "None",
+    Include: "Include",
+    Exclude: "Exclude",
+} as const;
+
+/**
+ * The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+ */
+export type ChangeDetailsMode = (typeof ChangeDetailsMode)[keyof typeof ChangeDetailsMode];
+
 export const ManagedIdentityTypes = {
     None: "None",
     SystemAssigned: "SystemAssigned",

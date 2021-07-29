@@ -41,6 +41,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.changeanalysis.ResourceIdentityResponse | undefined>;
     /**
+     * The location where the resource is to be deployed.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -69,6 +73,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["name"] = undefined /*out*/;
@@ -76,6 +81,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["identity"] = undefined /*out*/;
+            inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -98,6 +104,10 @@ export interface ConfigurationProfileArgs {
      * The identity block returned by ARM resource that supports managed identity.
      */
     identity?: pulumi.Input<inputs.changeanalysis.ResourceIdentityArgs>;
+    /**
+     * The location where the resource is to be deployed.
+     */
+    location?: pulumi.Input<string>;
     /**
      * The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
      */
