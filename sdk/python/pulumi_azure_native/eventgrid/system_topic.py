@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['SystemTopicArgs', 'SystemTopic']
 
@@ -15,6 +17,7 @@ __all__ = ['SystemTopicArgs', 'SystemTopic']
 class SystemTopicArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['IdentityInfoArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  system_topic_name: Optional[pulumi.Input[str]] = None,
@@ -23,6 +26,7 @@ class SystemTopicArgs:
         """
         The set of arguments for constructing a SystemTopic resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the resource.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] source: Source for the system topic.
         :param pulumi.Input[str] system_topic_name: Name of the system topic.
@@ -30,6 +34,8 @@ class SystemTopicArgs:
         :param pulumi.Input[str] topic_type: TopicType for the system topic.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if source is not None:
@@ -52,6 +58,18 @@ class SystemTopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityInfoArgs']]:
+        """
+        Identity information for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityInfoArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -119,6 +137,7 @@ class SystemTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -128,10 +147,11 @@ class SystemTopic(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid System Topic.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the resource.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[str] source: Source for the system topic.
@@ -147,7 +167,7 @@ class SystemTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid System Topic.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SystemTopicArgs args: The arguments to use to populate this resource's properties.
@@ -164,6 +184,7 @@ class SystemTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityInfoArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -182,6 +203,7 @@ class SystemTopic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SystemTopicArgs.__new__(SystemTopicArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -219,6 +241,7 @@ class SystemTopic(pulumi.CustomResource):
 
         __props__ = SystemTopicArgs.__new__(SystemTopicArgs)
 
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["metric_resource_id"] = None
         __props__.__dict__["name"] = None
@@ -229,6 +252,14 @@ class SystemTopic(pulumi.CustomResource):
         __props__.__dict__["topic_type"] = None
         __props__.__dict__["type"] = None
         return SystemTopic(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityInfoResponse']]:
+        """
+        Identity information for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

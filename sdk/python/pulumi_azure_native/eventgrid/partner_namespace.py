@@ -8,6 +8,8 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['PartnerNamespaceArgs', 'PartnerNamespace']
 
@@ -15,26 +17,43 @@ __all__ = ['PartnerNamespaceArgs', 'PartnerNamespace']
 class PartnerNamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PartnerNamespace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
+               You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if disable_local_auth is None:
+            disable_local_auth = False
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if inbound_ip_rules is not None:
+            pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if partner_namespace_name is not None:
             pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
         if partner_registration_fully_qualified_id is not None:
             pulumi.set(__self__, "partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -49,6 +68,30 @@ class PartnerNamespaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter(name="inboundIpRules")
+    def inbound_ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]]:
+        """
+        This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "inbound_ip_rules")
+
+    @inbound_ip_rules.setter
+    def inbound_ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]]]):
+        pulumi.set(self, "inbound_ip_rules", value)
 
     @property
     @pulumi.getter
@@ -88,6 +131,19 @@ class PartnerNamespaceArgs:
         pulumi.set(self, "partner_registration_fully_qualified_id", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -105,22 +161,29 @@ class PartnerNamespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         EventGrid Partner Namespace.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
+               You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
@@ -132,7 +195,7 @@ class PartnerNamespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Partner Namespace.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PartnerNamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -149,9 +212,12 @@ class PartnerNamespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 inbound_ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InboundIpRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  partner_namespace_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_fully_qualified_id: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -166,15 +232,23 @@ class PartnerNamespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PartnerNamespaceArgs.__new__(PartnerNamespaceArgs)
 
+            if disable_local_auth is None:
+                disable_local_auth = False
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
+            __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["partner_namespace_name"] = partner_namespace_name
             __props__.__dict__["partner_registration_fully_qualified_id"] = partner_registration_fully_qualified_id
+            if public_network_access is None:
+                public_network_access = 'Enabled'
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -202,15 +276,27 @@ class PartnerNamespace(pulumi.CustomResource):
 
         __props__ = PartnerNamespaceArgs.__new__(PartnerNamespaceArgs)
 
+        __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["endpoint"] = None
+        __props__.__dict__["inbound_ip_rules"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["partner_registration_fully_qualified_id"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return PartnerNamespace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -219,6 +305,14 @@ class PartnerNamespace(pulumi.CustomResource):
         Endpoint for the partner namespace.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="inboundIpRules")
+    def inbound_ip_rules(self) -> pulumi.Output[Optional[Sequence['outputs.InboundIpRuleResponse']]]:
+        """
+        This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "inbound_ip_rules")
 
     @property
     @pulumi.getter
@@ -246,12 +340,26 @@ class PartnerNamespace(pulumi.CustomResource):
         return pulumi.get(self, "partner_registration_fully_qualified_id")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the partner namespace.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="systemData")

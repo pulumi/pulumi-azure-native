@@ -17,16 +17,20 @@ __all__ = ['ConfigurationProfileArgs', 'ConfigurationProfile']
 class ConfigurationProfileArgs:
     def __init__(__self__, *,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ConfigurationProfileResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The identity block returned by ARM resource that supports managed identity.
+        :param pulumi.Input[str] location: The location where the resource is to be deployed.
         :param pulumi.Input[str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         :param pulumi.Input['ConfigurationProfileResourcePropertiesArgs'] properties: The properties of a configuration profile.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if profile_name is not None:
             pulumi.set(__self__, "profile_name", profile_name)
         if properties is not None:
@@ -43,6 +47,18 @@ class ConfigurationProfileArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location where the resource is to be deployed.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter(name="profileName")
@@ -75,6 +91,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']]] = None,
                  __props__=None):
@@ -85,6 +102,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The identity block returned by ARM resource that supports managed identity.
+        :param pulumi.Input[str] location: The location where the resource is to be deployed.
         :param pulumi.Input[str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         :param pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']] properties: The properties of a configuration profile.
         """
@@ -114,6 +132,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ConfigurationProfileResourcePropertiesArgs']]] = None,
                  __props__=None):
@@ -129,6 +148,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             __props__ = ConfigurationProfileArgs.__new__(ConfigurationProfileArgs)
 
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["location"] = location
             __props__.__dict__["profile_name"] = profile_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
@@ -159,6 +179,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         __props__ = ConfigurationProfileArgs.__new__(ConfigurationProfileArgs)
 
         __props__.__dict__["identity"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
@@ -172,6 +193,14 @@ class ConfigurationProfile(pulumi.CustomResource):
         The identity block returned by ARM resource that supports managed identity.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[Optional[str]]:
+        """
+        The location where the resource is to be deployed.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

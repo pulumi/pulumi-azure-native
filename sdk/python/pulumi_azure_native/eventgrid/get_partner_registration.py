@@ -272,7 +272,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerRegistrationResult:
     """
     Information about a partner registration.
-    API Version: 2020-04-01-preview.
+    API Version: 2021-06-01-preview.
 
 
     :param str partner_registration_name: Name of the partner registration.

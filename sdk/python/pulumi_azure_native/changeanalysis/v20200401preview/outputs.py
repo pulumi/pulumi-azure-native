@@ -26,7 +26,9 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "workspaceId":
+        if key == "includeChangeDetails":
+            suggest = "include_change_details"
+        elif key == "workspaceId":
             suggest = "workspace_id"
         elif key == "workspaceResourceId":
             suggest = "workspace_resource_id"
@@ -43,17 +45,29 @@ class AzureMonitorWorkspacePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 include_change_details: Optional[str] = None,
                  workspace_id: Optional[str] = None,
                  workspace_resource_id: Optional[str] = None):
         """
         Configuration properties of an Azure Monitor workspace that receives change notifications.
+        :param str include_change_details: The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
         :param str workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         :param str workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
         """
+        if include_change_details is not None:
+            pulumi.set(__self__, "include_change_details", include_change_details)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="includeChangeDetails")
+    def include_change_details(self) -> Optional[str]:
+        """
+        The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+        """
+        return pulumi.get(self, "include_change_details")
 
     @property
     @pulumi.getter(name="workspaceId")

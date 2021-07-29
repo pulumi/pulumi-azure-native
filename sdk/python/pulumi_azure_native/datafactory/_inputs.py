@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'ActivityDependencyArgs',
     'ActivityPolicyArgs',
-    'AdditionalColumnsArgs',
     'AmazonMWSLinkedServiceArgs',
     'AmazonMWSObjectDatasetArgs',
     'AmazonMWSSourceArgs',
@@ -226,6 +225,7 @@ __all__ = [
     'FtpServerLinkedServiceArgs',
     'FtpServerLocationArgs',
     'GetMetadataActivityArgs',
+    'GitHubClientSecretArgs',
     'GitHubClientSecret',
     'GlobalParameterSpecificationArgs',
     'GoogleAdWordsLinkedServiceArgs',
@@ -477,6 +477,7 @@ __all__ = [
     'SqlAlwaysEncryptedPropertiesArgs',
     'SqlDWSinkArgs',
     'SqlDWSourceArgs',
+    'SqlDWUpsertSettingsArgs',
     'SqlMISinkArgs',
     'SqlMISourceArgs',
     'SqlPartitionSettingsArgs',
@@ -487,6 +488,7 @@ __all__ = [
     'SqlServerTableDatasetArgs',
     'SqlSinkArgs',
     'SqlSourceArgs',
+    'SqlUpsertSettingsArgs',
     'SquareLinkedServiceArgs',
     'SquareObjectDatasetArgs',
     'SquareSourceArgs',
@@ -664,46 +666,6 @@ class ActivityPolicyArgs:
     @timeout.setter
     def timeout(self, value: Optional[Any]):
         pulumi.set(self, "timeout", value)
-
-
-@pulumi.input_type
-class AdditionalColumnsArgs:
-    def __init__(__self__, *,
-                 name: Optional[Any] = None,
-                 value: Optional[Any] = None):
-        """
-        Specify the column name and value of additional columns.
-        :param Any name: Additional column name. Type: string (or Expression with resultType string).
-        :param Any value: Additional column value. Type: string (or Expression with resultType string).
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[Any]:
-        """
-        Additional column name. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[Any]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[Any]:
-        """
-        Additional column value. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[Any]):
-        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -1107,7 +1069,7 @@ class AmazonMWSObjectDatasetArgs:
 class AmazonMWSSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -1118,7 +1080,7 @@ class AmazonMWSSourceArgs:
         A copy activity Amazon Marketplace Web Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AmazonMWSSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -1157,14 +1119,14 @@ class AmazonMWSSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -1427,7 +1389,7 @@ class AmazonRedshiftLinkedServiceArgs:
 class AmazonRedshiftSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -1439,7 +1401,7 @@ class AmazonRedshiftSourceArgs:
         A copy activity source for Amazon Redshift Source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AmazonRedshiftSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -1481,14 +1443,14 @@ class AmazonRedshiftSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -3486,7 +3448,7 @@ class AvroSinkArgs:
 class AvroSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -3496,7 +3458,7 @@ class AvroSourceArgs:
         A copy activity Avro source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AvroSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -3532,14 +3494,14 @@ class AvroSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -6414,7 +6376,7 @@ class AzureDataExplorerSourceArgs:
     def __init__(__self__, *,
                  query: Any,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  no_truncation: Optional[Any] = None,
@@ -6426,7 +6388,7 @@ class AzureDataExplorerSourceArgs:
         :param Any query: Database query. Should be a Kusto Query Language (KQL) query. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureDataExplorerSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any no_truncation: The name of the Boolean option that controls whether truncation is applied to result-sets that go beyond a certain row-count limit.
@@ -6478,14 +6440,14 @@ class AzureDataExplorerSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -11439,7 +11401,7 @@ class AzureMariaDBLinkedServiceArgs:
 class AzureMariaDBSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -11450,7 +11412,7 @@ class AzureMariaDBSourceArgs:
         A copy activity Azure MariaDB source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureMariaDBSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -11489,14 +11451,14 @@ class AzureMariaDBSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -12001,7 +11963,7 @@ class AzureMySqlSinkArgs:
 class AzureMySqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -12012,7 +11974,7 @@ class AzureMySqlSourceArgs:
         A copy activity Azure MySQL source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureMySqlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -12051,14 +12013,14 @@ class AzureMySqlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -12580,7 +12542,7 @@ class AzurePostgreSqlSinkArgs:
 class AzurePostgreSqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -12591,7 +12553,7 @@ class AzurePostgreSqlSourceArgs:
         A copy activity Azure PostgreSQL source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzurePostgreSqlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -12630,14 +12592,14 @@ class AzurePostgreSqlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -14453,11 +14415,14 @@ class AzureSqlSinkArgs:
                  sink_retry_wait: Optional[Any] = None,
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
+                 sql_writer_use_table_lock: Optional[Any] = None,
                  stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
+                 upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
                  write_batch_size: Optional[Any] = None,
-                 write_batch_timeout: Optional[Any] = None):
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
         """
         A copy activity Azure SQL sink.
         :param pulumi.Input[str] type: Copy sink type.
@@ -14469,11 +14434,14 @@ class AzureSqlSinkArgs:
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
+        :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: Write behavior when copying data into Azure SQL. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
         """
         pulumi.set(__self__, "type", 'AzureSqlSink')
         if disable_metrics_collection is not None:
@@ -14490,16 +14458,22 @@ class AzureSqlSinkArgs:
             pulumi.set(__self__, "sql_writer_stored_procedure_name", sql_writer_stored_procedure_name)
         if sql_writer_table_type is not None:
             pulumi.set(__self__, "sql_writer_table_type", sql_writer_table_type)
+        if sql_writer_use_table_lock is not None:
+            pulumi.set(__self__, "sql_writer_use_table_lock", sql_writer_use_table_lock)
         if stored_procedure_parameters is not None:
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if stored_procedure_table_type_parameter_name is not None:
             pulumi.set(__self__, "stored_procedure_table_type_parameter_name", stored_procedure_table_type_parameter_name)
         if table_option is not None:
             pulumi.set(__self__, "table_option", table_option)
+        if upsert_settings is not None:
+            pulumi.set(__self__, "upsert_settings", upsert_settings)
         if write_batch_size is not None:
             pulumi.set(__self__, "write_batch_size", write_batch_size)
         if write_batch_timeout is not None:
             pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
 
     @property
     @pulumi.getter
@@ -14599,6 +14573,18 @@ class AzureSqlSinkArgs:
         pulumi.set(self, "sql_writer_table_type", value)
 
     @property
+    @pulumi.getter(name="sqlWriterUseTableLock")
+    def sql_writer_use_table_lock(self) -> Optional[Any]:
+        """
+        Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "sql_writer_use_table_lock")
+
+    @sql_writer_use_table_lock.setter
+    def sql_writer_use_table_lock(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_use_table_lock", value)
+
+    @property
     @pulumi.getter(name="storedProcedureParameters")
     def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
         """
@@ -14635,6 +14621,18 @@ class AzureSqlSinkArgs:
         pulumi.set(self, "table_option", value)
 
     @property
+    @pulumi.getter(name="upsertSettings")
+    def upsert_settings(self) -> Optional[pulumi.Input['SqlUpsertSettingsArgs']]:
+        """
+        SQL upsert settings.
+        """
+        return pulumi.get(self, "upsert_settings")
+
+    @upsert_settings.setter
+    def upsert_settings(self, value: Optional[pulumi.Input['SqlUpsertSettingsArgs']]):
+        pulumi.set(self, "upsert_settings", value)
+
+    @property
     @pulumi.getter(name="writeBatchSize")
     def write_batch_size(self) -> Optional[Any]:
         """
@@ -14658,12 +14656,24 @@ class AzureSqlSinkArgs:
     def write_batch_timeout(self, value: Optional[Any]):
         pulumi.set(self, "write_batch_timeout", value)
 
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        Write behavior when copying data into Azure SQL. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "write_behavior", value)
+
 
 @pulumi.input_type
 class AzureSqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -14679,7 +14689,7 @@ class AzureSqlSourceArgs:
         A copy activity Azure SQL source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureSqlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -14733,14 +14743,14 @@ class AzureSqlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -15553,7 +15563,7 @@ class AzureTableSinkArgs:
 class AzureTableSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  azure_table_source_ignore_table_not_found: Optional[Any] = None,
                  azure_table_source_query: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
@@ -15565,7 +15575,7 @@ class AzureTableSourceArgs:
         A copy activity Azure Table source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'AzureTableSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any azure_table_source_ignore_table_not_found: Azure Table source ignore table not found. Type: boolean (or Expression with resultType boolean).
         :param Any azure_table_source_query: Azure Table source query. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -15607,14 +15617,14 @@ class AzureTableSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -17156,7 +17166,7 @@ class CassandraLinkedServiceArgs:
 class CassandraSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  consistency_level: Optional[pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']]] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -17168,7 +17178,7 @@ class CassandraSourceArgs:
         A copy activity source for a Cassandra database.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CassandraSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param pulumi.Input[Union[str, 'CassandraSourceReadConsistencyLevels']] consistency_level: The consistency level specifies how many Cassandra servers must respond to a read request before returning data to the client application. Cassandra checks the specified number of Cassandra servers for data to satisfy the read request. Must be one of cassandraSourceReadConsistencyLevels. The default value is 'ONE'. It is case-insensitive.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -17210,14 +17220,14 @@ class CassandraSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -18248,7 +18258,7 @@ class CommonDataServiceForAppsSinkArgs:
 class CommonDataServiceForAppsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -18258,7 +18268,7 @@ class CommonDataServiceForAppsSourceArgs:
         A copy activity Common Data Service for Apps source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CommonDataServiceForAppsSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Common Data Service for Apps (online & on-premises). Type: string (or Expression with resultType string).
@@ -18294,14 +18304,14 @@ class CommonDataServiceForAppsSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -18792,7 +18802,7 @@ class ConcurObjectDatasetArgs:
 class ConcurSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -18803,7 +18813,7 @@ class ConcurSourceArgs:
         A copy activity Concur Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ConcurSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -18842,14 +18852,14 @@ class ConcurSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -20119,7 +20129,7 @@ class CosmosDbMongoDbApiSinkArgs:
 class CosmosDbMongoDbApiSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  batch_size: Optional[Any] = None,
                  cursor_methods: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']] = None,
                  disable_metrics_collection: Optional[Any] = None,
@@ -20132,7 +20142,7 @@ class CosmosDbMongoDbApiSourceArgs:
         A copy activity source for a CosmosDB (MongoDB API) database.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CosmosDbMongoDbApiSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['MongoDbCursorMethodsPropertiesArgs'] cursor_methods: Cursor methods for Mongodb query.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -20177,14 +20187,14 @@ class CosmosDbMongoDbApiSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -20576,7 +20586,7 @@ class CosmosDbSqlApiSinkArgs:
 class CosmosDbSqlApiSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  detect_datetime: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -20589,7 +20599,7 @@ class CosmosDbSqlApiSourceArgs:
         A copy activity Azure CosmosDB (SQL API) Collection source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CosmosDbSqlApiSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any detect_datetime: Whether detect primitive values as datetime values. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -20634,14 +20644,14 @@ class CosmosDbSqlApiSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -20882,7 +20892,7 @@ class CouchbaseLinkedServiceArgs:
 class CouchbaseSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -20893,7 +20903,7 @@ class CouchbaseSourceArgs:
         A copy activity Couchbase server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'CouchbaseSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -20932,14 +20942,14 @@ class CouchbaseSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -22945,7 +22955,7 @@ class DatasetBZip2CompressionArgs:
                  type: pulumi.Input[str]):
         """
         The BZip2 compression method used on a dataset.
-        :param pulumi.Input[str] type: Type of dataset compression.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
                Expected value is 'BZip2'.
         """
         pulumi.set(__self__, "type", 'BZip2')
@@ -22954,7 +22964,7 @@ class DatasetBZip2CompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of dataset compression.
+        Type of dataset compression. Type: string (or Expression with resultType string).
         Expected value is 'BZip2'.
         """
         return pulumi.get(self, "type")
@@ -22971,7 +22981,7 @@ class DatasetDeflateCompressionArgs:
                  level: Optional[Any] = None):
         """
         The Deflate compression method used on a dataset.
-        :param pulumi.Input[str] type: Type of dataset compression.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
                Expected value is 'Deflate'.
         :param Any level: The Deflate compression level.
         """
@@ -22983,7 +22993,7 @@ class DatasetDeflateCompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of dataset compression.
+        Type of dataset compression. Type: string (or Expression with resultType string).
         Expected value is 'Deflate'.
         """
         return pulumi.get(self, "type")
@@ -23036,7 +23046,7 @@ class DatasetGZipCompressionArgs:
                  level: Optional[Any] = None):
         """
         The GZip compression method used on a dataset.
-        :param pulumi.Input[str] type: Type of dataset compression.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
                Expected value is 'GZip'.
         :param Any level: The GZip compression level.
         """
@@ -23048,7 +23058,7 @@ class DatasetGZipCompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of dataset compression.
+        Type of dataset compression. Type: string (or Expression with resultType string).
         Expected value is 'GZip'.
         """
         return pulumi.get(self, "type")
@@ -23130,7 +23140,7 @@ class DatasetTarCompressionArgs:
                  type: pulumi.Input[str]):
         """
         The Tar archive method used on a dataset.
-        :param pulumi.Input[str] type: Type of dataset compression.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
                Expected value is 'Tar'.
         """
         pulumi.set(__self__, "type", 'Tar')
@@ -23139,7 +23149,7 @@ class DatasetTarCompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of dataset compression.
+        Type of dataset compression. Type: string (or Expression with resultType string).
         Expected value is 'Tar'.
         """
         return pulumi.get(self, "type")
@@ -23156,7 +23166,7 @@ class DatasetTarGZipCompressionArgs:
                  level: Optional[Any] = None):
         """
         The TarGZip compression method used on a dataset.
-        :param pulumi.Input[str] type: Type of dataset compression.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
                Expected value is 'TarGZip'.
         :param Any level: The TarGZip compression level.
         """
@@ -23168,7 +23178,7 @@ class DatasetTarGZipCompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of dataset compression.
+        Type of dataset compression. Type: string (or Expression with resultType string).
         Expected value is 'TarGZip'.
         """
         return pulumi.get(self, "type")
@@ -23197,7 +23207,7 @@ class DatasetZipDeflateCompressionArgs:
                  level: Optional[Any] = None):
         """
         The ZipDeflate compression method used on a dataset.
-        :param pulumi.Input[str] type: Type of dataset compression.
+        :param pulumi.Input[str] type: Type of dataset compression. Type: string (or Expression with resultType string).
                Expected value is 'ZipDeflate'.
         :param Any level: The ZipDeflate compression level.
         """
@@ -23209,7 +23219,7 @@ class DatasetZipDeflateCompressionArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of dataset compression.
+        Type of dataset compression. Type: string (or Expression with resultType string).
         Expected value is 'ZipDeflate'.
         """
         return pulumi.get(self, "type")
@@ -23468,7 +23478,7 @@ class Db2LinkedServiceArgs:
 class Db2SourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -23479,7 +23489,7 @@ class Db2SourceArgs:
         A copy activity source for Db2 databases.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'Db2Source'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -23518,14 +23528,14 @@ class Db2SourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -24493,7 +24503,7 @@ class DelimitedTextSinkArgs:
 class DelimitedTextSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['DelimitedTextReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -24504,7 +24514,7 @@ class DelimitedTextSourceArgs:
         A copy activity DelimitedText source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DelimitedTextSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['DelimitedTextReadSettingsArgs'] format_settings: DelimitedText format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -24543,14 +24553,14 @@ class DelimitedTextSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -25076,7 +25086,7 @@ class DocumentDbCollectionSinkArgs:
 class DocumentDbCollectionSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  nesting_separator: Optional[Any] = None,
@@ -25088,7 +25098,7 @@ class DocumentDbCollectionSourceArgs:
         A copy activity Document Database Collection source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DocumentDbCollectionSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any nesting_separator: Nested properties separator. Type: string (or Expression with resultType string).
@@ -25130,14 +25140,14 @@ class DocumentDbCollectionSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -25366,7 +25376,7 @@ class DrillLinkedServiceArgs:
 class DrillSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -25377,7 +25387,7 @@ class DrillSourceArgs:
         A copy activity Drill server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DrillSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -25416,14 +25426,14 @@ class DrillSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -26002,7 +26012,7 @@ class DynamicsAXResourceDatasetArgs:
 class DynamicsAXSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -26014,7 +26024,7 @@ class DynamicsAXSourceArgs:
         A copy activity Dynamics AX source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DynamicsAXSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -26056,14 +26066,14 @@ class DynamicsAXSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -26754,7 +26764,7 @@ class DynamicsCrmSinkArgs:
 class DynamicsCrmSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -26764,7 +26774,7 @@ class DynamicsCrmSourceArgs:
         A copy activity Dynamics CRM source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DynamicsCrmSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics CRM (online & on-premises). Type: string (or Expression with resultType string).
@@ -26800,14 +26810,14 @@ class DynamicsCrmSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -27474,7 +27484,7 @@ class DynamicsSinkArgs:
 class DynamicsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -27484,7 +27494,7 @@ class DynamicsSourceArgs:
         A copy activity Dynamics source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'DynamicsSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: FetchXML is a proprietary query language that is used in Microsoft Dynamics (online & on-premises). Type: string (or Expression with resultType string).
@@ -27520,14 +27530,14 @@ class DynamicsSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -27946,7 +27956,7 @@ class EloquaObjectDatasetArgs:
 class EloquaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -27957,7 +27967,7 @@ class EloquaSourceArgs:
         A copy activity Eloqua server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'EloquaSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -27996,14 +28006,14 @@ class EloquaSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -28495,7 +28505,7 @@ class ExcelDatasetArgs:
 class ExcelSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -28505,7 +28515,7 @@ class ExcelSourceArgs:
         A copy activity excel source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ExcelSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -28541,14 +28551,14 @@ class ExcelSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -29494,6 +29504,8 @@ class FactoryGitHubConfigurationArgs:
                  repository_name: pulumi.Input[str],
                  root_folder: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input['GitHubClientSecretArgs']] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  last_commit_id: Optional[pulumi.Input[str]] = None):
         """
@@ -29504,6 +29516,8 @@ class FactoryGitHubConfigurationArgs:
         :param pulumi.Input[str] root_folder: Root folder.
         :param pulumi.Input[str] type: Type of repo configuration.
                Expected value is 'FactoryGitHubConfiguration'.
+        :param pulumi.Input[str] client_id: GitHub bring your own app client id.
+        :param pulumi.Input['GitHubClientSecretArgs'] client_secret: GitHub bring your own app client secret information.
         :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
         :param pulumi.Input[str] last_commit_id: Last commit id.
         """
@@ -29512,6 +29526,10 @@ class FactoryGitHubConfigurationArgs:
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
         pulumi.set(__self__, "type", 'FactoryGitHubConfiguration')
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if host_name is not None:
             pulumi.set(__self__, "host_name", host_name)
         if last_commit_id is not None:
@@ -29577,6 +29595,30 @@ class FactoryGitHubConfigurationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        GitHub bring your own app client id.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input['GitHubClientSecretArgs']]:
+        """
+        GitHub bring your own app client secret information.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input['GitHubClientSecretArgs']]):
+        pulumi.set(self, "client_secret", value)
 
     @property
     @pulumi.getter(name="hostName")
@@ -30662,7 +30704,7 @@ class FileSystemSinkArgs:
 class FileSystemSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  recursive: Optional[Any] = None,
@@ -30672,7 +30714,7 @@ class FileSystemSourceArgs:
         A copy activity file system source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'FileSystemSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
@@ -30708,14 +30750,14 @@ class FileSystemSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -31689,6 +31731,46 @@ class GetMetadataActivityArgs:
 
 
 @pulumi.input_type
+class GitHubClientSecretArgs:
+    def __init__(__self__, *,
+                 byoa_secret_akv_url: Optional[pulumi.Input[str]] = None,
+                 byoa_secret_name: Optional[pulumi.Input[str]] = None):
+        """
+        Client secret information for factory's bring your own app repository configuration.
+        :param pulumi.Input[str] byoa_secret_akv_url: Bring your own app client secret AKV URL.
+        :param pulumi.Input[str] byoa_secret_name: Bring your own app client secret name in AKV.
+        """
+        if byoa_secret_akv_url is not None:
+            pulumi.set(__self__, "byoa_secret_akv_url", byoa_secret_akv_url)
+        if byoa_secret_name is not None:
+            pulumi.set(__self__, "byoa_secret_name", byoa_secret_name)
+
+    @property
+    @pulumi.getter(name="byoaSecretAkvUrl")
+    def byoa_secret_akv_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bring your own app client secret AKV URL.
+        """
+        return pulumi.get(self, "byoa_secret_akv_url")
+
+    @byoa_secret_akv_url.setter
+    def byoa_secret_akv_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "byoa_secret_akv_url", value)
+
+    @property
+    @pulumi.getter(name="byoaSecretName")
+    def byoa_secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bring your own app client secret name in AKV.
+        """
+        return pulumi.get(self, "byoa_secret_name")
+
+    @byoa_secret_name.setter
+    def byoa_secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "byoa_secret_name", value)
+
+
+@pulumi.input_type
 class GitHubClientSecret:
     def __init__(__self__, *,
                  byoa_secret_akv_url: Optional[str] = None,
@@ -32184,7 +32266,7 @@ class GoogleAdWordsObjectDatasetArgs:
 class GoogleAdWordsSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -32195,7 +32277,7 @@ class GoogleAdWordsSourceArgs:
         A copy activity Google AdWords service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'GoogleAdWordsSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -32234,14 +32316,14 @@ class GoogleAdWordsSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -32784,7 +32866,7 @@ class GoogleBigQueryObjectDatasetArgs:
 class GoogleBigQuerySourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -32795,7 +32877,7 @@ class GoogleBigQuerySourceArgs:
         A copy activity Google BigQuery service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'GoogleBigQuerySource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -32834,14 +32916,14 @@ class GoogleBigQuerySourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -33517,7 +33599,7 @@ class GreenplumLinkedServiceArgs:
 class GreenplumSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -33528,7 +33610,7 @@ class GreenplumSourceArgs:
         A copy activity Greenplum Database source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'GreenplumSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -33567,14 +33649,14 @@ class GreenplumSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -34237,7 +34319,7 @@ class HBaseObjectDatasetArgs:
 class HBaseSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -34248,7 +34330,7 @@ class HBaseSourceArgs:
         A copy activity HBase server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HBaseSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -34287,14 +34369,14 @@ class HBaseSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -37569,7 +37651,7 @@ class HiveObjectDatasetArgs:
 class HiveSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -37580,7 +37662,7 @@ class HiveSourceArgs:
         A copy activity Hive Server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HiveSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -37619,14 +37701,14 @@ class HiveSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -38873,7 +38955,7 @@ class HubspotObjectDatasetArgs:
 class HubspotSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -38884,7 +38966,7 @@ class HubspotSourceArgs:
         A copy activity Hubspot Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'HubspotSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -38923,14 +39005,14 @@ class HubspotSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -39576,7 +39658,7 @@ class ImpalaObjectDatasetArgs:
 class ImpalaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -39587,7 +39669,7 @@ class ImpalaSourceArgs:
         A copy activity Impala server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ImpalaSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -39626,14 +39708,14 @@ class ImpalaSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -40034,7 +40116,7 @@ class InformixSinkArgs:
 class InformixSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -40045,7 +40127,7 @@ class InformixSourceArgs:
         A copy activity source for Informix.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'InformixSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -40084,14 +40166,14 @@ class InformixSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -40466,21 +40548,37 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 @pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
+                 cleanup: Optional[pulumi.Input[bool]] = None,
                  compute_type: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  time_to_live: Optional[pulumi.Input[int]] = None):
         """
         Data flow properties for managed integration runtime.
+        :param pulumi.Input[bool] cleanup: Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
         :param pulumi.Input[Union[str, 'DataFlowComputeType']] compute_type: Compute type of the cluster which will execute data flow job.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
+        if cleanup is not None:
+            pulumi.set(__self__, "cleanup", cleanup)
         if compute_type is not None:
             pulumi.set(__self__, "compute_type", compute_type)
         if core_count is not None:
             pulumi.set(__self__, "core_count", core_count)
         if time_to_live is not None:
             pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def cleanup(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+        """
+        return pulumi.get(self, "cleanup")
+
+    @cleanup.setter
+    def cleanup(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cleanup", value)
 
     @property
     @pulumi.getter(name="computeType")
@@ -41280,7 +41378,7 @@ class JiraObjectDatasetArgs:
 class JiraSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -41291,7 +41389,7 @@ class JiraSourceArgs:
         A copy activity Jira Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'JiraSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -41330,14 +41428,14 @@ class JiraSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -41931,7 +42029,7 @@ class JsonSinkArgs:
 class JsonSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['JsonReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -41942,7 +42040,7 @@ class JsonSourceArgs:
         A copy activity Json source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'JsonSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['JsonReadSettingsArgs'] format_settings: Json format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -41981,14 +42079,14 @@ class JsonSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -42910,7 +43008,7 @@ class MagentoObjectDatasetArgs:
 class MagentoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -42921,7 +43019,7 @@ class MagentoSourceArgs:
         A copy activity Magento server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MagentoSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -42960,14 +43058,14 @@ class MagentoSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -43505,7 +43603,7 @@ class MariaDBLinkedServiceArgs:
 class MariaDBSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -43516,7 +43614,7 @@ class MariaDBSourceArgs:
         A copy activity MariaDB server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MariaDBSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -43555,14 +43653,14 @@ class MariaDBSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -44145,7 +44243,7 @@ class MarketoObjectDatasetArgs:
 class MarketoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -44156,7 +44254,7 @@ class MarketoSourceArgs:
         A copy activity Marketo server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MarketoSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -44195,14 +44293,14 @@ class MarketoSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -44643,7 +44741,7 @@ class MicrosoftAccessSinkArgs:
 class MicrosoftAccessSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -44653,7 +44751,7 @@ class MicrosoftAccessSourceArgs:
         A copy activity source for Microsoft Access.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MicrosoftAccessSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -44689,14 +44787,14 @@ class MicrosoftAccessSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -45323,7 +45421,7 @@ class MongoDbAtlasSinkArgs:
 class MongoDbAtlasSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  batch_size: Optional[Any] = None,
                  cursor_methods: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']] = None,
                  disable_metrics_collection: Optional[Any] = None,
@@ -45336,7 +45434,7 @@ class MongoDbAtlasSourceArgs:
         A copy activity source for a MongoDB Atlas database.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MongoDbAtlasSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['MongoDbCursorMethodsPropertiesArgs'] cursor_methods: Cursor methods for Mongodb query
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -45381,14 +45479,14 @@ class MongoDbAtlasSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -45962,7 +46060,7 @@ class MongoDbLinkedServiceArgs:
 class MongoDbSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -45972,7 +46070,7 @@ class MongoDbSourceArgs:
         A copy activity source for a MongoDB database.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MongoDbSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Should be a SQL-92 query expression. Type: string (or Expression with resultType string).
@@ -46008,14 +46106,14 @@ class MongoDbSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -46490,7 +46588,7 @@ class MongoDbV2SinkArgs:
 class MongoDbV2SourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  batch_size: Optional[Any] = None,
                  cursor_methods: Optional[pulumi.Input['MongoDbCursorMethodsPropertiesArgs']] = None,
                  disable_metrics_collection: Optional[Any] = None,
@@ -46503,7 +46601,7 @@ class MongoDbV2SourceArgs:
         A copy activity source for a MongoDB database.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MongoDbV2Source'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).
         :param pulumi.Input['MongoDbCursorMethodsPropertiesArgs'] cursor_methods: Cursor methods for Mongodb query
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -46548,14 +46646,14 @@ class MongoDbV2SourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -46868,7 +46966,7 @@ class MySqlLinkedServiceArgs:
 class MySqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -46879,7 +46977,7 @@ class MySqlSourceArgs:
         A copy activity source for MySQL databases.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'MySqlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -46918,14 +47016,14 @@ class MySqlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -47350,7 +47448,7 @@ class NetezzaPartitionSettingsArgs:
 class NetezzaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -47363,7 +47461,7 @@ class NetezzaSourceArgs:
         A copy activity Netezza source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'NetezzaSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Netezza read in parallel. Possible values include: "None", "DataSlice", "DynamicRange".
@@ -47408,14 +47506,14 @@ class NetezzaSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -48151,7 +48249,7 @@ class ODataResourceDatasetArgs:
 class ODataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -48162,7 +48260,7 @@ class ODataSourceArgs:
         A copy activity source for OData source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ODataSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -48201,14 +48299,14 @@ class ODataSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -48609,7 +48707,7 @@ class OdbcSinkArgs:
 class OdbcSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -48620,7 +48718,7 @@ class OdbcSourceArgs:
         A copy activity source for ODBC databases.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OdbcSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -48659,14 +48757,14 @@ class OdbcSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -50432,7 +50530,7 @@ class OracleServiceCloudObjectDatasetArgs:
 class OracleServiceCloudSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -50443,7 +50541,7 @@ class OracleServiceCloudSourceArgs:
         A copy activity Oracle Service Cloud source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OracleServiceCloudSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -50482,14 +50580,14 @@ class OracleServiceCloudSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -50706,7 +50804,7 @@ class OracleSinkArgs:
 class OracleSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  oracle_reader_query: Optional[Any] = None,
@@ -50719,7 +50817,7 @@ class OracleSourceArgs:
         A copy activity Oracle source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OracleSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any oracle_reader_query: Oracle reader query. Type: string (or Expression with resultType string).
@@ -50764,14 +50862,14 @@ class OracleSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -51420,7 +51518,7 @@ class OrcSinkArgs:
 class OrcSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -51430,7 +51528,7 @@ class OrcSourceArgs:
         A copy activity ORC source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'OrcSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -51466,14 +51564,14 @@ class OrcSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -52052,7 +52150,7 @@ class ParquetSinkArgs:
 class ParquetSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -52062,7 +52160,7 @@ class ParquetSourceArgs:
         A copy activity Parquet source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ParquetSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -52098,14 +52196,14 @@ class ParquetSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -52581,7 +52679,7 @@ class PaypalObjectDatasetArgs:
 class PaypalSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -52592,7 +52690,7 @@ class PaypalSourceArgs:
         A copy activity Paypal Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PaypalSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -52631,14 +52729,14 @@ class PaypalSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -53165,7 +53263,7 @@ class PhoenixObjectDatasetArgs:
 class PhoenixSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -53176,7 +53274,7 @@ class PhoenixSourceArgs:
         A copy activity Phoenix server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PhoenixSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -53215,14 +53313,14 @@ class PhoenixSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -53636,7 +53734,7 @@ class PostgreSqlLinkedServiceArgs:
 class PostgreSqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -53647,7 +53745,7 @@ class PostgreSqlSourceArgs:
         A copy activity source for PostgreSQL databases.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PostgreSqlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -53686,14 +53784,14 @@ class PostgreSqlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -54418,7 +54516,7 @@ class PrestoObjectDatasetArgs:
 class PrestoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -54429,7 +54527,7 @@ class PrestoSourceArgs:
         A copy activity Presto server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'PrestoSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -54468,14 +54566,14 @@ class PrestoSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -55020,7 +55118,7 @@ class QuickBooksObjectDatasetArgs:
 class QuickBooksSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -55031,7 +55129,7 @@ class QuickBooksSourceArgs:
         A copy activity QuickBooks server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'QuickBooksSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -55070,14 +55168,14 @@ class QuickBooksSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -55362,7 +55460,7 @@ class RedshiftUnloadSettingsArgs:
 class RelationalSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -55372,7 +55470,7 @@ class RelationalSourceArgs:
         A copy activity source for various relational databases.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'RelationalSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -55408,14 +55506,14 @@ class RelationalSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -56103,7 +56201,7 @@ class ResponsysObjectDatasetArgs:
 class ResponsysSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -56114,7 +56212,7 @@ class ResponsysSourceArgs:
         A copy activity Responsys source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ResponsysSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -56153,14 +56251,14 @@ class ResponsysSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -56952,7 +57050,7 @@ class RestSinkArgs:
 class RestSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  additional_headers: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
@@ -56967,7 +57065,7 @@ class RestSourceArgs:
         A copy activity Rest service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'RestSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:01:40. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -57018,14 +57116,14 @@ class RestSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -58207,7 +58305,7 @@ class SalesforceMarketingCloudObjectDatasetArgs:
 class SalesforceMarketingCloudSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -58218,7 +58316,7 @@ class SalesforceMarketingCloudSourceArgs:
         A copy activity Salesforce Marketing Cloud source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SalesforceMarketingCloudSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -58257,14 +58355,14 @@ class SalesforceMarketingCloudSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -59018,7 +59116,7 @@ class SalesforceServiceCloudSinkArgs:
 class SalesforceServiceCloudSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -59029,7 +59127,7 @@ class SalesforceServiceCloudSourceArgs:
         A copy activity Salesforce Service Cloud source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SalesforceServiceCloudSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -59068,14 +59166,14 @@ class SalesforceServiceCloudSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -59324,7 +59422,7 @@ class SalesforceSinkArgs:
 class SalesforceSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -59336,7 +59434,7 @@ class SalesforceSourceArgs:
         A copy activity Salesforce source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SalesforceSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -59378,14 +59476,14 @@ class SalesforceSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -59795,7 +59893,7 @@ class SapBwCubeDatasetArgs:
 class SapBwSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -59806,7 +59904,7 @@ class SapBwSourceArgs:
         A copy activity source for SapBW server via MDX.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapBwSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: MDX query. Type: string (or Expression with resultType string).
@@ -59845,14 +59943,14 @@ class SapBwSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -60388,7 +60486,7 @@ class SapCloudForCustomerSinkArgs:
 class SapCloudForCustomerSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -60400,7 +60498,7 @@ class SapCloudForCustomerSourceArgs:
         A copy activity source for SAP Cloud for Customer source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapCloudForCustomerSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -60442,14 +60540,14 @@ class SapCloudForCustomerSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -60844,7 +60942,7 @@ class SapEccResourceDatasetArgs:
 class SapEccSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  http_request_timeout: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -60856,7 +60954,7 @@ class SapEccSourceArgs:
         A copy activity source for SAP ECC source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapEccSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any http_request_timeout: The timeout (TimeSpan) to get an HTTP response. It is the timeout to get a response, not the timeout to read response data. Default value: 00:05:00. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -60898,14 +60996,14 @@ class SapEccSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -61206,7 +61304,7 @@ class SapHanaPartitionSettingsArgs:
 class SapHanaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  packet_size: Optional[Any] = None,
@@ -61220,7 +61318,7 @@ class SapHanaSourceArgs:
         A copy activity source for SAP HANA source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapHanaSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any packet_size: The packet size of data read from SAP HANA. Type: integer(or Expression with resultType integer).
@@ -61268,14 +61366,14 @@ class SapHanaSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -61808,7 +61906,7 @@ class SapOpenHubLinkedServiceArgs:
 class SapOpenHubSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  base_request_id: Optional[Any] = None,
                  custom_rfc_read_table_function_module: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
@@ -61822,7 +61920,7 @@ class SapOpenHubSourceArgs:
         A copy activity source for SAP Business Warehouse Open Hub Destination source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapOpenHubSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any base_request_id: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. The default value is 0. Type: integer (or Expression with resultType integer ).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -61870,14 +61968,14 @@ class SapOpenHubSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -62744,7 +62842,7 @@ class SapTableResourceDatasetArgs:
 class SapTableSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  batch_size: Optional[Any] = None,
                  custom_rfc_read_table_function_module: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
@@ -62763,7 +62861,7 @@ class SapTableSourceArgs:
         A copy activity source for SAP Table source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SapTableSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any batch_size: Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).
         :param Any custom_rfc_read_table_function_module: Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
@@ -62826,14 +62924,14 @@ class SapTableSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -63822,7 +63920,7 @@ class ServiceNowObjectDatasetArgs:
 class ServiceNowSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -63833,7 +63931,7 @@ class ServiceNowSourceArgs:
         A copy activity ServiceNow server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ServiceNowSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -63872,14 +63970,14 @@ class ServiceNowSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -65480,7 +65578,7 @@ class ShopifyObjectDatasetArgs:
 class ShopifySourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -65491,7 +65589,7 @@ class ShopifySourceArgs:
         A copy activity Shopify Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ShopifySource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -65530,14 +65628,14 @@ class ShopifySourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -66811,7 +66909,7 @@ class SparkObjectDatasetArgs:
 class SparkSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -66822,7 +66920,7 @@ class SparkSourceArgs:
         A copy activity Spark Server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SparkSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -66861,14 +66959,14 @@ class SparkSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -67012,9 +67110,12 @@ class SqlDWSinkArgs:
                  pre_copy_script: Optional[Any] = None,
                  sink_retry_count: Optional[Any] = None,
                  sink_retry_wait: Optional[Any] = None,
+                 sql_writer_use_table_lock: Optional[Any] = None,
                  table_option: Optional[Any] = None,
+                 upsert_settings: Optional[pulumi.Input['SqlDWUpsertSettingsArgs']] = None,
                  write_batch_size: Optional[Any] = None,
-                 write_batch_timeout: Optional[Any] = None):
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
         """
         A copy activity SQL Data Warehouse sink.
         :param pulumi.Input[str] type: Copy sink type.
@@ -67028,9 +67129,12 @@ class SqlDWSinkArgs:
         :param Any pre_copy_script: SQL pre-copy script. Type: string (or Expression with resultType string).
         :param Any sink_retry_count: Sink retry count. Type: integer (or Expression with resultType integer).
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SqlDWUpsertSettingsArgs'] upsert_settings: SQL DW upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: Write behavior when copying data into azure SQL DW. Type: SqlDWWriteBehaviorEnum (or Expression with resultType SqlDWWriteBehaviorEnum)
         """
         pulumi.set(__self__, "type", 'SqlDWSink')
         if allow_copy_command is not None:
@@ -67051,12 +67155,18 @@ class SqlDWSinkArgs:
             pulumi.set(__self__, "sink_retry_count", sink_retry_count)
         if sink_retry_wait is not None:
             pulumi.set(__self__, "sink_retry_wait", sink_retry_wait)
+        if sql_writer_use_table_lock is not None:
+            pulumi.set(__self__, "sql_writer_use_table_lock", sql_writer_use_table_lock)
         if table_option is not None:
             pulumi.set(__self__, "table_option", table_option)
+        if upsert_settings is not None:
+            pulumi.set(__self__, "upsert_settings", upsert_settings)
         if write_batch_size is not None:
             pulumi.set(__self__, "write_batch_size", write_batch_size)
         if write_batch_timeout is not None:
             pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
 
     @property
     @pulumi.getter
@@ -67180,6 +67290,18 @@ class SqlDWSinkArgs:
         pulumi.set(self, "sink_retry_wait", value)
 
     @property
+    @pulumi.getter(name="sqlWriterUseTableLock")
+    def sql_writer_use_table_lock(self) -> Optional[Any]:
+        """
+        Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "sql_writer_use_table_lock")
+
+    @sql_writer_use_table_lock.setter
+    def sql_writer_use_table_lock(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_use_table_lock", value)
+
+    @property
     @pulumi.getter(name="tableOption")
     def table_option(self) -> Optional[Any]:
         """
@@ -67190,6 +67312,18 @@ class SqlDWSinkArgs:
     @table_option.setter
     def table_option(self, value: Optional[Any]):
         pulumi.set(self, "table_option", value)
+
+    @property
+    @pulumi.getter(name="upsertSettings")
+    def upsert_settings(self) -> Optional[pulumi.Input['SqlDWUpsertSettingsArgs']]:
+        """
+        SQL DW upsert settings.
+        """
+        return pulumi.get(self, "upsert_settings")
+
+    @upsert_settings.setter
+    def upsert_settings(self, value: Optional[pulumi.Input['SqlDWUpsertSettingsArgs']]):
+        pulumi.set(self, "upsert_settings", value)
 
     @property
     @pulumi.getter(name="writeBatchSize")
@@ -67215,12 +67349,24 @@ class SqlDWSinkArgs:
     def write_batch_timeout(self, value: Optional[Any]):
         pulumi.set(self, "write_batch_timeout", value)
 
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        Write behavior when copying data into azure SQL DW. Type: SqlDWWriteBehaviorEnum (or Expression with resultType SqlDWWriteBehaviorEnum)
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "write_behavior", value)
+
 
 @pulumi.input_type
 class SqlDWSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -67235,7 +67381,7 @@ class SqlDWSourceArgs:
         A copy activity SQL Data Warehouse source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlDWSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -67286,14 +67432,14 @@ class SqlDWSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -67418,6 +67564,46 @@ class SqlDWSourceArgs:
 
 
 @pulumi.input_type
+class SqlDWUpsertSettingsArgs:
+    def __init__(__self__, *,
+                 interim_schema_name: Optional[Any] = None,
+                 keys: Optional[Any] = None):
+        """
+        Sql DW upsert option settings
+        :param Any interim_schema_name: Schema name for interim table. Type: string (or Expression with resultType string).
+        :param Any keys: Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
+        """
+        if interim_schema_name is not None:
+            pulumi.set(__self__, "interim_schema_name", interim_schema_name)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter(name="interimSchemaName")
+    def interim_schema_name(self) -> Optional[Any]:
+        """
+        Schema name for interim table. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "interim_schema_name")
+
+    @interim_schema_name.setter
+    def interim_schema_name(self, value: Optional[Any]):
+        pulumi.set(self, "interim_schema_name", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Any]:
+        """
+        Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[Any]):
+        pulumi.set(self, "keys", value)
+
+
+@pulumi.input_type
 class SqlMISinkArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -67428,11 +67614,14 @@ class SqlMISinkArgs:
                  sink_retry_wait: Optional[Any] = None,
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
+                 sql_writer_use_table_lock: Optional[Any] = None,
                  stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
+                 upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
                  write_batch_size: Optional[Any] = None,
-                 write_batch_timeout: Optional[Any] = None):
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
         """
         A copy activity Azure SQL Managed Instance sink.
         :param pulumi.Input[str] type: Copy sink type.
@@ -67444,11 +67633,14 @@ class SqlMISinkArgs:
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
+        :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: White behavior when copying data into azure SQL MI. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
         """
         pulumi.set(__self__, "type", 'SqlMISink')
         if disable_metrics_collection is not None:
@@ -67465,16 +67657,22 @@ class SqlMISinkArgs:
             pulumi.set(__self__, "sql_writer_stored_procedure_name", sql_writer_stored_procedure_name)
         if sql_writer_table_type is not None:
             pulumi.set(__self__, "sql_writer_table_type", sql_writer_table_type)
+        if sql_writer_use_table_lock is not None:
+            pulumi.set(__self__, "sql_writer_use_table_lock", sql_writer_use_table_lock)
         if stored_procedure_parameters is not None:
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if stored_procedure_table_type_parameter_name is not None:
             pulumi.set(__self__, "stored_procedure_table_type_parameter_name", stored_procedure_table_type_parameter_name)
         if table_option is not None:
             pulumi.set(__self__, "table_option", table_option)
+        if upsert_settings is not None:
+            pulumi.set(__self__, "upsert_settings", upsert_settings)
         if write_batch_size is not None:
             pulumi.set(__self__, "write_batch_size", write_batch_size)
         if write_batch_timeout is not None:
             pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
 
     @property
     @pulumi.getter
@@ -67574,6 +67772,18 @@ class SqlMISinkArgs:
         pulumi.set(self, "sql_writer_table_type", value)
 
     @property
+    @pulumi.getter(name="sqlWriterUseTableLock")
+    def sql_writer_use_table_lock(self) -> Optional[Any]:
+        """
+        Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "sql_writer_use_table_lock")
+
+    @sql_writer_use_table_lock.setter
+    def sql_writer_use_table_lock(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_use_table_lock", value)
+
+    @property
     @pulumi.getter(name="storedProcedureParameters")
     def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
         """
@@ -67610,6 +67820,18 @@ class SqlMISinkArgs:
         pulumi.set(self, "table_option", value)
 
     @property
+    @pulumi.getter(name="upsertSettings")
+    def upsert_settings(self) -> Optional[pulumi.Input['SqlUpsertSettingsArgs']]:
+        """
+        SQL upsert settings.
+        """
+        return pulumi.get(self, "upsert_settings")
+
+    @upsert_settings.setter
+    def upsert_settings(self, value: Optional[pulumi.Input['SqlUpsertSettingsArgs']]):
+        pulumi.set(self, "upsert_settings", value)
+
+    @property
     @pulumi.getter(name="writeBatchSize")
     def write_batch_size(self) -> Optional[Any]:
         """
@@ -67633,12 +67855,24 @@ class SqlMISinkArgs:
     def write_batch_timeout(self, value: Optional[Any]):
         pulumi.set(self, "write_batch_timeout", value)
 
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        White behavior when copying data into azure SQL MI. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "write_behavior", value)
+
 
 @pulumi.input_type
 class SqlMISourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -67654,7 +67888,7 @@ class SqlMISourceArgs:
         A copy activity Azure SQL Managed Instance source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlMISource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -67708,14 +67942,14 @@ class SqlMISourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -68086,11 +68320,14 @@ class SqlServerSinkArgs:
                  sink_retry_wait: Optional[Any] = None,
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
+                 sql_writer_use_table_lock: Optional[Any] = None,
                  stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
+                 upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
                  write_batch_size: Optional[Any] = None,
-                 write_batch_timeout: Optional[Any] = None):
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
         """
         A copy activity SQL server sink.
         :param pulumi.Input[str] type: Copy sink type.
@@ -68102,11 +68339,14 @@ class SqlServerSinkArgs:
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
+        :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: Write behavior when copying data into sql server. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
         """
         pulumi.set(__self__, "type", 'SqlServerSink')
         if disable_metrics_collection is not None:
@@ -68123,16 +68363,22 @@ class SqlServerSinkArgs:
             pulumi.set(__self__, "sql_writer_stored_procedure_name", sql_writer_stored_procedure_name)
         if sql_writer_table_type is not None:
             pulumi.set(__self__, "sql_writer_table_type", sql_writer_table_type)
+        if sql_writer_use_table_lock is not None:
+            pulumi.set(__self__, "sql_writer_use_table_lock", sql_writer_use_table_lock)
         if stored_procedure_parameters is not None:
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if stored_procedure_table_type_parameter_name is not None:
             pulumi.set(__self__, "stored_procedure_table_type_parameter_name", stored_procedure_table_type_parameter_name)
         if table_option is not None:
             pulumi.set(__self__, "table_option", table_option)
+        if upsert_settings is not None:
+            pulumi.set(__self__, "upsert_settings", upsert_settings)
         if write_batch_size is not None:
             pulumi.set(__self__, "write_batch_size", write_batch_size)
         if write_batch_timeout is not None:
             pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
 
     @property
     @pulumi.getter
@@ -68232,6 +68478,18 @@ class SqlServerSinkArgs:
         pulumi.set(self, "sql_writer_table_type", value)
 
     @property
+    @pulumi.getter(name="sqlWriterUseTableLock")
+    def sql_writer_use_table_lock(self) -> Optional[Any]:
+        """
+        Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "sql_writer_use_table_lock")
+
+    @sql_writer_use_table_lock.setter
+    def sql_writer_use_table_lock(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_use_table_lock", value)
+
+    @property
     @pulumi.getter(name="storedProcedureParameters")
     def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
         """
@@ -68268,6 +68526,18 @@ class SqlServerSinkArgs:
         pulumi.set(self, "table_option", value)
 
     @property
+    @pulumi.getter(name="upsertSettings")
+    def upsert_settings(self) -> Optional[pulumi.Input['SqlUpsertSettingsArgs']]:
+        """
+        SQL upsert settings.
+        """
+        return pulumi.get(self, "upsert_settings")
+
+    @upsert_settings.setter
+    def upsert_settings(self, value: Optional[pulumi.Input['SqlUpsertSettingsArgs']]):
+        pulumi.set(self, "upsert_settings", value)
+
+    @property
     @pulumi.getter(name="writeBatchSize")
     def write_batch_size(self) -> Optional[Any]:
         """
@@ -68291,12 +68561,24 @@ class SqlServerSinkArgs:
     def write_batch_timeout(self, value: Optional[Any]):
         pulumi.set(self, "write_batch_timeout", value)
 
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        Write behavior when copying data into sql server. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "write_behavior", value)
+
 
 @pulumi.input_type
 class SqlServerSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -68312,7 +68594,7 @@ class SqlServerSourceArgs:
         A copy activity SQL server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlServerSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
@@ -68366,14 +68648,14 @@ class SqlServerSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -68838,11 +69120,14 @@ class SqlSinkArgs:
                  sink_retry_wait: Optional[Any] = None,
                  sql_writer_stored_procedure_name: Optional[Any] = None,
                  sql_writer_table_type: Optional[Any] = None,
+                 sql_writer_use_table_lock: Optional[Any] = None,
                  stored_procedure_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]] = None,
                  stored_procedure_table_type_parameter_name: Optional[Any] = None,
                  table_option: Optional[Any] = None,
+                 upsert_settings: Optional[pulumi.Input['SqlUpsertSettingsArgs']] = None,
                  write_batch_size: Optional[Any] = None,
-                 write_batch_timeout: Optional[Any] = None):
+                 write_batch_timeout: Optional[Any] = None,
+                 write_behavior: Optional[Any] = None):
         """
         A copy activity SQL sink.
         :param pulumi.Input[str] type: Copy sink type.
@@ -68854,11 +69139,14 @@ class SqlSinkArgs:
         :param Any sink_retry_wait: Sink retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any sql_writer_stored_procedure_name: SQL writer stored procedure name. Type: string (or Expression with resultType string).
         :param Any sql_writer_table_type: SQL writer table type. Type: string (or Expression with resultType string).
+        :param Any sql_writer_use_table_lock: Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]] stored_procedure_parameters: SQL stored procedure parameters.
         :param Any stored_procedure_table_type_parameter_name: The stored procedure parameter name of the table type. Type: string (or Expression with resultType string).
         :param Any table_option: The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
+        :param pulumi.Input['SqlUpsertSettingsArgs'] upsert_settings: SQL upsert settings.
         :param Any write_batch_size: Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         :param Any write_batch_timeout: Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any write_behavior: Write behavior when copying data into sql. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
         """
         pulumi.set(__self__, "type", 'SqlSink')
         if disable_metrics_collection is not None:
@@ -68875,16 +69163,22 @@ class SqlSinkArgs:
             pulumi.set(__self__, "sql_writer_stored_procedure_name", sql_writer_stored_procedure_name)
         if sql_writer_table_type is not None:
             pulumi.set(__self__, "sql_writer_table_type", sql_writer_table_type)
+        if sql_writer_use_table_lock is not None:
+            pulumi.set(__self__, "sql_writer_use_table_lock", sql_writer_use_table_lock)
         if stored_procedure_parameters is not None:
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if stored_procedure_table_type_parameter_name is not None:
             pulumi.set(__self__, "stored_procedure_table_type_parameter_name", stored_procedure_table_type_parameter_name)
         if table_option is not None:
             pulumi.set(__self__, "table_option", table_option)
+        if upsert_settings is not None:
+            pulumi.set(__self__, "upsert_settings", upsert_settings)
         if write_batch_size is not None:
             pulumi.set(__self__, "write_batch_size", write_batch_size)
         if write_batch_timeout is not None:
             pulumi.set(__self__, "write_batch_timeout", write_batch_timeout)
+        if write_behavior is not None:
+            pulumi.set(__self__, "write_behavior", write_behavior)
 
     @property
     @pulumi.getter
@@ -68984,6 +69278,18 @@ class SqlSinkArgs:
         pulumi.set(self, "sql_writer_table_type", value)
 
     @property
+    @pulumi.getter(name="sqlWriterUseTableLock")
+    def sql_writer_use_table_lock(self) -> Optional[Any]:
+        """
+        Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "sql_writer_use_table_lock")
+
+    @sql_writer_use_table_lock.setter
+    def sql_writer_use_table_lock(self, value: Optional[Any]):
+        pulumi.set(self, "sql_writer_use_table_lock", value)
+
+    @property
     @pulumi.getter(name="storedProcedureParameters")
     def stored_procedure_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]:
         """
@@ -69020,6 +69326,18 @@ class SqlSinkArgs:
         pulumi.set(self, "table_option", value)
 
     @property
+    @pulumi.getter(name="upsertSettings")
+    def upsert_settings(self) -> Optional[pulumi.Input['SqlUpsertSettingsArgs']]:
+        """
+        SQL upsert settings.
+        """
+        return pulumi.get(self, "upsert_settings")
+
+    @upsert_settings.setter
+    def upsert_settings(self, value: Optional[pulumi.Input['SqlUpsertSettingsArgs']]):
+        pulumi.set(self, "upsert_settings", value)
+
+    @property
     @pulumi.getter(name="writeBatchSize")
     def write_batch_size(self) -> Optional[Any]:
         """
@@ -69043,12 +69361,24 @@ class SqlSinkArgs:
     def write_batch_timeout(self, value: Optional[Any]):
         pulumi.set(self, "write_batch_timeout", value)
 
+    @property
+    @pulumi.getter(name="writeBehavior")
+    def write_behavior(self) -> Optional[Any]:
+        """
+        Write behavior when copying data into sql. Type: SqlWriteBehaviorEnum (or Expression with resultType SqlWriteBehaviorEnum)
+        """
+        return pulumi.get(self, "write_behavior")
+
+    @write_behavior.setter
+    def write_behavior(self, value: Optional[Any]):
+        pulumi.set(self, "write_behavior", value)
+
 
 @pulumi.input_type
 class SqlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -69064,7 +69394,7 @@ class SqlSourceArgs:
         A copy activity SQL source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SqlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -69118,14 +69448,14 @@ class SqlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -69259,6 +69589,62 @@ class SqlSourceArgs:
     @stored_procedure_parameters.setter
     def stored_procedure_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StoredProcedureParameterArgs']]]]):
         pulumi.set(self, "stored_procedure_parameters", value)
+
+
+@pulumi.input_type
+class SqlUpsertSettingsArgs:
+    def __init__(__self__, *,
+                 interim_schema_name: Optional[Any] = None,
+                 keys: Optional[Any] = None,
+                 use_temp_db: Optional[Any] = None):
+        """
+        Sql upsert option settings
+        :param Any interim_schema_name: Schema name for interim table. Type: string (or Expression with resultType string).
+        :param Any keys: Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
+        :param Any use_temp_db: Specifies whether to use temp db for upsert interim table. Type: boolean (or Expression with resultType boolean).
+        """
+        if interim_schema_name is not None:
+            pulumi.set(__self__, "interim_schema_name", interim_schema_name)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+        if use_temp_db is not None:
+            pulumi.set(__self__, "use_temp_db", use_temp_db)
+
+    @property
+    @pulumi.getter(name="interimSchemaName")
+    def interim_schema_name(self) -> Optional[Any]:
+        """
+        Schema name for interim table. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "interim_schema_name")
+
+    @interim_schema_name.setter
+    def interim_schema_name(self, value: Optional[Any]):
+        pulumi.set(self, "interim_schema_name", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Any]:
+        """
+        Key column names for unique row identification. Type: array of strings (or Expression with resultType array of strings).
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[Any]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter(name="useTempDB")
+    def use_temp_db(self) -> Optional[Any]:
+        """
+        Specifies whether to use temp db for upsert interim table. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "use_temp_db")
+
+    @use_temp_db.setter
+    def use_temp_db(self, value: Optional[Any]):
+        pulumi.set(self, "use_temp_db", value)
 
 
 @pulumi.input_type
@@ -69650,7 +70036,7 @@ class SquareObjectDatasetArgs:
 class SquareSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -69661,7 +70047,7 @@ class SquareSourceArgs:
         A copy activity Square Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SquareSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -69700,14 +70086,14 @@ class SquareSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -70256,7 +70642,7 @@ class SybaseLinkedServiceArgs:
 class SybaseSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -70267,7 +70653,7 @@ class SybaseSourceArgs:
         A copy activity source for Sybase databases.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'SybaseSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
@@ -70306,14 +70692,14 @@ class SybaseSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -70545,7 +70931,7 @@ class SybaseTableDatasetArgs:
 class TabularSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
@@ -70555,7 +70941,7 @@ class TabularSourceArgs:
         Copy activity sources of tabular type.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'TabularSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
@@ -70591,14 +70977,14 @@ class TabularSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -70989,7 +71375,7 @@ class TeradataPartitionSettingsArgs:
 class TeradataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
@@ -71002,7 +71388,7 @@ class TeradataSourceArgs:
         A copy activity Teradata source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'TeradataSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for teradata read in parallel. Possible values include: "None", "Hash", "DynamicRange".
@@ -71047,14 +71433,14 @@ class TeradataSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -72467,7 +72853,7 @@ class VerticaLinkedServiceArgs:
 class VerticaSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -72478,7 +72864,7 @@ class VerticaSourceArgs:
         A copy activity Vertica source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'VerticaSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -72517,14 +72903,14 @@ class VerticaSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -73723,7 +74109,7 @@ class WebLinkedServiceArgs:
 class WebSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
@@ -73732,7 +74118,7 @@ class WebSourceArgs:
         A copy activity source for web page table.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'WebSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
@@ -73765,14 +74151,14 @@ class WebSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -74366,7 +74752,7 @@ class XeroObjectDatasetArgs:
 class XeroSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -74377,7 +74763,7 @@ class XeroSourceArgs:
         A copy activity Xero Service source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'XeroSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -74416,14 +74802,14 @@ class XeroSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -74807,7 +75193,7 @@ class XmlReadSettingsArgs:
 class XmlSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  format_settings: Optional[pulumi.Input['XmlReadSettingsArgs']] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -74818,7 +75204,7 @@ class XmlSourceArgs:
         A copy activity Xml source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'XmlSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input['XmlReadSettingsArgs'] format_settings: Xml format settings.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -74857,14 +75243,14 @@ class XmlSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property
@@ -75338,7 +75724,7 @@ class ZohoObjectDatasetArgs:
 class ZohoSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 additional_columns: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]] = None,
+                 additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
@@ -75349,7 +75735,7 @@ class ZohoSourceArgs:
         A copy activity Zoho server source.
         :param pulumi.Input[str] type: Copy source type.
                Expected value is 'ZohoSource'.
-        :param pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]] additional_columns: Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: A query to retrieve data from source. Type: string (or Expression with resultType string).
@@ -75388,14 +75774,14 @@ class ZohoSourceArgs:
 
     @property
     @pulumi.getter(name="additionalColumns")
-    def additional_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]:
+    def additional_columns(self) -> Optional[Any]:
         """
-        Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         """
         return pulumi.get(self, "additional_columns")
 
     @additional_columns.setter
-    def additional_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AdditionalColumnsArgs']]]]):
+    def additional_columns(self, value: Optional[Any]):
         pulumi.set(self, "additional_columns", value)
 
     @property

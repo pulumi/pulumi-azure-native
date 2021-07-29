@@ -31,9 +31,11 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.timeseriesinsights.v20171115 as v20171115
     import pulumi_azure_native.timeseriesinsights.v20180815preview as v20180815preview
     import pulumi_azure_native.timeseriesinsights.v20200515 as v20200515
+    import pulumi_azure_native.timeseriesinsights.v20210630preview as v20210630preview
 else:
     v20170228preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20170228preview')
     v20171115 = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20171115')
     v20180815preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20180815preview')
     v20200515 = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20200515')
+    v20210630preview = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights.v20210630preview')
 

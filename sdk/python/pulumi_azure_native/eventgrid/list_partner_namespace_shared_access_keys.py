@@ -59,7 +59,7 @@ def list_partner_namespace_shared_access_keys(partner_namespace_name: Optional[s
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPartnerNamespaceSharedAccessKeysResult:
     """
     Shared access keys of the partner namespace.
-    API Version: 2020-04-01-preview.
+    API Version: 2021-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.

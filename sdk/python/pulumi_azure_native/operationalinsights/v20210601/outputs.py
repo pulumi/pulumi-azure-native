@@ -133,7 +133,7 @@ class CapacityReservationPropertiesResponse(dict):
                  min_capacity: float):
         """
         The Capacity Reservation properties.
-        :param int capacity_reservation_level: The capacity reservation level for this cluster
+        :param int capacity_reservation_level: The capacity reservation level for this cluster in GB
         :param str last_sku_update: The last time Sku was updated.
         :param float min_capacity: Minimum CapacityReservation value in GB.
         """
@@ -145,7 +145,7 @@ class CapacityReservationPropertiesResponse(dict):
     @pulumi.getter(name="capacityReservationLevel")
     def capacity_reservation_level(self) -> int:
         """
-        The capacity reservation level for this cluster
+        The capacity reservation level for this cluster in GB
         """
         return pulumi.get(self, "capacity_reservation_level")
 

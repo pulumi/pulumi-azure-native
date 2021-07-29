@@ -315,7 +315,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  __props__=None):
         """
         Information about a partner registration.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,7 +352,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about a partner registration.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PartnerRegistrationArgs args: The arguments to use to populate this resource's properties.
