@@ -8,7 +8,7 @@ import (
 )
 
 // Information about a partner registration.
-// API Version: 2020-04-01-preview.
+// API Version: 2021-06-01-preview.
 func LookupPartnerRegistration(ctx *pulumi.Context, args *LookupPartnerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupPartnerRegistrationResult, error) {
 	var rv LookupPartnerRegistrationResult
 	err := ctx.Invoke("azure-native:eventgrid:getPartnerRegistration", args, &rv, opts...)

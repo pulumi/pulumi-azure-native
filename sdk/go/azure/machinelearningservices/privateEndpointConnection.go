@@ -130,6 +130,12 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:PrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210701:PrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection

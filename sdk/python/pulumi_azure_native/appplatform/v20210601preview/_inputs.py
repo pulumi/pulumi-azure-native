@@ -50,10 +50,14 @@ class AppResourcePropertiesArgs:
         """
         if active_deployment_name is not None:
             pulumi.set(__self__, "active_deployment_name", active_deployment_name)
+        if enable_end_to_end_tls is None:
+            enable_end_to_end_tls = False
         if enable_end_to_end_tls is not None:
             pulumi.set(__self__, "enable_end_to_end_tls", enable_end_to_end_tls)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
+        if https_only is None:
+            https_only = False
         if https_only is not None:
             pulumi.set(__self__, "https_only", https_only)
         if persistent_disk is not None:
@@ -486,6 +490,8 @@ class DeploymentSettingsArgs:
             pulumi.set(__self__, "net_core_main_entry_path", net_core_main_entry_path)
         if resource_requests is not None:
             pulumi.set(__self__, "resource_requests", resource_requests)
+        if runtime_version is None:
+            runtime_version = 'Java_8'
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
 
@@ -908,6 +914,8 @@ class TemporaryDiskArgs:
         :param pulumi.Input[str] mount_path: Mount path of the temporary disk
         :param pulumi.Input[int] size_in_gb: Size of the temporary disk in GB
         """
+        if mount_path is None:
+            mount_path = '/tmp'
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
         if size_in_gb is not None:

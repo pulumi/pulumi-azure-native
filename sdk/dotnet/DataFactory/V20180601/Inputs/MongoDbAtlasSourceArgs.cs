@@ -15,17 +15,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class MongoDbAtlasSourceArgs : Pulumi.ResourceArgs
     {
-        [Input("additionalColumns")]
-        private InputList<Inputs.AdditionalColumnsArgs>? _additionalColumns;
-
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public InputList<Inputs.AdditionalColumnsArgs> AdditionalColumns
-        {
-            get => _additionalColumns ?? (_additionalColumns = new InputList<Inputs.AdditionalColumnsArgs>());
-            set => _additionalColumns = value;
-        }
+        [Input("additionalColumns")]
+        public Input<object>? AdditionalColumns { get; set; }
 
         /// <summary>
         /// Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. This property's main purpose is to avoid hit the limitation of response size. Type: integer (or Expression with resultType integer).

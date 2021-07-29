@@ -75,6 +75,12 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:ReferenceDataSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:ReferenceDataSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReferenceDataSet

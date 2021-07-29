@@ -22,6 +22,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// GitHub bring your own app client id.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// GitHub bring your own app client secret information.
+        /// </summary>
+        [Input("clientSecret")]
+        public Input<Inputs.GitHubClientSecretArgs>? ClientSecret { get; set; }
+
+        /// <summary>
         /// Collaboration branch.
         /// </summary>
         [Input("collaborationBranch", required: true)]

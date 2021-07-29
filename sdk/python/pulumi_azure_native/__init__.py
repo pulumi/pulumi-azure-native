@@ -3127,6 +3127,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "confidentialledger/v20210513preview",
+  "fqn": "pulumi_azure_native.confidentialledger.v20210513preview",
+  "classes": {
+   "azure-native:confidentialledger/v20210513preview:Ledger": "Ledger"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "confluent",
   "fqn": "pulumi_azure_native.confluent",
   "classes": {
@@ -6736,6 +6744,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "fluidrelay/v20210615preview",
+  "fqn": "pulumi_azure_native.fluidrelay.v20210615preview",
+  "classes": {
+   "azure-native:fluidrelay/v20210615preview:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "guestconfiguration",
   "fqn": "pulumi_azure_native.guestconfiguration",
   "classes": {
@@ -7653,6 +7669,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "keyvault/v20210601preview",
+  "fqn": "pulumi_azure_native.keyvault.v20210601preview",
+  "classes": {
+   "azure-native:keyvault/v20210601preview:Key": "Key",
+   "azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
+   "azure-native:keyvault/v20210601preview:ManagedHsm": "ManagedHsm",
+   "azure-native:keyvault/v20210601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:keyvault/v20210601preview:Secret": "Secret",
+   "azure-native:keyvault/v20210601preview:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kubernetes",
   "fqn": "pulumi_azure_native.kubernetes",
   "classes": {
@@ -8420,6 +8449,17 @@ _utilities.register(
    "azure-native:machinelearningservices/v20210401:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:machinelearningservices/v20210401:Workspace": "Workspace",
    "azure-native:machinelearningservices/v20210401:WorkspaceConnection": "WorkspaceConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "machinelearningservices/v20210701",
+  "fqn": "pulumi_azure_native.machinelearningservices.v20210701",
+  "classes": {
+   "azure-native:machinelearningservices/v20210701:Compute": "Compute",
+   "azure-native:machinelearningservices/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:machinelearningservices/v20210701:Workspace": "Workspace",
+   "azure-native:machinelearningservices/v20210701:WorkspaceConnection": "WorkspaceConnection"
   }
  },
  {
@@ -12249,6 +12289,16 @@ _utilities.register(
    "azure-native:recoveryservices/v20210601:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20210601:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20210601:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20210601:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20210601:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20210601:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20210601:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20210601:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20210601:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20210601:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20210601:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20210601:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20210601:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20210601:Vault": "Vault"
   }
  },
@@ -14237,6 +14287,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "storagecache/v20210501",
+  "fqn": "pulumi_azure_native.storagecache.v20210501",
+  "classes": {
+   "azure-native:storagecache/v20210501:Cache": "Cache",
+   "azure-native:storagecache/v20210501:StorageTarget": "StorageTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storagepool",
   "fqn": "pulumi_azure_native.storagepool",
   "classes": {
@@ -14823,6 +14882,21 @@ _utilities.register(
    "azure-native:timeseriesinsights/v20200515:Gen2Environment": "Gen2Environment",
    "azure-native:timeseriesinsights/v20200515:IoTHubEventSource": "IoTHubEventSource",
    "azure-native:timeseriesinsights/v20200515:ReferenceDataSet": "ReferenceDataSet"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "timeseriesinsights/v20210630preview",
+  "fqn": "pulumi_azure_native.timeseriesinsights.v20210630preview",
+  "classes": {
+   "azure-native:timeseriesinsights/v20210630preview:AccessPolicy": "AccessPolicy",
+   "azure-native:timeseriesinsights/v20210630preview:Environment": "Environment",
+   "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource": "EventHubEventSource",
+   "azure-native:timeseriesinsights/v20210630preview:EventSource": "EventSource",
+   "azure-native:timeseriesinsights/v20210630preview:Gen1Environment": "Gen1Environment",
+   "azure-native:timeseriesinsights/v20210630preview:Gen2Environment": "Gen2Environment",
+   "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource": "IoTHubEventSource",
+   "azure-native:timeseriesinsights/v20210630preview:ReferenceDataSet": "ReferenceDataSet"
   }
  },
  {

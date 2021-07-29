@@ -20,13 +20,16 @@ class GetConfigurationProfileResult:
     """
     A profile object that contains change analysis configuration, such as notification settings, for this subscription
     """
-    def __init__(__self__, id=None, identity=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -55,6 +58,14 @@ class GetConfigurationProfileResult:
         The identity block returned by ARM resource that supports managed identity.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location where the resource is to be deployed.
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -97,6 +108,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
         return GetConfigurationProfileResult(
             id=self.id,
             identity=self.identity,
+            location=self.location,
             name=self.name,
             properties=self.properties,
             system_data=self.system_data,
@@ -123,6 +135,7 @@ def get_configuration_profile(profile_name: Optional[str] = None,
     return AwaitableGetConfigurationProfileResult(
         id=__ret__.id,
         identity=__ret__.identity,
+        location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
         system_data=__ret__.system_data,

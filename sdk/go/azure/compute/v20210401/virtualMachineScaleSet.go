@@ -61,7 +61,7 @@ type VirtualMachineScaleSet struct {
 	UpgradePolicy UpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
 	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrOutput `pulumi:"virtualMachineProfile"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
@@ -241,7 +241,7 @@ type virtualMachineScaleSetState struct {
 	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
 	// The virtual machine profile.
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones []string `pulumi:"zones"`
@@ -294,7 +294,7 @@ type VirtualMachineScaleSetState struct {
 	UpgradePolicy UpgradePolicyResponsePtrInput
 	// The virtual machine profile.
 	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrInput
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance pulumi.BoolPtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones pulumi.StringArrayInput
@@ -347,7 +347,7 @@ type virtualMachineScaleSetArgs struct {
 	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
 	// The name of the VM scale set to create or update.
 	VmScaleSetName *string `pulumi:"vmScaleSetName"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones []string `pulumi:"zones"`
@@ -397,7 +397,7 @@ type VirtualMachineScaleSetArgs struct {
 	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
 	// The name of the VM scale set to create or update.
 	VmScaleSetName pulumi.StringPtrInput
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
 	ZoneBalance pulumi.BoolPtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set
 	Zones pulumi.StringArrayInput

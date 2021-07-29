@@ -16,6 +16,8 @@ type ConfigurationProfile struct {
 
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
+	// The location where the resource is to be deployed.
+	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The properties of a configuration profile.
@@ -69,6 +71,8 @@ func GetConfigurationProfile(ctx *pulumi.Context,
 type configurationProfileState struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The location where the resource is to be deployed.
+	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// The properties of a configuration profile.
@@ -82,6 +86,8 @@ type configurationProfileState struct {
 type ConfigurationProfileState struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity ResourceIdentityResponsePtrInput
+	// The location where the resource is to be deployed.
+	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// The properties of a configuration profile.
@@ -99,6 +105,8 @@ func (ConfigurationProfileState) ElementType() reflect.Type {
 type configurationProfileArgs struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentity `pulumi:"identity"`
+	// The location where the resource is to be deployed.
+	Location *string `pulumi:"location"`
 	// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
 	ProfileName *string `pulumi:"profileName"`
 	// The properties of a configuration profile.
@@ -109,6 +117,8 @@ type configurationProfileArgs struct {
 type ConfigurationProfileArgs struct {
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity ResourceIdentityPtrInput
+	// The location where the resource is to be deployed.
+	Location pulumi.StringPtrInput
 	// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
 	ProfileName pulumi.StringPtrInput
 	// The properties of a configuration profile.

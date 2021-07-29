@@ -21,6 +21,7 @@ __all__ = [
     'EncryptionDetailsResponse',
     'EntityReferenceResponse',
     'EnvironmentVariableSetupResponse',
+    'GitHubClientSecretResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
@@ -600,6 +601,60 @@ class EnvironmentVariableSetupResponse(dict):
         The value of the environment variable.
         """
         return pulumi.get(self, "variable_value")
+
+
+@pulumi.output_type
+class GitHubClientSecretResponse(dict):
+    """
+    Client secret information for factory's bring your own app repository configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "byoaSecretAkvUrl":
+            suggest = "byoa_secret_akv_url"
+        elif key == "byoaSecretName":
+            suggest = "byoa_secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitHubClientSecretResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitHubClientSecretResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitHubClientSecretResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 byoa_secret_akv_url: Optional[str] = None,
+                 byoa_secret_name: Optional[str] = None):
+        """
+        Client secret information for factory's bring your own app repository configuration
+        :param str byoa_secret_akv_url: Bring your own app client secret AKV URL
+        :param str byoa_secret_name: Bring your own app client secret name in AKV
+        """
+        if byoa_secret_akv_url is not None:
+            pulumi.set(__self__, "byoa_secret_akv_url", byoa_secret_akv_url)
+        if byoa_secret_name is not None:
+            pulumi.set(__self__, "byoa_secret_name", byoa_secret_name)
+
+    @property
+    @pulumi.getter(name="byoaSecretAkvUrl")
+    def byoa_secret_akv_url(self) -> Optional[str]:
+        """
+        Bring your own app client secret AKV URL
+        """
+        return pulumi.get(self, "byoa_secret_akv_url")
+
+    @property
+    @pulumi.getter(name="byoaSecretName")
+    def byoa_secret_name(self) -> Optional[str]:
+        """
+        Bring your own app client secret name in AKV
+        """
+        return pulumi.get(self, "byoa_secret_name")
 
 
 @pulumi.output_type
@@ -3795,6 +3850,10 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         suggest = None
         if key == "accountName":
             suggest = "account_name"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
         elif key == "collaborationBranch":
             suggest = "collaboration_branch"
         elif key == "hostName":
@@ -3823,6 +3882,8 @@ class WorkspaceRepositoryConfigurationResponse(dict):
 
     def __init__(__self__, *,
                  account_name: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional['outputs.GitHubClientSecretResponse'] = None,
                  collaboration_branch: Optional[str] = None,
                  host_name: Optional[str] = None,
                  last_commit_id: Optional[str] = None,
@@ -3834,6 +3895,8 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         """
         Git integration settings
         :param str account_name: Account name
+        :param str client_id: GitHub bring your own app client id
+        :param 'GitHubClientSecretResponse' client_secret: GitHub bring your own app client secret information.
         :param str collaboration_branch: Collaboration branch
         :param str host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
         :param str last_commit_id: The last commit ID
@@ -3845,6 +3908,10 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if collaboration_branch is not None:
             pulumi.set(__self__, "collaboration_branch", collaboration_branch)
         if host_name is not None:
@@ -3869,6 +3936,22 @@ class WorkspaceRepositoryConfigurationResponse(dict):
         Account name
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        GitHub bring your own app client id
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional['outputs.GitHubClientSecretResponse']:
+        """
+        GitHub bring your own app client secret information.
+        """
+        return pulumi.get(self, "client_secret")
 
     @property
     @pulumi.getter(name="collaborationBranch")

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a partner registration.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-06-01-preview.
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**

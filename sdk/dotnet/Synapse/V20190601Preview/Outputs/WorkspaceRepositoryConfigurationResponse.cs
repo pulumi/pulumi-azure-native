@@ -18,6 +18,14 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
         /// </summary>
         public readonly string? AccountName;
         /// <summary>
+        /// GitHub bring your own app client id
+        /// </summary>
+        public readonly string? ClientId;
+        /// <summary>
+        /// GitHub bring your own app client secret information.
+        /// </summary>
+        public readonly Outputs.GitHubClientSecretResponse? ClientSecret;
+        /// <summary>
         /// Collaboration branch
         /// </summary>
         public readonly string? CollaborationBranch;
@@ -54,6 +62,10 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
         private WorkspaceRepositoryConfigurationResponse(
             string? accountName,
 
+            string? clientId,
+
+            Outputs.GitHubClientSecretResponse? clientSecret,
+
             string? collaborationBranch,
 
             string? hostName,
@@ -71,6 +83,8 @@ namespace Pulumi.AzureNative.Synapse.V20190601Preview.Outputs
             string? type)
         {
             AccountName = accountName;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
             CollaborationBranch = collaborationBranch;
             HostName = hostName;
             LastCommitId = lastCommitId;

@@ -42,6 +42,10 @@ export interface GetConfigurationProfileResult {
      */
     readonly identity?: outputs.changeanalysis.ResourceIdentityResponse;
     /**
+     * The location where the resource is to be deployed.
+     */
+    readonly location?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

@@ -166,7 +166,7 @@ class EventChannel(pulumi.CustomResource):
                  __props__=None):
         """
         Event Channel.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +189,7 @@ class EventChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Channel.
-        API Version: 2020-04-01-preview.
+        API Version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EventChannelArgs args: The arguments to use to populate this resource's properties.

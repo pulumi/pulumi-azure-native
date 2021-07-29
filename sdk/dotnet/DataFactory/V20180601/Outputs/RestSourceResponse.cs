@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class RestSourceResponse
     {
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
+        public readonly object? AdditionalColumns;
         /// <summary>
         /// The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         /// </summary>
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private RestSourceResponse(
-            ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
+            object? additionalColumns,
 
             object? additionalHeaders,
 

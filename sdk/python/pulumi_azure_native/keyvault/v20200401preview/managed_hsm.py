@@ -191,7 +191,7 @@ class ManagedHsm(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210401preview:ManagedHsm")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210401preview:ManagedHsm"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:ManagedHsm"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210601preview:ManagedHsm")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedHsm, __self__).__init__(
             'azure-native:keyvault/v20200401preview:ManagedHsm',

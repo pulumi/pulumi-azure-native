@@ -23,6 +23,12 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The location where the resource is to be deployed.
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -102,6 +108,12 @@ namespace Pulumi.AzureNative.ChangeAnalysis
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The location where the resource is to be deployed.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.

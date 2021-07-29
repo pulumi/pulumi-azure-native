@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class IntegrationRuntimeDataFlowPropertiesResponse
     {
         /// <summary>
+        /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as false. Default is true.
+        /// </summary>
+        public readonly bool? Cleanup;
+        /// <summary>
         /// Compute type of the cluster which will execute data flow job.
         /// </summary>
         public readonly string? ComputeType;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private IntegrationRuntimeDataFlowPropertiesResponse(
+            bool? cleanup,
+
             string? computeType,
 
             int? coreCount,
 
             int? timeToLive)
         {
+            Cleanup = cleanup;
             ComputeType = computeType;
             CoreCount = coreCount;
             TimeToLive = timeToLive;

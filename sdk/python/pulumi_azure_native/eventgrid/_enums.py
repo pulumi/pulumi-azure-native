@@ -10,6 +10,7 @@ __all__ = [
     'EndpointType',
     'EventDeliverySchema',
     'EventSubscriptionIdentityType',
+    'IdentityType',
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
@@ -73,6 +74,16 @@ class EventSubscriptionIdentityType(str, Enum):
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class IdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
 
 
 class InputSchema(str, Enum):

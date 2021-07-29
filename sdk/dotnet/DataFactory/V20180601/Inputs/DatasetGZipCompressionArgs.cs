@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? Level { get; set; }
 
         /// <summary>
-        /// Type of dataset compression.
+        /// Type of dataset compression. Type: string (or Expression with resultType string).
         /// Expected value is 'GZip'.
         /// </summary>
         [Input("type", required: true)]

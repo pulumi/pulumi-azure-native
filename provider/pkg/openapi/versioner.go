@@ -82,10 +82,6 @@ var deprecatedProviderVersions = map[string][]string{
 
 // A manually-maintained list of API versions to ignore while calculating the top-level resources.
 var ignoredProviderVersions = map[string][]string{
-	// This preview version introduces new resources but also changes the shape of some items, so merging it with
-	// the previous stable version isn't easy. Ignore this preview for now. We should be able to remove this entry
-	// once the next stable version ships.
-	"EventGrid":  {"v20201015preview"},
 	"StorSimple": {"v20161001"},
 }
 
@@ -99,8 +95,10 @@ var cutoffProviderVersions = map[string]string{
 	"appconfiguration":        "v20200701preview",
 	"avs":                     "v20210101preview",
 	"azurearcdata":            "v20210601preview",
+	"batch":                   "v20210101",
 	"cognitiveservices":       "v20170418",
 	"compute":                 "v20210301",
+	"confidentialledger":      "v20201201preview",
 	"containerregistry":       "v20201101preview",
 	"containerservice":        "v20210301",
 	"costmanagement":          "v20200601",
@@ -126,6 +124,7 @@ var cutoffProviderVersions = map[string]string{
 	"signalrservice":          "v20210401preview",
 	"sql":                     "v20201101preview",
 	"storage":                 "v20210201",
+	"storagecache":            "v20210301",
 	"storagesync":             "v20200301",
 	"storagepool":             "v20200315preview",
 	"synapse":                 "v20210301",
@@ -148,6 +147,9 @@ var lockedTypeVersions = map[string]string{
 	"compute:SshPublicKey":                              "v20201201",
 	"compute:getLogAnalyticExportRequestRateByInterval": "v20201201",
 	"compute:getLogAnalyticExportThrottledRequests":     "v20201201",
+
+	"eventgrid:PartnerTopicEventSubscription": "v20200401preview",
+	"eventgrid:SystemTopicEventSubscription":  "v20200401preview",
 
 	"insights:Component": "v20150501",
 

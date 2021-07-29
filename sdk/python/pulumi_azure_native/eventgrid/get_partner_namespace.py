@@ -20,13 +20,19 @@ class GetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
     """
-    def __init__(__self__, endpoint=None, id=None, location=None, name=None, partner_registration_fully_qualified_id=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, disable_local_auth=None, endpoint=None, id=None, inbound_ip_rules=None, location=None, name=None, partner_registration_fully_qualified_id=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
+            raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
+        pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,9 +42,15 @@ class GetPartnerNamespaceResult:
         if partner_registration_fully_qualified_id and not isinstance(partner_registration_fully_qualified_id, str):
             raise TypeError("Expected argument 'partner_registration_fully_qualified_id' to be a str")
         pulumi.set(__self__, "partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -48,6 +60,14 @@ class GetPartnerNamespaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter
@@ -64,6 +84,14 @@ class GetPartnerNamespaceResult:
         Fully qualified identifier of the resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inboundIpRules")
+    def inbound_ip_rules(self) -> Optional[Sequence['outputs.InboundIpRuleResponse']]:
+        """
+        This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "inbound_ip_rules")
 
     @property
     @pulumi.getter
@@ -91,12 +119,26 @@ class GetPartnerNamespaceResult:
         return pulumi.get(self, "partner_registration_fully_qualified_id")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Provisioning state of the partner namespace.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="systemData")
@@ -129,12 +171,16 @@ class AwaitableGetPartnerNamespaceResult(GetPartnerNamespaceResult):
         if False:
             yield self
         return GetPartnerNamespaceResult(
+            disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
             id=self.id,
+            inbound_ip_rules=self.inbound_ip_rules,
             location=self.location,
             name=self.name,
             partner_registration_fully_qualified_id=self.partner_registration_fully_qualified_id,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -145,7 +191,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
-    API Version: 2020-04-01-preview.
+    API Version: 2021-06-01-preview.
 
 
     :param str partner_namespace_name: Name of the partner namespace.
@@ -161,12 +207,16 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getPartnerNamespace', __args__, opts=opts, typ=GetPartnerNamespaceResult).value
 
     return AwaitableGetPartnerNamespaceResult(
+        disable_local_auth=__ret__.disable_local_auth,
         endpoint=__ret__.endpoint,
         id=__ret__.id,
+        inbound_ip_rules=__ret__.inbound_ip_rules,
         location=__ret__.location,
         name=__ret__.name,
         partner_registration_fully_qualified_id=__ret__.partner_registration_fully_qualified_id,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SapTableSourceResponse
     {
         /// <summary>
-        /// Specifies the additional columns to be added to source data. Type: array of objects (or Expression with resultType array of objects).
+        /// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         /// </summary>
-        public readonly ImmutableArray<Outputs.AdditionalColumnsResponse> AdditionalColumns;
+        public readonly object? AdditionalColumns;
         /// <summary>
         /// Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private SapTableSourceResponse(
-            ImmutableArray<Outputs.AdditionalColumnsResponse> additionalColumns,
+            object? additionalColumns,
 
             object? batchSize,
 

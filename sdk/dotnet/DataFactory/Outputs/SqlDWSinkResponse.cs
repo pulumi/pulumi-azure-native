@@ -50,6 +50,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? SinkRetryWait;
         /// <summary>
+        /// Whether to use table lock during bulk copy. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? SqlWriterUseTableLock;
+        /// <summary>
         /// The option to handle sink table, such as autoCreate. For now only 'autoCreate' value is supported. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? TableOption;
@@ -59,6 +63,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// SQL DW upsert settings.
+        /// </summary>
+        public readonly Outputs.SqlDWUpsertSettingsResponse? UpsertSettings;
+        /// <summary>
         /// Write batch size. Type: integer (or Expression with resultType integer), minimum: 0.
         /// </summary>
         public readonly object? WriteBatchSize;
@@ -66,6 +74,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Write batch timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         public readonly object? WriteBatchTimeout;
+        /// <summary>
+        /// Write behavior when copying data into azure SQL DW. Type: SqlDWWriteBehaviorEnum (or Expression with resultType SqlDWWriteBehaviorEnum)
+        /// </summary>
+        public readonly object? WriteBehavior;
 
         [OutputConstructor]
         private SqlDWSinkResponse(
@@ -87,13 +99,19 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? sinkRetryWait,
 
+            object? sqlWriterUseTableLock,
+
             object? tableOption,
 
             string type,
 
+            Outputs.SqlDWUpsertSettingsResponse? upsertSettings,
+
             object? writeBatchSize,
 
-            object? writeBatchTimeout)
+            object? writeBatchTimeout,
+
+            object? writeBehavior)
         {
             AllowCopyCommand = allowCopyCommand;
             AllowPolyBase = allowPolyBase;
@@ -104,10 +122,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             PreCopyScript = preCopyScript;
             SinkRetryCount = sinkRetryCount;
             SinkRetryWait = sinkRetryWait;
+            SqlWriterUseTableLock = sqlWriterUseTableLock;
             TableOption = tableOption;
             Type = type;
+            UpsertSettings = upsertSettings;
             WriteBatchSize = writeBatchSize;
             WriteBatchTimeout = writeBatchTimeout;
+            WriteBehavior = writeBehavior;
         }
     }
 }

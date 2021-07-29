@@ -165,6 +165,36 @@ func (e EventSubscriptionIdentityType) ToStringPtrOutputWithContext(ctx context.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+type IdentityType pulumi.String
+
+const (
+	IdentityTypeNone                         = IdentityType("None")
+	IdentityTypeSystemAssigned               = IdentityType("SystemAssigned")
+	IdentityTypeUserAssigned                 = IdentityType("UserAssigned")
+	IdentityType_SystemAssigned_UserAssigned = IdentityType("SystemAssigned, UserAssigned")
+)
+
+func (IdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e IdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // This determines the format that Event Grid should expect for incoming events published to the topic.
 type InputSchema pulumi.String
 

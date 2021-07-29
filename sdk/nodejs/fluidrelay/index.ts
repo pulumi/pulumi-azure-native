@@ -14,9 +14,11 @@ export * from "../types/enums/fluidrelay";
 
 // Export sub-modules:
 import * as v20210312preview from "./v20210312preview";
+import * as v20210615preview from "./v20210615preview";
 
 export {
     v20210312preview,
+    v20210615preview,
 };
 
 // Import resources to register:

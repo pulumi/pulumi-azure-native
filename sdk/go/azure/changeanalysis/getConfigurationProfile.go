@@ -29,6 +29,8 @@ type LookupConfigurationProfileResult struct {
 	Id string `pulumi:"id"`
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The location where the resource is to be deployed.
+	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of a configuration profile.

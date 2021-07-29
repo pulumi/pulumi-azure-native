@@ -184,7 +184,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:Key"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210401preview:Key")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:keyvault:Key"), pulumi.Alias(type_="azure-native:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Key"), pulumi.Alias(type_="azure-nextgen:keyvault/v20210601preview:Key")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Key, __self__).__init__(
             'azure-native:keyvault:Key',

@@ -6,6 +6,11 @@ CHANGELOG
 - Support initialization failures by checkpointing partially created resources to state
   [938](https://github.com/pulumi/pulumi-azure-native/issues/938)
 
+#### Breaking Changes published by Microsoft:
+
+- `datafactory` adjusted the type of `additionalColumns` and `compressionType` properties
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15264))
+
 ---
 
 ## 1.19.0 (2021-07-22)

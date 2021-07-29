@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ChangeAnalysis.Inputs
     public sealed class AzureMonitorWorkspacePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+        /// </summary>
+        [Input("includeChangeDetails")]
+        public InputUnion<string, Pulumi.AzureNative.ChangeAnalysis.ChangeDetailsMode>? IncludeChangeDetails { get; set; }
+
+        /// <summary>
         /// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         /// </summary>
         [Input("workspaceId")]

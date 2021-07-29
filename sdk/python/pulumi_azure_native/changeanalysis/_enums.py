@@ -5,9 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'ChangeDetailsMode',
     'ManagedIdentityTypes',
     'NotificationsState',
 ]
+
+
+class ChangeDetailsMode(str, Enum):
+    """
+    The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+    """
+    NONE = "None"
+    INCLUDE = "Include"
+    EXCLUDE = "Exclude"
 
 
 class ManagedIdentityTypes(str, Enum):

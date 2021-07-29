@@ -171,7 +171,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventChannelResult:
     """
     Event Channel.
-    API Version: 2020-04-01-preview.
+    API Version: 2021-06-01-preview.
 
 
     :param str event_channel_name: Name of the event channel.

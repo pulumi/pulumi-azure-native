@@ -19,17 +19,33 @@ __all__ = [
 @pulumi.input_type
 class AzureMonitorWorkspacePropertiesArgs:
     def __init__(__self__, *,
+                 include_change_details: Optional[pulumi.Input[Union[str, 'ChangeDetailsMode']]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  workspace_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Configuration properties of an Azure Monitor workspace that receives change notifications.
+        :param pulumi.Input[Union[str, 'ChangeDetailsMode']] include_change_details: The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
         :param pulumi.Input[str] workspace_id: The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         :param pulumi.Input[str] workspace_resource_id: The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
         """
+        if include_change_details is not None:
+            pulumi.set(__self__, "include_change_details", include_change_details)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
         if workspace_resource_id is not None:
             pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter(name="includeChangeDetails")
+    def include_change_details(self) -> Optional[pulumi.Input[Union[str, 'ChangeDetailsMode']]]:
+        """
+        The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+        """
+        return pulumi.get(self, "include_change_details")
+
+    @include_change_details.setter
+    def include_change_details(self, value: Optional[pulumi.Input[Union[str, 'ChangeDetailsMode']]]):
+        pulumi.set(self, "include_change_details", value)
 
     @property
     @pulumi.getter(name="workspaceId")

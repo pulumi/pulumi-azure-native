@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class DatasetTarCompressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of dataset compression.
+        /// Type of dataset compression. Type: string (or Expression with resultType string).
         /// Expected value is 'Tar'.
         /// </summary>
         [Input("type", required: true)]

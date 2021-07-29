@@ -111,6 +111,8 @@ namespace Pulumi.AzureNative.KeyVault
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:Key"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Key"},
                     new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210401preview:Key"},
+                    new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Key"},
+                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210601preview:Key"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

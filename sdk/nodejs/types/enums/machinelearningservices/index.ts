@@ -19,6 +19,7 @@ import * as v20200901preview from "./v20200901preview";
 import * as v20210101 from "./v20210101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
+import * as v20210701 from "./v20210701";
 
 export {
     v20180301preview,
@@ -38,6 +39,7 @@ export {
     v20210101,
     v20210301preview,
     v20210401,
+    v20210701,
 };
 
 export const ApplicationSharingPolicy = {

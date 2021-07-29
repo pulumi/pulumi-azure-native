@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Partner Namespace.
- * API Version: 2020-04-01-preview.
+ * API Version: 2021-06-01-preview.
  */
 export class PartnerNamespace extends pulumi.CustomResource {
     /**
@@ -37,9 +37,17 @@ export class PartnerNamespace extends pulumi.CustomResource {
     }
 
     /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
      * Endpoint for the partner namespace.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+     */
+    public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
     /**
      * Location of the resource.
      */
@@ -53,10 +61,16 @@ export class PartnerNamespace extends pulumi.CustomResource {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     public readonly partnerRegistrationFullyQualifiedId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the partner namespace.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to Partner Namespace resource.
      */
@@ -84,22 +98,30 @@ export class PartnerNamespace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
+            inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
             inputs["partnerRegistrationFullyQualifiedId"] = args ? args.partnerRegistrationFullyQualifiedId : undefined;
+            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["disableLocalAuth"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["inboundIpRules"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["partnerRegistrationFullyQualifiedId"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -118,6 +140,14 @@ export class PartnerNamespace extends pulumi.CustomResource {
  */
 export interface PartnerNamespaceArgs {
     /**
+     * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
+    /**
+     * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+     */
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
+    /**
      * Location of the resource.
      */
     location?: pulumi.Input<string>;
@@ -130,6 +160,11 @@ export interface PartnerNamespaceArgs {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     partnerRegistrationFullyQualifiedId?: pulumi.Input<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */

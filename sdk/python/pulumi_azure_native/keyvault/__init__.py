@@ -30,6 +30,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.keyvault.v20190901 as v20190901
     import pulumi_azure_native.keyvault.v20200401preview as v20200401preview
     import pulumi_azure_native.keyvault.v20210401preview as v20210401preview
+    import pulumi_azure_native.keyvault.v20210601preview as v20210601preview
 else:
     v20150601 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20150601')
     v20161001 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20161001')
@@ -38,4 +39,5 @@ else:
     v20190901 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20190901')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.keyvault.v20200401preview')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.keyvault.v20210401preview')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.keyvault.v20210601preview')
 

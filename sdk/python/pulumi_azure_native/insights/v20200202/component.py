@@ -31,6 +31,7 @@ class ComponentArgs:
                  public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
                  request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_resource_id: Optional[pulumi.Input[str]] = None):
@@ -52,6 +53,7 @@ class ComponentArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Application Insights query.
         :param pulumi.Input[Union[str, 'RequestSource']] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[int] retention_in_days: Retention period in days.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_resource_id: Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
@@ -93,6 +95,8 @@ class ComponentArgs:
             pulumi.set(__self__, "request_source", request_source)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
         if sampling_percentage is not None:
             pulumi.set(__self__, "sampling_percentage", sampling_percentage)
         if tags is not None:
@@ -293,6 +297,18 @@ class ComponentArgs:
         pulumi.set(self, "resource_name", value)
 
     @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Retention period in days.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @retention_in_days.setter
+    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_in_days", value)
+
+    @property
     @pulumi.getter(name="samplingPercentage")
     def sampling_percentage(self) -> Optional[pulumi.Input[float]]:
         """
@@ -350,6 +366,7 @@ class Component(pulumi.CustomResource):
                  request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_resource_id: Optional[pulumi.Input[str]] = None,
@@ -375,6 +392,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'RequestSource']] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
+        :param pulumi.Input[int] retention_in_days: Retention period in days.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] workspace_resource_id: Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
@@ -419,6 +437,7 @@ class Component(pulumi.CustomResource):
                  request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_resource_id: Optional[pulumi.Input[str]] = None,
@@ -464,6 +483,7 @@ class Component(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["retention_in_days"] = retention_in_days
             __props__.__dict__["sampling_percentage"] = sampling_percentage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_resource_id"] = workspace_resource_id
@@ -477,7 +497,6 @@ class Component(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["private_link_scoped_resources"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["retention_in_days"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20200202:Component"), pulumi.Alias(type_="azure-native:insights:Component"), pulumi.Alias(type_="azure-nextgen:insights:Component"), pulumi.Alias(type_="azure-native:insights/v20150501:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20150501:Component"), pulumi.Alias(type_="azure-native:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20180501preview:Component"), pulumi.Alias(type_="azure-native:insights/v20200202preview:Component"), pulumi.Alias(type_="azure-nextgen:insights/v20200202preview:Component")])
@@ -730,7 +749,7 @@ class Component(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> pulumi.Output[int]:
+    def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         Retention period in days.
         """

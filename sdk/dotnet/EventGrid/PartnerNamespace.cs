@@ -11,16 +11,28 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid Partner Namespace.
-    /// API Version: 2020-04-01-preview.
+    /// API Version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerNamespace")]
     public partial class PartnerNamespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
         /// Endpoint for the partner namespace.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        /// </summary>
+        [Output("inboundIpRules")]
+        public Output<ImmutableArray<Outputs.InboundIpRuleResponse>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
         /// Location of the resource.
@@ -41,11 +53,21 @@ namespace Pulumi.AzureNative.EventGrid
         [Output("partnerRegistrationFullyQualifiedId")]
         public Output<string?> PartnerRegistrationFullyQualifiedId { get; private set; } = null!;
 
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
         /// <summary>
         /// Provisioning state of the partner namespace.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" /&gt;
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to Partner Namespace resource.
@@ -121,6 +143,24 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class PartnerNamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        [Input("inboundIpRules")]
+        private InputList<Inputs.InboundIpRuleArgs>? _inboundIpRules;
+
+        /// <summary>
+        /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        /// </summary>
+        public InputList<Inputs.InboundIpRuleArgs> InboundIpRules
+        {
+            get => _inboundIpRules ?? (_inboundIpRules = new InputList<Inputs.InboundIpRuleArgs>());
+            set => _inboundIpRules = value;
+        }
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Input("location")]
@@ -138,6 +178,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("partnerRegistrationFullyQualifiedId")]
         public Input<string>? PartnerRegistrationFullyQualifiedId { get; set; }
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" /&gt;
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.
@@ -159,6 +206,8 @@ namespace Pulumi.AzureNative.EventGrid
 
         public PartnerNamespaceArgs()
         {
+            DisableLocalAuth = false;
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

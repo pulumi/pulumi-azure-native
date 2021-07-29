@@ -317,7 +317,7 @@ class GetComponentResult:
 
     @property
     @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> int:
+    def retention_in_days(self) -> Optional[int]:
         """
         Retention period in days.
         """
