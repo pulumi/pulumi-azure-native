@@ -12,6 +12,8 @@ import (
 
 // Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspaceProperties struct {
+	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+	IncludeChangeDetails *string `pulumi:"includeChangeDetails"`
 	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
 	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
@@ -31,6 +33,8 @@ type AzureMonitorWorkspacePropertiesInput interface {
 
 // Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesArgs struct {
+	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
 	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
 	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
@@ -115,6 +119,11 @@ func (o AzureMonitorWorkspacePropertiesOutput) ToAzureMonitorWorkspaceProperties
 	}).(AzureMonitorWorkspacePropertiesPtrOutput)
 }
 
+// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+func (o AzureMonitorWorkspacePropertiesOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspaceProperties) *string { return v.IncludeChangeDetails }).(pulumi.StringPtrOutput)
+}
+
 // The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspaceProperties) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
@@ -143,6 +152,16 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) Elem() AzureMonitorWorkspacePr
 	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) AzureMonitorWorkspaceProperties { return *v }).(AzureMonitorWorkspacePropertiesOutput)
 }
 
+// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+func (o AzureMonitorWorkspacePropertiesPtrOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChangeDetails
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspaceProperties) *string {
@@ -165,6 +184,8 @@ func (o AzureMonitorWorkspacePropertiesPtrOutput) WorkspaceResourceId() pulumi.S
 
 // Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesResponse struct {
+	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+	IncludeChangeDetails *string `pulumi:"includeChangeDetails"`
 	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 	WorkspaceId *string `pulumi:"workspaceId"`
 	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
@@ -184,6 +205,8 @@ type AzureMonitorWorkspacePropertiesResponseInput interface {
 
 // Configuration properties of an Azure Monitor workspace that receives change notifications.
 type AzureMonitorWorkspacePropertiesResponseArgs struct {
+	// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
 	// The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
 	// The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
@@ -268,6 +291,11 @@ func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePr
 	}).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
 }
 
+// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+func (o AzureMonitorWorkspacePropertiesResponseOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesResponse) *string { return v.IncludeChangeDetails }).(pulumi.StringPtrOutput)
+}
+
 // The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
 func (o AzureMonitorWorkspacePropertiesResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureMonitorWorkspacePropertiesResponse) *string { return v.WorkspaceId }).(pulumi.StringPtrOutput)
@@ -294,6 +322,16 @@ func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) ToAzureMonitorWorkspac
 
 func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) Elem() AzureMonitorWorkspacePropertiesResponseOutput {
 	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) AzureMonitorWorkspacePropertiesResponse { return *v }).(AzureMonitorWorkspacePropertiesResponseOutput)
+}
+
+// The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
+func (o AzureMonitorWorkspacePropertiesResponsePtrOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureMonitorWorkspacePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeChangeDetails
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.

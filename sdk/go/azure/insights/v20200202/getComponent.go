@@ -77,7 +77,7 @@ type LookupComponentResult struct {
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource *string `pulumi:"requestSource"`
 	// Retention period in days.
-	RetentionInDays int `pulumi:"retentionInDays"`
+	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags

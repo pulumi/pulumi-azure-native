@@ -49,6 +49,12 @@ func NewLedger(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:confidentialledger:Ledger"),
 		},
+		{
+			Type: pulumi.String("azure-native:confidentialledger/v20210513preview:Ledger"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:confidentialledger/v20210513preview:Ledger"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Ledger

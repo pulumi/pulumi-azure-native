@@ -8,7 +8,7 @@ import (
 )
 
 // Shared access keys of the partner namespace.
-// API Version: 2020-04-01-preview.
+// API Version: 2021-06-01-preview.
 func ListPartnerNamespaceSharedAccessKeys(ctx *pulumi.Context, args *ListPartnerNamespaceSharedAccessKeysArgs, opts ...pulumi.InvokeOption) (*ListPartnerNamespaceSharedAccessKeysResult, error) {
 	var rv ListPartnerNamespaceSharedAccessKeysResult
 	err := ctx.Invoke("azure-native:eventgrid:listPartnerNamespaceSharedAccessKeys", args, &rv, opts...)

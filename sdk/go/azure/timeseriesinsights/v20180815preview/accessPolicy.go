@@ -68,6 +68,12 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:AccessPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:AccessPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:AccessPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AccessPolicy

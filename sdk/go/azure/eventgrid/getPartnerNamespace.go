@@ -8,7 +8,7 @@ import (
 )
 
 // EventGrid Partner Namespace.
-// API Version: 2020-04-01-preview.
+// API Version: 2021-06-01-preview.
 func LookupPartnerNamespace(ctx *pulumi.Context, args *LookupPartnerNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupPartnerNamespaceResult, error) {
 	var rv LookupPartnerNamespaceResult
 	err := ctx.Invoke("azure-native:eventgrid:getPartnerNamespace", args, &rv, opts...)
@@ -27,19 +27,27 @@ type LookupPartnerNamespaceArgs struct {
 
 // EventGrid Partner Namespace.
 type LookupPartnerNamespaceResult struct {
+	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
+	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
 	// Endpoint for the partner namespace.
 	Endpoint string `pulumi:"endpoint"`
 	// Fully qualified identifier of the resource.
 	Id string `pulumi:"id"`
+	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
 	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
-	PartnerRegistrationFullyQualifiedId *string `pulumi:"partnerRegistrationFullyQualifiedId"`
+	PartnerRegistrationFullyQualifiedId *string                             `pulumi:"partnerRegistrationFullyQualifiedId"`
+	PrivateEndpointConnections          []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// Provisioning state of the partner namespace.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// This determines if traffic is allowed over public network. By default it is enabled.
+	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The system metadata relating to Partner Namespace resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Tags of the resource.

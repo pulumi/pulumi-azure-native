@@ -64,7 +64,7 @@ type Component struct {
 	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
 	RequestSource pulumi.StringPtrOutput `pulumi:"requestSource"`
 	// Retention period in days.
-	RetentionInDays pulumi.IntOutput `pulumi:"retentionInDays"`
+	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"samplingPercentage"`
 	// Resource tags
@@ -319,6 +319,8 @@ type componentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
 	ResourceName *string `pulumi:"resourceName"`
+	// Retention period in days.
+	RetentionInDays *int `pulumi:"retentionInDays"`
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
@@ -361,6 +363,8 @@ type ComponentArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the Application Insights component resource.
 	ResourceName pulumi.StringPtrInput
+	// Retention period in days.
+	RetentionInDays pulumi.IntPtrInput
 	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
 	SamplingPercentage pulumi.Float64PtrInput
 	// Resource tags

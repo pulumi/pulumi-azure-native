@@ -2588,6 +2588,312 @@ func (o EnvironmentVariableSetupResponseOutput) VariableValue() pulumi.StringOut
 	return o.ApplyT(func(v EnvironmentVariableSetupResponse) string { return v.VariableValue }).(pulumi.StringOutput)
 }
 
+// Client secret information for factory's bring your own app repository configuration
+type GitHubClientSecret struct {
+	// Bring your own app client secret AKV URL
+	ByoaSecretAkvUrl *string `pulumi:"byoaSecretAkvUrl"`
+	// Bring your own app client secret name in AKV
+	ByoaSecretName *string `pulumi:"byoaSecretName"`
+}
+
+// GitHubClientSecretInput is an input type that accepts GitHubClientSecretArgs and GitHubClientSecretOutput values.
+// You can construct a concrete instance of `GitHubClientSecretInput` via:
+//
+//          GitHubClientSecretArgs{...}
+type GitHubClientSecretInput interface {
+	pulumi.Input
+
+	ToGitHubClientSecretOutput() GitHubClientSecretOutput
+	ToGitHubClientSecretOutputWithContext(context.Context) GitHubClientSecretOutput
+}
+
+// Client secret information for factory's bring your own app repository configuration
+type GitHubClientSecretArgs struct {
+	// Bring your own app client secret AKV URL
+	ByoaSecretAkvUrl pulumi.StringPtrInput `pulumi:"byoaSecretAkvUrl"`
+	// Bring your own app client secret name in AKV
+	ByoaSecretName pulumi.StringPtrInput `pulumi:"byoaSecretName"`
+}
+
+func (GitHubClientSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubClientSecret)(nil)).Elem()
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretOutput() GitHubClientSecretOutput {
+	return i.ToGitHubClientSecretOutputWithContext(context.Background())
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretOutputWithContext(ctx context.Context) GitHubClientSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretOutput)
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return i.ToGitHubClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (i GitHubClientSecretArgs) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretOutput).ToGitHubClientSecretPtrOutputWithContext(ctx)
+}
+
+// GitHubClientSecretPtrInput is an input type that accepts GitHubClientSecretArgs, GitHubClientSecretPtr and GitHubClientSecretPtrOutput values.
+// You can construct a concrete instance of `GitHubClientSecretPtrInput` via:
+//
+//          GitHubClientSecretArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubClientSecretPtrInput interface {
+	pulumi.Input
+
+	ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput
+	ToGitHubClientSecretPtrOutputWithContext(context.Context) GitHubClientSecretPtrOutput
+}
+
+type gitHubClientSecretPtrType GitHubClientSecretArgs
+
+func GitHubClientSecretPtr(v *GitHubClientSecretArgs) GitHubClientSecretPtrInput {
+	return (*gitHubClientSecretPtrType)(v)
+}
+
+func (*gitHubClientSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubClientSecret)(nil)).Elem()
+}
+
+func (i *gitHubClientSecretPtrType) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return i.ToGitHubClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubClientSecretPtrType) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretPtrOutput)
+}
+
+// Client secret information for factory's bring your own app repository configuration
+type GitHubClientSecretOutput struct{ *pulumi.OutputState }
+
+func (GitHubClientSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubClientSecret)(nil)).Elem()
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretOutput() GitHubClientSecretOutput {
+	return o
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretOutputWithContext(ctx context.Context) GitHubClientSecretOutput {
+	return o
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return o.ToGitHubClientSecretPtrOutputWithContext(context.Background())
+}
+
+func (o GitHubClientSecretOutput) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecret) *GitHubClientSecret {
+		return &v
+	}).(GitHubClientSecretPtrOutput)
+}
+
+// Bring your own app client secret AKV URL
+func (o GitHubClientSecretOutput) ByoaSecretAkvUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecret) *string { return v.ByoaSecretAkvUrl }).(pulumi.StringPtrOutput)
+}
+
+// Bring your own app client secret name in AKV
+func (o GitHubClientSecretOutput) ByoaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecret) *string { return v.ByoaSecretName }).(pulumi.StringPtrOutput)
+}
+
+type GitHubClientSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubClientSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubClientSecret)(nil)).Elem()
+}
+
+func (o GitHubClientSecretPtrOutput) ToGitHubClientSecretPtrOutput() GitHubClientSecretPtrOutput {
+	return o
+}
+
+func (o GitHubClientSecretPtrOutput) ToGitHubClientSecretPtrOutputWithContext(ctx context.Context) GitHubClientSecretPtrOutput {
+	return o
+}
+
+func (o GitHubClientSecretPtrOutput) Elem() GitHubClientSecretOutput {
+	return o.ApplyT(func(v *GitHubClientSecret) GitHubClientSecret { return *v }).(GitHubClientSecretOutput)
+}
+
+// Bring your own app client secret AKV URL
+func (o GitHubClientSecretPtrOutput) ByoaSecretAkvUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ByoaSecretAkvUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Bring your own app client secret name in AKV
+func (o GitHubClientSecretPtrOutput) ByoaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubClientSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ByoaSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client secret information for factory's bring your own app repository configuration
+type GitHubClientSecretResponse struct {
+	// Bring your own app client secret AKV URL
+	ByoaSecretAkvUrl *string `pulumi:"byoaSecretAkvUrl"`
+	// Bring your own app client secret name in AKV
+	ByoaSecretName *string `pulumi:"byoaSecretName"`
+}
+
+// GitHubClientSecretResponseInput is an input type that accepts GitHubClientSecretResponseArgs and GitHubClientSecretResponseOutput values.
+// You can construct a concrete instance of `GitHubClientSecretResponseInput` via:
+//
+//          GitHubClientSecretResponseArgs{...}
+type GitHubClientSecretResponseInput interface {
+	pulumi.Input
+
+	ToGitHubClientSecretResponseOutput() GitHubClientSecretResponseOutput
+	ToGitHubClientSecretResponseOutputWithContext(context.Context) GitHubClientSecretResponseOutput
+}
+
+// Client secret information for factory's bring your own app repository configuration
+type GitHubClientSecretResponseArgs struct {
+	// Bring your own app client secret AKV URL
+	ByoaSecretAkvUrl pulumi.StringPtrInput `pulumi:"byoaSecretAkvUrl"`
+	// Bring your own app client secret name in AKV
+	ByoaSecretName pulumi.StringPtrInput `pulumi:"byoaSecretName"`
+}
+
+func (GitHubClientSecretResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubClientSecretResponse)(nil)).Elem()
+}
+
+func (i GitHubClientSecretResponseArgs) ToGitHubClientSecretResponseOutput() GitHubClientSecretResponseOutput {
+	return i.ToGitHubClientSecretResponseOutputWithContext(context.Background())
+}
+
+func (i GitHubClientSecretResponseArgs) ToGitHubClientSecretResponseOutputWithContext(ctx context.Context) GitHubClientSecretResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretResponseOutput)
+}
+
+func (i GitHubClientSecretResponseArgs) ToGitHubClientSecretResponsePtrOutput() GitHubClientSecretResponsePtrOutput {
+	return i.ToGitHubClientSecretResponsePtrOutputWithContext(context.Background())
+}
+
+func (i GitHubClientSecretResponseArgs) ToGitHubClientSecretResponsePtrOutputWithContext(ctx context.Context) GitHubClientSecretResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretResponseOutput).ToGitHubClientSecretResponsePtrOutputWithContext(ctx)
+}
+
+// GitHubClientSecretResponsePtrInput is an input type that accepts GitHubClientSecretResponseArgs, GitHubClientSecretResponsePtr and GitHubClientSecretResponsePtrOutput values.
+// You can construct a concrete instance of `GitHubClientSecretResponsePtrInput` via:
+//
+//          GitHubClientSecretResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type GitHubClientSecretResponsePtrInput interface {
+	pulumi.Input
+
+	ToGitHubClientSecretResponsePtrOutput() GitHubClientSecretResponsePtrOutput
+	ToGitHubClientSecretResponsePtrOutputWithContext(context.Context) GitHubClientSecretResponsePtrOutput
+}
+
+type gitHubClientSecretResponsePtrType GitHubClientSecretResponseArgs
+
+func GitHubClientSecretResponsePtr(v *GitHubClientSecretResponseArgs) GitHubClientSecretResponsePtrInput {
+	return (*gitHubClientSecretResponsePtrType)(v)
+}
+
+func (*gitHubClientSecretResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubClientSecretResponse)(nil)).Elem()
+}
+
+func (i *gitHubClientSecretResponsePtrType) ToGitHubClientSecretResponsePtrOutput() GitHubClientSecretResponsePtrOutput {
+	return i.ToGitHubClientSecretResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubClientSecretResponsePtrType) ToGitHubClientSecretResponsePtrOutputWithContext(ctx context.Context) GitHubClientSecretResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubClientSecretResponsePtrOutput)
+}
+
+// Client secret information for factory's bring your own app repository configuration
+type GitHubClientSecretResponseOutput struct{ *pulumi.OutputState }
+
+func (GitHubClientSecretResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitHubClientSecretResponse)(nil)).Elem()
+}
+
+func (o GitHubClientSecretResponseOutput) ToGitHubClientSecretResponseOutput() GitHubClientSecretResponseOutput {
+	return o
+}
+
+func (o GitHubClientSecretResponseOutput) ToGitHubClientSecretResponseOutputWithContext(ctx context.Context) GitHubClientSecretResponseOutput {
+	return o
+}
+
+func (o GitHubClientSecretResponseOutput) ToGitHubClientSecretResponsePtrOutput() GitHubClientSecretResponsePtrOutput {
+	return o.ToGitHubClientSecretResponsePtrOutputWithContext(context.Background())
+}
+
+func (o GitHubClientSecretResponseOutput) ToGitHubClientSecretResponsePtrOutputWithContext(ctx context.Context) GitHubClientSecretResponsePtrOutput {
+	return o.ApplyT(func(v GitHubClientSecretResponse) *GitHubClientSecretResponse {
+		return &v
+	}).(GitHubClientSecretResponsePtrOutput)
+}
+
+// Bring your own app client secret AKV URL
+func (o GitHubClientSecretResponseOutput) ByoaSecretAkvUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecretResponse) *string { return v.ByoaSecretAkvUrl }).(pulumi.StringPtrOutput)
+}
+
+// Bring your own app client secret name in AKV
+func (o GitHubClientSecretResponseOutput) ByoaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitHubClientSecretResponse) *string { return v.ByoaSecretName }).(pulumi.StringPtrOutput)
+}
+
+type GitHubClientSecretResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (GitHubClientSecretResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHubClientSecretResponse)(nil)).Elem()
+}
+
+func (o GitHubClientSecretResponsePtrOutput) ToGitHubClientSecretResponsePtrOutput() GitHubClientSecretResponsePtrOutput {
+	return o
+}
+
+func (o GitHubClientSecretResponsePtrOutput) ToGitHubClientSecretResponsePtrOutputWithContext(ctx context.Context) GitHubClientSecretResponsePtrOutput {
+	return o
+}
+
+func (o GitHubClientSecretResponsePtrOutput) Elem() GitHubClientSecretResponseOutput {
+	return o.ApplyT(func(v *GitHubClientSecretResponse) GitHubClientSecretResponse { return *v }).(GitHubClientSecretResponseOutput)
+}
+
+// Bring your own app client secret AKV URL
+func (o GitHubClientSecretResponsePtrOutput) ByoaSecretAkvUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubClientSecretResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ByoaSecretAkvUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Bring your own app client secret name in AKV
+func (o GitHubClientSecretResponsePtrOutput) ByoaSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitHubClientSecretResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ByoaSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The compute resource properties for managed integration runtime.
 type IntegrationRuntimeComputeProperties struct {
 	// Data flow properties for managed integration runtime.
@@ -12331,6 +12637,10 @@ func (o WorkspaceKeyDetailsResponsePtrOutput) Name() pulumi.StringPtrOutput {
 type WorkspaceRepositoryConfiguration struct {
 	// Account name
 	AccountName *string `pulumi:"accountName"`
+	// GitHub bring your own app client id
+	ClientId *string `pulumi:"clientId"`
+	// GitHub bring your own app client secret information.
+	ClientSecret *GitHubClientSecret `pulumi:"clientSecret"`
 	// Collaboration branch
 	CollaborationBranch *string `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
@@ -12364,6 +12674,10 @@ type WorkspaceRepositoryConfigurationInput interface {
 type WorkspaceRepositoryConfigurationArgs struct {
 	// Account name
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// GitHub bring your own app client id
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// GitHub bring your own app client secret information.
+	ClientSecret GitHubClientSecretPtrInput `pulumi:"clientSecret"`
 	// Collaboration branch
 	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
@@ -12465,6 +12779,16 @@ func (o WorkspaceRepositoryConfigurationOutput) AccountName() pulumi.StringPtrOu
 	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
+// GitHub bring your own app client id
+func (o WorkspaceRepositoryConfigurationOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// GitHub bring your own app client secret information.
+func (o WorkspaceRepositoryConfigurationOutput) ClientSecret() GitHubClientSecretPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *GitHubClientSecret { return v.ClientSecret }).(GitHubClientSecretPtrOutput)
+}
+
 // Collaboration branch
 func (o WorkspaceRepositoryConfigurationOutput) CollaborationBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceRepositoryConfiguration) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
@@ -12531,6 +12855,26 @@ func (o WorkspaceRepositoryConfigurationPtrOutput) AccountName() pulumi.StringPt
 		}
 		return v.AccountName
 	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub bring your own app client id
+func (o WorkspaceRepositoryConfigurationPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub bring your own app client secret information.
+func (o WorkspaceRepositoryConfigurationPtrOutput) ClientSecret() GitHubClientSecretPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfiguration) *GitHubClientSecret {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(GitHubClientSecretPtrOutput)
 }
 
 // Collaboration branch
@@ -12617,6 +12961,10 @@ func (o WorkspaceRepositoryConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 type WorkspaceRepositoryConfigurationResponse struct {
 	// Account name
 	AccountName *string `pulumi:"accountName"`
+	// GitHub bring your own app client id
+	ClientId *string `pulumi:"clientId"`
+	// GitHub bring your own app client secret information.
+	ClientSecret *GitHubClientSecretResponse `pulumi:"clientSecret"`
 	// Collaboration branch
 	CollaborationBranch *string `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
@@ -12650,6 +12998,10 @@ type WorkspaceRepositoryConfigurationResponseInput interface {
 type WorkspaceRepositoryConfigurationResponseArgs struct {
 	// Account name
 	AccountName pulumi.StringPtrInput `pulumi:"accountName"`
+	// GitHub bring your own app client id
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// GitHub bring your own app client secret information.
+	ClientSecret GitHubClientSecretResponsePtrInput `pulumi:"clientSecret"`
 	// Collaboration branch
 	CollaborationBranch pulumi.StringPtrInput `pulumi:"collaborationBranch"`
 	// GitHub Enterprise host name. For example: https://github.mydomain.com
@@ -12751,6 +13103,16 @@ func (o WorkspaceRepositoryConfigurationResponseOutput) AccountName() pulumi.Str
 	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.AccountName }).(pulumi.StringPtrOutput)
 }
 
+// GitHub bring your own app client id
+func (o WorkspaceRepositoryConfigurationResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// GitHub bring your own app client secret information.
+func (o WorkspaceRepositoryConfigurationResponseOutput) ClientSecret() GitHubClientSecretResponsePtrOutput {
+	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *GitHubClientSecretResponse { return v.ClientSecret }).(GitHubClientSecretResponsePtrOutput)
+}
+
 // Collaboration branch
 func (o WorkspaceRepositoryConfigurationResponseOutput) CollaborationBranch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceRepositoryConfigurationResponse) *string { return v.CollaborationBranch }).(pulumi.StringPtrOutput)
@@ -12817,6 +13179,26 @@ func (o WorkspaceRepositoryConfigurationResponsePtrOutput) AccountName() pulumi.
 		}
 		return v.AccountName
 	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub bring your own app client id
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// GitHub bring your own app client secret information.
+func (o WorkspaceRepositoryConfigurationResponsePtrOutput) ClientSecret() GitHubClientSecretResponsePtrOutput {
+	return o.ApplyT(func(v *WorkspaceRepositoryConfigurationResponse) *GitHubClientSecretResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(GitHubClientSecretResponsePtrOutput)
 }
 
 // Collaboration branch
@@ -12934,6 +13316,10 @@ func init() {
 	pulumi.RegisterOutputType(EntityReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableSetupOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableSetupResponseOutput{})
+	pulumi.RegisterOutputType(GitHubClientSecretOutput{})
+	pulumi.RegisterOutputType(GitHubClientSecretPtrOutput{})
+	pulumi.RegisterOutputType(GitHubClientSecretResponseOutput{})
+	pulumi.RegisterOutputType(GitHubClientSecretResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeComputePropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeComputePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeComputePropertiesResponseOutput{})
