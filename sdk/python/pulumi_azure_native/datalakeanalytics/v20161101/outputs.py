@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ComputePolicyResponse',
+    'DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue',
     'DataLakeStoreAccountInformationResponse',
     'FirewallRuleResponse',
     'HiveMetastoreResponse',
@@ -128,6 +129,25 @@ class ComputePolicyResponse(dict):
         The resource type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue(dict):
+    """
+    The hierarchical queue associated with this account.
+    """
+    def __init__(__self__, *,
+                 root: Optional[Any] = None):
+        """
+        The hierarchical queue associated with this account.
+        """
+        if root is not None:
+            pulumi.set(__self__, "root", root)
+
+    @property
+    @pulumi.getter
+    def root(self) -> Optional[Any]:
+        return pulumi.get(self, "root")
 
 
 @pulumi.output_type

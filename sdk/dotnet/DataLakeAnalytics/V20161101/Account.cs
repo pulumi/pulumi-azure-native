@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         public Output<string?> FirewallState { get; private set; } = null!;
 
         /// <summary>
+        /// The hierarchical queue associated with this account.
+        /// </summary>
+        [Output("hierarchicalQueue")]
+        public Output<Outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue> HierarchicalQueue { get; private set; } = null!;
+
+        /// <summary>
         /// The hierarchical queue state associated with this account.
         /// </summary>
         [Output("hierarchicalQueueState")]
@@ -106,6 +112,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum supported active jobs under the account at the same time.
+        /// </summary>
+        [Output("maxActiveJobCountPerUser")]
+        public Output<int> MaxActiveJobCountPerUser { get; private set; } = null!;
+
+        /// <summary>
         /// The maximum supported degree of parallelism for this account.
         /// </summary>
         [Output("maxDegreeOfParallelism")]
@@ -122,6 +134,12 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// </summary>
         [Output("maxJobCount")]
         public Output<int?> MaxJobCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum supported active jobs under the account at the same time.
+        /// </summary>
+        [Output("maxJobRunningTimeInMin")]
+        public Output<int> MaxJobRunningTimeInMin { get; private set; } = null!;
 
         /// <summary>
         /// The maximum supported jobs queued under the account at the same time.

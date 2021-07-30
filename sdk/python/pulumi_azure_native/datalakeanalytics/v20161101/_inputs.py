@@ -69,6 +69,8 @@ class AddStorageAccountWithAccountParametersArgs:
         """
         pulumi.set(__self__, "access_key", access_key)
         pulumi.set(__self__, "name", name)
+        if suffix is None:
+            suffix = 'azuredatalakestore.net'
         if suffix is not None:
             pulumi.set(__self__, "suffix", suffix)
 

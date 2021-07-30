@@ -35,6 +35,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Inputs
 
         public AddStorageAccountWithAccountParametersArgs()
         {
+            Suffix = "azuredatalakestore.net";
         }
     }
 }

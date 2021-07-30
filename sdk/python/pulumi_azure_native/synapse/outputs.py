@@ -1215,6 +1215,8 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         suggest = None
         if key == "publicIPs":
             suggest = "public_ips"
+        elif key == "subnetId":
+            suggest = "subnet_id"
         elif key == "vNetId":
             suggest = "v_net_id"
 
@@ -1232,17 +1234,21 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
     def __init__(__self__, *,
                  public_ips: Optional[Sequence[str]] = None,
                  subnet: Optional[str] = None,
+                 subnet_id: Optional[str] = None,
                  v_net_id: Optional[str] = None):
         """
         VNet properties for managed integration runtime.
         :param Sequence[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param str subnet: The name of the subnet this integration runtime will join.
+        :param str subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
         :param str v_net_id: The ID of the VNet that this integration runtime will join.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if v_net_id is not None:
             pulumi.set(__self__, "v_net_id", v_net_id)
 
@@ -1261,6 +1267,14 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         The name of the subnet this integration runtime will join.
         """
         return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        """
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="vNetId")

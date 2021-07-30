@@ -445,9 +445,12 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["current_tier"] = None
             __props__.__dict__["debug_data_access_level"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["hierarchical_queue"] = None
             __props__.__dict__["hierarchical_queue_state"] = None
             __props__.__dict__["hive_metastores"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["max_active_job_count_per_user"] = None
+            __props__.__dict__["max_job_running_time_in_min"] = None
             __props__.__dict__["max_queued_job_count_per_user"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -492,13 +495,16 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["firewall_allow_azure_ips"] = None
         __props__.__dict__["firewall_rules"] = None
         __props__.__dict__["firewall_state"] = None
+        __props__.__dict__["hierarchical_queue"] = None
         __props__.__dict__["hierarchical_queue_state"] = None
         __props__.__dict__["hive_metastores"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["max_active_job_count_per_user"] = None
         __props__.__dict__["max_degree_of_parallelism"] = None
         __props__.__dict__["max_degree_of_parallelism_per_job"] = None
         __props__.__dict__["max_job_count"] = None
+        __props__.__dict__["max_job_running_time_in_min"] = None
         __props__.__dict__["max_queued_job_count_per_user"] = None
         __props__.__dict__["min_priority_per_job"] = None
         __props__.__dict__["name"] = None
@@ -604,6 +610,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "firewall_state")
 
     @property
+    @pulumi.getter(name="hierarchicalQueue")
+    def hierarchical_queue(self) -> pulumi.Output['outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue']:
+        """
+        The hierarchical queue associated with this account.
+        """
+        return pulumi.get(self, "hierarchical_queue")
+
+    @property
     @pulumi.getter(name="hierarchicalQueueState")
     def hierarchical_queue_state(self) -> pulumi.Output[str]:
         """
@@ -636,6 +650,14 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="maxActiveJobCountPerUser")
+    def max_active_job_count_per_user(self) -> pulumi.Output[int]:
+        """
+        The maximum supported active jobs under the account at the same time.
+        """
+        return pulumi.get(self, "max_active_job_count_per_user")
+
+    @property
     @pulumi.getter(name="maxDegreeOfParallelism")
     def max_degree_of_parallelism(self) -> pulumi.Output[Optional[int]]:
         """
@@ -658,6 +680,14 @@ class Account(pulumi.CustomResource):
         The maximum supported jobs running under the account at the same time.
         """
         return pulumi.get(self, "max_job_count")
+
+    @property
+    @pulumi.getter(name="maxJobRunningTimeInMin")
+    def max_job_running_time_in_min(self) -> pulumi.Output[int]:
+        """
+        The maximum supported active jobs under the account at the same time.
+        """
+        return pulumi.get(self, "max_job_running_time_in_min")
 
     @property
     @pulumi.getter(name="maxQueuedJobCountPerUser")

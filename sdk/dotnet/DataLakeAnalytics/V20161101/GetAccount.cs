@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// </summary>
         public readonly string? FirewallState;
         /// <summary>
+        /// The hierarchical queue associated with this account.
+        /// </summary>
+        public readonly Outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue HierarchicalQueue;
+        /// <summary>
         /// The hierarchical queue state associated with this account.
         /// </summary>
         public readonly string HierarchicalQueueState;
@@ -107,6 +111,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The maximum supported active jobs under the account at the same time.
+        /// </summary>
+        public readonly int MaxActiveJobCountPerUser;
+        /// <summary>
         /// The maximum supported degree of parallelism for this account.
         /// </summary>
         public readonly int? MaxDegreeOfParallelism;
@@ -118,6 +126,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// The maximum supported jobs running under the account at the same time.
         /// </summary>
         public readonly int? MaxJobCount;
+        /// <summary>
+        /// The maximum supported active jobs under the account at the same time.
+        /// </summary>
+        public readonly int MaxJobRunningTimeInMin;
         /// <summary>
         /// The maximum supported jobs queued under the account at the same time.
         /// </summary>
@@ -199,6 +211,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             string? firewallState,
 
+            Outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue hierarchicalQueue,
+
             string hierarchicalQueueState,
 
             ImmutableArray<Outputs.HiveMetastoreResponse> hiveMetastores,
@@ -209,11 +223,15 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             string location,
 
+            int maxActiveJobCountPerUser,
+
             int? maxDegreeOfParallelism,
 
             int? maxDegreeOfParallelismPerJob,
 
             int? maxJobCount,
+
+            int maxJobRunningTimeInMin,
 
             int maxQueuedJobCountPerUser,
 
@@ -254,14 +272,17 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;
             FirewallState = firewallState;
+            HierarchicalQueue = hierarchicalQueue;
             HierarchicalQueueState = hierarchicalQueueState;
             HiveMetastores = hiveMetastores;
             Id = id;
             LastModifiedTime = lastModifiedTime;
             Location = location;
+            MaxActiveJobCountPerUser = maxActiveJobCountPerUser;
             MaxDegreeOfParallelism = maxDegreeOfParallelism;
             MaxDegreeOfParallelismPerJob = maxDegreeOfParallelismPerJob;
             MaxJobCount = maxJobCount;
+            MaxJobRunningTimeInMin = maxJobRunningTimeInMin;
             MaxQueuedJobCountPerUser = maxQueuedJobCountPerUser;
             MinPriorityPerJob = minPriorityPerJob;
             Name = name;

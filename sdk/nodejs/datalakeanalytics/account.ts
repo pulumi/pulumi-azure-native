@@ -81,6 +81,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
+     * The hierarchical queue associated with this account.
+     */
+    public /*out*/ readonly hierarchicalQueue!: pulumi.Output<outputs.datalakeanalytics.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue>;
+    /**
      * The hierarchical queue state associated with this account.
      */
     public /*out*/ readonly hierarchicalQueueState!: pulumi.Output<string>;
@@ -97,6 +101,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The maximum supported active jobs under the account at the same time.
+     */
+    public /*out*/ readonly maxActiveJobCountPerUser!: pulumi.Output<number>;
+    /**
      * The maximum supported degree of parallelism for this account.
      */
     public readonly maxDegreeOfParallelism!: pulumi.Output<number | undefined>;
@@ -108,6 +116,10 @@ export class Account extends pulumi.CustomResource {
      * The maximum supported jobs running under the account at the same time.
      */
     public readonly maxJobCount!: pulumi.Output<number | undefined>;
+    /**
+     * The maximum supported active jobs under the account at the same time.
+     */
+    public /*out*/ readonly maxJobRunningTimeInMin!: pulumi.Output<number>;
     /**
      * The maximum supported jobs queued under the account at the same time.
      */
@@ -207,9 +219,12 @@ export class Account extends pulumi.CustomResource {
             inputs["currentTier"] = undefined /*out*/;
             inputs["debugDataAccessLevel"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["hierarchicalQueue"] = undefined /*out*/;
             inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["maxActiveJobCountPerUser"] = undefined /*out*/;
+            inputs["maxJobRunningTimeInMin"] = undefined /*out*/;
             inputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -231,13 +246,16 @@ export class Account extends pulumi.CustomResource {
             inputs["firewallAllowAzureIps"] = undefined /*out*/;
             inputs["firewallRules"] = undefined /*out*/;
             inputs["firewallState"] = undefined /*out*/;
+            inputs["hierarchicalQueue"] = undefined /*out*/;
             inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["maxActiveJobCountPerUser"] = undefined /*out*/;
             inputs["maxDegreeOfParallelism"] = undefined /*out*/;
             inputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
             inputs["maxJobCount"] = undefined /*out*/;
+            inputs["maxJobRunningTimeInMin"] = undefined /*out*/;
             inputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
             inputs["minPriorityPerJob"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

@@ -83,6 +83,10 @@ export interface GetAccountResult {
      */
     readonly firewallState?: string;
     /**
+     * The hierarchical queue associated with this account.
+     */
+    readonly hierarchicalQueue: outputs.datalakeanalytics.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue;
+    /**
      * The hierarchical queue state associated with this account.
      */
     readonly hierarchicalQueueState: string;
@@ -103,6 +107,10 @@ export interface GetAccountResult {
      */
     readonly location: string;
     /**
+     * The maximum supported active jobs under the account at the same time.
+     */
+    readonly maxActiveJobCountPerUser: number;
+    /**
      * The maximum supported degree of parallelism for this account.
      */
     readonly maxDegreeOfParallelism?: number;
@@ -114,6 +122,10 @@ export interface GetAccountResult {
      * The maximum supported jobs running under the account at the same time.
      */
     readonly maxJobCount?: number;
+    /**
+     * The maximum supported active jobs under the account at the same time.
+     */
+    readonly maxJobRunningTimeInMin: number;
     /**
      * The maximum supported jobs queued under the account at the same time.
      */

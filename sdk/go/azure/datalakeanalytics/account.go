@@ -38,6 +38,8 @@ type Account struct {
 	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrOutput `pulumi:"firewallState"`
+	// The hierarchical queue associated with this account.
+	HierarchicalQueue DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueueOutput `pulumi:"hierarchicalQueue"`
 	// The hierarchical queue state associated with this account.
 	HierarchicalQueueState pulumi.StringOutput `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
@@ -46,12 +48,16 @@ type Account struct {
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum supported active jobs under the account at the same time.
+	MaxActiveJobCountPerUser pulumi.IntOutput `pulumi:"maxActiveJobCountPerUser"`
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrOutput `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
 	MaxJobCount pulumi.IntPtrOutput `pulumi:"maxJobCount"`
+	// The maximum supported active jobs under the account at the same time.
+	MaxJobRunningTimeInMin pulumi.IntOutput `pulumi:"maxJobRunningTimeInMin"`
 	// The maximum supported jobs queued under the account at the same time.
 	MaxQueuedJobCountPerUser pulumi.IntOutput `pulumi:"maxQueuedJobCountPerUser"`
 	// The minimum supported priority per job for this account.
@@ -184,6 +190,8 @@ type accountState struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
+	// The hierarchical queue associated with this account.
+	HierarchicalQueue *DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue `pulumi:"hierarchicalQueue"`
 	// The hierarchical queue state associated with this account.
 	HierarchicalQueueState *string `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
@@ -192,12 +200,16 @@ type accountState struct {
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The maximum supported active jobs under the account at the same time.
+	MaxActiveJobCountPerUser *int `pulumi:"maxActiveJobCountPerUser"`
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
 	// The maximum supported degree of parallelism per job for this account.
 	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The maximum supported jobs running under the account at the same time.
 	MaxJobCount *int `pulumi:"maxJobCount"`
+	// The maximum supported active jobs under the account at the same time.
+	MaxJobRunningTimeInMin *int `pulumi:"maxJobRunningTimeInMin"`
 	// The maximum supported jobs queued under the account at the same time.
 	MaxQueuedJobCountPerUser *int `pulumi:"maxQueuedJobCountPerUser"`
 	// The minimum supported priority per job for this account.
@@ -251,6 +263,8 @@ type AccountState struct {
 	FirewallRules FirewallRuleResponseArrayInput
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrInput
+	// The hierarchical queue associated with this account.
+	HierarchicalQueue DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueuePtrInput
 	// The hierarchical queue state associated with this account.
 	HierarchicalQueueState pulumi.StringPtrInput
 	// The list of hiveMetastores associated with this account.
@@ -259,12 +273,16 @@ type AccountState struct {
 	LastModifiedTime pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The maximum supported active jobs under the account at the same time.
+	MaxActiveJobCountPerUser pulumi.IntPtrInput
 	// The maximum supported degree of parallelism for this account.
 	MaxDegreeOfParallelism pulumi.IntPtrInput
 	// The maximum supported degree of parallelism per job for this account.
 	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
 	// The maximum supported jobs running under the account at the same time.
 	MaxJobCount pulumi.IntPtrInput
+	// The maximum supported active jobs under the account at the same time.
+	MaxJobRunningTimeInMin pulumi.IntPtrInput
 	// The maximum supported jobs queued under the account at the same time.
 	MaxQueuedJobCountPerUser pulumi.IntPtrInput
 	// The minimum supported priority per job for this account.

@@ -4916,6 +4916,8 @@ type IntegrationRuntimeVNetProperties struct {
 	PublicIPs []string `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet *string `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId *string `pulumi:"vNetId"`
 }
@@ -4937,6 +4939,8 @@ type IntegrationRuntimeVNetPropertiesArgs struct {
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId pulumi.StringPtrInput `pulumi:"vNetId"`
 }
@@ -5029,6 +5033,11 @@ func (o IntegrationRuntimeVNetPropertiesOutput) Subnet() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VNet that this integration runtime will join.
 func (o IntegrationRuntimeVNetPropertiesOutput) VNetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.VNetId }).(pulumi.StringPtrOutput)
@@ -5072,6 +5081,16 @@ func (o IntegrationRuntimeVNetPropertiesPtrOutput) Subnet() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VNet that this integration runtime will join.
 func (o IntegrationRuntimeVNetPropertiesPtrOutput) VNetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) *string {
@@ -5088,6 +5107,8 @@ type IntegrationRuntimeVNetPropertiesResponse struct {
 	PublicIPs []string `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet *string `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId *string `pulumi:"vNetId"`
 }
@@ -5109,6 +5130,8 @@ type IntegrationRuntimeVNetPropertiesResponseArgs struct {
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId pulumi.StringPtrInput `pulumi:"vNetId"`
 }
@@ -5201,6 +5224,11 @@ func (o IntegrationRuntimeVNetPropertiesResponseOutput) Subnet() pulumi.StringPt
 	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VNet that this integration runtime will join.
 func (o IntegrationRuntimeVNetPropertiesResponseOutput) VNetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *string { return v.VNetId }).(pulumi.StringPtrOutput)
@@ -5241,6 +5269,16 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) Subnet() pulumi.Strin
 			return nil
 		}
 		return v.Subnet
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeVNetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
 }
 
