@@ -93,41 +93,9 @@ func GetBackupVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackupVault resources.
 type backupVaultState struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Input Managed Identity Details
-	Identity *DppIdentityDetailsResponse `pulumi:"identity"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// BackupVaultResource properties
-	Properties *BackupVaultResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
 }
 
 type BackupVaultState struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Input Managed Identity Details
-	Identity DppIdentityDetailsResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrInput
-	// BackupVaultResource properties
-	Properties BackupVaultResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrInput
 }
 
 func (BackupVaultState) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20191001.Outputs
 {
 
+    /// <summary>
+    /// The aggregation expression to be used in the query.
+    /// </summary>
     [OutputType]
     public sealed class QueryAggregationResponse
     {

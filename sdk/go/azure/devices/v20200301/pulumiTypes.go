@@ -4279,7 +4279,7 @@ func (o IotHubSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // The IP filter rules for the IoT hub.
 type IpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -4300,7 +4300,7 @@ type IpFilterRuleInput interface {
 // The IP filter rules for the IoT hub.
 type IpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action IpFilterActionTypeInput `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -4360,8 +4360,8 @@ func (o IpFilterRuleOutput) ToIpFilterRuleOutputWithContext(ctx context.Context)
 }
 
 // The desired action for requests captured by this rule.
-func (o IpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o IpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v IpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
 // The name of the IP filter rule.
@@ -8175,7 +8175,7 @@ type SharedAccessSignatureAuthorizationRule struct {
 	// The primary key.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights string `pulumi:"rights"`
+	Rights AccessRights `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
@@ -8198,7 +8198,7 @@ type SharedAccessSignatureAuthorizationRuleArgs struct {
 	// The primary key.
 	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights AccessRights `pulumi:"rights"`
+	Rights AccessRightsInput `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
@@ -8266,8 +8266,8 @@ func (o SharedAccessSignatureAuthorizationRuleOutput) PrimaryKey() pulumi.String
 }
 
 // The permissions assigned to the shared access policy.
-func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) string { return v.Rights }).(pulumi.StringOutput)
+func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() AccessRightsOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) AccessRights { return v.Rights }).(AccessRightsOutput)
 }
 
 // The secondary key.
@@ -8937,13 +8937,13 @@ func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInpu
 // The IP filter rules for a provisioning Service.
 type TargetIpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask string `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
+	Target *IpFilterTargetType `pulumi:"target"`
 }
 
 // TargetIpFilterRuleInput is an input type that accepts TargetIpFilterRuleArgs and TargetIpFilterRuleOutput values.
@@ -8960,13 +8960,13 @@ type TargetIpFilterRuleInput interface {
 // The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action IpFilterActionTypeInput `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *IpFilterTargetType `pulumi:"target"`
+	Target IpFilterTargetTypePtrInput `pulumi:"target"`
 }
 
 func (TargetIpFilterRuleArgs) ElementType() reflect.Type {
@@ -9022,8 +9022,8 @@ func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutputWithContext(ctx cont
 }
 
 // The desired action for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o TargetIpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
 // The name of the IP filter rule.
@@ -9037,8 +9037,8 @@ func (o TargetIpFilterRuleOutput) IpMask() pulumi.StringOutput {
 }
 
 // Target for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
+func (o TargetIpFilterRuleOutput) Target() IpFilterTargetTypePtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) *IpFilterTargetType { return v.Target }).(IpFilterTargetTypePtrOutput)
 }
 
 type TargetIpFilterRuleArrayOutput struct{ *pulumi.OutputState }

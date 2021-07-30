@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 {
 
+    /// <summary>
+    /// The properties that are associated with a SKU.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

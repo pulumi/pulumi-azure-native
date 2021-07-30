@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Network Virtual Appliance Sku Properties.
+    /// </summary>
     [OutputType]
     public sealed class Office365PolicyPropertiesResponse
     {

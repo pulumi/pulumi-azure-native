@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// System generated entities.
+    /// </summary>
     [OutputType]
     public sealed class PredictionResponseSystemGeneratedEntities
     {

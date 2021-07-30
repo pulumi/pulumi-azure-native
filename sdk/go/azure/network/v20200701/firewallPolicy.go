@@ -173,77 +173,9 @@ func GetFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallPolicy resources.
 type firewallPolicyState struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy *SubResourceResponse `pulumi:"basePolicy"`
-	// List of references to Child Firewall Policies.
-	ChildPolicies []SubResourceResponse `pulumi:"childPolicies"`
-	// DNS Proxy Settings definition.
-	DnsSettings *DnsSettingsResponse `pulumi:"dnsSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// List of references to Azure Firewalls that this Firewall Policy is associated with.
-	Firewalls []SubResourceResponse `pulumi:"firewalls"`
-	// The identity of the firewall policy.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// The configuration for Intrusion detection.
-	IntrusionDetection *FirewallPolicyIntrusionDetectionResponse `pulumi:"intrusionDetection"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the firewall policy resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// List of references to FirewallPolicyRuleCollectionGroups.
-	RuleCollectionGroups []SubResourceResponse `pulumi:"ruleCollectionGroups"`
-	// The Firewall Policy SKU.
-	Sku *FirewallPolicySkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode *string `pulumi:"threatIntelMode"`
-	// ThreatIntel Whitelist for Firewall Policy.
-	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelistResponse `pulumi:"threatIntelWhitelist"`
-	// TLS Configuration definition.
-	TransportSecurity *FirewallPolicyTransportSecurityResponse `pulumi:"transportSecurity"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type FirewallPolicyState struct {
-	// The parent firewall policy from which rules are inherited.
-	BasePolicy SubResourceResponsePtrInput
-	// List of references to Child Firewall Policies.
-	ChildPolicies SubResourceResponseArrayInput
-	// DNS Proxy Settings definition.
-	DnsSettings DnsSettingsResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// List of references to Azure Firewalls that this Firewall Policy is associated with.
-	Firewalls SubResourceResponseArrayInput
-	// The identity of the firewall policy.
-	Identity ManagedServiceIdentityResponsePtrInput
-	// The configuration for Intrusion detection.
-	IntrusionDetection FirewallPolicyIntrusionDetectionResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the firewall policy resource.
-	ProvisioningState pulumi.StringPtrInput
-	// List of references to FirewallPolicyRuleCollectionGroups.
-	RuleCollectionGroups SubResourceResponseArrayInput
-	// The Firewall Policy SKU.
-	Sku FirewallPolicySkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The operation mode for Threat Intelligence.
-	ThreatIntelMode pulumi.StringPtrInput
-	// ThreatIntel Whitelist for Firewall Policy.
-	ThreatIntelWhitelist FirewallPolicyThreatIntelWhitelistResponsePtrInput
-	// TLS Configuration definition.
-	TransportSecurity FirewallPolicyTransportSecurityResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (FirewallPolicyState) ElementType() reflect.Type {

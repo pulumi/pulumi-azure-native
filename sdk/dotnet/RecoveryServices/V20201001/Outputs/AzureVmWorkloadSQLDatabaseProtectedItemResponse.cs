@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Azure VM workload-specific protected item representing SQL Database.
+    /// </summary>
     [OutputType]
     public sealed class AzureVmWorkloadSQLDatabaseProtectedItemResponse
     {

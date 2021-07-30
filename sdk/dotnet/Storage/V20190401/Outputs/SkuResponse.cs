@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20190401.Outputs
 {
 
+    /// <summary>
+    /// The SKU of the storage account.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

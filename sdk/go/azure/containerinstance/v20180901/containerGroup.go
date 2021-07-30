@@ -158,71 +158,9 @@ func GetContainerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerGroup resources.
 type containerGroupState struct {
-	// The containers within the container group.
-	Containers []ContainerResponse `pulumi:"containers"`
-	// The diagnostic information for a container group.
-	Diagnostics *ContainerGroupDiagnosticsResponse `pulumi:"diagnostics"`
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
-	// The instance view of the container group. Only valid in response.
-	InstanceView *ContainerGroupResponseInstanceView `pulumi:"instanceView"`
-	// The IP address type of the container group.
-	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The network profile information for a container group.
-	NetworkProfile *ContainerGroupNetworkProfileResponse `pulumi:"networkProfile"`
-	// The operating system type required by the containers in the container group.
-	OsType *string `pulumi:"osType"`
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Restart policy for all containers within the container group.
-	// - `Always` Always restart
-	// - `OnFailure` Restart on failure
-	// - `Never` Never restart
-	RestartPolicy *string `pulumi:"restartPolicy"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []VolumeResponse `pulumi:"volumes"`
 }
 
 type ContainerGroupState struct {
-	// The containers within the container group.
-	Containers ContainerResponseArrayInput
-	// The diagnostic information for a container group.
-	Diagnostics ContainerGroupDiagnosticsResponsePtrInput
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials ImageRegistryCredentialResponseArrayInput
-	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseInstanceViewPtrInput
-	// The IP address type of the container group.
-	IpAddress IpAddressResponsePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The network profile information for a container group.
-	NetworkProfile ContainerGroupNetworkProfileResponsePtrInput
-	// The operating system type required by the containers in the container group.
-	OsType pulumi.StringPtrInput
-	// The provisioning state of the container group. This only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Restart policy for all containers within the container group.
-	// - `Always` Always restart
-	// - `OnFailure` Restart on failure
-	// - `Never` Never restart
-	RestartPolicy pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes VolumeResponseArrayInput
 }
 
 func (ContainerGroupState) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20200801Preview.Outputs
 {
 
+    /// <summary>
+    /// The storage account blob inventory policy rules.
+    /// </summary>
     [OutputType]
     public sealed class BlobInventoryPolicySchemaResponse
     {

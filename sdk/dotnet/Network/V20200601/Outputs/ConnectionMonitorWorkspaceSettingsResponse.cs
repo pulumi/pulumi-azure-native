@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Describes the settings for producing output into a log analytics workspace.
+    /// </summary>
     [OutputType]
     public sealed class ConnectionMonitorWorkspaceSettingsResponse
     {

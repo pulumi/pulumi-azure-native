@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// Describes the credentials that will be used to access a custom registry during a run.
+    /// </summary>
     [OutputType]
     public sealed class CustomRegistryCredentialsResponse
     {

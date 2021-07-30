@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Profile of the managed cluster load balancer.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterLoadBalancerProfileResponse
     {

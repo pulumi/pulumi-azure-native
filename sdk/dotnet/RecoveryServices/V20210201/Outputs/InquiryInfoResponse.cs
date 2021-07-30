@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Details about inquired protectable items under a given container.
+    /// </summary>
     [OutputType]
     public sealed class InquiryInfoResponse
     {

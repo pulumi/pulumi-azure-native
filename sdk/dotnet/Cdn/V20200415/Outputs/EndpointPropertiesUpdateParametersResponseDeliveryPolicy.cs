@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200415.Outputs
 {
 
+    /// <summary>
+    /// A policy that specifies the delivery rules to be used for an endpoint.
+    /// </summary>
     [OutputType]
     public sealed class EndpointPropertiesUpdateParametersResponseDeliveryPolicy
     {

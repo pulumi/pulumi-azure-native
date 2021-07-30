@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.Outputs
 {
 
+    /// <summary>
+    /// The value of a parameter.
+    /// </summary>
     [OutputType]
     public sealed class ParameterValuesValueResponse
     {

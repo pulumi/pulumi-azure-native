@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20191101.Outputs
 {
 
+    /// <summary>
+    /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdResponse
     {

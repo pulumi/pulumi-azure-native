@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190801.Outputs
 {
 
+    /// <summary>
+    /// Set of conditions in the Rewrite Rule in Application Gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayRewriteRuleConditionResponse
     {

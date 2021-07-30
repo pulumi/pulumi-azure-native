@@ -82,21 +82,9 @@ func GetWorkloadNetworkDhcp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkDhcp resources.
 type workloadNetworkDhcpState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// DHCP properties.
-	Properties interface{} `pulumi:"properties"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkDhcpState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// DHCP properties.
-	Properties pulumi.Input
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkDhcpState) ElementType() reflect.Type {

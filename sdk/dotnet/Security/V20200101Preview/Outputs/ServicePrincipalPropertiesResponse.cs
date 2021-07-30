@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// Details of the service principal.
+    /// </summary>
     [OutputType]
     public sealed class ServicePrincipalPropertiesResponse
     {

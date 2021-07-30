@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 {
 
+    /// <summary>
+    /// The instance view of a virtual machine run command.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineRunCommandInstanceViewResponse
     {

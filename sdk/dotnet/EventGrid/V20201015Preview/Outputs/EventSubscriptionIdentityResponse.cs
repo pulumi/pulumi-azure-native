@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Outputs
 {
 
+    /// <summary>
+    /// The identity information with the event subscription.
+    /// </summary>
     [OutputType]
     public sealed class EventSubscriptionIdentityResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The client access policy.
+    /// </summary>
     [OutputType]
     public sealed class CrossSiteAccessPoliciesResponse
     {

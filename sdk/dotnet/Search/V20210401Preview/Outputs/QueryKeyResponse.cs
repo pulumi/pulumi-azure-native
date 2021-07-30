@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes an API key for a given Azure Cognitive Search service that has permissions for query operations only.
+    /// </summary>
     [OutputType]
     public sealed class QueryKeyResponse
     {

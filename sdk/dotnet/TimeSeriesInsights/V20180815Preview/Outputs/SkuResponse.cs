@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview.Outputs
 {
 
+    /// <summary>
+    /// The sku determines the type of environment, either standard (S1 or S2) or long-term (L1). For standard environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

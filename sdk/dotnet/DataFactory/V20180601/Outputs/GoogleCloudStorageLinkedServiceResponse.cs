@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Linked service for Google Cloud Storage.
+    /// </summary>
     [OutputType]
     public sealed class GoogleCloudStorageLinkedServiceResponse
     {

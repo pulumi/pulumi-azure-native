@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.Outputs
 {
 
+    /// <summary>
+    /// An identity that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID.
+    /// </summary>
     [OutputType]
     public sealed class AccessPolicyEntryResponse
     {

@@ -151,45 +151,9 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
-	// The extended location of the Image.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine *SubResourceResponse `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *ImageStorageProfileResponse `pulumi:"storageProfile"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ImageState struct {
-	// The extended location of the Image.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
-	HyperVGeneration pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine SubResourceResponsePtrInput
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile ImageStorageProfileResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ImageState) ElementType() reflect.Type {

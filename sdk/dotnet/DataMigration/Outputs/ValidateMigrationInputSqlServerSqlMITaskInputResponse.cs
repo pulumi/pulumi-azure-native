@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Input for task that validates migration input for SQL to Azure SQL Managed Instance
+    /// </summary>
     [OutputType]
     public sealed class ValidateMigrationInputSqlServerSqlMITaskInputResponse
     {

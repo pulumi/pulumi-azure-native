@@ -101,41 +101,9 @@ func GetSavedSearch(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SavedSearch resources.
 type savedSearchState struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category *string `pulumi:"category"`
-	// Saved search display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The ETag of the saved search.
-	ETag *string `pulumi:"eTag"`
-	// The name of the saved search.
-	Name *string `pulumi:"name"`
-	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-	Query *string `pulumi:"query"`
-	// The tags attached to the saved search.
-	Tags []TagResponse `pulumi:"tags"`
-	// The type of the saved search.
-	Type *string `pulumi:"type"`
-	// The version number of the query language. The current version is 2 and is the default.
-	Version *float64 `pulumi:"version"`
 }
 
 type SavedSearchState struct {
-	// The category of the saved search. This helps the user to find a saved search faster.
-	Category pulumi.StringPtrInput
-	// Saved search display name.
-	DisplayName pulumi.StringPtrInput
-	// The ETag of the saved search.
-	ETag pulumi.StringPtrInput
-	// The name of the saved search.
-	Name pulumi.StringPtrInput
-	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-	Query pulumi.StringPtrInput
-	// The tags attached to the saved search.
-	Tags TagResponseArrayInput
-	// The type of the saved search.
-	Type pulumi.StringPtrInput
-	// The version number of the query language. The current version is 2 and is the default.
-	Version pulumi.Float64PtrInput
 }
 
 func (SavedSearchState) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 {
 
+    /// <summary>
+    /// Time and capacity request parameters
+    /// </summary>
     [OutputType]
     public sealed class AutoscaleTimeAndCapacityResponse
     {

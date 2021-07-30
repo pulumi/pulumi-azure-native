@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190601.Outputs
 {
 
+    /// <summary>
+    /// Rule condition of type application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationRuleConditionResponse
     {

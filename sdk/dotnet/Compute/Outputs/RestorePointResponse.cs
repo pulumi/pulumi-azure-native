@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Restore Point details.
+    /// </summary>
     [OutputType]
     public sealed class RestorePointResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Settings for copy activity log.
+    /// </summary>
     [OutputType]
     public sealed class CopyActivityLogSettingsResponse
     {

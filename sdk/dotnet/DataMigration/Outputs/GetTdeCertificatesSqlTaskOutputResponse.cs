@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Output of the task that gets TDE certificates in Base64 encoded format.
+    /// </summary>
     [OutputType]
     public sealed class GetTdeCertificatesSqlTaskOutputResponse
     {

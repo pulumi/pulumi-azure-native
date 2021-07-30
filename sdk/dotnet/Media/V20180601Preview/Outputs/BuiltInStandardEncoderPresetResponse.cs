@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a built-in preset for encoding the input video with the Standard Encoder.
+    /// </summary>
     [OutputType]
     public sealed class BuiltInStandardEncoderPresetResponse
     {

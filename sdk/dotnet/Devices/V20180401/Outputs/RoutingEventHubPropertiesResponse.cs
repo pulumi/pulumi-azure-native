@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20180401.Outputs
 {
 
+    /// <summary>
+    /// The properties related to an event hub endpoint.
+    /// </summary>
     [OutputType]
     public sealed class RoutingEventHubPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Outputs
 {
 
+    /// <summary>
+    /// The hierarchical queue associated with this account.
+    /// </summary>
     [OutputType]
     public sealed class DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue
     {

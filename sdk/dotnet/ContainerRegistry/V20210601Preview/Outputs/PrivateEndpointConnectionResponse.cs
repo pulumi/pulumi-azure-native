@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// An object that represents a private endpoint connection for a container registry.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

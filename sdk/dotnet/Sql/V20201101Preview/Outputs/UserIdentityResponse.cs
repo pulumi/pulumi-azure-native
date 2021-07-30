@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Azure Active Directory identity configuration for a resource.
+    /// </summary>
     [OutputType]
     public sealed class UserIdentityResponse
     {

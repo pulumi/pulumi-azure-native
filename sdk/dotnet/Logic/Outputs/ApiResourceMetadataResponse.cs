@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The api resource metadata.
+    /// </summary>
     [OutputType]
     public sealed class ApiResourceMetadataResponse
     {

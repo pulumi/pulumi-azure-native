@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes Protocol and thumbprint of Windows Remote Management listener
+    /// </summary>
     [OutputType]
     public sealed class WinRMListenerResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// The KPI alias.
+    /// </summary>
     [OutputType]
     public sealed class KpiAliasResponse
     {

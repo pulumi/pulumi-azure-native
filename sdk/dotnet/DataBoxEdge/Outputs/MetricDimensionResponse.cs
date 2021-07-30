@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// The metric dimension
+    /// </summary>
     [OutputType]
     public sealed class MetricDimensionResponse
     {

@@ -73,33 +73,9 @@ func GetIntegrationServiceEnvironment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationServiceEnvironment resources.
 type integrationServiceEnvironmentState struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The integration service environment properties.
-	Properties *IntegrationServiceEnvironmentPropertiesResponse `pulumi:"properties"`
-	// The sku.
-	Sku *IntegrationServiceEnvironmentSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationServiceEnvironmentState struct {
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The integration service environment properties.
-	Properties IntegrationServiceEnvironmentPropertiesResponsePtrInput
-	// The sku.
-	Sku IntegrationServiceEnvironmentSkuResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationServiceEnvironmentState) ElementType() reflect.Type {

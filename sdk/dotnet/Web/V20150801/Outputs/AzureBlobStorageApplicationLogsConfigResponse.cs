@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// Application logs azure blob storage configuration
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobStorageApplicationLogsConfigResponse
     {

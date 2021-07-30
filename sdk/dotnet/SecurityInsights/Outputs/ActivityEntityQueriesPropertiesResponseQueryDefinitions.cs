@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// The Activity query definitions
+    /// </summary>
     [OutputType]
     public sealed class ActivityEntityQueriesPropertiesResponseQueryDefinitions
     {

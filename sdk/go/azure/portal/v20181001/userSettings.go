@@ -63,13 +63,9 @@ func GetUserSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserSettings resources.
 type userSettingsState struct {
-	// The cloud shell user settings properties.
-	Properties *UserPropertiesResponse `pulumi:"properties"`
 }
 
 type UserSettingsState struct {
-	// The cloud shell user settings properties.
-	Properties UserPropertiesResponsePtrInput
 }
 
 func (UserSettingsState) ElementType() reflect.Type {

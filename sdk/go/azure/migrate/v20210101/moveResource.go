@@ -76,21 +76,9 @@ func GetMoveResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MoveResource resources.
 type moveResourceState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Defines the move resource properties.
-	Properties *MoveResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type MoveResourceState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Defines the move resource properties.
-	Properties MoveResourcePropertiesResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (MoveResourceState) ElementType() reflect.Type {

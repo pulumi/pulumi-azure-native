@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
+    /// <summary>
+    /// The endpoint details.
+    /// </summary>
     [OutputType]
     public sealed class EndpointResponse
     {

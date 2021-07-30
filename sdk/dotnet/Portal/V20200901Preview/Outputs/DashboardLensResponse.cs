@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// A dashboard lens.
+    /// </summary>
     [OutputType]
     public sealed class DashboardLensResponse
     {

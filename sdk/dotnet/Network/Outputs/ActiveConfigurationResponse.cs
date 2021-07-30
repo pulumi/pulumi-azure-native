@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Active Configuration.
+    /// </summary>
     [OutputType]
     public sealed class ActiveConfigurationResponse
     {

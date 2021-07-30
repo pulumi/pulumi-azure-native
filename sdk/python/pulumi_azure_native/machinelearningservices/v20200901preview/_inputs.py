@@ -13,33 +13,33 @@ __all__ = [
     'ACIServiceCreateRequestDataCollectionArgs',
     'ACIServiceCreateRequestEncryptionPropertiesArgs',
     'ACIServiceCreateRequestVnetConfigurationArgs',
-    'AKSArgs',
     'AKSPropertiesArgs',
     'AKSServiceCreateRequestAutoScalerArgs',
     'AKSServiceCreateRequestDataCollectionArgs',
     'AKSServiceCreateRequestLivenessProbeRequirementsArgs',
+    'AKSArgs',
     'AksNetworkingConfigurationArgs',
-    'AmlComputeArgs',
     'AmlComputePropertiesArgs',
+    'AmlComputeArgs',
     'AssignedUserArgs',
     'ComputeBindingArgs',
-    'ComputeInstanceArgs',
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
+    'ComputeInstanceArgs',
     'ContainerResourceRequirementsArgs',
     'CreateServiceRequestEnvironmentImageRequestArgs',
     'CreateServiceRequestKeysArgs',
     'DataFactoryArgs',
-    'DataLakeAnalyticsArgs',
     'DataLakeAnalyticsPropertiesArgs',
-    'DatabricksArgs',
+    'DataLakeAnalyticsArgs',
     'DatabricksPropertiesArgs',
+    'DatabricksArgs',
     'DatasetReferenceArgs',
     'EncryptionPropertyArgs',
-    'EnvironmentImageRequestEnvironmentArgs',
     'EnvironmentImageRequestEnvironmentReferenceArgs',
-    'HDInsightArgs',
+    'EnvironmentImageRequestEnvironmentArgs',
     'HDInsightPropertiesArgs',
+    'HDInsightArgs',
     'IdentityArgs',
     'ImageAssetArgs',
     'KeyVaultPropertiesArgs',
@@ -51,12 +51,12 @@ __all__ = [
     'LabelingJobPropertiesArgs',
     'LinkedServicePropsArgs',
     'MLAssistConfigurationArgs',
-    'ModelArgs',
     'ModelDockerSectionBaseImageRegistryArgs',
     'ModelEnvironmentDefinitionDockerArgs',
     'ModelEnvironmentDefinitionPythonArgs',
     'ModelEnvironmentDefinitionRArgs',
     'ModelEnvironmentDefinitionSparkArgs',
+    'ModelArgs',
     'PersonalComputeInstanceSettingsArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RCranPackageArgs',
@@ -71,10 +71,10 @@ __all__ = [
     'SparkMavenPackageArgs',
     'SslConfigurationArgs',
     'UserAccountCredentialsArgs',
-    'VirtualMachineArgs',
     'VirtualMachineImageArgs',
     'VirtualMachinePropertiesArgs',
     'VirtualMachineSshCredentialsArgs',
+    'VirtualMachineArgs',
 ]
 
 @pulumi.input_type
@@ -208,95 +208,6 @@ class ACIServiceCreateRequestVnetConfigurationArgs:
     @vnet_name.setter
     def vnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vnet_name", value)
-
-
-@pulumi.input_type
-class AKSArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['AKSPropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A Machine Learning compute based on AKS.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'AKS'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'AKS')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'AKS'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AKSPropertiesArgs']]:
-        """
-        AKS properties
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AKSPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -604,6 +515,95 @@ class AKSServiceCreateRequestLivenessProbeRequirementsArgs:
 
 
 @pulumi.input_type
+class AKSArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['AKSPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on AKS.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AKS'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'AKS')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'AKS'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AKSPropertiesArgs']]:
+        """
+        AKS properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AKSPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class AksNetworkingConfigurationArgs:
     def __init__(__self__, *,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
@@ -673,95 +673,6 @@ class AksNetworkingConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
-
-
-@pulumi.input_type
-class AmlComputeArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['AmlComputePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        An Azure Machine Learning compute.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'AmlCompute'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input['AmlComputePropertiesArgs'] properties: AML Compute properties
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'AmlCompute')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'AmlCompute'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AmlComputePropertiesArgs']]:
-        """
-        AML Compute properties
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AmlComputePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -939,6 +850,95 @@ class AmlComputePropertiesArgs:
 
 
 @pulumi.input_type
+class AmlComputeArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['AmlComputePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure Machine Learning compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AmlCompute'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input['AmlComputePropertiesArgs'] properties: AML Compute properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'AmlCompute')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'AmlCompute'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AmlComputePropertiesArgs']]:
+        """
+        AML Compute properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AmlComputePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class AssignedUserArgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[str],
@@ -1014,95 +1014,6 @@ class ComputeBindingArgs:
     @node_count.setter
     def node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "node_count", value)
-
-
-@pulumi.input_type
-class ComputeInstanceArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['ComputeInstancePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        An Azure Machine Learning compute instance.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'ComputeInstance'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input['ComputeInstancePropertiesArgs'] properties: Compute Instance properties
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'ComputeInstance')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'ComputeInstance'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ComputeInstancePropertiesArgs']]:
-        """
-        Compute Instance properties
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ComputeInstancePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -1269,6 +1180,95 @@ class ComputeInstanceSshSettingsArgs:
     @ssh_public_access.setter
     def ssh_public_access(self, value: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]):
         pulumi.set(self, "ssh_public_access", value)
+
+
+@pulumi.input_type
+class ComputeInstanceArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ComputeInstancePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure Machine Learning compute instance.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'ComputeInstance'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input['ComputeInstancePropertiesArgs'] properties: Compute Instance properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'ComputeInstance')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'ComputeInstance'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ComputeInstancePropertiesArgs']]:
+        """
+        Compute Instance properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ComputeInstancePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -1561,6 +1561,29 @@ class DataFactoryArgs:
 
 
 @pulumi.input_type
+class DataLakeAnalyticsPropertiesArgs:
+    def __init__(__self__, *,
+                 data_lake_store_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_lake_store_account_name: DataLake Store Account Name
+        """
+        if data_lake_store_account_name is not None:
+            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+
+    @property
+    @pulumi.getter(name="dataLakeStoreAccountName")
+    def data_lake_store_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        DataLake Store Account Name
+        """
+        return pulumi.get(self, "data_lake_store_account_name")
+
+    @data_lake_store_account_name.setter
+    def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_store_account_name", value)
+
+
+@pulumi.input_type
 class DataLakeAnalyticsArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[str],
@@ -1646,26 +1669,26 @@ class DataLakeAnalyticsArgs:
 
 
 @pulumi.input_type
-class DataLakeAnalyticsPropertiesArgs:
+class DatabricksPropertiesArgs:
     def __init__(__self__, *,
-                 data_lake_store_account_name: Optional[pulumi.Input[str]] = None):
+                 databricks_access_token: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] data_lake_store_account_name: DataLake Store Account Name
+        :param pulumi.Input[str] databricks_access_token: Databricks access token
         """
-        if data_lake_store_account_name is not None:
-            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+        if databricks_access_token is not None:
+            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
 
     @property
-    @pulumi.getter(name="dataLakeStoreAccountName")
-    def data_lake_store_account_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="databricksAccessToken")
+    def databricks_access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        DataLake Store Account Name
+        Databricks access token
         """
-        return pulumi.get(self, "data_lake_store_account_name")
+        return pulumi.get(self, "databricks_access_token")
 
-    @data_lake_store_account_name.setter
-    def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_lake_store_account_name", value)
+    @databricks_access_token.setter
+    def databricks_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "databricks_access_token", value)
 
 
 @pulumi.input_type
@@ -1754,29 +1777,6 @@ class DatabricksArgs:
 
 
 @pulumi.input_type
-class DatabricksPropertiesArgs:
-    def __init__(__self__, *,
-                 databricks_access_token: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] databricks_access_token: Databricks access token
-        """
-        if databricks_access_token is not None:
-            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
-
-    @property
-    @pulumi.getter(name="databricksAccessToken")
-    def databricks_access_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        Databricks access token
-        """
-        return pulumi.get(self, "databricks_access_token")
-
-    @databricks_access_token.setter
-    def databricks_access_token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "databricks_access_token", value)
-
-
-@pulumi.input_type
 class DatasetReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
@@ -1851,6 +1851,46 @@ class EncryptionPropertyArgs:
     @status.setter
     def status(self, value: pulumi.Input[Union[str, 'EncryptionStatus']]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class EnvironmentImageRequestEnvironmentReferenceArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        The unique identifying details of the AZURE ML environment.
+        :param pulumi.Input[str] name: Name of the environment.
+        :param pulumi.Input[str] version: Version of the environment.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the environment.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the environment.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -1990,43 +2030,58 @@ class EnvironmentImageRequestEnvironmentArgs:
 
 
 @pulumi.input_type
-class EnvironmentImageRequestEnvironmentReferenceArgs:
+class HDInsightPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 address: Optional[pulumi.Input[str]] = None,
+                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None):
         """
-        The unique identifying details of the AZURE ML environment.
-        :param pulumi.Input[str] name: Name of the environment.
-        :param pulumi.Input[str] version: Version of the environment.
+        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
+        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def address(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the environment.
+        Public IP address of the master node of the cluster.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "address")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
 
     @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
         """
-        Version of the environment.
+        Admin credentials for master node of the cluster
         """
-        return pulumi.get(self, "version")
+        return pulumi.get(self, "administrator_account")
 
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "version", value)
+    @administrator_account.setter
+    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
+        pulumi.set(self, "administrator_account", value)
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @ssh_port.setter
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ssh_port", value)
 
 
 @pulumi.input_type
@@ -2112,61 +2167,6 @@ class HDInsightArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
-class HDInsightPropertiesArgs:
-    def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None,
-                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
-        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
-        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
-        """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
-        if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
-
-    @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
-        """
-        Public IP address of the master node of the cluster.
-        """
-        return pulumi.get(self, "address")
-
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
-
-    @property
-    @pulumi.getter(name="administratorAccount")
-    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
-        """
-        Admin credentials for master node of the cluster
-        """
-        return pulumi.get(self, "administrator_account")
-
-    @administrator_account.setter
-    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
-        pulumi.set(self, "administrator_account", value)
-
-    @property
-    @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Port open for ssh connections on the master node of the cluster.
-        """
-        return pulumi.get(self, "ssh_port")
-
-    @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "ssh_port", value)
 
 
 @pulumi.input_type
@@ -2818,347 +2818,6 @@ class MLAssistConfigurationArgs:
 
 
 @pulumi.input_type
-class ModelArgs:
-    def __init__(__self__, *,
-                 mime_type: pulumi.Input[str],
-                 name: pulumi.Input[str],
-                 url: pulumi.Input[str],
-                 created_time: Optional[pulumi.Input[str]] = None,
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
-                 derived_model_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 experiment_name: Optional[pulumi.Input[str]] = None,
-                 framework: Optional[pulumi.Input[str]] = None,
-                 framework_version: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 modified_time: Optional[pulumi.Input[str]] = None,
-                 parent_model_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resource_requirements: Optional[pulumi.Input['ContainerResourceRequirementsArgs']] = None,
-                 run_id: Optional[pulumi.Input[str]] = None,
-                 sample_input_data: Optional[pulumi.Input[str]] = None,
-                 sample_output_data: Optional[pulumi.Input[str]] = None,
-                 unpack: Optional[pulumi.Input[bool]] = None,
-                 version: Optional[pulumi.Input[float]] = None):
-        """
-        An Azure Machine Learning Model.
-        :param pulumi.Input[str] mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
-        :param pulumi.Input[str] name: The Model name.
-        :param pulumi.Input[str] url: The URL of the Model. Usually a SAS URL.
-        :param pulumi.Input[str] created_time: The Model creation time (UTC).
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: The list of datasets associated with the model.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] derived_model_ids: Models derived from this model
-        :param pulumi.Input[str] description: The Model description text.
-        :param pulumi.Input[str] experiment_name: The name of the experiment where this model was created.
-        :param pulumi.Input[str] framework: The Model framework.
-        :param pulumi.Input[str] framework_version: The Model framework version.
-        :param pulumi.Input[str] id: The Model Id.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] kv_tags: The Model tag dictionary. Items are mutable.
-        :param pulumi.Input[str] modified_time: The Model last modified time (UTC).
-        :param pulumi.Input[str] parent_model_id: The Parent Model Id.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The Model property dictionary. Properties are immutable.
-        :param pulumi.Input['ContainerResourceRequirementsArgs'] resource_requirements: Resource requirements for the model
-        :param pulumi.Input[str] run_id: The RunId that created this model.
-        :param pulumi.Input[str] sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-        :param pulumi.Input[str] sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-        :param pulumi.Input[bool] unpack: Indicates whether we need to unpack the Model during docker Image creation.
-        :param pulumi.Input[float] version: The Model version assigned by Model Management Service.
-        """
-        pulumi.set(__self__, "mime_type", mime_type)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "url", url)
-        if created_time is not None:
-            pulumi.set(__self__, "created_time", created_time)
-        if datasets is not None:
-            pulumi.set(__self__, "datasets", datasets)
-        if derived_model_ids is not None:
-            pulumi.set(__self__, "derived_model_ids", derived_model_ids)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if experiment_name is not None:
-            pulumi.set(__self__, "experiment_name", experiment_name)
-        if framework is not None:
-            pulumi.set(__self__, "framework", framework)
-        if framework_version is not None:
-            pulumi.set(__self__, "framework_version", framework_version)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if kv_tags is not None:
-            pulumi.set(__self__, "kv_tags", kv_tags)
-        if modified_time is not None:
-            pulumi.set(__self__, "modified_time", modified_time)
-        if parent_model_id is not None:
-            pulumi.set(__self__, "parent_model_id", parent_model_id)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_requirements is not None:
-            pulumi.set(__self__, "resource_requirements", resource_requirements)
-        if run_id is not None:
-            pulumi.set(__self__, "run_id", run_id)
-        if sample_input_data is not None:
-            pulumi.set(__self__, "sample_input_data", sample_input_data)
-        if sample_output_data is not None:
-            pulumi.set(__self__, "sample_output_data", sample_output_data)
-        if unpack is not None:
-            pulumi.set(__self__, "unpack", unpack)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="mimeType")
-    def mime_type(self) -> pulumi.Input[str]:
-        """
-        The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
-        """
-        return pulumi.get(self, "mime_type")
-
-    @mime_type.setter
-    def mime_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "mime_type", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The Model name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[str]:
-        """
-        The URL of the Model. Usually a SAS URL.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "url", value)
-
-    @property
-    @pulumi.getter(name="createdTime")
-    def created_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Model creation time (UTC).
-        """
-        return pulumi.get(self, "created_time")
-
-    @created_time.setter
-    def created_time(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_time", value)
-
-    @property
-    @pulumi.getter
-    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
-        """
-        The list of datasets associated with the model.
-        """
-        return pulumi.get(self, "datasets")
-
-    @datasets.setter
-    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
-        pulumi.set(self, "datasets", value)
-
-    @property
-    @pulumi.getter(name="derivedModelIds")
-    def derived_model_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Models derived from this model
-        """
-        return pulumi.get(self, "derived_model_ids")
-
-    @derived_model_ids.setter
-    def derived_model_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "derived_model_ids", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Model description text.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="experimentName")
-    def experiment_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the experiment where this model was created.
-        """
-        return pulumi.get(self, "experiment_name")
-
-    @experiment_name.setter
-    def experiment_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "experiment_name", value)
-
-    @property
-    @pulumi.getter
-    def framework(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Model framework.
-        """
-        return pulumi.get(self, "framework")
-
-    @framework.setter
-    def framework(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "framework", value)
-
-    @property
-    @pulumi.getter(name="frameworkVersion")
-    def framework_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Model framework version.
-        """
-        return pulumi.get(self, "framework_version")
-
-    @framework_version.setter
-    def framework_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "framework_version", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Model Id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="kvTags")
-    def kv_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The Model tag dictionary. Items are mutable.
-        """
-        return pulumi.get(self, "kv_tags")
-
-    @kv_tags.setter
-    def kv_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "kv_tags", value)
-
-    @property
-    @pulumi.getter(name="modifiedTime")
-    def modified_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Model last modified time (UTC).
-        """
-        return pulumi.get(self, "modified_time")
-
-    @modified_time.setter
-    def modified_time(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "modified_time", value)
-
-    @property
-    @pulumi.getter(name="parentModelId")
-    def parent_model_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Parent Model Id.
-        """
-        return pulumi.get(self, "parent_model_id")
-
-    @parent_model_id.setter
-    def parent_model_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "parent_model_id", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The Model property dictionary. Properties are immutable.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceRequirements")
-    def resource_requirements(self) -> Optional[pulumi.Input['ContainerResourceRequirementsArgs']]:
-        """
-        Resource requirements for the model
-        """
-        return pulumi.get(self, "resource_requirements")
-
-    @resource_requirements.setter
-    def resource_requirements(self, value: Optional[pulumi.Input['ContainerResourceRequirementsArgs']]):
-        pulumi.set(self, "resource_requirements", value)
-
-    @property
-    @pulumi.getter(name="runId")
-    def run_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The RunId that created this model.
-        """
-        return pulumi.get(self, "run_id")
-
-    @run_id.setter
-    def run_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "run_id", value)
-
-    @property
-    @pulumi.getter(name="sampleInputData")
-    def sample_input_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-        """
-        return pulumi.get(self, "sample_input_data")
-
-    @sample_input_data.setter
-    def sample_input_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sample_input_data", value)
-
-    @property
-    @pulumi.getter(name="sampleOutputData")
-    def sample_output_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
-        """
-        return pulumi.get(self, "sample_output_data")
-
-    @sample_output_data.setter
-    def sample_output_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sample_output_data", value)
-
-    @property
-    @pulumi.getter
-    def unpack(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates whether we need to unpack the Model during docker Image creation.
-        """
-        return pulumi.get(self, "unpack")
-
-    @unpack.setter
-    def unpack(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "unpack", value)
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[float]]:
-        """
-        The Model version assigned by Model Management Service.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
 class ModelDockerSectionBaseImageRegistryArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
@@ -3518,6 +3177,347 @@ class ModelEnvironmentDefinitionSparkArgs:
     @repositories.setter
     def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "repositories", value)
+
+
+@pulumi.input_type
+class ModelArgs:
+    def __init__(__self__, *,
+                 mime_type: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 created_time: Optional[pulumi.Input[str]] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 derived_model_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 experiment_name: Optional[pulumi.Input[str]] = None,
+                 framework: Optional[pulumi.Input[str]] = None,
+                 framework_version: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 kv_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 modified_time: Optional[pulumi.Input[str]] = None,
+                 parent_model_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 resource_requirements: Optional[pulumi.Input['ContainerResourceRequirementsArgs']] = None,
+                 run_id: Optional[pulumi.Input[str]] = None,
+                 sample_input_data: Optional[pulumi.Input[str]] = None,
+                 sample_output_data: Optional[pulumi.Input[str]] = None,
+                 unpack: Optional[pulumi.Input[bool]] = None,
+                 version: Optional[pulumi.Input[float]] = None):
+        """
+        An Azure Machine Learning Model.
+        :param pulumi.Input[str] mime_type: The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        :param pulumi.Input[str] name: The Model name.
+        :param pulumi.Input[str] url: The URL of the Model. Usually a SAS URL.
+        :param pulumi.Input[str] created_time: The Model creation time (UTC).
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: The list of datasets associated with the model.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] derived_model_ids: Models derived from this model
+        :param pulumi.Input[str] description: The Model description text.
+        :param pulumi.Input[str] experiment_name: The name of the experiment where this model was created.
+        :param pulumi.Input[str] framework: The Model framework.
+        :param pulumi.Input[str] framework_version: The Model framework version.
+        :param pulumi.Input[str] id: The Model Id.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] kv_tags: The Model tag dictionary. Items are mutable.
+        :param pulumi.Input[str] modified_time: The Model last modified time (UTC).
+        :param pulumi.Input[str] parent_model_id: The Parent Model Id.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The Model property dictionary. Properties are immutable.
+        :param pulumi.Input['ContainerResourceRequirementsArgs'] resource_requirements: Resource requirements for the model
+        :param pulumi.Input[str] run_id: The RunId that created this model.
+        :param pulumi.Input[str] sample_input_data: Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        :param pulumi.Input[str] sample_output_data: Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        :param pulumi.Input[bool] unpack: Indicates whether we need to unpack the Model during docker Image creation.
+        :param pulumi.Input[float] version: The Model version assigned by Model Management Service.
+        """
+        pulumi.set(__self__, "mime_type", mime_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "url", url)
+        if created_time is not None:
+            pulumi.set(__self__, "created_time", created_time)
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if derived_model_ids is not None:
+            pulumi.set(__self__, "derived_model_ids", derived_model_ids)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if framework is not None:
+            pulumi.set(__self__, "framework", framework)
+        if framework_version is not None:
+            pulumi.set(__self__, "framework_version", framework_version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if kv_tags is not None:
+            pulumi.set(__self__, "kv_tags", kv_tags)
+        if modified_time is not None:
+            pulumi.set(__self__, "modified_time", modified_time)
+        if parent_model_id is not None:
+            pulumi.set(__self__, "parent_model_id", parent_model_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_requirements is not None:
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if run_id is not None:
+            pulumi.set(__self__, "run_id", run_id)
+        if sample_input_data is not None:
+            pulumi.set(__self__, "sample_input_data", sample_input_data)
+        if sample_output_data is not None:
+            pulumi.set(__self__, "sample_output_data", sample_output_data)
+        if unpack is not None:
+            pulumi.set(__self__, "unpack", unpack)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> pulumi.Input[str]:
+        """
+        The MIME type of Model content. For more details about MIME type, please open https://www.iana.org/assignments/media-types/media-types.xhtml
+        """
+        return pulumi.get(self, "mime_type")
+
+    @mime_type.setter
+    def mime_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mime_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The Model name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of the Model. Usually a SAS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="createdTime")
+    def created_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model creation time (UTC).
+        """
+        return pulumi.get(self, "created_time")
+
+    @created_time.setter
+    def created_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "created_time", value)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        The list of datasets associated with the model.
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="derivedModelIds")
+    def derived_model_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Models derived from this model
+        """
+        return pulumi.get(self, "derived_model_ids")
+
+    @derived_model_ids.setter
+    def derived_model_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "derived_model_ids", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the experiment where this model was created.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @experiment_name.setter
+    def experiment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "experiment_name", value)
+
+    @property
+    @pulumi.getter
+    def framework(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model framework.
+        """
+        return pulumi.get(self, "framework")
+
+    @framework.setter
+    def framework(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework", value)
+
+    @property
+    @pulumi.getter(name="frameworkVersion")
+    def framework_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model framework version.
+        """
+        return pulumi.get(self, "framework_version")
+
+    @framework_version.setter
+    def framework_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "framework_version", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="kvTags")
+    def kv_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Model tag dictionary. Items are mutable.
+        """
+        return pulumi.get(self, "kv_tags")
+
+    @kv_tags.setter
+    def kv_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "kv_tags", value)
+
+    @property
+    @pulumi.getter(name="modifiedTime")
+    def modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Model last modified time (UTC).
+        """
+        return pulumi.get(self, "modified_time")
+
+    @modified_time.setter
+    def modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "modified_time", value)
+
+    @property
+    @pulumi.getter(name="parentModelId")
+    def parent_model_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Parent Model Id.
+        """
+        return pulumi.get(self, "parent_model_id")
+
+    @parent_model_id.setter
+    def parent_model_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_model_id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The Model property dictionary. Properties are immutable.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceRequirements")
+    def resource_requirements(self) -> Optional[pulumi.Input['ContainerResourceRequirementsArgs']]:
+        """
+        Resource requirements for the model
+        """
+        return pulumi.get(self, "resource_requirements")
+
+    @resource_requirements.setter
+    def resource_requirements(self, value: Optional[pulumi.Input['ContainerResourceRequirementsArgs']]):
+        pulumi.set(self, "resource_requirements", value)
+
+    @property
+    @pulumi.getter(name="runId")
+    def run_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The RunId that created this model.
+        """
+        return pulumi.get(self, "run_id")
+
+    @run_id.setter
+    def run_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "run_id", value)
+
+    @property
+    @pulumi.getter(name="sampleInputData")
+    def sample_input_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sample Input Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        return pulumi.get(self, "sample_input_data")
+
+    @sample_input_data.setter
+    def sample_input_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sample_input_data", value)
+
+    @property
+    @pulumi.getter(name="sampleOutputData")
+    def sample_output_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sample Output Data for the Model. A reference to a dataset in the workspace in the format aml://dataset/{datasetId}
+        """
+        return pulumi.get(self, "sample_output_data")
+
+    @sample_output_data.setter
+    def sample_output_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sample_output_data", value)
+
+    @property
+    @pulumi.getter
+    def unpack(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether we need to unpack the Model during docker Image creation.
+        """
+        return pulumi.get(self, "unpack")
+
+    @unpack.setter
+    def unpack(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unpack", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[float]]:
+        """
+        The Model version assigned by Model Management Service.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -4190,91 +4190,6 @@ class UserAccountCredentialsArgs:
 
 
 @pulumi.input_type
-class VirtualMachineArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A Machine Learning compute based on Azure Virtual Machines.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'VirtualMachine'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'VirtualMachine')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'VirtualMachine'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
 class VirtualMachineImageArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
@@ -4438,5 +4353,90 @@ class VirtualMachineSshCredentialsArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class VirtualMachineArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'VirtualMachine'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'VirtualMachine')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'VirtualMachine'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20170601Preview.Outputs
 {
 
+    /// <summary>
+    /// The policy sku.
+    /// </summary>
     [OutputType]
     public sealed class PolicySkuResponse
     {

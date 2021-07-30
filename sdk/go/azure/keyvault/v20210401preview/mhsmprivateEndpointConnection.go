@@ -90,49 +90,9 @@ func GetMHSMPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MHSMPrivateEndpointConnection resources.
 type mhsmprivateEndpointConnectionState struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location *string `pulumi:"location"`
-	// The name of the managed HSM Pool.
-	Name *string `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint *MHSMPrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState *MHSMPrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// SKU details
-	Sku *ManagedHsmSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type of the managed HSM Pool.
-	Type *string `pulumi:"type"`
 }
 
 type MHSMPrivateEndpointConnectionState struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrInput
-	// The supported Azure location where the managed HSM Pool should be created.
-	Location pulumi.StringPtrInput
-	// The name of the managed HSM Pool.
-	Name pulumi.StringPtrInput
-	// Properties of the private endpoint object.
-	PrivateEndpoint MHSMPrivateEndpointResponsePtrInput
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState MHSMPrivateLinkServiceConnectionStateResponsePtrInput
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput
-	// SKU details
-	Sku ManagedHsmSkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the key vault resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The resource type of the managed HSM Pool.
-	Type pulumi.StringPtrInput
 }
 
 func (MHSMPrivateEndpointConnectionState) ElementType() reflect.Type {

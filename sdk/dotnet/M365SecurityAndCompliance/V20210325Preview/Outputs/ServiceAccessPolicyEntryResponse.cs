@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Outputs
 {
 
+    /// <summary>
+    /// An access policy entry.
+    /// </summary>
     [OutputType]
     public sealed class ServiceAccessPolicyEntryResponse
     {

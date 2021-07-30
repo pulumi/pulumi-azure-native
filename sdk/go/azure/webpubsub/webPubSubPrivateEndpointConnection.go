@@ -83,33 +83,9 @@ func GetWebPubSubPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebPubSubPrivateEndpointConnection resources.
 type webPubSubPrivateEndpointConnectionState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type *string `pulumi:"type"`
 }
 
 type WebPubSubPrivateEndpointConnectionState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// Connection state
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// Provisioning state of the private endpoint connection
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringPtrInput
 }
 
 func (WebPubSubPrivateEndpointConnectionState) ElementType() reflect.Type {

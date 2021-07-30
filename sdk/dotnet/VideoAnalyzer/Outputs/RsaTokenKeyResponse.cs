@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
+    /// <summary>
+    /// Required validation properties for tokens generated with RSA algorithm.
+    /// </summary>
     [OutputType]
     public sealed class RsaTokenKeyResponse
     {

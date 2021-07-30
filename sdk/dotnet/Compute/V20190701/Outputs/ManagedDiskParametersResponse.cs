@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
+    /// <summary>
+    /// The parameters of a managed disk.
+    /// </summary>
     [OutputType]
     public sealed class ManagedDiskParametersResponse
     {

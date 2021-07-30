@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
+    /// </summary>
     [OutputType]
     public sealed class AutoscaleScheduleResponse
     {

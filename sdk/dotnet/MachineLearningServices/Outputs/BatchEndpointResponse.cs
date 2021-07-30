@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Batch endpoint configuration.
+    /// </summary>
     [OutputType]
     public sealed class BatchEndpointResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Get Data Plane read only token request definition.
+    /// </summary>
     [OutputType]
     public sealed class UserAccessPolicyResponse
     {

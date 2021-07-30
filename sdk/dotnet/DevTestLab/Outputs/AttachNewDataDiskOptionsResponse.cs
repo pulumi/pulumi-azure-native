@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties to attach new disk to the Virtual Machine.
+    /// </summary>
     [OutputType]
     public sealed class AttachNewDataDiskOptionsResponse
     {

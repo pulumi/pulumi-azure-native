@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190415.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for RemoteAddress match conditions
+    /// </summary>
     [OutputType]
     public sealed class RemoteAddressMatchConditionParametersResponse
     {

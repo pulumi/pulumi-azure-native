@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The API backend service
+    /// </summary>
     [OutputType]
     public sealed class ApiResourceBackendServiceResponse
     {

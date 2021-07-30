@@ -11,7 +11,7 @@ import (
 )
 
 // Defines the query string caching behavior.
-type QueryStringCachingBehavior pulumi.String
+type QueryStringCachingBehavior string
 
 const (
 	QueryStringCachingBehaviorIgnoreQueryString = QueryStringCachingBehavior("IgnoreQueryString")
@@ -21,7 +21,23 @@ const (
 )
 
 func (QueryStringCachingBehavior) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*QueryStringCachingBehavior)(nil)).Elem()
+}
+
+func (e QueryStringCachingBehavior) ToQueryStringCachingBehaviorOutput() QueryStringCachingBehaviorOutput {
+	return pulumi.ToOutput(e).(QueryStringCachingBehaviorOutput)
+}
+
+func (e QueryStringCachingBehavior) ToQueryStringCachingBehaviorOutputWithContext(ctx context.Context) QueryStringCachingBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QueryStringCachingBehaviorOutput)
+}
+
+func (e QueryStringCachingBehavior) ToQueryStringCachingBehaviorPtrOutput() QueryStringCachingBehaviorPtrOutput {
+	return e.ToQueryStringCachingBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e QueryStringCachingBehavior) ToQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) QueryStringCachingBehaviorPtrOutput {
+	return QueryStringCachingBehavior(e).ToQueryStringCachingBehaviorOutputWithContext(ctx).ToQueryStringCachingBehaviorPtrOutputWithContext(ctx)
 }
 
 func (e QueryStringCachingBehavior) ToStringOutput() pulumi.StringOutput {
@@ -40,8 +56,129 @@ func (e QueryStringCachingBehavior) ToStringPtrOutputWithContext(ctx context.Con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type QueryStringCachingBehaviorOutput struct{ *pulumi.OutputState }
+
+func (QueryStringCachingBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryStringCachingBehavior)(nil)).Elem()
+}
+
+func (o QueryStringCachingBehaviorOutput) ToQueryStringCachingBehaviorOutput() QueryStringCachingBehaviorOutput {
+	return o
+}
+
+func (o QueryStringCachingBehaviorOutput) ToQueryStringCachingBehaviorOutputWithContext(ctx context.Context) QueryStringCachingBehaviorOutput {
+	return o
+}
+
+func (o QueryStringCachingBehaviorOutput) ToQueryStringCachingBehaviorPtrOutput() QueryStringCachingBehaviorPtrOutput {
+	return o.ToQueryStringCachingBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o QueryStringCachingBehaviorOutput) ToQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) QueryStringCachingBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryStringCachingBehavior) *QueryStringCachingBehavior {
+		return &v
+	}).(QueryStringCachingBehaviorPtrOutput)
+}
+
+func (o QueryStringCachingBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QueryStringCachingBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueryStringCachingBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QueryStringCachingBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueryStringCachingBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueryStringCachingBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QueryStringCachingBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (QueryStringCachingBehaviorPtrOutput) ElementType() reflect.Type {
+	return queryStringCachingBehaviorPtrType
+}
+
+func (o QueryStringCachingBehaviorPtrOutput) ToQueryStringCachingBehaviorPtrOutput() QueryStringCachingBehaviorPtrOutput {
+	return o
+}
+
+func (o QueryStringCachingBehaviorPtrOutput) ToQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) QueryStringCachingBehaviorPtrOutput {
+	return o
+}
+
+func (o QueryStringCachingBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueryStringCachingBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QueryStringCachingBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o QueryStringCachingBehaviorPtrOutput) Elem() QueryStringCachingBehaviorOutput {
+	return o.ApplyT(func(v *QueryStringCachingBehavior) QueryStringCachingBehavior {
+		var ret QueryStringCachingBehavior
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(QueryStringCachingBehaviorOutput)
+}
+
+// QueryStringCachingBehaviorInput is an input type that accepts QueryStringCachingBehaviorArgs and QueryStringCachingBehaviorOutput values.
+// You can construct a concrete instance of `QueryStringCachingBehaviorInput` via:
+//
+//          QueryStringCachingBehaviorArgs{...}
+type QueryStringCachingBehaviorInput interface {
+	pulumi.Input
+
+	ToQueryStringCachingBehaviorOutput() QueryStringCachingBehaviorOutput
+	ToQueryStringCachingBehaviorOutputWithContext(context.Context) QueryStringCachingBehaviorOutput
+}
+
+var queryStringCachingBehaviorPtrType = reflect.TypeOf((**QueryStringCachingBehavior)(nil)).Elem()
+
+type QueryStringCachingBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToQueryStringCachingBehaviorPtrOutput() QueryStringCachingBehaviorPtrOutput
+	ToQueryStringCachingBehaviorPtrOutputWithContext(context.Context) QueryStringCachingBehaviorPtrOutput
+}
+
+type queryStringCachingBehaviorPtr string
+
+func QueryStringCachingBehaviorPtr(v string) QueryStringCachingBehaviorPtrInput {
+	return (*queryStringCachingBehaviorPtr)(&v)
+}
+
+func (*queryStringCachingBehaviorPtr) ElementType() reflect.Type {
+	return queryStringCachingBehaviorPtrType
+}
+
+func (in *queryStringCachingBehaviorPtr) ToQueryStringCachingBehaviorPtrOutput() QueryStringCachingBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(QueryStringCachingBehaviorPtrOutput)
+}
+
+func (in *queryStringCachingBehaviorPtr) ToQueryStringCachingBehaviorPtrOutputWithContext(ctx context.Context) QueryStringCachingBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QueryStringCachingBehaviorPtrOutput)
+}
+
 // Name of the pricing tier
-type SkuName pulumi.String
+type SkuName string
 
 const (
 	SkuNameStandard = SkuName("Standard")
@@ -49,7 +186,23 @@ const (
 )
 
 func (SkuName) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*SkuName)(nil)).Elem()
+}
+
+func (e SkuName) ToSkuNameOutput() SkuNameOutput {
+	return pulumi.ToOutput(e).(SkuNameOutput)
+}
+
+func (e SkuName) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuNameOutput)
+}
+
+func (e SkuName) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return e.ToSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (e SkuName) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return SkuName(e).ToSkuNameOutputWithContext(ctx).ToSkuNamePtrOutputWithContext(ctx)
 }
 
 func (e SkuName) ToStringOutput() pulumi.StringOutput {
@@ -66,4 +219,132 @@ func (e SkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e SkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SkuNameOutput struct{ *pulumi.OutputState }
+
+func (SkuNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuName)(nil)).Elem()
+}
+
+func (o SkuNameOutput) ToSkuNameOutput() SkuNameOutput {
+	return o
+}
+
+func (o SkuNameOutput) ToSkuNameOutputWithContext(ctx context.Context) SkuNameOutput {
+	return o
+}
+
+func (o SkuNameOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return o.ToSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuName) *SkuName {
+		return &v
+	}).(SkuNamePtrOutput)
+}
+
+func (o SkuNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SkuNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SkuNamePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuNamePtrOutput) ElementType() reflect.Type {
+	return skuNamePtrType
+}
+
+func (o SkuNamePtrOutput) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return o
+}
+
+func (o SkuNamePtrOutput) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return o
+}
+
+func (o SkuNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SkuNamePtrOutput) Elem() SkuNameOutput {
+	return o.ApplyT(func(v *SkuName) SkuName {
+		var ret SkuName
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(SkuNameOutput)
+}
+
+// SkuNameInput is an input type that accepts SkuNameArgs and SkuNameOutput values.
+// You can construct a concrete instance of `SkuNameInput` via:
+//
+//          SkuNameArgs{...}
+type SkuNameInput interface {
+	pulumi.Input
+
+	ToSkuNameOutput() SkuNameOutput
+	ToSkuNameOutputWithContext(context.Context) SkuNameOutput
+}
+
+var skuNamePtrType = reflect.TypeOf((**SkuName)(nil)).Elem()
+
+type SkuNamePtrInput interface {
+	pulumi.Input
+
+	ToSkuNamePtrOutput() SkuNamePtrOutput
+	ToSkuNamePtrOutputWithContext(context.Context) SkuNamePtrOutput
+}
+
+type skuNamePtr string
+
+func SkuNamePtr(v string) SkuNamePtrInput {
+	return (*skuNamePtr)(&v)
+}
+
+func (*skuNamePtr) ElementType() reflect.Type {
+	return skuNamePtrType
+}
+
+func (in *skuNamePtr) ToSkuNamePtrOutput() SkuNamePtrOutput {
+	return pulumi.ToOutput(in).(SkuNamePtrOutput)
+}
+
+func (in *skuNamePtr) ToSkuNamePtrOutputWithContext(ctx context.Context) SkuNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuNamePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueryStringCachingBehaviorOutput{})
+	pulumi.RegisterOutputType(QueryStringCachingBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(SkuNameOutput{})
+	pulumi.RegisterOutputType(SkuNamePtrOutput{})
 }

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20190801.Outputs
 {
 
+    /// <summary>
+    /// Replication properties
+    /// </summary>
     [OutputType]
     public sealed class ReplicationObjectResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Specifies an auto scale rule metric dimension.
+    /// </summary>
     [OutputType]
     public sealed class ScaleRuleMetricDimensionResponse
     {

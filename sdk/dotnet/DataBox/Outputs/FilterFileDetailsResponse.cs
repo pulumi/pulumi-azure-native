@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
+    /// <summary>
+    /// Details of the filter files to be used for data transfer.
+    /// </summary>
     [OutputType]
     public sealed class FilterFileDetailsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Service Endpoint policy definitions.
+    /// </summary>
     [OutputType]
     public sealed class ServiceEndpointPolicyDefinitionResponse
     {

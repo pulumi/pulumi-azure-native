@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.Outputs
 {
 
+    /// <summary>
+    /// Specifies the return address information for the job.
+    /// </summary>
     [OutputType]
     public sealed class ReturnAddressResponse
     {

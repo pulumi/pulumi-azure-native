@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the horizontal auto scaling mechanism that adds or removes replicas (containers or container groups).
+    /// </summary>
     [OutputType]
     public sealed class AddRemoveReplicaScalingMechanismResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// A static site user provided function.
+    /// </summary>
     [OutputType]
     public sealed class StaticSiteUserProvidedFunctionAppResponse
     {

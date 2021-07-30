@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20180401.Outputs
 {
 
+    /// <summary>
+    /// Specifies Windows operating system settings on the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class WindowsConfigurationResponse
     {

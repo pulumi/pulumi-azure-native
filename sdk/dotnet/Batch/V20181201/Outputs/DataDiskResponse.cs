@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20181201.Outputs
 {
 
+    /// <summary>
+    /// Data Disk settings which will be used by the data disks associated to Compute Nodes in the pool.
+    /// </summary>
     [OutputType]
     public sealed class DataDiskResponse
     {

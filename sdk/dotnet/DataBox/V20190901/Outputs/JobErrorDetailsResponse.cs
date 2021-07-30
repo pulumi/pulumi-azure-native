@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20190901.Outputs
 {
 
+    /// <summary>
+    /// Job Error Details for providing the information and recommended action.
+    /// </summary>
     [OutputType]
     public sealed class JobErrorDetailsResponse
     {

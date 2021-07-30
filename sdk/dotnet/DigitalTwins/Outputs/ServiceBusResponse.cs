@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Outputs
 {
 
+    /// <summary>
+    /// Properties related to ServiceBus.
+    /// </summary>
     [OutputType]
     public sealed class ServiceBusResponse
     {

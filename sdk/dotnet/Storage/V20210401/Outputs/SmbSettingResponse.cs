@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Setting for SMB protocol
+    /// </summary>
     [OutputType]
     public sealed class SmbSettingResponse
     {

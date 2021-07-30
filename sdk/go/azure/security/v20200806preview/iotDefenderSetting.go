@@ -79,33 +79,9 @@ func GetIotDefenderSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotDefenderSetting resources.
 type iotDefenderSettingState struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota *int `pulumi:"deviceQuota"`
-	// End time of the evaluation period, if such exist
-	EvaluationEndTime *string `pulumi:"evaluationEndTime"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The kind of onboarding for the subscription
-	OnboardingKind *string `pulumi:"onboardingKind"`
-	// Sentinel Workspace Resource Ids
-	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type IotDefenderSettingState struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota pulumi.IntPtrInput
-	// End time of the evaluation period, if such exist
-	EvaluationEndTime pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The kind of onboarding for the subscription
-	OnboardingKind pulumi.StringPtrInput
-	// Sentinel Workspace Resource Ids
-	SentinelWorkspaceResourceIds pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (IotDefenderSettingState) ElementType() reflect.Type {

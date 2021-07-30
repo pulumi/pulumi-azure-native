@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20200401.Outputs
 {
 
+    /// <summary>
+    /// The sub resource.
+    /// </summary>
     [OutputType]
     public sealed class SubResourceResponse
     {

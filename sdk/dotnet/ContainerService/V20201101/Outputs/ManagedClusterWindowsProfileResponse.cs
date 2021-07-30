@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Profile for Windows VMs in the container service cluster.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterWindowsProfileResponse
     {

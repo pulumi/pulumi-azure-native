@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Frontend port of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayFrontendPortResponse
     {

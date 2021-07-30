@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515.Outputs
 {
 
+    /// <summary>
+    /// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
+    /// </summary>
     [OutputType]
     public sealed class LocalTimestampResponseTimeZoneOffset
     {

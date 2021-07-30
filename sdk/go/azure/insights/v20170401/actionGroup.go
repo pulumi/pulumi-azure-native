@@ -48,9 +48,6 @@ func NewActionGroup(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Enabled == nil {
-		return nil, errors.New("invalid value for required argument 'Enabled'")
-	}
 	if args.GroupShortName == nil {
 		return nil, errors.New("invalid value for required argument 'GroupShortName'")
 	}
@@ -118,57 +115,9 @@ func GetActionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActionGroup resources.
 type actionGroupState struct {
-	// The list of AutomationRunbook receivers that are part of this action group.
-	AutomationRunbookReceivers []AutomationRunbookReceiverResponse `pulumi:"automationRunbookReceivers"`
-	// The list of AzureAppPush receivers that are part of this action group.
-	AzureAppPushReceivers []AzureAppPushReceiverResponse `pulumi:"azureAppPushReceivers"`
-	// The list of email receivers that are part of this action group.
-	EmailReceivers []EmailReceiverResponse `pulumi:"emailReceivers"`
-	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
-	Enabled *bool `pulumi:"enabled"`
-	// The short name of the action group. This will be used in SMS messages.
-	GroupShortName *string `pulumi:"groupShortName"`
-	// The list of ITSM receivers that are part of this action group.
-	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The list of SMS receivers that are part of this action group.
-	SmsReceivers []SmsReceiverResponse `pulumi:"smsReceivers"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
-	// The list of webhook receivers that are part of this action group.
-	WebhookReceivers []WebhookReceiverResponse `pulumi:"webhookReceivers"`
 }
 
 type ActionGroupState struct {
-	// The list of AutomationRunbook receivers that are part of this action group.
-	AutomationRunbookReceivers AutomationRunbookReceiverResponseArrayInput
-	// The list of AzureAppPush receivers that are part of this action group.
-	AzureAppPushReceivers AzureAppPushReceiverResponseArrayInput
-	// The list of email receivers that are part of this action group.
-	EmailReceivers EmailReceiverResponseArrayInput
-	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
-	Enabled pulumi.BoolPtrInput
-	// The short name of the action group. This will be used in SMS messages.
-	GroupShortName pulumi.StringPtrInput
-	// The list of ITSM receivers that are part of this action group.
-	ItsmReceivers ItsmReceiverResponseArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The list of SMS receivers that are part of this action group.
-	SmsReceivers SmsReceiverResponseArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
-	// The list of webhook receivers that are part of this action group.
-	WebhookReceivers WebhookReceiverResponseArrayInput
 }
 
 func (ActionGroupState) ElementType() reflect.Type {

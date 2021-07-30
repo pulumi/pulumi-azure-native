@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// Defines the MSI properties of the Move Collection.
+    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

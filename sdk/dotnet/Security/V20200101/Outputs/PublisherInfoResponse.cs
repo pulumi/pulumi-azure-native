@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Represents the publisher information of a process/rule
+    /// </summary>
     [OutputType]
     public sealed class PublisherInfoResponse
     {

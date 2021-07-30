@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20160515.Outputs
 {
 
+    /// <summary>
+    /// A data disks attached to a virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class ComputeDataDiskResponse
     {

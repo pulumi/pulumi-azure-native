@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Describes the script sources for run command.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineRunCommandScriptSourceResponse
     {

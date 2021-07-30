@@ -659,7 +659,7 @@ type ApplicationDefinitionArtifact struct {
 	// The managed application definition artifact name.
 	Name string `pulumi:"name"`
 	// The managed application definition artifact type.
-	Type string `pulumi:"type"`
+	Type ApplicationArtifactType `pulumi:"type"`
 	// The managed application definition artifact blob uri.
 	Uri string `pulumi:"uri"`
 }
@@ -680,7 +680,7 @@ type ApplicationDefinitionArtifactArgs struct {
 	// The managed application definition artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The managed application definition artifact type.
-	Type ApplicationArtifactType `pulumi:"type"`
+	Type ApplicationArtifactTypeInput `pulumi:"type"`
 	// The managed application definition artifact blob uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -743,8 +743,8 @@ func (o ApplicationDefinitionArtifactOutput) Name() pulumi.StringOutput {
 }
 
 // The managed application definition artifact type.
-func (o ApplicationDefinitionArtifactOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationDefinitionArtifact) string { return v.Type }).(pulumi.StringOutput)
+func (o ApplicationDefinitionArtifactOutput) Type() ApplicationArtifactTypeOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifact) ApplicationArtifactType { return v.Type }).(ApplicationArtifactTypeOutput)
 }
 
 // The managed application definition artifact blob uri.
@@ -3116,7 +3116,7 @@ func (o ApplicationPolicyResponseArrayOutput) Index(i pulumi.IntInput) Applicati
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -3135,7 +3135,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -3219,8 +3219,8 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -3247,13 +3247,13 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.

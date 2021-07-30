@@ -84,49 +84,9 @@ func GetIotConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotConnector resources.
 type iotConnectorState struct {
-	// Device Mappings.
-	DeviceMapping *IotMappingPropertiesResponse `pulumi:"deviceMapping"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServiceManagedIdentityResponseIdentity `pulumi:"identity"`
-	// Source configuration.
-	IngestionEndpointConfiguration *IotEventHubIngestionEndpointConfigurationResponse `pulumi:"ingestionEndpointConfiguration"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IotConnectorState struct {
-	// Device Mappings.
-	DeviceMapping IotMappingPropertiesResponsePtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServiceManagedIdentityResponseIdentityPtrInput
-	// Source configuration.
-	IngestionEndpointConfiguration IotEventHubIngestionEndpointConfigurationResponsePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IotConnectorState) ElementType() reflect.Type {

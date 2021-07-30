@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
+    /// <summary>
+    /// Diagnostics settings for an Azure ML web service.
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticsConfigurationResponse
     {

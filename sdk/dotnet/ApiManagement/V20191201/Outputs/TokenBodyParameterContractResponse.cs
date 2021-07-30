@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201.Outputs
 {
 
+    /// <summary>
+    /// OAuth acquire token request body parameter (www-url-form-encoded).
+    /// </summary>
     [OutputType]
     public sealed class TokenBodyParameterContractResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Current job details of the migration item.
+    /// </summary>
     [OutputType]
     public sealed class CurrentJobDetailsResponse
     {

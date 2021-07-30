@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Probe of application gateway
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayProbeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes a set of certificates which are all in the same Key Vault.
+    /// </summary>
     [OutputType]
     public sealed class CloudServiceVaultSecretGroupResponse
     {

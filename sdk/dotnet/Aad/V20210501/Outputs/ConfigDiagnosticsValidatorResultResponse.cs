@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Config Diagnostics validator result data
+    /// </summary>
     [OutputType]
     public sealed class ConfigDiagnosticsValidatorResultResponse
     {

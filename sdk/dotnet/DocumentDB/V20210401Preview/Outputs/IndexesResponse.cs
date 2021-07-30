@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// The indexes for the path.
+    /// </summary>
     [OutputType]
     public sealed class IndexesResponse
     {

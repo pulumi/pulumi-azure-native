@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The time span with start and end properties.
+    /// </summary>
     [OutputType]
     public sealed class TimeSpanResponse
     {

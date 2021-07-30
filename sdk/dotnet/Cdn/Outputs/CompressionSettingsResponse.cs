@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// settings for compression.
+    /// </summary>
     [OutputType]
     public sealed class CompressionSettingsResponse
     {

@@ -48,8 +48,7 @@ func NewZone(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.ZoneType == nil {
-		e := ZoneType("Public")
-		args.ZoneType = &e
+		args.ZoneType = ZoneType("Public")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -115,49 +114,9 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
-	// The etag of the zone.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets *float64 `pulumi:"maxNumberOfRecordSets"`
-	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet *float64 `pulumi:"maxNumberOfRecordsPerRecordSet"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers []string `pulumi:"nameServers"`
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets *float64 `pulumi:"numberOfRecordSets"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The type of this DNS zone (Public or Private).
-	ZoneType *string `pulumi:"zoneType"`
 }
 
 type ZoneState struct {
-	// The etag of the zone.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordSets pulumi.Float64PtrInput
-	// The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	MaxNumberOfRecordsPerRecordSet pulumi.Float64PtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-	NameServers pulumi.StringArrayInput
-	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
-	NumberOfRecordSets pulumi.Float64PtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The type of this DNS zone (Public or Private).
-	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneState) ElementType() reflect.Type {
@@ -176,7 +135,7 @@ type zoneArgs struct {
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName *string `pulumi:"zoneName"`
 	// The type of this DNS zone (Public or Private).
-	ZoneType *string `pulumi:"zoneType"`
+	ZoneType *ZoneType `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -192,7 +151,7 @@ type ZoneArgs struct {
 	// The name of the DNS zone (without a terminating dot).
 	ZoneName pulumi.StringPtrInput
 	// The type of this DNS zone (Public or Private).
-	ZoneType *ZoneType
+	ZoneType ZoneTypePtrInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Details of customized scripts to execute for setting up the cluster.
+    /// </summary>
     [OutputType]
     public sealed class SetupScriptsResponse
     {

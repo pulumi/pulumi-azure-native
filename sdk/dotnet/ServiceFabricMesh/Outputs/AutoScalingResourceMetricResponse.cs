@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Describes the resource that is used for triggering auto scaling.
+    /// </summary>
     [OutputType]
     public sealed class AutoScalingResourceMetricResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview.Outputs
 {
 
+    /// <summary>
+    /// The filters that will be applied to determine which resources to remediate.
+    /// </summary>
     [OutputType]
     public sealed class RemediationFiltersResponse
     {

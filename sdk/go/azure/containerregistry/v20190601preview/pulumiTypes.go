@@ -3798,7 +3798,7 @@ type IdentityProperties struct {
 	// The tenant ID of resource.
 	TenantId *string `pulumi:"tenantId"`
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
@@ -3824,7 +3824,7 @@ type IdentityPropertiesArgs struct {
 	// The tenant ID of resource.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
@@ -3921,8 +3921,8 @@ func (o IdentityPropertiesOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The identity type.
-func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityPropertiesOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v IdentityProperties) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity
@@ -3972,13 +3972,13 @@ func (o IdentityPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The identity type.
-func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProperties) *string {
+func (o IdentityPropertiesPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *IdentityProperties) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity

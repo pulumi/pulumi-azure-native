@@ -26,6 +26,7 @@ class ApplicationScopedVolumeKind(str, Enum):
     Specifies the application-scoped volume kind.
     """
     SERVICE_FABRIC_VOLUME_DISK = "ServiceFabricVolumeDisk"
+    """Provides Service Fabric High Availability Volume Disk"""
 
 
 class AutoScalingMechanismKind(str, Enum):
@@ -33,6 +34,7 @@ class AutoScalingMechanismKind(str, Enum):
     The type of auto scaling mechanism.
     """
     ADD_REMOVE_REPLICA = "AddRemoveReplica"
+    """Indicates that scaling should be performed by adding or removing replicas."""
 
 
 class AutoScalingMetricKind(str, Enum):
@@ -40,6 +42,7 @@ class AutoScalingMetricKind(str, Enum):
     The type of auto scaling metric
     """
     RESOURCE = "Resource"
+    """Indicates that the metric is one of resources, like cpu or memory."""
 
 
 class AutoScalingResourceMetricName(str, Enum):
@@ -47,7 +50,9 @@ class AutoScalingResourceMetricName(str, Enum):
     Name of the resource.
     """
     CPU = "cpu"
+    """Indicates that the resource is CPU cores."""
     MEMORY_IN_GB = "memoryInGB"
+    """Indicates that the resource is memory in GB."""
 
 
 class AutoScalingTriggerKind(str, Enum):
@@ -55,6 +60,7 @@ class AutoScalingTriggerKind(str, Enum):
     The type of auto scaling trigger
     """
     AVERAGE_LOAD = "AverageLoad"
+    """Indicates that scaling should be performed based on average load of all replicas in the service."""
 
 
 class DiagnosticsSinkKind(str, Enum):
@@ -62,7 +68,9 @@ class DiagnosticsSinkKind(str, Enum):
     The kind of DiagnosticsSink.
     """
     INVALID = "Invalid"
+    """Indicates an invalid sink kind. All Service Fabric enumerations have the invalid type."""
     AZURE_INTERNAL_MONITORING_PIPELINE = "AzureInternalMonitoringPipeline"
+    """Diagnostics settings for Geneva."""
 
 
 class HeaderMatchType(str, Enum):
@@ -77,6 +85,7 @@ class NetworkKind(str, Enum):
     The type of a Service Fabric container network.
     """
     LOCAL = "Local"
+    """Indicates a container network local to a single Service Fabric cluster. The value is 1."""
 
 
 class OperatingSystemType(str, Enum):
@@ -84,7 +93,9 @@ class OperatingSystemType(str, Enum):
     The operation system required by the code in service.
     """
     LINUX = "Linux"
+    """The required operating system is Linux."""
     WINDOWS = "Windows"
+    """The required operating system is Windows."""
 
 
 class PathMatchType(str, Enum):
@@ -99,6 +110,7 @@ class SecretKind(str, Enum):
     Describes the kind of secret.
     """
     INLINED_VALUE = "inlinedValue"
+    """A simple secret resource whose plaintext value is provided by the user."""
 
 
 class SizeTypes(str, Enum):
@@ -115,3 +127,4 @@ class VolumeProvider(str, Enum):
     Provider of the volume.
     """
     SF_AZURE_FILE = "SFAzureFile"
+    """Provides volumes that are backed by Azure Files."""

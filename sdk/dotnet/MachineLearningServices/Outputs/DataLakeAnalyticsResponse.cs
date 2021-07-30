@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// A DataLakeAnalytics compute.
+    /// </summary>
     [OutputType]
     public sealed class DataLakeAnalyticsResponse
     {

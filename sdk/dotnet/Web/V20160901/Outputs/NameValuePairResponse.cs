@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160901.Outputs
 {
 
+    /// <summary>
+    /// Name value pair.
+    /// </summary>
     [OutputType]
     public sealed class NameValuePairResponse
     {

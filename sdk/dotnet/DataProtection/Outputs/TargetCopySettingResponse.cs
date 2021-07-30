@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Target copy settings
+    /// </summary>
     [OutputType]
     public sealed class TargetCopySettingResponse
     {

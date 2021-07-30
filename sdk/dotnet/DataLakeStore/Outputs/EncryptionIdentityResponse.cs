@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeStore.Outputs
 {
 
+    /// <summary>
+    /// The encryption identity properties.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionIdentityResponse
     {

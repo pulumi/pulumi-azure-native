@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.Outputs
 {
 
+    /// <summary>
+    /// Definition of schedule parameters.
+    /// </summary>
     [OutputType]
     public sealed class SUCSchedulePropertiesResponse
     {

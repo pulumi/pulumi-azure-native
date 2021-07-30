@@ -1892,7 +1892,7 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 // Cache identity properties.
 type CacheIdentity struct {
 	// The type of identity used for the cache
-	Type *string `pulumi:"type"`
+	Type *CacheIdentityType `pulumi:"type"`
 	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -1911,7 +1911,7 @@ type CacheIdentityInput interface {
 // Cache identity properties.
 type CacheIdentityArgs struct {
 	// The type of identity used for the cache
-	Type *CacheIdentityType `pulumi:"type"`
+	Type CacheIdentityTypePtrInput `pulumi:"type"`
 	// A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -1995,8 +1995,8 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o CacheIdentityOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v CacheIdentity) *CacheIdentityType { return v.Type }).(CacheIdentityTypePtrOutput)
 }
 
 // A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
@@ -2023,13 +2023,13 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 }
 
 // The type of identity used for the cache
-func (o CacheIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheIdentity) *string {
+func (o CacheIdentityPtrOutput) Type() CacheIdentityTypePtrOutput {
+	return o.ApplyT(func(v *CacheIdentity) *CacheIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(CacheIdentityTypePtrOutput)
 }
 
 // A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.

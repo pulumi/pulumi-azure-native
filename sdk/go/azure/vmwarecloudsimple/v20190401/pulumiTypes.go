@@ -1714,7 +1714,7 @@ type VirtualDisk struct {
 	// Disk's Controller id
 	ControllerId string `pulumi:"controllerId"`
 	// Disk's independence mode type
-	IndependenceMode string `pulumi:"independenceMode"`
+	IndependenceMode DiskIndependenceMode `pulumi:"independenceMode"`
 	// Disk's total size
 	TotalSize int `pulumi:"totalSize"`
 	// Disk's id
@@ -1737,7 +1737,7 @@ type VirtualDiskArgs struct {
 	// Disk's Controller id
 	ControllerId pulumi.StringInput `pulumi:"controllerId"`
 	// Disk's independence mode type
-	IndependenceMode DiskIndependenceMode `pulumi:"independenceMode"`
+	IndependenceMode DiskIndependenceModeInput `pulumi:"independenceMode"`
 	// Disk's total size
 	TotalSize pulumi.IntInput `pulumi:"totalSize"`
 	// Disk's id
@@ -1802,8 +1802,8 @@ func (o VirtualDiskOutput) ControllerId() pulumi.StringOutput {
 }
 
 // Disk's independence mode type
-func (o VirtualDiskOutput) IndependenceMode() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualDisk) string { return v.IndependenceMode }).(pulumi.StringOutput)
+func (o VirtualDiskOutput) IndependenceMode() DiskIndependenceModeOutput {
+	return o.ApplyT(func(v VirtualDisk) DiskIndependenceMode { return v.IndependenceMode }).(DiskIndependenceModeOutput)
 }
 
 // Disk's total size
@@ -2265,7 +2265,7 @@ type VirtualNic struct {
 	// Virtual Network
 	Network VirtualNetwork `pulumi:"network"`
 	// NIC type
-	NicType string `pulumi:"nicType"`
+	NicType NICType `pulumi:"nicType"`
 	// Is NIC powered on/off on boot
 	PowerOnBoot *bool `pulumi:"powerOnBoot"`
 	// NIC id
@@ -2294,7 +2294,7 @@ type VirtualNicArgs struct {
 	// Virtual Network
 	Network VirtualNetworkInput `pulumi:"network"`
 	// NIC type
-	NicType NICType `pulumi:"nicType"`
+	NicType NICTypeInput `pulumi:"nicType"`
 	// Is NIC powered on/off on boot
 	PowerOnBoot pulumi.BoolPtrInput `pulumi:"powerOnBoot"`
 	// NIC id
@@ -2374,8 +2374,8 @@ func (o VirtualNicOutput) Network() VirtualNetworkOutput {
 }
 
 // NIC type
-func (o VirtualNicOutput) NicType() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNic) string { return v.NicType }).(pulumi.StringOutput)
+func (o VirtualNicOutput) NicType() NICTypeOutput {
+	return o.ApplyT(func(v VirtualNic) NICType { return v.NicType }).(NICTypeOutput)
 }
 
 // Is NIC powered on/off on boot

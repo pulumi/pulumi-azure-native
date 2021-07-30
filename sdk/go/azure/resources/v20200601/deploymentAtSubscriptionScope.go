@@ -137,29 +137,9 @@ func GetDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentAtSubscriptionScope resources.
 type deploymentAtSubscriptionScopeState struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name *string `pulumi:"name"`
-	// Deployment properties.
-	Properties *DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type *string `pulumi:"type"`
 }
 
 type DeploymentAtSubscriptionScopeState struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput
-	// The name of the deployment.
-	Name pulumi.StringPtrInput
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponsePtrInput
-	// Deployment tags
-	Tags pulumi.StringMapInput
-	// The type of the deployment.
-	Type pulumi.StringPtrInput
 }
 
 func (DeploymentAtSubscriptionScopeState) ElementType() reflect.Type {

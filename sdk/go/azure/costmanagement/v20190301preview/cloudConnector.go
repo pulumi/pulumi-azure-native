@@ -97,77 +97,9 @@ func GetCloudConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudConnector resources.
 type cloudConnectorState struct {
-	// Connector billing model
-	BillingModel *string `pulumi:"billingModel"`
-	// Collection information
-	CollectionInfo *ConnectorCollectionInfoResponse `pulumi:"collectionInfo"`
-	// Connector definition creation datetime
-	CreatedOn *string `pulumi:"createdOn"`
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey *string `pulumi:"credentialsKey"`
-	// Number of days remaining of trial
-	DaysTrialRemaining *int `pulumi:"daysTrialRemaining"`
-	// Default ManagementGroupId
-	DefaultManagementGroupId *string `pulumi:"defaultManagementGroupId"`
-	// Connector DisplayName
-	DisplayName *string `pulumi:"displayName"`
-	// Associated ExternalBillingAccountId
-	ExternalBillingAccountId *string `pulumi:"externalBillingAccountId"`
-	// Connector kind (eg aws)
-	Kind *string `pulumi:"kind"`
-	// Connector last modified datetime
-	ModifiedOn *string `pulumi:"modifiedOn"`
-	// Connector name
-	Name *string `pulumi:"name"`
-	// The display name of the providerBillingAccountId as defined on the external provider
-	ProviderBillingAccountDisplayName *string `pulumi:"providerBillingAccountDisplayName"`
-	// Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
-	ProviderBillingAccountId *string `pulumi:"providerBillingAccountId"`
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId *string `pulumi:"reportId"`
-	// Connector status
-	Status *string `pulumi:"status"`
-	// Billing SubscriptionId
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Connector type
-	Type *string `pulumi:"type"`
 }
 
 type CloudConnectorState struct {
-	// Connector billing model
-	BillingModel pulumi.StringPtrInput
-	// Collection information
-	CollectionInfo ConnectorCollectionInfoResponsePtrInput
-	// Connector definition creation datetime
-	CreatedOn pulumi.StringPtrInput
-	// Credentials authentication key (eg AWS ARN)
-	CredentialsKey pulumi.StringPtrInput
-	// Number of days remaining of trial
-	DaysTrialRemaining pulumi.IntPtrInput
-	// Default ManagementGroupId
-	DefaultManagementGroupId pulumi.StringPtrInput
-	// Connector DisplayName
-	DisplayName pulumi.StringPtrInput
-	// Associated ExternalBillingAccountId
-	ExternalBillingAccountId pulumi.StringPtrInput
-	// Connector kind (eg aws)
-	Kind pulumi.StringPtrInput
-	// Connector last modified datetime
-	ModifiedOn pulumi.StringPtrInput
-	// Connector name
-	Name pulumi.StringPtrInput
-	// The display name of the providerBillingAccountId as defined on the external provider
-	ProviderBillingAccountDisplayName pulumi.StringPtrInput
-	// Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
-	ProviderBillingAccountId pulumi.StringPtrInput
-	// Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
-	ReportId pulumi.StringPtrInput
-	// Connector status
-	Status pulumi.StringPtrInput
-	// Billing SubscriptionId
-	SubscriptionId pulumi.StringPtrInput
-	// Connector type
-	Type pulumi.StringPtrInput
 }
 
 func (CloudConnectorState) ElementType() reflect.Type {

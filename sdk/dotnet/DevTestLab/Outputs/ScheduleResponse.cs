@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// A schedule.
+    /// </summary>
     [OutputType]
     public sealed class ScheduleResponse
     {

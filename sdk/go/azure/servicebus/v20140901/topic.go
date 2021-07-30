@@ -139,99 +139,9 @@ func GetTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
-	// Last time the message was sent, or a request was received, for this topic.
-	AccessedAt *string `pulumi:"accessedAt"`
-	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
-	// Message Count Details.
-	CountDetails *MessageCountDetailsResponse `pulumi:"countDetails"`
-	// Exact time the message was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
-	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	// Value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
-	// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress *bool `pulumi:"enableExpress"`
-	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
-	EnablePartitioning *bool `pulumi:"enablePartitioning"`
-	// Entity availability status for the topic.
-	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
-	// Whether messages should be filtered before publishing.
-	FilteringMessagesBeforePublishing *bool `pulumi:"filteringMessagesBeforePublishing"`
-	// Value that indicates whether the message is accessible anonymously.
-	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
-	IsExpress             *bool `pulumi:"isExpress"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes *float64 `pulumi:"maxSizeInMegabytes"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Value indicating if this topic requires duplicate detection.
-	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
-	// Size of the topic, in bytes.
-	SizeInBytes *float64 `pulumi:"sizeInBytes"`
-	// Enumerates the possible values for the status of a messaging entity.
-	Status *string `pulumi:"status"`
-	// Number of subscriptions.
-	SubscriptionCount *int `pulumi:"subscriptionCount"`
-	// Value that indicates whether the topic supports ordering.
-	SupportOrdering *bool `pulumi:"supportOrdering"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The exact time the message was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type TopicState struct {
-	// Last time the message was sent, or a request was received, for this topic.
-	AccessedAt pulumi.StringPtrInput
-	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
-	// Message Count Details.
-	CountDetails MessageCountDetailsResponsePtrInput
-	// Exact time the message was created.
-	CreatedAt pulumi.StringPtrInput
-	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-	DefaultMessageTimeToLive pulumi.StringPtrInput
-	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
-	// Value that indicates whether server-side batched operations are enabled.
-	EnableBatchedOperations pulumi.BoolPtrInput
-	// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
-	EnableExpress pulumi.BoolPtrInput
-	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
-	EnablePartitioning pulumi.BoolPtrInput
-	// Entity availability status for the topic.
-	EntityAvailabilityStatus pulumi.StringPtrInput
-	// Whether messages should be filtered before publishing.
-	FilteringMessagesBeforePublishing pulumi.BoolPtrInput
-	// Value that indicates whether the message is accessible anonymously.
-	IsAnonymousAccessible pulumi.BoolPtrInput
-	IsExpress             pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
-	MaxSizeInMegabytes pulumi.Float64PtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Value indicating if this topic requires duplicate detection.
-	RequiresDuplicateDetection pulumi.BoolPtrInput
-	// Size of the topic, in bytes.
-	SizeInBytes pulumi.Float64PtrInput
-	// Enumerates the possible values for the status of a messaging entity.
-	Status pulumi.StringPtrInput
-	// Number of subscriptions.
-	SubscriptionCount pulumi.IntPtrInput
-	// Value that indicates whether the topic supports ordering.
-	SupportOrdering pulumi.BoolPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The exact time the message was updated.
-	UpdatedAt pulumi.StringPtrInput
 }
 
 func (TopicState) ElementType() reflect.Type {
@@ -252,7 +162,7 @@ type topicArgs struct {
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	EntityAvailabilityStatus *EntityAvailabilityStatus `pulumi:"entityAvailabilityStatus"`
 	// Whether messages should be filtered before publishing.
 	FilteringMessagesBeforePublishing *bool `pulumi:"filteringMessagesBeforePublishing"`
 	// Value that indicates whether the message is accessible anonymously.
@@ -271,7 +181,7 @@ type topicArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *string `pulumi:"status"`
+	Status *EntityStatus `pulumi:"status"`
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering *bool `pulumi:"supportOrdering"`
 	// The topic name.
@@ -293,7 +203,7 @@ type TopicArgs struct {
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Entity availability status for the topic.
-	EntityAvailabilityStatus *EntityAvailabilityStatus
+	EntityAvailabilityStatus EntityAvailabilityStatusPtrInput
 	// Whether messages should be filtered before publishing.
 	FilteringMessagesBeforePublishing pulumi.BoolPtrInput
 	// Value that indicates whether the message is accessible anonymously.
@@ -312,7 +222,7 @@ type TopicArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status *EntityStatus
+	Status EntityStatusPtrInput
 	// Value that indicates whether the topic supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 	// The topic name.

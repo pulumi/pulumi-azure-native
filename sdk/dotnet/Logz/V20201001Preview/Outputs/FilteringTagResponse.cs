@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001Preview.Outputs
 {
 
+    /// <summary>
+    /// The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
+    /// </summary>
     [OutputType]
     public sealed class FilteringTagResponse
     {

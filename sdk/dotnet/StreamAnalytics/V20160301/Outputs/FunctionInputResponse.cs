@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20160301.Outputs
 {
 
+    /// <summary>
+    /// Describes one input parameter of a function.
+    /// </summary>
     [OutputType]
     public sealed class FunctionInputResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// timeline aggregation information per kind
+    /// </summary>
     [OutputType]
     public sealed class TimelineAggregationResponse
     {

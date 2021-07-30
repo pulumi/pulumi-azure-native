@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// Schedule-based autoscale request parameters
+    /// </summary>
     [OutputType]
     public sealed class AutoscaleRecurrenceResponse
     {

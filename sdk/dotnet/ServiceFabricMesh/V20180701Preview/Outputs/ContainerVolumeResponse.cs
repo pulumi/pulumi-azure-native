@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes how a volume is attached to a container.
+    /// </summary>
     [OutputType]
     public sealed class ContainerVolumeResponse
     {

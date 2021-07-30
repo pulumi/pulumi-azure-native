@@ -75,29 +75,9 @@ func GetProviderInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProviderInstance resources.
 type providerInstanceState struct {
-	// A JSON string containing metadata of the provider instance.
-	Metadata *string `pulumi:"metadata"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// A JSON string containing the properties of the provider instance.
-	Properties *string `pulumi:"properties"`
-	// State of provisioning of the provider instance
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ProviderInstanceState struct {
-	// A JSON string containing metadata of the provider instance.
-	Metadata pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// A JSON string containing the properties of the provider instance.
-	Properties pulumi.StringPtrInput
-	// State of provisioning of the provider instance
-	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ProviderInstanceState) ElementType() reflect.Type {

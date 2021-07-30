@@ -17,16 +17,16 @@ __all__ = [
     'BlobInventoryPolicyRuleArgs',
     'BlobInventoryPolicySchemaArgs',
     'ChangeFeedArgs',
-    'CorsRuleArgs',
     'CorsRulesArgs',
+    'CorsRuleArgs',
     'CustomDomainArgs',
     'DateAfterCreationArgs',
     'DateAfterModificationArgs',
     'DeleteRetentionPolicyArgs',
-    'EncryptionArgs',
     'EncryptionScopeKeyVaultPropertiesArgs',
-    'EncryptionServiceArgs',
     'EncryptionServicesArgs',
+    'EncryptionServiceArgs',
+    'EncryptionArgs',
     'IPRuleArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
@@ -443,6 +443,30 @@ class ChangeFeedArgs:
 
 
 @pulumi.input_type
+class CorsRulesArgs:
+    def __init__(__self__, *,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
+        """
+        The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @cors_rules.setter
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
+        pulumi.set(self, "cors_rules", value)
+
+
+@pulumi.input_type
 class CorsRuleArgs:
     def __init__(__self__, *,
                  allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -523,30 +547,6 @@ class CorsRuleArgs:
     @max_age_in_seconds.setter
     def max_age_in_seconds(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_age_in_seconds", value)
-
-
-@pulumi.input_type
-class CorsRulesArgs:
-    def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
-        """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
-
-    @property
-    @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
-        """
-        The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        return pulumi.get(self, "cors_rules")
-
-    @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
-        pulumi.set(self, "cors_rules", value)
 
 
 @pulumi.input_type
@@ -692,79 +692,6 @@ class DeleteRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 key_source: pulumi.Input[Union[str, 'KeySource']],
-                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
-                 require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
-                 services: Optional[pulumi.Input['EncryptionServicesArgs']] = None):
-        """
-        The encryption settings on the storage account.
-        :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by key vault.
-        :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-        :param pulumi.Input['EncryptionServicesArgs'] services: List of services which support encryption.
-        """
-        if key_source is None:
-            key_source = 'Microsoft.Storage'
-        pulumi.set(__self__, "key_source", key_source)
-        if key_vault_properties is not None:
-            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
-        if require_infrastructure_encryption is not None:
-            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
-        if services is not None:
-            pulumi.set(__self__, "services", services)
-
-    @property
-    @pulumi.getter(name="keySource")
-    def key_source(self) -> pulumi.Input[Union[str, 'KeySource']]:
-        """
-        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        """
-        return pulumi.get(self, "key_source")
-
-    @key_source.setter
-    def key_source(self, value: pulumi.Input[Union[str, 'KeySource']]):
-        pulumi.set(self, "key_source", value)
-
-    @property
-    @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
-        """
-        Properties provided by key vault.
-        """
-        return pulumi.get(self, "key_vault_properties")
-
-    @key_vault_properties.setter
-    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
-        pulumi.set(self, "key_vault_properties", value)
-
-    @property
-    @pulumi.getter(name="requireInfrastructureEncryption")
-    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-        """
-        return pulumi.get(self, "require_infrastructure_encryption")
-
-    @require_infrastructure_encryption.setter
-    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "require_infrastructure_encryption", value)
-
-    @property
-    @pulumi.getter
-    def services(self) -> Optional[pulumi.Input['EncryptionServicesArgs']]:
-        """
-        List of services which support encryption.
-        """
-        return pulumi.get(self, "services")
-
-    @services.setter
-    def services(self, value: Optional[pulumi.Input['EncryptionServicesArgs']]):
-        pulumi.set(self, "services", value)
-
-
-@pulumi.input_type
 class EncryptionScopeKeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  key_uri: Optional[pulumi.Input[str]] = None):
@@ -786,46 +713,6 @@ class EncryptionScopeKeyVaultPropertiesArgs:
     @key_uri.setter
     def key_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_uri", value)
-
-
-@pulumi.input_type
-class EncryptionServiceArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 key_type: Optional[pulumi.Input[Union[str, 'KeyType']]] = None):
-        """
-        A service that allows server-side encryption to be used.
-        :param pulumi.Input[bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
-        :param pulumi.Input[Union[str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if key_type is not None:
-            pulumi.set(__self__, "key_type", key_type)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean indicating whether or not the service encrypts the data as it is stored.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[Union[str, 'KeyType']]]:
-        """
-        Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-        """
-        return pulumi.get(self, "key_type")
-
-    @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[Union[str, 'KeyType']]]):
-        pulumi.set(self, "key_type", value)
 
 
 @pulumi.input_type
@@ -898,6 +785,119 @@ class EncryptionServicesArgs:
     @table.setter
     def table(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
         pulumi.set(self, "table", value)
+
+
+@pulumi.input_type
+class EncryptionServiceArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 key_type: Optional[pulumi.Input[Union[str, 'KeyType']]] = None):
+        """
+        A service that allows server-side encryption to be used.
+        :param pulumi.Input[bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
+        :param pulumi.Input[Union[str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether or not the service encrypts the data as it is stored.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input[Union[str, 'KeyType']]]:
+        """
+        Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input[Union[str, 'KeyType']]]):
+        pulumi.set(self, "key_type", value)
+
+
+@pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 key_source: pulumi.Input[Union[str, 'KeySource']],
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
+                 services: Optional[pulumi.Input['EncryptionServicesArgs']] = None):
+        """
+        The encryption settings on the storage account.
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by key vault.
+        :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+        :param pulumi.Input['EncryptionServicesArgs'] services: List of services which support encryption.
+        """
+        if key_source is None:
+            key_source = 'Microsoft.Storage'
+        pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if require_infrastructure_encryption is not None:
+            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> pulumi.Input[Union[str, 'KeySource']]:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: pulumi.Input[Union[str, 'KeySource']]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Properties provided by key vault.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter(name="requireInfrastructureEncryption")
+    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+        """
+        return pulumi.get(self, "require_infrastructure_encryption")
+
+    @require_infrastructure_encryption.setter
+    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_infrastructure_encryption", value)
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[pulumi.Input['EncryptionServicesArgs']]:
+        """
+        List of services which support encryption.
+        """
+        return pulumi.get(self, "services")
+
+    @services.setter
+    def services(self, value: Optional[pulumi.Input['EncryptionServicesArgs']]):
+        pulumi.set(self, "services", value)
 
 
 @pulumi.input_type

@@ -11,7 +11,7 @@ import (
 )
 
 // The Citus version of server group.
-type CitusVersion pulumi.String
+type CitusVersion string
 
 const (
 	CitusVersion_8_3 = CitusVersion("8.3")
@@ -24,7 +24,23 @@ const (
 )
 
 func (CitusVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*CitusVersion)(nil)).Elem()
+}
+
+func (e CitusVersion) ToCitusVersionOutput() CitusVersionOutput {
+	return pulumi.ToOutput(e).(CitusVersionOutput)
+}
+
+func (e CitusVersion) ToCitusVersionOutputWithContext(ctx context.Context) CitusVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CitusVersionOutput)
+}
+
+func (e CitusVersion) ToCitusVersionPtrOutput() CitusVersionPtrOutput {
+	return e.ToCitusVersionPtrOutputWithContext(context.Background())
+}
+
+func (e CitusVersion) ToCitusVersionPtrOutputWithContext(ctx context.Context) CitusVersionPtrOutput {
+	return CitusVersion(e).ToCitusVersionOutputWithContext(ctx).ToCitusVersionPtrOutputWithContext(ctx)
 }
 
 func (e CitusVersion) ToStringOutput() pulumi.StringOutput {
@@ -43,8 +59,129 @@ func (e CitusVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type CitusVersionOutput struct{ *pulumi.OutputState }
+
+func (CitusVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CitusVersion)(nil)).Elem()
+}
+
+func (o CitusVersionOutput) ToCitusVersionOutput() CitusVersionOutput {
+	return o
+}
+
+func (o CitusVersionOutput) ToCitusVersionOutputWithContext(ctx context.Context) CitusVersionOutput {
+	return o
+}
+
+func (o CitusVersionOutput) ToCitusVersionPtrOutput() CitusVersionPtrOutput {
+	return o.ToCitusVersionPtrOutputWithContext(context.Background())
+}
+
+func (o CitusVersionOutput) ToCitusVersionPtrOutputWithContext(ctx context.Context) CitusVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CitusVersion) *CitusVersion {
+		return &v
+	}).(CitusVersionPtrOutput)
+}
+
+func (o CitusVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CitusVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CitusVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CitusVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CitusVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CitusVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CitusVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (CitusVersionPtrOutput) ElementType() reflect.Type {
+	return citusVersionPtrType
+}
+
+func (o CitusVersionPtrOutput) ToCitusVersionPtrOutput() CitusVersionPtrOutput {
+	return o
+}
+
+func (o CitusVersionPtrOutput) ToCitusVersionPtrOutputWithContext(ctx context.Context) CitusVersionPtrOutput {
+	return o
+}
+
+func (o CitusVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CitusVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CitusVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CitusVersionPtrOutput) Elem() CitusVersionOutput {
+	return o.ApplyT(func(v *CitusVersion) CitusVersion {
+		var ret CitusVersion
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(CitusVersionOutput)
+}
+
+// CitusVersionInput is an input type that accepts CitusVersionArgs and CitusVersionOutput values.
+// You can construct a concrete instance of `CitusVersionInput` via:
+//
+//          CitusVersionArgs{...}
+type CitusVersionInput interface {
+	pulumi.Input
+
+	ToCitusVersionOutput() CitusVersionOutput
+	ToCitusVersionOutputWithContext(context.Context) CitusVersionOutput
+}
+
+var citusVersionPtrType = reflect.TypeOf((**CitusVersion)(nil)).Elem()
+
+type CitusVersionPtrInput interface {
+	pulumi.Input
+
+	ToCitusVersionPtrOutput() CitusVersionPtrOutput
+	ToCitusVersionPtrOutputWithContext(context.Context) CitusVersionPtrOutput
+}
+
+type citusVersionPtr string
+
+func CitusVersionPtr(v string) CitusVersionPtrInput {
+	return (*citusVersionPtr)(&v)
+}
+
+func (*citusVersionPtr) ElementType() reflect.Type {
+	return citusVersionPtrType
+}
+
+func (in *citusVersionPtr) ToCitusVersionPtrOutput() CitusVersionPtrOutput {
+	return pulumi.ToOutput(in).(CitusVersionPtrOutput)
+}
+
+func (in *citusVersionPtr) ToCitusVersionPtrOutputWithContext(ctx context.Context) CitusVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CitusVersionPtrOutput)
+}
+
 // The mode to create a new server group.
-type CreateMode pulumi.String
+type CreateMode string
 
 const (
 	CreateModeDefault            = CreateMode("Default")
@@ -53,7 +190,23 @@ const (
 )
 
 func (CreateMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*CreateMode)(nil)).Elem()
+}
+
+func (e CreateMode) ToCreateModeOutput() CreateModeOutput {
+	return pulumi.ToOutput(e).(CreateModeOutput)
+}
+
+func (e CreateMode) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CreateModeOutput)
+}
+
+func (e CreateMode) ToCreateModePtrOutput() CreateModePtrOutput {
+	return e.ToCreateModePtrOutputWithContext(context.Background())
+}
+
+func (e CreateMode) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return CreateMode(e).ToCreateModeOutputWithContext(ctx).ToCreateModePtrOutputWithContext(ctx)
 }
 
 func (e CreateMode) ToStringOutput() pulumi.StringOutput {
@@ -72,8 +225,129 @@ func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type CreateModeOutput struct{ *pulumi.OutputState }
+
+func (CreateModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateMode)(nil)).Elem()
+}
+
+func (o CreateModeOutput) ToCreateModeOutput() CreateModeOutput {
+	return o
+}
+
+func (o CreateModeOutput) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
+	return o
+}
+
+func (o CreateModeOutput) ToCreateModePtrOutput() CreateModePtrOutput {
+	return o.ToCreateModePtrOutputWithContext(context.Background())
+}
+
+func (o CreateModeOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateMode) *CreateMode {
+		return &v
+	}).(CreateModePtrOutput)
+}
+
+func (o CreateModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreateModePtrOutput struct{ *pulumi.OutputState }
+
+func (CreateModePtrOutput) ElementType() reflect.Type {
+	return createModePtrType
+}
+
+func (o CreateModePtrOutput) ToCreateModePtrOutput() CreateModePtrOutput {
+	return o
+}
+
+func (o CreateModePtrOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return o
+}
+
+func (o CreateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreateMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CreateModePtrOutput) Elem() CreateModeOutput {
+	return o.ApplyT(func(v *CreateMode) CreateMode {
+		var ret CreateMode
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(CreateModeOutput)
+}
+
+// CreateModeInput is an input type that accepts CreateModeArgs and CreateModeOutput values.
+// You can construct a concrete instance of `CreateModeInput` via:
+//
+//          CreateModeArgs{...}
+type CreateModeInput interface {
+	pulumi.Input
+
+	ToCreateModeOutput() CreateModeOutput
+	ToCreateModeOutputWithContext(context.Context) CreateModeOutput
+}
+
+var createModePtrType = reflect.TypeOf((**CreateMode)(nil)).Elem()
+
+type CreateModePtrInput interface {
+	pulumi.Input
+
+	ToCreateModePtrOutput() CreateModePtrOutput
+	ToCreateModePtrOutputWithContext(context.Context) CreateModePtrOutput
+}
+
+type createModePtr string
+
+func CreateModePtr(v string) CreateModePtrInput {
+	return (*createModePtr)(&v)
+}
+
+func (*createModePtr) ElementType() reflect.Type {
+	return createModePtrType
+}
+
+func (in *createModePtr) ToCreateModePtrOutput() CreateModePtrOutput {
+	return pulumi.ToOutput(in).(CreateModePtrOutput)
+}
+
+func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
+}
+
 // The PostgreSQL version of server group.
-type PostgreSQLVersion pulumi.String
+type PostgreSQLVersion string
 
 const (
 	PostgreSQLVersion_11 = PostgreSQLVersion("11")
@@ -81,7 +355,23 @@ const (
 )
 
 func (PostgreSQLVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PostgreSQLVersion)(nil)).Elem()
+}
+
+func (e PostgreSQLVersion) ToPostgreSQLVersionOutput() PostgreSQLVersionOutput {
+	return pulumi.ToOutput(e).(PostgreSQLVersionOutput)
+}
+
+func (e PostgreSQLVersion) ToPostgreSQLVersionOutputWithContext(ctx context.Context) PostgreSQLVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PostgreSQLVersionOutput)
+}
+
+func (e PostgreSQLVersion) ToPostgreSQLVersionPtrOutput() PostgreSQLVersionPtrOutput {
+	return e.ToPostgreSQLVersionPtrOutputWithContext(context.Background())
+}
+
+func (e PostgreSQLVersion) ToPostgreSQLVersionPtrOutputWithContext(ctx context.Context) PostgreSQLVersionPtrOutput {
+	return PostgreSQLVersion(e).ToPostgreSQLVersionOutputWithContext(ctx).ToPostgreSQLVersionPtrOutputWithContext(ctx)
 }
 
 func (e PostgreSQLVersion) ToStringOutput() pulumi.StringOutput {
@@ -100,8 +390,129 @@ func (e PostgreSQLVersion) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type PostgreSQLVersionOutput struct{ *pulumi.OutputState }
+
+func (PostgreSQLVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PostgreSQLVersion)(nil)).Elem()
+}
+
+func (o PostgreSQLVersionOutput) ToPostgreSQLVersionOutput() PostgreSQLVersionOutput {
+	return o
+}
+
+func (o PostgreSQLVersionOutput) ToPostgreSQLVersionOutputWithContext(ctx context.Context) PostgreSQLVersionOutput {
+	return o
+}
+
+func (o PostgreSQLVersionOutput) ToPostgreSQLVersionPtrOutput() PostgreSQLVersionPtrOutput {
+	return o.ToPostgreSQLVersionPtrOutputWithContext(context.Background())
+}
+
+func (o PostgreSQLVersionOutput) ToPostgreSQLVersionPtrOutputWithContext(ctx context.Context) PostgreSQLVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgreSQLVersion) *PostgreSQLVersion {
+		return &v
+	}).(PostgreSQLVersionPtrOutput)
+}
+
+func (o PostgreSQLVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PostgreSQLVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgreSQLVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PostgreSQLVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PostgreSQLVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PostgreSQLVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PostgreSQLVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (PostgreSQLVersionPtrOutput) ElementType() reflect.Type {
+	return postgreSQLVersionPtrType
+}
+
+func (o PostgreSQLVersionPtrOutput) ToPostgreSQLVersionPtrOutput() PostgreSQLVersionPtrOutput {
+	return o
+}
+
+func (o PostgreSQLVersionPtrOutput) ToPostgreSQLVersionPtrOutputWithContext(ctx context.Context) PostgreSQLVersionPtrOutput {
+	return o
+}
+
+func (o PostgreSQLVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PostgreSQLVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PostgreSQLVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PostgreSQLVersionPtrOutput) Elem() PostgreSQLVersionOutput {
+	return o.ApplyT(func(v *PostgreSQLVersion) PostgreSQLVersion {
+		var ret PostgreSQLVersion
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(PostgreSQLVersionOutput)
+}
+
+// PostgreSQLVersionInput is an input type that accepts PostgreSQLVersionArgs and PostgreSQLVersionOutput values.
+// You can construct a concrete instance of `PostgreSQLVersionInput` via:
+//
+//          PostgreSQLVersionArgs{...}
+type PostgreSQLVersionInput interface {
+	pulumi.Input
+
+	ToPostgreSQLVersionOutput() PostgreSQLVersionOutput
+	ToPostgreSQLVersionOutputWithContext(context.Context) PostgreSQLVersionOutput
+}
+
+var postgreSQLVersionPtrType = reflect.TypeOf((**PostgreSQLVersion)(nil)).Elem()
+
+type PostgreSQLVersionPtrInput interface {
+	pulumi.Input
+
+	ToPostgreSQLVersionPtrOutput() PostgreSQLVersionPtrOutput
+	ToPostgreSQLVersionPtrOutputWithContext(context.Context) PostgreSQLVersionPtrOutput
+}
+
+type postgreSQLVersionPtr string
+
+func PostgreSQLVersionPtr(v string) PostgreSQLVersionPtrInput {
+	return (*postgreSQLVersionPtr)(&v)
+}
+
+func (*postgreSQLVersionPtr) ElementType() reflect.Type {
+	return postgreSQLVersionPtrType
+}
+
+func (in *postgreSQLVersionPtr) ToPostgreSQLVersionPtrOutput() PostgreSQLVersionPtrOutput {
+	return pulumi.ToOutput(in).(PostgreSQLVersionPtrOutput)
+}
+
+func (in *postgreSQLVersionPtr) ToPostgreSQLVersionPtrOutputWithContext(ctx context.Context) PostgreSQLVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PostgreSQLVersionPtrOutput)
+}
+
 // The edition of a server (default: GeneralPurpose).
-type ServerEdition pulumi.String
+type ServerEdition string
 
 const (
 	ServerEditionGeneralPurpose  = ServerEdition("GeneralPurpose")
@@ -109,7 +520,23 @@ const (
 )
 
 func (ServerEdition) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServerEdition)(nil)).Elem()
+}
+
+func (e ServerEdition) ToServerEditionOutput() ServerEditionOutput {
+	return pulumi.ToOutput(e).(ServerEditionOutput)
+}
+
+func (e ServerEdition) ToServerEditionOutputWithContext(ctx context.Context) ServerEditionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerEditionOutput)
+}
+
+func (e ServerEdition) ToServerEditionPtrOutput() ServerEditionPtrOutput {
+	return e.ToServerEditionPtrOutputWithContext(context.Background())
+}
+
+func (e ServerEdition) ToServerEditionPtrOutputWithContext(ctx context.Context) ServerEditionPtrOutput {
+	return ServerEdition(e).ToServerEditionOutputWithContext(ctx).ToServerEditionPtrOutputWithContext(ctx)
 }
 
 func (e ServerEdition) ToStringOutput() pulumi.StringOutput {
@@ -128,8 +555,129 @@ func (e ServerEdition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ServerEditionOutput struct{ *pulumi.OutputState }
+
+func (ServerEditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEdition)(nil)).Elem()
+}
+
+func (o ServerEditionOutput) ToServerEditionOutput() ServerEditionOutput {
+	return o
+}
+
+func (o ServerEditionOutput) ToServerEditionOutputWithContext(ctx context.Context) ServerEditionOutput {
+	return o
+}
+
+func (o ServerEditionOutput) ToServerEditionPtrOutput() ServerEditionPtrOutput {
+	return o.ToServerEditionPtrOutputWithContext(context.Background())
+}
+
+func (o ServerEditionOutput) ToServerEditionPtrOutputWithContext(ctx context.Context) ServerEditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEdition) *ServerEdition {
+		return &v
+	}).(ServerEditionPtrOutput)
+}
+
+func (o ServerEditionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerEditionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerEdition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerEditionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerEditionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerEdition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerEditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerEditionPtrOutput) ElementType() reflect.Type {
+	return serverEditionPtrType
+}
+
+func (o ServerEditionPtrOutput) ToServerEditionPtrOutput() ServerEditionPtrOutput {
+	return o
+}
+
+func (o ServerEditionPtrOutput) ToServerEditionPtrOutputWithContext(ctx context.Context) ServerEditionPtrOutput {
+	return o
+}
+
+func (o ServerEditionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerEditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerEdition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerEditionPtrOutput) Elem() ServerEditionOutput {
+	return o.ApplyT(func(v *ServerEdition) ServerEdition {
+		var ret ServerEdition
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ServerEditionOutput)
+}
+
+// ServerEditionInput is an input type that accepts ServerEditionArgs and ServerEditionOutput values.
+// You can construct a concrete instance of `ServerEditionInput` via:
+//
+//          ServerEditionArgs{...}
+type ServerEditionInput interface {
+	pulumi.Input
+
+	ToServerEditionOutput() ServerEditionOutput
+	ToServerEditionOutputWithContext(context.Context) ServerEditionOutput
+}
+
+var serverEditionPtrType = reflect.TypeOf((**ServerEdition)(nil)).Elem()
+
+type ServerEditionPtrInput interface {
+	pulumi.Input
+
+	ToServerEditionPtrOutput() ServerEditionPtrOutput
+	ToServerEditionPtrOutputWithContext(context.Context) ServerEditionPtrOutput
+}
+
+type serverEditionPtr string
+
+func ServerEditionPtr(v string) ServerEditionPtrInput {
+	return (*serverEditionPtr)(&v)
+}
+
+func (*serverEditionPtr) ElementType() reflect.Type {
+	return serverEditionPtrType
+}
+
+func (in *serverEditionPtr) ToServerEditionPtrOutput() ServerEditionPtrOutput {
+	return pulumi.ToOutput(in).(ServerEditionPtrOutput)
+}
+
+func (in *serverEditionPtr) ToServerEditionPtrOutputWithContext(ctx context.Context) ServerEditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerEditionPtrOutput)
+}
+
 // The role of servers in the server role group.
-type ServerRole pulumi.String
+type ServerRole string
 
 const (
 	ServerRoleCoordinator = ServerRole("Coordinator")
@@ -137,7 +685,23 @@ const (
 )
 
 func (ServerRole) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ServerRole)(nil)).Elem()
+}
+
+func (e ServerRole) ToServerRoleOutput() ServerRoleOutput {
+	return pulumi.ToOutput(e).(ServerRoleOutput)
+}
+
+func (e ServerRole) ToServerRoleOutputWithContext(ctx context.Context) ServerRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerRoleOutput)
+}
+
+func (e ServerRole) ToServerRolePtrOutput() ServerRolePtrOutput {
+	return e.ToServerRolePtrOutputWithContext(context.Background())
+}
+
+func (e ServerRole) ToServerRolePtrOutputWithContext(ctx context.Context) ServerRolePtrOutput {
+	return ServerRole(e).ToServerRoleOutputWithContext(ctx).ToServerRolePtrOutputWithContext(ctx)
 }
 
 func (e ServerRole) ToStringOutput() pulumi.StringOutput {
@@ -154,4 +718,138 @@ func (e ServerRole) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ServerRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerRoleOutput struct{ *pulumi.OutputState }
+
+func (ServerRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerRole)(nil)).Elem()
+}
+
+func (o ServerRoleOutput) ToServerRoleOutput() ServerRoleOutput {
+	return o
+}
+
+func (o ServerRoleOutput) ToServerRoleOutputWithContext(ctx context.Context) ServerRoleOutput {
+	return o
+}
+
+func (o ServerRoleOutput) ToServerRolePtrOutput() ServerRolePtrOutput {
+	return o.ToServerRolePtrOutputWithContext(context.Background())
+}
+
+func (o ServerRoleOutput) ToServerRolePtrOutputWithContext(ctx context.Context) ServerRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerRole) *ServerRole {
+		return &v
+	}).(ServerRolePtrOutput)
+}
+
+func (o ServerRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerRolePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerRolePtrOutput) ElementType() reflect.Type {
+	return serverRolePtrType
+}
+
+func (o ServerRolePtrOutput) ToServerRolePtrOutput() ServerRolePtrOutput {
+	return o
+}
+
+func (o ServerRolePtrOutput) ToServerRolePtrOutputWithContext(ctx context.Context) ServerRolePtrOutput {
+	return o
+}
+
+func (o ServerRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServerRolePtrOutput) Elem() ServerRoleOutput {
+	return o.ApplyT(func(v *ServerRole) ServerRole {
+		var ret ServerRole
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ServerRoleOutput)
+}
+
+// ServerRoleInput is an input type that accepts ServerRoleArgs and ServerRoleOutput values.
+// You can construct a concrete instance of `ServerRoleInput` via:
+//
+//          ServerRoleArgs{...}
+type ServerRoleInput interface {
+	pulumi.Input
+
+	ToServerRoleOutput() ServerRoleOutput
+	ToServerRoleOutputWithContext(context.Context) ServerRoleOutput
+}
+
+var serverRolePtrType = reflect.TypeOf((**ServerRole)(nil)).Elem()
+
+type ServerRolePtrInput interface {
+	pulumi.Input
+
+	ToServerRolePtrOutput() ServerRolePtrOutput
+	ToServerRolePtrOutputWithContext(context.Context) ServerRolePtrOutput
+}
+
+type serverRolePtr string
+
+func ServerRolePtr(v string) ServerRolePtrInput {
+	return (*serverRolePtr)(&v)
+}
+
+func (*serverRolePtr) ElementType() reflect.Type {
+	return serverRolePtrType
+}
+
+func (in *serverRolePtr) ToServerRolePtrOutput() ServerRolePtrOutput {
+	return pulumi.ToOutput(in).(ServerRolePtrOutput)
+}
+
+func (in *serverRolePtr) ToServerRolePtrOutputWithContext(ctx context.Context) ServerRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerRolePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(CitusVersionOutput{})
+	pulumi.RegisterOutputType(CitusVersionPtrOutput{})
+	pulumi.RegisterOutputType(CreateModeOutput{})
+	pulumi.RegisterOutputType(CreateModePtrOutput{})
+	pulumi.RegisterOutputType(PostgreSQLVersionOutput{})
+	pulumi.RegisterOutputType(PostgreSQLVersionPtrOutput{})
+	pulumi.RegisterOutputType(ServerEditionOutput{})
+	pulumi.RegisterOutputType(ServerEditionPtrOutput{})
+	pulumi.RegisterOutputType(ServerRoleOutput{})
+	pulumi.RegisterOutputType(ServerRolePtrOutput{})
 }

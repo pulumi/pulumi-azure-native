@@ -98,29 +98,9 @@ func GetRegisteredAsn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegisteredAsn resources.
 type registeredAsnState struct {
-	// The customer's ASN from which traffic originates.
-	Asn *int `pulumi:"asn"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The peering service prefix key that is to be shared with the customer.
-	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type RegisteredAsnState struct {
-	// The customer's ASN from which traffic originates.
-	Asn pulumi.IntPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The peering service prefix key that is to be shared with the customer.
-	PeeringServicePrefixKey pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (RegisteredAsnState) ElementType() reflect.Type {

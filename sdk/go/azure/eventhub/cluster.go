@@ -80,45 +80,9 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The UTC time when the Event Hubs Cluster was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The metric ID of the cluster resource. Provided by the service and not modifiable by the user.
-	MetricId *string `pulumi:"metricId"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Properties of the cluster SKU.
-	Sku *ClusterSkuResponse `pulumi:"sku"`
-	// Status of the Cluster resource
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The UTC time when the Event Hubs Cluster was last updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type ClusterState struct {
-	// The UTC time when the Event Hubs Cluster was created.
-	CreatedAt pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The metric ID of the cluster resource. Provided by the service and not modifiable by the user.
-	MetricId pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Properties of the cluster SKU.
-	Sku ClusterSkuResponsePtrInput
-	// Status of the Cluster resource
-	Status pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The UTC time when the Event Hubs Cluster was last updated.
-	UpdatedAt pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

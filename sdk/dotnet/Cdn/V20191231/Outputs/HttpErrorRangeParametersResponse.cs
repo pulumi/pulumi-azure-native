@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20191231.Outputs
 {
 
+    /// <summary>
+    /// The JSON object that represents the range for http status codes
+    /// </summary>
     [OutputType]
     public sealed class HttpErrorRangeParametersResponse
     {

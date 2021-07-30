@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBIDedicated.V20210101.Outputs
 {
 
+    /// <summary>
+    /// An array of administrator user identities
+    /// </summary>
     [OutputType]
     public sealed class DedicatedCapacityAdministratorsResponse
     {

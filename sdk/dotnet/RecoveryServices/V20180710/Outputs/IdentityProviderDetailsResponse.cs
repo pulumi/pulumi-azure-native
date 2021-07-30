@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180710.Outputs
 {
 
+    /// <summary>
+    /// Identity provider details.
+    /// </summary>
     [OutputType]
     public sealed class IdentityProviderDetailsResponse
     {

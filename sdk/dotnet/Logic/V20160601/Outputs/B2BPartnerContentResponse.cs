@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20160601.Outputs
 {
 
+    /// <summary>
+    /// The B2B partner content.
+    /// </summary>
     [OutputType]
     public sealed class B2BPartnerContentResponse
     {

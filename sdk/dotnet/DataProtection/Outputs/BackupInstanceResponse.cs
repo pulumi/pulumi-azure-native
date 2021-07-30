@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Backup Instance
+    /// </summary>
     [OutputType]
     public sealed class BackupInstanceResponse
     {

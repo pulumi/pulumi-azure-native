@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Configuration for compute binding.
+    /// </summary>
     [OutputType]
     public sealed class ComputeConfigurationResponse
     {

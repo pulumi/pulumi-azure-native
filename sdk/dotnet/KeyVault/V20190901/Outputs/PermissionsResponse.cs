@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20190901.Outputs
 {
 
+    /// <summary>
+    /// Permissions the identity has for keys, secrets, certificates and storage.
+    /// </summary>
     [OutputType]
     public sealed class PermissionsResponse
     {

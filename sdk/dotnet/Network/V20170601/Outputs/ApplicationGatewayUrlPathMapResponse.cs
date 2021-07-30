@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170601.Outputs
 {
 
+    /// <summary>
+    /// UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayUrlPathMapResponse
     {

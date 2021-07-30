@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Network rule collection resource.
+    /// </summary>
     [OutputType]
     public sealed class AzureFirewallNetworkRuleCollectionResponse
     {

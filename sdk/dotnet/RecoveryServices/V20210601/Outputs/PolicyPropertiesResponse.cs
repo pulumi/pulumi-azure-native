@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Protection profile custom data details.
+    /// </summary>
     [OutputType]
     public sealed class PolicyPropertiesResponse
     {

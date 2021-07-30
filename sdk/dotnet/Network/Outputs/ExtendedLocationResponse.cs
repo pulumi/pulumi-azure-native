@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// ExtendedLocation complex type.
+    /// </summary>
     [OutputType]
     public sealed class ExtendedLocationResponse
     {

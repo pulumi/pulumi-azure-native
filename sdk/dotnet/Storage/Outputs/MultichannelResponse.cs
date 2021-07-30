@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
+    /// <summary>
+    /// Multichannel setting. Applies to Premium FileStorage only.
+    /// </summary>
     [OutputType]
     public sealed class MultichannelResponse
     {

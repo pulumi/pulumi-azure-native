@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// SharePoint data type connection.
+    /// </summary>
     [OutputType]
     public sealed class OfficeDataConnectorDataTypesResponseSharePoint
     {

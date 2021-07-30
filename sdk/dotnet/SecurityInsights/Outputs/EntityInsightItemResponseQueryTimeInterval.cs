@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// The Time interval that the query actually executed on.
+    /// </summary>
     [OutputType]
     public sealed class EntityInsightItemResponseQueryTimeInterval
     {

@@ -115,43 +115,9 @@ func GetADLSGen1FolderDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ADLSGen1FolderDataSet resources.
 type adlsgen1FolderDataSetState struct {
-	// The ADLS account name.
-	AccountName *string `pulumi:"accountName"`
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// The folder path within the ADLS account.
-	FolderPath *string `pulumi:"folderPath"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen1Folder'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Resource group of ADLS account.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Subscription id of ADLS account.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type ADLSGen1FolderDataSetState struct {
-	// The ADLS account name.
-	AccountName pulumi.StringPtrInput
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// The folder path within the ADLS account.
-	FolderPath pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'AdlsGen1Folder'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Resource group of ADLS account.
-	ResourceGroup pulumi.StringPtrInput
-	// Subscription id of ADLS account.
-	SubscriptionId pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (ADLSGen1FolderDataSetState) ElementType() reflect.Type {

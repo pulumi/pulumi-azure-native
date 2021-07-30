@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Azure File Storage read settings.
+    /// </summary>
     [OutputType]
     public sealed class AzureFileStorageReadSettingsResponse
     {

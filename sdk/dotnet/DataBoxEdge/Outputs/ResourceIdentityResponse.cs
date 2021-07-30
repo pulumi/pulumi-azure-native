@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// Msi identity details of the resource
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdentityResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// The request properties provided for a pipeline run.
+    /// </summary>
     [OutputType]
     public sealed class PipelineRunRequestResponse
     {

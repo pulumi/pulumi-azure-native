@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Network Profile for the cloud service.
+    /// </summary>
     [OutputType]
     public sealed class CloudServiceNetworkProfileResponse
     {

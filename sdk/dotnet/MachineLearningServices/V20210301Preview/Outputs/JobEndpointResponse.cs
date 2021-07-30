@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Job endpoint definition
+    /// </summary>
     [OutputType]
     public sealed class JobEndpointResponse
     {

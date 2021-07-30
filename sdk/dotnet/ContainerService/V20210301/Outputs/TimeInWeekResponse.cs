@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Time in a week.
+    /// </summary>
     [OutputType]
     public sealed class TimeInWeekResponse
     {

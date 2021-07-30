@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity source for MySQL databases.
+    /// </summary>
     [OutputType]
     public sealed class MySqlSourceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20161001.Outputs
 {
 
+    /// <summary>
+    /// The Sku.
+    /// </summary>
     [OutputType]
     public sealed class ManagerSkuResponse
     {

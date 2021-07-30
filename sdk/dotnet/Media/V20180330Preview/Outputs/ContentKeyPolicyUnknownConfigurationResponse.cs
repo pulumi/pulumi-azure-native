@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a ContentKeyPolicyConfiguration that is unavailable in the current API version.
+    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyUnknownConfigurationResponse
     {

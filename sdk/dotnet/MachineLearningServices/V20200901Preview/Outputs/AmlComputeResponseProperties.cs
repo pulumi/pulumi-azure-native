@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// AML Compute properties
+    /// </summary>
     [OutputType]
     public sealed class AmlComputeResponseProperties
     {

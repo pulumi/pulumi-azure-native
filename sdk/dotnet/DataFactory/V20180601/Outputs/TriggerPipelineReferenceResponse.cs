@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Pipeline that needs to be triggered with the given parameters.
+    /// </summary>
     [OutputType]
     public sealed class TriggerPipelineReferenceResponse
     {

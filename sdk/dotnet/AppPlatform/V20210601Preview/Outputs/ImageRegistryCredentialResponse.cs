@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Credential of the image registry
+    /// </summary>
     [OutputType]
     public sealed class ImageRegistryCredentialResponse
     {

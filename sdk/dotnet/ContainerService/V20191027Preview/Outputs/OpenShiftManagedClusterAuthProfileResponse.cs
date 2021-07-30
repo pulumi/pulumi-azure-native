@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines all possible authentication profiles for the OpenShift cluster.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftManagedClusterAuthProfileResponse
     {

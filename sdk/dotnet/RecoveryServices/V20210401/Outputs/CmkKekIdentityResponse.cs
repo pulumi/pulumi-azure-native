@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The details of the identity used for CMK
+    /// </summary>
     [OutputType]
     public sealed class CmkKekIdentityResponse
     {

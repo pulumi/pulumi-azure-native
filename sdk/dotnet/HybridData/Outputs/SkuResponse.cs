@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridData.Outputs
 {
 
+    /// <summary>
+    /// The sku type.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

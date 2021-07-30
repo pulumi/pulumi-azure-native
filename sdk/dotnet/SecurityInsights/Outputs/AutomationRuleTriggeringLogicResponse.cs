@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Describes automation rule triggering logic
+    /// </summary>
     [OutputType]
     public sealed class AutomationRuleTriggeringLogicResponse
     {

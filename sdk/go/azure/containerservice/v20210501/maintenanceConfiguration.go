@@ -92,29 +92,9 @@ func GetMaintenanceConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceConfiguration resources.
 type maintenanceConfigurationState struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Time slots on which upgrade is not allowed.
-	NotAllowedTime []TimeSpanResponse `pulumi:"notAllowedTime"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
-	TimeInWeek []TimeInWeekResponse `pulumi:"timeInWeek"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type MaintenanceConfigurationState struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Time slots on which upgrade is not allowed.
-	NotAllowedTime TimeSpanResponseArrayInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
-	TimeInWeek TimeInWeekResponseArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MaintenanceConfigurationState) ElementType() reflect.Type {

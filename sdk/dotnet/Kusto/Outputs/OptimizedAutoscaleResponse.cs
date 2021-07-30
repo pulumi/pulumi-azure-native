@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.Outputs
 {
 
+    /// <summary>
+    /// A class that contains the optimized auto scale definition.
+    /// </summary>
     [OutputType]
     public sealed class OptimizedAutoscaleResponse
     {

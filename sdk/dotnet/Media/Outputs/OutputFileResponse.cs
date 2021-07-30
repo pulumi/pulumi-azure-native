@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Represents an output file produced.
+    /// </summary>
     [OutputType]
     public sealed class OutputFileResponse
     {

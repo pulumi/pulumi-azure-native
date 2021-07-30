@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// The properties of the Managed identity.
+    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityResponse
     {

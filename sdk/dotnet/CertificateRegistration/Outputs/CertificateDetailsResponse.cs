@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CertificateRegistration.Outputs
 {
 
+    /// <summary>
+    /// SSL certificate details.
+    /// </summary>
     [OutputType]
     public sealed class CertificateDetailsResponse
     {

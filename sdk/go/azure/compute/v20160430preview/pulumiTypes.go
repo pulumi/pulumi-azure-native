@@ -13,13 +13,13 @@ import (
 // Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContent struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-	ComponentName *string `pulumi:"componentName"`
+	ComponentName *ComponentNames `pulumi:"componentName"`
 	// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
 	Content *string `pulumi:"content"`
 	// The pass name. Currently, the only allowable value is OobeSystem.
-	PassName *string `pulumi:"passName"`
+	PassName *PassNames `pulumi:"passName"`
 	// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-	SettingName *string `pulumi:"settingName"`
+	SettingName *SettingNames `pulumi:"settingName"`
 }
 
 // AdditionalUnattendContentInput is an input type that accepts AdditionalUnattendContentArgs and AdditionalUnattendContentOutput values.
@@ -36,13 +36,13 @@ type AdditionalUnattendContentInput interface {
 // Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
 type AdditionalUnattendContentArgs struct {
 	// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-	ComponentName *ComponentNames `pulumi:"componentName"`
+	ComponentName ComponentNamesPtrInput `pulumi:"componentName"`
 	// Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
 	Content pulumi.StringPtrInput `pulumi:"content"`
 	// The pass name. Currently, the only allowable value is OobeSystem.
-	PassName *PassNames `pulumi:"passName"`
+	PassName PassNamesPtrInput `pulumi:"passName"`
 	// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-	SettingName *SettingNames `pulumi:"settingName"`
+	SettingName SettingNamesPtrInput `pulumi:"settingName"`
 }
 
 func (AdditionalUnattendContentArgs) ElementType() reflect.Type {
@@ -98,8 +98,8 @@ func (o AdditionalUnattendContentOutput) ToAdditionalUnattendContentOutputWithCo
 }
 
 // The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-func (o AdditionalUnattendContentOutput) ComponentName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdditionalUnattendContent) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
+func (o AdditionalUnattendContentOutput) ComponentName() ComponentNamesPtrOutput {
+	return o.ApplyT(func(v AdditionalUnattendContent) *ComponentNames { return v.ComponentName }).(ComponentNamesPtrOutput)
 }
 
 // Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
@@ -108,13 +108,13 @@ func (o AdditionalUnattendContentOutput) Content() pulumi.StringPtrOutput {
 }
 
 // The pass name. Currently, the only allowable value is OobeSystem.
-func (o AdditionalUnattendContentOutput) PassName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdditionalUnattendContent) *string { return v.PassName }).(pulumi.StringPtrOutput)
+func (o AdditionalUnattendContentOutput) PassName() PassNamesPtrOutput {
+	return o.ApplyT(func(v AdditionalUnattendContent) *PassNames { return v.PassName }).(PassNamesPtrOutput)
 }
 
 // Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-func (o AdditionalUnattendContentOutput) SettingName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdditionalUnattendContent) *string { return v.SettingName }).(pulumi.StringPtrOutput)
+func (o AdditionalUnattendContentOutput) SettingName() SettingNamesPtrOutput {
+	return o.ApplyT(func(v AdditionalUnattendContent) *SettingNames { return v.SettingName }).(SettingNamesPtrOutput)
 }
 
 type AdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
@@ -836,7 +836,7 @@ func (o BootDiagnosticsResponsePtrOutput) StorageUri() pulumi.StringPtrOutput {
 // Data used when creating a disk.
 type CreationData struct {
 	// This enumerates the possible sources of a disk's creation.
-	CreateOption string `pulumi:"createOption"`
+	CreateOption DiskCreateOption `pulumi:"createOption"`
 	// Disk source information.
 	ImageReference *ImageDiskReference `pulumi:"imageReference"`
 	// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
@@ -861,7 +861,7 @@ type CreationDataInput interface {
 // Data used when creating a disk.
 type CreationDataArgs struct {
 	// This enumerates the possible sources of a disk's creation.
-	CreateOption DiskCreateOption `pulumi:"createOption"`
+	CreateOption DiskCreateOptionInput `pulumi:"createOption"`
 	// Disk source information.
 	ImageReference ImageDiskReferencePtrInput `pulumi:"imageReference"`
 	// If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
@@ -951,8 +951,8 @@ func (o CreationDataOutput) ToCreationDataPtrOutputWithContext(ctx context.Conte
 }
 
 // This enumerates the possible sources of a disk's creation.
-func (o CreationDataOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func(v CreationData) string { return v.CreateOption }).(pulumi.StringOutput)
+func (o CreationDataOutput) CreateOption() DiskCreateOptionOutput {
+	return o.ApplyT(func(v CreationData) DiskCreateOption { return v.CreateOption }).(DiskCreateOptionOutput)
 }
 
 // Disk source information.
@@ -994,13 +994,13 @@ func (o CreationDataPtrOutput) Elem() CreationDataOutput {
 }
 
 // This enumerates the possible sources of a disk's creation.
-func (o CreationDataPtrOutput) CreateOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreationData) *string {
+func (o CreationDataPtrOutput) CreateOption() DiskCreateOptionPtrOutput {
+	return o.ApplyT(func(v *CreationData) *DiskCreateOption {
 		if v == nil {
 			return nil
 		}
 		return &v.CreateOption
-	}).(pulumi.StringPtrOutput)
+	}).(DiskCreateOptionPtrOutput)
 }
 
 // Disk source information.
@@ -1256,9 +1256,9 @@ func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 // Describes a data disk.
 type DataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *string `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption string `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -1287,9 +1287,9 @@ type DataDiskInput interface {
 // Describes a data disk.
 type DataDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching CachingTypesPtrInput `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
@@ -1357,13 +1357,13 @@ func (o DataDiskOutput) ToDataDiskOutputWithContext(ctx context.Context) DataDis
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o DataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o DataDiskOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v DataDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
 }
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o DataDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func(v DataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+func (o DataDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
+	return o.ApplyT(func(v DataDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -2917,7 +2917,7 @@ type ImageDataDisk struct {
 	// The Virtual Hard Disk.
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *string `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -2944,7 +2944,7 @@ type ImageDataDiskArgs struct {
 	// The Virtual Hard Disk.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching CachingTypesPtrInput `pulumi:"caching"`
 	// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -3013,8 +3013,8 @@ func (o ImageDataDiskOutput) BlobUri() pulumi.StringPtrOutput {
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o ImageDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o ImageDataDiskOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v ImageDataDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
 }
 
 // Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -3513,15 +3513,15 @@ type ImageOSDisk struct {
 	// The Virtual Hard Disk.
 	BlobUri *string `pulumi:"blobUri"`
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *string `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// The managedDisk.
 	ManagedDisk *SubResource `pulumi:"managedDisk"`
 	// The OS State.
-	OsState string `pulumi:"osState"`
+	OsState OperatingSystemStateTypes `pulumi:"osState"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType string `pulumi:"osType"`
+	OsType OperatingSystemTypes `pulumi:"osType"`
 	// The snapshot.
 	Snapshot *SubResource `pulumi:"snapshot"`
 }
@@ -3542,15 +3542,15 @@ type ImageOSDiskArgs struct {
 	// The Virtual Hard Disk.
 	BlobUri pulumi.StringPtrInput `pulumi:"blobUri"`
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching CachingTypesPtrInput `pulumi:"caching"`
 	// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// The managedDisk.
 	ManagedDisk SubResourcePtrInput `pulumi:"managedDisk"`
 	// The OS State.
-	OsState OperatingSystemStateTypes `pulumi:"osState"`
+	OsState OperatingSystemStateTypesInput `pulumi:"osState"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType OperatingSystemTypes `pulumi:"osType"`
+	OsType OperatingSystemTypesInput `pulumi:"osType"`
 	// The snapshot.
 	Snapshot SubResourcePtrInput `pulumi:"snapshot"`
 }
@@ -3639,8 +3639,8 @@ func (o ImageOSDiskOutput) BlobUri() pulumi.StringPtrOutput {
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o ImageOSDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageOSDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o ImageOSDiskOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v ImageOSDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
 }
 
 // Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -3654,13 +3654,13 @@ func (o ImageOSDiskOutput) ManagedDisk() SubResourcePtrOutput {
 }
 
 // The OS State.
-func (o ImageOSDiskOutput) OsState() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageOSDisk) string { return v.OsState }).(pulumi.StringOutput)
+func (o ImageOSDiskOutput) OsState() OperatingSystemStateTypesOutput {
+	return o.ApplyT(func(v ImageOSDisk) OperatingSystemStateTypes { return v.OsState }).(OperatingSystemStateTypesOutput)
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o ImageOSDiskOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageOSDisk) string { return v.OsType }).(pulumi.StringOutput)
+func (o ImageOSDiskOutput) OsType() OperatingSystemTypesOutput {
+	return o.ApplyT(func(v ImageOSDisk) OperatingSystemTypes { return v.OsType }).(OperatingSystemTypesOutput)
 }
 
 // The snapshot.
@@ -3697,13 +3697,13 @@ func (o ImageOSDiskPtrOutput) BlobUri() pulumi.StringPtrOutput {
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o ImageOSDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageOSDisk) *string {
+func (o ImageOSDiskPtrOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v *ImageOSDisk) *CachingTypes {
 		if v == nil {
 			return nil
 		}
 		return v.Caching
-	}).(pulumi.StringPtrOutput)
+	}).(CachingTypesPtrOutput)
 }
 
 // Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -3727,23 +3727,23 @@ func (o ImageOSDiskPtrOutput) ManagedDisk() SubResourcePtrOutput {
 }
 
 // The OS State.
-func (o ImageOSDiskPtrOutput) OsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageOSDisk) *string {
+func (o ImageOSDiskPtrOutput) OsState() OperatingSystemStateTypesPtrOutput {
+	return o.ApplyT(func(v *ImageOSDisk) *OperatingSystemStateTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.OsState
-	}).(pulumi.StringPtrOutput)
+	}).(OperatingSystemStateTypesPtrOutput)
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o ImageOSDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageOSDisk) *string {
+func (o ImageOSDiskPtrOutput) OsType() OperatingSystemTypesPtrOutput {
+	return o.ApplyT(func(v *ImageOSDisk) *OperatingSystemTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.OsType
-	}).(pulumi.StringPtrOutput)
+	}).(OperatingSystemTypesPtrOutput)
 }
 
 // The snapshot.
@@ -4737,7 +4737,7 @@ type InstanceViewStatus struct {
 	// The short localizable label for the status.
 	DisplayStatus *string `pulumi:"displayStatus"`
 	// The level code.
-	Level *string `pulumi:"level"`
+	Level *StatusLevelTypes `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message *string `pulumi:"message"`
 	// The time of the status.
@@ -4762,7 +4762,7 @@ type InstanceViewStatusArgs struct {
 	// The short localizable label for the status.
 	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
 	// The level code.
-	Level *StatusLevelTypes `pulumi:"level"`
+	Level StatusLevelTypesPtrInput `pulumi:"level"`
 	// The detailed status message, including for alerts and error messages.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// The time of the status.
@@ -4832,8 +4832,8 @@ func (o InstanceViewStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
 }
 
 // The level code.
-func (o InstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o InstanceViewStatusOutput) Level() StatusLevelTypesPtrOutput {
+	return o.ApplyT(func(v InstanceViewStatus) *StatusLevelTypes { return v.Level }).(StatusLevelTypesPtrOutput)
 }
 
 // The detailed status message, including for alerts and error messages.
@@ -6656,7 +6656,7 @@ type ManagedDiskParameters struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	StorageAccountType *StorageAccountTypes `pulumi:"storageAccountType"`
 }
 
 // ManagedDiskParametersInput is an input type that accepts ManagedDiskParametersArgs and ManagedDiskParametersOutput values.
@@ -6675,7 +6675,7 @@ type ManagedDiskParametersArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-	StorageAccountType *StorageAccountTypes `pulumi:"storageAccountType"`
+	StorageAccountType StorageAccountTypesPtrInput `pulumi:"storageAccountType"`
 }
 
 func (ManagedDiskParametersArgs) ElementType() reflect.Type {
@@ -6762,8 +6762,8 @@ func (o ManagedDiskParametersOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-func (o ManagedDiskParametersOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedDiskParameters) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+func (o ManagedDiskParametersOutput) StorageAccountType() StorageAccountTypesPtrOutput {
+	return o.ApplyT(func(v ManagedDiskParameters) *StorageAccountTypes { return v.StorageAccountType }).(StorageAccountTypesPtrOutput)
 }
 
 type ManagedDiskParametersPtrOutput struct{ *pulumi.OutputState }
@@ -6795,13 +6795,13 @@ func (o ManagedDiskParametersPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 // Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-func (o ManagedDiskParametersPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedDiskParameters) *string {
+func (o ManagedDiskParametersPtrOutput) StorageAccountType() StorageAccountTypesPtrOutput {
+	return o.ApplyT(func(v *ManagedDiskParameters) *StorageAccountTypes {
 		if v == nil {
 			return nil
 		}
 		return v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
+	}).(StorageAccountTypesPtrOutput)
 }
 
 // The parameters of a managed disk.
@@ -7446,9 +7446,9 @@ func (o NetworkProfileResponsePtrOutput) NetworkInterfaces() NetworkInterfaceRef
 // Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OSDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *string `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption string `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
@@ -7460,7 +7460,7 @@ type OSDisk struct {
 	// The disk name.
 	Name *string `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType *string `pulumi:"osType"`
+	OsType *OperatingSystemTypes `pulumi:"osType"`
 	// The virtual hard disk.
 	Vhd *VirtualHardDisk `pulumi:"vhd"`
 }
@@ -7479,9 +7479,9 @@ type OSDiskInput interface {
 // Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 type OSDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching CachingTypesPtrInput `pulumi:"caching"`
 	// Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
@@ -7493,7 +7493,7 @@ type OSDiskArgs struct {
 	// The disk name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType OperatingSystemTypesPtrInput `pulumi:"osType"`
 	// The virtual hard disk.
 	Vhd VirtualHardDiskPtrInput `pulumi:"vhd"`
 }
@@ -7577,13 +7577,13 @@ func (o OSDiskOutput) ToOSDiskPtrOutputWithContext(ctx context.Context) OSDiskPt
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o OSDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OSDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o OSDiskOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v OSDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
 }
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o OSDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func(v OSDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+func (o OSDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
+	return o.ApplyT(func(v OSDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -7612,8 +7612,8 @@ func (o OSDiskOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o OSDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OSDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+func (o OSDiskOutput) OsType() OperatingSystemTypesPtrOutput {
+	return o.ApplyT(func(v OSDisk) *OperatingSystemTypes { return v.OsType }).(OperatingSystemTypesPtrOutput)
 }
 
 // The virtual hard disk.
@@ -7640,23 +7640,23 @@ func (o OSDiskPtrOutput) Elem() OSDiskOutput {
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o OSDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OSDisk) *string {
+func (o OSDiskPtrOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *CachingTypes {
 		if v == nil {
 			return nil
 		}
 		return v.Caching
-	}).(pulumi.StringPtrOutput)
+	}).(CachingTypesPtrOutput)
 }
 
 // Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o OSDiskPtrOutput) CreateOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OSDisk) *string {
+func (o OSDiskPtrOutput) CreateOption() DiskCreateOptionTypesPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *DiskCreateOptionTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.CreateOption
-	}).(pulumi.StringPtrOutput)
+	}).(DiskCreateOptionTypesPtrOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -7710,13 +7710,13 @@ func (o OSDiskPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o OSDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OSDisk) *string {
+func (o OSDiskPtrOutput) OsType() OperatingSystemTypesPtrOutput {
+	return o.ApplyT(func(v *OSDisk) *OperatingSystemTypes {
 		if v == nil {
 			return nil
 		}
 		return v.OsType
-	}).(pulumi.StringPtrOutput)
+	}).(OperatingSystemTypesPtrOutput)
 }
 
 // The virtual hard disk.
@@ -10690,7 +10690,7 @@ func (o SubResourceResponseArrayOutput) Index(i pulumi.IntInput) SubResourceResp
 // Describes an upgrade policy - automatic or manual.
 type UpgradePolicy struct {
 	// Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-	Mode *string `pulumi:"mode"`
+	Mode *UpgradeMode `pulumi:"mode"`
 }
 
 // UpgradePolicyInput is an input type that accepts UpgradePolicyArgs and UpgradePolicyOutput values.
@@ -10707,7 +10707,7 @@ type UpgradePolicyInput interface {
 // Describes an upgrade policy - automatic or manual.
 type UpgradePolicyArgs struct {
 	// Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-	Mode *UpgradeMode `pulumi:"mode"`
+	Mode UpgradeModePtrInput `pulumi:"mode"`
 }
 
 func (UpgradePolicyArgs) ElementType() reflect.Type {
@@ -10789,8 +10789,8 @@ func (o UpgradePolicyOutput) ToUpgradePolicyPtrOutputWithContext(ctx context.Con
 }
 
 // Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-func (o UpgradePolicyOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UpgradePolicy) *string { return v.Mode }).(pulumi.StringPtrOutput)
+func (o UpgradePolicyOutput) Mode() UpgradeModePtrOutput {
+	return o.ApplyT(func(v UpgradePolicy) *UpgradeMode { return v.Mode }).(UpgradeModePtrOutput)
 }
 
 type UpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -10812,13 +10812,13 @@ func (o UpgradePolicyPtrOutput) Elem() UpgradePolicyOutput {
 }
 
 // Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-func (o UpgradePolicyPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UpgradePolicy) *string {
+func (o UpgradePolicyPtrOutput) Mode() UpgradeModePtrOutput {
+	return o.ApplyT(func(v *UpgradePolicy) *UpgradeMode {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(UpgradeModePtrOutput)
 }
 
 // Describes an upgrade policy - automatic or manual.
@@ -12633,7 +12633,7 @@ func (o VirtualMachineExtensionResponseArrayOutput) Index(i pulumi.IntInput) Vir
 // Identity for the virtual machine.
 type VirtualMachineIdentity struct {
 	// The type of identity used for the virtual machine. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // VirtualMachineIdentityInput is an input type that accepts VirtualMachineIdentityArgs and VirtualMachineIdentityOutput values.
@@ -12650,7 +12650,7 @@ type VirtualMachineIdentityInput interface {
 // Identity for the virtual machine.
 type VirtualMachineIdentityArgs struct {
 	// The type of identity used for the virtual machine. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (VirtualMachineIdentityArgs) ElementType() reflect.Type {
@@ -12732,8 +12732,8 @@ func (o VirtualMachineIdentityOutput) ToVirtualMachineIdentityPtrOutputWithConte
 }
 
 // The type of identity used for the virtual machine. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o VirtualMachineIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o VirtualMachineIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v VirtualMachineIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type VirtualMachineIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -12755,13 +12755,13 @@ func (o VirtualMachineIdentityPtrOutput) Elem() VirtualMachineIdentityOutput {
 }
 
 // The type of identity used for the virtual machine. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o VirtualMachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineIdentity) *string {
+func (o VirtualMachineIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the virtual machine.
@@ -13210,9 +13210,9 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) VmAgent() VirtualMachineAge
 // Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *string `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// The create option.
-	CreateOption string `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -13237,9 +13237,9 @@ type VirtualMachineScaleSetDataDiskInput interface {
 // Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching CachingTypesPtrInput `pulumi:"caching"`
 	// The create option.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
 	// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
 	// Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -13303,13 +13303,13 @@ func (o VirtualMachineScaleSetDataDiskOutput) ToVirtualMachineScaleSetDataDiskOu
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o VirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o VirtualMachineScaleSetDataDiskOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
 }
 
 // The create option.
-func (o VirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+func (o VirtualMachineScaleSetDataDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetDataDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
 }
 
 // Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
@@ -14400,7 +14400,7 @@ func (o VirtualMachineScaleSetIPConfigurationResponseArrayOutput) Index(i pulumi
 // Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentity struct {
 	// The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // VirtualMachineScaleSetIdentityInput is an input type that accepts VirtualMachineScaleSetIdentityArgs and VirtualMachineScaleSetIdentityOutput values.
@@ -14417,7 +14417,7 @@ type VirtualMachineScaleSetIdentityInput interface {
 // Identity for the virtual machine scale set.
 type VirtualMachineScaleSetIdentityArgs struct {
 	// The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (VirtualMachineScaleSetIdentityArgs) ElementType() reflect.Type {
@@ -14499,8 +14499,8 @@ func (o VirtualMachineScaleSetIdentityOutput) ToVirtualMachineScaleSetIdentityPt
 }
 
 // The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o VirtualMachineScaleSetIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o VirtualMachineScaleSetIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type VirtualMachineScaleSetIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -14522,13 +14522,13 @@ func (o VirtualMachineScaleSetIdentityPtrOutput) Elem() VirtualMachineScaleSetId
 }
 
 // The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o VirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIdentity) *string {
+func (o VirtualMachineScaleSetIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the virtual machine scale set.
@@ -14706,7 +14706,7 @@ func (o VirtualMachineScaleSetIdentityResponsePtrOutput) Type() pulumi.StringPtr
 // Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParameters struct {
 	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-	StorageAccountType *string `pulumi:"storageAccountType"`
+	StorageAccountType *StorageAccountTypes `pulumi:"storageAccountType"`
 }
 
 // VirtualMachineScaleSetManagedDiskParametersInput is an input type that accepts VirtualMachineScaleSetManagedDiskParametersArgs and VirtualMachineScaleSetManagedDiskParametersOutput values.
@@ -14723,7 +14723,7 @@ type VirtualMachineScaleSetManagedDiskParametersInput interface {
 // Describes the parameters of a ScaleSet managed disk.
 type VirtualMachineScaleSetManagedDiskParametersArgs struct {
 	// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-	StorageAccountType *StorageAccountTypes `pulumi:"storageAccountType"`
+	StorageAccountType StorageAccountTypesPtrInput `pulumi:"storageAccountType"`
 }
 
 func (VirtualMachineScaleSetManagedDiskParametersArgs) ElementType() reflect.Type {
@@ -14805,8 +14805,8 @@ func (o VirtualMachineScaleSetManagedDiskParametersOutput) ToVirtualMachineScale
 }
 
 // Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-func (o VirtualMachineScaleSetManagedDiskParametersOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetManagedDiskParameters) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+func (o VirtualMachineScaleSetManagedDiskParametersOutput) StorageAccountType() StorageAccountTypesPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetManagedDiskParameters) *StorageAccountTypes { return v.StorageAccountType }).(StorageAccountTypesPtrOutput)
 }
 
 type VirtualMachineScaleSetManagedDiskParametersPtrOutput struct{ *pulumi.OutputState }
@@ -14830,13 +14830,13 @@ func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) Elem() VirtualMach
 }
 
 // Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetManagedDiskParameters) *string {
+func (o VirtualMachineScaleSetManagedDiskParametersPtrOutput) StorageAccountType() StorageAccountTypesPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetManagedDiskParameters) *StorageAccountTypes {
 		if v == nil {
 			return nil
 		}
 		return v.StorageAccountType
-	}).(pulumi.StringPtrOutput)
+	}).(StorageAccountTypesPtrOutput)
 }
 
 // Describes the parameters of a ScaleSet managed disk.
@@ -15510,9 +15510,9 @@ func (o VirtualMachineScaleSetNetworkProfileResponsePtrOutput) NetworkInterfaceC
 // Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *string `pulumi:"caching"`
+	Caching *CachingTypes `pulumi:"caching"`
 	// Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption string `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
 	// The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
 	Image *VirtualHardDisk `pulumi:"image"`
 	// The managed disk parameters.
@@ -15520,7 +15520,7 @@ type VirtualMachineScaleSetOSDisk struct {
 	// The disk name.
 	Name *string `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType *string `pulumi:"osType"`
+	OsType *OperatingSystemTypes `pulumi:"osType"`
 	// The list of virtual hard disk container uris.
 	VhdContainers []string `pulumi:"vhdContainers"`
 }
@@ -15539,9 +15539,9 @@ type VirtualMachineScaleSetOSDiskInput interface {
 // Describes a virtual machine scale set operating system disk.
 type VirtualMachineScaleSetOSDiskArgs struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-	Caching *CachingTypes `pulumi:"caching"`
+	Caching CachingTypesPtrInput `pulumi:"caching"`
 	// Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-	CreateOption DiskCreateOptionTypes `pulumi:"createOption"`
+	CreateOption DiskCreateOptionTypesInput `pulumi:"createOption"`
 	// The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
 	Image VirtualHardDiskPtrInput `pulumi:"image"`
 	// The managed disk parameters.
@@ -15549,7 +15549,7 @@ type VirtualMachineScaleSetOSDiskArgs struct {
 	// The disk name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType *OperatingSystemTypes `pulumi:"osType"`
+	OsType OperatingSystemTypesPtrInput `pulumi:"osType"`
 	// The list of virtual hard disk container uris.
 	VhdContainers pulumi.StringArrayInput `pulumi:"vhdContainers"`
 }
@@ -15633,13 +15633,13 @@ func (o VirtualMachineScaleSetOSDiskOutput) ToVirtualMachineScaleSetOSDiskPtrOut
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o VirtualMachineScaleSetOSDiskOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+func (o VirtualMachineScaleSetOSDiskOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *CachingTypes { return v.Caching }).(CachingTypesPtrOutput)
 }
 
 // Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o VirtualMachineScaleSetOSDiskOutput) CreateOption() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) string { return v.CreateOption }).(pulumi.StringOutput)
+func (o VirtualMachineScaleSetOSDiskOutput) CreateOption() DiskCreateOptionTypesOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) DiskCreateOptionTypes { return v.CreateOption }).(DiskCreateOptionTypesOutput)
 }
 
 // The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
@@ -15660,8 +15660,8 @@ func (o VirtualMachineScaleSetOSDiskOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o VirtualMachineScaleSetOSDiskOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *string { return v.OsType }).(pulumi.StringPtrOutput)
+func (o VirtualMachineScaleSetOSDiskOutput) OsType() OperatingSystemTypesPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetOSDisk) *OperatingSystemTypes { return v.OsType }).(OperatingSystemTypesPtrOutput)
 }
 
 // The list of virtual hard disk container uris.
@@ -15688,23 +15688,23 @@ func (o VirtualMachineScaleSetOSDiskPtrOutput) Elem() VirtualMachineScaleSetOSDi
 }
 
 // Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-func (o VirtualMachineScaleSetOSDiskPtrOutput) Caching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *string {
+func (o VirtualMachineScaleSetOSDiskPtrOutput) Caching() CachingTypesPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *CachingTypes {
 		if v == nil {
 			return nil
 		}
 		return v.Caching
-	}).(pulumi.StringPtrOutput)
+	}).(CachingTypesPtrOutput)
 }
 
 // Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-func (o VirtualMachineScaleSetOSDiskPtrOutput) CreateOption() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *string {
+func (o VirtualMachineScaleSetOSDiskPtrOutput) CreateOption() DiskCreateOptionTypesPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *DiskCreateOptionTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.CreateOption
-	}).(pulumi.StringPtrOutput)
+	}).(DiskCreateOptionTypesPtrOutput)
 }
 
 // The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist.
@@ -15738,13 +15738,13 @@ func (o VirtualMachineScaleSetOSDiskPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o VirtualMachineScaleSetOSDiskPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *string {
+func (o VirtualMachineScaleSetOSDiskPtrOutput) OsType() OperatingSystemTypesPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetOSDisk) *OperatingSystemTypes {
 		if v == nil {
 			return nil
 		}
 		return v.OsType
-	}).(pulumi.StringPtrOutput)
+	}).(OperatingSystemTypesPtrOutput)
 }
 
 // The list of virtual hard disk container uris.
@@ -17522,7 +17522,7 @@ type WinRMListener struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 	CertificateUrl *string `pulumi:"certificateUrl"`
 	// Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-	Protocol *string `pulumi:"protocol"`
+	Protocol *ProtocolTypes `pulumi:"protocol"`
 }
 
 // WinRMListenerInput is an input type that accepts WinRMListenerArgs and WinRMListenerOutput values.
@@ -17541,7 +17541,7 @@ type WinRMListenerArgs struct {
 	// This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
 	// Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-	Protocol *ProtocolTypes `pulumi:"protocol"`
+	Protocol ProtocolTypesPtrInput `pulumi:"protocol"`
 }
 
 func (WinRMListenerArgs) ElementType() reflect.Type {
@@ -17602,8 +17602,8 @@ func (o WinRMListenerOutput) CertificateUrl() pulumi.StringPtrOutput {
 }
 
 // Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-func (o WinRMListenerOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WinRMListener) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+func (o WinRMListenerOutput) Protocol() ProtocolTypesPtrOutput {
+	return o.ApplyT(func(v WinRMListener) *ProtocolTypes { return v.Protocol }).(ProtocolTypesPtrOutput)
 }
 
 type WinRMListenerArrayOutput struct{ *pulumi.OutputState }

@@ -121,25 +121,9 @@ func GetWebAppAzureStorageAccounts(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppAzureStorageAccounts resources.
 type webAppAzureStorageAccountsState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Azure storage accounts.
-	Properties map[string]AzureStorageInfoValueResponse `pulumi:"properties"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppAzureStorageAccountsState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Azure storage accounts.
-	Properties AzureStorageInfoValueResponseMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppAzureStorageAccountsState) ElementType() reflect.Type {

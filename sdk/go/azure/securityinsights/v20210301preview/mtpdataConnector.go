@@ -104,39 +104,9 @@ func GetMTPDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MTPDataConnector resources.
 type mtpdataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *MTPDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'MicrosoftThreatProtection'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type MTPDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes MTPDataConnectorDataTypesResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'MicrosoftThreatProtection'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MTPDataConnectorState) ElementType() reflect.Type {

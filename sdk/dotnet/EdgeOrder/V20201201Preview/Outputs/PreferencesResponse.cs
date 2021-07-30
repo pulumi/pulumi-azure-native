@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// Preferences related to the order
+    /// </summary>
     [OutputType]
     public sealed class PreferencesResponse
     {

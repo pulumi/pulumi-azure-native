@@ -112,43 +112,9 @@ func GetADLSGen2StorageAccountDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ADLSGen2StorageAccountDataSet resources.
 type adlsgen2StorageAccountDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind *string `pulumi:"kind"`
-	// Location of the ADLSGen2 storage account.
-	Location *string `pulumi:"location"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// A list of ADLSGen2 storage account paths.
-	Paths []ADLSGen2StorageAccountPathResponse `pulumi:"paths"`
-	// Resource id of the ADLSGen2 storage account.
-	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type ADLSGen2StorageAccountDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'AdlsGen2StorageAccount'.
-	Kind pulumi.StringPtrInput
-	// Location of the ADLSGen2 storage account.
-	Location pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// A list of ADLSGen2 storage account paths.
-	Paths ADLSGen2StorageAccountPathResponseArrayInput
-	// Resource id of the ADLSGen2 storage account.
-	StorageAccountResourceId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (ADLSGen2StorageAccountDataSetState) ElementType() reflect.Type {

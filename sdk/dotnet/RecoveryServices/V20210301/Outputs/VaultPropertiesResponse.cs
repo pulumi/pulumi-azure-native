@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Properties of the vault.
+    /// </summary>
     [OutputType]
     public sealed class VaultPropertiesResponse
     {

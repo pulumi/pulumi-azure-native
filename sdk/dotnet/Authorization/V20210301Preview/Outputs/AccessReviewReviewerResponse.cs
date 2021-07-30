@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Descriptor for what needs to be reviewed
+    /// </summary>
     [OutputType]
     public sealed class AccessReviewReviewerResponse
     {

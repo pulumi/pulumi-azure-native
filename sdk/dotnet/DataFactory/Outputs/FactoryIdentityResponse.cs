@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Identity properties of the factory resource.
+    /// </summary>
     [OutputType]
     public sealed class FactoryIdentityResponse
     {

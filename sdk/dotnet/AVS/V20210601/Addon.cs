@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.AVS.V20210601
         /// The properties of an addon resource
         /// </summary>
         [Input("properties")]
-        public Input<object>? Properties { get; set; }
+        public object? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

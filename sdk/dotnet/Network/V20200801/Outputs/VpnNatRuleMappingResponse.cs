@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
+    /// <summary>
+    /// Vpn NatRule mapping.
+    /// </summary>
     [OutputType]
     public sealed class VpnNatRuleMappingResponse
     {

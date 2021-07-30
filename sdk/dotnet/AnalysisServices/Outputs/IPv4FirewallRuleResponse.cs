@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AnalysisServices.Outputs
 {
 
+    /// <summary>
+    /// The detail of firewall rule.
+    /// </summary>
     [OutputType]
     public sealed class IPv4FirewallRuleResponse
     {

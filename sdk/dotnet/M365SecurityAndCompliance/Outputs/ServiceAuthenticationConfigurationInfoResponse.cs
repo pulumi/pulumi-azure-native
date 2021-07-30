@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.Outputs
 {
 
+    /// <summary>
+    /// Authentication configuration information
+    /// </summary>
     [OutputType]
     public sealed class ServiceAuthenticationConfigurationInfoResponse
     {

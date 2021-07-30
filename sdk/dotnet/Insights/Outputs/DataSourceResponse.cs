@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+    /// </summary>
     [OutputType]
     public sealed class DataSourceResponse
     {

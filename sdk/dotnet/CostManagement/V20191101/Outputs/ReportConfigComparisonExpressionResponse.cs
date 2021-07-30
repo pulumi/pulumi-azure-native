@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20191101.Outputs
 {
 
+    /// <summary>
+    /// The comparison expression to be used in the report.
+    /// </summary>
     [OutputType]
     public sealed class ReportConfigComparisonExpressionResponse
     {

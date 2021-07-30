@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.Outputs
 {
 
+    /// <summary>
+    /// a powershell credential object
+    /// </summary>
     [OutputType]
     public sealed class PSCredentialExecutionParameterResponse
     {

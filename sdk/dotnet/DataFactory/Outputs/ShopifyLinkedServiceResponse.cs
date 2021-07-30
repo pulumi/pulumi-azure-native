@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Shopify Service linked service.
+    /// </summary>
     [OutputType]
     public sealed class ShopifyLinkedServiceResponse
     {

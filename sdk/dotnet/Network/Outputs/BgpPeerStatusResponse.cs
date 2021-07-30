@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// BGP peer status details.
+    /// </summary>
     [OutputType]
     public sealed class BgpPeerStatusResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Peerings in a virtual network resource.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkPeeringResponse
     {

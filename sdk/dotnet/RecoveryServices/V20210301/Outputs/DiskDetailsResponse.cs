@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210301.Outputs
 {
 
+    /// <summary>
+    /// On-prem disk details data.
+    /// </summary>
     [OutputType]
     public sealed class DiskDetailsResponse
     {

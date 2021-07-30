@@ -121,21 +121,9 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Json escaped Xml Encoded contents of the Policy.
-	PolicyContent *string `pulumi:"policyContent"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type PolicyState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Json escaped Xml Encoded contents of the Policy.
-	PolicyContent pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PolicyState) ElementType() reflect.Type {

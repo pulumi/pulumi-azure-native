@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Association link for a graph global parameter to a node in the graph.
+    /// </summary>
     [OutputType]
     public sealed class GraphParameterLinkResponse
     {

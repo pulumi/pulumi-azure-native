@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// Part of Management Group diagnostic setting. Specifies the settings for a particular log.
+    /// </summary>
     [OutputType]
     public sealed class ManagementGroupLogSettingsResponse
     {

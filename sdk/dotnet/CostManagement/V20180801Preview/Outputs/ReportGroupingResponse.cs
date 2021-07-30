@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Outputs
 {
 
+    /// <summary>
+    /// The group by expression to be used in the report.
+    /// </summary>
     [OutputType]
     public sealed class ReportGroupingResponse
     {

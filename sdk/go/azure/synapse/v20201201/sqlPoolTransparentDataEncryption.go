@@ -105,25 +105,9 @@ func GetSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolTransparentDataEncryption resources.
 type sqlPoolTransparentDataEncryptionState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The status of the database transparent data encryption.
-	Status *string `pulumi:"status"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SqlPoolTransparentDataEncryptionState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The status of the database transparent data encryption.
-	Status pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SqlPoolTransparentDataEncryptionState) ElementType() reflect.Type {

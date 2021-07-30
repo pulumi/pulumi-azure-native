@@ -13,16 +13,16 @@ __all__ = [
     'ApplicationGetEndpointArgs',
     'ApplicationGetHttpsEndpointArgs',
     'ApplicationPropertiesArgs',
-    'AutoscaleArgs',
     'AutoscaleCapacityArgs',
     'AutoscaleRecurrenceArgs',
     'AutoscaleScheduleArgs',
     'AutoscaleTimeAndCapacityArgs',
+    'AutoscaleArgs',
     'ClientGroupInfoArgs',
     'ClusterCreatePropertiesArgs',
     'ClusterDefinitionArgs',
-    'ClusterIdentityArgs',
     'ClusterIdentityUserAssignedIdentitiesArgs',
+    'ClusterIdentityArgs',
     'ComputeIsolationPropertiesArgs',
     'ComputeProfileArgs',
     'DataDisksGroupsArgs',
@@ -326,46 +326,6 @@ class ApplicationPropertiesArgs:
 
 
 @pulumi.input_type
-class AutoscaleArgs:
-    def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input['AutoscaleCapacityArgs']] = None,
-                 recurrence: Optional[pulumi.Input['AutoscaleRecurrenceArgs']] = None):
-        """
-        The autoscale request parameters
-        :param pulumi.Input['AutoscaleCapacityArgs'] capacity: Parameters for load-based autoscale
-        :param pulumi.Input['AutoscaleRecurrenceArgs'] recurrence: Parameters for schedule-based autoscale
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input['AutoscaleCapacityArgs']]:
-        """
-        Parameters for load-based autoscale
-        """
-        return pulumi.get(self, "capacity")
-
-    @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input['AutoscaleCapacityArgs']]):
-        pulumi.set(self, "capacity", value)
-
-    @property
-    @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['AutoscaleRecurrenceArgs']]:
-        """
-        Parameters for schedule-based autoscale
-        """
-        return pulumi.get(self, "recurrence")
-
-    @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['AutoscaleRecurrenceArgs']]):
-        pulumi.set(self, "recurrence", value)
-
-
-@pulumi.input_type
 class AutoscaleCapacityArgs:
     def __init__(__self__, *,
                  max_instance_count: Optional[pulumi.Input[int]] = None,
@@ -539,6 +499,46 @@ class AutoscaleTimeAndCapacityArgs:
     @time.setter
     def time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time", value)
+
+
+@pulumi.input_type
+class AutoscaleArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input['AutoscaleCapacityArgs']] = None,
+                 recurrence: Optional[pulumi.Input['AutoscaleRecurrenceArgs']] = None):
+        """
+        The autoscale request parameters
+        :param pulumi.Input['AutoscaleCapacityArgs'] capacity: Parameters for load-based autoscale
+        :param pulumi.Input['AutoscaleRecurrenceArgs'] recurrence: Parameters for schedule-based autoscale
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input['AutoscaleCapacityArgs']]:
+        """
+        Parameters for load-based autoscale
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input['AutoscaleCapacityArgs']]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['AutoscaleRecurrenceArgs']]:
+        """
+        Parameters for schedule-based autoscale
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['AutoscaleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
 
 
 @pulumi.input_type
@@ -872,6 +872,29 @@ class ClusterDefinitionArgs:
 
 
 @pulumi.input_type
+class ClusterIdentityUserAssignedIdentitiesArgs:
+    def __init__(__self__, *,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] tenant_id: The tenant id of user assigned identity.
+        """
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of user assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
 class ClusterIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
@@ -909,29 +932,6 @@ class ClusterIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ClusterIdentityUserAssignedIdentitiesArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class ClusterIdentityUserAssignedIdentitiesArgs:
-    def __init__(__self__, *,
-                 tenant_id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] tenant_id: The tenant id of user assigned identity.
-        """
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tenant id of user assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

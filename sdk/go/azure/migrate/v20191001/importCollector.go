@@ -67,17 +67,9 @@ func GetImportCollector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImportCollector resources.
 type importCollectorState struct {
-	ETag       *string                            `pulumi:"eTag"`
-	Name       *string                            `pulumi:"name"`
-	Properties *ImportCollectorPropertiesResponse `pulumi:"properties"`
-	Type       *string                            `pulumi:"type"`
 }
 
 type ImportCollectorState struct {
-	ETag       pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	Properties ImportCollectorPropertiesResponsePtrInput
-	Type       pulumi.StringPtrInput
 }
 
 func (ImportCollectorState) ElementType() reflect.Type {

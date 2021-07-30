@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20190615.Outputs
 {
 
+    /// <summary>
+    /// KPI Resource Health Details
+    /// </summary>
     [OutputType]
     public sealed class KPIResourceHealthDetailsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Persistent disk payload
+    /// </summary>
     [OutputType]
     public sealed class PersistentDiskResponse
     {

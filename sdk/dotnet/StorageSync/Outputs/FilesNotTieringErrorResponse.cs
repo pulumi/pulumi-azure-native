@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.Outputs
 {
 
+    /// <summary>
+    /// Files not tiering error object
+    /// </summary>
     [OutputType]
     public sealed class FilesNotTieringErrorResponse
     {

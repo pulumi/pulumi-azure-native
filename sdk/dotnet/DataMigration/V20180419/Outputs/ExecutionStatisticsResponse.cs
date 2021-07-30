@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
+    /// <summary>
+    /// Description about the errors happen while performing migration validation
+    /// </summary>
     [OutputType]
     public sealed class ExecutionStatisticsResponse
     {

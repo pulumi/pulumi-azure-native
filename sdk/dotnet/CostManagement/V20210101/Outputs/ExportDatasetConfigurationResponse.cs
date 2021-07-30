@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The export dataset configuration. Allows columns to be selected for the export. If not provided then the export will include all available columns.
+    /// </summary>
     [OutputType]
     public sealed class ExportDatasetConfigurationResponse
     {

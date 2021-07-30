@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210630Preview.Outputs
 {
 
+    /// <summary>
+    /// An object that represents the status of ingress on an environment.
+    /// </summary>
     [OutputType]
     public sealed class IngressEnvironmentStatusResponse
     {

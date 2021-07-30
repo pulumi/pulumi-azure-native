@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// An object of optional configuration settings for encoder.
+    /// </summary>
     [OutputType]
     public sealed class PresetConfigurationsResponse
     {

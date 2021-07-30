@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20190601.Outputs
 {
 
+    /// <summary>
+    /// The Action Groups information, used by the alert rule.
+    /// </summary>
     [OutputType]
     public sealed class ActionGroupsInformationResponse
     {

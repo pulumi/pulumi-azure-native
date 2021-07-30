@@ -133,33 +133,9 @@ func GetWebAppPublicCertificateSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppPublicCertificateSlot resources.
 type webAppPublicCertificateSlotState struct {
-	// Public Certificate byte array
-	Blob *string `pulumi:"blob"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Public Certificate Location
-	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-	// Certificate Thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppPublicCertificateSlotState struct {
-	// Public Certificate byte array
-	Blob pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Public Certificate Location
-	PublicCertificateLocation pulumi.StringPtrInput
-	// Certificate Thumbprint
-	Thumbprint pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppPublicCertificateSlotState) ElementType() reflect.Type {
@@ -174,7 +150,7 @@ type webAppPublicCertificateSlotArgs struct {
 	// Name of the app.
 	Name string `pulumi:"name"`
 	// Public Certificate Location
-	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
+	PublicCertificateLocation *PublicCertificateLocation `pulumi:"publicCertificateLocation"`
 	// Public certificate name.
 	PublicCertificateName *string `pulumi:"publicCertificateName"`
 	// Name of the resource group to which the resource belongs.
@@ -192,7 +168,7 @@ type WebAppPublicCertificateSlotArgs struct {
 	// Name of the app.
 	Name pulumi.StringInput
 	// Public Certificate Location
-	PublicCertificateLocation *PublicCertificateLocation
+	PublicCertificateLocation PublicCertificateLocationPtrInput
 	// Public certificate name.
 	PublicCertificateName pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.Outputs
 {
 
+    /// <summary>
+    /// Violation information.
+    /// </summary>
     [OutputType]
     public sealed class ViolationResponse
     {

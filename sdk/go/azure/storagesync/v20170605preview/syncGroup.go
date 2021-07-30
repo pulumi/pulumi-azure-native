@@ -126,25 +126,9 @@ func GetSyncGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyncGroup resources.
 type syncGroupState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Sync group status
-	SyncGroupStatus *string `pulumi:"syncGroupStatus"`
-	// The type of the resource
-	Type *string `pulumi:"type"`
-	// Unique Id
-	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type SyncGroupState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Sync group status
-	SyncGroupStatus pulumi.StringPtrInput
-	// The type of the resource
-	Type pulumi.StringPtrInput
-	// Unique Id
-	UniqueId pulumi.StringPtrInput
 }
 
 func (SyncGroupState) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure Data Lake Store dataset.
+    /// </summary>
     [OutputType]
     public sealed class AzureDataLakeStoreDatasetResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Managed Virtual Network reference type.
+    /// </summary>
     [OutputType]
     public sealed class ManagedVirtualNetworkReferenceResponse
     {

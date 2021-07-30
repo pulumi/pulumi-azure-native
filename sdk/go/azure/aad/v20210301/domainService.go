@@ -127,93 +127,9 @@ func GetDomainService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainService resources.
 type domainServiceState struct {
-	// Deployment Id
-	DeploymentId *string `pulumi:"deploymentId"`
-	// Domain Configuration Type
-	DomainConfigurationType *string `pulumi:"domainConfigurationType"`
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName *string `pulumi:"domainName"`
-	// DomainSecurity Settings
-	DomainSecuritySettings *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync *string `pulumi:"filteredSync"`
-	// Secure LDAP Settings
-	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Migration Properties
-	MigrationProperties *MigrationPropertiesResponse `pulumi:"migrationProperties"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Notification Settings
-	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
-	// the current deployment or provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// List of ReplicaSets
-	ReplicaSets []ReplicaSetResponse `pulumi:"replicaSets"`
-	// Resource Forest Settings
-	ResourceForestSettings *ResourceForestSettingsResponse `pulumi:"resourceForestSettings"`
-	// Sku Type
-	Sku *string `pulumi:"sku"`
-	// SyncOwner ReplicaSet Id
-	SyncOwner *string `pulumi:"syncOwner"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure Active Directory Tenant Id
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Data Model Version
-	Version *int `pulumi:"version"`
 }
 
 type DomainServiceState struct {
-	// Deployment Id
-	DeploymentId pulumi.StringPtrInput
-	// Domain Configuration Type
-	DomainConfigurationType pulumi.StringPtrInput
-	// The name of the Azure domain that the user would like to deploy Domain Services to.
-	DomainName pulumi.StringPtrInput
-	// DomainSecurity Settings
-	DomainSecuritySettings DomainSecuritySettingsResponsePtrInput
-	// Resource etag
-	Etag pulumi.StringPtrInput
-	// Enabled or Disabled flag to turn on Group-based filtered sync
-	FilteredSync pulumi.StringPtrInput
-	// Secure LDAP Settings
-	LdapsSettings LdapsSettingsResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Migration Properties
-	MigrationProperties MigrationPropertiesResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Notification Settings
-	NotificationSettings NotificationSettingsResponsePtrInput
-	// the current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// List of ReplicaSets
-	ReplicaSets ReplicaSetResponseArrayInput
-	// Resource Forest Settings
-	ResourceForestSettings ResourceForestSettingsResponsePtrInput
-	// Sku Type
-	Sku pulumi.StringPtrInput
-	// SyncOwner ReplicaSet Id
-	SyncOwner pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Azure Active Directory Tenant Id
-	TenantId pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Data Model Version
-	Version pulumi.IntPtrInput
 }
 
 func (DomainServiceState) ElementType() reflect.Type {

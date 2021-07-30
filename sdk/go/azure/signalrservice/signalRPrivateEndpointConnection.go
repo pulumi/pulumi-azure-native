@@ -93,29 +93,9 @@ func GetSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SignalRPrivateEndpointConnection resources.
 type signalRPrivateEndpointConnectionState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Connection state
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type *string `pulumi:"type"`
 }
 
 type SignalRPrivateEndpointConnectionState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// Connection state
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// Provisioning state of the private endpoint connection
-	ProvisioningState pulumi.StringPtrInput
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringPtrInput
 }
 
 func (SignalRPrivateEndpointConnectionState) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.Outputs
 {
 
+    /// <summary>
+    /// Endpoint addresses
+    /// </summary>
     [OutputType]
     public sealed class EndpointsResponse
     {

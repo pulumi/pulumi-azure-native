@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
+    /// <summary>
+    /// Configure backups for databases in your SQL virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class AutoBackupSettingsResponse
     {

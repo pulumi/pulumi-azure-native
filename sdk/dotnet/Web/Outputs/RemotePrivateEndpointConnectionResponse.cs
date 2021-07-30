@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// A remote private endpoint connection
+    /// </summary>
     [OutputType]
     public sealed class RemotePrivateEndpointConnectionResponse
     {

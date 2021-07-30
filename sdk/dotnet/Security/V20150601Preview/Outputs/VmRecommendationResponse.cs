@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20150601Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a machine that is part of a VM/server group
+    /// </summary>
     [OutputType]
     public sealed class VmRecommendationResponse
     {

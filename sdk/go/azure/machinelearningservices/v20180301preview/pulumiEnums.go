@@ -11,7 +11,7 @@ import (
 )
 
 // The type of compute
-type ComputeType pulumi.String
+type ComputeType string
 
 const (
 	ComputeTypeAKS            = ComputeType("AKS")
@@ -22,7 +22,23 @@ const (
 )
 
 func (ComputeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ComputeType)(nil)).Elem()
+}
+
+func (e ComputeType) ToComputeTypeOutput() ComputeTypeOutput {
+	return pulumi.ToOutput(e).(ComputeTypeOutput)
+}
+
+func (e ComputeType) ToComputeTypeOutputWithContext(ctx context.Context) ComputeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeTypeOutput)
+}
+
+func (e ComputeType) ToComputeTypePtrOutput() ComputeTypePtrOutput {
+	return e.ToComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (e ComputeType) ToComputeTypePtrOutputWithContext(ctx context.Context) ComputeTypePtrOutput {
+	return ComputeType(e).ToComputeTypeOutputWithContext(ctx).ToComputeTypePtrOutputWithContext(ctx)
 }
 
 func (e ComputeType) ToStringOutput() pulumi.StringOutput {
@@ -41,15 +57,152 @@ func (e ComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.St
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ComputeTypeOutput struct{ *pulumi.OutputState }
+
+func (ComputeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeType)(nil)).Elem()
+}
+
+func (o ComputeTypeOutput) ToComputeTypeOutput() ComputeTypeOutput {
+	return o
+}
+
+func (o ComputeTypeOutput) ToComputeTypeOutputWithContext(ctx context.Context) ComputeTypeOutput {
+	return o
+}
+
+func (o ComputeTypeOutput) ToComputeTypePtrOutput() ComputeTypePtrOutput {
+	return o.ToComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (o ComputeTypeOutput) ToComputeTypePtrOutputWithContext(ctx context.Context) ComputeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeType) *ComputeType {
+		return &v
+	}).(ComputeTypePtrOutput)
+}
+
+func (o ComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeTypePtrOutput) ElementType() reflect.Type {
+	return computeTypePtrType
+}
+
+func (o ComputeTypePtrOutput) ToComputeTypePtrOutput() ComputeTypePtrOutput {
+	return o
+}
+
+func (o ComputeTypePtrOutput) ToComputeTypePtrOutputWithContext(ctx context.Context) ComputeTypePtrOutput {
+	return o
+}
+
+func (o ComputeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeTypePtrOutput) Elem() ComputeTypeOutput {
+	return o.ApplyT(func(v *ComputeType) ComputeType {
+		var ret ComputeType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ComputeTypeOutput)
+}
+
+// ComputeTypeInput is an input type that accepts ComputeTypeArgs and ComputeTypeOutput values.
+// You can construct a concrete instance of `ComputeTypeInput` via:
+//
+//          ComputeTypeArgs{...}
+type ComputeTypeInput interface {
+	pulumi.Input
+
+	ToComputeTypeOutput() ComputeTypeOutput
+	ToComputeTypeOutputWithContext(context.Context) ComputeTypeOutput
+}
+
+var computeTypePtrType = reflect.TypeOf((**ComputeType)(nil)).Elem()
+
+type ComputeTypePtrInput interface {
+	pulumi.Input
+
+	ToComputeTypePtrOutput() ComputeTypePtrOutput
+	ToComputeTypePtrOutputWithContext(context.Context) ComputeTypePtrOutput
+}
+
+type computeTypePtr string
+
+func ComputeTypePtr(v string) ComputeTypePtrInput {
+	return (*computeTypePtr)(&v)
+}
+
+func (*computeTypePtr) ElementType() reflect.Type {
+	return computeTypePtrType
+}
+
+func (in *computeTypePtr) ToComputeTypePtrOutput() ComputeTypePtrOutput {
+	return pulumi.ToOutput(in).(ComputeTypePtrOutput)
+}
+
+func (in *computeTypePtr) ToComputeTypePtrOutputWithContext(ctx context.Context) ComputeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeTypePtrOutput)
+}
+
 // The identity type.
-type ResourceIdentityType pulumi.String
+type ResourceIdentityType string
 
 const (
 	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
 }
 
 func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
@@ -66,4 +219,132 @@ func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+		return &v
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+		var ret ResourceIdentityType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ResourceIdentityTypeOutput)
+}
+
+// ResourceIdentityTypeInput is an input type that accepts ResourceIdentityTypeArgs and ResourceIdentityTypeOutput values.
+// You can construct a concrete instance of `ResourceIdentityTypeInput` via:
+//
+//          ResourceIdentityTypeArgs{...}
+type ResourceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
+	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+}
+
+var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+
+type ResourceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
+	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+}
+
+type resourceIdentityTypePtr string
+
+func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
+	return (*resourceIdentityTypePtr)(&v)
+}
+
+func (*resourceIdentityTypePtr) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ComputeTypeOutput{})
+	pulumi.RegisterOutputType(ComputeTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
 }

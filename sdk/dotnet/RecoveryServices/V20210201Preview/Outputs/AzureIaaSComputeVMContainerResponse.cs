@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// IaaS VM workload-specific backup item representing an Azure Resource Manager virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class AzureIaaSComputeVMContainerResponse
     {

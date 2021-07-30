@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Represents an Asset for input into a Job.
+    /// </summary>
     [OutputType]
     public sealed class JobInputAssetResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
+    /// <summary>
+    /// Distribute via VHD in a storage account.
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateVhdDistributorResponse
     {

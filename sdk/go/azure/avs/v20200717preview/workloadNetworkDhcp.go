@@ -93,37 +93,9 @@ func GetWorkloadNetworkDhcp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkDhcp resources.
 type workloadNetworkDhcpState struct {
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType *string `pulumi:"dhcpType"`
-	// Display name of the DHCP entity.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// NSX Segments consuming DHCP.
-	Segments []string `pulumi:"segments"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkDhcpState struct {
-	// Type of DHCP: SERVER or RELAY.
-	DhcpType pulumi.StringPtrInput
-	// Display name of the DHCP entity.
-	DisplayName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// NSX Segments consuming DHCP.
-	Segments pulumi.StringArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkDhcpState) ElementType() reflect.Type {

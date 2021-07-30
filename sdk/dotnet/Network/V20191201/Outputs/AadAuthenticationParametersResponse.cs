@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
+    /// <summary>
+    /// AAD Vpn authentication type related parameters.
+    /// </summary>
     [OutputType]
     public sealed class AadAuthenticationParametersResponse
     {

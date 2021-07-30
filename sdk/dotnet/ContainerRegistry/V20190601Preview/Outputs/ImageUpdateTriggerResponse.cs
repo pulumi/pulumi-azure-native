@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// The image update trigger that caused a build.
+    /// </summary>
     [OutputType]
     public sealed class ImageUpdateTriggerResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// This activity is used for iterating over a collection and execute given activities.
+    /// </summary>
     [OutputType]
     public sealed class ForEachActivityResponse
     {

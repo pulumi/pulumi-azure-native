@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
+    /// <summary>
+    /// Web Service Parameter object for node and global parameter
+    /// </summary>
     [OutputType]
     public sealed class WebServiceParameterResponse
     {

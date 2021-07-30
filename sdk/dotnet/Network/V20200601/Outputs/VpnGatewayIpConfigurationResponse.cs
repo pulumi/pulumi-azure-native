@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
+    /// <summary>
+    /// IP Configuration of a VPN Gateway Resource.
+    /// </summary>
     [OutputType]
     public sealed class VpnGatewayIpConfigurationResponse
     {

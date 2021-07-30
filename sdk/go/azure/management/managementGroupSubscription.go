@@ -86,33 +86,9 @@ func GetManagementGroupSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementGroupSubscription resources.
 type managementGroupSubscriptionState struct {
-	// The friendly name of the subscription.
-	DisplayName *string `pulumi:"displayName"`
-	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Name *string `pulumi:"name"`
-	// The ID of the parent management group.
-	Parent *DescendantParentGroupInfoResponse `pulumi:"parent"`
-	// The state of the subscription.
-	State *string `pulumi:"state"`
-	// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Tenant *string `pulumi:"tenant"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
-	Type *string `pulumi:"type"`
 }
 
 type ManagementGroupSubscriptionState struct {
-	// The friendly name of the subscription.
-	DisplayName pulumi.StringPtrInput
-	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringPtrInput
-	// The ID of the parent management group.
-	Parent DescendantParentGroupInfoResponsePtrInput
-	// The state of the subscription.
-	State pulumi.StringPtrInput
-	// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
-	Tenant pulumi.StringPtrInput
-	// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
-	Type pulumi.StringPtrInput
 }
 
 func (ManagementGroupSubscriptionState) ElementType() reflect.Type {

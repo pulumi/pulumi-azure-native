@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+    /// </summary>
     [OutputType]
     public sealed class OSProfileResponse
     {

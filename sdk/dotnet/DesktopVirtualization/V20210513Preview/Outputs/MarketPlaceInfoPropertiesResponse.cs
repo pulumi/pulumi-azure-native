@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210513Preview.Outputs
 {
 
+    /// <summary>
+    /// Image configurations of HostPool.
+    /// </summary>
     [OutputType]
     public sealed class MarketPlaceInfoPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Allow to exclude some variable satisfy the condition for the WAF check.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayFirewallExclusionResponse
     {

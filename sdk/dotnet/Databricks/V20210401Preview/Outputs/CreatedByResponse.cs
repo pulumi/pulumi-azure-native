@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Provides details of the entity that created/updated the workspace.
+    /// </summary>
     [OutputType]
     public sealed class CreatedByResponse
     {

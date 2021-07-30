@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Data regarding 3rd party partner integration
+    /// </summary>
     [OutputType]
     public sealed class SecurityAssessmentPartnerDataResponse
     {

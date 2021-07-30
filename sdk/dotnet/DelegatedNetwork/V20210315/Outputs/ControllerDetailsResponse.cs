@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DelegatedNetwork.V20210315.Outputs
 {
 
+    /// <summary>
+    /// controller details
+    /// </summary>
     [OutputType]
     public sealed class ControllerDetailsResponse
     {

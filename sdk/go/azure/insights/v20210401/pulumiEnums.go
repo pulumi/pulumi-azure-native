@@ -11,7 +11,7 @@ import (
 )
 
 // The kind of the resource.
-type KnownDataCollectionEndpointResourceKind pulumi.String
+type KnownDataCollectionEndpointResourceKind string
 
 const (
 	KnownDataCollectionEndpointResourceKindLinux   = KnownDataCollectionEndpointResourceKind("Linux")
@@ -19,7 +19,23 @@ const (
 )
 
 func (KnownDataCollectionEndpointResourceKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownDataCollectionEndpointResourceKind)(nil)).Elem()
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToKnownDataCollectionEndpointResourceKindOutput() KnownDataCollectionEndpointResourceKindOutput {
+	return pulumi.ToOutput(e).(KnownDataCollectionEndpointResourceKindOutput)
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToKnownDataCollectionEndpointResourceKindOutputWithContext(ctx context.Context) KnownDataCollectionEndpointResourceKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownDataCollectionEndpointResourceKindOutput)
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToKnownDataCollectionEndpointResourceKindPtrOutput() KnownDataCollectionEndpointResourceKindPtrOutput {
+	return e.ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(context.Background())
+}
+
+func (e KnownDataCollectionEndpointResourceKind) ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionEndpointResourceKindPtrOutput {
+	return KnownDataCollectionEndpointResourceKind(e).ToKnownDataCollectionEndpointResourceKindOutputWithContext(ctx).ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(ctx)
 }
 
 func (e KnownDataCollectionEndpointResourceKind) ToStringOutput() pulumi.StringOutput {
@@ -38,8 +54,129 @@ func (e KnownDataCollectionEndpointResourceKind) ToStringPtrOutputWithContext(ct
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type KnownDataCollectionEndpointResourceKindOutput struct{ *pulumi.OutputState }
+
+func (KnownDataCollectionEndpointResourceKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownDataCollectionEndpointResourceKind)(nil)).Elem()
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToKnownDataCollectionEndpointResourceKindOutput() KnownDataCollectionEndpointResourceKindOutput {
+	return o
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToKnownDataCollectionEndpointResourceKindOutputWithContext(ctx context.Context) KnownDataCollectionEndpointResourceKindOutput {
+	return o
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToKnownDataCollectionEndpointResourceKindPtrOutput() KnownDataCollectionEndpointResourceKindPtrOutput {
+	return o.ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionEndpointResourceKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownDataCollectionEndpointResourceKind) *KnownDataCollectionEndpointResourceKind {
+		return &v
+	}).(KnownDataCollectionEndpointResourceKindPtrOutput)
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownDataCollectionEndpointResourceKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionEndpointResourceKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownDataCollectionEndpointResourceKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownDataCollectionEndpointResourceKindPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownDataCollectionEndpointResourceKindPtrOutput) ElementType() reflect.Type {
+	return knownDataCollectionEndpointResourceKindPtrType
+}
+
+func (o KnownDataCollectionEndpointResourceKindPtrOutput) ToKnownDataCollectionEndpointResourceKindPtrOutput() KnownDataCollectionEndpointResourceKindPtrOutput {
+	return o
+}
+
+func (o KnownDataCollectionEndpointResourceKindPtrOutput) ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionEndpointResourceKindPtrOutput {
+	return o
+}
+
+func (o KnownDataCollectionEndpointResourceKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionEndpointResourceKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownDataCollectionEndpointResourceKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownDataCollectionEndpointResourceKindPtrOutput) Elem() KnownDataCollectionEndpointResourceKindOutput {
+	return o.ApplyT(func(v *KnownDataCollectionEndpointResourceKind) KnownDataCollectionEndpointResourceKind {
+		var ret KnownDataCollectionEndpointResourceKind
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownDataCollectionEndpointResourceKindOutput)
+}
+
+// KnownDataCollectionEndpointResourceKindInput is an input type that accepts KnownDataCollectionEndpointResourceKindArgs and KnownDataCollectionEndpointResourceKindOutput values.
+// You can construct a concrete instance of `KnownDataCollectionEndpointResourceKindInput` via:
+//
+//          KnownDataCollectionEndpointResourceKindArgs{...}
+type KnownDataCollectionEndpointResourceKindInput interface {
+	pulumi.Input
+
+	ToKnownDataCollectionEndpointResourceKindOutput() KnownDataCollectionEndpointResourceKindOutput
+	ToKnownDataCollectionEndpointResourceKindOutputWithContext(context.Context) KnownDataCollectionEndpointResourceKindOutput
+}
+
+var knownDataCollectionEndpointResourceKindPtrType = reflect.TypeOf((**KnownDataCollectionEndpointResourceKind)(nil)).Elem()
+
+type KnownDataCollectionEndpointResourceKindPtrInput interface {
+	pulumi.Input
+
+	ToKnownDataCollectionEndpointResourceKindPtrOutput() KnownDataCollectionEndpointResourceKindPtrOutput
+	ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(context.Context) KnownDataCollectionEndpointResourceKindPtrOutput
+}
+
+type knownDataCollectionEndpointResourceKindPtr string
+
+func KnownDataCollectionEndpointResourceKindPtr(v string) KnownDataCollectionEndpointResourceKindPtrInput {
+	return (*knownDataCollectionEndpointResourceKindPtr)(&v)
+}
+
+func (*knownDataCollectionEndpointResourceKindPtr) ElementType() reflect.Type {
+	return knownDataCollectionEndpointResourceKindPtrType
+}
+
+func (in *knownDataCollectionEndpointResourceKindPtr) ToKnownDataCollectionEndpointResourceKindPtrOutput() KnownDataCollectionEndpointResourceKindPtrOutput {
+	return pulumi.ToOutput(in).(KnownDataCollectionEndpointResourceKindPtrOutput)
+}
+
+func (in *knownDataCollectionEndpointResourceKindPtr) ToKnownDataCollectionEndpointResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionEndpointResourceKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownDataCollectionEndpointResourceKindPtrOutput)
+}
+
 // The kind of the resource.
-type KnownDataCollectionRuleResourceKind pulumi.String
+type KnownDataCollectionRuleResourceKind string
 
 const (
 	KnownDataCollectionRuleResourceKindLinux   = KnownDataCollectionRuleResourceKind("Linux")
@@ -47,7 +184,23 @@ const (
 )
 
 func (KnownDataCollectionRuleResourceKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownDataCollectionRuleResourceKind)(nil)).Elem()
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToKnownDataCollectionRuleResourceKindOutput() KnownDataCollectionRuleResourceKindOutput {
+	return pulumi.ToOutput(e).(KnownDataCollectionRuleResourceKindOutput)
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToKnownDataCollectionRuleResourceKindOutputWithContext(ctx context.Context) KnownDataCollectionRuleResourceKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownDataCollectionRuleResourceKindOutput)
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToKnownDataCollectionRuleResourceKindPtrOutput() KnownDataCollectionRuleResourceKindPtrOutput {
+	return e.ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(context.Background())
+}
+
+func (e KnownDataCollectionRuleResourceKind) ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionRuleResourceKindPtrOutput {
+	return KnownDataCollectionRuleResourceKind(e).ToKnownDataCollectionRuleResourceKindOutputWithContext(ctx).ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(ctx)
 }
 
 func (e KnownDataCollectionRuleResourceKind) ToStringOutput() pulumi.StringOutput {
@@ -66,7 +219,128 @@ func (e KnownDataCollectionRuleResourceKind) ToStringPtrOutputWithContext(ctx co
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownDataFlowStreams pulumi.String
+type KnownDataCollectionRuleResourceKindOutput struct{ *pulumi.OutputState }
+
+func (KnownDataCollectionRuleResourceKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownDataCollectionRuleResourceKind)(nil)).Elem()
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToKnownDataCollectionRuleResourceKindOutput() KnownDataCollectionRuleResourceKindOutput {
+	return o
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToKnownDataCollectionRuleResourceKindOutputWithContext(ctx context.Context) KnownDataCollectionRuleResourceKindOutput {
+	return o
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToKnownDataCollectionRuleResourceKindPtrOutput() KnownDataCollectionRuleResourceKindPtrOutput {
+	return o.ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionRuleResourceKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownDataCollectionRuleResourceKind) *KnownDataCollectionRuleResourceKind {
+		return &v
+	}).(KnownDataCollectionRuleResourceKindPtrOutput)
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownDataCollectionRuleResourceKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionRuleResourceKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownDataCollectionRuleResourceKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownDataCollectionRuleResourceKindPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownDataCollectionRuleResourceKindPtrOutput) ElementType() reflect.Type {
+	return knownDataCollectionRuleResourceKindPtrType
+}
+
+func (o KnownDataCollectionRuleResourceKindPtrOutput) ToKnownDataCollectionRuleResourceKindPtrOutput() KnownDataCollectionRuleResourceKindPtrOutput {
+	return o
+}
+
+func (o KnownDataCollectionRuleResourceKindPtrOutput) ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionRuleResourceKindPtrOutput {
+	return o
+}
+
+func (o KnownDataCollectionRuleResourceKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataCollectionRuleResourceKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownDataCollectionRuleResourceKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownDataCollectionRuleResourceKindPtrOutput) Elem() KnownDataCollectionRuleResourceKindOutput {
+	return o.ApplyT(func(v *KnownDataCollectionRuleResourceKind) KnownDataCollectionRuleResourceKind {
+		var ret KnownDataCollectionRuleResourceKind
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownDataCollectionRuleResourceKindOutput)
+}
+
+// KnownDataCollectionRuleResourceKindInput is an input type that accepts KnownDataCollectionRuleResourceKindArgs and KnownDataCollectionRuleResourceKindOutput values.
+// You can construct a concrete instance of `KnownDataCollectionRuleResourceKindInput` via:
+//
+//          KnownDataCollectionRuleResourceKindArgs{...}
+type KnownDataCollectionRuleResourceKindInput interface {
+	pulumi.Input
+
+	ToKnownDataCollectionRuleResourceKindOutput() KnownDataCollectionRuleResourceKindOutput
+	ToKnownDataCollectionRuleResourceKindOutputWithContext(context.Context) KnownDataCollectionRuleResourceKindOutput
+}
+
+var knownDataCollectionRuleResourceKindPtrType = reflect.TypeOf((**KnownDataCollectionRuleResourceKind)(nil)).Elem()
+
+type KnownDataCollectionRuleResourceKindPtrInput interface {
+	pulumi.Input
+
+	ToKnownDataCollectionRuleResourceKindPtrOutput() KnownDataCollectionRuleResourceKindPtrOutput
+	ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(context.Context) KnownDataCollectionRuleResourceKindPtrOutput
+}
+
+type knownDataCollectionRuleResourceKindPtr string
+
+func KnownDataCollectionRuleResourceKindPtr(v string) KnownDataCollectionRuleResourceKindPtrInput {
+	return (*knownDataCollectionRuleResourceKindPtr)(&v)
+}
+
+func (*knownDataCollectionRuleResourceKindPtr) ElementType() reflect.Type {
+	return knownDataCollectionRuleResourceKindPtrType
+}
+
+func (in *knownDataCollectionRuleResourceKindPtr) ToKnownDataCollectionRuleResourceKindPtrOutput() KnownDataCollectionRuleResourceKindPtrOutput {
+	return pulumi.ToOutput(in).(KnownDataCollectionRuleResourceKindPtrOutput)
+}
+
+func (in *knownDataCollectionRuleResourceKindPtr) ToKnownDataCollectionRuleResourceKindPtrOutputWithContext(ctx context.Context) KnownDataCollectionRuleResourceKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownDataCollectionRuleResourceKindPtrOutput)
+}
+
+type KnownDataFlowStreams string
 
 const (
 	KnownDataFlowStreams_Microsoft_Event           = KnownDataFlowStreams("Microsoft-Event")
@@ -77,7 +351,23 @@ const (
 )
 
 func (KnownDataFlowStreams) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownDataFlowStreams)(nil)).Elem()
+}
+
+func (e KnownDataFlowStreams) ToKnownDataFlowStreamsOutput() KnownDataFlowStreamsOutput {
+	return pulumi.ToOutput(e).(KnownDataFlowStreamsOutput)
+}
+
+func (e KnownDataFlowStreams) ToKnownDataFlowStreamsOutputWithContext(ctx context.Context) KnownDataFlowStreamsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownDataFlowStreamsOutput)
+}
+
+func (e KnownDataFlowStreams) ToKnownDataFlowStreamsPtrOutput() KnownDataFlowStreamsPtrOutput {
+	return e.ToKnownDataFlowStreamsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownDataFlowStreams) ToKnownDataFlowStreamsPtrOutputWithContext(ctx context.Context) KnownDataFlowStreamsPtrOutput {
+	return KnownDataFlowStreams(e).ToKnownDataFlowStreamsOutputWithContext(ctx).ToKnownDataFlowStreamsPtrOutputWithContext(ctx)
 }
 
 func (e KnownDataFlowStreams) ToStringOutput() pulumi.StringOutput {
@@ -96,7 +386,128 @@ func (e KnownDataFlowStreams) ToStringPtrOutputWithContext(ctx context.Context) 
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownExtensionDataSourceStreams pulumi.String
+type KnownDataFlowStreamsOutput struct{ *pulumi.OutputState }
+
+func (KnownDataFlowStreamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownDataFlowStreams)(nil)).Elem()
+}
+
+func (o KnownDataFlowStreamsOutput) ToKnownDataFlowStreamsOutput() KnownDataFlowStreamsOutput {
+	return o
+}
+
+func (o KnownDataFlowStreamsOutput) ToKnownDataFlowStreamsOutputWithContext(ctx context.Context) KnownDataFlowStreamsOutput {
+	return o
+}
+
+func (o KnownDataFlowStreamsOutput) ToKnownDataFlowStreamsPtrOutput() KnownDataFlowStreamsPtrOutput {
+	return o.ToKnownDataFlowStreamsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataFlowStreamsOutput) ToKnownDataFlowStreamsPtrOutputWithContext(ctx context.Context) KnownDataFlowStreamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownDataFlowStreams) *KnownDataFlowStreams {
+		return &v
+	}).(KnownDataFlowStreamsPtrOutput)
+}
+
+func (o KnownDataFlowStreamsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownDataFlowStreamsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownDataFlowStreams) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownDataFlowStreamsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataFlowStreamsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownDataFlowStreams) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownDataFlowStreamsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownDataFlowStreamsPtrOutput) ElementType() reflect.Type {
+	return knownDataFlowStreamsPtrType
+}
+
+func (o KnownDataFlowStreamsPtrOutput) ToKnownDataFlowStreamsPtrOutput() KnownDataFlowStreamsPtrOutput {
+	return o
+}
+
+func (o KnownDataFlowStreamsPtrOutput) ToKnownDataFlowStreamsPtrOutputWithContext(ctx context.Context) KnownDataFlowStreamsPtrOutput {
+	return o
+}
+
+func (o KnownDataFlowStreamsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownDataFlowStreamsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownDataFlowStreams) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownDataFlowStreamsPtrOutput) Elem() KnownDataFlowStreamsOutput {
+	return o.ApplyT(func(v *KnownDataFlowStreams) KnownDataFlowStreams {
+		var ret KnownDataFlowStreams
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownDataFlowStreamsOutput)
+}
+
+// KnownDataFlowStreamsInput is an input type that accepts KnownDataFlowStreamsArgs and KnownDataFlowStreamsOutput values.
+// You can construct a concrete instance of `KnownDataFlowStreamsInput` via:
+//
+//          KnownDataFlowStreamsArgs{...}
+type KnownDataFlowStreamsInput interface {
+	pulumi.Input
+
+	ToKnownDataFlowStreamsOutput() KnownDataFlowStreamsOutput
+	ToKnownDataFlowStreamsOutputWithContext(context.Context) KnownDataFlowStreamsOutput
+}
+
+var knownDataFlowStreamsPtrType = reflect.TypeOf((**KnownDataFlowStreams)(nil)).Elem()
+
+type KnownDataFlowStreamsPtrInput interface {
+	pulumi.Input
+
+	ToKnownDataFlowStreamsPtrOutput() KnownDataFlowStreamsPtrOutput
+	ToKnownDataFlowStreamsPtrOutputWithContext(context.Context) KnownDataFlowStreamsPtrOutput
+}
+
+type knownDataFlowStreamsPtr string
+
+func KnownDataFlowStreamsPtr(v string) KnownDataFlowStreamsPtrInput {
+	return (*knownDataFlowStreamsPtr)(&v)
+}
+
+func (*knownDataFlowStreamsPtr) ElementType() reflect.Type {
+	return knownDataFlowStreamsPtrType
+}
+
+func (in *knownDataFlowStreamsPtr) ToKnownDataFlowStreamsPtrOutput() KnownDataFlowStreamsPtrOutput {
+	return pulumi.ToOutput(in).(KnownDataFlowStreamsPtrOutput)
+}
+
+func (in *knownDataFlowStreamsPtr) ToKnownDataFlowStreamsPtrOutputWithContext(ctx context.Context) KnownDataFlowStreamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownDataFlowStreamsPtrOutput)
+}
+
+type KnownExtensionDataSourceStreams string
 
 const (
 	KnownExtensionDataSourceStreams_Microsoft_Event           = KnownExtensionDataSourceStreams("Microsoft-Event")
@@ -107,7 +518,23 @@ const (
 )
 
 func (KnownExtensionDataSourceStreams) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownExtensionDataSourceStreams)(nil)).Elem()
+}
+
+func (e KnownExtensionDataSourceStreams) ToKnownExtensionDataSourceStreamsOutput() KnownExtensionDataSourceStreamsOutput {
+	return pulumi.ToOutput(e).(KnownExtensionDataSourceStreamsOutput)
+}
+
+func (e KnownExtensionDataSourceStreams) ToKnownExtensionDataSourceStreamsOutputWithContext(ctx context.Context) KnownExtensionDataSourceStreamsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownExtensionDataSourceStreamsOutput)
+}
+
+func (e KnownExtensionDataSourceStreams) ToKnownExtensionDataSourceStreamsPtrOutput() KnownExtensionDataSourceStreamsPtrOutput {
+	return e.ToKnownExtensionDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownExtensionDataSourceStreams) ToKnownExtensionDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownExtensionDataSourceStreamsPtrOutput {
+	return KnownExtensionDataSourceStreams(e).ToKnownExtensionDataSourceStreamsOutputWithContext(ctx).ToKnownExtensionDataSourceStreamsPtrOutputWithContext(ctx)
 }
 
 func (e KnownExtensionDataSourceStreams) ToStringOutput() pulumi.StringOutput {
@@ -126,7 +553,128 @@ func (e KnownExtensionDataSourceStreams) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownPerfCounterDataSourceStreams pulumi.String
+type KnownExtensionDataSourceStreamsOutput struct{ *pulumi.OutputState }
+
+func (KnownExtensionDataSourceStreamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownExtensionDataSourceStreams)(nil)).Elem()
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToKnownExtensionDataSourceStreamsOutput() KnownExtensionDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToKnownExtensionDataSourceStreamsOutputWithContext(ctx context.Context) KnownExtensionDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToKnownExtensionDataSourceStreamsPtrOutput() KnownExtensionDataSourceStreamsPtrOutput {
+	return o.ToKnownExtensionDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToKnownExtensionDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownExtensionDataSourceStreamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownExtensionDataSourceStreams) *KnownExtensionDataSourceStreams {
+		return &v
+	}).(KnownExtensionDataSourceStreamsPtrOutput)
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownExtensionDataSourceStreams) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownExtensionDataSourceStreamsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownExtensionDataSourceStreams) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownExtensionDataSourceStreamsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownExtensionDataSourceStreamsPtrOutput) ElementType() reflect.Type {
+	return knownExtensionDataSourceStreamsPtrType
+}
+
+func (o KnownExtensionDataSourceStreamsPtrOutput) ToKnownExtensionDataSourceStreamsPtrOutput() KnownExtensionDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownExtensionDataSourceStreamsPtrOutput) ToKnownExtensionDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownExtensionDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownExtensionDataSourceStreamsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownExtensionDataSourceStreamsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownExtensionDataSourceStreams) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownExtensionDataSourceStreamsPtrOutput) Elem() KnownExtensionDataSourceStreamsOutput {
+	return o.ApplyT(func(v *KnownExtensionDataSourceStreams) KnownExtensionDataSourceStreams {
+		var ret KnownExtensionDataSourceStreams
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownExtensionDataSourceStreamsOutput)
+}
+
+// KnownExtensionDataSourceStreamsInput is an input type that accepts KnownExtensionDataSourceStreamsArgs and KnownExtensionDataSourceStreamsOutput values.
+// You can construct a concrete instance of `KnownExtensionDataSourceStreamsInput` via:
+//
+//          KnownExtensionDataSourceStreamsArgs{...}
+type KnownExtensionDataSourceStreamsInput interface {
+	pulumi.Input
+
+	ToKnownExtensionDataSourceStreamsOutput() KnownExtensionDataSourceStreamsOutput
+	ToKnownExtensionDataSourceStreamsOutputWithContext(context.Context) KnownExtensionDataSourceStreamsOutput
+}
+
+var knownExtensionDataSourceStreamsPtrType = reflect.TypeOf((**KnownExtensionDataSourceStreams)(nil)).Elem()
+
+type KnownExtensionDataSourceStreamsPtrInput interface {
+	pulumi.Input
+
+	ToKnownExtensionDataSourceStreamsPtrOutput() KnownExtensionDataSourceStreamsPtrOutput
+	ToKnownExtensionDataSourceStreamsPtrOutputWithContext(context.Context) KnownExtensionDataSourceStreamsPtrOutput
+}
+
+type knownExtensionDataSourceStreamsPtr string
+
+func KnownExtensionDataSourceStreamsPtr(v string) KnownExtensionDataSourceStreamsPtrInput {
+	return (*knownExtensionDataSourceStreamsPtr)(&v)
+}
+
+func (*knownExtensionDataSourceStreamsPtr) ElementType() reflect.Type {
+	return knownExtensionDataSourceStreamsPtrType
+}
+
+func (in *knownExtensionDataSourceStreamsPtr) ToKnownExtensionDataSourceStreamsPtrOutput() KnownExtensionDataSourceStreamsPtrOutput {
+	return pulumi.ToOutput(in).(KnownExtensionDataSourceStreamsPtrOutput)
+}
+
+func (in *knownExtensionDataSourceStreamsPtr) ToKnownExtensionDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownExtensionDataSourceStreamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownExtensionDataSourceStreamsPtrOutput)
+}
+
+type KnownPerfCounterDataSourceStreams string
 
 const (
 	KnownPerfCounterDataSourceStreams_Microsoft_Perf            = KnownPerfCounterDataSourceStreams("Microsoft-Perf")
@@ -134,7 +682,23 @@ const (
 )
 
 func (KnownPerfCounterDataSourceStreams) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownPerfCounterDataSourceStreams)(nil)).Elem()
+}
+
+func (e KnownPerfCounterDataSourceStreams) ToKnownPerfCounterDataSourceStreamsOutput() KnownPerfCounterDataSourceStreamsOutput {
+	return pulumi.ToOutput(e).(KnownPerfCounterDataSourceStreamsOutput)
+}
+
+func (e KnownPerfCounterDataSourceStreams) ToKnownPerfCounterDataSourceStreamsOutputWithContext(ctx context.Context) KnownPerfCounterDataSourceStreamsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownPerfCounterDataSourceStreamsOutput)
+}
+
+func (e KnownPerfCounterDataSourceStreams) ToKnownPerfCounterDataSourceStreamsPtrOutput() KnownPerfCounterDataSourceStreamsPtrOutput {
+	return e.ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownPerfCounterDataSourceStreams) ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownPerfCounterDataSourceStreamsPtrOutput {
+	return KnownPerfCounterDataSourceStreams(e).ToKnownPerfCounterDataSourceStreamsOutputWithContext(ctx).ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(ctx)
 }
 
 func (e KnownPerfCounterDataSourceStreams) ToStringOutput() pulumi.StringOutput {
@@ -153,8 +717,129 @@ func (e KnownPerfCounterDataSourceStreams) ToStringPtrOutputWithContext(ctx cont
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type KnownPerfCounterDataSourceStreamsOutput struct{ *pulumi.OutputState }
+
+func (KnownPerfCounterDataSourceStreamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownPerfCounterDataSourceStreams)(nil)).Elem()
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToKnownPerfCounterDataSourceStreamsOutput() KnownPerfCounterDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToKnownPerfCounterDataSourceStreamsOutputWithContext(ctx context.Context) KnownPerfCounterDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToKnownPerfCounterDataSourceStreamsPtrOutput() KnownPerfCounterDataSourceStreamsPtrOutput {
+	return o.ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownPerfCounterDataSourceStreamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownPerfCounterDataSourceStreams) *KnownPerfCounterDataSourceStreams {
+		return &v
+	}).(KnownPerfCounterDataSourceStreamsPtrOutput)
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownPerfCounterDataSourceStreams) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownPerfCounterDataSourceStreamsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownPerfCounterDataSourceStreams) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownPerfCounterDataSourceStreamsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownPerfCounterDataSourceStreamsPtrOutput) ElementType() reflect.Type {
+	return knownPerfCounterDataSourceStreamsPtrType
+}
+
+func (o KnownPerfCounterDataSourceStreamsPtrOutput) ToKnownPerfCounterDataSourceStreamsPtrOutput() KnownPerfCounterDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownPerfCounterDataSourceStreamsPtrOutput) ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownPerfCounterDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownPerfCounterDataSourceStreamsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownPerfCounterDataSourceStreamsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownPerfCounterDataSourceStreams) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownPerfCounterDataSourceStreamsPtrOutput) Elem() KnownPerfCounterDataSourceStreamsOutput {
+	return o.ApplyT(func(v *KnownPerfCounterDataSourceStreams) KnownPerfCounterDataSourceStreams {
+		var ret KnownPerfCounterDataSourceStreams
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownPerfCounterDataSourceStreamsOutput)
+}
+
+// KnownPerfCounterDataSourceStreamsInput is an input type that accepts KnownPerfCounterDataSourceStreamsArgs and KnownPerfCounterDataSourceStreamsOutput values.
+// You can construct a concrete instance of `KnownPerfCounterDataSourceStreamsInput` via:
+//
+//          KnownPerfCounterDataSourceStreamsArgs{...}
+type KnownPerfCounterDataSourceStreamsInput interface {
+	pulumi.Input
+
+	ToKnownPerfCounterDataSourceStreamsOutput() KnownPerfCounterDataSourceStreamsOutput
+	ToKnownPerfCounterDataSourceStreamsOutputWithContext(context.Context) KnownPerfCounterDataSourceStreamsOutput
+}
+
+var knownPerfCounterDataSourceStreamsPtrType = reflect.TypeOf((**KnownPerfCounterDataSourceStreams)(nil)).Elem()
+
+type KnownPerfCounterDataSourceStreamsPtrInput interface {
+	pulumi.Input
+
+	ToKnownPerfCounterDataSourceStreamsPtrOutput() KnownPerfCounterDataSourceStreamsPtrOutput
+	ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(context.Context) KnownPerfCounterDataSourceStreamsPtrOutput
+}
+
+type knownPerfCounterDataSourceStreamsPtr string
+
+func KnownPerfCounterDataSourceStreamsPtr(v string) KnownPerfCounterDataSourceStreamsPtrInput {
+	return (*knownPerfCounterDataSourceStreamsPtr)(&v)
+}
+
+func (*knownPerfCounterDataSourceStreamsPtr) ElementType() reflect.Type {
+	return knownPerfCounterDataSourceStreamsPtrType
+}
+
+func (in *knownPerfCounterDataSourceStreamsPtr) ToKnownPerfCounterDataSourceStreamsPtrOutput() KnownPerfCounterDataSourceStreamsPtrOutput {
+	return pulumi.ToOutput(in).(KnownPerfCounterDataSourceStreamsPtrOutput)
+}
+
+func (in *knownPerfCounterDataSourceStreamsPtr) ToKnownPerfCounterDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownPerfCounterDataSourceStreamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownPerfCounterDataSourceStreamsPtrOutput)
+}
+
 // The configuration to set whether network access from public internet to the endpoints are allowed.
-type KnownPublicNetworkAccessOptions pulumi.String
+type KnownPublicNetworkAccessOptions string
 
 const (
 	KnownPublicNetworkAccessOptionsEnabled  = KnownPublicNetworkAccessOptions("Enabled")
@@ -162,7 +847,23 @@ const (
 )
 
 func (KnownPublicNetworkAccessOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownPublicNetworkAccessOptions)(nil)).Elem()
+}
+
+func (e KnownPublicNetworkAccessOptions) ToKnownPublicNetworkAccessOptionsOutput() KnownPublicNetworkAccessOptionsOutput {
+	return pulumi.ToOutput(e).(KnownPublicNetworkAccessOptionsOutput)
+}
+
+func (e KnownPublicNetworkAccessOptions) ToKnownPublicNetworkAccessOptionsOutputWithContext(ctx context.Context) KnownPublicNetworkAccessOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownPublicNetworkAccessOptionsOutput)
+}
+
+func (e KnownPublicNetworkAccessOptions) ToKnownPublicNetworkAccessOptionsPtrOutput() KnownPublicNetworkAccessOptionsPtrOutput {
+	return e.ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownPublicNetworkAccessOptions) ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(ctx context.Context) KnownPublicNetworkAccessOptionsPtrOutput {
+	return KnownPublicNetworkAccessOptions(e).ToKnownPublicNetworkAccessOptionsOutputWithContext(ctx).ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(ctx)
 }
 
 func (e KnownPublicNetworkAccessOptions) ToStringOutput() pulumi.StringOutput {
@@ -181,7 +882,128 @@ func (e KnownPublicNetworkAccessOptions) ToStringPtrOutputWithContext(ctx contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownSyslogDataSourceFacilityNames pulumi.String
+type KnownPublicNetworkAccessOptionsOutput struct{ *pulumi.OutputState }
+
+func (KnownPublicNetworkAccessOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownPublicNetworkAccessOptions)(nil)).Elem()
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToKnownPublicNetworkAccessOptionsOutput() KnownPublicNetworkAccessOptionsOutput {
+	return o
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToKnownPublicNetworkAccessOptionsOutputWithContext(ctx context.Context) KnownPublicNetworkAccessOptionsOutput {
+	return o
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToKnownPublicNetworkAccessOptionsPtrOutput() KnownPublicNetworkAccessOptionsPtrOutput {
+	return o.ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(ctx context.Context) KnownPublicNetworkAccessOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownPublicNetworkAccessOptions) *KnownPublicNetworkAccessOptions {
+		return &v
+	}).(KnownPublicNetworkAccessOptionsPtrOutput)
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownPublicNetworkAccessOptions) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownPublicNetworkAccessOptionsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownPublicNetworkAccessOptions) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownPublicNetworkAccessOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownPublicNetworkAccessOptionsPtrOutput) ElementType() reflect.Type {
+	return knownPublicNetworkAccessOptionsPtrType
+}
+
+func (o KnownPublicNetworkAccessOptionsPtrOutput) ToKnownPublicNetworkAccessOptionsPtrOutput() KnownPublicNetworkAccessOptionsPtrOutput {
+	return o
+}
+
+func (o KnownPublicNetworkAccessOptionsPtrOutput) ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(ctx context.Context) KnownPublicNetworkAccessOptionsPtrOutput {
+	return o
+}
+
+func (o KnownPublicNetworkAccessOptionsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownPublicNetworkAccessOptionsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownPublicNetworkAccessOptions) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownPublicNetworkAccessOptionsPtrOutput) Elem() KnownPublicNetworkAccessOptionsOutput {
+	return o.ApplyT(func(v *KnownPublicNetworkAccessOptions) KnownPublicNetworkAccessOptions {
+		var ret KnownPublicNetworkAccessOptions
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownPublicNetworkAccessOptionsOutput)
+}
+
+// KnownPublicNetworkAccessOptionsInput is an input type that accepts KnownPublicNetworkAccessOptionsArgs and KnownPublicNetworkAccessOptionsOutput values.
+// You can construct a concrete instance of `KnownPublicNetworkAccessOptionsInput` via:
+//
+//          KnownPublicNetworkAccessOptionsArgs{...}
+type KnownPublicNetworkAccessOptionsInput interface {
+	pulumi.Input
+
+	ToKnownPublicNetworkAccessOptionsOutput() KnownPublicNetworkAccessOptionsOutput
+	ToKnownPublicNetworkAccessOptionsOutputWithContext(context.Context) KnownPublicNetworkAccessOptionsOutput
+}
+
+var knownPublicNetworkAccessOptionsPtrType = reflect.TypeOf((**KnownPublicNetworkAccessOptions)(nil)).Elem()
+
+type KnownPublicNetworkAccessOptionsPtrInput interface {
+	pulumi.Input
+
+	ToKnownPublicNetworkAccessOptionsPtrOutput() KnownPublicNetworkAccessOptionsPtrOutput
+	ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(context.Context) KnownPublicNetworkAccessOptionsPtrOutput
+}
+
+type knownPublicNetworkAccessOptionsPtr string
+
+func KnownPublicNetworkAccessOptionsPtr(v string) KnownPublicNetworkAccessOptionsPtrInput {
+	return (*knownPublicNetworkAccessOptionsPtr)(&v)
+}
+
+func (*knownPublicNetworkAccessOptionsPtr) ElementType() reflect.Type {
+	return knownPublicNetworkAccessOptionsPtrType
+}
+
+func (in *knownPublicNetworkAccessOptionsPtr) ToKnownPublicNetworkAccessOptionsPtrOutput() KnownPublicNetworkAccessOptionsPtrOutput {
+	return pulumi.ToOutput(in).(KnownPublicNetworkAccessOptionsPtrOutput)
+}
+
+func (in *knownPublicNetworkAccessOptionsPtr) ToKnownPublicNetworkAccessOptionsPtrOutputWithContext(ctx context.Context) KnownPublicNetworkAccessOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownPublicNetworkAccessOptionsPtrOutput)
+}
+
+type KnownSyslogDataSourceFacilityNames string
 
 const (
 	KnownSyslogDataSourceFacilityNamesAuth     = KnownSyslogDataSourceFacilityNames("auth")
@@ -208,7 +1030,23 @@ const (
 )
 
 func (KnownSyslogDataSourceFacilityNames) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownSyslogDataSourceFacilityNames)(nil)).Elem()
+}
+
+func (e KnownSyslogDataSourceFacilityNames) ToKnownSyslogDataSourceFacilityNamesOutput() KnownSyslogDataSourceFacilityNamesOutput {
+	return pulumi.ToOutput(e).(KnownSyslogDataSourceFacilityNamesOutput)
+}
+
+func (e KnownSyslogDataSourceFacilityNames) ToKnownSyslogDataSourceFacilityNamesOutputWithContext(ctx context.Context) KnownSyslogDataSourceFacilityNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownSyslogDataSourceFacilityNamesOutput)
+}
+
+func (e KnownSyslogDataSourceFacilityNames) ToKnownSyslogDataSourceFacilityNamesPtrOutput() KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return e.ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(context.Background())
+}
+
+func (e KnownSyslogDataSourceFacilityNames) ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return KnownSyslogDataSourceFacilityNames(e).ToKnownSyslogDataSourceFacilityNamesOutputWithContext(ctx).ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(ctx)
 }
 
 func (e KnownSyslogDataSourceFacilityNames) ToStringOutput() pulumi.StringOutput {
@@ -227,7 +1065,128 @@ func (e KnownSyslogDataSourceFacilityNames) ToStringPtrOutputWithContext(ctx con
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownSyslogDataSourceLogLevels pulumi.String
+type KnownSyslogDataSourceFacilityNamesOutput struct{ *pulumi.OutputState }
+
+func (KnownSyslogDataSourceFacilityNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownSyslogDataSourceFacilityNames)(nil)).Elem()
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToKnownSyslogDataSourceFacilityNamesOutput() KnownSyslogDataSourceFacilityNamesOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToKnownSyslogDataSourceFacilityNamesOutputWithContext(ctx context.Context) KnownSyslogDataSourceFacilityNamesOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToKnownSyslogDataSourceFacilityNamesPtrOutput() KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return o.ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownSyslogDataSourceFacilityNames) *KnownSyslogDataSourceFacilityNames {
+		return &v
+	}).(KnownSyslogDataSourceFacilityNamesPtrOutput)
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownSyslogDataSourceFacilityNames) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceFacilityNamesOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownSyslogDataSourceFacilityNames) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownSyslogDataSourceFacilityNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownSyslogDataSourceFacilityNamesPtrOutput) ElementType() reflect.Type {
+	return knownSyslogDataSourceFacilityNamesPtrType
+}
+
+func (o KnownSyslogDataSourceFacilityNamesPtrOutput) ToKnownSyslogDataSourceFacilityNamesPtrOutput() KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceFacilityNamesPtrOutput) ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceFacilityNamesPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceFacilityNamesPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownSyslogDataSourceFacilityNames) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownSyslogDataSourceFacilityNamesPtrOutput) Elem() KnownSyslogDataSourceFacilityNamesOutput {
+	return o.ApplyT(func(v *KnownSyslogDataSourceFacilityNames) KnownSyslogDataSourceFacilityNames {
+		var ret KnownSyslogDataSourceFacilityNames
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownSyslogDataSourceFacilityNamesOutput)
+}
+
+// KnownSyslogDataSourceFacilityNamesInput is an input type that accepts KnownSyslogDataSourceFacilityNamesArgs and KnownSyslogDataSourceFacilityNamesOutput values.
+// You can construct a concrete instance of `KnownSyslogDataSourceFacilityNamesInput` via:
+//
+//          KnownSyslogDataSourceFacilityNamesArgs{...}
+type KnownSyslogDataSourceFacilityNamesInput interface {
+	pulumi.Input
+
+	ToKnownSyslogDataSourceFacilityNamesOutput() KnownSyslogDataSourceFacilityNamesOutput
+	ToKnownSyslogDataSourceFacilityNamesOutputWithContext(context.Context) KnownSyslogDataSourceFacilityNamesOutput
+}
+
+var knownSyslogDataSourceFacilityNamesPtrType = reflect.TypeOf((**KnownSyslogDataSourceFacilityNames)(nil)).Elem()
+
+type KnownSyslogDataSourceFacilityNamesPtrInput interface {
+	pulumi.Input
+
+	ToKnownSyslogDataSourceFacilityNamesPtrOutput() KnownSyslogDataSourceFacilityNamesPtrOutput
+	ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(context.Context) KnownSyslogDataSourceFacilityNamesPtrOutput
+}
+
+type knownSyslogDataSourceFacilityNamesPtr string
+
+func KnownSyslogDataSourceFacilityNamesPtr(v string) KnownSyslogDataSourceFacilityNamesPtrInput {
+	return (*knownSyslogDataSourceFacilityNamesPtr)(&v)
+}
+
+func (*knownSyslogDataSourceFacilityNamesPtr) ElementType() reflect.Type {
+	return knownSyslogDataSourceFacilityNamesPtrType
+}
+
+func (in *knownSyslogDataSourceFacilityNamesPtr) ToKnownSyslogDataSourceFacilityNamesPtrOutput() KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return pulumi.ToOutput(in).(KnownSyslogDataSourceFacilityNamesPtrOutput)
+}
+
+func (in *knownSyslogDataSourceFacilityNamesPtr) ToKnownSyslogDataSourceFacilityNamesPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceFacilityNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownSyslogDataSourceFacilityNamesPtrOutput)
+}
+
+type KnownSyslogDataSourceLogLevels string
 
 const (
 	KnownSyslogDataSourceLogLevelsDebug     = KnownSyslogDataSourceLogLevels("Debug")
@@ -242,7 +1201,23 @@ const (
 )
 
 func (KnownSyslogDataSourceLogLevels) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownSyslogDataSourceLogLevels)(nil)).Elem()
+}
+
+func (e KnownSyslogDataSourceLogLevels) ToKnownSyslogDataSourceLogLevelsOutput() KnownSyslogDataSourceLogLevelsOutput {
+	return pulumi.ToOutput(e).(KnownSyslogDataSourceLogLevelsOutput)
+}
+
+func (e KnownSyslogDataSourceLogLevels) ToKnownSyslogDataSourceLogLevelsOutputWithContext(ctx context.Context) KnownSyslogDataSourceLogLevelsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownSyslogDataSourceLogLevelsOutput)
+}
+
+func (e KnownSyslogDataSourceLogLevels) ToKnownSyslogDataSourceLogLevelsPtrOutput() KnownSyslogDataSourceLogLevelsPtrOutput {
+	return e.ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownSyslogDataSourceLogLevels) ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceLogLevelsPtrOutput {
+	return KnownSyslogDataSourceLogLevels(e).ToKnownSyslogDataSourceLogLevelsOutputWithContext(ctx).ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(ctx)
 }
 
 func (e KnownSyslogDataSourceLogLevels) ToStringOutput() pulumi.StringOutput {
@@ -261,14 +1236,151 @@ func (e KnownSyslogDataSourceLogLevels) ToStringPtrOutputWithContext(ctx context
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownSyslogDataSourceStreams pulumi.String
+type KnownSyslogDataSourceLogLevelsOutput struct{ *pulumi.OutputState }
+
+func (KnownSyslogDataSourceLogLevelsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownSyslogDataSourceLogLevels)(nil)).Elem()
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToKnownSyslogDataSourceLogLevelsOutput() KnownSyslogDataSourceLogLevelsOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToKnownSyslogDataSourceLogLevelsOutputWithContext(ctx context.Context) KnownSyslogDataSourceLogLevelsOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToKnownSyslogDataSourceLogLevelsPtrOutput() KnownSyslogDataSourceLogLevelsPtrOutput {
+	return o.ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceLogLevelsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownSyslogDataSourceLogLevels) *KnownSyslogDataSourceLogLevels {
+		return &v
+	}).(KnownSyslogDataSourceLogLevelsPtrOutput)
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownSyslogDataSourceLogLevels) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceLogLevelsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownSyslogDataSourceLogLevels) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownSyslogDataSourceLogLevelsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownSyslogDataSourceLogLevelsPtrOutput) ElementType() reflect.Type {
+	return knownSyslogDataSourceLogLevelsPtrType
+}
+
+func (o KnownSyslogDataSourceLogLevelsPtrOutput) ToKnownSyslogDataSourceLogLevelsPtrOutput() KnownSyslogDataSourceLogLevelsPtrOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceLogLevelsPtrOutput) ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceLogLevelsPtrOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceLogLevelsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceLogLevelsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownSyslogDataSourceLogLevels) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownSyslogDataSourceLogLevelsPtrOutput) Elem() KnownSyslogDataSourceLogLevelsOutput {
+	return o.ApplyT(func(v *KnownSyslogDataSourceLogLevels) KnownSyslogDataSourceLogLevels {
+		var ret KnownSyslogDataSourceLogLevels
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownSyslogDataSourceLogLevelsOutput)
+}
+
+// KnownSyslogDataSourceLogLevelsInput is an input type that accepts KnownSyslogDataSourceLogLevelsArgs and KnownSyslogDataSourceLogLevelsOutput values.
+// You can construct a concrete instance of `KnownSyslogDataSourceLogLevelsInput` via:
+//
+//          KnownSyslogDataSourceLogLevelsArgs{...}
+type KnownSyslogDataSourceLogLevelsInput interface {
+	pulumi.Input
+
+	ToKnownSyslogDataSourceLogLevelsOutput() KnownSyslogDataSourceLogLevelsOutput
+	ToKnownSyslogDataSourceLogLevelsOutputWithContext(context.Context) KnownSyslogDataSourceLogLevelsOutput
+}
+
+var knownSyslogDataSourceLogLevelsPtrType = reflect.TypeOf((**KnownSyslogDataSourceLogLevels)(nil)).Elem()
+
+type KnownSyslogDataSourceLogLevelsPtrInput interface {
+	pulumi.Input
+
+	ToKnownSyslogDataSourceLogLevelsPtrOutput() KnownSyslogDataSourceLogLevelsPtrOutput
+	ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(context.Context) KnownSyslogDataSourceLogLevelsPtrOutput
+}
+
+type knownSyslogDataSourceLogLevelsPtr string
+
+func KnownSyslogDataSourceLogLevelsPtr(v string) KnownSyslogDataSourceLogLevelsPtrInput {
+	return (*knownSyslogDataSourceLogLevelsPtr)(&v)
+}
+
+func (*knownSyslogDataSourceLogLevelsPtr) ElementType() reflect.Type {
+	return knownSyslogDataSourceLogLevelsPtrType
+}
+
+func (in *knownSyslogDataSourceLogLevelsPtr) ToKnownSyslogDataSourceLogLevelsPtrOutput() KnownSyslogDataSourceLogLevelsPtrOutput {
+	return pulumi.ToOutput(in).(KnownSyslogDataSourceLogLevelsPtrOutput)
+}
+
+func (in *knownSyslogDataSourceLogLevelsPtr) ToKnownSyslogDataSourceLogLevelsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceLogLevelsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownSyslogDataSourceLogLevelsPtrOutput)
+}
+
+type KnownSyslogDataSourceStreams string
 
 const (
 	KnownSyslogDataSourceStreams_Microsoft_Syslog = KnownSyslogDataSourceStreams("Microsoft-Syslog")
 )
 
 func (KnownSyslogDataSourceStreams) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownSyslogDataSourceStreams)(nil)).Elem()
+}
+
+func (e KnownSyslogDataSourceStreams) ToKnownSyslogDataSourceStreamsOutput() KnownSyslogDataSourceStreamsOutput {
+	return pulumi.ToOutput(e).(KnownSyslogDataSourceStreamsOutput)
+}
+
+func (e KnownSyslogDataSourceStreams) ToKnownSyslogDataSourceStreamsOutputWithContext(ctx context.Context) KnownSyslogDataSourceStreamsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownSyslogDataSourceStreamsOutput)
+}
+
+func (e KnownSyslogDataSourceStreams) ToKnownSyslogDataSourceStreamsPtrOutput() KnownSyslogDataSourceStreamsPtrOutput {
+	return e.ToKnownSyslogDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownSyslogDataSourceStreams) ToKnownSyslogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceStreamsPtrOutput {
+	return KnownSyslogDataSourceStreams(e).ToKnownSyslogDataSourceStreamsOutputWithContext(ctx).ToKnownSyslogDataSourceStreamsPtrOutputWithContext(ctx)
 }
 
 func (e KnownSyslogDataSourceStreams) ToStringOutput() pulumi.StringOutput {
@@ -287,7 +1399,128 @@ func (e KnownSyslogDataSourceStreams) ToStringPtrOutputWithContext(ctx context.C
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type KnownWindowsEventLogDataSourceStreams pulumi.String
+type KnownSyslogDataSourceStreamsOutput struct{ *pulumi.OutputState }
+
+func (KnownSyslogDataSourceStreamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownSyslogDataSourceStreams)(nil)).Elem()
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToKnownSyslogDataSourceStreamsOutput() KnownSyslogDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToKnownSyslogDataSourceStreamsOutputWithContext(ctx context.Context) KnownSyslogDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToKnownSyslogDataSourceStreamsPtrOutput() KnownSyslogDataSourceStreamsPtrOutput {
+	return o.ToKnownSyslogDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToKnownSyslogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceStreamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownSyslogDataSourceStreams) *KnownSyslogDataSourceStreams {
+		return &v
+	}).(KnownSyslogDataSourceStreamsPtrOutput)
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownSyslogDataSourceStreams) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceStreamsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownSyslogDataSourceStreams) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownSyslogDataSourceStreamsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownSyslogDataSourceStreamsPtrOutput) ElementType() reflect.Type {
+	return knownSyslogDataSourceStreamsPtrType
+}
+
+func (o KnownSyslogDataSourceStreamsPtrOutput) ToKnownSyslogDataSourceStreamsPtrOutput() KnownSyslogDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceStreamsPtrOutput) ToKnownSyslogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownSyslogDataSourceStreamsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownSyslogDataSourceStreamsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownSyslogDataSourceStreams) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownSyslogDataSourceStreamsPtrOutput) Elem() KnownSyslogDataSourceStreamsOutput {
+	return o.ApplyT(func(v *KnownSyslogDataSourceStreams) KnownSyslogDataSourceStreams {
+		var ret KnownSyslogDataSourceStreams
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownSyslogDataSourceStreamsOutput)
+}
+
+// KnownSyslogDataSourceStreamsInput is an input type that accepts KnownSyslogDataSourceStreamsArgs and KnownSyslogDataSourceStreamsOutput values.
+// You can construct a concrete instance of `KnownSyslogDataSourceStreamsInput` via:
+//
+//          KnownSyslogDataSourceStreamsArgs{...}
+type KnownSyslogDataSourceStreamsInput interface {
+	pulumi.Input
+
+	ToKnownSyslogDataSourceStreamsOutput() KnownSyslogDataSourceStreamsOutput
+	ToKnownSyslogDataSourceStreamsOutputWithContext(context.Context) KnownSyslogDataSourceStreamsOutput
+}
+
+var knownSyslogDataSourceStreamsPtrType = reflect.TypeOf((**KnownSyslogDataSourceStreams)(nil)).Elem()
+
+type KnownSyslogDataSourceStreamsPtrInput interface {
+	pulumi.Input
+
+	ToKnownSyslogDataSourceStreamsPtrOutput() KnownSyslogDataSourceStreamsPtrOutput
+	ToKnownSyslogDataSourceStreamsPtrOutputWithContext(context.Context) KnownSyslogDataSourceStreamsPtrOutput
+}
+
+type knownSyslogDataSourceStreamsPtr string
+
+func KnownSyslogDataSourceStreamsPtr(v string) KnownSyslogDataSourceStreamsPtrInput {
+	return (*knownSyslogDataSourceStreamsPtr)(&v)
+}
+
+func (*knownSyslogDataSourceStreamsPtr) ElementType() reflect.Type {
+	return knownSyslogDataSourceStreamsPtrType
+}
+
+func (in *knownSyslogDataSourceStreamsPtr) ToKnownSyslogDataSourceStreamsPtrOutput() KnownSyslogDataSourceStreamsPtrOutput {
+	return pulumi.ToOutput(in).(KnownSyslogDataSourceStreamsPtrOutput)
+}
+
+func (in *knownSyslogDataSourceStreamsPtr) ToKnownSyslogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownSyslogDataSourceStreamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownSyslogDataSourceStreamsPtrOutput)
+}
+
+type KnownWindowsEventLogDataSourceStreams string
 
 const (
 	KnownWindowsEventLogDataSourceStreams_Microsoft_WindowsEvent = KnownWindowsEventLogDataSourceStreams("Microsoft-WindowsEvent")
@@ -295,7 +1528,23 @@ const (
 )
 
 func (KnownWindowsEventLogDataSourceStreams) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*KnownWindowsEventLogDataSourceStreams)(nil)).Elem()
+}
+
+func (e KnownWindowsEventLogDataSourceStreams) ToKnownWindowsEventLogDataSourceStreamsOutput() KnownWindowsEventLogDataSourceStreamsOutput {
+	return pulumi.ToOutput(e).(KnownWindowsEventLogDataSourceStreamsOutput)
+}
+
+func (e KnownWindowsEventLogDataSourceStreams) ToKnownWindowsEventLogDataSourceStreamsOutputWithContext(ctx context.Context) KnownWindowsEventLogDataSourceStreamsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnownWindowsEventLogDataSourceStreamsOutput)
+}
+
+func (e KnownWindowsEventLogDataSourceStreams) ToKnownWindowsEventLogDataSourceStreamsPtrOutput() KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return e.ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (e KnownWindowsEventLogDataSourceStreams) ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return KnownWindowsEventLogDataSourceStreams(e).ToKnownWindowsEventLogDataSourceStreamsOutputWithContext(ctx).ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(ctx)
 }
 
 func (e KnownWindowsEventLogDataSourceStreams) ToStringOutput() pulumi.StringOutput {
@@ -312,4 +1561,148 @@ func (e KnownWindowsEventLogDataSourceStreams) ToStringPtrOutput() pulumi.String
 
 func (e KnownWindowsEventLogDataSourceStreams) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnownWindowsEventLogDataSourceStreamsOutput struct{ *pulumi.OutputState }
+
+func (KnownWindowsEventLogDataSourceStreamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnownWindowsEventLogDataSourceStreams)(nil)).Elem()
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToKnownWindowsEventLogDataSourceStreamsOutput() KnownWindowsEventLogDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToKnownWindowsEventLogDataSourceStreamsOutputWithContext(ctx context.Context) KnownWindowsEventLogDataSourceStreamsOutput {
+	return o
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToKnownWindowsEventLogDataSourceStreamsPtrOutput() KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return o.ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(context.Background())
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnownWindowsEventLogDataSourceStreams) *KnownWindowsEventLogDataSourceStreams {
+		return &v
+	}).(KnownWindowsEventLogDataSourceStreamsPtrOutput)
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownWindowsEventLogDataSourceStreams) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnownWindowsEventLogDataSourceStreams) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnownWindowsEventLogDataSourceStreamsPtrOutput struct{ *pulumi.OutputState }
+
+func (KnownWindowsEventLogDataSourceStreamsPtrOutput) ElementType() reflect.Type {
+	return knownWindowsEventLogDataSourceStreamsPtrType
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsPtrOutput) ToKnownWindowsEventLogDataSourceStreamsPtrOutput() KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsPtrOutput) ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return o
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnownWindowsEventLogDataSourceStreams) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnownWindowsEventLogDataSourceStreamsPtrOutput) Elem() KnownWindowsEventLogDataSourceStreamsOutput {
+	return o.ApplyT(func(v *KnownWindowsEventLogDataSourceStreams) KnownWindowsEventLogDataSourceStreams {
+		var ret KnownWindowsEventLogDataSourceStreams
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(KnownWindowsEventLogDataSourceStreamsOutput)
+}
+
+// KnownWindowsEventLogDataSourceStreamsInput is an input type that accepts KnownWindowsEventLogDataSourceStreamsArgs and KnownWindowsEventLogDataSourceStreamsOutput values.
+// You can construct a concrete instance of `KnownWindowsEventLogDataSourceStreamsInput` via:
+//
+//          KnownWindowsEventLogDataSourceStreamsArgs{...}
+type KnownWindowsEventLogDataSourceStreamsInput interface {
+	pulumi.Input
+
+	ToKnownWindowsEventLogDataSourceStreamsOutput() KnownWindowsEventLogDataSourceStreamsOutput
+	ToKnownWindowsEventLogDataSourceStreamsOutputWithContext(context.Context) KnownWindowsEventLogDataSourceStreamsOutput
+}
+
+var knownWindowsEventLogDataSourceStreamsPtrType = reflect.TypeOf((**KnownWindowsEventLogDataSourceStreams)(nil)).Elem()
+
+type KnownWindowsEventLogDataSourceStreamsPtrInput interface {
+	pulumi.Input
+
+	ToKnownWindowsEventLogDataSourceStreamsPtrOutput() KnownWindowsEventLogDataSourceStreamsPtrOutput
+	ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(context.Context) KnownWindowsEventLogDataSourceStreamsPtrOutput
+}
+
+type knownWindowsEventLogDataSourceStreamsPtr string
+
+func KnownWindowsEventLogDataSourceStreamsPtr(v string) KnownWindowsEventLogDataSourceStreamsPtrInput {
+	return (*knownWindowsEventLogDataSourceStreamsPtr)(&v)
+}
+
+func (*knownWindowsEventLogDataSourceStreamsPtr) ElementType() reflect.Type {
+	return knownWindowsEventLogDataSourceStreamsPtrType
+}
+
+func (in *knownWindowsEventLogDataSourceStreamsPtr) ToKnownWindowsEventLogDataSourceStreamsPtrOutput() KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return pulumi.ToOutput(in).(KnownWindowsEventLogDataSourceStreamsPtrOutput)
+}
+
+func (in *knownWindowsEventLogDataSourceStreamsPtr) ToKnownWindowsEventLogDataSourceStreamsPtrOutputWithContext(ctx context.Context) KnownWindowsEventLogDataSourceStreamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnownWindowsEventLogDataSourceStreamsPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(KnownDataCollectionEndpointResourceKindOutput{})
+	pulumi.RegisterOutputType(KnownDataCollectionEndpointResourceKindPtrOutput{})
+	pulumi.RegisterOutputType(KnownDataCollectionRuleResourceKindOutput{})
+	pulumi.RegisterOutputType(KnownDataCollectionRuleResourceKindPtrOutput{})
+	pulumi.RegisterOutputType(KnownDataFlowStreamsOutput{})
+	pulumi.RegisterOutputType(KnownDataFlowStreamsPtrOutput{})
+	pulumi.RegisterOutputType(KnownExtensionDataSourceStreamsOutput{})
+	pulumi.RegisterOutputType(KnownExtensionDataSourceStreamsPtrOutput{})
+	pulumi.RegisterOutputType(KnownPerfCounterDataSourceStreamsOutput{})
+	pulumi.RegisterOutputType(KnownPerfCounterDataSourceStreamsPtrOutput{})
+	pulumi.RegisterOutputType(KnownPublicNetworkAccessOptionsOutput{})
+	pulumi.RegisterOutputType(KnownPublicNetworkAccessOptionsPtrOutput{})
+	pulumi.RegisterOutputType(KnownSyslogDataSourceFacilityNamesOutput{})
+	pulumi.RegisterOutputType(KnownSyslogDataSourceFacilityNamesPtrOutput{})
+	pulumi.RegisterOutputType(KnownSyslogDataSourceLogLevelsOutput{})
+	pulumi.RegisterOutputType(KnownSyslogDataSourceLogLevelsPtrOutput{})
+	pulumi.RegisterOutputType(KnownSyslogDataSourceStreamsOutput{})
+	pulumi.RegisterOutputType(KnownSyslogDataSourceStreamsPtrOutput{})
+	pulumi.RegisterOutputType(KnownWindowsEventLogDataSourceStreamsOutput{})
+	pulumi.RegisterOutputType(KnownWindowsEventLogDataSourceStreamsPtrOutput{})
 }

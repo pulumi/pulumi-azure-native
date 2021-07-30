@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Properties pertained to UnknownTarget
+    /// </summary>
     [OutputType]
     public sealed class UnknownTargetResponse
     {

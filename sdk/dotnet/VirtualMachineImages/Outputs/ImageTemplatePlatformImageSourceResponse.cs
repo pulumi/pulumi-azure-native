@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
+    /// <summary>
+    /// Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplatePlatformImageSourceResponse
     {

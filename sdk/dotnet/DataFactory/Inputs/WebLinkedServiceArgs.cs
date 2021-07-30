@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Web linked service properties.
         /// </summary>
         [Input("typeProperties", required: true)]
-        public Input<object> TypeProperties { get; set; } = null!;
+        public object TypeProperties { get; set; } = null!;
 
         public WebLinkedServiceArgs()
         {

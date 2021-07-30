@@ -103,25 +103,9 @@ func GetKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Key resources.
 type keyState struct {
-	// Used to activate the workspace after a customer managed key is provided.
-	IsActiveCMK *bool `pulumi:"isActiveCMK"`
-	// The Key Vault Url of the workspace key.
-	KeyVaultUrl *string `pulumi:"keyVaultUrl"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type KeyState struct {
-	// Used to activate the workspace after a customer managed key is provided.
-	IsActiveCMK pulumi.BoolPtrInput
-	// The Key Vault Url of the workspace key.
-	KeyVaultUrl pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (KeyState) ElementType() reflect.Type {

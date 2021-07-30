@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Wraps data-residency related information for edge-resource and this should be used with ARM layer.
+    /// </summary>
     [OutputType]
     public sealed class DataResidencyResponse
     {

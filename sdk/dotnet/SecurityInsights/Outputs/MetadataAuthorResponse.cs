@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Publisher or creator of the content item.
+    /// </summary>
     [OutputType]
     public sealed class MetadataAuthorResponse
     {

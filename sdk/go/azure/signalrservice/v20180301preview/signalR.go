@@ -116,59 +116,9 @@ func GetSignalR(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SignalR resources.
 type signalRState struct {
-	// The publicly accessible IP of the SignalR service.
-	ExternalIP *string `pulumi:"externalIP"`
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
-	HostName *string `pulumi:"hostName"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The publicly accessibly port of the SignalR service which is designed for browser/client side usage.
-	PublicPort *int `pulumi:"publicPort"`
-	// The publicly accessibly port of the SignalR service which is designed for customer server side usage.
-	ServerPort *int `pulumi:"serverPort"`
-	// SKU of the service.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-	Type *string `pulumi:"type"`
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
-	Version *string `pulumi:"version"`
 }
 
 type SignalRState struct {
-	// The publicly accessible IP of the SignalR service.
-	ExternalIP pulumi.StringPtrInput
-	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
-	HostName pulumi.StringPtrInput
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrInput
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The publicly accessibly port of the SignalR service which is designed for browser/client side usage.
-	PublicPort pulumi.IntPtrInput
-	// The publicly accessibly port of the SignalR service which is designed for customer server side usage.
-	ServerPort pulumi.IntPtrInput
-	// SKU of the service.
-	Sku ResourceSkuResponsePtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringPtrInput
-	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringPtrInput
 }
 
 func (SignalRState) ElementType() reflect.Type {

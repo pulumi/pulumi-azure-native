@@ -87,37 +87,9 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
-	// Additional data regarding the assessment
-	AdditionalData map[string]string `pulumi:"additionalData"`
-	// User friendly display name of the assessment
-	DisplayName *string `pulumi:"displayName"`
-	// Links relevant to the assessment
-	Links *AssessmentLinksResponse `pulumi:"links"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Details of the resource that was assessed
-	ResourceDetails interface{} `pulumi:"resourceDetails"`
-	// The result of the assessment
-	Status *AssessmentStatusResponse `pulumi:"status"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type AssessmentState struct {
-	// Additional data regarding the assessment
-	AdditionalData pulumi.StringMapInput
-	// User friendly display name of the assessment
-	DisplayName pulumi.StringPtrInput
-	// Links relevant to the assessment
-	Links AssessmentLinksResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Details of the resource that was assessed
-	ResourceDetails pulumi.Input
-	// The result of the assessment
-	Status AssessmentStatusResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (AssessmentState) ElementType() reflect.Type {

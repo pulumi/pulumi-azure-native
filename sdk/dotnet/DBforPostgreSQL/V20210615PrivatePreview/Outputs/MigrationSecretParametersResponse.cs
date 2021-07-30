@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// Migration secret parameters.
+    /// </summary>
     [OutputType]
     public sealed class MigrationSecretParametersResponse
     {

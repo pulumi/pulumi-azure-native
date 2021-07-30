@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Hyper V VM network details.
+    /// </summary>
     [OutputType]
     public sealed class VMNicDetailsResponse
     {

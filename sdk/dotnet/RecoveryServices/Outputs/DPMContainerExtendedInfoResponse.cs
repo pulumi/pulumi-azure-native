@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Additional information of the DPMContainer.
+    /// </summary>
     [OutputType]
     public sealed class DPMContainerExtendedInfoResponse
     {

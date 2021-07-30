@@ -3988,7 +3988,7 @@ func (o GalleryArtifactVersionSourceResponsePtrOutput) Uri() pulumi.StringPtrOut
 // This is the data disk image.
 type GalleryDataDiskImage struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *string `pulumi:"hostCaching"`
+	HostCaching *HostCaching `pulumi:"hostCaching"`
 	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 	Lun int `pulumi:"lun"`
 	// The gallery artifact version source.
@@ -4009,7 +4009,7 @@ type GalleryDataDiskImageInput interface {
 // This is the data disk image.
 type GalleryDataDiskImageArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *HostCaching `pulumi:"hostCaching"`
+	HostCaching HostCachingPtrInput `pulumi:"hostCaching"`
 	// This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// The gallery artifact version source.
@@ -4069,8 +4069,8 @@ func (o GalleryDataDiskImageOutput) ToGalleryDataDiskImageOutputWithContext(ctx 
 }
 
 // The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-func (o GalleryDataDiskImageOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryDataDiskImage) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+func (o GalleryDataDiskImageOutput) HostCaching() HostCachingPtrOutput {
+	return o.ApplyT(func(v GalleryDataDiskImage) *HostCaching { return v.HostCaching }).(HostCachingPtrOutput)
 }
 
 // This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
@@ -5720,7 +5720,7 @@ func (o GalleryImageVersionStorageProfileResponsePtrOutput) Source() GalleryArti
 // This is the OS disk image.
 type GalleryOSDiskImage struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *string `pulumi:"hostCaching"`
+	HostCaching *HostCaching `pulumi:"hostCaching"`
 	// The gallery artifact version source.
 	Source *GalleryArtifactVersionSource `pulumi:"source"`
 }
@@ -5739,7 +5739,7 @@ type GalleryOSDiskImageInput interface {
 // This is the OS disk image.
 type GalleryOSDiskImageArgs struct {
 	// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-	HostCaching *HostCaching `pulumi:"hostCaching"`
+	HostCaching HostCachingPtrInput `pulumi:"hostCaching"`
 	// The gallery artifact version source.
 	Source GalleryArtifactVersionSourcePtrInput `pulumi:"source"`
 }
@@ -5823,8 +5823,8 @@ func (o GalleryOSDiskImageOutput) ToGalleryOSDiskImagePtrOutputWithContext(ctx c
 }
 
 // The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-func (o GalleryOSDiskImageOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryOSDiskImage) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
+func (o GalleryOSDiskImageOutput) HostCaching() HostCachingPtrOutput {
+	return o.ApplyT(func(v GalleryOSDiskImage) *HostCaching { return v.HostCaching }).(HostCachingPtrOutput)
 }
 
 // The gallery artifact version source.
@@ -5851,13 +5851,13 @@ func (o GalleryOSDiskImagePtrOutput) Elem() GalleryOSDiskImageOutput {
 }
 
 // The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-func (o GalleryOSDiskImagePtrOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryOSDiskImage) *string {
+func (o GalleryOSDiskImagePtrOutput) HostCaching() HostCachingPtrOutput {
+	return o.ApplyT(func(v *GalleryOSDiskImage) *HostCaching {
 		if v == nil {
 			return nil
 		}
 		return v.HostCaching
-	}).(pulumi.StringPtrOutput)
+	}).(HostCachingPtrOutput)
 }
 
 // The gallery artifact version source.

@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Insights.V20160301
         /// the condition that results in the alert rule being activated.
         /// </summary>
         [Input("condition", required: true)]
-        public Input<object> Condition { get; set; } = null!;
+        public object Condition { get; set; } = null!;
 
         /// <summary>
         /// the description of the alert rule that will be included in the alert email.

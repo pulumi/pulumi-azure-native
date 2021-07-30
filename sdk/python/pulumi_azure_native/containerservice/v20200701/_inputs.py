@@ -20,10 +20,10 @@ __all__ = [
     'ManagedClusterAddonProfileArgs',
     'ManagedClusterAgentPoolProfileArgs',
     'ManagedClusterIdentityArgs',
-    'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgs',
+    'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterPropertiesAutoScalerProfileArgs',
     'ManagedClusterPropertiesIdentityProfileArgs',
     'ManagedClusterSKUArgs',
@@ -937,6 +937,80 @@ class ManagedClusterIdentityArgs:
 
 
 @pulumi.input_type
+class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None):
+        """
+        Desired managed outbound IPs for the cluster load balancer.
+        :param pulumi.Input[int] count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        if count is None:
+            count = 1
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
+    def __init__(__self__, *,
+                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+        """
+        Desired outbound IP Prefix resources for the cluster load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
+        """
+        if public_ip_prefixes is not None:
+            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
+
+    @property
+    @pulumi.getter(name="publicIPPrefixes")
+    def public_ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        A list of public IP prefix resources.
+        """
+        return pulumi.get(self, "public_ip_prefixes")
+
+    @public_ip_prefixes.setter
+    def public_ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "public_ip_prefixes", value)
+
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
+    def __init__(__self__, *,
+                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+        """
+        Desired outbound IP resources for the cluster load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
+        """
+        if public_ips is not None:
+            pulumi.set(__self__, "public_ips", public_ips)
+
+    @property
+    @pulumi.getter(name="publicIPs")
+    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        A list of public IP resources.
+        """
+        return pulumi.get(self, "public_ips")
+
+    @public_ips.setter
+    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "public_ips", value)
+
+
+@pulumi.input_type
 class ManagedClusterLoadBalancerProfileArgs:
     def __init__(__self__, *,
                  allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
@@ -1042,80 +1116,6 @@ class ManagedClusterLoadBalancerProfileArgs:
     @outbound_ips.setter
     def outbound_ips(self, value: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileOutboundIPsArgs']]):
         pulumi.set(self, "outbound_ips", value)
-
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
-    def __init__(__self__, *,
-                 count: Optional[pulumi.Input[int]] = None):
-        """
-        Desired managed outbound IPs for the cluster load balancer.
-        :param pulumi.Input[int] count: Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        """
-        if count is None:
-            count = 1
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
-
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
-    def __init__(__self__, *,
-                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
-        """
-        Desired outbound IP Prefix resources for the cluster load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
-        """
-        if public_ip_prefixes is not None:
-            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
-
-    @property
-    @pulumi.getter(name="publicIPPrefixes")
-    def public_ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        A list of public IP prefix resources.
-        """
-        return pulumi.get(self, "public_ip_prefixes")
-
-    @public_ip_prefixes.setter
-    def public_ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "public_ip_prefixes", value)
-
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
-    def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
-        """
-        Desired outbound IP resources for the cluster load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
-        """
-        if public_ips is not None:
-            pulumi.set(__self__, "public_ips", public_ips)
-
-    @property
-    @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        A list of public IP resources.
-        """
-        return pulumi.get(self, "public_ips")
-
-    @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "public_ips", value)
 
 
 @pulumi.input_type

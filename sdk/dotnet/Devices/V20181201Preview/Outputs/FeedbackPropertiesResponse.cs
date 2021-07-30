@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20181201Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of the feedback queue for cloud-to-device messages.
+    /// </summary>
     [OutputType]
     public sealed class FeedbackPropertiesResponse
     {

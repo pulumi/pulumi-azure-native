@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    ///  Datastore and reference to location of data such as relativePath, Sql Query and etc.
+    /// </summary>
     [OutputType]
     public sealed class DatasetResponseDataPath
     {

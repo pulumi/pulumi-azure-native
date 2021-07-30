@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20170801Preview.Outputs
 {
 
+    /// <summary>
+    /// A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
+    /// </summary>
     [OutputType]
     public sealed class ThresholdCustomAlertRuleResponse
     {

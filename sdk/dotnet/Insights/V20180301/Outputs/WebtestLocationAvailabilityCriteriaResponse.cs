@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180301.Outputs
 {
 
+    /// <summary>
+    /// Specifies the metric alert rule criteria for a web test resource.
+    /// </summary>
     [OutputType]
     public sealed class WebtestLocationAvailabilityCriteriaResponse
     {

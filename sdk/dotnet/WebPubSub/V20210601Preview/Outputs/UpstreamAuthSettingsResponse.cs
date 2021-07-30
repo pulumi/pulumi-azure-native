@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Upstream auth settings.
+    /// </summary>
     [OutputType]
     public sealed class UpstreamAuthSettingsResponse
     {

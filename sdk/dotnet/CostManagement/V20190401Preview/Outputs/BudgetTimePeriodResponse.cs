@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20190401Preview.Outputs
 {
 
+    /// <summary>
+    /// The start and end date for a budget.
+    /// </summary>
     [OutputType]
     public sealed class BudgetTimePeriodResponse
     {

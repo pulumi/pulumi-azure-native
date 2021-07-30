@@ -144,61 +144,9 @@ func GetBlobContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobContainer resources.
 type blobContainerState struct {
-	// Resource Etag.
-	Etag *string `pulumi:"etag"`
-	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-	HasImmutabilityPolicy *bool `pulumi:"hasImmutabilityPolicy"`
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold *bool `pulumi:"hasLegalHold"`
-	// The ImmutabilityPolicy property of the container.
-	ImmutabilityPolicy *ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
-	// Returns the date and time the container was last modified.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-	LeaseDuration *string `pulumi:"leaseDuration"`
-	// Lease state of the container.
-	LeaseState *string `pulumi:"leaseState"`
-	// The lease status of the container.
-	LeaseStatus *string `pulumi:"leaseStatus"`
-	// The LegalHold property of the container.
-	LegalHold *LegalHoldPropertiesResponse `pulumi:"legalHold"`
-	// A name-value pair to associate with the container as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *string `pulumi:"publicAccess"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type BlobContainerState struct {
-	// Resource Etag.
-	Etag pulumi.StringPtrInput
-	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
-	HasImmutabilityPolicy pulumi.BoolPtrInput
-	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
-	HasLegalHold pulumi.BoolPtrInput
-	// The ImmutabilityPolicy property of the container.
-	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponsePtrInput
-	// Returns the date and time the container was last modified.
-	LastModifiedTime pulumi.StringPtrInput
-	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
-	LeaseDuration pulumi.StringPtrInput
-	// Lease state of the container.
-	LeaseState pulumi.StringPtrInput
-	// The lease status of the container.
-	LeaseStatus pulumi.StringPtrInput
-	// The LegalHold property of the container.
-	LegalHold LegalHoldPropertiesResponsePtrInput
-	// A name-value pair to associate with the container as metadata.
-	Metadata pulumi.StringMapInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (BlobContainerState) ElementType() reflect.Type {
@@ -213,7 +161,7 @@ type blobContainerArgs struct {
 	// A name-value pair to associate with the container as metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *string `pulumi:"publicAccess"`
+	PublicAccess *PublicAccess `pulumi:"publicAccess"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -227,7 +175,7 @@ type BlobContainerArgs struct {
 	// A name-value pair to associate with the container as metadata.
 	Metadata pulumi.StringMapInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *PublicAccess
+	PublicAccess PublicAccessPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

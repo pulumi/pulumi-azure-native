@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents an OpenShift router
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftRouterProfileResponse
     {

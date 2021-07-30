@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200710Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties related to a storage container endpoint.
+    /// </summary>
     [OutputType]
     public sealed class RoutingStorageContainerPropertiesResponse
     {

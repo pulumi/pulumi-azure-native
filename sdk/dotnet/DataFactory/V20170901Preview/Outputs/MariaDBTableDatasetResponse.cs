@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// MariaDB server dataset.
+    /// </summary>
     [OutputType]
     public sealed class MariaDBTableDatasetResponse
     {

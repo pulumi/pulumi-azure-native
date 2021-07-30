@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Linked server Id
+    /// </summary>
     [OutputType]
     public sealed class RedisLinkedServerResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Common Data Service for Apps linked service.
+    /// </summary>
     [OutputType]
     public sealed class CommonDataServiceForAppsLinkedServiceResponse
     {

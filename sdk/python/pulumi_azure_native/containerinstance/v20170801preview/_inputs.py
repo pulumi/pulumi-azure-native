@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'AzureFileVolumeArgs',
-    'ContainerArgs',
     'ContainerPortArgs',
+    'ContainerArgs',
     'EnvironmentVariableArgs',
     'ImageRegistryCredentialArgs',
     'IpAddressArgs',
@@ -20,8 +20,8 @@ __all__ = [
     'ResourceLimitsArgs',
     'ResourceRequestsArgs',
     'ResourceRequirementsArgs',
-    'VolumeArgs',
     'VolumeMountArgs',
+    'VolumeArgs',
 ]
 
 @pulumi.input_type
@@ -92,6 +92,29 @@ class AzureFileVolumeArgs:
     @storage_account_key.setter
     def storage_account_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_key", value)
+
+
+@pulumi.input_type
+class ContainerPortArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int]):
+        """
+        The port exposed on the container instance.
+        :param pulumi.Input[int] port: The port number exposed within the container group.
+        """
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        The port number exposed within the container group.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -209,29 +232,6 @@ class ContainerArgs:
     @volume_mounts.setter
     def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
         pulumi.set(self, "volume_mounts", value)
-
-
-@pulumi.input_type
-class ContainerPortArgs:
-    def __init__(__self__, *,
-                 port: pulumi.Input[int]):
-        """
-        The port exposed on the container instance.
-        :param pulumi.Input[int] port: The port number exposed within the container group.
-        """
-        pulumi.set(__self__, "port", port)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[int]:
-        """
-        The port number exposed within the container group.
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "port", value)
 
 
 @pulumi.input_type
@@ -537,44 +537,6 @@ class ResourceRequirementsArgs:
 
 
 @pulumi.input_type
-class VolumeArgs:
-    def __init__(__self__, *,
-                 azure_file: pulumi.Input['AzureFileVolumeArgs'],
-                 name: pulumi.Input[str]):
-        """
-        The properties of the volume.
-        :param pulumi.Input['AzureFileVolumeArgs'] azure_file: The name of the Azure File volume.
-        :param pulumi.Input[str] name: The name of the volume.
-        """
-        pulumi.set(__self__, "azure_file", azure_file)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="azureFile")
-    def azure_file(self) -> pulumi.Input['AzureFileVolumeArgs']:
-        """
-        The name of the Azure File volume.
-        """
-        return pulumi.get(self, "azure_file")
-
-    @azure_file.setter
-    def azure_file(self, value: pulumi.Input['AzureFileVolumeArgs']):
-        pulumi.set(self, "azure_file", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the volume.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
 class VolumeMountArgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
@@ -626,5 +588,43 @@ class VolumeMountArgs:
     @read_only.setter
     def read_only(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "read_only", value)
+
+
+@pulumi.input_type
+class VolumeArgs:
+    def __init__(__self__, *,
+                 azure_file: pulumi.Input['AzureFileVolumeArgs'],
+                 name: pulumi.Input[str]):
+        """
+        The properties of the volume.
+        :param pulumi.Input['AzureFileVolumeArgs'] azure_file: The name of the Azure File volume.
+        :param pulumi.Input[str] name: The name of the volume.
+        """
+        pulumi.set(__self__, "azure_file", azure_file)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> pulumi.Input['AzureFileVolumeArgs']:
+        """
+        The name of the Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
+
+    @azure_file.setter
+    def azure_file(self, value: pulumi.Input['AzureFileVolumeArgs']):
+        pulumi.set(self, "azure_file", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 

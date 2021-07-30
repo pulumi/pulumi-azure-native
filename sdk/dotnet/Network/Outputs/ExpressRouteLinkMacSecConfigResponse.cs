@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// ExpressRouteLink Mac Security Configuration.
+    /// </summary>
     [OutputType]
     public sealed class ExpressRouteLinkMacSecConfigResponse
     {

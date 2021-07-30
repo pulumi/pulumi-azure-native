@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties for arm migration.
+    /// </summary>
     [OutputType]
     public sealed class MigrationRequestPropertiesResponse
     {

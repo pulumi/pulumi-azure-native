@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
+    /// <summary>
+    /// The ip configuration for a container network interface.
+    /// </summary>
     [OutputType]
     public sealed class ContainerNetworkInterfaceIpConfigurationResponse
     {

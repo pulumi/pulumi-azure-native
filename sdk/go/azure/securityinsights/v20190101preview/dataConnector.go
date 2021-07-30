@@ -92,25 +92,9 @@ func GetDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataConnector resources.
 type dataConnectorState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type DataConnectorState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (DataConnectorState) ElementType() reflect.Type {

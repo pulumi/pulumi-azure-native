@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// This type describes the resource requirements for a container or a service.
+    /// </summary>
     [OutputType]
     public sealed class ResourceRequirementsResponse
     {

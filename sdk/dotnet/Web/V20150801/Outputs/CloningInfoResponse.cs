@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// Represents information needed for cloning operation
+    /// </summary>
     [OutputType]
     public sealed class CloningInfoResponse
     {

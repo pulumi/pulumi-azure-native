@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210201.Outputs
 {
 
+    /// <summary>
+    /// OS configurations of Linux agent nodes.
+    /// </summary>
     [OutputType]
     public sealed class LinuxOSConfigResponse
     {

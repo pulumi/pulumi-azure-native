@@ -114,53 +114,9 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskEncryptionSet resources.
 type diskEncryptionSetState struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyForDiskEncryptionSetResponse `pulumi:"activeKey"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType *string `pulumi:"encryptionType"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
-	// The time when the active key of this disk encryption set was updated.
-	LastKeyRotationTimestamp *string `pulumi:"lastKeyRotationTimestamp"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys []KeyForDiskEncryptionSetResponse `pulumi:"previousKeys"`
-	// The disk encryption set provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-	RotationToLatestKeyVersionEnabled *bool `pulumi:"rotationToLatestKeyVersionEnabled"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type DiskEncryptionSetState struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyForDiskEncryptionSetResponsePtrInput
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType pulumi.StringPtrInput
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity EncryptionSetIdentityResponsePtrInput
-	// The time when the active key of this disk encryption set was updated.
-	LastKeyRotationTimestamp pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys KeyForDiskEncryptionSetResponseArrayInput
-	// The disk encryption set provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
-	RotationToLatestKeyVersionEnabled pulumi.BoolPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (DiskEncryptionSetState) ElementType() reflect.Type {

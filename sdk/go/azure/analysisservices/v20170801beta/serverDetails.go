@@ -64,8 +64,7 @@ func NewServerDetails(ctx *pulumi.Context,
 		args.ManagedMode = pulumi.IntPtr(1)
 	}
 	if args.QuerypoolConnectionMode == nil {
-		e := ConnectionMode("All")
-		args.QuerypoolConnectionMode = &e
+		args.QuerypoolConnectionMode = ConnectionMode("All")
 	}
 	if args.ServerMonitorMode == nil {
 		args.ServerMonitorMode = pulumi.IntPtr(1)
@@ -122,69 +121,9 @@ func GetServerDetails(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerDetails resources.
 type serverDetailsState struct {
-	// A collection of AS server administrators
-	AsAdministrators *ServerAdministratorsResponse `pulumi:"asAdministrators"`
-	// The SAS container URI to the backup container.
-	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
-	// The gateway details configured for the AS server.
-	GatewayDetails *GatewayDetailsResponse `pulumi:"gatewayDetails"`
-	// The firewall settings for the AS server.
-	IpV4FirewallSettings *IPv4FirewallSettingsResponse `pulumi:"ipV4FirewallSettings"`
-	// Location of the Analysis Services resource.
-	Location *string `pulumi:"location"`
-	// The managed mode of the server (0 = not managed, 1 = managed).
-	ManagedMode *int `pulumi:"managedMode"`
-	// The name of the Analysis Services resource.
-	Name *string `pulumi:"name"`
-	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
-	// The full name of the Analysis Services resource.
-	ServerFullName *string `pulumi:"serverFullName"`
-	// The server monitor mode for AS server
-	ServerMonitorMode *int `pulumi:"serverMonitorMode"`
-	// The SKU of the Analysis Services resource.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
-	State *string `pulumi:"state"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the Analysis Services resource.
-	Type *string `pulumi:"type"`
 }
 
 type ServerDetailsState struct {
-	// A collection of AS server administrators
-	AsAdministrators ServerAdministratorsResponsePtrInput
-	// The SAS container URI to the backup container.
-	BackupBlobContainerUri pulumi.StringPtrInput
-	// The gateway details configured for the AS server.
-	GatewayDetails GatewayDetailsResponsePtrInput
-	// The firewall settings for the AS server.
-	IpV4FirewallSettings IPv4FirewallSettingsResponsePtrInput
-	// Location of the Analysis Services resource.
-	Location pulumi.StringPtrInput
-	// The managed mode of the server (0 = not managed, 1 = managed).
-	ManagedMode pulumi.IntPtrInput
-	// The name of the Analysis Services resource.
-	Name pulumi.StringPtrInput
-	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-	QuerypoolConnectionMode pulumi.StringPtrInput
-	// The full name of the Analysis Services resource.
-	ServerFullName pulumi.StringPtrInput
-	// The server monitor mode for AS server
-	ServerMonitorMode pulumi.IntPtrInput
-	// The SKU of the Analysis Services resource.
-	Sku ResourceSkuResponsePtrInput
-	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
-	State pulumi.StringPtrInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
-	// The type of the Analysis Services resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ServerDetailsState) ElementType() reflect.Type {
@@ -205,7 +144,7 @@ type serverDetailsArgs struct {
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode *int `pulumi:"managedMode"`
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
+	QuerypoolConnectionMode *ConnectionMode `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The server monitor mode for AS server
@@ -233,7 +172,7 @@ type ServerDetailsArgs struct {
 	// The managed mode of the server (0 = not managed, 1 = managed).
 	ManagedMode pulumi.IntPtrInput
 	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
-	QuerypoolConnectionMode *ConnectionMode
+	QuerypoolConnectionMode ConnectionModePtrInput
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The server monitor mode for AS server

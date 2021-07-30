@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Azure Queue sink.
+    /// </summary>
     [OutputType]
     public sealed class AzureQueueSinkResponse
     {

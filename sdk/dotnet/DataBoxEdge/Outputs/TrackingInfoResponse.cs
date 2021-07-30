@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// Tracking courier information.
+    /// </summary>
     [OutputType]
     public sealed class TrackingInfoResponse
     {

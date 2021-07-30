@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Class to specify configurations of FairPlay in Streaming Policy
+    /// </summary>
     [OutputType]
     public sealed class StreamingPolicyFairPlayConfigurationResponse
     {

@@ -105,59 +105,9 @@ func GetPartnerNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PartnerNamespace resources.
 type partnerNamespaceState struct {
-	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// Endpoint for the partner namespace.
-	Endpoint *string `pulumi:"endpoint"`
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Name of the resource.
-	Name *string `pulumi:"name"`
-	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
-	PartnerRegistrationFullyQualifiedId *string                             `pulumi:"partnerRegistrationFullyQualifiedId"`
-	PrivateEndpointConnections          []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the partner namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The system metadata relating to Partner Namespace resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PartnerNamespaceState struct {
-	// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// Endpoint for the partner namespace.
-	Endpoint pulumi.StringPtrInput
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules InboundIpRuleResponseArrayInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Name of the resource.
-	Name pulumi.StringPtrInput
-	// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
-	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
-	PartnerRegistrationFullyQualifiedId pulumi.StringPtrInput
-	PrivateEndpointConnections          PrivateEndpointConnectionResponseArrayInput
-	// Provisioning state of the partner namespace.
-	ProvisioningState pulumi.StringPtrInput
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The system metadata relating to Partner Namespace resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PartnerNamespaceState) ElementType() reflect.Type {

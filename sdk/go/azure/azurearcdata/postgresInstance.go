@@ -81,41 +81,9 @@ func GetPostgresInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PostgresInstance resources.
 type postgresInstanceState struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// null
-	Properties *PostgresInstancePropertiesResponse `pulumi:"properties"`
-	// Resource sku.
-	Sku *PostgresInstanceSkuResponse `pulumi:"sku"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type PostgresInstanceState struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// null
-	Properties PostgresInstancePropertiesResponsePtrInput
-	// Resource sku.
-	Sku PostgresInstanceSkuResponsePtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (PostgresInstanceState) ElementType() reflect.Type {

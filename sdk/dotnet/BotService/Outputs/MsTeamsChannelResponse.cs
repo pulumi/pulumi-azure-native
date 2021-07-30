@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
+    /// <summary>
+    /// Microsoft Teams channel definition
+    /// </summary>
     [OutputType]
     public sealed class MsTeamsChannelResponse
     {

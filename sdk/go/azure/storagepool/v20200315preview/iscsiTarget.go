@@ -85,33 +85,9 @@ func GetIscsiTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IscsiTarget resources.
 type iscsiTargetState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// State of the operation on the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Operational status of the iSCSI target.
-	Status *string `pulumi:"status"`
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn *string `pulumi:"targetIqn"`
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs []TargetPortalGroupResponse `pulumi:"tpgs"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type IscsiTargetState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// State of the operation on the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Operational status of the iSCSI target.
-	Status pulumi.StringPtrInput
-	// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
-	TargetIqn pulumi.StringPtrInput
-	// List of iSCSI target portal groups. Can have 1 portal group at most.
-	Tpgs TargetPortalGroupResponseArrayInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (IscsiTargetState) ElementType() reflect.Type {

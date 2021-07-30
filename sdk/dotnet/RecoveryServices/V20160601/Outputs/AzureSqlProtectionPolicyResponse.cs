@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160601.Outputs
 {
 
+    /// <summary>
+    ///  The Azure SQL workload-specific backup policy.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlProtectionPolicyResponse
     {

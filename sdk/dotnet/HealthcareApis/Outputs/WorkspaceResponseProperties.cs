@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.Outputs
 {
 
+    /// <summary>
+    /// Workspaces resource specific properties.
+    /// </summary>
     [OutputType]
     public sealed class WorkspaceResponseProperties
     {

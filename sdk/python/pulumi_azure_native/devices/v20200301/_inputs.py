@@ -22,8 +22,8 @@ __all__ = [
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
     'MessagingEndpointPropertiesArgs',
-    'PrivateEndpointConnectionArgs',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RoutePropertiesArgs',
     'RoutingEndpointsArgs',
@@ -32,8 +32,8 @@ __all__ = [
     'RoutingServiceBusQueueEndpointPropertiesArgs',
     'RoutingServiceBusTopicEndpointPropertiesArgs',
     'RoutingStorageContainerPropertiesArgs',
-    'SharedAccessSignatureAuthorizationRuleArgs',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs',
+    'SharedAccessSignatureAuthorizationRuleArgs',
     'StorageEndpointPropertiesArgs',
     'TargetIpFilterRuleArgs',
 ]
@@ -939,29 +939,6 @@ class MessagingEndpointPropertiesArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
-        """
-        The private endpoint connection of an IotHub
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
-        """
-        The properties of a private endpoint connection
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
@@ -982,6 +959,29 @@ class PrivateEndpointConnectionPropertiesArgs:
     @private_link_service_connection_state.setter
     def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        """
+        The private endpoint connection of an IotHub
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
+        """
+        The properties of a private endpoint connection
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -1870,76 +1870,6 @@ class RoutingStorageContainerPropertiesArgs:
 
 
 @pulumi.input_type
-class SharedAccessSignatureAuthorizationRuleArgs:
-    def __init__(__self__, *,
-                 key_name: pulumi.Input[str],
-                 rights: pulumi.Input['AccessRights'],
-                 primary_key: Optional[pulumi.Input[str]] = None,
-                 secondary_key: Optional[pulumi.Input[str]] = None):
-        """
-        The properties of an IoT hub shared access policy.
-        :param pulumi.Input[str] key_name: The name of the shared access policy.
-        :param pulumi.Input['AccessRights'] rights: The permissions assigned to the shared access policy.
-        :param pulumi.Input[str] primary_key: The primary key.
-        :param pulumi.Input[str] secondary_key: The secondary key.
-        """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "rights", rights)
-        if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
-        if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
-
-    @property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[str]:
-        """
-        The name of the shared access policy.
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key_name", value)
-
-    @property
-    @pulumi.getter
-    def rights(self) -> pulumi.Input['AccessRights']:
-        """
-        The permissions assigned to the shared access policy.
-        """
-        return pulumi.get(self, "rights")
-
-    @rights.setter
-    def rights(self, value: pulumi.Input['AccessRights']):
-        pulumi.set(self, "rights", value)
-
-    @property
-    @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The primary key.
-        """
-        return pulumi.get(self, "primary_key")
-
-    @primary_key.setter
-    def primary_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_key", value)
-
-    @property
-    @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        The secondary key.
-        """
-        return pulumi.get(self, "secondary_key")
-
-    @secondary_key.setter
-    def secondary_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secondary_key", value)
-
-
-@pulumi.input_type
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
@@ -2001,6 +1931,76 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def secondary_key(self) -> Optional[pulumi.Input[str]]:
         """
         Secondary SAS key value.
+        """
+        return pulumi.get(self, "secondary_key")
+
+    @secondary_key.setter
+    def secondary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secondary_key", value)
+
+
+@pulumi.input_type
+class SharedAccessSignatureAuthorizationRuleArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 rights: pulumi.Input['AccessRights'],
+                 primary_key: Optional[pulumi.Input[str]] = None,
+                 secondary_key: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of an IoT hub shared access policy.
+        :param pulumi.Input[str] key_name: The name of the shared access policy.
+        :param pulumi.Input['AccessRights'] rights: The permissions assigned to the shared access policy.
+        :param pulumi.Input[str] primary_key: The primary key.
+        :param pulumi.Input[str] secondary_key: The secondary key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "rights", rights)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if secondary_key is not None:
+            pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of the shared access policy.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter
+    def rights(self) -> pulumi.Input['AccessRights']:
+        """
+        The permissions assigned to the shared access policy.
+        """
+        return pulumi.get(self, "rights")
+
+    @rights.setter
+    def rights(self, value: pulumi.Input['AccessRights']):
+        pulumi.set(self, "rights", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The primary key.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "primary_key", value)
+
+    @property
+    @pulumi.getter(name="secondaryKey")
+    def secondary_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secondary key.
         """
         return pulumi.get(self, "secondary_key")
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
+    /// <summary>
+    /// Log analytics workspace id and primary key
+    /// </summary>
     [OutputType]
     public sealed class LogAnalyticsWorkspaceConfigResponse
     {

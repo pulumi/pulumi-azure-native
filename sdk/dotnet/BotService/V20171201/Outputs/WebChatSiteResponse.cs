@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20171201.Outputs
 {
 
+    /// <summary>
+    /// A site for the Webchat channel
+    /// </summary>
     [OutputType]
     public sealed class WebChatSiteResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of Storage Account.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountPropertiesResponse
     {

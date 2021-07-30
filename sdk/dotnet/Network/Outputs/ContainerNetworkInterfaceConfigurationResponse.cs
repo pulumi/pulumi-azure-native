@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Container network interface configuration child resource.
+    /// </summary>
     [OutputType]
     public sealed class ContainerNetworkInterfaceConfigurationResponse
     {

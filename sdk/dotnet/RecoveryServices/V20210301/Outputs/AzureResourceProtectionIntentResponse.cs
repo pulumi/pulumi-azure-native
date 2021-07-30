@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210301.Outputs
 {
 
+    /// <summary>
+    /// IaaS VM specific backup protection intent item.
+    /// </summary>
     [OutputType]
     public sealed class AzureResourceProtectionIntentResponse
     {

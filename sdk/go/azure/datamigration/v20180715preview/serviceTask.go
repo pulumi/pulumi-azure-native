@@ -66,25 +66,9 @@ func GetServiceTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceTask resources.
 type serviceTaskState struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag *string `pulumi:"etag"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Custom task properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ServiceTaskState struct {
-	// HTTP strong entity tag value. This is ignored if submitted.
-	Etag pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Custom task properties
-	Properties pulumi.Input
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceTaskState) ElementType() reflect.Type {

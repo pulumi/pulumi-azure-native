@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blockchain.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Consortium payload
+    /// </summary>
     [OutputType]
     public sealed class ConsortiumResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 {
 
+    /// <summary>
+    /// The binding to a JavaScript function.
+    /// </summary>
     [OutputType]
     public sealed class JavaScriptFunctionBindingResponse
     {

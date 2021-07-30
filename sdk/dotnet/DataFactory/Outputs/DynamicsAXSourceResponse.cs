@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Dynamics AX source.
+    /// </summary>
     [OutputType]
     public sealed class DynamicsAXSourceResponse
     {

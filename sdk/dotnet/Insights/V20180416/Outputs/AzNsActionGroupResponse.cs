@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
+    /// <summary>
+    /// Azure action group
+    /// </summary>
     [OutputType]
     public sealed class AzNsActionGroupResponse
     {

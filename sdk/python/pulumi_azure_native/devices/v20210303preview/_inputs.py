@@ -19,8 +19,8 @@ __all__ = [
     'EventHubPropertiesArgs',
     'FallbackRoutePropertiesArgs',
     'FeedbackPropertiesArgs',
-    'IotHubPropertiesArgs',
     'IotHubPropertiesDeviceStreamsArgs',
+    'IotHubPropertiesArgs',
     'IotHubSkuInfoArgs',
     'IpFilterRuleArgs',
     'KeyVaultKeyPropertiesArgs',
@@ -28,8 +28,8 @@ __all__ = [
     'MessagingEndpointPropertiesArgs',
     'NetworkRuleSetIpRuleArgs',
     'NetworkRuleSetPropertiesArgs',
-    'PrivateEndpointConnectionArgs',
     'PrivateEndpointConnectionPropertiesArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'RoutePropertiesArgs',
     'RoutingEndpointsArgs',
@@ -456,6 +456,30 @@ class FeedbackPropertiesArgs:
 
 
 @pulumi.input_type
+class IotHubPropertiesDeviceStreamsArgs:
+    def __init__(__self__, *,
+                 streaming_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The device streams properties of iothub.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_endpoints: List of Device Streams Endpoints.
+        """
+        if streaming_endpoints is not None:
+            pulumi.set(__self__, "streaming_endpoints", streaming_endpoints)
+
+    @property
+    @pulumi.getter(name="streamingEndpoints")
+    def streaming_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Device Streams Endpoints.
+        """
+        return pulumi.get(self, "streaming_endpoints")
+
+    @streaming_endpoints.setter
+    def streaming_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "streaming_endpoints", value)
+
+
+@pulumi.input_type
 class IotHubPropertiesArgs:
     def __init__(__self__, *,
                  authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleArgs']]]] = None,
@@ -717,30 +741,6 @@ class IotHubPropertiesArgs:
     @storage_endpoints.setter
     def storage_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]]]):
         pulumi.set(self, "storage_endpoints", value)
-
-
-@pulumi.input_type
-class IotHubPropertiesDeviceStreamsArgs:
-    def __init__(__self__, *,
-                 streaming_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The device streams properties of iothub.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_endpoints: List of Device Streams Endpoints.
-        """
-        if streaming_endpoints is not None:
-            pulumi.set(__self__, "streaming_endpoints", streaming_endpoints)
-
-    @property
-    @pulumi.getter(name="streamingEndpoints")
-    def streaming_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of Device Streams Endpoints.
-        """
-        return pulumi.get(self, "streaming_endpoints")
-
-    @streaming_endpoints.setter
-    def streaming_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "streaming_endpoints", value)
 
 
 @pulumi.input_type
@@ -1068,29 +1068,6 @@ class NetworkRuleSetPropertiesArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
-        """
-        The private endpoint connection of an IotHub
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
-        """
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
-        """
-        The properties of a private endpoint connection
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
@@ -1111,6 +1088,29 @@ class PrivateEndpointConnectionPropertiesArgs:
     @private_link_service_connection_state.setter
     def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
         pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        """
+        The private endpoint connection of an IotHub
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: The properties of a private endpoint connection
+        """
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
+        """
+        The properties of a private endpoint connection
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

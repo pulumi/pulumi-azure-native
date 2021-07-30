@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Outputs
 {
 
+    /// <summary>
+    /// The error details.
+    /// </summary>
     [OutputType]
     public sealed class AKSReplicaStatusResponseError
     {

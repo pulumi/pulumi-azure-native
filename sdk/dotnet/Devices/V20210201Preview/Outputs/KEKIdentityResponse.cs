@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of the KeyVault identity.
+    /// </summary>
     [OutputType]
     public sealed class KEKIdentityResponse
     {

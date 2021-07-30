@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
 {
 
+    /// <summary>
+    /// User information that made some action
+    /// </summary>
     [OutputType]
     public sealed class UserInfoResponse
     {

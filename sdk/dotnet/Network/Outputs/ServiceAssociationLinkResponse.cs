@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// ServiceAssociationLink resource.
+    /// </summary>
     [OutputType]
     public sealed class ServiceAssociationLinkResponse
     {

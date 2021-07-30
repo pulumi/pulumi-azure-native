@@ -11,9 +11,9 @@ from ._enums import *
 
 __all__ = [
     'AuthorizationActionMappingArgs',
-    'DefaultRolloutPropertiesArgs',
     'DefaultRolloutPropertiesSpecificationArgs',
     'DefaultRolloutPropertiesStatusArgs',
+    'DefaultRolloutPropertiesArgs',
     'DefaultRolloutSpecificationCanaryArgs',
     'DefaultRolloutSpecificationExpeditedRolloutArgs',
     'DefaultRolloutSpecificationHighTrafficArgs',
@@ -26,15 +26,15 @@ __all__ = [
     'ExtendedLocationOptionsArgs',
     'LightHouseAuthorizationArgs',
     'LinkedAccessCheckArgs',
-    'LoggingRuleArgs',
     'LoggingRuleHiddenPropertyPathsArgs',
+    'LoggingRuleArgs',
     'NotificationEndpointArgs',
     'NotificationRegistrationPropertiesArgs',
     'ProviderHubMetadataProviderAuthenticationArgs',
     'ProviderHubMetadataThirdPartyProviderAuthorizationArgs',
-    'ProviderRegistrationPropertiesArgs',
     'ProviderRegistrationPropertiesProviderHubMetadataArgs',
     'ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs',
+    'ProviderRegistrationPropertiesArgs',
     'ResourceConcurrencyControlOptionArgs',
     'ResourceProviderAuthorizationArgs',
     'ResourceProviderCapabilitiesArgs',
@@ -43,12 +43,10 @@ __all__ = [
     'ResourceProviderManifestPropertiesProviderAuthenticationArgs',
     'ResourceProviderManifestPropertiesRequestHeaderOptionsArgs',
     'ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs',
-    'ResourceTypeEndpointArgs',
     'ResourceTypeEndpointFeaturesRuleArgs',
-    'ResourceTypeExtensionArgs',
+    'ResourceTypeEndpointArgs',
     'ResourceTypeExtensionOptionsResourceCreationBeginArgs',
-    'ResourceTypeRegistrationArgs',
-    'ResourceTypeRegistrationPropertiesArgs',
+    'ResourceTypeExtensionArgs',
     'ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs',
     'ResourceTypeRegistrationPropertiesExtensionOptionsArgs',
     'ResourceTypeRegistrationPropertiesFeaturesRuleArgs',
@@ -59,12 +57,14 @@ __all__ = [
     'ResourceTypeRegistrationPropertiesResourceMovePolicyArgs',
     'ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs',
     'ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs',
+    'ResourceTypeRegistrationPropertiesArgs',
+    'ResourceTypeRegistrationArgs',
     'ServiceTreeInfoArgs',
     'SkuCapabilityArgs',
     'SkuCostArgs',
     'SkuLocationInfoArgs',
-    'SkuSettingArgs',
     'SkuSettingCapacityArgs',
+    'SkuSettingArgs',
     'SkuZoneDetailArgs',
     'SubscriptionStateOverrideActionArgs',
     'SubscriptionStateRuleArgs',
@@ -101,54 +101,6 @@ class AuthorizationActionMappingArgs:
     @original.setter
     def original(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "original", value)
-
-
-@pulumi.input_type
-class DefaultRolloutPropertiesArgs:
-    def __init__(__self__, *,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
-                 specification: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']] = None,
-                 status: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']] = None):
-        """
-        Properties of the rollout.
-        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
-        """
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if specification is not None:
-            pulumi.set(__self__, "specification", specification)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
-        """
-        The provisioned state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
-    @pulumi.getter
-    def specification(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]:
-        return pulumi.get(self, "specification")
-
-    @specification.setter
-    def specification(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]):
-        pulumi.set(self, "specification", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]:
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -327,6 +279,54 @@ class DefaultRolloutPropertiesStatusArgs:
     @subscription_reregistration_result.setter
     def subscription_reregistration_result(self, value: Optional[pulumi.Input[Union[str, 'SubscriptionReregistrationResult']]]):
         pulumi.set(self, "subscription_reregistration_result", value)
+
+
+@pulumi.input_type
+class DefaultRolloutPropertiesArgs:
+    def __init__(__self__, *,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 specification: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']] = None,
+                 status: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']] = None):
+        """
+        Properties of the rollout.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The provisioned state of the resource.
+        """
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if specification is not None:
+            pulumi.set(__self__, "specification", specification)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        """
+        The provisioned state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter
+    def specification(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]:
+        return pulumi.get(self, "specification")
+
+    @specification.setter
+    def specification(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesSpecificationArgs']]):
+        pulumi.set(self, "specification", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesStatusArgs']]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -730,6 +730,35 @@ class LinkedAccessCheckArgs:
 
 
 @pulumi.input_type
+class LoggingRuleHiddenPropertyPathsArgs:
+    def __init__(__self__, *,
+                 hidden_paths_on_request: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hidden_paths_on_response: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if hidden_paths_on_request is not None:
+            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
+        if hidden_paths_on_response is not None:
+            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
+
+    @property
+    @pulumi.getter(name="hiddenPathsOnRequest")
+    def hidden_paths_on_request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "hidden_paths_on_request")
+
+    @hidden_paths_on_request.setter
+    def hidden_paths_on_request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hidden_paths_on_request", value)
+
+    @property
+    @pulumi.getter(name="hiddenPathsOnResponse")
+    def hidden_paths_on_response(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "hidden_paths_on_response")
+
+    @hidden_paths_on_response.setter
+    def hidden_paths_on_response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "hidden_paths_on_response", value)
+
+
+@pulumi.input_type
 class LoggingRuleArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
@@ -777,35 +806,6 @@ class LoggingRuleArgs:
     @hidden_property_paths.setter
     def hidden_property_paths(self, value: Optional[pulumi.Input['LoggingRuleHiddenPropertyPathsArgs']]):
         pulumi.set(self, "hidden_property_paths", value)
-
-
-@pulumi.input_type
-class LoggingRuleHiddenPropertyPathsArgs:
-    def __init__(__self__, *,
-                 hidden_paths_on_request: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 hidden_paths_on_response: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        if hidden_paths_on_request is not None:
-            pulumi.set(__self__, "hidden_paths_on_request", hidden_paths_on_request)
-        if hidden_paths_on_response is not None:
-            pulumi.set(__self__, "hidden_paths_on_response", hidden_paths_on_response)
-
-    @property
-    @pulumi.getter(name="hiddenPathsOnRequest")
-    def hidden_paths_on_request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "hidden_paths_on_request")
-
-    @hidden_paths_on_request.setter
-    def hidden_paths_on_request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "hidden_paths_on_request", value)
-
-    @property
-    @pulumi.getter(name="hiddenPathsOnResponse")
-    def hidden_paths_on_response(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "hidden_paths_on_response")
-
-    @hidden_paths_on_response.setter
-    def hidden_paths_on_response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "hidden_paths_on_response", value)
 
 
 @pulumi.input_type
@@ -951,6 +951,76 @@ class ProviderHubMetadataThirdPartyProviderAuthorizationArgs:
     @managed_by_tenant_id.setter
     def managed_by_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managed_by_tenant_id", value)
+
+
+@pulumi.input_type
+class ProviderRegistrationPropertiesProviderHubMetadataArgs:
+    def __init__(__self__, *,
+                 provider_authentication: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']] = None,
+                 provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
+                 third_party_provider_authorization: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None):
+        if provider_authentication is not None:
+            pulumi.set(__self__, "provider_authentication", provider_authentication)
+        if provider_authorizations is not None:
+            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
+        if third_party_provider_authorization is not None:
+            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
+
+    @property
+    @pulumi.getter(name="providerAuthentication")
+    def provider_authentication(self) -> Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']]:
+        return pulumi.get(self, "provider_authentication")
+
+    @provider_authentication.setter
+    def provider_authentication(self, value: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']]):
+        pulumi.set(self, "provider_authentication", value)
+
+    @property
+    @pulumi.getter(name="providerAuthorizations")
+    def provider_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]:
+        return pulumi.get(self, "provider_authorizations")
+
+    @provider_authorizations.setter
+    def provider_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]):
+        pulumi.set(self, "provider_authorizations", value)
+
+    @property
+    @pulumi.getter(name="thirdPartyProviderAuthorization")
+    def third_party_provider_authorization(self) -> Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]:
+        return pulumi.get(self, "third_party_provider_authorization")
+
+    @third_party_provider_authorization.setter
+    def third_party_provider_authorization(self, value: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]):
+        pulumi.set(self, "third_party_provider_authorization", value)
+
+
+@pulumi.input_type
+class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
+    def __init__(__self__, *,
+                 soft_delete_ttl: Optional[pulumi.Input[str]] = None,
+                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
+        if soft_delete_ttl is not None:
+            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
+        if subscription_state_override_actions is not None:
+            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
+
+    @property
+    @pulumi.getter(name="softDeleteTTL")
+    def soft_delete_ttl(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "soft_delete_ttl")
+
+    @soft_delete_ttl.setter
+    def soft_delete_ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "soft_delete_ttl", value)
+
+    @property
+    @pulumi.getter(name="subscriptionStateOverrideActions")
+    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
+        return pulumi.get(self, "subscription_state_override_actions")
+
+    @subscription_state_override_actions.setter
+    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
+        pulumi.set(self, "subscription_state_override_actions", value)
 
 
 @pulumi.input_type
@@ -1142,76 +1212,6 @@ class ProviderRegistrationPropertiesArgs:
     @template_deployment_options.setter
     def template_deployment_options(self, value: Optional[pulumi.Input['ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs']]):
         pulumi.set(self, "template_deployment_options", value)
-
-
-@pulumi.input_type
-class ProviderRegistrationPropertiesProviderHubMetadataArgs:
-    def __init__(__self__, *,
-                 provider_authentication: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']] = None,
-                 provider_authorizations: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]] = None,
-                 third_party_provider_authorization: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']] = None):
-        if provider_authentication is not None:
-            pulumi.set(__self__, "provider_authentication", provider_authentication)
-        if provider_authorizations is not None:
-            pulumi.set(__self__, "provider_authorizations", provider_authorizations)
-        if third_party_provider_authorization is not None:
-            pulumi.set(__self__, "third_party_provider_authorization", third_party_provider_authorization)
-
-    @property
-    @pulumi.getter(name="providerAuthentication")
-    def provider_authentication(self) -> Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']]:
-        return pulumi.get(self, "provider_authentication")
-
-    @provider_authentication.setter
-    def provider_authentication(self, value: Optional[pulumi.Input['ProviderHubMetadataProviderAuthenticationArgs']]):
-        pulumi.set(self, "provider_authentication", value)
-
-    @property
-    @pulumi.getter(name="providerAuthorizations")
-    def provider_authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]:
-        return pulumi.get(self, "provider_authorizations")
-
-    @provider_authorizations.setter
-    def provider_authorizations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderAuthorizationArgs']]]]):
-        pulumi.set(self, "provider_authorizations", value)
-
-    @property
-    @pulumi.getter(name="thirdPartyProviderAuthorization")
-    def third_party_provider_authorization(self) -> Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]:
-        return pulumi.get(self, "third_party_provider_authorization")
-
-    @third_party_provider_authorization.setter
-    def third_party_provider_authorization(self, value: Optional[pulumi.Input['ProviderHubMetadataThirdPartyProviderAuthorizationArgs']]):
-        pulumi.set(self, "third_party_provider_authorization", value)
-
-
-@pulumi.input_type
-class ProviderRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
-    def __init__(__self__, *,
-                 soft_delete_ttl: Optional[pulumi.Input[str]] = None,
-                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
-        if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
-        if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
-
-    @property
-    @pulumi.getter(name="softDeleteTTL")
-    def soft_delete_ttl(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "soft_delete_ttl")
-
-    @soft_delete_ttl.setter
-    def soft_delete_ttl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "soft_delete_ttl", value)
-
-    @property
-    @pulumi.getter(name="subscriptionStateOverrideActions")
-    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
-        return pulumi.get(self, "subscription_state_override_actions")
-
-    @subscription_state_override_actions.setter
-    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
-        pulumi.set(self, "subscription_state_override_actions", value)
 
 
 @pulumi.input_type
@@ -1491,6 +1491,22 @@ class ResourceProviderManifestPropertiesTemplateDeploymentOptionsArgs:
 
 
 @pulumi.input_type
+class ResourceTypeEndpointFeaturesRuleArgs:
+    def __init__(__self__, *,
+                 required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
+        pulumi.set(__self__, "required_features_policy", required_features_policy)
+
+    @property
+    @pulumi.getter(name="requiredFeaturesPolicy")
+    def required_features_policy(self) -> pulumi.Input[Union[str, 'FeaturesPolicy']]:
+        return pulumi.get(self, "required_features_policy")
+
+    @required_features_policy.setter
+    def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
+        pulumi.set(self, "required_features_policy", value)
+
+
+@pulumi.input_type
 class ResourceTypeEndpointArgs:
     def __init__(__self__, *,
                  api_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1592,19 +1608,32 @@ class ResourceTypeEndpointArgs:
 
 
 @pulumi.input_type
-class ResourceTypeEndpointFeaturesRuleArgs:
+class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
     def __init__(__self__, *,
-                 required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
+                 request: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None,
+                 response: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None):
+        if request is not None:
+            pulumi.set(__self__, "request", request)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
 
     @property
-    @pulumi.getter(name="requiredFeaturesPolicy")
-    def required_features_policy(self) -> pulumi.Input[Union[str, 'FeaturesPolicy']]:
-        return pulumi.get(self, "required_features_policy")
+    @pulumi.getter
+    def request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]:
+        return pulumi.get(self, "request")
 
-    @required_features_policy.setter
-    def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(self, "required_features_policy", value)
+    @request.setter
+    def request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]:
+        return pulumi.get(self, "response")
+
+    @response.setter
+    def response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]):
+        pulumi.set(self, "response", value)
 
 
 @pulumi.input_type
@@ -1649,49 +1678,340 @@ class ResourceTypeExtensionArgs:
 
 
 @pulumi.input_type
-class ResourceTypeExtensionOptionsResourceCreationBeginArgs:
+class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
     def __init__(__self__, *,
-                 request: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None,
-                 response: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]] = None):
-        if request is not None:
-            pulumi.set(__self__, "request", request)
-        if response is not None:
-            pulumi.set(__self__, "response", response)
+                 enable_default_validation: Optional[pulumi.Input[bool]] = None,
+                 resource_types_with_custom_validation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if enable_default_validation is not None:
+            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
+        if resource_types_with_custom_validation is not None:
+            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
 
     @property
-    @pulumi.getter
-    def request(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]:
-        return pulumi.get(self, "request")
+    @pulumi.getter(name="enableDefaultValidation")
+    def enable_default_validation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_default_validation")
 
-    @request.setter
-    def request(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]):
-        pulumi.set(self, "request", value)
+    @enable_default_validation.setter
+    def enable_default_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_default_validation", value)
 
     @property
-    @pulumi.getter
-    def response(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]:
-        return pulumi.get(self, "response")
+    @pulumi.getter(name="resourceTypesWithCustomValidation")
+    def resource_types_with_custom_validation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "resource_types_with_custom_validation")
 
-    @response.setter
-    def response(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExtensionOptionType']]]]]):
-        pulumi.set(self, "response", value)
+    @resource_types_with_custom_validation.setter
+    def resource_types_with_custom_validation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types_with_custom_validation", value)
 
 
 @pulumi.input_type
-class ResourceTypeRegistrationArgs:
+class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
     def __init__(__self__, *,
-                 properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+                 resource_creation_begin: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None):
+        if resource_creation_begin is not None:
+            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
+
+    @property
+    @pulumi.getter(name="resourceCreationBegin")
+    def resource_creation_begin(self) -> Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]:
+        return pulumi.get(self, "resource_creation_begin")
+
+    @resource_creation_begin.setter
+    def resource_creation_begin(self, value: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]):
+        pulumi.set(self, "resource_creation_begin", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
+    def __init__(__self__, *,
+                 required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
+        pulumi.set(__self__, "required_features_policy", required_features_policy)
+
+    @property
+    @pulumi.getter(name="requiredFeaturesPolicy")
+    def required_features_policy(self) -> pulumi.Input[Union[str, 'FeaturesPolicy']]:
+        return pulumi.get(self, "required_features_policy")
+
+    @required_features_policy.setter
+    def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
+        pulumi.set(self, "required_features_policy", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
+    def __init__(__self__, *,
+                 application_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]] = None):
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]:
-        return pulumi.get(self, "properties")
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]]:
+        return pulumi.get(self, "type")
 
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesManagementArgs:
+    def __init__(__self__, *,
+                 incident_contact_email: Optional[pulumi.Input[str]] = None,
+                 incident_routing_service: Optional[pulumi.Input[str]] = None,
+                 incident_routing_team: Optional[pulumi.Input[str]] = None,
+                 manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_access_policy: Optional[pulumi.Input[str]] = None,
+                 resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
+        if incident_contact_email is not None:
+            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
+        if incident_routing_service is not None:
+            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
+        if incident_routing_team is not None:
+            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
+        if manifest_owners is not None:
+            pulumi.set(__self__, "manifest_owners", manifest_owners)
+        if resource_access_policy is not None:
+            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
+        if resource_access_roles is not None:
+            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
+        if schema_owners is not None:
+            pulumi.set(__self__, "schema_owners", schema_owners)
+        if service_tree_infos is not None:
+            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+
+    @property
+    @pulumi.getter(name="incidentContactEmail")
+    def incident_contact_email(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "incident_contact_email")
+
+    @incident_contact_email.setter
+    def incident_contact_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incident_contact_email", value)
+
+    @property
+    @pulumi.getter(name="incidentRoutingService")
+    def incident_routing_service(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "incident_routing_service")
+
+    @incident_routing_service.setter
+    def incident_routing_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incident_routing_service", value)
+
+    @property
+    @pulumi.getter(name="incidentRoutingTeam")
+    def incident_routing_team(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "incident_routing_team")
+
+    @incident_routing_team.setter
+    def incident_routing_team(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incident_routing_team", value)
+
+    @property
+    @pulumi.getter(name="manifestOwners")
+    def manifest_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "manifest_owners")
+
+    @manifest_owners.setter
+    def manifest_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "manifest_owners", value)
+
+    @property
+    @pulumi.getter(name="resourceAccessPolicy")
+    def resource_access_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_access_policy")
+
+    @resource_access_policy.setter
+    def resource_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_access_policy", value)
+
+    @property
+    @pulumi.getter(name="resourceAccessRoles")
+    def resource_access_roles(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        return pulumi.get(self, "resource_access_roles")
+
+    @resource_access_roles.setter
+    def resource_access_roles(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "resource_access_roles", value)
+
+    @property
+    @pulumi.getter(name="schemaOwners")
+    def schema_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "schema_owners")
+
+    @schema_owners.setter
+    def schema_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "schema_owners", value)
+
+    @property
+    @pulumi.getter(name="serviceTreeInfos")
+    def service_tree_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
+        return pulumi.get(self, "service_tree_infos")
+
+    @service_tree_infos.setter
+    def service_tree_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
+        pulumi.set(self, "service_tree_infos", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
+    def __init__(__self__, *,
+                 opt_in_headers: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]] = None):
+        if opt_in_headers is not None:
+            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
+
+    @property
+    @pulumi.getter(name="optInHeaders")
+    def opt_in_headers(self) -> Optional[pulumi.Input[Union[str, 'OptInHeaderType']]]:
+        return pulumi.get(self, "opt_in_headers")
+
+    @opt_in_headers.setter
+    def opt_in_headers(self, value: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]]):
+        pulumi.set(self, "opt_in_headers", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
+    def __init__(__self__, *,
+                 api_version: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "api_version")
+
+    @api_version.setter
+    def api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_version", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
+    def __init__(__self__, *,
+                 cross_resource_group_move_enabled: Optional[pulumi.Input[bool]] = None,
+                 cross_subscription_move_enabled: Optional[pulumi.Input[bool]] = None,
+                 validation_required: Optional[pulumi.Input[bool]] = None):
+        if cross_resource_group_move_enabled is not None:
+            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
+        if cross_subscription_move_enabled is not None:
+            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
+        if validation_required is not None:
+            pulumi.set(__self__, "validation_required", validation_required)
+
+    @property
+    @pulumi.getter(name="crossResourceGroupMoveEnabled")
+    def cross_resource_group_move_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "cross_resource_group_move_enabled")
+
+    @cross_resource_group_move_enabled.setter
+    def cross_resource_group_move_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cross_resource_group_move_enabled", value)
+
+    @property
+    @pulumi.getter(name="crossSubscriptionMoveEnabled")
+    def cross_subscription_move_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "cross_subscription_move_enabled")
+
+    @cross_subscription_move_enabled.setter
+    def cross_subscription_move_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cross_subscription_move_enabled", value)
+
+    @property
+    @pulumi.getter(name="validationRequired")
+    def validation_required(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "validation_required")
+
+    @validation_required.setter
+    def validation_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validation_required", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
+    def __init__(__self__, *,
+                 soft_delete_ttl: Optional[pulumi.Input[str]] = None,
+                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
+        if soft_delete_ttl is not None:
+            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
+        if subscription_state_override_actions is not None:
+            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
+
+    @property
+    @pulumi.getter(name="softDeleteTTL")
+    def soft_delete_ttl(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "soft_delete_ttl")
+
+    @soft_delete_ttl.setter
+    def soft_delete_ttl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "soft_delete_ttl", value)
+
+    @property
+    @pulumi.getter(name="subscriptionStateOverrideActions")
+    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
+        return pulumi.get(self, "subscription_state_override_actions")
+
+    @subscription_state_override_actions.setter
+    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
+        pulumi.set(self, "subscription_state_override_actions", value)
+
+
+@pulumi.input_type
+class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
+    def __init__(__self__, *,
+                 preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
+                 preflight_supported: Optional[pulumi.Input[bool]] = None):
+        if preflight_options is not None:
+            pulumi.set(__self__, "preflight_options", preflight_options)
+        if preflight_supported is not None:
+            pulumi.set(__self__, "preflight_supported", preflight_supported)
+
+    @property
+    @pulumi.getter(name="preflightOptions")
+    def preflight_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]:
+        return pulumi.get(self, "preflight_options")
+
+    @preflight_options.setter
+    def preflight_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]):
+        pulumi.set(self, "preflight_options", value)
+
+    @property
+    @pulumi.getter(name="preflightSupported")
+    def preflight_supported(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "preflight_supported")
+
+    @preflight_supported.setter
+    def preflight_supported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preflight_supported", value)
 
 
 @pulumi.input_type
@@ -2090,340 +2410,20 @@ class ResourceTypeRegistrationPropertiesArgs:
 
 
 @pulumi.input_type
-class ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsArgs:
+class ResourceTypeRegistrationArgs:
     def __init__(__self__, *,
-                 enable_default_validation: Optional[pulumi.Input[bool]] = None,
-                 resource_types_with_custom_validation: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        if enable_default_validation is not None:
-            pulumi.set(__self__, "enable_default_validation", enable_default_validation)
-        if resource_types_with_custom_validation is not None:
-            pulumi.set(__self__, "resource_types_with_custom_validation", resource_types_with_custom_validation)
-
-    @property
-    @pulumi.getter(name="enableDefaultValidation")
-    def enable_default_validation(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enable_default_validation")
-
-    @enable_default_validation.setter
-    def enable_default_validation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enable_default_validation", value)
-
-    @property
-    @pulumi.getter(name="resourceTypesWithCustomValidation")
-    def resource_types_with_custom_validation(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "resource_types_with_custom_validation")
-
-    @resource_types_with_custom_validation.setter
-    def resource_types_with_custom_validation(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "resource_types_with_custom_validation", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesExtensionOptionsArgs:
-    def __init__(__self__, *,
-                 resource_creation_begin: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']] = None):
-        if resource_creation_begin is not None:
-            pulumi.set(__self__, "resource_creation_begin", resource_creation_begin)
-
-    @property
-    @pulumi.getter(name="resourceCreationBegin")
-    def resource_creation_begin(self) -> Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]:
-        return pulumi.get(self, "resource_creation_begin")
-
-    @resource_creation_begin.setter
-    def resource_creation_begin(self, value: Optional[pulumi.Input['ResourceTypeExtensionOptionsResourceCreationBeginArgs']]):
-        pulumi.set(self, "resource_creation_begin", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesFeaturesRuleArgs:
-    def __init__(__self__, *,
-                 required_features_policy: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(__self__, "required_features_policy", required_features_policy)
-
-    @property
-    @pulumi.getter(name="requiredFeaturesPolicy")
-    def required_features_policy(self) -> pulumi.Input[Union[str, 'FeaturesPolicy']]:
-        return pulumi.get(self, "required_features_policy")
-
-    @required_features_policy.setter
-    def required_features_policy(self, value: pulumi.Input[Union[str, 'FeaturesPolicy']]):
-        pulumi.set(self, "required_features_policy", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesIdentityManagementArgs:
-    def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]] = None):
-        if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "application_id")
-
-    @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "application_id", value)
+                 properties: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']] = None):
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]]:
-        return pulumi.get(self, "type")
+    def properties(self) -> Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]:
+        return pulumi.get(self, "properties")
 
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityManagementTypes']]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesManagementArgs:
-    def __init__(__self__, *,
-                 incident_contact_email: Optional[pulumi.Input[str]] = None,
-                 incident_routing_service: Optional[pulumi.Input[str]] = None,
-                 incident_routing_team: Optional[pulumi.Input[str]] = None,
-                 manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_access_policy: Optional[pulumi.Input[str]] = None,
-                 resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
-        if incident_contact_email is not None:
-            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
-        if incident_routing_service is not None:
-            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
-        if incident_routing_team is not None:
-            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
-        if manifest_owners is not None:
-            pulumi.set(__self__, "manifest_owners", manifest_owners)
-        if resource_access_policy is not None:
-            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
-        if resource_access_roles is not None:
-            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
-        if schema_owners is not None:
-            pulumi.set(__self__, "schema_owners", schema_owners)
-        if service_tree_infos is not None:
-            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
-
-    @property
-    @pulumi.getter(name="incidentContactEmail")
-    def incident_contact_email(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "incident_contact_email")
-
-    @incident_contact_email.setter
-    def incident_contact_email(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "incident_contact_email", value)
-
-    @property
-    @pulumi.getter(name="incidentRoutingService")
-    def incident_routing_service(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "incident_routing_service")
-
-    @incident_routing_service.setter
-    def incident_routing_service(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "incident_routing_service", value)
-
-    @property
-    @pulumi.getter(name="incidentRoutingTeam")
-    def incident_routing_team(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "incident_routing_team")
-
-    @incident_routing_team.setter
-    def incident_routing_team(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "incident_routing_team", value)
-
-    @property
-    @pulumi.getter(name="manifestOwners")
-    def manifest_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "manifest_owners")
-
-    @manifest_owners.setter
-    def manifest_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "manifest_owners", value)
-
-    @property
-    @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_access_policy")
-
-    @resource_access_policy.setter
-    def resource_access_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_access_policy", value)
-
-    @property
-    @pulumi.getter(name="resourceAccessRoles")
-    def resource_access_roles(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        return pulumi.get(self, "resource_access_roles")
-
-    @resource_access_roles.setter
-    def resource_access_roles(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "resource_access_roles", value)
-
-    @property
-    @pulumi.getter(name="schemaOwners")
-    def schema_owners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "schema_owners")
-
-    @schema_owners.setter
-    def schema_owners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "schema_owners", value)
-
-    @property
-    @pulumi.getter(name="serviceTreeInfos")
-    def service_tree_infos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]:
-        return pulumi.get(self, "service_tree_infos")
-
-    @service_tree_infos.setter
-    def service_tree_infos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]]):
-        pulumi.set(self, "service_tree_infos", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs:
-    def __init__(__self__, *,
-                 opt_in_headers: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]] = None):
-        if opt_in_headers is not None:
-            pulumi.set(__self__, "opt_in_headers", opt_in_headers)
-
-    @property
-    @pulumi.getter(name="optInHeaders")
-    def opt_in_headers(self) -> Optional[pulumi.Input[Union[str, 'OptInHeaderType']]]:
-        return pulumi.get(self, "opt_in_headers")
-
-    @opt_in_headers.setter
-    def opt_in_headers(self, value: Optional[pulumi.Input[Union[str, 'OptInHeaderType']]]):
-        pulumi.set(self, "opt_in_headers", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs:
-    def __init__(__self__, *,
-                 api_version: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        if api_version is not None:
-            pulumi.set(__self__, "api_version", api_version)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter(name="apiVersion")
-    def api_version(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "api_version")
-
-    @api_version.setter
-    def api_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "api_version", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesResourceMovePolicyArgs:
-    def __init__(__self__, *,
-                 cross_resource_group_move_enabled: Optional[pulumi.Input[bool]] = None,
-                 cross_subscription_move_enabled: Optional[pulumi.Input[bool]] = None,
-                 validation_required: Optional[pulumi.Input[bool]] = None):
-        if cross_resource_group_move_enabled is not None:
-            pulumi.set(__self__, "cross_resource_group_move_enabled", cross_resource_group_move_enabled)
-        if cross_subscription_move_enabled is not None:
-            pulumi.set(__self__, "cross_subscription_move_enabled", cross_subscription_move_enabled)
-        if validation_required is not None:
-            pulumi.set(__self__, "validation_required", validation_required)
-
-    @property
-    @pulumi.getter(name="crossResourceGroupMoveEnabled")
-    def cross_resource_group_move_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "cross_resource_group_move_enabled")
-
-    @cross_resource_group_move_enabled.setter
-    def cross_resource_group_move_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "cross_resource_group_move_enabled", value)
-
-    @property
-    @pulumi.getter(name="crossSubscriptionMoveEnabled")
-    def cross_subscription_move_enabled(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "cross_subscription_move_enabled")
-
-    @cross_subscription_move_enabled.setter
-    def cross_subscription_move_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "cross_subscription_move_enabled", value)
-
-    @property
-    @pulumi.getter(name="validationRequired")
-    def validation_required(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "validation_required")
-
-    @validation_required.setter
-    def validation_required(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "validation_required", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsArgs:
-    def __init__(__self__, *,
-                 soft_delete_ttl: Optional[pulumi.Input[str]] = None,
-                 subscription_state_override_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]] = None):
-        if soft_delete_ttl is not None:
-            pulumi.set(__self__, "soft_delete_ttl", soft_delete_ttl)
-        if subscription_state_override_actions is not None:
-            pulumi.set(__self__, "subscription_state_override_actions", subscription_state_override_actions)
-
-    @property
-    @pulumi.getter(name="softDeleteTTL")
-    def soft_delete_ttl(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "soft_delete_ttl")
-
-    @soft_delete_ttl.setter
-    def soft_delete_ttl(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "soft_delete_ttl", value)
-
-    @property
-    @pulumi.getter(name="subscriptionStateOverrideActions")
-    def subscription_state_override_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]:
-        return pulumi.get(self, "subscription_state_override_actions")
-
-    @subscription_state_override_actions.setter
-    def subscription_state_override_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriptionStateOverrideActionArgs']]]]):
-        pulumi.set(self, "subscription_state_override_actions", value)
-
-
-@pulumi.input_type
-class ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsArgs:
-    def __init__(__self__, *,
-                 preflight_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]] = None,
-                 preflight_supported: Optional[pulumi.Input[bool]] = None):
-        if preflight_options is not None:
-            pulumi.set(__self__, "preflight_options", preflight_options)
-        if preflight_supported is not None:
-            pulumi.set(__self__, "preflight_supported", preflight_supported)
-
-    @property
-    @pulumi.getter(name="preflightOptions")
-    def preflight_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]:
-        return pulumi.get(self, "preflight_options")
-
-    @preflight_options.setter
-    def preflight_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PreflightOption']]]]]):
-        pulumi.set(self, "preflight_options", value)
-
-    @property
-    @pulumi.getter(name="preflightSupported")
-    def preflight_supported(self) -> Optional[pulumi.Input[bool]]:
-        return pulumi.get(self, "preflight_supported")
-
-    @preflight_supported.setter
-    def preflight_supported(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "preflight_supported", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -2587,6 +2587,58 @@ class SkuLocationInfoArgs:
 
 
 @pulumi.input_type
+class SkuSettingCapacityArgs:
+    def __init__(__self__, *,
+                 minimum: pulumi.Input[int],
+                 default: Optional[pulumi.Input[int]] = None,
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 scale_type: Optional[pulumi.Input[Union[str, 'SkuScaleType']]] = None):
+        pulumi.set(__self__, "minimum", minimum)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if scale_type is not None:
+            pulumi.set(__self__, "scale_type", scale_type)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> Optional[pulumi.Input[Union[str, 'SkuScaleType']]]:
+        return pulumi.get(self, "scale_type")
+
+    @scale_type.setter
+    def scale_type(self, value: Optional[pulumi.Input[Union[str, 'SkuScaleType']]]):
+        pulumi.set(self, "scale_type", value)
+
+
+@pulumi.input_type
 class SkuSettingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -2732,58 +2784,6 @@ class SkuSettingArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class SkuSettingCapacityArgs:
-    def __init__(__self__, *,
-                 minimum: pulumi.Input[int],
-                 default: Optional[pulumi.Input[int]] = None,
-                 maximum: Optional[pulumi.Input[int]] = None,
-                 scale_type: Optional[pulumi.Input[Union[str, 'SkuScaleType']]] = None):
-        pulumi.set(__self__, "minimum", minimum)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
-        if scale_type is not None:
-            pulumi.set(__self__, "scale_type", scale_type)
-
-    @property
-    @pulumi.getter
-    def minimum(self) -> pulumi.Input[int]:
-        return pulumi.get(self, "minimum")
-
-    @minimum.setter
-    def minimum(self, value: pulumi.Input[int]):
-        pulumi.set(self, "minimum", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def maximum(self) -> Optional[pulumi.Input[int]]:
-        return pulumi.get(self, "maximum")
-
-    @maximum.setter
-    def maximum(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "maximum", value)
-
-    @property
-    @pulumi.getter(name="scaleType")
-    def scale_type(self) -> Optional[pulumi.Input[Union[str, 'SkuScaleType']]]:
-        return pulumi.get(self, "scale_type")
-
-    @scale_type.setter
-    def scale_type(self, value: Optional[pulumi.Input[Union[str, 'SkuScaleType']]]):
-        pulumi.set(self, "scale_type", value)
 
 
 @pulumi.input_type

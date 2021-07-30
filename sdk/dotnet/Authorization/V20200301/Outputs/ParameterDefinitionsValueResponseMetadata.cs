@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20200301.Outputs
 {
 
+    /// <summary>
+    /// General metadata for the parameter.
+    /// </summary>
     [OutputType]
     public sealed class ParameterDefinitionsValueResponseMetadata
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Represents a token claim.
+    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyTokenClaimResponse
     {

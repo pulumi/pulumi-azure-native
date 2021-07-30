@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20140401.Outputs
 {
 
+    /// <summary>
+    /// Autoscale profile.
+    /// </summary>
     [OutputType]
     public sealed class AutoscaleProfileResponse
     {

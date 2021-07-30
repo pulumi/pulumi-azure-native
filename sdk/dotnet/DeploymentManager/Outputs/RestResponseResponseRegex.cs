@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
+    /// <summary>
+    /// The regular expressions to match the response content with.
+    /// </summary>
     [OutputType]
     public sealed class RestResponseResponseRegex
     {

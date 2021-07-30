@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the access location for a web service asset.
+    /// </summary>
     [OutputType]
     public sealed class AssetLocationResponse
     {

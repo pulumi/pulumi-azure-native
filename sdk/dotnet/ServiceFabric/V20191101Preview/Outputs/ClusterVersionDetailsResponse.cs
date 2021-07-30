@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20191101Preview.Outputs
 {
 
+    /// <summary>
+    /// The detail of the Service Fabric runtime version result
+    /// </summary>
     [OutputType]
     public sealed class ClusterVersionDetailsResponse
     {

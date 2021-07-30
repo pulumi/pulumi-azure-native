@@ -18,8 +18,8 @@ __all__ = [
     'RecurrentScheduleArgs',
     'ScaleActionArgs',
     'ScaleCapacityArgs',
-    'ScaleRuleArgs',
     'ScaleRuleMetricDimensionArgs',
+    'ScaleRuleArgs',
     'TimeWindowArgs',
     'WebhookNotificationArgs',
 ]
@@ -647,44 +647,6 @@ class ScaleCapacityArgs:
 
 
 @pulumi.input_type
-class ScaleRuleArgs:
-    def __init__(__self__, *,
-                 metric_trigger: pulumi.Input['MetricTriggerArgs'],
-                 scale_action: pulumi.Input['ScaleActionArgs']):
-        """
-        A rule that provide the triggers and parameters for the scaling action.
-        :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
-        :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
-        """
-        pulumi.set(__self__, "metric_trigger", metric_trigger)
-        pulumi.set(__self__, "scale_action", scale_action)
-
-    @property
-    @pulumi.getter(name="metricTrigger")
-    def metric_trigger(self) -> pulumi.Input['MetricTriggerArgs']:
-        """
-        the trigger that results in a scaling action.
-        """
-        return pulumi.get(self, "metric_trigger")
-
-    @metric_trigger.setter
-    def metric_trigger(self, value: pulumi.Input['MetricTriggerArgs']):
-        pulumi.set(self, "metric_trigger", value)
-
-    @property
-    @pulumi.getter(name="scaleAction")
-    def scale_action(self) -> pulumi.Input['ScaleActionArgs']:
-        """
-        the parameters for the scaling action.
-        """
-        return pulumi.get(self, "scale_action")
-
-    @scale_action.setter
-    def scale_action(self, value: pulumi.Input['ScaleActionArgs']):
-        pulumi.set(self, "scale_action", value)
-
-
-@pulumi.input_type
 class ScaleRuleMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[str],
@@ -735,6 +697,44 @@ class ScaleRuleMetricDimensionArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ScaleRuleArgs:
+    def __init__(__self__, *,
+                 metric_trigger: pulumi.Input['MetricTriggerArgs'],
+                 scale_action: pulumi.Input['ScaleActionArgs']):
+        """
+        A rule that provide the triggers and parameters for the scaling action.
+        :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
+        :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
+        """
+        pulumi.set(__self__, "metric_trigger", metric_trigger)
+        pulumi.set(__self__, "scale_action", scale_action)
+
+    @property
+    @pulumi.getter(name="metricTrigger")
+    def metric_trigger(self) -> pulumi.Input['MetricTriggerArgs']:
+        """
+        the trigger that results in a scaling action.
+        """
+        return pulumi.get(self, "metric_trigger")
+
+    @metric_trigger.setter
+    def metric_trigger(self, value: pulumi.Input['MetricTriggerArgs']):
+        pulumi.set(self, "metric_trigger", value)
+
+    @property
+    @pulumi.getter(name="scaleAction")
+    def scale_action(self) -> pulumi.Input['ScaleActionArgs']:
+        """
+        the parameters for the scaling action.
+        """
+        return pulumi.get(self, "scale_action")
+
+    @scale_action.setter
+    def scale_action(self, value: pulumi.Input['ScaleActionArgs']):
+        pulumi.set(self, "scale_action", value)
 
 
 @pulumi.input_type

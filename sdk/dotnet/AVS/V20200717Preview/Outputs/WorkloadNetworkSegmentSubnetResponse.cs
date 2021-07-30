@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20200717Preview.Outputs
 {
 
+    /// <summary>
+    /// Subnet configuration for segment
+    /// </summary>
     [OutputType]
     public sealed class WorkloadNetworkSegmentSubnetResponse
     {

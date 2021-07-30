@@ -94,75 +94,9 @@ func GetMigration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Migration resources.
 type migrationState struct {
-	// Migration status.
-	CurrentStatus *MigrationStatusResponse `pulumi:"currentStatus"`
-	DBsToMigrate  []string                 `pulumi:"dBsToMigrate"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Migration details level.
-	MigrationDetailsLevel *string `pulumi:"migrationDetailsLevel"`
-	MigrationId           *string `pulumi:"migrationId"`
-	MigrationName         *string `pulumi:"migrationName"`
-	// Migration resource group.
-	MigrationResourceGroup        *MigrationResourceGroupResponse `pulumi:"migrationResourceGroup"`
-	MigrationWindowStartTimeInUtc *string                         `pulumi:"migrationWindowStartTimeInUtc"`
-	// The name of the resource
-	Name                 *string `pulumi:"name"`
-	OverwriteDBsInTarget *bool   `pulumi:"overwriteDBsInTarget"`
-	// Migration secret parameters.
-	SecretParameters                          *MigrationSecretParametersResponse `pulumi:"secretParameters"`
-	SetupLogicalReplicationOnSourceDBIfNeeded *bool                              `pulumi:"setupLogicalReplicationOnSourceDBIfNeeded"`
-	// Database server metadata.
-	SourceDBServerMetadata   *DBServerMetadataResponse `pulumi:"sourceDBServerMetadata"`
-	SourceDBServerResourceId *string                   `pulumi:"sourceDBServerResourceId"`
-	StartDataMigration       *bool                     `pulumi:"startDataMigration"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Database server metadata.
-	TargetDBServerMetadata   *DBServerMetadataResponse `pulumi:"targetDBServerMetadata"`
-	TargetDBServerResourceId *string                   `pulumi:"targetDBServerResourceId"`
-	TriggerCutover           *bool                     `pulumi:"triggerCutover"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type                           *string `pulumi:"type"`
-	UserAssignedIdentityResourceId *string `pulumi:"userAssignedIdentityResourceId"`
 }
 
 type MigrationState struct {
-	// Migration status.
-	CurrentStatus MigrationStatusResponsePtrInput
-	DBsToMigrate  pulumi.StringArrayInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Migration details level.
-	MigrationDetailsLevel pulumi.StringPtrInput
-	MigrationId           pulumi.StringPtrInput
-	MigrationName         pulumi.StringPtrInput
-	// Migration resource group.
-	MigrationResourceGroup        MigrationResourceGroupResponsePtrInput
-	MigrationWindowStartTimeInUtc pulumi.StringPtrInput
-	// The name of the resource
-	Name                 pulumi.StringPtrInput
-	OverwriteDBsInTarget pulumi.BoolPtrInput
-	// Migration secret parameters.
-	SecretParameters                          MigrationSecretParametersResponsePtrInput
-	SetupLogicalReplicationOnSourceDBIfNeeded pulumi.BoolPtrInput
-	// Database server metadata.
-	SourceDBServerMetadata   DBServerMetadataResponsePtrInput
-	SourceDBServerResourceId pulumi.StringPtrInput
-	StartDataMigration       pulumi.BoolPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Database server metadata.
-	TargetDBServerMetadata   DBServerMetadataResponsePtrInput
-	TargetDBServerResourceId pulumi.StringPtrInput
-	TriggerCutover           pulumi.BoolPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type                           pulumi.StringPtrInput
-	UserAssignedIdentityResourceId pulumi.StringPtrInput
 }
 
 func (MigrationState) ElementType() reflect.Type {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview.Outputs
 {
 
+    /// <summary>
+    /// The event for a webhook.
+    /// </summary>
     [OutputType]
     public sealed class EventResponse
     {

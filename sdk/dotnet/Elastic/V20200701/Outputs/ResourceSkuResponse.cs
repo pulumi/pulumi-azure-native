@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Elastic.V20200701.Outputs
 {
 
+    /// <summary>
+    /// Microsoft.Elastic SKU.
+    /// </summary>
     [OutputType]
     public sealed class ResourceSkuResponse
     {

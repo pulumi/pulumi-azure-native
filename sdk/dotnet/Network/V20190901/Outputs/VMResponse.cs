@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190901.Outputs
 {
 
+    /// <summary>
+    /// Describes a Virtual Machine.
+    /// </summary>
     [OutputType]
     public sealed class VMResponse
     {

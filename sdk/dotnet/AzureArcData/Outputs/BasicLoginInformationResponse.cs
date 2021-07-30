@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.Outputs
 {
 
+    /// <summary>
+    /// Username and password for basic login authentication.
+    /// </summary>
     [OutputType]
     public sealed class BasicLoginInformationResponse
     {

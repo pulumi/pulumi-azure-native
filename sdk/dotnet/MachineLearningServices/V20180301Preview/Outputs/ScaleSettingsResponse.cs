@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview.Outputs
 {
 
+    /// <summary>
+    /// scale settings for BatchAI Compute
+    /// </summary>
     [OutputType]
     public sealed class ScaleSettingsResponse
     {

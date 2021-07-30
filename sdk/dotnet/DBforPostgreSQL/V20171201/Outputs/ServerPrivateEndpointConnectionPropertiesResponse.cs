@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201.Outputs
 {
 
+    /// <summary>
+    /// Properties of a private endpoint connection.
+    /// </summary>
     [OutputType]
     public sealed class ServerPrivateEndpointConnectionPropertiesResponse
     {

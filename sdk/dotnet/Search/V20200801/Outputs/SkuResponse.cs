@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20200801.Outputs
 {
 
+    /// <summary>
+    /// Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

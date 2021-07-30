@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Http message diagnostic settings.
+    /// </summary>
     [OutputType]
     public sealed class HttpMessageDiagnosticResponse
     {

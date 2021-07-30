@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203.Outputs
 {
 
+    /// <summary>
+    /// The SKU of the EnterpriseKnowledgeGraph service account.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

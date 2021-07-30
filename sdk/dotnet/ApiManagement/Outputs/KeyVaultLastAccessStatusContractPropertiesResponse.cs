@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.Outputs
 {
 
+    /// <summary>
+    /// Issue contract Update Properties.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultLastAccessStatusContractPropertiesResponse
     {

@@ -1441,7 +1441,7 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrO
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfile struct {
 	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType string `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
 }
 
 // ContainerServiceOrchestratorProfileInput is an input type that accepts ContainerServiceOrchestratorProfileArgs and ContainerServiceOrchestratorProfileOutput values.
@@ -1458,7 +1458,7 @@ type ContainerServiceOrchestratorProfileInput interface {
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileArgs struct {
 	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypesInput `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {
@@ -1540,8 +1540,10 @@ func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestrato
 }
 
 // The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) string { return v.OrchestratorType }).(pulumi.StringOutput)
+func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() ContainerServiceOchestratorTypesOutput {
+	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) ContainerServiceOchestratorTypes {
+		return v.OrchestratorType
+	}).(ContainerServiceOchestratorTypesOutput)
 }
 
 type ContainerServiceOrchestratorProfilePtrOutput struct{ *pulumi.OutputState }
@@ -1563,13 +1565,13 @@ func (o ContainerServiceOrchestratorProfilePtrOutput) Elem() ContainerServiceOrc
 }
 
 // The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *string {
+func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() ContainerServiceOchestratorTypesPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *ContainerServiceOchestratorTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.OrchestratorType
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerServiceOchestratorTypesPtrOutput)
 }
 
 // Profile for the container service orchestrator.

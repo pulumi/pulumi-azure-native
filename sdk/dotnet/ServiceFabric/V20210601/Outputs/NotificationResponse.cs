@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Describes the notification channel for cluster events.
+    /// </summary>
     [OutputType]
     public sealed class NotificationResponse
     {

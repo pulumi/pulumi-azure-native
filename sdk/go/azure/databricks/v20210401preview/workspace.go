@@ -112,93 +112,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The workspace provider authorizations.
-	Authorizations []WorkspaceProviderAuthorizationResponse `pulumi:"authorizations"`
-	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-	CreatedBy *CreatedByResponse `pulumi:"createdBy"`
-	// Specifies the date and time when the workspace is created.
-	CreatedDateTime *string `pulumi:"createdDateTime"`
-	// Encryption properties for databricks workspace
-	Encryption *WorkspacePropertiesResponseEncryption `pulumi:"encryption"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The managed resource group Id.
-	ManagedResourceGroupId *string `pulumi:"managedResourceGroupId"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The workspace's custom parameters.
-	Parameters *WorkspaceCustomParametersResponse `pulumi:"parameters"`
-	// Private endpoint connections created on the workspace
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The workspace provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
-	RequiredNsgRules *string `pulumi:"requiredNsgRules"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The details of Managed Identity of Storage Account
-	StorageAccountIdentity *ManagedIdentityConfigurationResponse `pulumi:"storageAccountIdentity"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
-	// The blob URI where the UI definition file is located.
-	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
-	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-	UpdatedBy *CreatedByResponse `pulumi:"updatedBy"`
-	// The unique identifier of the databricks workspace in databricks control plane.
-	WorkspaceId *string `pulumi:"workspaceId"`
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-	WorkspaceUrl *string `pulumi:"workspaceUrl"`
 }
 
 type WorkspaceState struct {
-	// The workspace provider authorizations.
-	Authorizations WorkspaceProviderAuthorizationResponseArrayInput
-	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-	CreatedBy CreatedByResponsePtrInput
-	// Specifies the date and time when the workspace is created.
-	CreatedDateTime pulumi.StringPtrInput
-	// Encryption properties for databricks workspace
-	Encryption WorkspacePropertiesResponseEncryptionPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The managed resource group Id.
-	ManagedResourceGroupId pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The workspace's custom parameters.
-	Parameters WorkspaceCustomParametersResponsePtrInput
-	// Private endpoint connections created on the workspace
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// The workspace provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
-	RequiredNsgRules pulumi.StringPtrInput
-	// The SKU of the resource.
-	Sku SkuResponsePtrInput
-	// The details of Managed Identity of Storage Account
-	StorageAccountIdentity ManagedIdentityConfigurationResponsePtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
-	// The blob URI where the UI definition file is located.
-	UiDefinitionUri pulumi.StringPtrInput
-	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-	UpdatedBy CreatedByResponsePtrInput
-	// The unique identifier of the databricks workspace in databricks control plane.
-	WorkspaceId pulumi.StringPtrInput
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
-	WorkspaceUrl pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {

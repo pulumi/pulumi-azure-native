@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity source for SAP Business Warehouse Open Hub Destination source.
+    /// </summary>
     [OutputType]
     public sealed class SapOpenHubSourceResponse
     {

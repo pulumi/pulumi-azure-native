@@ -149,57 +149,9 @@ func GetWebAppDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppDeployment resources.
 type webAppDeploymentState struct {
-	// True if deployment is currently active, false if completed and null if not started.
-	Active *bool `pulumi:"active"`
-	// Who authored the deployment.
-	Author *string `pulumi:"author"`
-	// Author email.
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Who performed the deployment.
-	Deployer *string `pulumi:"deployer"`
-	// Details on deployment.
-	Details *string `pulumi:"details"`
-	// End time.
-	EndTime *string `pulumi:"endTime"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Details about deployment status.
-	Message *string `pulumi:"message"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Start time.
-	StartTime *string `pulumi:"startTime"`
-	// Deployment status.
-	Status *int `pulumi:"status"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppDeploymentState struct {
-	// True if deployment is currently active, false if completed and null if not started.
-	Active pulumi.BoolPtrInput
-	// Who authored the deployment.
-	Author pulumi.StringPtrInput
-	// Author email.
-	AuthorEmail pulumi.StringPtrInput
-	// Who performed the deployment.
-	Deployer pulumi.StringPtrInput
-	// Details on deployment.
-	Details pulumi.StringPtrInput
-	// End time.
-	EndTime pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Details about deployment status.
-	Message pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Start time.
-	StartTime pulumi.StringPtrInput
-	// Deployment status.
-	Status pulumi.IntPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppDeploymentState) ElementType() reflect.Type {

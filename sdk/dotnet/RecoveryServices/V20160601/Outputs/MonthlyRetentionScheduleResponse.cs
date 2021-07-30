@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160601.Outputs
 {
 
+    /// <summary>
+    /// The monthly retention schedule.
+    /// </summary>
     [OutputType]
     public sealed class MonthlyRetentionScheduleResponse
     {

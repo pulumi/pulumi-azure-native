@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a label or a category of labels in a labeling job.
+    /// </summary>
     [OutputType]
     public sealed class LabelClassResponse
     {

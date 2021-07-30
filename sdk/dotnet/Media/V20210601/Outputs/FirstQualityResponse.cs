@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Filter First Quality
+    /// </summary>
     [OutputType]
     public sealed class FirstQualityResponse
     {

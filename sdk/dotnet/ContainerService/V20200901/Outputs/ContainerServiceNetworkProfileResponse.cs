@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Profile of network configuration.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceNetworkProfileResponse
     {

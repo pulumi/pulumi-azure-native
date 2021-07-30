@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Input for the task that validates connection to Azure SQL DB and target server requirements
+    /// </summary>
     [OutputType]
     public sealed class ConnectToTargetSqlSqlDbSyncTaskInputResponse
     {

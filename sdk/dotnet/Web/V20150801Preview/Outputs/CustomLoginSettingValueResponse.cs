@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Outputs
 {
 
+    /// <summary>
+    /// Custom logging setting value
+    /// </summary>
     [OutputType]
     public sealed class CustomLoginSettingValueResponse
     {

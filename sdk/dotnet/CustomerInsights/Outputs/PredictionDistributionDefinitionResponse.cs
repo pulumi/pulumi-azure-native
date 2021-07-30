@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// The definition of the prediction distribution.
+    /// </summary>
     [OutputType]
     public sealed class PredictionDistributionDefinitionResponse
     {

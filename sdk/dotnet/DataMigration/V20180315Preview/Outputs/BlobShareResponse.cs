@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Outputs
 {
 
+    /// <summary>
+    /// Blob container storage information.
+    /// </summary>
     [OutputType]
     public sealed class BlobShareResponse
     {

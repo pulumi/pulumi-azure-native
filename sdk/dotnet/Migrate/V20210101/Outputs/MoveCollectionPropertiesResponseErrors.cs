@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Defines the move collection errors.
+    /// </summary>
     [OutputType]
     public sealed class MoveCollectionPropertiesResponseErrors
     {

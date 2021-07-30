@@ -89,37 +89,9 @@ func GetDeploymentScript(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentScript resources.
 type deploymentScriptState struct {
-	// Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// Type of the script.
-	Kind *string `pulumi:"kind"`
-	// The location of the ACI and the storage account for the deployment script.
-	Location *string `pulumi:"location"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type DeploymentScriptState struct {
-	// Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-	Identity ManagedServiceIdentityResponsePtrInput
-	// Type of the script.
-	Kind pulumi.StringPtrInput
-	// The location of the ACI and the storage account for the deployment script.
-	Location pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DeploymentScriptState) ElementType() reflect.Type {

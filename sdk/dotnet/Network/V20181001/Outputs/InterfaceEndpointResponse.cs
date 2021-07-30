@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181001.Outputs
 {
 
+    /// <summary>
+    /// Interface endpoint resource.
+    /// </summary>
     [OutputType]
     public sealed class InterfaceEndpointResponse
     {

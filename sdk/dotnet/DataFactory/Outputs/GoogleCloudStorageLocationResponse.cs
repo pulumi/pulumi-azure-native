@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The location of Google Cloud Storage dataset.
+    /// </summary>
     [OutputType]
     public sealed class GoogleCloudStorageLocationResponse
     {

@@ -2937,7 +2937,7 @@ func (o SourceControlSecurityTokenPropertiesPtrOutput) TokenType() pulumi.String
 // Tag filter information for the VM.
 type TagSettingsProperties struct {
 	// Filter VMs by Any or All specified tags.
-	FilterOperator *string `pulumi:"filterOperator"`
+	FilterOperator *TagOperators `pulumi:"filterOperator"`
 	// Dictionary of tags with its list of values.
 	Tags map[string][]string `pulumi:"tags"`
 }
@@ -2956,7 +2956,7 @@ type TagSettingsPropertiesInput interface {
 // Tag filter information for the VM.
 type TagSettingsPropertiesArgs struct {
 	// Filter VMs by Any or All specified tags.
-	FilterOperator *TagOperators `pulumi:"filterOperator"`
+	FilterOperator TagOperatorsPtrInput `pulumi:"filterOperator"`
 	// Dictionary of tags with its list of values.
 	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
 }
@@ -3040,8 +3040,8 @@ func (o TagSettingsPropertiesOutput) ToTagSettingsPropertiesPtrOutputWithContext
 }
 
 // Filter VMs by Any or All specified tags.
-func (o TagSettingsPropertiesOutput) FilterOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TagSettingsProperties) *string { return v.FilterOperator }).(pulumi.StringPtrOutput)
+func (o TagSettingsPropertiesOutput) FilterOperator() TagOperatorsPtrOutput {
+	return o.ApplyT(func(v TagSettingsProperties) *TagOperators { return v.FilterOperator }).(TagOperatorsPtrOutput)
 }
 
 // Dictionary of tags with its list of values.
@@ -3068,13 +3068,13 @@ func (o TagSettingsPropertiesPtrOutput) Elem() TagSettingsPropertiesOutput {
 }
 
 // Filter VMs by Any or All specified tags.
-func (o TagSettingsPropertiesPtrOutput) FilterOperator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TagSettingsProperties) *string {
+func (o TagSettingsPropertiesPtrOutput) FilterOperator() TagOperatorsPtrOutput {
+	return o.ApplyT(func(v *TagSettingsProperties) *TagOperators {
 		if v == nil {
 			return nil
 		}
 		return v.FilterOperator
-	}).(pulumi.StringPtrOutput)
+	}).(TagOperatorsPtrOutput)
 }
 
 // Dictionary of tags with its list of values.
@@ -3863,7 +3863,7 @@ type UpdateConfiguration struct {
 	// List of names of non-azure machines targeted by the software update configuration.
 	NonAzureComputerNames []string `pulumi:"nonAzureComputerNames"`
 	// operating system of target machines
-	OperatingSystem string `pulumi:"operatingSystem"`
+	OperatingSystem OperatingSystemType `pulumi:"operatingSystem"`
 	// Group targets for the software update configuration.
 	Targets *TargetProperties `pulumi:"targets"`
 	// Windows specific update configuration.
@@ -3892,7 +3892,7 @@ type UpdateConfigurationArgs struct {
 	// List of names of non-azure machines targeted by the software update configuration.
 	NonAzureComputerNames pulumi.StringArrayInput `pulumi:"nonAzureComputerNames"`
 	// operating system of target machines
-	OperatingSystem OperatingSystemType `pulumi:"operatingSystem"`
+	OperatingSystem OperatingSystemTypeInput `pulumi:"operatingSystem"`
 	// Group targets for the software update configuration.
 	Targets TargetPropertiesPtrInput `pulumi:"targets"`
 	// Windows specific update configuration.
@@ -3998,8 +3998,8 @@ func (o UpdateConfigurationOutput) NonAzureComputerNames() pulumi.StringArrayOut
 }
 
 // operating system of target machines
-func (o UpdateConfigurationOutput) OperatingSystem() pulumi.StringOutput {
-	return o.ApplyT(func(v UpdateConfiguration) string { return v.OperatingSystem }).(pulumi.StringOutput)
+func (o UpdateConfigurationOutput) OperatingSystem() OperatingSystemTypeOutput {
+	return o.ApplyT(func(v UpdateConfiguration) OperatingSystemType { return v.OperatingSystem }).(OperatingSystemTypeOutput)
 }
 
 // Group targets for the software update configuration.
@@ -4071,13 +4071,13 @@ func (o UpdateConfigurationPtrOutput) NonAzureComputerNames() pulumi.StringArray
 }
 
 // operating system of target machines
-func (o UpdateConfigurationPtrOutput) OperatingSystem() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *string {
+func (o UpdateConfigurationPtrOutput) OperatingSystem() OperatingSystemTypePtrOutput {
+	return o.ApplyT(func(v *UpdateConfiguration) *OperatingSystemType {
 		if v == nil {
 			return nil
 		}
 		return &v.OperatingSystem
-	}).(pulumi.StringPtrOutput)
+	}).(OperatingSystemTypePtrOutput)
 }
 
 // Group targets for the software update configuration.

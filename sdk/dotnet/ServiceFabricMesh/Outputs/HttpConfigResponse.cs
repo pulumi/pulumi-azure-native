@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Describes the http configuration for external connectivity for this network.
+    /// </summary>
     [OutputType]
     public sealed class HttpConfigResponse
     {

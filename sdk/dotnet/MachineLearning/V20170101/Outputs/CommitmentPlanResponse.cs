@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Information about the machine learning commitment plan associated with the web service.
+    /// </summary>
     [OutputType]
     public sealed class CommitmentPlanResponse
     {

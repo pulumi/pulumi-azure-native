@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Customer error of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayCustomErrorResponse
     {

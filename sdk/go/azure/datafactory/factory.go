@@ -94,61 +94,9 @@ func GetFactory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Factory resources.
 type factoryState struct {
-	// Time the factory was created in ISO8601 format.
-	CreateTime *string `pulumi:"createTime"`
-	// Etag identifies change in the resource.
-	ETag *string `pulumi:"eTag"`
-	// Properties to enable Customer Managed Key for the factory.
-	Encryption *EncryptionConfigurationResponse `pulumi:"encryption"`
-	// List of parameters for factory.
-	GlobalParameters map[string]GlobalParameterSpecificationResponse `pulumi:"globalParameters"`
-	// Managed service identity of the factory.
-	Identity *FactoryIdentityResponse `pulumi:"identity"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Factory provisioning state, example Succeeded.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether or not public network access is allowed for the data factory.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Git repo information of the factory.
-	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
-	// Version of the factory.
-	Version *string `pulumi:"version"`
 }
 
 type FactoryState struct {
-	// Time the factory was created in ISO8601 format.
-	CreateTime pulumi.StringPtrInput
-	// Etag identifies change in the resource.
-	ETag pulumi.StringPtrInput
-	// Properties to enable Customer Managed Key for the factory.
-	Encryption EncryptionConfigurationResponsePtrInput
-	// List of parameters for factory.
-	GlobalParameters GlobalParameterSpecificationResponseMapInput
-	// Managed service identity of the factory.
-	Identity FactoryIdentityResponsePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Factory provisioning state, example Succeeded.
-	ProvisioningState pulumi.StringPtrInput
-	// Whether or not public network access is allowed for the data factory.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// Git repo information of the factory.
-	RepoConfiguration pulumi.Input
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
-	// Version of the factory.
-	Version pulumi.StringPtrInput
 }
 
 func (FactoryState) ElementType() reflect.Type {

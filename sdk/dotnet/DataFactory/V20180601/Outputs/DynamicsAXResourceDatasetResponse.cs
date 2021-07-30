@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The path of the Dynamics AX OData entity.
+    /// </summary>
     [OutputType]
     public sealed class DynamicsAXResourceDatasetResponse
     {

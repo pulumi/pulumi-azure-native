@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Class containing endpoint monitoring settings in a Traffic Manager profile.
+    /// </summary>
     [OutputType]
     public sealed class MonitorConfigResponse
     {

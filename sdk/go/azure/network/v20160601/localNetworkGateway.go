@@ -291,49 +291,9 @@ func GetLocalNetworkGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalNetworkGateway resources.
 type localNetworkGatewayState struct {
-	// Local network gateway's BGP speaker settings
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// IP address of local network gateway.
-	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
-	// Local network site Address space
-	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets resource guid property of the LocalNetworkGateway resource
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type LocalNetworkGatewayState struct {
-	// Local network gateway's BGP speaker settings
-	BgpSettings BgpSettingsResponsePtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// IP address of local network gateway.
-	GatewayIpAddress pulumi.StringPtrInput
-	// Local network site Address space
-	LocalNetworkAddressSpace AddressSpaceResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets resource guid property of the LocalNetworkGateway resource
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (LocalNetworkGatewayState) ElementType() reflect.Type {

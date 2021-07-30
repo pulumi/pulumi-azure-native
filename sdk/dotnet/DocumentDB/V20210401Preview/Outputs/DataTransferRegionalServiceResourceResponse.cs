@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Resource for a regional service location.
+    /// </summary>
     [OutputType]
     public sealed class DataTransferRegionalServiceResourceResponse
     {

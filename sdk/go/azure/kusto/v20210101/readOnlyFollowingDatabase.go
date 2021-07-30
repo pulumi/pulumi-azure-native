@@ -145,55 +145,9 @@ func GetReadOnlyFollowingDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReadOnlyFollowingDatabase resources.
 type readOnlyFollowingDatabaseState struct {
-	// The name of the attached database configuration cluster
-	AttachedDatabaseConfigurationName *string `pulumi:"attachedDatabaseConfigurationName"`
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod *string `pulumi:"hotCachePeriod"`
-	// Kind of the database
-	// Expected value is 'ReadOnlyFollowing'.
-	Kind *string `pulumi:"kind"`
-	// The name of the leader cluster
-	LeaderClusterResourceId *string `pulumi:"leaderClusterResourceId"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The principals modification kind of the database
-	PrincipalsModificationKind *string `pulumi:"principalsModificationKind"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
-	// The statistics of the database.
-	Statistics *DatabaseStatisticsResponse `pulumi:"statistics"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ReadOnlyFollowingDatabaseState struct {
-	// The name of the attached database configuration cluster
-	AttachedDatabaseConfigurationName pulumi.StringPtrInput
-	// The time the data should be kept in cache for fast queries in TimeSpan.
-	HotCachePeriod pulumi.StringPtrInput
-	// Kind of the database
-	// Expected value is 'ReadOnlyFollowing'.
-	Kind pulumi.StringPtrInput
-	// The name of the leader cluster
-	LeaderClusterResourceId pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The principals modification kind of the database
-	PrincipalsModificationKind pulumi.StringPtrInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
-	SoftDeletePeriod pulumi.StringPtrInput
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ReadOnlyFollowingDatabaseState) ElementType() reflect.Type {

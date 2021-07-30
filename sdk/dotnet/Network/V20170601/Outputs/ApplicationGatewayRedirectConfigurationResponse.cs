@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170601.Outputs
 {
 
+    /// <summary>
+    /// Redirect configuration of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayRedirectConfigurationResponse
     {

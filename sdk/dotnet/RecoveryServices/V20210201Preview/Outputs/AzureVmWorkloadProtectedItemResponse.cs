@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Azure VM workload-specific protected item.
+    /// </summary>
     [OutputType]
     public sealed class AzureVmWorkloadProtectedItemResponse
     {

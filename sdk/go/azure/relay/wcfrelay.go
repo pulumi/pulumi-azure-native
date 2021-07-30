@@ -91,49 +91,9 @@ func GetWCFRelay(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WCFRelay resources.
 type wcfrelayState struct {
-	// The time the WCF relay was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Returns true if the relay is dynamic; otherwise, false.
-	IsDynamic *bool `pulumi:"isDynamic"`
-	// The number of listeners for this relay. Note that min :1 and max:25 are supported.
-	ListenerCount *int `pulumi:"listenerCount"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// WCF relay type.
-	RelayType *string `pulumi:"relayType"`
-	// Returns true if client authorization is needed for this relay; otherwise, false.
-	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
-	// Returns true if transport security is needed for this relay; otherwise, false.
-	RequiresTransportSecurity *bool `pulumi:"requiresTransportSecurity"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The time the namespace was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 type WCFRelayState struct {
-	// The time the WCF relay was created.
-	CreatedAt pulumi.StringPtrInput
-	// Returns true if the relay is dynamic; otherwise, false.
-	IsDynamic pulumi.BoolPtrInput
-	// The number of listeners for this relay. Note that min :1 and max:25 are supported.
-	ListenerCount pulumi.IntPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// WCF relay type.
-	RelayType pulumi.StringPtrInput
-	// Returns true if client authorization is needed for this relay; otherwise, false.
-	RequiresClientAuthorization pulumi.BoolPtrInput
-	// Returns true if transport security is needed for this relay; otherwise, false.
-	RequiresTransportSecurity pulumi.BoolPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringPtrInput
-	// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrInput
 }
 
 func (WCFRelayState) ElementType() reflect.Type {
@@ -146,7 +106,7 @@ type wcfrelayArgs struct {
 	// The relay name.
 	RelayName *string `pulumi:"relayName"`
 	// WCF relay type.
-	RelayType *string `pulumi:"relayType"`
+	RelayType *Relaytype `pulumi:"relayType"`
 	// Returns true if client authorization is needed for this relay; otherwise, false.
 	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// Returns true if transport security is needed for this relay; otherwise, false.
@@ -164,7 +124,7 @@ type WCFRelayArgs struct {
 	// The relay name.
 	RelayName pulumi.StringPtrInput
 	// WCF relay type.
-	RelayType *Relaytype
+	RelayType RelaytypePtrInput
 	// Returns true if client authorization is needed for this relay; otherwise, false.
 	RequiresClientAuthorization pulumi.BoolPtrInput
 	// Returns true if transport security is needed for this relay; otherwise, false.

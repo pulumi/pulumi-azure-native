@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180501Preview.Outputs
 {
 
+    /// <summary>
+    /// The private link scope resource reference.
+    /// </summary>
     [OutputType]
     public sealed class PrivateLinkScopedResourceResponse
     {

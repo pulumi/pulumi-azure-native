@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// The request parameters for a scheduling run against a task file.
+    /// </summary>
     [OutputType]
     public sealed class FileTaskRunRequestResponse
     {

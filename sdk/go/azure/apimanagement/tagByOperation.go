@@ -125,21 +125,9 @@ func GetTagByOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagByOperation resources.
 type tagByOperationState struct {
-	// Tag name.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type TagByOperationState struct {
-	// Tag name.
-	DisplayName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TagByOperationState) ElementType() reflect.Type {

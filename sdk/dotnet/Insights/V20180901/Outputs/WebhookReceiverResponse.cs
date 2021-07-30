@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180901.Outputs
 {
 
+    /// <summary>
+    /// A webhook receiver.
+    /// </summary>
     [OutputType]
     public sealed class WebhookReceiverResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20180531.Outputs
 {
 
+    /// <summary>
+    /// The definition of data present in the report.
+    /// </summary>
     [OutputType]
     public sealed class ReportConfigDatasetResponse
     {

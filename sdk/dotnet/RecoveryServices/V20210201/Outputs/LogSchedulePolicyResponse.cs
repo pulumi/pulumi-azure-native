@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Log policy schedule.
+    /// </summary>
     [OutputType]
     public sealed class LogSchedulePolicyResponse
     {

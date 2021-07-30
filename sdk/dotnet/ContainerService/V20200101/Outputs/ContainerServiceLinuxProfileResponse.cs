@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Profile for Linux VMs in the container service cluster.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceLinuxProfileResponse
     {

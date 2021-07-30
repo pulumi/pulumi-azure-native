@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200415.Outputs
 {
 
+    /// <summary>
+    /// Defines the ARM Resource ID for the linked endpoints
+    /// </summary>
     [OutputType]
     public sealed class CdnEndpointResponse
     {

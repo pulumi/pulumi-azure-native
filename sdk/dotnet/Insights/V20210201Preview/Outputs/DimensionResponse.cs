@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Dimension splitting and filtering definition
+    /// </summary>
     [OutputType]
     public sealed class DimensionResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Reference to another subresource.
+    /// </summary>
     [OutputType]
     public sealed class SubResourceResponse
     {

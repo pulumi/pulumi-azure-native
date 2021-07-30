@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
+    /// <summary>
+    /// The alias type. 
+    /// </summary>
     [OutputType]
     public sealed class AliasResponse
     {

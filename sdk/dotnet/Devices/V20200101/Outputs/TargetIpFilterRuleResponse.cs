@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200101.Outputs
 {
 
+    /// <summary>
+    /// The IP filter rules for the IoT dps.
+    /// </summary>
     [OutputType]
     public sealed class TargetIpFilterRuleResponse
     {

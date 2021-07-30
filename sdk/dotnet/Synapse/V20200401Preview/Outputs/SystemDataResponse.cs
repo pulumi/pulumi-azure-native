@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20200401Preview.Outputs
 {
 
+    /// <summary>
+    /// ARM System Data.
+    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

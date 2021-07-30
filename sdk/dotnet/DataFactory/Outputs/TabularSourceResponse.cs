@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Copy activity sources of tabular type.
+    /// </summary>
     [OutputType]
     public sealed class TabularSourceResponse
     {

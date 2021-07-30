@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Labeling dataset configuration definition
+    /// </summary>
     [OutputType]
     public sealed class LabelingDatasetConfigurationResponse
     {

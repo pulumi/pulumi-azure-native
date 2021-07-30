@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.Outputs
 {
 
+    /// <summary>
+    /// Workspace features.
+    /// </summary>
     [OutputType]
     public sealed class WorkspaceFeaturesResponse
     {

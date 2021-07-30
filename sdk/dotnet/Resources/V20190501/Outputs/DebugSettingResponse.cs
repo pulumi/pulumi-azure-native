@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20190501.Outputs
 {
 
+    /// <summary>
+    /// The debug setting.
+    /// </summary>
     [OutputType]
     public sealed class DebugSettingResponse
     {

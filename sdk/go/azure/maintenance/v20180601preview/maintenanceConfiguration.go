@@ -99,37 +99,9 @@ func GetMaintenanceConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceConfiguration resources.
 type maintenanceConfigurationState struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration
-	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location *string `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope *string `pulumi:"maintenanceScope"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets namespace of the resource
-	Namespace *string `pulumi:"namespace"`
-	// Gets or sets tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type MaintenanceConfigurationState struct {
-	// Gets or sets extensionProperties of the maintenanceConfiguration
-	ExtensionProperties pulumi.StringMapInput
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrInput
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope pulumi.StringPtrInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets namespace of the resource
-	Namespace pulumi.StringPtrInput
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (MaintenanceConfigurationState) ElementType() reflect.Type {

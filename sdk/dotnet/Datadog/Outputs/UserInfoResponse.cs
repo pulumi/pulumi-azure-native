@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.Outputs
 {
 
+    /// <summary>
+    /// User info
+    /// </summary>
     [OutputType]
     public sealed class UserInfoResponse
     {

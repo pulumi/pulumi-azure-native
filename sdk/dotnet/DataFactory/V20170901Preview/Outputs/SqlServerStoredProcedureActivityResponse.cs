@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// SQL stored procedure activity type.
+    /// </summary>
     [OutputType]
     public sealed class SqlServerStoredProcedureActivityResponse
     {

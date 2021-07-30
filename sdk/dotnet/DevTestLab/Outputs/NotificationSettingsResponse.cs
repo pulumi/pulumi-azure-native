@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Notification settings for a schedule.
+    /// </summary>
     [OutputType]
     public sealed class NotificationSettingsResponse
     {

@@ -88,37 +88,9 @@ func GetArtifactSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ArtifactSource resources.
 type artifactSourceState struct {
-	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
-	ArtifactRoot *string `pulumi:"artifactRoot"`
-	// The authentication method to use to access the artifact source.
-	Authentication *SasAuthenticationResponse `pulumi:"authentication"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of artifact source used.
-	SourceType *string `pulumi:"sourceType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ArtifactSourceState struct {
-	// The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
-	ArtifactRoot pulumi.StringPtrInput
-	// The authentication method to use to access the artifact source.
-	Authentication SasAuthenticationResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of artifact source used.
-	SourceType pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ArtifactSourceState) ElementType() reflect.Type {

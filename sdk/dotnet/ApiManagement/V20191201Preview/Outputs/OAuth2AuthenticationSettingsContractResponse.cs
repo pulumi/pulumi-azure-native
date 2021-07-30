@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Outputs
 {
 
+    /// <summary>
+    /// API OAuth2 Authentication settings details.
+    /// </summary>
     [OutputType]
     public sealed class OAuth2AuthenticationSettingsContractResponse
     {

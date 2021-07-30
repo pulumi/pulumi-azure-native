@@ -108,61 +108,9 @@ func GetRelationshipLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RelationshipLink resources.
 type relationshipLinkState struct {
-	// Localized descriptions for the Relationship Link.
-	Description map[string]string `pulumi:"description"`
-	// Localized display name for the Relationship Link.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The InteractionType associated with the Relationship Link.
-	InteractionType *string `pulumi:"interactionType"`
-	// The name of the Relationship Link.
-	LinkName *string `pulumi:"linkName"`
-	// The mappings between Interaction and Relationship fields.
-	Mappings []RelationshipLinkFieldMappingResponse `pulumi:"mappings"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The property references for the Profile of the Relationship.
-	ProfilePropertyReferences []ParticipantProfilePropertyReferenceResponse `pulumi:"profilePropertyReferences"`
-	// Provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The property references for the Related Profile of the Relationship.
-	RelatedProfilePropertyReferences []ParticipantProfilePropertyReferenceResponse `pulumi:"relatedProfilePropertyReferences"`
-	// The relationship guid id.
-	RelationshipGuidId *string `pulumi:"relationshipGuidId"`
-	// The Relationship associated with the Link.
-	RelationshipName *string `pulumi:"relationshipName"`
-	// The hub name.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type RelationshipLinkState struct {
-	// Localized descriptions for the Relationship Link.
-	Description pulumi.StringMapInput
-	// Localized display name for the Relationship Link.
-	DisplayName pulumi.StringMapInput
-	// The InteractionType associated with the Relationship Link.
-	InteractionType pulumi.StringPtrInput
-	// The name of the Relationship Link.
-	LinkName pulumi.StringPtrInput
-	// The mappings between Interaction and Relationship fields.
-	Mappings RelationshipLinkFieldMappingResponseArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The property references for the Profile of the Relationship.
-	ProfilePropertyReferences ParticipantProfilePropertyReferenceResponseArrayInput
-	// Provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The property references for the Related Profile of the Relationship.
-	RelatedProfilePropertyReferences ParticipantProfilePropertyReferenceResponseArrayInput
-	// The relationship guid id.
-	RelationshipGuidId pulumi.StringPtrInput
-	// The Relationship associated with the Link.
-	RelationshipName pulumi.StringPtrInput
-	// The hub name.
-	TenantId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (RelationshipLinkState) ElementType() reflect.Type {

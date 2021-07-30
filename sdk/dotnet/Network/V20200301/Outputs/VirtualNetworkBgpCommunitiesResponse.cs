@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkBgpCommunitiesResponse
     {

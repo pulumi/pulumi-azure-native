@@ -496,7 +496,7 @@ func (o CanonicalProfileDefinitionResponsePropertiesArrayOutput) Index(i pulumi.
 // Connector mapping property availability.
 type ConnectorMappingAvailability struct {
 	// The frequency to update.
-	Frequency *string `pulumi:"frequency"`
+	Frequency *FrequencyTypes `pulumi:"frequency"`
 	// The interval of the given frequency to use.
 	Interval int `pulumi:"interval"`
 }
@@ -515,7 +515,7 @@ type ConnectorMappingAvailabilityInput interface {
 // Connector mapping property availability.
 type ConnectorMappingAvailabilityArgs struct {
 	// The frequency to update.
-	Frequency *FrequencyTypes `pulumi:"frequency"`
+	Frequency FrequencyTypesPtrInput `pulumi:"frequency"`
 	// The interval of the given frequency to use.
 	Interval pulumi.IntInput `pulumi:"interval"`
 }
@@ -599,8 +599,8 @@ func (o ConnectorMappingAvailabilityOutput) ToConnectorMappingAvailabilityPtrOut
 }
 
 // The frequency to update.
-func (o ConnectorMappingAvailabilityOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingAvailability) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+func (o ConnectorMappingAvailabilityOutput) Frequency() FrequencyTypesPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingAvailability) *FrequencyTypes { return v.Frequency }).(FrequencyTypesPtrOutput)
 }
 
 // The interval of the given frequency to use.
@@ -627,13 +627,13 @@ func (o ConnectorMappingAvailabilityPtrOutput) Elem() ConnectorMappingAvailabili
 }
 
 // The frequency to update.
-func (o ConnectorMappingAvailabilityPtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingAvailability) *string {
+func (o ConnectorMappingAvailabilityPtrOutput) Frequency() FrequencyTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingAvailability) *FrequencyTypes {
 		if v == nil {
 			return nil
 		}
 		return v.Frequency
-	}).(pulumi.StringPtrOutput)
+	}).(FrequencyTypesPtrOutput)
 }
 
 // The interval of the given frequency to use.
@@ -802,7 +802,7 @@ func (o ConnectorMappingAvailabilityResponsePtrOutput) Interval() pulumi.IntPtrO
 // The complete operation.
 type ConnectorMappingCompleteOperation struct {
 	// The type of completion operation.
-	CompletionOperationType *string `pulumi:"completionOperationType"`
+	CompletionOperationType *CompletionOperationTypes `pulumi:"completionOperationType"`
 	// The destination folder where files will be moved to once the import is done.
 	DestinationFolder *string `pulumi:"destinationFolder"`
 }
@@ -821,7 +821,7 @@ type ConnectorMappingCompleteOperationInput interface {
 // The complete operation.
 type ConnectorMappingCompleteOperationArgs struct {
 	// The type of completion operation.
-	CompletionOperationType *CompletionOperationTypes `pulumi:"completionOperationType"`
+	CompletionOperationType CompletionOperationTypesPtrInput `pulumi:"completionOperationType"`
 	// The destination folder where files will be moved to once the import is done.
 	DestinationFolder pulumi.StringPtrInput `pulumi:"destinationFolder"`
 }
@@ -905,8 +905,8 @@ func (o ConnectorMappingCompleteOperationOutput) ToConnectorMappingCompleteOpera
 }
 
 // The type of completion operation.
-func (o ConnectorMappingCompleteOperationOutput) CompletionOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *string { return v.CompletionOperationType }).(pulumi.StringPtrOutput)
+func (o ConnectorMappingCompleteOperationOutput) CompletionOperationType() CompletionOperationTypesPtrOutput {
+	return o.ApplyT(func(v ConnectorMappingCompleteOperation) *CompletionOperationTypes { return v.CompletionOperationType }).(CompletionOperationTypesPtrOutput)
 }
 
 // The destination folder where files will be moved to once the import is done.
@@ -933,13 +933,13 @@ func (o ConnectorMappingCompleteOperationPtrOutput) Elem() ConnectorMappingCompl
 }
 
 // The type of completion operation.
-func (o ConnectorMappingCompleteOperationPtrOutput) CompletionOperationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *string {
+func (o ConnectorMappingCompleteOperationPtrOutput) CompletionOperationType() CompletionOperationTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingCompleteOperation) *CompletionOperationTypes {
 		if v == nil {
 			return nil
 		}
 		return v.CompletionOperationType
-	}).(pulumi.StringPtrOutput)
+	}).(CompletionOperationTypesPtrOutput)
 }
 
 // The destination folder where files will be moved to once the import is done.
@@ -1112,7 +1112,7 @@ type ConnectorMappingErrorManagement struct {
 	// The error limit allowed while importing data.
 	ErrorLimit *int `pulumi:"errorLimit"`
 	// The type of error management to use for the mapping.
-	ErrorManagementType string `pulumi:"errorManagementType"`
+	ErrorManagementType ErrorManagementTypes `pulumi:"errorManagementType"`
 }
 
 // ConnectorMappingErrorManagementInput is an input type that accepts ConnectorMappingErrorManagementArgs and ConnectorMappingErrorManagementOutput values.
@@ -1131,7 +1131,7 @@ type ConnectorMappingErrorManagementArgs struct {
 	// The error limit allowed while importing data.
 	ErrorLimit pulumi.IntPtrInput `pulumi:"errorLimit"`
 	// The type of error management to use for the mapping.
-	ErrorManagementType ErrorManagementTypes `pulumi:"errorManagementType"`
+	ErrorManagementType ErrorManagementTypesInput `pulumi:"errorManagementType"`
 }
 
 func (ConnectorMappingErrorManagementArgs) ElementType() reflect.Type {
@@ -1218,8 +1218,8 @@ func (o ConnectorMappingErrorManagementOutput) ErrorLimit() pulumi.IntPtrOutput 
 }
 
 // The type of error management to use for the mapping.
-func (o ConnectorMappingErrorManagementOutput) ErrorManagementType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingErrorManagement) string { return v.ErrorManagementType }).(pulumi.StringOutput)
+func (o ConnectorMappingErrorManagementOutput) ErrorManagementType() ErrorManagementTypesOutput {
+	return o.ApplyT(func(v ConnectorMappingErrorManagement) ErrorManagementTypes { return v.ErrorManagementType }).(ErrorManagementTypesOutput)
 }
 
 type ConnectorMappingErrorManagementPtrOutput struct{ *pulumi.OutputState }
@@ -1251,13 +1251,13 @@ func (o ConnectorMappingErrorManagementPtrOutput) ErrorLimit() pulumi.IntPtrOutp
 }
 
 // The type of error management to use for the mapping.
-func (o ConnectorMappingErrorManagementPtrOutput) ErrorManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *string {
+func (o ConnectorMappingErrorManagementPtrOutput) ErrorManagementType() ErrorManagementTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingErrorManagement) *ErrorManagementTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.ErrorManagementType
-	}).(pulumi.StringPtrOutput)
+	}).(ErrorManagementTypesPtrOutput)
 }
 
 // The error management.
@@ -1422,7 +1422,7 @@ type ConnectorMappingFormat struct {
 	// The character that signifies a break between columns.
 	ColumnDelimiter *string `pulumi:"columnDelimiter"`
 	// The type mapping format.
-	FormatType string `pulumi:"formatType"`
+	FormatType FormatTypes `pulumi:"formatType"`
 	// Quote character, used to indicate enquoted fields.
 	QuoteCharacter *string `pulumi:"quoteCharacter"`
 	// Escape character for quotes, can be the same as the quoteCharacter.
@@ -1449,7 +1449,7 @@ type ConnectorMappingFormatArgs struct {
 	// The character that signifies a break between columns.
 	ColumnDelimiter pulumi.StringPtrInput `pulumi:"columnDelimiter"`
 	// The type mapping format.
-	FormatType FormatTypes `pulumi:"formatType"`
+	FormatType FormatTypesInput `pulumi:"formatType"`
 	// Quote character, used to indicate enquoted fields.
 	QuoteCharacter pulumi.StringPtrInput `pulumi:"quoteCharacter"`
 	// Escape character for quotes, can be the same as the quoteCharacter.
@@ -1550,8 +1550,8 @@ func (o ConnectorMappingFormatOutput) ColumnDelimiter() pulumi.StringPtrOutput {
 }
 
 // The type mapping format.
-func (o ConnectorMappingFormatOutput) FormatType() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingFormat) string { return v.FormatType }).(pulumi.StringOutput)
+func (o ConnectorMappingFormatOutput) FormatType() FormatTypesOutput {
+	return o.ApplyT(func(v ConnectorMappingFormat) FormatTypes { return v.FormatType }).(FormatTypesOutput)
 }
 
 // Quote character, used to indicate enquoted fields.
@@ -1613,13 +1613,13 @@ func (o ConnectorMappingFormatPtrOutput) ColumnDelimiter() pulumi.StringPtrOutpu
 }
 
 // The type mapping format.
-func (o ConnectorMappingFormatPtrOutput) FormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorMappingFormat) *string {
+func (o ConnectorMappingFormatPtrOutput) FormatType() FormatTypesPtrOutput {
+	return o.ApplyT(func(v *ConnectorMappingFormat) *FormatTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.FormatType
-	}).(pulumi.StringPtrOutput)
+	}).(FormatTypesPtrOutput)
 }
 
 // Quote character, used to indicate enquoted fields.
@@ -6239,7 +6239,7 @@ type RelationshipLinkFieldMapping struct {
 	// The field name on the Interaction Type.
 	InteractionFieldName string `pulumi:"interactionFieldName"`
 	// Link type.
-	LinkType *string `pulumi:"linkType"`
+	LinkType *LinkTypes `pulumi:"linkType"`
 	// The field name on the Relationship metadata.
 	RelationshipFieldName string `pulumi:"relationshipFieldName"`
 }
@@ -6260,7 +6260,7 @@ type RelationshipLinkFieldMappingArgs struct {
 	// The field name on the Interaction Type.
 	InteractionFieldName pulumi.StringInput `pulumi:"interactionFieldName"`
 	// Link type.
-	LinkType *LinkTypes `pulumi:"linkType"`
+	LinkType LinkTypesPtrInput `pulumi:"linkType"`
 	// The field name on the Relationship metadata.
 	RelationshipFieldName pulumi.StringInput `pulumi:"relationshipFieldName"`
 }
@@ -6323,8 +6323,8 @@ func (o RelationshipLinkFieldMappingOutput) InteractionFieldName() pulumi.String
 }
 
 // Link type.
-func (o RelationshipLinkFieldMappingOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelationshipLinkFieldMapping) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+func (o RelationshipLinkFieldMappingOutput) LinkType() LinkTypesPtrOutput {
+	return o.ApplyT(func(v RelationshipLinkFieldMapping) *LinkTypes { return v.LinkType }).(LinkTypesPtrOutput)
 }
 
 // The field name on the Relationship metadata.
@@ -7451,7 +7451,7 @@ func (o StrongIdResponseArrayOutput) Index(i pulumi.IntInput) StrongIdResponseOu
 // Metadata for a Link's property mapping.
 type TypePropertiesMapping struct {
 	// Link type.
-	LinkType *string `pulumi:"linkType"`
+	LinkType *LinkTypes `pulumi:"linkType"`
 	//  Property name on the source Entity Type.
 	SourcePropertyName string `pulumi:"sourcePropertyName"`
 	// Property name on the target Entity Type.
@@ -7472,7 +7472,7 @@ type TypePropertiesMappingInput interface {
 // Metadata for a Link's property mapping.
 type TypePropertiesMappingArgs struct {
 	// Link type.
-	LinkType *LinkTypes `pulumi:"linkType"`
+	LinkType LinkTypesPtrInput `pulumi:"linkType"`
 	//  Property name on the source Entity Type.
 	SourcePropertyName pulumi.StringInput `pulumi:"sourcePropertyName"`
 	// Property name on the target Entity Type.
@@ -7532,8 +7532,8 @@ func (o TypePropertiesMappingOutput) ToTypePropertiesMappingOutputWithContext(ct
 }
 
 // Link type.
-func (o TypePropertiesMappingOutput) LinkType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TypePropertiesMapping) *string { return v.LinkType }).(pulumi.StringPtrOutput)
+func (o TypePropertiesMappingOutput) LinkType() LinkTypesPtrOutput {
+	return o.ApplyT(func(v TypePropertiesMapping) *LinkTypes { return v.LinkType }).(LinkTypesPtrOutput)
 }
 
 //  Property name on the source Entity Type.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20180201Preview.Outputs
 {
 
+    /// <summary>
+    /// Runs a shell script during the customization phase
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateShellCustomizerResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthBot.V20201020.Outputs
 {
 
+    /// <summary>
+    /// The properties of a HealthBot. The Health Bot Service is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs.
+    /// </summary>
     [OutputType]
     public sealed class HealthBotPropertiesResponse
     {

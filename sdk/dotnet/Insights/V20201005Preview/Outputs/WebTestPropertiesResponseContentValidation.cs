@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20201005Preview.Outputs
 {
 
+    /// <summary>
+    /// The collection of content validation properties
+    /// </summary>
     [OutputType]
     public sealed class WebTestPropertiesResponseContentValidation
     {

@@ -106,35 +106,9 @@ func GetSynapseWorkspaceSqlPoolTableDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SynapseWorkspaceSqlPoolTableDataSet resources.
 type synapseWorkspaceSqlPoolTableDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId *string `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type SynapseWorkspaceSqlPoolTableDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (SynapseWorkspaceSqlPoolTableDataSetState) ElementType() reflect.Type {

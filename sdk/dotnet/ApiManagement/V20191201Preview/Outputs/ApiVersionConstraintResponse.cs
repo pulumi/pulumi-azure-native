@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20191201Preview.Outputs
 {
 
+    /// <summary>
+    /// Control Plane Apis version constraint for the API Management service.
+    /// </summary>
     [OutputType]
     public sealed class ApiVersionConstraintResponse
     {

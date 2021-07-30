@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20190201Preview.Outputs
 {
 
+    /// <summary>
+    /// Information about the retry policy for an event subscription
+    /// </summary>
     [OutputType]
     public sealed class RetryPolicyResponse
     {

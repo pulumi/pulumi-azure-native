@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Long term policy schedule.
+    /// </summary>
     [OutputType]
     public sealed class LongTermSchedulePolicyResponse
     {

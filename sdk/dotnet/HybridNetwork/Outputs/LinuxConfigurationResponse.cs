@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.Outputs
 {
 
+    /// <summary>
+    /// Specifies the Linux operating system settings on the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class LinuxConfigurationResponse
     {

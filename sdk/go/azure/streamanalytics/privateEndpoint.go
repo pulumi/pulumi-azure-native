@@ -73,25 +73,9 @@ func GetPrivateEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpoint resources.
 type privateEndpointState struct {
-	// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The properties associated with a private endpoint.
-	Properties *PrivateEndpointPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointState struct {
-	// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
-	Etag pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The properties associated with a private endpoint.
-	Properties PrivateEndpointPropertiesResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointState) ElementType() reflect.Type {

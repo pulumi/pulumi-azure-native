@@ -45,6 +45,9 @@ func NewGeoBackupPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20140401:GeoBackupPolicy"),
@@ -79,33 +82,9 @@ func GetGeoBackupPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GeoBackupPolicy resources.
 type geoBackupPolicyState struct {
-	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
-	Kind *string `pulumi:"kind"`
-	// Backup policy location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the geo backup policy.
-	State *string `pulumi:"state"`
-	// The storage type of the geo backup policy.
-	StorageType *string `pulumi:"storageType"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type GeoBackupPolicyState struct {
-	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
-	Kind pulumi.StringPtrInput
-	// Backup policy location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the geo backup policy.
-	State pulumi.StringPtrInput
-	// The storage type of the geo backup policy.
-	StorageType pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (GeoBackupPolicyState) ElementType() reflect.Type {
@@ -122,7 +101,7 @@ type geoBackupPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The state of the geo backup policy.
-	State string `pulumi:"state"`
+	State GeoBackupPolicyStateEnum `pulumi:"state"`
 }
 
 // The set of arguments for constructing a GeoBackupPolicy resource.
@@ -136,7 +115,7 @@ type GeoBackupPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnum
+	State GeoBackupPolicyStateEnumInput
 }
 
 func (GeoBackupPolicyArgs) ElementType() reflect.Type {
