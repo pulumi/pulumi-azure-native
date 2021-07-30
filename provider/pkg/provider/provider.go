@@ -159,6 +159,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}, nil
 }
 
+func (k *azureNativeProvider) Call(ctx context.Context, req *rpc.CallRequest) (*rpc.CallResponse, error) {
+	return nil, fmt.Errorf("Call dispatch is not implemented")
+}
+
 // Invoke dynamically executes a built-in function in the provider.
 func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest) (*rpc.InvokeResponse, error) {
 	label := fmt.Sprintf("%s.Invoke(%s)", k.name, req.Tok)
@@ -894,10 +898,10 @@ func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context
 	return plugin.MarshalProperties(
 		obj,
 		plugin.MarshalOptions{
-			Label: "currentResourceStateCheckpoint.checkpoint",
-			KeepSecrets: true,
+			Label:        "currentResourceStateCheckpoint.checkpoint",
+			KeepSecrets:  true,
 			KeepUnknowns: true,
-			SkipNulls: true,
+			SkipNulls:    true,
 		},
 	)
 }

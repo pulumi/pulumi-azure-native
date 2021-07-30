@@ -221,7 +221,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 		Types:     map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},
 		Functions: map[string]pschema.FunctionSpec{},
-		Language:  map[string]json.RawMessage{},
+		Language:  map[string]schema.RawMessage{},
 	}
 	metadata := resources.AzureAPIMetadata{
 		Types:     map[string]resources.AzureAPIType{},
@@ -955,7 +955,7 @@ func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *p
 	for name, swagger := range resourceResponse.specs {
 		// C# doesn't allow properties to have the same name as its containing type.
 		if strings.Title(name) == typeName {
-			swagger.Language = map[string]json.RawMessage{
+			swagger.Language = map[string]schema.RawMessage{
 				"csharp": rawMessage(map[string]interface{}{
 					"name": fmt.Sprintf("%sValue", typeName),
 				}),
@@ -1719,7 +1719,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
 
 	enumSpec := &pschema.ComplexTypeSpec{
-		Enum: []*pschema.EnumValueSpec{},
+		Enum: []pschema.EnumValueSpec{},
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
 			Description: description,
 			Type:        "string", // This provider only has string enums
@@ -1737,13 +1737,13 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 				if description, ok := val["description"].(string); ok {
 					enumVal.Description = description
 				}
-				enumSpec.Enum = append(enumSpec.Enum, &enumVal)
+				enumSpec.Enum = append(enumSpec.Enum, enumVal)
 			}
 		}
 	} else {
 		for _, val := range resolvedSchema.Enum {
 			enumVal := pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
-			enumSpec.Enum = append(enumSpec.Enum, &enumVal)
+			enumSpec.Enum = append(enumSpec.Enum, enumVal)
 		}
 	}
 
@@ -1938,7 +1938,7 @@ func (bag *propertyBag) merge(other *propertyBag) {
 	}
 }
 
-func rawMessage(v interface{}) json.RawMessage {
+func rawMessage(v interface{}) schema.RawMessage {
 	bytes, err := json.Marshal(v)
 	contract.Assert(err == nil)
 	return bytes
