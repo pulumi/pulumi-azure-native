@@ -215,7 +215,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization/v20210301preview:AccessReviewScheduleDefinitionById" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization/v20210301preview:AccessReviewScheduleDefinitionById" }, { type: "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById" }, { type: "azure-nextgen:authorization/v20210701preview:AccessReviewScheduleDefinitionById" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessReviewScheduleDefinitionById.__pulumiType, name, inputs, opts);
     }

@@ -1551,6 +1551,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "authorization/v20210701preview",
+  "fqn": "pulumi_azure_native.authorization.v20210701preview",
+  "classes": {
+   "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById": "AccessReviewScheduleDefinitionById"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "automanage",
   "fqn": "pulumi_azure_native.automanage",
   "classes": {

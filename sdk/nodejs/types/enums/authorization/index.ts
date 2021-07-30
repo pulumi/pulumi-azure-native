@@ -23,6 +23,7 @@ import * as v20200801preview from "./v20200801preview";
 import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
+import * as v20210701preview from "./v20210701preview";
 
 export {
     v20150101,
@@ -46,6 +47,7 @@ export {
     v20200901,
     v20201001preview,
     v20210301preview,
+    v20210701preview,
 };
 
 export const AccessReviewRecurrencePatternType = {
