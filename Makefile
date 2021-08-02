@@ -23,7 +23,7 @@ init_submodules::
 update_submodules:: init_submodules
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		echo "Updating submodule $$submodule" ; \
-		(cd $$submodule && git pull origin master); \
+		(cd $$submodule && git checkout main && git pull origin main); \
 	done
 	rm ./azure-provider-versions/provider_list.json
 	az provider list >> ./azure-provider-versions/provider_list.json
