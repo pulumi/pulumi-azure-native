@@ -2399,6 +2399,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20210801",
+  "fqn": "pulumi_azure_native.cache.v20210801",
+  "classes": {
+   "azure-native:cache/v20210801:Database": "Database",
+   "azure-native:cache/v20210801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20210801:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cdn",
   "fqn": "pulumi_azure_native.cdn",
   "classes": {
@@ -3824,6 +3834,17 @@ _utilities.register(
    "azure-native:containerservice/v20210501:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice/v20210501:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice/v20210501:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20210701",
+  "fqn": "pulumi_azure_native.containerservice.v20210701",
+  "classes": {
+   "azure-native:containerservice/v20210701:AgentPool": "AgentPool",
+   "azure-native:containerservice/v20210701:MaintenanceConfiguration": "MaintenanceConfiguration",
+   "azure-native:containerservice/v20210701:ManagedCluster": "ManagedCluster",
+   "azure-native:containerservice/v20210701:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {

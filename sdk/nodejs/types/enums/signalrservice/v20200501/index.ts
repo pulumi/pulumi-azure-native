@@ -51,6 +51,7 @@ export const SignalRRequestType = {
     ClientConnection: "ClientConnection",
     ServerConnection: "ServerConnection",
     RESTAPI: "RESTAPI",
+    Trace: "Trace",
 } as const;
 
 /**

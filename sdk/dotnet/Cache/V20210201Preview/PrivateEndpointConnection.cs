@@ -77,6 +77,8 @@ namespace Pulumi.AzureNative.Cache.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20210301:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:cache/v20210801:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20210801:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

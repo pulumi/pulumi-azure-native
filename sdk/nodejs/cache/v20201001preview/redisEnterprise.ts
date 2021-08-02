@@ -132,7 +132,7 @@ export class RedisEnterprise extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }, { type: "azure-native:cache:RedisEnterprise" }, { type: "azure-nextgen:cache:RedisEnterprise" }, { type: "azure-native:cache/v20210201preview:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210201preview:RedisEnterprise" }, { type: "azure-native:cache/v20210301:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210301:RedisEnterprise" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:cache/v20201001preview:RedisEnterprise" }, { type: "azure-native:cache:RedisEnterprise" }, { type: "azure-nextgen:cache:RedisEnterprise" }, { type: "azure-native:cache/v20210201preview:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210201preview:RedisEnterprise" }, { type: "azure-native:cache/v20210301:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210301:RedisEnterprise" }, { type: "azure-native:cache/v20210801:RedisEnterprise" }, { type: "azure-nextgen:cache/v20210801:RedisEnterprise" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RedisEnterprise.__pulumiType, name, inputs, opts);
     }

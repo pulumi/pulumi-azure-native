@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.SignalRService
         public static SignalRRequestType ClientConnection { get; } = new SignalRRequestType("ClientConnection");
         public static SignalRRequestType ServerConnection { get; } = new SignalRRequestType("ServerConnection");
         public static SignalRRequestType RESTAPI { get; } = new SignalRRequestType("RESTAPI");
+        public static SignalRRequestType Trace { get; } = new SignalRRequestType("Trace");
 
         public static bool operator ==(SignalRRequestType left, SignalRRequestType right) => left.Equals(right);
         public static bool operator !=(SignalRRequestType left, SignalRRequestType right) => !left.Equals(right);

@@ -58,6 +58,7 @@ class SignalRRequestType(str, Enum):
     CLIENT_CONNECTION = "ClientConnection"
     SERVER_CONNECTION = "ServerConnection"
     RESTAPI = "RESTAPI"
+    TRACE = "Trace"
 
 
 class SignalRSkuTier(str, Enum):

@@ -134,6 +134,7 @@ const (
 	SignalRRequestTypeClientConnection = SignalRRequestType("ClientConnection")
 	SignalRRequestTypeServerConnection = SignalRRequestType("ServerConnection")
 	SignalRRequestTypeRESTAPI          = SignalRRequestType("RESTAPI")
+	SignalRRequestTypeTrace            = SignalRRequestType("Trace")
 )
 
 func (SignalRRequestType) ElementType() reflect.Type {
