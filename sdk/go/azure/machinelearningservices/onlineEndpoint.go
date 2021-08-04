@@ -17,7 +17,8 @@ type OnlineEndpoint struct {
 
 	// Service identity associated with a resource.
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
-	Kind     pulumi.StringPtrOutput            `pulumi:"kind"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
@@ -84,7 +85,8 @@ func GetOnlineEndpoint(ctx *pulumi.Context,
 type onlineEndpointState struct {
 	// Service identity associated with a resource.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	Kind     *string                   `pulumi:"kind"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
@@ -102,7 +104,8 @@ type onlineEndpointState struct {
 type OnlineEndpointState struct {
 	// Service identity associated with a resource.
 	Identity ResourceIdentityResponsePtrInput
-	Kind     pulumi.StringPtrInput
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
@@ -126,7 +129,8 @@ type onlineEndpointArgs struct {
 	EndpointName *string `pulumi:"endpointName"`
 	// Service identity associated with a resource.
 	Identity *ResourceIdentity `pulumi:"identity"`
-	Kind     *string           `pulumi:"kind"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Additional attributes of the entity.
@@ -145,7 +149,8 @@ type OnlineEndpointArgs struct {
 	EndpointName pulumi.StringPtrInput
 	// Service identity associated with a resource.
 	Identity ResourceIdentityPtrInput
-	Kind     pulumi.StringPtrInput
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+	Kind pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Additional attributes of the entity.

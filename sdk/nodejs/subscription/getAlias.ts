@@ -24,7 +24,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetAliasArgs {
     /**
-     * Alias Name
+     * Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
     aliasName: string;
 }

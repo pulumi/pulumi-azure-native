@@ -19878,6 +19878,7 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 is_server_version_above32: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None):
         """
         Linked service for CosmosDB (MongoDB API) data source.
@@ -19888,6 +19889,7 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
+        :param Any is_server_version_above32: Whether the CosmosDB (MongoDB API) server version is higher than 3.2. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -19899,6 +19901,8 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if is_server_version_above32 is not None:
+            pulumi.set(__self__, "is_server_version_above32", is_server_version_above32)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
 
@@ -19974,6 +19978,18 @@ class CosmosDbMongoDbApiLinkedServiceArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isServerVersionAbove32")
+    def is_server_version_above32(self) -> Optional[Any]:
+        """
+        Whether the CosmosDB (MongoDB API) server version is higher than 3.2. The default value is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "is_server_version_above32")
+
+    @is_server_version_above32.setter
+    def is_server_version_above32(self, value: Optional[Any]):
+        pulumi.set(self, "is_server_version_above32", value)
 
     @property
     @pulumi.getter

@@ -278,6 +278,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         public TopicArgs()
         {
             InputSchema = "EventGridSchema";
+            Kind = "Azure";
             PublicNetworkAccess = "Enabled";
         }
     }

@@ -52,6 +52,9 @@ export interface GetBatchDeploymentResult {
      * Service identity associated with a resource.
      */
     readonly identity?: outputs.machinelearningservices.ResourceIdentityResponse;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+     */
     readonly kind?: string;
     /**
      * The geo-location where the resource lives

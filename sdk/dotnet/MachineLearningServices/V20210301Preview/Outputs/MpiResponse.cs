@@ -18,6 +18,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// Expected value is 'Mpi'.
         /// </summary>
         public readonly string DistributionType;
+        /// <summary>
+        /// Number of processes per MPI node.
+        /// </summary>
         public readonly int? ProcessCountPerInstance;
 
         [OutputConstructor]

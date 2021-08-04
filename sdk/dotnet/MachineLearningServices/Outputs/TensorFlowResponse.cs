@@ -18,6 +18,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Expected value is 'TensorFlow'.
         /// </summary>
         public readonly string DistributionType;
+        /// <summary>
+        /// Number of parameter server tasks.
+        /// </summary>
         public readonly int? ParameterServerCount;
         /// <summary>
         /// Number of workers. Overwrites the node count in compute binding.

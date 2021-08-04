@@ -1030,6 +1030,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Type of deployment scaling algorithm
+    /// </summary>
     [EnumType]
     public readonly struct ScaleType : IEquatable<ScaleType>
     {

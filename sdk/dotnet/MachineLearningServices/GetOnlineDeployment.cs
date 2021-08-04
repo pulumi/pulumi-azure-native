@@ -63,6 +63,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Service identity associated with a resource.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
         public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives

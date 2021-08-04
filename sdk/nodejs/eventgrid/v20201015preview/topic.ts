@@ -121,7 +121,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
             inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
+            inputs["kind"] = (args ? args.kind : undefined) ?? "Azure";
             inputs["location"] = args ? args.location : undefined;
             inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;

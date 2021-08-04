@@ -65,6 +65,9 @@ class GetBatchEndpointResult:
     @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
         return pulumi.get(self, "kind")
 
     @property

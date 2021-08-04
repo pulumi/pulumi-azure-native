@@ -97,6 +97,9 @@ namespace Pulumi.AzureNative.ProviderHub
         [Input("providerNamespace", required: true)]
         public Input<string> ProviderNamespace { get; set; } = null!;
 
+        [Input("provisioningState")]
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
+
         /// <summary>
         /// The resource type.
         /// </summary>

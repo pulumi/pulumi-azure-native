@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     [OutputType]
     public sealed class MedianStoppingPolicyResponse
     {
+        /// <summary>
+        /// Number of intervals by which to delay the first evaluation.
+        /// </summary>
         public readonly int? DelayEvaluation;
+        /// <summary>
+        /// Interval (number of runs) between policy evaluations.
+        /// </summary>
         public readonly int? EvaluationInterval;
         /// <summary>
         /// 

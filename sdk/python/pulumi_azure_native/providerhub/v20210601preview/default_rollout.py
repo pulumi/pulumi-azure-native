@@ -131,6 +131,7 @@ class DefaultRollout(pulumi.CustomResource):
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["rollout_name"] = rollout_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20210601preview:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:DefaultRollout"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:DefaultRollout"), pulumi.Alias(type_="azure-nextgen:providerhub/v20210501preview:DefaultRollout")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -158,6 +159,7 @@ class DefaultRollout(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DefaultRollout(resource_name, opts=opts, __props__=__props__)
 
@@ -176,6 +178,14 @@ class DefaultRollout(pulumi.CustomResource):
         Properties of the rollout.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

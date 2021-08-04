@@ -38,7 +38,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Environment variables configuration for the deployment.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
+        /// <summary>
+        /// Compute instance type.
+        /// </summary>
         public readonly string? InstanceType;
+        /// <summary>
+        /// Deployment container liveness/readiness probe configuration.
+        /// </summary>
         public readonly Outputs.ProbeSettingsResponse? LivenessProbe;
         /// <summary>
         /// Reference to the model asset for the endpoint deployment.
@@ -52,8 +58,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Provisioning state for the endpoint deployment.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Deployment container liveness/readiness probe configuration.
+        /// </summary>
         public readonly Outputs.ProbeSettingsResponse? ReadinessProbe;
+        /// <summary>
+        /// Online deployment scoring requests configuration.
+        /// </summary>
         public readonly Outputs.OnlineRequestSettingsResponse? RequestSettings;
+        /// <summary>
+        /// Online deployment scaling configuration.
+        /// </summary>
         public readonly Union<Outputs.AutoScaleSettingsResponse, Outputs.ManualScaleSettingsResponse>? ScaleSettings;
 
         [OutputConstructor]

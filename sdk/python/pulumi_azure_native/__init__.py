@@ -12835,12 +12835,8 @@ _utilities.register(
    "azure-native:security:Connector": "Connector",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",
    "azure-native:security:IngestionSetting": "IngestionSetting",
-   "azure-native:security:IotDefenderSetting": "IotDefenderSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
-   "azure-native:security:IotSensor": "IotSensor",
-   "azure-native:security:IotSite": "IotSite",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
-   "azure-native:security:OnPremiseIotSensor": "OnPremiseIotSensor",
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
    "azure-native:security:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule",
@@ -12914,17 +12910,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20200701preview",
   "classes": {
    "azure-native:security/v20200701preview:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "security/v20200806preview",
-  "fqn": "pulumi_azure_native.security.v20200806preview",
-  "classes": {
-   "azure-native:security/v20200806preview:IotDefenderSetting": "IotDefenderSetting",
-   "azure-native:security/v20200806preview:IotSensor": "IotSensor",
-   "azure-native:security/v20200806preview:IotSite": "IotSite",
-   "azure-native:security/v20200806preview:OnPremiseIotSensor": "OnPremiseIotSensor"
   }
  },
  {

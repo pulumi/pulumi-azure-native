@@ -57,6 +57,8 @@ class TopicArgs:
             pulumi.set(__self__, "input_schema", input_schema)
         if input_schema_mapping is not None:
             pulumi.set(__self__, "input_schema_mapping", input_schema_mapping)
+        if kind is None:
+            kind = 'Azure'
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -310,6 +312,8 @@ class Topic(pulumi.CustomResource):
                 input_schema = 'EventGridSchema'
             __props__.__dict__["input_schema"] = input_schema
             __props__.__dict__["input_schema_mapping"] = input_schema_mapping
+            if kind is None:
+                kind = 'Azure'
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             if public_network_access is None:

@@ -42,6 +42,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Inputs
 
         public StaticDeliveryAttributeMappingArgs()
         {
+            IsSecret = false;
         }
     }
 }

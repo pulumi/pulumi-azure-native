@@ -12,9 +12,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
 
     public sealed class AutoScaleSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Maximum number of instances for this deployment.
+        /// </summary>
         [Input("maxInstances")]
         public Input<int>? MaxInstances { get; set; }
 
+        /// <summary>
+        /// Minimum number of instances for this deployment.
+        /// </summary>
         [Input("minInstances")]
         public Input<int>? MinInstances { get; set; }
 
@@ -31,6 +37,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         [Input("scaleType", required: true)]
         public Input<string> ScaleType { get; set; } = null!;
 
+        /// <summary>
+        /// Target CPU usage for the autoscaler.
+        /// </summary>
         [Input("targetUtilizationPercentage")]
         public Input<int>? TargetUtilizationPercentage { get; set; }
 

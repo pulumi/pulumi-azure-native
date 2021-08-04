@@ -34,6 +34,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Whether the CosmosDB (MongoDB API) server version is higher than 3.2. The default value is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? IsServerVersionAbove32;
+        /// <summary>
         /// Parameters for linked service.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? Parameters;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
+            object? isServerVersionAbove32,
+
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 
             string type)
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ConnectionString = connectionString;
             Database = database;
             Description = description;
+            IsServerVersionAbove32 = isServerVersionAbove32;
             Parameters = parameters;
             Type = type;
         }

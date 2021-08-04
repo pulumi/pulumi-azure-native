@@ -18,7 +18,6 @@ __all__ = [
     'ExportData',
     'ImplementationEffort',
     'MinimalSeverity',
-    'OnboardingKind',
     'Operator',
     'PropertyType',
     'Protocol',
@@ -27,7 +26,6 @@ __all__ = [
     'Roles',
     'RuleState',
     'SecuritySolutionStatus',
-    'SensorType',
     'Severity',
     'Source',
     'State',
@@ -151,16 +149,6 @@ class MinimalSeverity(str, Enum):
     LOW = "Low"
 
 
-class OnboardingKind(str, Enum):
-    """
-    The kind of onboarding for the subscription
-    """
-    DEFAULT = "Default"
-    MIGRATED_TO_AZURE = "MigratedToAzure"
-    EVALUATION = "Evaluation"
-    PURCHASED = "Purchased"
-
-
 class Operator(str, Enum):
     """
     A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
@@ -247,14 +235,6 @@ class SecuritySolutionStatus(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class SensorType(str, Enum):
-    """
-    Type of sensor
-    """
-    OT = "Ot"
-    ENTERPRISE = "Enterprise"
 
 
 class Severity(str, Enum):

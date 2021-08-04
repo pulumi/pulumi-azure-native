@@ -937,6 +937,7 @@ func (e SamplingAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// Type of deployment scaling algorithm
 type ScaleType pulumi.String
 
 const (

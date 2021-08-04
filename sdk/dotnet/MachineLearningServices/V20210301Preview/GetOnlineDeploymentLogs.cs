@@ -63,6 +63,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
     [OutputType]
     public sealed class GetOnlineDeploymentLogsResult
     {
+        /// <summary>
+        /// The retrieved online deployment logs.
+        /// </summary>
         public readonly string? Content;
 
         [OutputConstructor]

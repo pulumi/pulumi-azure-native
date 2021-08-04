@@ -23,7 +23,7 @@ export function getSubscriptionAlias(args: GetSubscriptionAliasArgs, opts?: pulu
 
 export interface GetSubscriptionAliasArgs {
     /**
-     * Alias Name
+     * Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
     aliasName: string;
 }

@@ -5097,6 +5097,7 @@ type NotificationRegistrationProperties struct {
 	MessageScope          *string                `pulumi:"messageScope"`
 	NotificationEndpoints []NotificationEndpoint `pulumi:"notificationEndpoints"`
 	NotificationMode      *string                `pulumi:"notificationMode"`
+	ProvisioningState     *string                `pulumi:"provisioningState"`
 }
 
 // NotificationRegistrationPropertiesInput is an input type that accepts NotificationRegistrationPropertiesArgs and NotificationRegistrationPropertiesOutput values.
@@ -5115,6 +5116,7 @@ type NotificationRegistrationPropertiesArgs struct {
 	MessageScope          pulumi.StringPtrInput          `pulumi:"messageScope"`
 	NotificationEndpoints NotificationEndpointArrayInput `pulumi:"notificationEndpoints"`
 	NotificationMode      pulumi.StringPtrInput          `pulumi:"notificationMode"`
+	ProvisioningState     pulumi.StringPtrInput          `pulumi:"provisioningState"`
 }
 
 func (NotificationRegistrationPropertiesArgs) ElementType() reflect.Type {
@@ -5209,6 +5211,10 @@ func (o NotificationRegistrationPropertiesOutput) NotificationMode() pulumi.Stri
 	return o.ApplyT(func(v NotificationRegistrationProperties) *string { return v.NotificationMode }).(pulumi.StringPtrOutput)
 }
 
+func (o NotificationRegistrationPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationRegistrationProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 type NotificationRegistrationPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationRegistrationPropertiesPtrOutput) ElementType() reflect.Type {
@@ -5263,11 +5269,21 @@ func (o NotificationRegistrationPropertiesPtrOutput) NotificationMode() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o NotificationRegistrationPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRegistrationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 type NotificationRegistrationResponseProperties struct {
 	IncludedEvents        []string                       `pulumi:"includedEvents"`
 	MessageScope          *string                        `pulumi:"messageScope"`
 	NotificationEndpoints []NotificationEndpointResponse `pulumi:"notificationEndpoints"`
 	NotificationMode      *string                        `pulumi:"notificationMode"`
+	ProvisioningState     *string                        `pulumi:"provisioningState"`
 }
 
 // NotificationRegistrationResponsePropertiesInput is an input type that accepts NotificationRegistrationResponsePropertiesArgs and NotificationRegistrationResponsePropertiesOutput values.
@@ -5286,6 +5302,7 @@ type NotificationRegistrationResponsePropertiesArgs struct {
 	MessageScope          pulumi.StringPtrInput                  `pulumi:"messageScope"`
 	NotificationEndpoints NotificationEndpointResponseArrayInput `pulumi:"notificationEndpoints"`
 	NotificationMode      pulumi.StringPtrInput                  `pulumi:"notificationMode"`
+	ProvisioningState     pulumi.StringPtrInput                  `pulumi:"provisioningState"`
 }
 
 func (NotificationRegistrationResponsePropertiesArgs) ElementType() reflect.Type {
@@ -5382,6 +5399,10 @@ func (o NotificationRegistrationResponsePropertiesOutput) NotificationMode() pul
 	return o.ApplyT(func(v NotificationRegistrationResponseProperties) *string { return v.NotificationMode }).(pulumi.StringPtrOutput)
 }
 
+func (o NotificationRegistrationResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotificationRegistrationResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 type NotificationRegistrationResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationRegistrationResponsePropertiesPtrOutput) ElementType() reflect.Type {
@@ -5435,6 +5456,15 @@ func (o NotificationRegistrationResponsePropertiesPtrOutput) NotificationMode() 
 			return nil
 		}
 		return v.NotificationMode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o NotificationRegistrationResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotificationRegistrationResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -15128,7 +15158,8 @@ func (o SkuLocationInfoResponseArrayOutput) Index(i pulumi.IntInput) SkuLocation
 }
 
 type SkuResourceResponseProperties struct {
-	SkuSettings []SkuSettingResponse `pulumi:"skuSettings"`
+	ProvisioningState *string              `pulumi:"provisioningState"`
+	SkuSettings       []SkuSettingResponse `pulumi:"skuSettings"`
 }
 
 // SkuResourceResponsePropertiesInput is an input type that accepts SkuResourceResponsePropertiesArgs and SkuResourceResponsePropertiesOutput values.
@@ -15143,7 +15174,8 @@ type SkuResourceResponsePropertiesInput interface {
 }
 
 type SkuResourceResponsePropertiesArgs struct {
-	SkuSettings SkuSettingResponseArrayInput `pulumi:"skuSettings"`
+	ProvisioningState pulumi.StringPtrInput        `pulumi:"provisioningState"`
+	SkuSettings       SkuSettingResponseArrayInput `pulumi:"skuSettings"`
 }
 
 func (SkuResourceResponsePropertiesArgs) ElementType() reflect.Type {
@@ -15222,6 +15254,10 @@ func (o SkuResourceResponsePropertiesOutput) ToSkuResourceResponsePropertiesPtrO
 		return &v
 	}).(SkuResourceResponsePropertiesPtrOutput)
 }
+func (o SkuResourceResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkuResourceResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 func (o SkuResourceResponsePropertiesOutput) SkuSettings() SkuSettingResponseArrayOutput {
 	return o.ApplyT(func(v SkuResourceResponseProperties) []SkuSettingResponse { return v.SkuSettings }).(SkuSettingResponseArrayOutput)
 }
@@ -15242,6 +15278,15 @@ func (o SkuResourceResponsePropertiesPtrOutput) ToSkuResourceResponsePropertiesP
 
 func (o SkuResourceResponsePropertiesPtrOutput) Elem() SkuResourceResponsePropertiesOutput {
 	return o.ApplyT(func(v *SkuResourceResponseProperties) SkuResourceResponseProperties { return *v }).(SkuResourceResponsePropertiesOutput)
+}
+
+func (o SkuResourceResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SkuResourceResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o SkuResourceResponsePropertiesPtrOutput) SkuSettings() SkuSettingResponseArrayOutput {

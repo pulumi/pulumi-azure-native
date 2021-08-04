@@ -21,6 +21,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Output("identity")]
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("identity")]
         public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
+        /// <summary>
+        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 

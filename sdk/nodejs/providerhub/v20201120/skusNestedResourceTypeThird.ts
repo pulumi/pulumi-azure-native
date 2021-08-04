@@ -75,6 +75,7 @@ export class SkusNestedResourceTypeThird extends pulumi.CustomResource {
             inputs["nestedResourceTypeSecond"] = args ? args.nestedResourceTypeSecond : undefined;
             inputs["nestedResourceTypeThird"] = args ? args.nestedResourceTypeThird : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["skuSettings"] = args ? args.skuSettings : undefined;
@@ -115,6 +116,7 @@ export interface SkusNestedResourceTypeThirdArgs {
      * The name of the resource provider hosted within ProviderHub.
      */
     providerNamespace: pulumi.Input<string>;
+    provisioningState?: pulumi.Input<string | enums.providerhub.v20201120.ProvisioningState>;
     /**
      * The resource type.
      */

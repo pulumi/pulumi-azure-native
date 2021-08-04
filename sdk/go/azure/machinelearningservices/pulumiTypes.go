@@ -6128,13 +6128,16 @@ func (o AssignedUserResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type AutoScaleSettings struct {
+	// Maximum number of instances for this deployment.
 	MaxInstances *int `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
 	MinInstances *int `pulumi:"minInstances"`
 	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
 	PollingInterval *string `pulumi:"pollingInterval"`
 	// Expected value is 'Auto'.
-	ScaleType                   string `pulumi:"scaleType"`
-	TargetUtilizationPercentage *int   `pulumi:"targetUtilizationPercentage"`
+	ScaleType string `pulumi:"scaleType"`
+	// Target CPU usage for the autoscaler.
+	TargetUtilizationPercentage *int `pulumi:"targetUtilizationPercentage"`
 }
 
 // AutoScaleSettingsInput is an input type that accepts AutoScaleSettingsArgs and AutoScaleSettingsOutput values.
@@ -6149,12 +6152,15 @@ type AutoScaleSettingsInput interface {
 }
 
 type AutoScaleSettingsArgs struct {
+	// Maximum number of instances for this deployment.
 	MaxInstances pulumi.IntPtrInput `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
 	MinInstances pulumi.IntPtrInput `pulumi:"minInstances"`
 	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
 	PollingInterval pulumi.StringPtrInput `pulumi:"pollingInterval"`
 	// Expected value is 'Auto'.
-	ScaleType                   pulumi.StringInput `pulumi:"scaleType"`
+	ScaleType pulumi.StringInput `pulumi:"scaleType"`
+	// Target CPU usage for the autoscaler.
 	TargetUtilizationPercentage pulumi.IntPtrInput `pulumi:"targetUtilizationPercentage"`
 }
 
@@ -6184,10 +6190,12 @@ func (o AutoScaleSettingsOutput) ToAutoScaleSettingsOutputWithContext(ctx contex
 	return o
 }
 
+// Maximum number of instances for this deployment.
 func (o AutoScaleSettingsOutput) MaxInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScaleSettings) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of instances for this deployment.
 func (o AutoScaleSettingsOutput) MinInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScaleSettings) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
 }
@@ -6202,18 +6210,22 @@ func (o AutoScaleSettingsOutput) ScaleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScaleSettings) string { return v.ScaleType }).(pulumi.StringOutput)
 }
 
+// Target CPU usage for the autoscaler.
 func (o AutoScaleSettingsOutput) TargetUtilizationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScaleSettings) *int { return v.TargetUtilizationPercentage }).(pulumi.IntPtrOutput)
 }
 
 type AutoScaleSettingsResponse struct {
+	// Maximum number of instances for this deployment.
 	MaxInstances *int `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
 	MinInstances *int `pulumi:"minInstances"`
 	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
 	PollingInterval *string `pulumi:"pollingInterval"`
 	// Expected value is 'Auto'.
-	ScaleType                   string `pulumi:"scaleType"`
-	TargetUtilizationPercentage *int   `pulumi:"targetUtilizationPercentage"`
+	ScaleType string `pulumi:"scaleType"`
+	// Target CPU usage for the autoscaler.
+	TargetUtilizationPercentage *int `pulumi:"targetUtilizationPercentage"`
 }
 
 // AutoScaleSettingsResponseInput is an input type that accepts AutoScaleSettingsResponseArgs and AutoScaleSettingsResponseOutput values.
@@ -6228,12 +6240,15 @@ type AutoScaleSettingsResponseInput interface {
 }
 
 type AutoScaleSettingsResponseArgs struct {
+	// Maximum number of instances for this deployment.
 	MaxInstances pulumi.IntPtrInput `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
 	MinInstances pulumi.IntPtrInput `pulumi:"minInstances"`
 	// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
 	PollingInterval pulumi.StringPtrInput `pulumi:"pollingInterval"`
 	// Expected value is 'Auto'.
-	ScaleType                   pulumi.StringInput `pulumi:"scaleType"`
+	ScaleType pulumi.StringInput `pulumi:"scaleType"`
+	// Target CPU usage for the autoscaler.
 	TargetUtilizationPercentage pulumi.IntPtrInput `pulumi:"targetUtilizationPercentage"`
 }
 
@@ -6263,10 +6278,12 @@ func (o AutoScaleSettingsResponseOutput) ToAutoScaleSettingsResponseOutputWithCo
 	return o
 }
 
+// Maximum number of instances for this deployment.
 func (o AutoScaleSettingsResponseOutput) MaxInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScaleSettingsResponse) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of instances for this deployment.
 func (o AutoScaleSettingsResponseOutput) MinInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScaleSettingsResponse) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
 }
@@ -6281,6 +6298,7 @@ func (o AutoScaleSettingsResponseOutput) ScaleType() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScaleSettingsResponse) string { return v.ScaleType }).(pulumi.StringOutput)
 }
 
+// Target CPU usage for the autoscaler.
 func (o AutoScaleSettingsResponseOutput) TargetUtilizationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AutoScaleSettingsResponse) *int { return v.TargetUtilizationPercentage }).(pulumi.IntPtrOutput)
 }
@@ -8418,13 +8436,17 @@ func (o AzureStorageSectionResponsePtrOutput) SubscriptionId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
 type BanditPolicy struct {
-	DelayEvaluation    *int `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation *int `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// Expected value is 'Bandit'.
-	PolicyType  string   `pulumi:"policyType"`
+	PolicyType string `pulumi:"policyType"`
+	// Absolute distance allowed from the best performing run.
 	SlackAmount *float64 `pulumi:"slackAmount"`
+	// Ratio of the allowed distance from the best performing run.
 	SlackFactor *float64 `pulumi:"slackFactor"`
 }
 
@@ -8439,13 +8461,17 @@ type BanditPolicyInput interface {
 	ToBanditPolicyOutputWithContext(context.Context) BanditPolicyOutput
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
 type BanditPolicyArgs struct {
-	DelayEvaluation    pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval pulumi.IntPtrInput `pulumi:"evaluationInterval"`
 	// Expected value is 'Bandit'.
-	PolicyType  pulumi.StringInput     `pulumi:"policyType"`
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// Absolute distance allowed from the best performing run.
 	SlackAmount pulumi.Float64PtrInput `pulumi:"slackAmount"`
+	// Ratio of the allowed distance from the best performing run.
 	SlackFactor pulumi.Float64PtrInput `pulumi:"slackFactor"`
 }
 
@@ -8461,7 +8487,7 @@ func (i BanditPolicyArgs) ToBanditPolicyOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BanditPolicyOutput)
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
 type BanditPolicyOutput struct{ *pulumi.OutputState }
 
 func (BanditPolicyOutput) ElementType() reflect.Type {
@@ -8476,10 +8502,12 @@ func (o BanditPolicyOutput) ToBanditPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Number of intervals by which to delay the first evaluation.
 func (o BanditPolicyOutput) DelayEvaluation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BanditPolicy) *int { return v.DelayEvaluation }).(pulumi.IntPtrOutput)
 }
 
+// Interval (number of runs) between policy evaluations.
 func (o BanditPolicyOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BanditPolicy) *int { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }
@@ -8489,21 +8517,27 @@ func (o BanditPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v BanditPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// Absolute distance allowed from the best performing run.
 func (o BanditPolicyOutput) SlackAmount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BanditPolicy) *float64 { return v.SlackAmount }).(pulumi.Float64PtrOutput)
 }
 
+// Ratio of the allowed distance from the best performing run.
 func (o BanditPolicyOutput) SlackFactor() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BanditPolicy) *float64 { return v.SlackFactor }).(pulumi.Float64PtrOutput)
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
 type BanditPolicyResponse struct {
-	DelayEvaluation    *int `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation *int `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// Expected value is 'Bandit'.
-	PolicyType  string   `pulumi:"policyType"`
+	PolicyType string `pulumi:"policyType"`
+	// Absolute distance allowed from the best performing run.
 	SlackAmount *float64 `pulumi:"slackAmount"`
+	// Ratio of the allowed distance from the best performing run.
 	SlackFactor *float64 `pulumi:"slackFactor"`
 }
 
@@ -8518,13 +8552,17 @@ type BanditPolicyResponseInput interface {
 	ToBanditPolicyResponseOutputWithContext(context.Context) BanditPolicyResponseOutput
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
 type BanditPolicyResponseArgs struct {
-	DelayEvaluation    pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval pulumi.IntPtrInput `pulumi:"evaluationInterval"`
 	// Expected value is 'Bandit'.
-	PolicyType  pulumi.StringInput     `pulumi:"policyType"`
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// Absolute distance allowed from the best performing run.
 	SlackAmount pulumi.Float64PtrInput `pulumi:"slackAmount"`
+	// Ratio of the allowed distance from the best performing run.
 	SlackFactor pulumi.Float64PtrInput `pulumi:"slackFactor"`
 }
 
@@ -8540,7 +8578,7 @@ func (i BanditPolicyResponseArgs) ToBanditPolicyResponseOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BanditPolicyResponseOutput)
 }
 
-// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+// Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
 type BanditPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (BanditPolicyResponseOutput) ElementType() reflect.Type {
@@ -8555,10 +8593,12 @@ func (o BanditPolicyResponseOutput) ToBanditPolicyResponseOutputWithContext(ctx 
 	return o
 }
 
+// Number of intervals by which to delay the first evaluation.
 func (o BanditPolicyResponseOutput) DelayEvaluation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BanditPolicyResponse) *int { return v.DelayEvaluation }).(pulumi.IntPtrOutput)
 }
 
+// Interval (number of runs) between policy evaluations.
 func (o BanditPolicyResponseOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BanditPolicyResponse) *int { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }
@@ -8568,10 +8608,12 @@ func (o BanditPolicyResponseOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v BanditPolicyResponse) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// Absolute distance allowed from the best performing run.
 func (o BanditPolicyResponseOutput) SlackAmount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BanditPolicyResponse) *float64 { return v.SlackAmount }).(pulumi.Float64PtrOutput)
 }
 
+// Ratio of the allowed distance from the best performing run.
 func (o BanditPolicyResponseOutput) SlackFactor() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BanditPolicyResponse) *float64 { return v.SlackFactor }).(pulumi.Float64PtrOutput)
 }
@@ -12070,8 +12112,9 @@ type CommandJobResponse struct {
 	// Private preview feature and only available to users on the allow list.
 	Priority *int `pulumi:"priority"`
 	// The asset property dictionary.
-	Properties        map[string]string `pulumi:"properties"`
-	ProvisioningState string            `pulumi:"provisioningState"`
+	Properties map[string]string `pulumi:"properties"`
+	// Specifies the job provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Status of the job.
 	Status string `pulumi:"status"`
 	// Tag dictionary. Tags can be added, removed, and updated.
@@ -12130,8 +12173,9 @@ type CommandJobResponseArgs struct {
 	// Private preview feature and only available to users on the allow list.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The asset property dictionary.
-	Properties        pulumi.StringMapInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Specifies the job provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Status of the job.
 	Status pulumi.StringInput `pulumi:"status"`
 	// Tag dictionary. Tags can be added, removed, and updated.
@@ -12256,6 +12300,7 @@ func (o CommandJobResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CommandJobResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Specifies the job provisioning state.
 func (o CommandJobResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CommandJobResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -24530,6 +24575,7 @@ func (o ErrorResponseResponsePtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type FlavorData struct {
+	// Model flavor-specific data.
 	Data map[string]string `pulumi:"data"`
 }
 
@@ -24545,6 +24591,7 @@ type FlavorDataInput interface {
 }
 
 type FlavorDataArgs struct {
+	// Model flavor-specific data.
 	Data pulumi.StringMapInput `pulumi:"data"`
 }
 
@@ -24599,6 +24646,7 @@ func (o FlavorDataOutput) ToFlavorDataOutputWithContext(ctx context.Context) Fla
 	return o
 }
 
+// Model flavor-specific data.
 func (o FlavorDataOutput) Data() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FlavorData) map[string]string { return v.Data }).(pulumi.StringMapOutput)
 }
@@ -24624,6 +24672,7 @@ func (o FlavorDataMapOutput) MapIndex(k pulumi.StringInput) FlavorDataOutput {
 }
 
 type FlavorDataResponse struct {
+	// Model flavor-specific data.
 	Data map[string]string `pulumi:"data"`
 }
 
@@ -24639,6 +24688,7 @@ type FlavorDataResponseInput interface {
 }
 
 type FlavorDataResponseArgs struct {
+	// Model flavor-specific data.
 	Data pulumi.StringMapInput `pulumi:"data"`
 }
 
@@ -24693,6 +24743,7 @@ func (o FlavorDataResponseOutput) ToFlavorDataResponseOutputWithContext(ctx cont
 	return o
 }
 
+// Model flavor-specific data.
 func (o FlavorDataResponseOutput) Data() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FlavorDataResponse) map[string]string { return v.Data }).(pulumi.StringMapOutput)
 }
@@ -26994,7 +27045,8 @@ type JobEndpointResponse struct {
 	// Endpoint type.
 	JobEndpointType *string `pulumi:"jobEndpointType"`
 	// Port for endpoint.
-	Port       *int              `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Additional properties to set on the endpoint.
 	Properties map[string]string `pulumi:"properties"`
 }
 
@@ -27016,7 +27068,8 @@ type JobEndpointResponseArgs struct {
 	// Endpoint type.
 	JobEndpointType pulumi.StringPtrInput `pulumi:"jobEndpointType"`
 	// Port for endpoint.
-	Port       pulumi.IntPtrInput    `pulumi:"port"`
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// Additional properties to set on the endpoint.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 }
 
@@ -27087,6 +27140,7 @@ func (o JobEndpointResponseOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobEndpointResponse) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
+// Additional properties to set on the endpoint.
 func (o JobEndpointResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v JobEndpointResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
@@ -27180,7 +27234,7 @@ type K8sOnlineDeployment struct {
 	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration *CodeConfiguration `pulumi:"codeConfiguration"`
-	// The resource requirements for the container (cpu and memory).
+	// Resource requirements for each container instance within an online deployment.
 	ContainerResourceRequirements *ContainerResourceRequirements `pulumi:"containerResourceRequirements"`
 	// Description of the endpoint deployment.
 	Description *string `pulumi:"description"`
@@ -27191,13 +27245,16 @@ type K8sOnlineDeployment struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	LivenessProbe        *ProbeSettings    `pulumi:"livenessProbe"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe *ProbeSettings `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model interface{} `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
-	Properties      map[string]string      `pulumi:"properties"`
+	Properties map[string]string `pulumi:"properties"`
+	// Online deployment scoring requests configuration.
 	RequestSettings *OnlineRequestSettings `pulumi:"requestSettings"`
-	ScaleSettings   interface{}            `pulumi:"scaleSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
 // K8sOnlineDeploymentInput is an input type that accepts K8sOnlineDeploymentArgs and K8sOnlineDeploymentOutput values.
@@ -27216,7 +27273,7 @@ type K8sOnlineDeploymentArgs struct {
 	AppInsightsEnabled pulumi.BoolPtrInput `pulumi:"appInsightsEnabled"`
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration CodeConfigurationPtrInput `pulumi:"codeConfiguration"`
-	// The resource requirements for the container (cpu and memory).
+	// Resource requirements for each container instance within an online deployment.
 	ContainerResourceRequirements ContainerResourceRequirementsPtrInput `pulumi:"containerResourceRequirements"`
 	// Description of the endpoint deployment.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -27227,13 +27284,16 @@ type K8sOnlineDeploymentArgs struct {
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	LivenessProbe        ProbeSettingsPtrInput `pulumi:"livenessProbe"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe ProbeSettingsPtrInput `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model pulumi.Input `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
-	Properties      pulumi.StringMapInput         `pulumi:"properties"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Online deployment scoring requests configuration.
 	RequestSettings OnlineRequestSettingsPtrInput `pulumi:"requestSettings"`
-	ScaleSettings   pulumi.Input                  `pulumi:"scaleSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings pulumi.Input `pulumi:"scaleSettings"`
 }
 
 func (K8sOnlineDeploymentArgs) ElementType() reflect.Type {
@@ -27272,7 +27332,7 @@ func (o K8sOnlineDeploymentOutput) CodeConfiguration() CodeConfigurationPtrOutpu
 	return o.ApplyT(func(v K8sOnlineDeployment) *CodeConfiguration { return v.CodeConfiguration }).(CodeConfigurationPtrOutput)
 }
 
-// The resource requirements for the container (cpu and memory).
+// Resource requirements for each container instance within an online deployment.
 func (o K8sOnlineDeploymentOutput) ContainerResourceRequirements() ContainerResourceRequirementsPtrOutput {
 	return o.ApplyT(func(v K8sOnlineDeployment) *ContainerResourceRequirements { return v.ContainerResourceRequirements }).(ContainerResourceRequirementsPtrOutput)
 }
@@ -27298,6 +27358,7 @@ func (o K8sOnlineDeploymentOutput) EnvironmentVariables() pulumi.StringMapOutput
 	return o.ApplyT(func(v K8sOnlineDeployment) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 func (o K8sOnlineDeploymentOutput) LivenessProbe() ProbeSettingsPtrOutput {
 	return o.ApplyT(func(v K8sOnlineDeployment) *ProbeSettings { return v.LivenessProbe }).(ProbeSettingsPtrOutput)
 }
@@ -27312,10 +27373,12 @@ func (o K8sOnlineDeploymentOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v K8sOnlineDeployment) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Online deployment scoring requests configuration.
 func (o K8sOnlineDeploymentOutput) RequestSettings() OnlineRequestSettingsPtrOutput {
 	return o.ApplyT(func(v K8sOnlineDeployment) *OnlineRequestSettings { return v.RequestSettings }).(OnlineRequestSettingsPtrOutput)
 }
 
+// Online deployment scaling configuration.
 func (o K8sOnlineDeploymentOutput) ScaleSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v K8sOnlineDeployment) interface{} { return v.ScaleSettings }).(pulumi.AnyOutput)
 }
@@ -27325,7 +27388,7 @@ type K8sOnlineDeploymentResponse struct {
 	AppInsightsEnabled *bool `pulumi:"appInsightsEnabled"`
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration *CodeConfigurationResponse `pulumi:"codeConfiguration"`
-	// The resource requirements for the container (cpu and memory).
+	// Resource requirements for each container instance within an online deployment.
 	ContainerResourceRequirements *ContainerResourceRequirementsResponse `pulumi:"containerResourceRequirements"`
 	// Description of the endpoint deployment.
 	Description *string `pulumi:"description"`
@@ -27335,16 +27398,19 @@ type K8sOnlineDeploymentResponse struct {
 	// ARM resource ID of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
-	EnvironmentVariables map[string]string      `pulumi:"environmentVariables"`
-	LivenessProbe        *ProbeSettingsResponse `pulumi:"livenessProbe"`
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe *ProbeSettingsResponse `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model interface{} `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
 	// Provisioning state for the endpoint deployment.
-	ProvisioningState string                         `pulumi:"provisioningState"`
-	RequestSettings   *OnlineRequestSettingsResponse `pulumi:"requestSettings"`
-	ScaleSettings     interface{}                    `pulumi:"scaleSettings"`
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Online deployment scoring requests configuration.
+	RequestSettings *OnlineRequestSettingsResponse `pulumi:"requestSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
 // K8sOnlineDeploymentResponseInput is an input type that accepts K8sOnlineDeploymentResponseArgs and K8sOnlineDeploymentResponseOutput values.
@@ -27363,7 +27429,7 @@ type K8sOnlineDeploymentResponseArgs struct {
 	AppInsightsEnabled pulumi.BoolPtrInput `pulumi:"appInsightsEnabled"`
 	// Code configuration for the endpoint deployment.
 	CodeConfiguration CodeConfigurationResponsePtrInput `pulumi:"codeConfiguration"`
-	// The resource requirements for the container (cpu and memory).
+	// Resource requirements for each container instance within an online deployment.
 	ContainerResourceRequirements ContainerResourceRequirementsResponsePtrInput `pulumi:"containerResourceRequirements"`
 	// Description of the endpoint deployment.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -27373,16 +27439,19 @@ type K8sOnlineDeploymentResponseArgs struct {
 	// ARM resource ID of the environment specification for the endpoint deployment.
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
-	EnvironmentVariables pulumi.StringMapInput         `pulumi:"environmentVariables"`
-	LivenessProbe        ProbeSettingsResponsePtrInput `pulumi:"livenessProbe"`
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe ProbeSettingsResponsePtrInput `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model pulumi.Input `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Provisioning state for the endpoint deployment.
-	ProvisioningState pulumi.StringInput                    `pulumi:"provisioningState"`
-	RequestSettings   OnlineRequestSettingsResponsePtrInput `pulumi:"requestSettings"`
-	ScaleSettings     pulumi.Input                          `pulumi:"scaleSettings"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Online deployment scoring requests configuration.
+	RequestSettings OnlineRequestSettingsResponsePtrInput `pulumi:"requestSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings pulumi.Input `pulumi:"scaleSettings"`
 }
 
 func (K8sOnlineDeploymentResponseArgs) ElementType() reflect.Type {
@@ -27421,7 +27490,7 @@ func (o K8sOnlineDeploymentResponseOutput) CodeConfiguration() CodeConfiguration
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) *CodeConfigurationResponse { return v.CodeConfiguration }).(CodeConfigurationResponsePtrOutput)
 }
 
-// The resource requirements for the container (cpu and memory).
+// Resource requirements for each container instance within an online deployment.
 func (o K8sOnlineDeploymentResponseOutput) ContainerResourceRequirements() ContainerResourceRequirementsResponsePtrOutput {
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) *ContainerResourceRequirementsResponse {
 		return v.ContainerResourceRequirements
@@ -27449,6 +27518,7 @@ func (o K8sOnlineDeploymentResponseOutput) EnvironmentVariables() pulumi.StringM
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 func (o K8sOnlineDeploymentResponseOutput) LivenessProbe() ProbeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) *ProbeSettingsResponse { return v.LivenessProbe }).(ProbeSettingsResponsePtrOutput)
 }
@@ -27468,10 +27538,12 @@ func (o K8sOnlineDeploymentResponseOutput) ProvisioningState() pulumi.StringOutp
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Online deployment scoring requests configuration.
 func (o K8sOnlineDeploymentResponseOutput) RequestSettings() OnlineRequestSettingsResponsePtrOutput {
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) *OnlineRequestSettingsResponse { return v.RequestSettings }).(OnlineRequestSettingsResponsePtrOutput)
 }
 
+// Online deployment scaling configuration.
 func (o K8sOnlineDeploymentResponseOutput) ScaleSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v K8sOnlineDeploymentResponse) interface{} { return v.ScaleSettings }).(pulumi.AnyOutput)
 }
@@ -31394,15 +31466,20 @@ type ManagedOnlineDeployment struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	InstanceType         *string           `pulumi:"instanceType"`
-	LivenessProbe        *ProbeSettings    `pulumi:"livenessProbe"`
+	// Compute instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe *ProbeSettings `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model interface{} `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
-	Properties      map[string]string      `pulumi:"properties"`
-	ReadinessProbe  *ProbeSettings         `pulumi:"readinessProbe"`
+	Properties map[string]string `pulumi:"properties"`
+	// Deployment container liveness/readiness probe configuration.
+	ReadinessProbe *ProbeSettings `pulumi:"readinessProbe"`
+	// Online deployment scoring requests configuration.
 	RequestSettings *OnlineRequestSettings `pulumi:"requestSettings"`
-	ScaleSettings   interface{}            `pulumi:"scaleSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
 // ManagedOnlineDeploymentInput is an input type that accepts ManagedOnlineDeploymentArgs and ManagedOnlineDeploymentOutput values.
@@ -31430,15 +31507,20 @@ type ManagedOnlineDeploymentArgs struct {
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	InstanceType         pulumi.StringPtrInput `pulumi:"instanceType"`
-	LivenessProbe        ProbeSettingsPtrInput `pulumi:"livenessProbe"`
+	// Compute instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe ProbeSettingsPtrInput `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model pulumi.Input `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
-	Properties      pulumi.StringMapInput         `pulumi:"properties"`
-	ReadinessProbe  ProbeSettingsPtrInput         `pulumi:"readinessProbe"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Deployment container liveness/readiness probe configuration.
+	ReadinessProbe ProbeSettingsPtrInput `pulumi:"readinessProbe"`
+	// Online deployment scoring requests configuration.
 	RequestSettings OnlineRequestSettingsPtrInput `pulumi:"requestSettings"`
-	ScaleSettings   pulumi.Input                  `pulumi:"scaleSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings pulumi.Input `pulumi:"scaleSettings"`
 }
 
 func (ManagedOnlineDeploymentArgs) ElementType() reflect.Type {
@@ -31498,10 +31580,12 @@ func (o ManagedOnlineDeploymentOutput) EnvironmentVariables() pulumi.StringMapOu
 	return o.ApplyT(func(v ManagedOnlineDeployment) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// Compute instance type.
 func (o ManagedOnlineDeploymentOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeployment) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 func (o ManagedOnlineDeploymentOutput) LivenessProbe() ProbeSettingsPtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeployment) *ProbeSettings { return v.LivenessProbe }).(ProbeSettingsPtrOutput)
 }
@@ -31516,14 +31600,17 @@ func (o ManagedOnlineDeploymentOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ManagedOnlineDeployment) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 func (o ManagedOnlineDeploymentOutput) ReadinessProbe() ProbeSettingsPtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeployment) *ProbeSettings { return v.ReadinessProbe }).(ProbeSettingsPtrOutput)
 }
 
+// Online deployment scoring requests configuration.
 func (o ManagedOnlineDeploymentOutput) RequestSettings() OnlineRequestSettingsPtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeployment) *OnlineRequestSettings { return v.RequestSettings }).(OnlineRequestSettingsPtrOutput)
 }
 
+// Online deployment scaling configuration.
 func (o ManagedOnlineDeploymentOutput) ScaleSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ManagedOnlineDeployment) interface{} { return v.ScaleSettings }).(pulumi.AnyOutput)
 }
@@ -31541,18 +31628,23 @@ type ManagedOnlineDeploymentResponse struct {
 	// ARM resource ID of the environment specification for the endpoint deployment.
 	EnvironmentId *string `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
-	EnvironmentVariables map[string]string      `pulumi:"environmentVariables"`
-	InstanceType         *string                `pulumi:"instanceType"`
-	LivenessProbe        *ProbeSettingsResponse `pulumi:"livenessProbe"`
+	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// Compute instance type.
+	InstanceType *string `pulumi:"instanceType"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe *ProbeSettingsResponse `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model interface{} `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties map[string]string `pulumi:"properties"`
 	// Provisioning state for the endpoint deployment.
-	ProvisioningState string                         `pulumi:"provisioningState"`
-	ReadinessProbe    *ProbeSettingsResponse         `pulumi:"readinessProbe"`
-	RequestSettings   *OnlineRequestSettingsResponse `pulumi:"requestSettings"`
-	ScaleSettings     interface{}                    `pulumi:"scaleSettings"`
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Deployment container liveness/readiness probe configuration.
+	ReadinessProbe *ProbeSettingsResponse `pulumi:"readinessProbe"`
+	// Online deployment scoring requests configuration.
+	RequestSettings *OnlineRequestSettingsResponse `pulumi:"requestSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings interface{} `pulumi:"scaleSettings"`
 }
 
 // ManagedOnlineDeploymentResponseInput is an input type that accepts ManagedOnlineDeploymentResponseArgs and ManagedOnlineDeploymentResponseOutput values.
@@ -31579,18 +31671,23 @@ type ManagedOnlineDeploymentResponseArgs struct {
 	// ARM resource ID of the environment specification for the endpoint deployment.
 	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
 	// Environment variables configuration for the deployment.
-	EnvironmentVariables pulumi.StringMapInput         `pulumi:"environmentVariables"`
-	InstanceType         pulumi.StringPtrInput         `pulumi:"instanceType"`
-	LivenessProbe        ProbeSettingsResponsePtrInput `pulumi:"livenessProbe"`
+	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
+	// Compute instance type.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Deployment container liveness/readiness probe configuration.
+	LivenessProbe ProbeSettingsResponsePtrInput `pulumi:"livenessProbe"`
 	// Reference to the model asset for the endpoint deployment.
 	Model pulumi.Input `pulumi:"model"`
 	// Property dictionary. Properties can be added, but not removed or altered.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
 	// Provisioning state for the endpoint deployment.
-	ProvisioningState pulumi.StringInput                    `pulumi:"provisioningState"`
-	ReadinessProbe    ProbeSettingsResponsePtrInput         `pulumi:"readinessProbe"`
-	RequestSettings   OnlineRequestSettingsResponsePtrInput `pulumi:"requestSettings"`
-	ScaleSettings     pulumi.Input                          `pulumi:"scaleSettings"`
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Deployment container liveness/readiness probe configuration.
+	ReadinessProbe ProbeSettingsResponsePtrInput `pulumi:"readinessProbe"`
+	// Online deployment scoring requests configuration.
+	RequestSettings OnlineRequestSettingsResponsePtrInput `pulumi:"requestSettings"`
+	// Online deployment scaling configuration.
+	ScaleSettings pulumi.Input `pulumi:"scaleSettings"`
 }
 
 func (ManagedOnlineDeploymentResponseArgs) ElementType() reflect.Type {
@@ -31650,10 +31747,12 @@ func (o ManagedOnlineDeploymentResponseOutput) EnvironmentVariables() pulumi.Str
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
+// Compute instance type.
 func (o ManagedOnlineDeploymentResponseOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 func (o ManagedOnlineDeploymentResponseOutput) LivenessProbe() ProbeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) *ProbeSettingsResponse { return v.LivenessProbe }).(ProbeSettingsResponsePtrOutput)
 }
@@ -31673,22 +31772,28 @@ func (o ManagedOnlineDeploymentResponseOutput) ProvisioningState() pulumi.String
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 func (o ManagedOnlineDeploymentResponseOutput) ReadinessProbe() ProbeSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) *ProbeSettingsResponse { return v.ReadinessProbe }).(ProbeSettingsResponsePtrOutput)
 }
 
+// Online deployment scoring requests configuration.
 func (o ManagedOnlineDeploymentResponseOutput) RequestSettings() OnlineRequestSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) *OnlineRequestSettingsResponse { return v.RequestSettings }).(OnlineRequestSettingsResponsePtrOutput)
 }
 
+// Online deployment scaling configuration.
 func (o ManagedOnlineDeploymentResponseOutput) ScaleSettings() pulumi.AnyOutput {
 	return o.ApplyT(func(v ManagedOnlineDeploymentResponse) interface{} { return v.ScaleSettings }).(pulumi.AnyOutput)
 }
 
 type ManualScaleSettings struct {
+	// Fixed number of instances for this deployment.
 	InstanceCount *int `pulumi:"instanceCount"`
-	MaxInstances  *int `pulumi:"maxInstances"`
-	MinInstances  *int `pulumi:"minInstances"`
+	// Maximum number of instances for this deployment.
+	MaxInstances *int `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
+	MinInstances *int `pulumi:"minInstances"`
 	// Expected value is 'Manual'.
 	ScaleType string `pulumi:"scaleType"`
 }
@@ -31705,9 +31810,12 @@ type ManualScaleSettingsInput interface {
 }
 
 type ManualScaleSettingsArgs struct {
+	// Fixed number of instances for this deployment.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	MaxInstances  pulumi.IntPtrInput `pulumi:"maxInstances"`
-	MinInstances  pulumi.IntPtrInput `pulumi:"minInstances"`
+	// Maximum number of instances for this deployment.
+	MaxInstances pulumi.IntPtrInput `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
+	MinInstances pulumi.IntPtrInput `pulumi:"minInstances"`
 	// Expected value is 'Manual'.
 	ScaleType pulumi.StringInput `pulumi:"scaleType"`
 }
@@ -31738,14 +31846,17 @@ func (o ManualScaleSettingsOutput) ToManualScaleSettingsOutputWithContext(ctx co
 	return o
 }
 
+// Fixed number of instances for this deployment.
 func (o ManualScaleSettingsOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManualScaleSettings) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of instances for this deployment.
 func (o ManualScaleSettingsOutput) MaxInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManualScaleSettings) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of instances for this deployment.
 func (o ManualScaleSettingsOutput) MinInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManualScaleSettings) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
 }
@@ -31756,9 +31867,12 @@ func (o ManualScaleSettingsOutput) ScaleType() pulumi.StringOutput {
 }
 
 type ManualScaleSettingsResponse struct {
+	// Fixed number of instances for this deployment.
 	InstanceCount *int `pulumi:"instanceCount"`
-	MaxInstances  *int `pulumi:"maxInstances"`
-	MinInstances  *int `pulumi:"minInstances"`
+	// Maximum number of instances for this deployment.
+	MaxInstances *int `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
+	MinInstances *int `pulumi:"minInstances"`
 	// Expected value is 'Manual'.
 	ScaleType string `pulumi:"scaleType"`
 }
@@ -31775,9 +31889,12 @@ type ManualScaleSettingsResponseInput interface {
 }
 
 type ManualScaleSettingsResponseArgs struct {
+	// Fixed number of instances for this deployment.
 	InstanceCount pulumi.IntPtrInput `pulumi:"instanceCount"`
-	MaxInstances  pulumi.IntPtrInput `pulumi:"maxInstances"`
-	MinInstances  pulumi.IntPtrInput `pulumi:"minInstances"`
+	// Maximum number of instances for this deployment.
+	MaxInstances pulumi.IntPtrInput `pulumi:"maxInstances"`
+	// Minimum number of instances for this deployment.
+	MinInstances pulumi.IntPtrInput `pulumi:"minInstances"`
 	// Expected value is 'Manual'.
 	ScaleType pulumi.StringInput `pulumi:"scaleType"`
 }
@@ -31808,14 +31925,17 @@ func (o ManualScaleSettingsResponseOutput) ToManualScaleSettingsResponseOutputWi
 	return o
 }
 
+// Fixed number of instances for this deployment.
 func (o ManualScaleSettingsResponseOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManualScaleSettingsResponse) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
 }
 
+// Maximum number of instances for this deployment.
 func (o ManualScaleSettingsResponseOutput) MaxInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManualScaleSettingsResponse) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
 }
 
+// Minimum number of instances for this deployment.
 func (o ManualScaleSettingsResponseOutput) MinInstances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ManualScaleSettingsResponse) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
 }
@@ -31825,9 +31945,11 @@ func (o ManualScaleSettingsResponseOutput) ScaleType() pulumi.StringOutput {
 	return o.ApplyT(func(v ManualScaleSettingsResponse) string { return v.ScaleType }).(pulumi.StringOutput)
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs
+// Defines an early termination policy based on running averages of the primary metric of all runs.
 type MedianStoppingPolicy struct {
-	DelayEvaluation    *int `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation *int `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// Expected value is 'MedianStopping'.
 	PolicyType string `pulumi:"policyType"`
@@ -31844,9 +31966,11 @@ type MedianStoppingPolicyInput interface {
 	ToMedianStoppingPolicyOutputWithContext(context.Context) MedianStoppingPolicyOutput
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs
+// Defines an early termination policy based on running averages of the primary metric of all runs.
 type MedianStoppingPolicyArgs struct {
-	DelayEvaluation    pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval pulumi.IntPtrInput `pulumi:"evaluationInterval"`
 	// Expected value is 'MedianStopping'.
 	PolicyType pulumi.StringInput `pulumi:"policyType"`
@@ -31864,7 +31988,7 @@ func (i MedianStoppingPolicyArgs) ToMedianStoppingPolicyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MedianStoppingPolicyOutput)
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs
+// Defines an early termination policy based on running averages of the primary metric of all runs.
 type MedianStoppingPolicyOutput struct{ *pulumi.OutputState }
 
 func (MedianStoppingPolicyOutput) ElementType() reflect.Type {
@@ -31879,10 +32003,12 @@ func (o MedianStoppingPolicyOutput) ToMedianStoppingPolicyOutputWithContext(ctx 
 	return o
 }
 
+// Number of intervals by which to delay the first evaluation.
 func (o MedianStoppingPolicyOutput) DelayEvaluation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MedianStoppingPolicy) *int { return v.DelayEvaluation }).(pulumi.IntPtrOutput)
 }
 
+// Interval (number of runs) between policy evaluations.
 func (o MedianStoppingPolicyOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MedianStoppingPolicy) *int { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }
@@ -31892,9 +32018,11 @@ func (o MedianStoppingPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v MedianStoppingPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs
+// Defines an early termination policy based on running averages of the primary metric of all runs.
 type MedianStoppingPolicyResponse struct {
-	DelayEvaluation    *int `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation *int `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// Expected value is 'MedianStopping'.
 	PolicyType string `pulumi:"policyType"`
@@ -31911,9 +32039,11 @@ type MedianStoppingPolicyResponseInput interface {
 	ToMedianStoppingPolicyResponseOutputWithContext(context.Context) MedianStoppingPolicyResponseOutput
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs
+// Defines an early termination policy based on running averages of the primary metric of all runs.
 type MedianStoppingPolicyResponseArgs struct {
-	DelayEvaluation    pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval pulumi.IntPtrInput `pulumi:"evaluationInterval"`
 	// Expected value is 'MedianStopping'.
 	PolicyType pulumi.StringInput `pulumi:"policyType"`
@@ -31931,7 +32061,7 @@ func (i MedianStoppingPolicyResponseArgs) ToMedianStoppingPolicyResponseOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MedianStoppingPolicyResponseOutput)
 }
 
-// Defines an early termination policy based on running averages of the primary metric of all runs
+// Defines an early termination policy based on running averages of the primary metric of all runs.
 type MedianStoppingPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (MedianStoppingPolicyResponseOutput) ElementType() reflect.Type {
@@ -31946,10 +32076,12 @@ func (o MedianStoppingPolicyResponseOutput) ToMedianStoppingPolicyResponseOutput
 	return o
 }
 
+// Number of intervals by which to delay the first evaluation.
 func (o MedianStoppingPolicyResponseOutput) DelayEvaluation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MedianStoppingPolicyResponse) *int { return v.DelayEvaluation }).(pulumi.IntPtrOutput)
 }
 
+// Interval (number of runs) between policy evaluations.
 func (o MedianStoppingPolicyResponseOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MedianStoppingPolicyResponse) *int { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }
@@ -35263,8 +35395,9 @@ func (o ModelVersionResponsePtrOutput) Tags() pulumi.StringMapOutput {
 type Mpi struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'Mpi'.
-	DistributionType        string `pulumi:"distributionType"`
-	ProcessCountPerInstance *int   `pulumi:"processCountPerInstance"`
+	DistributionType string `pulumi:"distributionType"`
+	// Number of processes per MPI node.
+	ProcessCountPerInstance *int `pulumi:"processCountPerInstance"`
 }
 
 // MpiInput is an input type that accepts MpiArgs and MpiOutput values.
@@ -35282,7 +35415,8 @@ type MpiInput interface {
 type MpiArgs struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'Mpi'.
-	DistributionType        pulumi.StringInput `pulumi:"distributionType"`
+	DistributionType pulumi.StringInput `pulumi:"distributionType"`
+	// Number of processes per MPI node.
 	ProcessCountPerInstance pulumi.IntPtrInput `pulumi:"processCountPerInstance"`
 }
 
@@ -35319,6 +35453,7 @@ func (o MpiOutput) DistributionType() pulumi.StringOutput {
 	return o.ApplyT(func(v Mpi) string { return v.DistributionType }).(pulumi.StringOutput)
 }
 
+// Number of processes per MPI node.
 func (o MpiOutput) ProcessCountPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v Mpi) *int { return v.ProcessCountPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -35327,8 +35462,9 @@ func (o MpiOutput) ProcessCountPerInstance() pulumi.IntPtrOutput {
 type MpiResponse struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'Mpi'.
-	DistributionType        string `pulumi:"distributionType"`
-	ProcessCountPerInstance *int   `pulumi:"processCountPerInstance"`
+	DistributionType string `pulumi:"distributionType"`
+	// Number of processes per MPI node.
+	ProcessCountPerInstance *int `pulumi:"processCountPerInstance"`
 }
 
 // MpiResponseInput is an input type that accepts MpiResponseArgs and MpiResponseOutput values.
@@ -35346,7 +35482,8 @@ type MpiResponseInput interface {
 type MpiResponseArgs struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'Mpi'.
-	DistributionType        pulumi.StringInput `pulumi:"distributionType"`
+	DistributionType pulumi.StringInput `pulumi:"distributionType"`
+	// Number of processes per MPI node.
 	ProcessCountPerInstance pulumi.IntPtrInput `pulumi:"processCountPerInstance"`
 }
 
@@ -35383,6 +35520,7 @@ func (o MpiResponseOutput) DistributionType() pulumi.StringOutput {
 	return o.ApplyT(func(v MpiResponse) string { return v.DistributionType }).(pulumi.StringOutput)
 }
 
+// Number of processes per MPI node.
 func (o MpiResponseOutput) ProcessCountPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MpiResponse) *int { return v.ProcessCountPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -35923,9 +36061,11 @@ func (o NotebookResourceInfoResponsePtrOutput) ResourceId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Optimization objective.
 type Objective struct {
 	// Defines supported metric goals for hyperparameter tuning
-	Goal          string `pulumi:"goal"`
+	Goal string `pulumi:"goal"`
+	// Name of the metric to optimize.
 	PrimaryMetric string `pulumi:"primaryMetric"`
 }
 
@@ -35940,9 +36080,11 @@ type ObjectiveInput interface {
 	ToObjectiveOutputWithContext(context.Context) ObjectiveOutput
 }
 
+// Optimization objective.
 type ObjectiveArgs struct {
 	// Defines supported metric goals for hyperparameter tuning
-	Goal          pulumi.StringInput `pulumi:"goal"`
+	Goal pulumi.StringInput `pulumi:"goal"`
+	// Name of the metric to optimize.
 	PrimaryMetric pulumi.StringInput `pulumi:"primaryMetric"`
 }
 
@@ -35958,6 +36100,7 @@ func (i ObjectiveArgs) ToObjectiveOutputWithContext(ctx context.Context) Objecti
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectiveOutput)
 }
 
+// Optimization objective.
 type ObjectiveOutput struct{ *pulumi.OutputState }
 
 func (ObjectiveOutput) ElementType() reflect.Type {
@@ -35977,13 +36120,16 @@ func (o ObjectiveOutput) Goal() pulumi.StringOutput {
 	return o.ApplyT(func(v Objective) string { return v.Goal }).(pulumi.StringOutput)
 }
 
+// Name of the metric to optimize.
 func (o ObjectiveOutput) PrimaryMetric() pulumi.StringOutput {
 	return o.ApplyT(func(v Objective) string { return v.PrimaryMetric }).(pulumi.StringOutput)
 }
 
+// Optimization objective.
 type ObjectiveResponse struct {
 	// Defines supported metric goals for hyperparameter tuning
-	Goal          string `pulumi:"goal"`
+	Goal string `pulumi:"goal"`
+	// Name of the metric to optimize.
 	PrimaryMetric string `pulumi:"primaryMetric"`
 }
 
@@ -35998,9 +36144,11 @@ type ObjectiveResponseInput interface {
 	ToObjectiveResponseOutputWithContext(context.Context) ObjectiveResponseOutput
 }
 
+// Optimization objective.
 type ObjectiveResponseArgs struct {
 	// Defines supported metric goals for hyperparameter tuning
-	Goal          pulumi.StringInput `pulumi:"goal"`
+	Goal pulumi.StringInput `pulumi:"goal"`
+	// Name of the metric to optimize.
 	PrimaryMetric pulumi.StringInput `pulumi:"primaryMetric"`
 }
 
@@ -36016,6 +36164,7 @@ func (i ObjectiveResponseArgs) ToObjectiveResponseOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectiveResponseOutput)
 }
 
+// Optimization objective.
 type ObjectiveResponseOutput struct{ *pulumi.OutputState }
 
 func (ObjectiveResponseOutput) ElementType() reflect.Type {
@@ -36035,6 +36184,7 @@ func (o ObjectiveResponseOutput) Goal() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectiveResponse) string { return v.Goal }).(pulumi.StringOutput)
 }
 
+// Name of the metric to optimize.
 func (o ObjectiveResponseOutput) PrimaryMetric() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectiveResponse) string { return v.PrimaryMetric }).(pulumi.StringOutput)
 }
@@ -36547,7 +36697,9 @@ func (o OnlineEndpointResponsePtrOutput) Traffic() pulumi.IntMapOutput {
 	}).(pulumi.IntMapOutput)
 }
 
+// Online deployment scoring requests configuration.
 type OnlineRequestSettings struct {
+	// The number of requests allowed to queue at once for this deployment.
 	MaxConcurrentRequestsPerInstance *int `pulumi:"maxConcurrentRequestsPerInstance"`
 	// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
 	MaxQueueWait *string `pulumi:"maxQueueWait"`
@@ -36566,7 +36718,9 @@ type OnlineRequestSettingsInput interface {
 	ToOnlineRequestSettingsOutputWithContext(context.Context) OnlineRequestSettingsOutput
 }
 
+// Online deployment scoring requests configuration.
 type OnlineRequestSettingsArgs struct {
+	// The number of requests allowed to queue at once for this deployment.
 	MaxConcurrentRequestsPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrentRequestsPerInstance"`
 	// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
 	MaxQueueWait pulumi.StringPtrInput `pulumi:"maxQueueWait"`
@@ -36627,6 +36781,7 @@ func (i *onlineRequestSettingsPtrType) ToOnlineRequestSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OnlineRequestSettingsPtrOutput)
 }
 
+// Online deployment scoring requests configuration.
 type OnlineRequestSettingsOutput struct{ *pulumi.OutputState }
 
 func (OnlineRequestSettingsOutput) ElementType() reflect.Type {
@@ -36650,6 +36805,8 @@ func (o OnlineRequestSettingsOutput) ToOnlineRequestSettingsPtrOutputWithContext
 		return &v
 	}).(OnlineRequestSettingsPtrOutput)
 }
+
+// The number of requests allowed to queue at once for this deployment.
 func (o OnlineRequestSettingsOutput) MaxConcurrentRequestsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OnlineRequestSettings) *int { return v.MaxConcurrentRequestsPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -36682,6 +36839,7 @@ func (o OnlineRequestSettingsPtrOutput) Elem() OnlineRequestSettingsOutput {
 	return o.ApplyT(func(v *OnlineRequestSettings) OnlineRequestSettings { return *v }).(OnlineRequestSettingsOutput)
 }
 
+// The number of requests allowed to queue at once for this deployment.
 func (o OnlineRequestSettingsPtrOutput) MaxConcurrentRequestsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OnlineRequestSettings) *int {
 		if v == nil {
@@ -36711,7 +36869,9 @@ func (o OnlineRequestSettingsPtrOutput) RequestTimeout() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Online deployment scoring requests configuration.
 type OnlineRequestSettingsResponse struct {
+	// The number of requests allowed to queue at once for this deployment.
 	MaxConcurrentRequestsPerInstance *int `pulumi:"maxConcurrentRequestsPerInstance"`
 	// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
 	MaxQueueWait *string `pulumi:"maxQueueWait"`
@@ -36730,7 +36890,9 @@ type OnlineRequestSettingsResponseInput interface {
 	ToOnlineRequestSettingsResponseOutputWithContext(context.Context) OnlineRequestSettingsResponseOutput
 }
 
+// Online deployment scoring requests configuration.
 type OnlineRequestSettingsResponseArgs struct {
+	// The number of requests allowed to queue at once for this deployment.
 	MaxConcurrentRequestsPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrentRequestsPerInstance"`
 	// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
 	MaxQueueWait pulumi.StringPtrInput `pulumi:"maxQueueWait"`
@@ -36791,6 +36953,7 @@ func (i *onlineRequestSettingsResponsePtrType) ToOnlineRequestSettingsResponsePt
 	return pulumi.ToOutputWithContext(ctx, i).(OnlineRequestSettingsResponsePtrOutput)
 }
 
+// Online deployment scoring requests configuration.
 type OnlineRequestSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (OnlineRequestSettingsResponseOutput) ElementType() reflect.Type {
@@ -36814,6 +36977,8 @@ func (o OnlineRequestSettingsResponseOutput) ToOnlineRequestSettingsResponsePtrO
 		return &v
 	}).(OnlineRequestSettingsResponsePtrOutput)
 }
+
+// The number of requests allowed to queue at once for this deployment.
 func (o OnlineRequestSettingsResponseOutput) MaxConcurrentRequestsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OnlineRequestSettingsResponse) *int { return v.MaxConcurrentRequestsPerInstance }).(pulumi.IntPtrOutput)
 }
@@ -36846,6 +37011,7 @@ func (o OnlineRequestSettingsResponsePtrOutput) Elem() OnlineRequestSettingsResp
 	return o.ApplyT(func(v *OnlineRequestSettingsResponse) OnlineRequestSettingsResponse { return *v }).(OnlineRequestSettingsResponseOutput)
 }
 
+// The number of requests allowed to queue at once for this deployment.
 func (o OnlineRequestSettingsResponsePtrOutput) MaxConcurrentRequestsPerInstance() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OnlineRequestSettingsResponse) *int {
 		if v == nil {
@@ -38334,6 +38500,7 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 type ProbeSettings struct {
 	// The number of failures to allow before returning an unhealthy status.
 	FailureThreshold *int `pulumi:"failureThreshold"`
@@ -38358,6 +38525,7 @@ type ProbeSettingsInput interface {
 	ToProbeSettingsOutputWithContext(context.Context) ProbeSettingsOutput
 }
 
+// Deployment container liveness/readiness probe configuration.
 type ProbeSettingsArgs struct {
 	// The number of failures to allow before returning an unhealthy status.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
@@ -38424,6 +38592,7 @@ func (i *probeSettingsPtrType) ToProbeSettingsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeSettingsPtrOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 type ProbeSettingsOutput struct{ *pulumi.OutputState }
 
 func (ProbeSettingsOutput) ElementType() reflect.Type {
@@ -38541,6 +38710,7 @@ func (o ProbeSettingsPtrOutput) Timeout() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 type ProbeSettingsResponse struct {
 	// The number of failures to allow before returning an unhealthy status.
 	FailureThreshold *int `pulumi:"failureThreshold"`
@@ -38565,6 +38735,7 @@ type ProbeSettingsResponseInput interface {
 	ToProbeSettingsResponseOutputWithContext(context.Context) ProbeSettingsResponseOutput
 }
 
+// Deployment container liveness/readiness probe configuration.
 type ProbeSettingsResponseArgs struct {
 	// The number of failures to allow before returning an unhealthy status.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
@@ -38631,6 +38802,7 @@ func (i *probeSettingsResponsePtrType) ToProbeSettingsResponsePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ProbeSettingsResponsePtrOutput)
 }
 
+// Deployment container liveness/readiness probe configuration.
 type ProbeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ProbeSettingsResponseOutput) ElementType() reflect.Type {
@@ -43381,7 +43553,7 @@ type SweepJob struct {
 	Compute ComputeConfiguration `pulumi:"compute"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
-	// Early termination policies enable canceling poor-performing runs before they complete
+	// Early termination policies enable canceling poor-performing runs before they complete.
 	EarlyTermination interface{} `pulumi:"earlyTermination"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName *string `pulumi:"experimentName"`
@@ -43390,10 +43562,13 @@ type SweepJob struct {
 	Identity interface{} `pulumi:"identity"`
 	// Enum to determine the type of job.
 	// Expected value is 'Sweep'.
-	JobType             string    `pulumi:"jobType"`
-	MaxConcurrentTrials *int      `pulumi:"maxConcurrentTrials"`
-	MaxTotalTrials      *int      `pulumi:"maxTotalTrials"`
-	Objective           Objective `pulumi:"objective"`
+	JobType string `pulumi:"jobType"`
+	// An upper bound on the number of trials performed in parallel.
+	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
+	// An upper bound on the number of trials to perform.
+	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
+	// Optimization objective.
+	Objective Objective `pulumi:"objective"`
 	// Job priority for scheduling policy. Only applies to AMLCompute.
 	// Private preview feature and only available to users on the allow list.
 	Priority *int `pulumi:"priority"`
@@ -43428,7 +43603,7 @@ type SweepJobArgs struct {
 	Compute ComputeConfigurationInput `pulumi:"compute"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Early termination policies enable canceling poor-performing runs before they complete
+	// Early termination policies enable canceling poor-performing runs before they complete.
 	EarlyTermination pulumi.Input `pulumi:"earlyTermination"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName pulumi.StringPtrInput `pulumi:"experimentName"`
@@ -43437,10 +43612,13 @@ type SweepJobArgs struct {
 	Identity pulumi.Input `pulumi:"identity"`
 	// Enum to determine the type of job.
 	// Expected value is 'Sweep'.
-	JobType             pulumi.StringInput `pulumi:"jobType"`
+	JobType pulumi.StringInput `pulumi:"jobType"`
+	// An upper bound on the number of trials performed in parallel.
 	MaxConcurrentTrials pulumi.IntPtrInput `pulumi:"maxConcurrentTrials"`
-	MaxTotalTrials      pulumi.IntPtrInput `pulumi:"maxTotalTrials"`
-	Objective           ObjectiveInput     `pulumi:"objective"`
+	// An upper bound on the number of trials to perform.
+	MaxTotalTrials pulumi.IntPtrInput `pulumi:"maxTotalTrials"`
+	// Optimization objective.
+	Objective ObjectiveInput `pulumi:"objective"`
 	// Job priority for scheduling policy. Only applies to AMLCompute.
 	// Private preview feature and only available to users on the allow list.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
@@ -43498,7 +43676,7 @@ func (o SweepJobOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SweepJob) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Early termination policies enable canceling poor-performing runs before they complete
+// Early termination policies enable canceling poor-performing runs before they complete.
 func (o SweepJobOutput) EarlyTermination() pulumi.AnyOutput {
 	return o.ApplyT(func(v SweepJob) interface{} { return v.EarlyTermination }).(pulumi.AnyOutput)
 }
@@ -43520,14 +43698,17 @@ func (o SweepJobOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v SweepJob) string { return v.JobType }).(pulumi.StringOutput)
 }
 
+// An upper bound on the number of trials performed in parallel.
 func (o SweepJobOutput) MaxConcurrentTrials() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SweepJob) *int { return v.MaxConcurrentTrials }).(pulumi.IntPtrOutput)
 }
 
+// An upper bound on the number of trials to perform.
 func (o SweepJobOutput) MaxTotalTrials() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SweepJob) *int { return v.MaxTotalTrials }).(pulumi.IntPtrOutput)
 }
 
+// Optimization objective.
 func (o SweepJobOutput) Objective() ObjectiveOutput {
 	return o.ApplyT(func(v SweepJob) Objective { return v.Objective }).(ObjectiveOutput)
 }
@@ -43571,7 +43752,7 @@ type SweepJobResponse struct {
 	Compute ComputeConfigurationResponse `pulumi:"compute"`
 	// The asset description text.
 	Description *string `pulumi:"description"`
-	// Early termination policies enable canceling poor-performing runs before they complete
+	// Early termination policies enable canceling poor-performing runs before they complete.
 	EarlyTermination interface{} `pulumi:"earlyTermination"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName *string `pulumi:"experimentName"`
@@ -43583,18 +43764,22 @@ type SweepJobResponse struct {
 	InteractionEndpoints map[string]JobEndpointResponse `pulumi:"interactionEndpoints"`
 	// Enum to determine the type of job.
 	// Expected value is 'Sweep'.
-	JobType             string            `pulumi:"jobType"`
-	MaxConcurrentTrials *int              `pulumi:"maxConcurrentTrials"`
-	MaxTotalTrials      *int              `pulumi:"maxTotalTrials"`
-	Objective           ObjectiveResponse `pulumi:"objective"`
+	JobType string `pulumi:"jobType"`
+	// An upper bound on the number of trials performed in parallel.
+	MaxConcurrentTrials *int `pulumi:"maxConcurrentTrials"`
+	// An upper bound on the number of trials to perform.
+	MaxTotalTrials *int `pulumi:"maxTotalTrials"`
+	// Optimization objective.
+	Objective ObjectiveResponse `pulumi:"objective"`
 	// Location of the job output logs and artifacts.
 	Output JobOutputResponse `pulumi:"output"`
 	// Job priority for scheduling policy. Only applies to AMLCompute.
 	// Private preview feature and only available to users on the allow list.
 	Priority *int `pulumi:"priority"`
 	// The asset property dictionary.
-	Properties        map[string]string `pulumi:"properties"`
-	ProvisioningState string            `pulumi:"provisioningState"`
+	Properties map[string]string `pulumi:"properties"`
+	// Specifies the job provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
 	SearchSpace map[string]interface{} `pulumi:"searchSpace"`
 	// The status of a job.
@@ -43626,7 +43811,7 @@ type SweepJobResponseArgs struct {
 	Compute ComputeConfigurationResponseInput `pulumi:"compute"`
 	// The asset description text.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Early termination policies enable canceling poor-performing runs before they complete
+	// Early termination policies enable canceling poor-performing runs before they complete.
 	EarlyTermination pulumi.Input `pulumi:"earlyTermination"`
 	// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
 	ExperimentName pulumi.StringPtrInput `pulumi:"experimentName"`
@@ -43638,18 +43823,22 @@ type SweepJobResponseArgs struct {
 	InteractionEndpoints JobEndpointResponseMapInput `pulumi:"interactionEndpoints"`
 	// Enum to determine the type of job.
 	// Expected value is 'Sweep'.
-	JobType             pulumi.StringInput     `pulumi:"jobType"`
-	MaxConcurrentTrials pulumi.IntPtrInput     `pulumi:"maxConcurrentTrials"`
-	MaxTotalTrials      pulumi.IntPtrInput     `pulumi:"maxTotalTrials"`
-	Objective           ObjectiveResponseInput `pulumi:"objective"`
+	JobType pulumi.StringInput `pulumi:"jobType"`
+	// An upper bound on the number of trials performed in parallel.
+	MaxConcurrentTrials pulumi.IntPtrInput `pulumi:"maxConcurrentTrials"`
+	// An upper bound on the number of trials to perform.
+	MaxTotalTrials pulumi.IntPtrInput `pulumi:"maxTotalTrials"`
+	// Optimization objective.
+	Objective ObjectiveResponseInput `pulumi:"objective"`
 	// Location of the job output logs and artifacts.
 	Output JobOutputResponseInput `pulumi:"output"`
 	// Job priority for scheduling policy. Only applies to AMLCompute.
 	// Private preview feature and only available to users on the allow list.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
 	// The asset property dictionary.
-	Properties        pulumi.StringMapInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringInput    `pulumi:"provisioningState"`
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Specifies the job provisioning state.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
 	SearchSpace pulumi.MapInput `pulumi:"searchSpace"`
 	// The status of a job.
@@ -43704,7 +43893,7 @@ func (o SweepJobResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SweepJobResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Early termination policies enable canceling poor-performing runs before they complete
+// Early termination policies enable canceling poor-performing runs before they complete.
 func (o SweepJobResponseOutput) EarlyTermination() pulumi.AnyOutput {
 	return o.ApplyT(func(v SweepJobResponse) interface{} { return v.EarlyTermination }).(pulumi.AnyOutput)
 }
@@ -43732,14 +43921,17 @@ func (o SweepJobResponseOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v SweepJobResponse) string { return v.JobType }).(pulumi.StringOutput)
 }
 
+// An upper bound on the number of trials performed in parallel.
 func (o SweepJobResponseOutput) MaxConcurrentTrials() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SweepJobResponse) *int { return v.MaxConcurrentTrials }).(pulumi.IntPtrOutput)
 }
 
+// An upper bound on the number of trials to perform.
 func (o SweepJobResponseOutput) MaxTotalTrials() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SweepJobResponse) *int { return v.MaxTotalTrials }).(pulumi.IntPtrOutput)
 }
 
+// Optimization objective.
 func (o SweepJobResponseOutput) Objective() ObjectiveResponseOutput {
 	return o.ApplyT(func(v SweepJobResponse) ObjectiveResponse { return v.Objective }).(ObjectiveResponseOutput)
 }
@@ -43760,6 +43952,7 @@ func (o SweepJobResponseOutput) Properties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SweepJobResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
 }
 
+// Specifies the job provisioning state.
 func (o SweepJobResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v SweepJobResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -44140,8 +44333,9 @@ func (o SystemServiceResponseArrayOutput) Index(i pulumi.IntInput) SystemService
 type TensorFlow struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'TensorFlow'.
-	DistributionType     string `pulumi:"distributionType"`
-	ParameterServerCount *int   `pulumi:"parameterServerCount"`
+	DistributionType string `pulumi:"distributionType"`
+	// Number of parameter server tasks.
+	ParameterServerCount *int `pulumi:"parameterServerCount"`
 	// Number of workers. Overwrites the node count in compute binding.
 	WorkerCount *int `pulumi:"workerCount"`
 }
@@ -44161,7 +44355,8 @@ type TensorFlowInput interface {
 type TensorFlowArgs struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'TensorFlow'.
-	DistributionType     pulumi.StringInput `pulumi:"distributionType"`
+	DistributionType pulumi.StringInput `pulumi:"distributionType"`
+	// Number of parameter server tasks.
 	ParameterServerCount pulumi.IntPtrInput `pulumi:"parameterServerCount"`
 	// Number of workers. Overwrites the node count in compute binding.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
@@ -44200,6 +44395,7 @@ func (o TensorFlowOutput) DistributionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TensorFlow) string { return v.DistributionType }).(pulumi.StringOutput)
 }
 
+// Number of parameter server tasks.
 func (o TensorFlowOutput) ParameterServerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TensorFlow) *int { return v.ParameterServerCount }).(pulumi.IntPtrOutput)
 }
@@ -44213,8 +44409,9 @@ func (o TensorFlowOutput) WorkerCount() pulumi.IntPtrOutput {
 type TensorFlowResponse struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'TensorFlow'.
-	DistributionType     string `pulumi:"distributionType"`
-	ParameterServerCount *int   `pulumi:"parameterServerCount"`
+	DistributionType string `pulumi:"distributionType"`
+	// Number of parameter server tasks.
+	ParameterServerCount *int `pulumi:"parameterServerCount"`
 	// Number of workers. Overwrites the node count in compute binding.
 	WorkerCount *int `pulumi:"workerCount"`
 }
@@ -44234,7 +44431,8 @@ type TensorFlowResponseInput interface {
 type TensorFlowResponseArgs struct {
 	// Enum to determine the job distribution type.
 	// Expected value is 'TensorFlow'.
-	DistributionType     pulumi.StringInput `pulumi:"distributionType"`
+	DistributionType pulumi.StringInput `pulumi:"distributionType"`
+	// Number of parameter server tasks.
 	ParameterServerCount pulumi.IntPtrInput `pulumi:"parameterServerCount"`
 	// Number of workers. Overwrites the node count in compute binding.
 	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
@@ -44273,6 +44471,7 @@ func (o TensorFlowResponseOutput) DistributionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TensorFlowResponse) string { return v.DistributionType }).(pulumi.StringOutput)
 }
 
+// Number of parameter server tasks.
 func (o TensorFlowResponseOutput) ParameterServerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TensorFlowResponse) *int { return v.ParameterServerCount }).(pulumi.IntPtrOutput)
 }
@@ -44826,11 +45025,14 @@ func (o TrialComponentResponsePtrOutput) Timeout() pulumi.StringPtrOutput {
 
 // Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
 type TruncationSelectionPolicy struct {
-	DelayEvaluation    *int `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation *int `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// Expected value is 'TruncationSelection'.
-	PolicyType           string `pulumi:"policyType"`
-	TruncationPercentage *int   `pulumi:"truncationPercentage"`
+	PolicyType string `pulumi:"policyType"`
+	// The percentage of runs to cancel at each evaluation interval.
+	TruncationPercentage *int `pulumi:"truncationPercentage"`
 }
 
 // TruncationSelectionPolicyInput is an input type that accepts TruncationSelectionPolicyArgs and TruncationSelectionPolicyOutput values.
@@ -44846,10 +45048,13 @@ type TruncationSelectionPolicyInput interface {
 
 // Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
 type TruncationSelectionPolicyArgs struct {
-	DelayEvaluation    pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval pulumi.IntPtrInput `pulumi:"evaluationInterval"`
 	// Expected value is 'TruncationSelection'.
-	PolicyType           pulumi.StringInput `pulumi:"policyType"`
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// The percentage of runs to cancel at each evaluation interval.
 	TruncationPercentage pulumi.IntPtrInput `pulumi:"truncationPercentage"`
 }
 
@@ -44880,10 +45085,12 @@ func (o TruncationSelectionPolicyOutput) ToTruncationSelectionPolicyOutputWithCo
 	return o
 }
 
+// Number of intervals by which to delay the first evaluation.
 func (o TruncationSelectionPolicyOutput) DelayEvaluation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicy) *int { return v.DelayEvaluation }).(pulumi.IntPtrOutput)
 }
 
+// Interval (number of runs) between policy evaluations.
 func (o TruncationSelectionPolicyOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicy) *int { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }
@@ -44893,17 +45100,21 @@ func (o TruncationSelectionPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// The percentage of runs to cancel at each evaluation interval.
 func (o TruncationSelectionPolicyOutput) TruncationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicy) *int { return v.TruncationPercentage }).(pulumi.IntPtrOutput)
 }
 
 // Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
 type TruncationSelectionPolicyResponse struct {
-	DelayEvaluation    *int `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation *int `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// Expected value is 'TruncationSelection'.
-	PolicyType           string `pulumi:"policyType"`
-	TruncationPercentage *int   `pulumi:"truncationPercentage"`
+	PolicyType string `pulumi:"policyType"`
+	// The percentage of runs to cancel at each evaluation interval.
+	TruncationPercentage *int `pulumi:"truncationPercentage"`
 }
 
 // TruncationSelectionPolicyResponseInput is an input type that accepts TruncationSelectionPolicyResponseArgs and TruncationSelectionPolicyResponseOutput values.
@@ -44919,10 +45130,13 @@ type TruncationSelectionPolicyResponseInput interface {
 
 // Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
 type TruncationSelectionPolicyResponseArgs struct {
-	DelayEvaluation    pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Number of intervals by which to delay the first evaluation.
+	DelayEvaluation pulumi.IntPtrInput `pulumi:"delayEvaluation"`
+	// Interval (number of runs) between policy evaluations.
 	EvaluationInterval pulumi.IntPtrInput `pulumi:"evaluationInterval"`
 	// Expected value is 'TruncationSelection'.
-	PolicyType           pulumi.StringInput `pulumi:"policyType"`
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// The percentage of runs to cancel at each evaluation interval.
 	TruncationPercentage pulumi.IntPtrInput `pulumi:"truncationPercentage"`
 }
 
@@ -44953,10 +45167,12 @@ func (o TruncationSelectionPolicyResponseOutput) ToTruncationSelectionPolicyResp
 	return o
 }
 
+// Number of intervals by which to delay the first evaluation.
 func (o TruncationSelectionPolicyResponseOutput) DelayEvaluation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicyResponse) *int { return v.DelayEvaluation }).(pulumi.IntPtrOutput)
 }
 
+// Interval (number of runs) between policy evaluations.
 func (o TruncationSelectionPolicyResponseOutput) EvaluationInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicyResponse) *int { return v.EvaluationInterval }).(pulumi.IntPtrOutput)
 }
@@ -44966,6 +45182,7 @@ func (o TruncationSelectionPolicyResponseOutput) PolicyType() pulumi.StringOutpu
 	return o.ApplyT(func(v TruncationSelectionPolicyResponse) string { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// The percentage of runs to cancel at each evaluation interval.
 func (o TruncationSelectionPolicyResponseOutput) TruncationPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TruncationSelectionPolicyResponse) *int { return v.TruncationPercentage }).(pulumi.IntPtrOutput)
 }

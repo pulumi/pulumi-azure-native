@@ -30,6 +30,8 @@ __all__ = [
     'LoggingRuleHiddenPropertyPathsArgs',
     'NotificationEndpointArgs',
     'NotificationRegistrationPropertiesArgs',
+    'OpenApiConfigurationArgs',
+    'OpenApiValidationArgs',
     'ProviderHubMetadataProviderAuthenticationArgs',
     'ProviderHubMetadataThirdPartyProviderAuthorizationArgs',
     'ProviderRegistrationPropertiesArgs',
@@ -909,6 +911,46 @@ class NotificationRegistrationPropertiesArgs:
 
 
 @pulumi.input_type
+class OpenApiConfigurationArgs:
+    def __init__(__self__, *,
+                 validation: Optional[pulumi.Input['OpenApiValidationArgs']] = None):
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional[pulumi.Input['OpenApiValidationArgs']]:
+        return pulumi.get(self, "validation")
+
+    @validation.setter
+    def validation(self, value: Optional[pulumi.Input['OpenApiValidationArgs']]):
+        pulumi.set(self, "validation", value)
+
+
+@pulumi.input_type
+class OpenApiValidationArgs:
+    def __init__(__self__, *,
+                 allow_noncompliant_collection_response: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_noncompliant_collection_response: Indicates whether a non compliance response is allowed for a LIST call
+        """
+        if allow_noncompliant_collection_response is not None:
+            pulumi.set(__self__, "allow_noncompliant_collection_response", allow_noncompliant_collection_response)
+
+    @property
+    @pulumi.getter(name="allowNoncompliantCollectionResponse")
+    def allow_noncompliant_collection_response(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether a non compliance response is allowed for a LIST call
+        """
+        return pulumi.get(self, "allow_noncompliant_collection_response")
+
+    @allow_noncompliant_collection_response.setter
+    def allow_noncompliant_collection_response(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_noncompliant_collection_response", value)
+
+
+@pulumi.input_type
 class ProviderHubMetadataProviderAuthenticationArgs:
     def __init__(__self__, *,
                  allowed_audiences: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1714,6 +1756,7 @@ class ResourceTypeRegistrationPropertiesArgs:
                  logging_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgs']]]] = None,
                  management: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesManagementArgs']] = None,
                  marketplace_type: Optional[pulumi.Input[str]] = None,
+                 open_api_configuration: Optional[pulumi.Input['OpenApiConfigurationArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  regionality: Optional[pulumi.Input[Union[str, 'Regionality']]] = None,
                  request_header_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']] = None,
@@ -1766,6 +1809,8 @@ class ResourceTypeRegistrationPropertiesArgs:
             pulumi.set(__self__, "management", management)
         if marketplace_type is not None:
             pulumi.set(__self__, "marketplace_type", marketplace_type)
+        if open_api_configuration is not None:
+            pulumi.set(__self__, "open_api_configuration", open_api_configuration)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if regionality is not None:
@@ -1949,6 +1994,15 @@ class ResourceTypeRegistrationPropertiesArgs:
     @marketplace_type.setter
     def marketplace_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "marketplace_type", value)
+
+    @property
+    @pulumi.getter(name="openApiConfiguration")
+    def open_api_configuration(self) -> Optional[pulumi.Input['OpenApiConfigurationArgs']]:
+        return pulumi.get(self, "open_api_configuration")
+
+    @open_api_configuration.setter
+    def open_api_configuration(self, value: Optional[pulumi.Input['OpenApiConfigurationArgs']]):
+        pulumi.set(self, "open_api_configuration", value)
 
     @property
     @pulumi.getter(name="provisioningState")

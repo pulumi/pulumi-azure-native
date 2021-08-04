@@ -51,5 +51,8 @@ export interface GetOnlineDeploymentLogsArgs {
 }
 
 export interface GetOnlineDeploymentLogsResult {
+    /**
+     * The retrieved online deployment logs.
+     */
     readonly content?: string;
 }

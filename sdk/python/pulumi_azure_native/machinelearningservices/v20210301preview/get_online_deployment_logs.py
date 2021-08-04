@@ -25,6 +25,9 @@ class GetOnlineDeploymentLogsResult:
     @property
     @pulumi.getter
     def content(self) -> Optional[str]:
+        """
+        The retrieved online deployment logs.
+        """
         return pulumi.get(self, "content")
 
 

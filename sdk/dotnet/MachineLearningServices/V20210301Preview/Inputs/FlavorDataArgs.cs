@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     {
         [Input("data")]
         private InputMap<string>? _data;
+
+        /// <summary>
+        /// Model flavor-specific data.
+        /// </summary>
         public InputMap<string> Data
         {
             get => _data ?? (_data = new InputMap<string>());

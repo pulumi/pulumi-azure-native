@@ -85,6 +85,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
+        /// Specifies the job provisioning state.
+        /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// Status of the job.

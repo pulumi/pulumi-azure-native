@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         public Output<Outputs.DefaultRolloutResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]

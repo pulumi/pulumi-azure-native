@@ -470,39 +470,6 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
-    /// The kind of onboarding for the subscription
-    /// </summary>
-    [EnumType]
-    public readonly struct OnboardingKind : IEquatable<OnboardingKind>
-    {
-        private readonly string _value;
-
-        private OnboardingKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OnboardingKind Default { get; } = new OnboardingKind("Default");
-        public static OnboardingKind MigratedToAzure { get; } = new OnboardingKind("MigratedToAzure");
-        public static OnboardingKind Evaluation { get; } = new OnboardingKind("Evaluation");
-        public static OnboardingKind Purchased { get; } = new OnboardingKind("Purchased");
-
-        public static bool operator ==(OnboardingKind left, OnboardingKind right) => left.Equals(right);
-        public static bool operator !=(OnboardingKind left, OnboardingKind right) => !left.Equals(right);
-
-        public static explicit operator string(OnboardingKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OnboardingKind other && Equals(other);
-        public bool Equals(OnboardingKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
     /// </summary>
     [EnumType]
@@ -854,37 +821,6 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecuritySolutionStatus other && Equals(other);
         public bool Equals(SecuritySolutionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Type of sensor
-    /// </summary>
-    [EnumType]
-    public readonly struct SensorType : IEquatable<SensorType>
-    {
-        private readonly string _value;
-
-        private SensorType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SensorType Ot { get; } = new SensorType("Ot");
-        public static SensorType Enterprise { get; } = new SensorType("Enterprise");
-
-        public static bool operator ==(SensorType left, SensorType right) => left.Equals(right);
-        public static bool operator !=(SensorType left, SensorType right) => !left.Equals(right);
-
-        public static explicit operator string(SensorType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SensorType other && Equals(other);
-        public bool Equals(SensorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

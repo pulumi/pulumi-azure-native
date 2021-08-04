@@ -334,6 +334,9 @@ class SamplingAlgorithm(str, Enum):
 
 
 class ScaleType(str, Enum):
+    """
+    Type of deployment scaling algorithm
+    """
     AUTO = "Auto"
     MANUAL = "Manual"
 

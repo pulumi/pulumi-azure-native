@@ -22,6 +22,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("distributionType", required: true)]
         public Input<string> DistributionType { get; set; } = null!;
 
+        /// <summary>
+        /// Number of parameter server tasks.
+        /// </summary>
         [Input("parameterServerCount")]
         public Input<int>? ParameterServerCount { get; set; }
 

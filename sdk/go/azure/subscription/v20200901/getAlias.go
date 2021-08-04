@@ -18,7 +18,7 @@ func LookupAlias(ctx *pulumi.Context, args *LookupAliasArgs, opts ...pulumi.Invo
 }
 
 type LookupAliasArgs struct {
-	// Alias Name
+	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName string `pulumi:"aliasName"`
 }
 

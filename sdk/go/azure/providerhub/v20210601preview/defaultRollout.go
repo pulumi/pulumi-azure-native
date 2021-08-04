@@ -19,6 +19,8 @@ type DefaultRollout struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the rollout.
 	Properties DefaultRolloutResponsePropertiesOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -83,6 +85,8 @@ type defaultRolloutState struct {
 	Name *string `pulumi:"name"`
 	// Properties of the rollout.
 	Properties *DefaultRolloutResponseProperties `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -92,6 +96,8 @@ type DefaultRolloutState struct {
 	Name pulumi.StringPtrInput
 	// Properties of the rollout.
 	Properties DefaultRolloutResponsePropertiesPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

@@ -32,6 +32,8 @@ type LookupDefaultRolloutResult struct {
 	Name string `pulumi:"name"`
 	// Properties of the rollout.
 	Properties DefaultRolloutResponseProperties `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

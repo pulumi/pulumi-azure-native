@@ -20,25 +20,17 @@ export * from "./getAutomation";
 export * from "./getConnector";
 export * from "./getDeviceSecurityGroup";
 export * from "./getIngestionSetting";
-export * from "./getIotDefenderSetting";
 export * from "./getIotSecuritySolution";
-export * from "./getIotSensor";
-export * from "./getIotSite";
 export * from "./getJitNetworkAccessPolicy";
-export * from "./getOnPremiseIotSensor";
 export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSqlVulnerabilityAssessmentBaselineRule";
 export * from "./getWorkspaceSetting";
 export * from "./ingestionSetting";
-export * from "./iotDefenderSetting";
 export * from "./iotSecuritySolution";
-export * from "./iotSensor";
-export * from "./iotSite";
 export * from "./jitNetworkAccessPolicy";
 export * from "./listIngestionSettingConnectionStrings";
 export * from "./listIngestionSettingTokens";
-export * from "./onPremiseIotSensor";
 export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
 export * from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -55,7 +47,6 @@ import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
 import * as v20200701preview from "./v20200701preview";
-import * as v20200806preview from "./v20200806preview";
 import * as v20210115preview from "./v20210115preview";
 
 export {
@@ -66,7 +57,6 @@ export {
     v20200101,
     v20200101preview,
     v20200701preview,
-    v20200806preview,
     v20210115preview,
 };
 
@@ -79,12 +69,8 @@ import { Automation } from "./automation";
 import { Connector } from "./connector";
 import { DeviceSecurityGroup } from "./deviceSecurityGroup";
 import { IngestionSetting } from "./ingestionSetting";
-import { IotDefenderSetting } from "./iotDefenderSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
-import { IotSensor } from "./iotSensor";
-import { IotSite } from "./iotSite";
 import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
-import { OnPremiseIotSensor } from "./onPremiseIotSensor";
 import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SqlVulnerabilityAssessmentBaselineRule } from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -110,18 +96,10 @@ const _module = {
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security:IngestionSetting":
                 return new IngestionSetting(name, <any>undefined, { urn })
-            case "azure-native:security:IotDefenderSetting":
-                return new IotDefenderSetting(name, <any>undefined, { urn })
             case "azure-native:security:IotSecuritySolution":
                 return new IotSecuritySolution(name, <any>undefined, { urn })
-            case "azure-native:security:IotSensor":
-                return new IotSensor(name, <any>undefined, { urn })
-            case "azure-native:security:IotSite":
-                return new IotSite(name, <any>undefined, { urn })
             case "azure-native:security:JitNetworkAccessPolicy":
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
-            case "azure-native:security:OnPremiseIotSensor":
-                return new OnPremiseIotSensor(name, <any>undefined, { urn })
             case "azure-native:security:SecurityContact":
                 return new SecurityContact(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":

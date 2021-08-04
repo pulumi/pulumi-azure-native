@@ -37,18 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DeviceSecurityGroup{}
 	case "azure-native:security:IngestionSetting":
 		r = &IngestionSetting{}
-	case "azure-native:security:IotDefenderSetting":
-		r = &IotDefenderSetting{}
 	case "azure-native:security:IotSecuritySolution":
 		r = &IotSecuritySolution{}
-	case "azure-native:security:IotSensor":
-		r = &IotSensor{}
-	case "azure-native:security:IotSite":
-		r = &IotSite{}
 	case "azure-native:security:JitNetworkAccessPolicy":
 		r = &JitNetworkAccessPolicy{}
-	case "azure-native:security:OnPremiseIotSensor":
-		r = &OnPremiseIotSensor{}
 	case "azure-native:security:SecurityContact":
 		r = &SecurityContact{}
 	case "azure-native:security:ServerVulnerabilityAssessment":

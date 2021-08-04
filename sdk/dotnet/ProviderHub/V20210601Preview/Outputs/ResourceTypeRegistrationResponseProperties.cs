@@ -30,6 +30,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
         public readonly ImmutableArray<Outputs.LoggingRuleResponse> LoggingRules;
         public readonly Outputs.ResourceTypeRegistrationPropertiesResponseManagement? Management;
         public readonly string? MarketplaceType;
+        public readonly Outputs.OpenApiConfigurationResponse? OpenApiConfiguration;
         /// <summary>
         /// The provisioned state of the resource.
         /// </summary>
@@ -85,6 +86,8 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
 
             string? marketplaceType,
 
+            Outputs.OpenApiConfigurationResponse? openApiConfiguration,
+
             string? provisioningState,
 
             string? regionality,
@@ -132,6 +135,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Outputs
             LoggingRules = loggingRules;
             Management = management;
             MarketplaceType = marketplaceType;
+            OpenApiConfiguration = openApiConfiguration;
             ProvisioningState = provisioningState;
             Regionality = regionality;
             RequestHeaderOptions = requestHeaderOptions;

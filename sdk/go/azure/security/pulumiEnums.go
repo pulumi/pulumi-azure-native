@@ -403,36 +403,6 @@ func (e MinimalSeverity) ToStringPtrOutputWithContext(ctx context.Context) pulum
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// The kind of onboarding for the subscription
-type OnboardingKind pulumi.String
-
-const (
-	OnboardingKindDefault         = OnboardingKind("Default")
-	OnboardingKindMigratedToAzure = OnboardingKind("MigratedToAzure")
-	OnboardingKindEvaluation      = OnboardingKind("Evaluation")
-	OnboardingKindPurchased       = OnboardingKind("Purchased")
-)
-
-func (OnboardingKind) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e OnboardingKind) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OnboardingKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e OnboardingKind) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e OnboardingKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
 type Operator pulumi.String
 
@@ -709,34 +679,6 @@ func (e SecuritySolutionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SecuritySolutionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Type of sensor
-type SensorType pulumi.String
-
-const (
-	SensorTypeOt         = SensorType("Ot")
-	SensorTypeEnterprise = SensorType("Enterprise")
-)
-
-func (SensorType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SensorType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SensorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SensorType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SensorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 

@@ -1907,6 +1907,8 @@ class StaticDeliveryAttributeMappingArgs:
         :param pulumi.Input[str] value: Value of the delivery attribute.
         """
         pulumi.set(__self__, "type", 'Static')
+        if is_secret is None:
+            is_secret = False
         if is_secret is not None:
             pulumi.set(__self__, "is_secret", is_secret)
         if name is not None:

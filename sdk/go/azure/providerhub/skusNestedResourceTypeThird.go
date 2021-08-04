@@ -120,7 +120,8 @@ type skusNestedResourceTypeThirdArgs struct {
 	// The third child resource type.
 	NestedResourceTypeThird string `pulumi:"nestedResourceTypeThird"`
 	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string `pulumi:"providerNamespace"`
+	ProviderNamespace string  `pulumi:"providerNamespace"`
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
@@ -138,6 +139,7 @@ type SkusNestedResourceTypeThirdArgs struct {
 	NestedResourceTypeThird pulumi.StringInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
+	ProvisioningState pulumi.StringPtrInput
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.

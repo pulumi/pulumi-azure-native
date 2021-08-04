@@ -69,6 +69,9 @@ func NewTopic(ctx *pulumi.Context,
 	if args.InputSchema == nil {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
 	}
+	if args.Kind == nil {
+		args.Kind = pulumi.StringPtr("Azure")
+	}
 	if args.PublicNetworkAccess == nil {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}

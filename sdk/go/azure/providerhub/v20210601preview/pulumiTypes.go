@@ -2980,6 +2980,8 @@ type DefaultRolloutSpecificationResponseProviderRegistration struct {
 	// The name of the resource
 	Name       string                                  `pulumi:"name"`
 	Properties *ProviderRegistrationResponseProperties `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -3001,6 +3003,8 @@ type DefaultRolloutSpecificationResponseProviderRegistrationArgs struct {
 	// The name of the resource
 	Name       pulumi.StringInput                             `pulumi:"name"`
 	Properties ProviderRegistrationResponsePropertiesPtrInput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3098,6 +3102,13 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) Propertie
 	}).(ProviderRegistrationResponsePropertiesPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v DefaultRolloutSpecificationResponseProviderRegistration) SystemDataResponse {
+		return v.SystemData
+	}).(SystemDataResponseOutput)
+}
+
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o DefaultRolloutSpecificationResponseProviderRegistrationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DefaultRolloutSpecificationResponseProviderRegistration) string { return v.Type }).(pulumi.StringOutput)
@@ -3150,6 +3161,16 @@ func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) Proper
 		}
 		return v.Properties
 	}).(ProviderRegistrationResponsePropertiesPtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+func (o DefaultRolloutSpecificationResponseProviderRegistrationPtrOutput) SystemData() SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v *DefaultRolloutSpecificationResponseProviderRegistration) *SystemDataResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.SystemData
+	}).(SystemDataResponsePtrOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -5784,6 +5805,520 @@ func (o NotificationRegistrationResponsePropertiesPtrOutput) ProvisioningState()
 		}
 		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
+}
+
+type OpenApiConfiguration struct {
+	Validation *OpenApiValidation `pulumi:"validation"`
+}
+
+// OpenApiConfigurationInput is an input type that accepts OpenApiConfigurationArgs and OpenApiConfigurationOutput values.
+// You can construct a concrete instance of `OpenApiConfigurationInput` via:
+//
+//          OpenApiConfigurationArgs{...}
+type OpenApiConfigurationInput interface {
+	pulumi.Input
+
+	ToOpenApiConfigurationOutput() OpenApiConfigurationOutput
+	ToOpenApiConfigurationOutputWithContext(context.Context) OpenApiConfigurationOutput
+}
+
+type OpenApiConfigurationArgs struct {
+	Validation OpenApiValidationPtrInput `pulumi:"validation"`
+}
+
+func (OpenApiConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiConfiguration)(nil)).Elem()
+}
+
+func (i OpenApiConfigurationArgs) ToOpenApiConfigurationOutput() OpenApiConfigurationOutput {
+	return i.ToOpenApiConfigurationOutputWithContext(context.Background())
+}
+
+func (i OpenApiConfigurationArgs) ToOpenApiConfigurationOutputWithContext(ctx context.Context) OpenApiConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiConfigurationOutput)
+}
+
+func (i OpenApiConfigurationArgs) ToOpenApiConfigurationPtrOutput() OpenApiConfigurationPtrOutput {
+	return i.ToOpenApiConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OpenApiConfigurationArgs) ToOpenApiConfigurationPtrOutputWithContext(ctx context.Context) OpenApiConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiConfigurationOutput).ToOpenApiConfigurationPtrOutputWithContext(ctx)
+}
+
+// OpenApiConfigurationPtrInput is an input type that accepts OpenApiConfigurationArgs, OpenApiConfigurationPtr and OpenApiConfigurationPtrOutput values.
+// You can construct a concrete instance of `OpenApiConfigurationPtrInput` via:
+//
+//          OpenApiConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenApiConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOpenApiConfigurationPtrOutput() OpenApiConfigurationPtrOutput
+	ToOpenApiConfigurationPtrOutputWithContext(context.Context) OpenApiConfigurationPtrOutput
+}
+
+type openApiConfigurationPtrType OpenApiConfigurationArgs
+
+func OpenApiConfigurationPtr(v *OpenApiConfigurationArgs) OpenApiConfigurationPtrInput {
+	return (*openApiConfigurationPtrType)(v)
+}
+
+func (*openApiConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiConfiguration)(nil)).Elem()
+}
+
+func (i *openApiConfigurationPtrType) ToOpenApiConfigurationPtrOutput() OpenApiConfigurationPtrOutput {
+	return i.ToOpenApiConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *openApiConfigurationPtrType) ToOpenApiConfigurationPtrOutputWithContext(ctx context.Context) OpenApiConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiConfigurationPtrOutput)
+}
+
+type OpenApiConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OpenApiConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiConfiguration)(nil)).Elem()
+}
+
+func (o OpenApiConfigurationOutput) ToOpenApiConfigurationOutput() OpenApiConfigurationOutput {
+	return o
+}
+
+func (o OpenApiConfigurationOutput) ToOpenApiConfigurationOutputWithContext(ctx context.Context) OpenApiConfigurationOutput {
+	return o
+}
+
+func (o OpenApiConfigurationOutput) ToOpenApiConfigurationPtrOutput() OpenApiConfigurationPtrOutput {
+	return o.ToOpenApiConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OpenApiConfigurationOutput) ToOpenApiConfigurationPtrOutputWithContext(ctx context.Context) OpenApiConfigurationPtrOutput {
+	return o.ApplyT(func(v OpenApiConfiguration) *OpenApiConfiguration {
+		return &v
+	}).(OpenApiConfigurationPtrOutput)
+}
+func (o OpenApiConfigurationOutput) Validation() OpenApiValidationPtrOutput {
+	return o.ApplyT(func(v OpenApiConfiguration) *OpenApiValidation { return v.Validation }).(OpenApiValidationPtrOutput)
+}
+
+type OpenApiConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenApiConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiConfiguration)(nil)).Elem()
+}
+
+func (o OpenApiConfigurationPtrOutput) ToOpenApiConfigurationPtrOutput() OpenApiConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenApiConfigurationPtrOutput) ToOpenApiConfigurationPtrOutputWithContext(ctx context.Context) OpenApiConfigurationPtrOutput {
+	return o
+}
+
+func (o OpenApiConfigurationPtrOutput) Elem() OpenApiConfigurationOutput {
+	return o.ApplyT(func(v *OpenApiConfiguration) OpenApiConfiguration { return *v }).(OpenApiConfigurationOutput)
+}
+
+func (o OpenApiConfigurationPtrOutput) Validation() OpenApiValidationPtrOutput {
+	return o.ApplyT(func(v *OpenApiConfiguration) *OpenApiValidation {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(OpenApiValidationPtrOutput)
+}
+
+type OpenApiConfigurationResponse struct {
+	Validation *OpenApiValidationResponse `pulumi:"validation"`
+}
+
+// OpenApiConfigurationResponseInput is an input type that accepts OpenApiConfigurationResponseArgs and OpenApiConfigurationResponseOutput values.
+// You can construct a concrete instance of `OpenApiConfigurationResponseInput` via:
+//
+//          OpenApiConfigurationResponseArgs{...}
+type OpenApiConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToOpenApiConfigurationResponseOutput() OpenApiConfigurationResponseOutput
+	ToOpenApiConfigurationResponseOutputWithContext(context.Context) OpenApiConfigurationResponseOutput
+}
+
+type OpenApiConfigurationResponseArgs struct {
+	Validation OpenApiValidationResponsePtrInput `pulumi:"validation"`
+}
+
+func (OpenApiConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiConfigurationResponse)(nil)).Elem()
+}
+
+func (i OpenApiConfigurationResponseArgs) ToOpenApiConfigurationResponseOutput() OpenApiConfigurationResponseOutput {
+	return i.ToOpenApiConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i OpenApiConfigurationResponseArgs) ToOpenApiConfigurationResponseOutputWithContext(ctx context.Context) OpenApiConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiConfigurationResponseOutput)
+}
+
+func (i OpenApiConfigurationResponseArgs) ToOpenApiConfigurationResponsePtrOutput() OpenApiConfigurationResponsePtrOutput {
+	return i.ToOpenApiConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenApiConfigurationResponseArgs) ToOpenApiConfigurationResponsePtrOutputWithContext(ctx context.Context) OpenApiConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiConfigurationResponseOutput).ToOpenApiConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// OpenApiConfigurationResponsePtrInput is an input type that accepts OpenApiConfigurationResponseArgs, OpenApiConfigurationResponsePtr and OpenApiConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `OpenApiConfigurationResponsePtrInput` via:
+//
+//          OpenApiConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenApiConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenApiConfigurationResponsePtrOutput() OpenApiConfigurationResponsePtrOutput
+	ToOpenApiConfigurationResponsePtrOutputWithContext(context.Context) OpenApiConfigurationResponsePtrOutput
+}
+
+type openApiConfigurationResponsePtrType OpenApiConfigurationResponseArgs
+
+func OpenApiConfigurationResponsePtr(v *OpenApiConfigurationResponseArgs) OpenApiConfigurationResponsePtrInput {
+	return (*openApiConfigurationResponsePtrType)(v)
+}
+
+func (*openApiConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiConfigurationResponse)(nil)).Elem()
+}
+
+func (i *openApiConfigurationResponsePtrType) ToOpenApiConfigurationResponsePtrOutput() OpenApiConfigurationResponsePtrOutput {
+	return i.ToOpenApiConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openApiConfigurationResponsePtrType) ToOpenApiConfigurationResponsePtrOutputWithContext(ctx context.Context) OpenApiConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiConfigurationResponsePtrOutput)
+}
+
+type OpenApiConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenApiConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiConfigurationResponse)(nil)).Elem()
+}
+
+func (o OpenApiConfigurationResponseOutput) ToOpenApiConfigurationResponseOutput() OpenApiConfigurationResponseOutput {
+	return o
+}
+
+func (o OpenApiConfigurationResponseOutput) ToOpenApiConfigurationResponseOutputWithContext(ctx context.Context) OpenApiConfigurationResponseOutput {
+	return o
+}
+
+func (o OpenApiConfigurationResponseOutput) ToOpenApiConfigurationResponsePtrOutput() OpenApiConfigurationResponsePtrOutput {
+	return o.ToOpenApiConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenApiConfigurationResponseOutput) ToOpenApiConfigurationResponsePtrOutputWithContext(ctx context.Context) OpenApiConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v OpenApiConfigurationResponse) *OpenApiConfigurationResponse {
+		return &v
+	}).(OpenApiConfigurationResponsePtrOutput)
+}
+func (o OpenApiConfigurationResponseOutput) Validation() OpenApiValidationResponsePtrOutput {
+	return o.ApplyT(func(v OpenApiConfigurationResponse) *OpenApiValidationResponse { return v.Validation }).(OpenApiValidationResponsePtrOutput)
+}
+
+type OpenApiConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenApiConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiConfigurationResponse)(nil)).Elem()
+}
+
+func (o OpenApiConfigurationResponsePtrOutput) ToOpenApiConfigurationResponsePtrOutput() OpenApiConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o OpenApiConfigurationResponsePtrOutput) ToOpenApiConfigurationResponsePtrOutputWithContext(ctx context.Context) OpenApiConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o OpenApiConfigurationResponsePtrOutput) Elem() OpenApiConfigurationResponseOutput {
+	return o.ApplyT(func(v *OpenApiConfigurationResponse) OpenApiConfigurationResponse { return *v }).(OpenApiConfigurationResponseOutput)
+}
+
+func (o OpenApiConfigurationResponsePtrOutput) Validation() OpenApiValidationResponsePtrOutput {
+	return o.ApplyT(func(v *OpenApiConfigurationResponse) *OpenApiValidationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Validation
+	}).(OpenApiValidationResponsePtrOutput)
+}
+
+type OpenApiValidation struct {
+	// Indicates whether a non compliance response is allowed for a LIST call
+	AllowNoncompliantCollectionResponse *bool `pulumi:"allowNoncompliantCollectionResponse"`
+}
+
+// OpenApiValidationInput is an input type that accepts OpenApiValidationArgs and OpenApiValidationOutput values.
+// You can construct a concrete instance of `OpenApiValidationInput` via:
+//
+//          OpenApiValidationArgs{...}
+type OpenApiValidationInput interface {
+	pulumi.Input
+
+	ToOpenApiValidationOutput() OpenApiValidationOutput
+	ToOpenApiValidationOutputWithContext(context.Context) OpenApiValidationOutput
+}
+
+type OpenApiValidationArgs struct {
+	// Indicates whether a non compliance response is allowed for a LIST call
+	AllowNoncompliantCollectionResponse pulumi.BoolPtrInput `pulumi:"allowNoncompliantCollectionResponse"`
+}
+
+func (OpenApiValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiValidation)(nil)).Elem()
+}
+
+func (i OpenApiValidationArgs) ToOpenApiValidationOutput() OpenApiValidationOutput {
+	return i.ToOpenApiValidationOutputWithContext(context.Background())
+}
+
+func (i OpenApiValidationArgs) ToOpenApiValidationOutputWithContext(ctx context.Context) OpenApiValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiValidationOutput)
+}
+
+func (i OpenApiValidationArgs) ToOpenApiValidationPtrOutput() OpenApiValidationPtrOutput {
+	return i.ToOpenApiValidationPtrOutputWithContext(context.Background())
+}
+
+func (i OpenApiValidationArgs) ToOpenApiValidationPtrOutputWithContext(ctx context.Context) OpenApiValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiValidationOutput).ToOpenApiValidationPtrOutputWithContext(ctx)
+}
+
+// OpenApiValidationPtrInput is an input type that accepts OpenApiValidationArgs, OpenApiValidationPtr and OpenApiValidationPtrOutput values.
+// You can construct a concrete instance of `OpenApiValidationPtrInput` via:
+//
+//          OpenApiValidationArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenApiValidationPtrInput interface {
+	pulumi.Input
+
+	ToOpenApiValidationPtrOutput() OpenApiValidationPtrOutput
+	ToOpenApiValidationPtrOutputWithContext(context.Context) OpenApiValidationPtrOutput
+}
+
+type openApiValidationPtrType OpenApiValidationArgs
+
+func OpenApiValidationPtr(v *OpenApiValidationArgs) OpenApiValidationPtrInput {
+	return (*openApiValidationPtrType)(v)
+}
+
+func (*openApiValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiValidation)(nil)).Elem()
+}
+
+func (i *openApiValidationPtrType) ToOpenApiValidationPtrOutput() OpenApiValidationPtrOutput {
+	return i.ToOpenApiValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *openApiValidationPtrType) ToOpenApiValidationPtrOutputWithContext(ctx context.Context) OpenApiValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiValidationPtrOutput)
+}
+
+type OpenApiValidationOutput struct{ *pulumi.OutputState }
+
+func (OpenApiValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiValidation)(nil)).Elem()
+}
+
+func (o OpenApiValidationOutput) ToOpenApiValidationOutput() OpenApiValidationOutput {
+	return o
+}
+
+func (o OpenApiValidationOutput) ToOpenApiValidationOutputWithContext(ctx context.Context) OpenApiValidationOutput {
+	return o
+}
+
+func (o OpenApiValidationOutput) ToOpenApiValidationPtrOutput() OpenApiValidationPtrOutput {
+	return o.ToOpenApiValidationPtrOutputWithContext(context.Background())
+}
+
+func (o OpenApiValidationOutput) ToOpenApiValidationPtrOutputWithContext(ctx context.Context) OpenApiValidationPtrOutput {
+	return o.ApplyT(func(v OpenApiValidation) *OpenApiValidation {
+		return &v
+	}).(OpenApiValidationPtrOutput)
+}
+
+// Indicates whether a non compliance response is allowed for a LIST call
+func (o OpenApiValidationOutput) AllowNoncompliantCollectionResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenApiValidation) *bool { return v.AllowNoncompliantCollectionResponse }).(pulumi.BoolPtrOutput)
+}
+
+type OpenApiValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenApiValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiValidation)(nil)).Elem()
+}
+
+func (o OpenApiValidationPtrOutput) ToOpenApiValidationPtrOutput() OpenApiValidationPtrOutput {
+	return o
+}
+
+func (o OpenApiValidationPtrOutput) ToOpenApiValidationPtrOutputWithContext(ctx context.Context) OpenApiValidationPtrOutput {
+	return o
+}
+
+func (o OpenApiValidationPtrOutput) Elem() OpenApiValidationOutput {
+	return o.ApplyT(func(v *OpenApiValidation) OpenApiValidation { return *v }).(OpenApiValidationOutput)
+}
+
+// Indicates whether a non compliance response is allowed for a LIST call
+func (o OpenApiValidationPtrOutput) AllowNoncompliantCollectionResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenApiValidation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowNoncompliantCollectionResponse
+	}).(pulumi.BoolPtrOutput)
+}
+
+type OpenApiValidationResponse struct {
+	// Indicates whether a non compliance response is allowed for a LIST call
+	AllowNoncompliantCollectionResponse *bool `pulumi:"allowNoncompliantCollectionResponse"`
+}
+
+// OpenApiValidationResponseInput is an input type that accepts OpenApiValidationResponseArgs and OpenApiValidationResponseOutput values.
+// You can construct a concrete instance of `OpenApiValidationResponseInput` via:
+//
+//          OpenApiValidationResponseArgs{...}
+type OpenApiValidationResponseInput interface {
+	pulumi.Input
+
+	ToOpenApiValidationResponseOutput() OpenApiValidationResponseOutput
+	ToOpenApiValidationResponseOutputWithContext(context.Context) OpenApiValidationResponseOutput
+}
+
+type OpenApiValidationResponseArgs struct {
+	// Indicates whether a non compliance response is allowed for a LIST call
+	AllowNoncompliantCollectionResponse pulumi.BoolPtrInput `pulumi:"allowNoncompliantCollectionResponse"`
+}
+
+func (OpenApiValidationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiValidationResponse)(nil)).Elem()
+}
+
+func (i OpenApiValidationResponseArgs) ToOpenApiValidationResponseOutput() OpenApiValidationResponseOutput {
+	return i.ToOpenApiValidationResponseOutputWithContext(context.Background())
+}
+
+func (i OpenApiValidationResponseArgs) ToOpenApiValidationResponseOutputWithContext(ctx context.Context) OpenApiValidationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiValidationResponseOutput)
+}
+
+func (i OpenApiValidationResponseArgs) ToOpenApiValidationResponsePtrOutput() OpenApiValidationResponsePtrOutput {
+	return i.ToOpenApiValidationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i OpenApiValidationResponseArgs) ToOpenApiValidationResponsePtrOutputWithContext(ctx context.Context) OpenApiValidationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiValidationResponseOutput).ToOpenApiValidationResponsePtrOutputWithContext(ctx)
+}
+
+// OpenApiValidationResponsePtrInput is an input type that accepts OpenApiValidationResponseArgs, OpenApiValidationResponsePtr and OpenApiValidationResponsePtrOutput values.
+// You can construct a concrete instance of `OpenApiValidationResponsePtrInput` via:
+//
+//          OpenApiValidationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type OpenApiValidationResponsePtrInput interface {
+	pulumi.Input
+
+	ToOpenApiValidationResponsePtrOutput() OpenApiValidationResponsePtrOutput
+	ToOpenApiValidationResponsePtrOutputWithContext(context.Context) OpenApiValidationResponsePtrOutput
+}
+
+type openApiValidationResponsePtrType OpenApiValidationResponseArgs
+
+func OpenApiValidationResponsePtr(v *OpenApiValidationResponseArgs) OpenApiValidationResponsePtrInput {
+	return (*openApiValidationResponsePtrType)(v)
+}
+
+func (*openApiValidationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiValidationResponse)(nil)).Elem()
+}
+
+func (i *openApiValidationResponsePtrType) ToOpenApiValidationResponsePtrOutput() OpenApiValidationResponsePtrOutput {
+	return i.ToOpenApiValidationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *openApiValidationResponsePtrType) ToOpenApiValidationResponsePtrOutputWithContext(ctx context.Context) OpenApiValidationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenApiValidationResponsePtrOutput)
+}
+
+type OpenApiValidationResponseOutput struct{ *pulumi.OutputState }
+
+func (OpenApiValidationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenApiValidationResponse)(nil)).Elem()
+}
+
+func (o OpenApiValidationResponseOutput) ToOpenApiValidationResponseOutput() OpenApiValidationResponseOutput {
+	return o
+}
+
+func (o OpenApiValidationResponseOutput) ToOpenApiValidationResponseOutputWithContext(ctx context.Context) OpenApiValidationResponseOutput {
+	return o
+}
+
+func (o OpenApiValidationResponseOutput) ToOpenApiValidationResponsePtrOutput() OpenApiValidationResponsePtrOutput {
+	return o.ToOpenApiValidationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o OpenApiValidationResponseOutput) ToOpenApiValidationResponsePtrOutputWithContext(ctx context.Context) OpenApiValidationResponsePtrOutput {
+	return o.ApplyT(func(v OpenApiValidationResponse) *OpenApiValidationResponse {
+		return &v
+	}).(OpenApiValidationResponsePtrOutput)
+}
+
+// Indicates whether a non compliance response is allowed for a LIST call
+func (o OpenApiValidationResponseOutput) AllowNoncompliantCollectionResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenApiValidationResponse) *bool { return v.AllowNoncompliantCollectionResponse }).(pulumi.BoolPtrOutput)
+}
+
+type OpenApiValidationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (OpenApiValidationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenApiValidationResponse)(nil)).Elem()
+}
+
+func (o OpenApiValidationResponsePtrOutput) ToOpenApiValidationResponsePtrOutput() OpenApiValidationResponsePtrOutput {
+	return o
+}
+
+func (o OpenApiValidationResponsePtrOutput) ToOpenApiValidationResponsePtrOutputWithContext(ctx context.Context) OpenApiValidationResponsePtrOutput {
+	return o
+}
+
+func (o OpenApiValidationResponsePtrOutput) Elem() OpenApiValidationResponseOutput {
+	return o.ApplyT(func(v *OpenApiValidationResponse) OpenApiValidationResponse { return *v }).(OpenApiValidationResponseOutput)
+}
+
+// Indicates whether a non compliance response is allowed for a LIST call
+func (o OpenApiValidationResponsePtrOutput) AllowNoncompliantCollectionResponse() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OpenApiValidationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowNoncompliantCollectionResponse
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ProviderHubMetadataProviderAuthentication struct {
@@ -10946,6 +11481,7 @@ type ResourceTypeRegistrationProperties struct {
 	LoggingRules                        []LoggingRule                                                          `pulumi:"loggingRules"`
 	Management                          *ResourceTypeRegistrationPropertiesManagement                          `pulumi:"management"`
 	MarketplaceType                     *string                                                                `pulumi:"marketplaceType"`
+	OpenApiConfiguration                *OpenApiConfiguration                                                  `pulumi:"openApiConfiguration"`
 	// The provisioned state of the resource.
 	ProvisioningState                               *string                                                                            `pulumi:"provisioningState"`
 	Regionality                                     *string                                                                            `pulumi:"regionality"`
@@ -10993,6 +11529,7 @@ type ResourceTypeRegistrationPropertiesArgs struct {
 	LoggingRules                        LoggingRuleArrayInput                                                         `pulumi:"loggingRules"`
 	Management                          ResourceTypeRegistrationPropertiesManagementPtrInput                          `pulumi:"management"`
 	MarketplaceType                     pulumi.StringPtrInput                                                         `pulumi:"marketplaceType"`
+	OpenApiConfiguration                OpenApiConfigurationPtrInput                                                  `pulumi:"openApiConfiguration"`
 	// The provisioned state of the resource.
 	ProvisioningState                               pulumi.StringPtrInput                                                                     `pulumi:"provisioningState"`
 	Regionality                                     pulumi.StringPtrInput                                                                     `pulumi:"regionality"`
@@ -11165,6 +11702,10 @@ func (o ResourceTypeRegistrationPropertiesOutput) Management() ResourceTypeRegis
 
 func (o ResourceTypeRegistrationPropertiesOutput) MarketplaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationProperties) *string { return v.MarketplaceType }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceTypeRegistrationPropertiesOutput) OpenApiConfiguration() OpenApiConfigurationPtrOutput {
+	return o.ApplyT(func(v ResourceTypeRegistrationProperties) *OpenApiConfiguration { return v.OpenApiConfiguration }).(OpenApiConfigurationPtrOutput)
 }
 
 // The provisioned state of the resource.
@@ -11409,6 +11950,15 @@ func (o ResourceTypeRegistrationPropertiesPtrOutput) MarketplaceType() pulumi.St
 		}
 		return v.MarketplaceType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceTypeRegistrationPropertiesPtrOutput) OpenApiConfiguration() OpenApiConfigurationPtrOutput {
+	return o.ApplyT(func(v *ResourceTypeRegistrationProperties) *OpenApiConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OpenApiConfiguration
+	}).(OpenApiConfigurationPtrOutput)
 }
 
 // The provisioned state of the resource.
@@ -14575,6 +15125,8 @@ type ResourceTypeRegistrationResponse struct {
 	// The name of the resource
 	Name       string                                      `pulumi:"name"`
 	Properties *ResourceTypeRegistrationResponseProperties `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }
@@ -14596,6 +15148,8 @@ type ResourceTypeRegistrationResponseArgs struct {
 	// The name of the resource
 	Name       pulumi.StringInput                                 `pulumi:"name"`
 	Properties ResourceTypeRegistrationResponsePropertiesPtrInput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseInput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -14667,6 +15221,11 @@ func (o ResourceTypeRegistrationResponseOutput) Properties() ResourceTypeRegistr
 	}).(ResourceTypeRegistrationResponsePropertiesPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+func (o ResourceTypeRegistrationResponseOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v ResourceTypeRegistrationResponse) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o ResourceTypeRegistrationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationResponse) string { return v.Type }).(pulumi.StringOutput)
@@ -14710,6 +15269,7 @@ type ResourceTypeRegistrationResponseProperties struct {
 	LoggingRules                        []LoggingRuleResponse                                                          `pulumi:"loggingRules"`
 	Management                          *ResourceTypeRegistrationPropertiesResponseManagement                          `pulumi:"management"`
 	MarketplaceType                     *string                                                                        `pulumi:"marketplaceType"`
+	OpenApiConfiguration                *OpenApiConfigurationResponse                                                  `pulumi:"openApiConfiguration"`
 	// The provisioned state of the resource.
 	ProvisioningState                               *string                                                                                    `pulumi:"provisioningState"`
 	Regionality                                     *string                                                                                    `pulumi:"regionality"`
@@ -14757,6 +15317,7 @@ type ResourceTypeRegistrationResponsePropertiesArgs struct {
 	LoggingRules                        LoggingRuleResponseArrayInput                                                         `pulumi:"loggingRules"`
 	Management                          ResourceTypeRegistrationPropertiesResponseManagementPtrInput                          `pulumi:"management"`
 	MarketplaceType                     pulumi.StringPtrInput                                                                 `pulumi:"marketplaceType"`
+	OpenApiConfiguration                OpenApiConfigurationResponsePtrInput                                                  `pulumi:"openApiConfiguration"`
 	// The provisioned state of the resource.
 	ProvisioningState                               pulumi.StringPtrInput                                                                             `pulumi:"provisioningState"`
 	Regionality                                     pulumi.StringPtrInput                                                                             `pulumi:"regionality"`
@@ -14933,6 +15494,12 @@ func (o ResourceTypeRegistrationResponsePropertiesOutput) Management() ResourceT
 
 func (o ResourceTypeRegistrationResponsePropertiesOutput) MarketplaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceTypeRegistrationResponseProperties) *string { return v.MarketplaceType }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceTypeRegistrationResponsePropertiesOutput) OpenApiConfiguration() OpenApiConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v ResourceTypeRegistrationResponseProperties) *OpenApiConfigurationResponse {
+		return v.OpenApiConfiguration
+	}).(OpenApiConfigurationResponsePtrOutput)
 }
 
 // The provisioned state of the resource.
@@ -15185,6 +15752,15 @@ func (o ResourceTypeRegistrationResponsePropertiesPtrOutput) MarketplaceType() p
 		}
 		return v.MarketplaceType
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceTypeRegistrationResponsePropertiesPtrOutput) OpenApiConfiguration() OpenApiConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *ResourceTypeRegistrationResponseProperties) *OpenApiConfigurationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.OpenApiConfiguration
+	}).(OpenApiConfigurationResponsePtrOutput)
 }
 
 // The provisioned state of the resource.
@@ -17779,6 +18355,235 @@ func (o SwaggerSpecificationResponseArrayOutput) Index(i pulumi.IntInput) Swagge
 	}).(SwaggerSpecificationResponseOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
+// You can construct a concrete instance of `SystemDataResponseInput` via:
+//
+//          SystemDataResponseArgs{...}
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseArgs struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
+// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
+//
+//          SystemDataResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 type ThrottlingMetric struct {
 	Interval *string `pulumi:"interval"`
 	Limit    float64 `pulumi:"limit"`
@@ -18480,6 +19285,14 @@ func init() {
 	pulumi.RegisterOutputType(NotificationRegistrationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NotificationRegistrationResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(NotificationRegistrationResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OpenApiConfigurationOutput{})
+	pulumi.RegisterOutputType(OpenApiConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OpenApiConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(OpenApiConfigurationResponsePtrOutput{})
+	pulumi.RegisterOutputType(OpenApiValidationOutput{})
+	pulumi.RegisterOutputType(OpenApiValidationPtrOutput{})
+	pulumi.RegisterOutputType(OpenApiValidationResponseOutput{})
+	pulumi.RegisterOutputType(OpenApiValidationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProviderHubMetadataProviderAuthenticationOutput{})
 	pulumi.RegisterOutputType(ProviderHubMetadataProviderAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderHubMetadataResponseProviderAuthenticationOutput{})
@@ -18638,6 +19451,8 @@ func init() {
 	pulumi.RegisterOutputType(SwaggerSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SwaggerSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(SwaggerSpecificationResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ThrottlingMetricOutput{})
 	pulumi.RegisterOutputType(ThrottlingMetricArrayOutput{})
 	pulumi.RegisterOutputType(ThrottlingMetricResponseOutput{})

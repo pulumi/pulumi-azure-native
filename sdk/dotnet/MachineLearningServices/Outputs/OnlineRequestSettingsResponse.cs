@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class OnlineRequestSettingsResponse
     {
+        /// <summary>
+        /// The number of requests allowed to queue at once for this deployment.
+        /// </summary>
         public readonly int? MaxConcurrentRequestsPerInstance;
         /// <summary>
         /// The maximum queue wait time in ISO 8601 format. Supports millisecond precision.

@@ -21,7 +21,7 @@ class AliasArgs:
         """
         The set of arguments for constructing a Alias resource.
         :param pulumi.Input['PutAliasRequestPropertiesArgs'] properties: Put alias request properties.
-        :param pulumi.Input[str] alias_name: Alias Name
+        :param pulumi.Input[str] alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         """
         pulumi.set(__self__, "properties", properties)
         if alias_name is not None:
@@ -43,7 +43,7 @@ class AliasArgs:
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Alias Name
+        Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         """
         return pulumi.get(self, "alias_name")
 
@@ -66,7 +66,7 @@ class Alias(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias_name: Alias Name
+        :param pulumi.Input[str] alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         :param pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']] properties: Put alias request properties.
         """
         ...

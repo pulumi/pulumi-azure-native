@@ -32,5 +32,6 @@ type GetOnlineDeploymentLogsArgs struct {
 }
 
 type GetOnlineDeploymentLogsResult struct {
+	// The retrieved online deployment logs.
 	Content *string `pulumi:"content"`
 }

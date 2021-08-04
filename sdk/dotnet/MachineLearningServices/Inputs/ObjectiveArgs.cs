@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
+    /// <summary>
+    /// Optimization objective.
+    /// </summary>
     public sealed class ObjectiveArgs : Pulumi.ResourceArgs
     {
         /// <summary>
@@ -18,6 +21,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("goal", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.Goal> Goal { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the metric to optimize.
+        /// </summary>
         [Input("primaryMetric", required: true)]
         public Input<string> PrimaryMetric { get; set; } = null!;
 

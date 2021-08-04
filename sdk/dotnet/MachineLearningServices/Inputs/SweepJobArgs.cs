@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Early termination policies enable canceling poor-performing runs before they complete
+        /// Early termination policies enable canceling poor-performing runs before they complete.
         /// </summary>
         [Input("earlyTermination")]
         public Input<object>? EarlyTermination { get; set; }
@@ -59,12 +59,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;
 
+        /// <summary>
+        /// An upper bound on the number of trials performed in parallel.
+        /// </summary>
         [Input("maxConcurrentTrials")]
         public Input<int>? MaxConcurrentTrials { get; set; }
 
+        /// <summary>
+        /// An upper bound on the number of trials to perform.
+        /// </summary>
         [Input("maxTotalTrials")]
         public Input<int>? MaxTotalTrials { get; set; }
 
+        /// <summary>
+        /// Optimization objective.
+        /// </summary>
         [Input("objective", required: true)]
         public Input<Inputs.ObjectiveArgs> Objective { get; set; } = null!;
 

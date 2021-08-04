@@ -942,6 +942,8 @@ class NotificationRegistrationResponseProperties(dict):
             suggest = "notification_endpoints"
         elif key == "notificationMode":
             suggest = "notification_mode"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NotificationRegistrationResponseProperties. Access the value via the '{suggest}' property getter instead.")
@@ -958,7 +960,8 @@ class NotificationRegistrationResponseProperties(dict):
                  included_events: Optional[Sequence[str]] = None,
                  message_scope: Optional[str] = None,
                  notification_endpoints: Optional[Sequence['outputs.NotificationEndpointResponse']] = None,
-                 notification_mode: Optional[str] = None):
+                 notification_mode: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
         if included_events is not None:
             pulumi.set(__self__, "included_events", included_events)
         if message_scope is not None:
@@ -967,6 +970,8 @@ class NotificationRegistrationResponseProperties(dict):
             pulumi.set(__self__, "notification_endpoints", notification_endpoints)
         if notification_mode is not None:
             pulumi.set(__self__, "notification_mode", notification_mode)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="includedEvents")
@@ -987,6 +992,11 @@ class NotificationRegistrationResponseProperties(dict):
     @pulumi.getter(name="notificationMode")
     def notification_mode(self) -> Optional[str]:
         return pulumi.get(self, "notification_mode")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
@@ -2678,6 +2688,8 @@ class SkuResourceResponseProperties(dict):
         suggest = None
         if key == "skuSettings":
             suggest = "sku_settings"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SkuResourceResponseProperties. Access the value via the '{suggest}' property getter instead.")
@@ -2691,13 +2703,21 @@ class SkuResourceResponseProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sku_settings: Sequence['outputs.SkuSettingResponse']):
+                 sku_settings: Sequence['outputs.SkuSettingResponse'],
+                 provisioning_state: Optional[str] = None):
         pulumi.set(__self__, "sku_settings", sku_settings)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="skuSettings")
     def sku_settings(self) -> Sequence['outputs.SkuSettingResponse']:
         return pulumi.get(self, "sku_settings")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

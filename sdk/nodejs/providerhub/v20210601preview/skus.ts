@@ -38,6 +38,10 @@ export class Skus extends pulumi.CustomResource {
     public /*out*/ readonly name!: pulumi.Output<string>;
     public /*out*/ readonly properties!: pulumi.Output<outputs.providerhub.v20210601preview.SkuResourceResponseProperties>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.v20210601preview.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -69,10 +73,12 @@ export class Skus extends pulumi.CustomResource {
             inputs["skuSettings"] = args ? args.skuSettings : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

@@ -55,9 +55,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
             set => _environmentVariables = value;
         }
 
+        /// <summary>
+        /// Compute instance type.
+        /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        /// <summary>
+        /// Deployment container liveness/readiness probe configuration.
+        /// </summary>
         [Input("livenessProbe")]
         public Input<Inputs.ProbeSettingsArgs>? LivenessProbe { get; set; }
 
@@ -79,12 +85,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
             set => _properties = value;
         }
 
+        /// <summary>
+        /// Deployment container liveness/readiness probe configuration.
+        /// </summary>
         [Input("readinessProbe")]
         public Input<Inputs.ProbeSettingsArgs>? ReadinessProbe { get; set; }
 
+        /// <summary>
+        /// Online deployment scoring requests configuration.
+        /// </summary>
         [Input("requestSettings")]
         public Input<Inputs.OnlineRequestSettingsArgs>? RequestSettings { get; set; }
 
+        /// <summary>
+        /// Online deployment scaling configuration.
+        /// </summary>
         [Input("scaleSettings")]
         public InputUnion<Inputs.AutoScaleSettingsArgs, Inputs.ManualScaleSettingsArgs>? ScaleSettings { get; set; }
 

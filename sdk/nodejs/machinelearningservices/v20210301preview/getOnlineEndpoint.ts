@@ -44,6 +44,9 @@ export interface GetOnlineEndpointResult {
      * Service identity associated with a resource.
      */
     readonly identity?: outputs.machinelearningservices.v20210301preview.ResourceIdentityResponse;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+     */
     readonly kind?: string;
     /**
      * The geo-location where the resource lives

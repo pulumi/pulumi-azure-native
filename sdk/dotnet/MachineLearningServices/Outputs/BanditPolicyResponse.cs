@@ -13,14 +13,26 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class BanditPolicyResponse
     {
+        /// <summary>
+        /// Number of intervals by which to delay the first evaluation.
+        /// </summary>
         public readonly int? DelayEvaluation;
+        /// <summary>
+        /// Interval (number of runs) between policy evaluations.
+        /// </summary>
         public readonly int? EvaluationInterval;
         /// <summary>
         /// 
         /// Expected value is 'Bandit'.
         /// </summary>
         public readonly string PolicyType;
+        /// <summary>
+        /// Absolute distance allowed from the best performing run.
+        /// </summary>
         public readonly double? SlackAmount;
+        /// <summary>
+        /// Ratio of the allowed distance from the best performing run.
+        /// </summary>
         public readonly double? SlackFactor;
 
         [OutputConstructor]

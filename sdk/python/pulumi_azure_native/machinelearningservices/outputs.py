@@ -2751,7 +2751,10 @@ class AutoScaleSettingsResponse(dict):
         """
         :param str scale_type: 
                Expected value is 'Auto'.
+        :param int max_instances: Maximum number of instances for this deployment.
+        :param int min_instances: Minimum number of instances for this deployment.
         :param str polling_interval: The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
+        :param int target_utilization_percentage: Target CPU usage for the autoscaler.
         """
         pulumi.set(__self__, "scale_type", 'Auto')
         if max_instances is not None:
@@ -2775,11 +2778,17 @@ class AutoScaleSettingsResponse(dict):
     @property
     @pulumi.getter(name="maxInstances")
     def max_instances(self) -> Optional[int]:
+        """
+        Maximum number of instances for this deployment.
+        """
         return pulumi.get(self, "max_instances")
 
     @property
     @pulumi.getter(name="minInstances")
     def min_instances(self) -> Optional[int]:
+        """
+        Minimum number of instances for this deployment.
+        """
         return pulumi.get(self, "min_instances")
 
     @property
@@ -2793,6 +2802,9 @@ class AutoScaleSettingsResponse(dict):
     @property
     @pulumi.getter(name="targetUtilizationPercentage")
     def target_utilization_percentage(self) -> Optional[int]:
+        """
+        Target CPU usage for the autoscaler.
+        """
         return pulumi.get(self, "target_utilization_percentage")
 
 
@@ -4039,7 +4051,7 @@ class AzureStorageSectionResponse(dict):
 @pulumi.output_type
 class BanditPolicyResponse(dict):
     """
-    Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+    Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4073,9 +4085,13 @@ class BanditPolicyResponse(dict):
                  slack_amount: Optional[float] = None,
                  slack_factor: Optional[float] = None):
         """
-        Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation
+        Defines an early termination policy based on slack criteria, and a frequency and delay interval for evaluation.
         :param str policy_type: 
                Expected value is 'Bandit'.
+        :param int delay_evaluation: Number of intervals by which to delay the first evaluation.
+        :param int evaluation_interval: Interval (number of runs) between policy evaluations.
+        :param float slack_amount: Absolute distance allowed from the best performing run.
+        :param float slack_factor: Ratio of the allowed distance from the best performing run.
         """
         pulumi.set(__self__, "policy_type", 'Bandit')
         if delay_evaluation is not None:
@@ -4099,21 +4115,33 @@ class BanditPolicyResponse(dict):
     @property
     @pulumi.getter(name="delayEvaluation")
     def delay_evaluation(self) -> Optional[int]:
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
         return pulumi.get(self, "delay_evaluation")
 
     @property
     @pulumi.getter(name="evaluationInterval")
     def evaluation_interval(self) -> Optional[int]:
+        """
+        Interval (number of runs) between policy evaluations.
+        """
         return pulumi.get(self, "evaluation_interval")
 
     @property
     @pulumi.getter(name="slackAmount")
     def slack_amount(self) -> Optional[float]:
+        """
+        Absolute distance allowed from the best performing run.
+        """
         return pulumi.get(self, "slack_amount")
 
     @property
     @pulumi.getter(name="slackFactor")
     def slack_factor(self) -> Optional[float]:
+        """
+        Ratio of the allowed distance from the best performing run.
+        """
         return pulumi.get(self, "slack_factor")
 
 
@@ -4980,6 +5008,7 @@ class CommandJobResponse(dict):
                Expected value is 'Command'.
         :param 'JobOutputResponse' output: Location of the job output logs and artifacts.
         :param Any parameters: Input parameters.
+        :param str provisioning_state: Specifies the job provisioning state.
         :param str status: Status of the job.
         :param str code_id: ARM resource ID of the code asset.
         :param str description: The asset description text.
@@ -5085,6 +5114,9 @@ class CommandJobResponse(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
+        """
+        Specifies the job provisioning state.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -8537,12 +8569,18 @@ class ErrorResponseResponse(dict):
 class FlavorDataResponse(dict):
     def __init__(__self__, *,
                  data: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] data: Model flavor-specific data.
+        """
         if data is not None:
             pulumi.set(__self__, "data", data)
 
     @property
     @pulumi.getter
     def data(self) -> Optional[Mapping[str, str]]:
+        """
+        Model flavor-specific data.
+        """
         return pulumi.get(self, "data")
 
 
@@ -9193,6 +9231,7 @@ class JobEndpointResponse(dict):
         :param str endpoint: Url for endpoint.
         :param str job_endpoint_type: Endpoint type.
         :param int port: Port for endpoint.
+        :param Mapping[str, str] properties: Additional properties to set on the endpoint.
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
@@ -9230,6 +9269,9 @@ class JobEndpointResponse(dict):
     @property
     @pulumi.getter
     def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Additional properties to set on the endpoint.
+        """
         return pulumi.get(self, "properties")
 
 
@@ -9340,12 +9382,15 @@ class K8sOnlineDeploymentResponse(dict):
         :param str provisioning_state: Provisioning state for the endpoint deployment.
         :param bool app_insights_enabled: If true, enables Application Insights logging.
         :param 'CodeConfigurationResponse' code_configuration: Code configuration for the endpoint deployment.
-        :param 'ContainerResourceRequirementsResponse' container_resource_requirements: The resource requirements for the container (cpu and memory).
+        :param 'ContainerResourceRequirementsResponse' container_resource_requirements: Resource requirements for each container instance within an online deployment.
         :param str description: Description of the endpoint deployment.
         :param str environment_id: ARM resource ID of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
+        :param 'ProbeSettingsResponse' liveness_probe: Deployment container liveness/readiness probe configuration.
         :param Union['DataPathAssetReferenceResponse', 'IdAssetReferenceResponse', 'OutputPathAssetReferenceResponse'] model: Reference to the model asset for the endpoint deployment.
         :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param 'OnlineRequestSettingsResponse' request_settings: Online deployment scoring requests configuration.
+        :param Union['AutoScaleSettingsResponse', 'ManualScaleSettingsResponse'] scale_settings: Online deployment scaling configuration.
         """
         pulumi.set(__self__, "endpoint_compute_type", 'K8S')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -9409,7 +9454,7 @@ class K8sOnlineDeploymentResponse(dict):
     @pulumi.getter(name="containerResourceRequirements")
     def container_resource_requirements(self) -> Optional['outputs.ContainerResourceRequirementsResponse']:
         """
-        The resource requirements for the container (cpu and memory).
+        Resource requirements for each container instance within an online deployment.
         """
         return pulumi.get(self, "container_resource_requirements")
 
@@ -9440,6 +9485,9 @@ class K8sOnlineDeploymentResponse(dict):
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @property
@@ -9461,11 +9509,17 @@ class K8sOnlineDeploymentResponse(dict):
     @property
     @pulumi.getter(name="requestSettings")
     def request_settings(self) -> Optional['outputs.OnlineRequestSettingsResponse']:
+        """
+        Online deployment scoring requests configuration.
+        """
         return pulumi.get(self, "request_settings")
 
     @property
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[Any]:
+        """
+        Online deployment scaling configuration.
+        """
         return pulumi.get(self, "scale_settings")
 
 
@@ -10446,8 +10500,13 @@ class ManagedOnlineDeploymentResponse(dict):
         :param str description: Description of the endpoint deployment.
         :param str environment_id: ARM resource ID of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
+        :param str instance_type: Compute instance type.
+        :param 'ProbeSettingsResponse' liveness_probe: Deployment container liveness/readiness probe configuration.
         :param Union['DataPathAssetReferenceResponse', 'IdAssetReferenceResponse', 'OutputPathAssetReferenceResponse'] model: Reference to the model asset for the endpoint deployment.
         :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param 'ProbeSettingsResponse' readiness_probe: Deployment container liveness/readiness probe configuration.
+        :param 'OnlineRequestSettingsResponse' request_settings: Online deployment scoring requests configuration.
+        :param Union['AutoScaleSettingsResponse', 'ManualScaleSettingsResponse'] scale_settings: Online deployment scaling configuration.
         """
         pulumi.set(__self__, "endpoint_compute_type", 'Managed')
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -10536,11 +10595,17 @@ class ManagedOnlineDeploymentResponse(dict):
     @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
+        """
+        Compute instance type.
+        """
         return pulumi.get(self, "instance_type")
 
     @property
     @pulumi.getter(name="livenessProbe")
     def liveness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
         return pulumi.get(self, "liveness_probe")
 
     @property
@@ -10562,16 +10627,25 @@ class ManagedOnlineDeploymentResponse(dict):
     @property
     @pulumi.getter(name="readinessProbe")
     def readiness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Deployment container liveness/readiness probe configuration.
+        """
         return pulumi.get(self, "readiness_probe")
 
     @property
     @pulumi.getter(name="requestSettings")
     def request_settings(self) -> Optional['outputs.OnlineRequestSettingsResponse']:
+        """
+        Online deployment scoring requests configuration.
+        """
         return pulumi.get(self, "request_settings")
 
     @property
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[Any]:
+        """
+        Online deployment scaling configuration.
+        """
         return pulumi.get(self, "scale_settings")
 
 
@@ -10608,6 +10682,9 @@ class ManualScaleSettingsResponse(dict):
         """
         :param str scale_type: 
                Expected value is 'Manual'.
+        :param int instance_count: Fixed number of instances for this deployment.
+        :param int max_instances: Maximum number of instances for this deployment.
+        :param int min_instances: Minimum number of instances for this deployment.
         """
         pulumi.set(__self__, "scale_type", 'Manual')
         if instance_count is not None:
@@ -10629,23 +10706,32 @@ class ManualScaleSettingsResponse(dict):
     @property
     @pulumi.getter(name="instanceCount")
     def instance_count(self) -> Optional[int]:
+        """
+        Fixed number of instances for this deployment.
+        """
         return pulumi.get(self, "instance_count")
 
     @property
     @pulumi.getter(name="maxInstances")
     def max_instances(self) -> Optional[int]:
+        """
+        Maximum number of instances for this deployment.
+        """
         return pulumi.get(self, "max_instances")
 
     @property
     @pulumi.getter(name="minInstances")
     def min_instances(self) -> Optional[int]:
+        """
+        Minimum number of instances for this deployment.
+        """
         return pulumi.get(self, "min_instances")
 
 
 @pulumi.output_type
 class MedianStoppingPolicyResponse(dict):
     """
-    Defines an early termination policy based on running averages of the primary metric of all runs
+    Defines an early termination policy based on running averages of the primary metric of all runs.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10673,9 +10759,11 @@ class MedianStoppingPolicyResponse(dict):
                  delay_evaluation: Optional[int] = None,
                  evaluation_interval: Optional[int] = None):
         """
-        Defines an early termination policy based on running averages of the primary metric of all runs
+        Defines an early termination policy based on running averages of the primary metric of all runs.
         :param str policy_type: 
                Expected value is 'MedianStopping'.
+        :param int delay_evaluation: Number of intervals by which to delay the first evaluation.
+        :param int evaluation_interval: Interval (number of runs) between policy evaluations.
         """
         pulumi.set(__self__, "policy_type", 'MedianStopping')
         if delay_evaluation is not None:
@@ -10695,11 +10783,17 @@ class MedianStoppingPolicyResponse(dict):
     @property
     @pulumi.getter(name="delayEvaluation")
     def delay_evaluation(self) -> Optional[int]:
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
         return pulumi.get(self, "delay_evaluation")
 
     @property
     @pulumi.getter(name="evaluationInterval")
     def evaluation_interval(self) -> Optional[int]:
+        """
+        Interval (number of runs) between policy evaluations.
+        """
         return pulumi.get(self, "evaluation_interval")
 
 
@@ -11558,6 +11652,7 @@ class MpiResponse(dict):
         MPI distribution configuration.
         :param str distribution_type: Enum to determine the job distribution type.
                Expected value is 'Mpi'.
+        :param int process_count_per_instance: Number of processes per MPI node.
         """
         pulumi.set(__self__, "distribution_type", 'Mpi')
         if process_count_per_instance is not None:
@@ -11575,6 +11670,9 @@ class MpiResponse(dict):
     @property
     @pulumi.getter(name="processCountPerInstance")
     def process_count_per_instance(self) -> Optional[int]:
+        """
+        Number of processes per MPI node.
+        """
         return pulumi.get(self, "process_count_per_instance")
 
 
@@ -11782,6 +11880,9 @@ class NotebookResourceInfoResponse(dict):
 
 @pulumi.output_type
 class ObjectiveResponse(dict):
+    """
+    Optimization objective.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11803,7 +11904,9 @@ class ObjectiveResponse(dict):
                  goal: str,
                  primary_metric: str):
         """
+        Optimization objective.
         :param str goal: Defines supported metric goals for hyperparameter tuning
+        :param str primary_metric: Name of the metric to optimize.
         """
         pulumi.set(__self__, "goal", goal)
         pulumi.set(__self__, "primary_metric", primary_metric)
@@ -11819,6 +11922,9 @@ class ObjectiveResponse(dict):
     @property
     @pulumi.getter(name="primaryMetric")
     def primary_metric(self) -> str:
+        """
+        Name of the metric to optimize.
+        """
         return pulumi.get(self, "primary_metric")
 
 
@@ -11952,6 +12058,9 @@ class OnlineEndpointResponse(dict):
 
 @pulumi.output_type
 class OnlineRequestSettingsResponse(dict):
+    """
+    Online deployment scoring requests configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11978,6 +12087,8 @@ class OnlineRequestSettingsResponse(dict):
                  max_queue_wait: Optional[str] = None,
                  request_timeout: Optional[str] = None):
         """
+        Online deployment scoring requests configuration.
+        :param int max_concurrent_requests_per_instance: The number of requests allowed to queue at once for this deployment.
         :param str max_queue_wait: The maximum queue wait time in ISO 8601 format. Supports millisecond precision.
         :param str request_timeout: The request timeout in ISO 8601 format. Supports millisecond precision.
         """
@@ -11991,6 +12102,9 @@ class OnlineRequestSettingsResponse(dict):
     @property
     @pulumi.getter(name="maxConcurrentRequestsPerInstance")
     def max_concurrent_requests_per_instance(self) -> Optional[int]:
+        """
+        The number of requests allowed to queue at once for this deployment.
+        """
         return pulumi.get(self, "max_concurrent_requests_per_instance")
 
     @property
@@ -12488,6 +12602,9 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 @pulumi.output_type
 class ProbeSettingsResponse(dict):
+    """
+    Deployment container liveness/readiness probe configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12516,6 +12633,7 @@ class ProbeSettingsResponse(dict):
                  success_threshold: Optional[int] = None,
                  timeout: Optional[str] = None):
         """
+        Deployment container liveness/readiness probe configuration.
         :param int failure_threshold: The number of failures to allow before returning an unhealthy status.
         :param str initial_delay: The delay before the first probe in ISO 8601 format.
         :param str period: The length of time between probes in ISO 8601 format.
@@ -13545,14 +13663,18 @@ class SweepJobResponse(dict):
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
         :param str job_type: Enum to determine the type of job.
                Expected value is 'Sweep'.
+        :param 'ObjectiveResponse' objective: Optimization objective.
         :param 'JobOutputResponse' output: Location of the job output logs and artifacts.
+        :param str provisioning_state: Specifies the job provisioning state.
         :param Mapping[str, Any] search_space: A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter
         :param str status: The status of a job.
         :param str description: The asset description text.
-        :param Union['BanditPolicyResponse', 'MedianStoppingPolicyResponse', 'TruncationSelectionPolicyResponse'] early_termination: Early termination policies enable canceling poor-performing runs before they complete
+        :param Union['BanditPolicyResponse', 'MedianStoppingPolicyResponse', 'TruncationSelectionPolicyResponse'] early_termination: Early termination policies enable canceling poor-performing runs before they complete.
         :param str experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
         :param Union['AmlTokenResponse', 'ManagedIdentityResponse'] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity or null.
                Defaults to AmlToken if null.
+        :param int max_concurrent_trials: An upper bound on the number of trials performed in parallel.
+        :param int max_total_trials: An upper bound on the number of trials to perform.
         :param int priority: Job priority for scheduling policy. Only applies to AMLCompute.
                Private preview feature and only available to users on the allow list.
         :param Mapping[str, str] properties: The asset property dictionary.
@@ -13629,6 +13751,9 @@ class SweepJobResponse(dict):
     @property
     @pulumi.getter
     def objective(self) -> 'outputs.ObjectiveResponse':
+        """
+        Optimization objective.
+        """
         return pulumi.get(self, "objective")
 
     @property
@@ -13642,6 +13767,9 @@ class SweepJobResponse(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
+        """
+        Specifies the job provisioning state.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -13672,7 +13800,7 @@ class SweepJobResponse(dict):
     @pulumi.getter(name="earlyTermination")
     def early_termination(self) -> Optional[Any]:
         """
-        Early termination policies enable canceling poor-performing runs before they complete
+        Early termination policies enable canceling poor-performing runs before they complete.
         """
         return pulumi.get(self, "early_termination")
 
@@ -13696,11 +13824,17 @@ class SweepJobResponse(dict):
     @property
     @pulumi.getter(name="maxConcurrentTrials")
     def max_concurrent_trials(self) -> Optional[int]:
+        """
+        An upper bound on the number of trials performed in parallel.
+        """
         return pulumi.get(self, "max_concurrent_trials")
 
     @property
     @pulumi.getter(name="maxTotalTrials")
     def max_total_trials(self) -> Optional[int]:
+        """
+        An upper bound on the number of trials to perform.
+        """
         return pulumi.get(self, "max_total_trials")
 
     @property
@@ -13952,6 +14086,7 @@ class TensorFlowResponse(dict):
         TensorFlow distribution configuration.
         :param str distribution_type: Enum to determine the job distribution type.
                Expected value is 'TensorFlow'.
+        :param int parameter_server_count: Number of parameter server tasks.
         :param int worker_count: Number of workers. Overwrites the node count in compute binding.
         """
         pulumi.set(__self__, "distribution_type", 'TensorFlow')
@@ -13972,6 +14107,9 @@ class TensorFlowResponse(dict):
     @property
     @pulumi.getter(name="parameterServerCount")
     def parameter_server_count(self) -> Optional[int]:
+        """
+        Number of parameter server tasks.
+        """
         return pulumi.get(self, "parameter_server_count")
 
     @property
@@ -14153,6 +14291,9 @@ class TruncationSelectionPolicyResponse(dict):
         Defines an early termination policy that cancels a given percentage of runs at each evaluation interval.
         :param str policy_type: 
                Expected value is 'TruncationSelection'.
+        :param int delay_evaluation: Number of intervals by which to delay the first evaluation.
+        :param int evaluation_interval: Interval (number of runs) between policy evaluations.
+        :param int truncation_percentage: The percentage of runs to cancel at each evaluation interval.
         """
         pulumi.set(__self__, "policy_type", 'TruncationSelection')
         if delay_evaluation is not None:
@@ -14174,16 +14315,25 @@ class TruncationSelectionPolicyResponse(dict):
     @property
     @pulumi.getter(name="delayEvaluation")
     def delay_evaluation(self) -> Optional[int]:
+        """
+        Number of intervals by which to delay the first evaluation.
+        """
         return pulumi.get(self, "delay_evaluation")
 
     @property
     @pulumi.getter(name="evaluationInterval")
     def evaluation_interval(self) -> Optional[int]:
+        """
+        Interval (number of runs) between policy evaluations.
+        """
         return pulumi.get(self, "evaluation_interval")
 
     @property
     @pulumi.getter(name="truncationPercentage")
     def truncation_percentage(self) -> Optional[int]:
+        """
+        The percentage of runs to cancel at each evaluation interval.
+        """
         return pulumi.get(self, "truncation_percentage")
 
 

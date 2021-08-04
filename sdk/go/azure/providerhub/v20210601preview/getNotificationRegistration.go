@@ -31,6 +31,8 @@ type LookupNotificationRegistrationResult struct {
 	// The name of the resource
 	Name       string                                     `pulumi:"name"`
 	Properties NotificationRegistrationResponseProperties `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 }

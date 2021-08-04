@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Whether the CosmosDB (MongoDB API) server version is higher than 3.2. The default value is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("isServerVersionAbove32")]
+        public Input<object>? IsServerVersionAbove32 { get; set; }
+
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
 

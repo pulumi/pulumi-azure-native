@@ -17,6 +17,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Defines supported metric goals for hyperparameter tuning
         /// </summary>
         public readonly string Goal;
+        /// <summary>
+        /// Name of the metric to optimize.
+        /// </summary>
         public readonly string PrimaryMetric;
 
         [OutputConstructor]

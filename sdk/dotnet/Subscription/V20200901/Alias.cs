@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Subscription.V20200901
     public sealed class AliasArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Alias Name
+        /// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }

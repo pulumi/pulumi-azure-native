@@ -13,6 +13,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class FlavorDataResponse
     {
+        /// <summary>
+        /// Model flavor-specific data.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Data;
 
         [OutputConstructor]

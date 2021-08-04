@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
 {
 
+    /// <summary>
+    /// Online deployment scoring requests configuration.
+    /// </summary>
     public sealed class OnlineRequestSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of requests allowed to queue at once for this deployment.
+        /// </summary>
         [Input("maxConcurrentRequestsPerInstance")]
         public Input<int>? MaxConcurrentRequestsPerInstance { get; set; }
 

@@ -12,12 +12,21 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
     public sealed class ManualScaleSettingsArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Fixed number of instances for this deployment.
+        /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
 
+        /// <summary>
+        /// Maximum number of instances for this deployment.
+        /// </summary>
         [Input("maxInstances")]
         public Input<int>? MaxInstances { get; set; }
 
+        /// <summary>
+        /// Minimum number of instances for this deployment.
+        /// </summary>
         [Input("minInstances")]
         public Input<int>? MinInstances { get; set; }
 

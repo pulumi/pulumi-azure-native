@@ -31,6 +31,8 @@ __all__ = [
     'LoggingRuleResponseHiddenPropertyPaths',
     'NotificationEndpointResponse',
     'NotificationRegistrationResponseProperties',
+    'OpenApiConfigurationResponse',
+    'OpenApiValidationResponse',
     'ProviderHubMetadataResponseProviderAuthentication',
     'ProviderHubMetadataResponseThirdPartyProviderAuthorization',
     'ProviderRegistrationPropertiesResponseProviderHubMetadata',
@@ -71,6 +73,7 @@ __all__ = [
     'SubscriptionStateOverrideActionResponse',
     'SubscriptionStateRuleResponse',
     'SwaggerSpecificationResponse',
+    'SystemDataResponse',
     'ThrottlingMetricResponse',
     'ThrottlingRuleResponse',
     'TypedErrorInfoResponse',
@@ -504,18 +507,38 @@ class DefaultRolloutSpecificationResponseMediumTraffic(dict):
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseProviderRegistration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseProviderRegistration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  properties: Optional['outputs.ProviderRegistrationResponseProperties'] = None):
         """
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -535,6 +558,14 @@ class DefaultRolloutSpecificationResponseProviderRegistration(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -1039,6 +1070,55 @@ class NotificationRegistrationResponseProperties(dict):
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class OpenApiConfigurationResponse(dict):
+    def __init__(__self__, *,
+                 validation: Optional['outputs.OpenApiValidationResponse'] = None):
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.OpenApiValidationResponse']:
+        return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class OpenApiValidationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowNoncompliantCollectionResponse":
+            suggest = "allow_noncompliant_collection_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenApiValidationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenApiValidationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenApiValidationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_noncompliant_collection_response: Optional[bool] = None):
+        """
+        :param bool allow_noncompliant_collection_response: Indicates whether a non compliance response is allowed for a LIST call
+        """
+        if allow_noncompliant_collection_response is not None:
+            pulumi.set(__self__, "allow_noncompliant_collection_response", allow_noncompliant_collection_response)
+
+    @property
+    @pulumi.getter(name="allowNoncompliantCollectionResponse")
+    def allow_noncompliant_collection_response(self) -> Optional[bool]:
+        """
+        Indicates whether a non compliance response is allowed for a LIST call
+        """
+        return pulumi.get(self, "allow_noncompliant_collection_response")
 
 
 @pulumi.output_type
@@ -2330,18 +2410,38 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
 
 @pulumi.output_type
 class ResourceTypeRegistrationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  properties: Optional['outputs.ResourceTypeRegistrationResponseProperties'] = None):
         """
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -2361,6 +2461,14 @@ class ResourceTypeRegistrationResponse(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2411,6 +2519,8 @@ class ResourceTypeRegistrationResponseProperties(dict):
             suggest = "logging_rules"
         elif key == "marketplaceType":
             suggest = "marketplace_type"
+        elif key == "openApiConfiguration":
+            suggest = "open_api_configuration"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "requestHeaderOptions":
@@ -2469,6 +2579,7 @@ class ResourceTypeRegistrationResponseProperties(dict):
                  logging_rules: Optional[Sequence['outputs.LoggingRuleResponse']] = None,
                  management: Optional['outputs.ResourceTypeRegistrationPropertiesResponseManagement'] = None,
                  marketplace_type: Optional[str] = None,
+                 open_api_configuration: Optional['outputs.OpenApiConfigurationResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  regionality: Optional[str] = None,
                  request_header_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions'] = None,
@@ -2521,6 +2632,8 @@ class ResourceTypeRegistrationResponseProperties(dict):
             pulumi.set(__self__, "management", management)
         if marketplace_type is not None:
             pulumi.set(__self__, "marketplace_type", marketplace_type)
+        if open_api_configuration is not None:
+            pulumi.set(__self__, "open_api_configuration", open_api_configuration)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if regionality is not None:
@@ -2636,6 +2749,11 @@ class ResourceTypeRegistrationResponseProperties(dict):
     @pulumi.getter(name="marketplaceType")
     def marketplace_type(self) -> Optional[str]:
         return pulumi.get(self, "marketplace_type")
+
+    @property
+    @pulumi.getter(name="openApiConfiguration")
+    def open_api_configuration(self) -> Optional['outputs.OpenApiConfigurationResponse']:
+        return pulumi.get(self, "open_api_configuration")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -3220,6 +3338,116 @@ class SwaggerSpecificationResponse(dict):
     @pulumi.getter(name="swaggerSpecFolderUri")
     def swagger_spec_folder_uri(self) -> Optional[str]:
         return pulumi.get(self, "swagger_spec_folder_uri")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

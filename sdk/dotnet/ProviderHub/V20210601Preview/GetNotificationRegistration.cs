@@ -52,6 +52,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
         public readonly string Name;
         public readonly Outputs.NotificationRegistrationResponseProperties Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -64,11 +68,14 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview
 
             Outputs.NotificationRegistrationResponseProperties properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

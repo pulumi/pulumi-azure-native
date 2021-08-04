@@ -802,7 +802,8 @@ class NotificationRegistrationPropertiesArgs:
                  included_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  message_scope: Optional[pulumi.Input[Union[str, 'MessageScope']]] = None,
                  notification_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationEndpointArgs']]]] = None,
-                 notification_mode: Optional[pulumi.Input[Union[str, 'NotificationMode']]] = None):
+                 notification_mode: Optional[pulumi.Input[Union[str, 'NotificationMode']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
         if included_events is not None:
             pulumi.set(__self__, "included_events", included_events)
         if message_scope is not None:
@@ -811,6 +812,8 @@ class NotificationRegistrationPropertiesArgs:
             pulumi.set(__self__, "notification_endpoints", notification_endpoints)
         if notification_mode is not None:
             pulumi.set(__self__, "notification_mode", notification_mode)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="includedEvents")
@@ -847,6 +850,15 @@ class NotificationRegistrationPropertiesArgs:
     @notification_mode.setter
     def notification_mode(self, value: Optional[pulumi.Input[Union[str, 'NotificationMode']]]):
         pulumi.set(self, "notification_mode", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type

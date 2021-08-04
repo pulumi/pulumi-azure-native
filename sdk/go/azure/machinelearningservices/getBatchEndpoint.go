@@ -31,7 +31,8 @@ type LookupBatchEndpointResult struct {
 	Id string `pulumi:"id"`
 	// Service identity associated with a resource.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	Kind     *string                   `pulumi:"kind"`
+	// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+	Kind *string `pulumi:"kind"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

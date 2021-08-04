@@ -13,13 +13,22 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     [OutputType]
     public sealed class TruncationSelectionPolicyResponse
     {
+        /// <summary>
+        /// Number of intervals by which to delay the first evaluation.
+        /// </summary>
         public readonly int? DelayEvaluation;
+        /// <summary>
+        /// Interval (number of runs) between policy evaluations.
+        /// </summary>
         public readonly int? EvaluationInterval;
         /// <summary>
         /// 
         /// Expected value is 'TruncationSelection'.
         /// </summary>
         public readonly string PolicyType;
+        /// <summary>
+        /// The percentage of runs to cancel at each evaluation interval.
+        /// </summary>
         public readonly int? TruncationPercentage;
 
         [OutputConstructor]

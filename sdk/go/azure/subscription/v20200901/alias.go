@@ -95,7 +95,7 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	// Alias Name
+	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName *string `pulumi:"aliasName"`
 	// Put alias request properties.
 	Properties PutAliasRequestProperties `pulumi:"properties"`
@@ -103,7 +103,7 @@ type aliasArgs struct {
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	// Alias Name
+	// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
 	AliasName pulumi.StringPtrInput
 	// Put alias request properties.
 	Properties PutAliasRequestPropertiesInput

@@ -36,6 +36,10 @@ export interface GetProviderRegistrationResult {
     readonly name: string;
     readonly properties: outputs.providerhub.v20210601preview.ProviderRegistrationResponseProperties;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.providerhub.v20210601preview.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;

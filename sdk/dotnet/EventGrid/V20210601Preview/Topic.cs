@@ -291,6 +291,7 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
         {
             DisableLocalAuth = false;
             InputSchema = "EventGridSchema";
+            Kind = "Azure";
             PublicNetworkAccess = "Enabled";
         }
     }

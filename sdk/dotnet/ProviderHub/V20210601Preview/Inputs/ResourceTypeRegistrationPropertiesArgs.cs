@@ -98,6 +98,9 @@ namespace Pulumi.AzureNative.ProviderHub.V20210601Preview.Inputs
         [Input("marketplaceType")]
         public Input<string>? MarketplaceType { get; set; }
 
+        [Input("openApiConfiguration")]
+        public Input<Inputs.OpenApiConfigurationArgs>? OpenApiConfiguration { get; set; }
+
         /// <summary>
         /// The provisioned state of the resource.
         /// </summary>

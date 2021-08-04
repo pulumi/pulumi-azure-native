@@ -44,6 +44,10 @@ export class DefaultRollout extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.providerhub.v20210601preview.DefaultRolloutResponseProperties>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.v20210601preview.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -66,10 +70,12 @@ export class DefaultRollout extends pulumi.CustomResource {
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             inputs["rolloutName"] = args ? args.rolloutName : undefined;
             inputs["name"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

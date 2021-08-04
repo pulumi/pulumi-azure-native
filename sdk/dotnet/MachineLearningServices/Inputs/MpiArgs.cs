@@ -22,6 +22,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("distributionType", required: true)]
         public Input<string> DistributionType { get; set; } = null!;
 
+        /// <summary>
+        /// Number of processes per MPI node.
+        /// </summary>
         [Input("processCountPerInstance")]
         public Input<int>? ProcessCountPerInstance { get; set; }
 

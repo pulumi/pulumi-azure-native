@@ -17,6 +17,8 @@ type ResourceTypeRegistration struct {
 	// The name of the resource
 	Name       pulumi.StringOutput                              `pulumi:"name"`
 	Properties ResourceTypeRegistrationResponsePropertiesOutput `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -80,6 +82,8 @@ type resourceTypeRegistrationState struct {
 	// The name of the resource
 	Name       *string                                     `pulumi:"name"`
 	Properties *ResourceTypeRegistrationResponseProperties `pulumi:"properties"`
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type *string `pulumi:"type"`
 }
@@ -88,6 +92,8 @@ type ResourceTypeRegistrationState struct {
 	// The name of the resource
 	Name       pulumi.StringPtrInput
 	Properties ResourceTypeRegistrationResponsePropertiesPtrInput
+	// Metadata pertaining to creation and last modification of the resource.
+	SystemData SystemDataResponsePtrInput
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringPtrInput
 }

@@ -13,7 +13,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class AutoScaleSettingsResponse
     {
+        /// <summary>
+        /// Maximum number of instances for this deployment.
+        /// </summary>
         public readonly int? MaxInstances;
+        /// <summary>
+        /// Minimum number of instances for this deployment.
+        /// </summary>
         public readonly int? MinInstances;
         /// <summary>
         /// The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds.
@@ -24,6 +30,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Expected value is 'Auto'.
         /// </summary>
         public readonly string ScaleType;
+        /// <summary>
+        /// Target CPU usage for the autoscaler.
+        /// </summary>
         public readonly int? TargetUtilizationPercentage;
 
         [OutputConstructor]

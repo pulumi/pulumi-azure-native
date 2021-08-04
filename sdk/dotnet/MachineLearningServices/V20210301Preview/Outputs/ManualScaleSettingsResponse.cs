@@ -13,8 +13,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
     [OutputType]
     public sealed class ManualScaleSettingsResponse
     {
+        /// <summary>
+        /// Fixed number of instances for this deployment.
+        /// </summary>
         public readonly int? InstanceCount;
+        /// <summary>
+        /// Maximum number of instances for this deployment.
+        /// </summary>
         public readonly int? MaxInstances;
+        /// <summary>
+        /// Minimum number of instances for this deployment.
+        /// </summary>
         public readonly int? MinInstances;
         /// <summary>
         /// 

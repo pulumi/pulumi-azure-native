@@ -33,6 +33,7 @@ class BatchDeploymentInitArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] deployment_name: The identifier for the Batch inference deployment.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Service identity associated with a resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -126,6 +127,9 @@ class BatchDeploymentInitArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -179,6 +183,7 @@ class BatchDeployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_name: The identifier for the Batch inference deployment.
         :param pulumi.Input[str] endpoint_name: Inference endpoint name
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Service identity associated with a resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['BatchDeploymentArgs']] properties: Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -294,6 +299,9 @@ class BatchDeployment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
         return pulumi.get(self, "kind")
 
     @property

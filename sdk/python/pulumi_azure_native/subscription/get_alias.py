@@ -86,7 +86,7 @@ def get_alias(alias_name: Optional[str] = None,
     API Version: 2020-09-01.
 
 
-    :param str alias_name: Alias Name
+    :param str alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
     """
     __args__ = dict()
     __args__['aliasName'] = alias_name

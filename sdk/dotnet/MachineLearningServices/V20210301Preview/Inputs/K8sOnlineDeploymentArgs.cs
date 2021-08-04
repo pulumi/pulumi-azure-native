@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         public Input<Inputs.CodeConfigurationArgs>? CodeConfiguration { get; set; }
 
         /// <summary>
-        /// The resource requirements for the container (cpu and memory).
+        /// Resource requirements for each container instance within an online deployment.
         /// </summary>
         [Input("containerResourceRequirements")]
         public Input<Inputs.ContainerResourceRequirementsArgs>? ContainerResourceRequirements { get; set; }
@@ -61,6 +61,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
             set => _environmentVariables = value;
         }
 
+        /// <summary>
+        /// Deployment container liveness/readiness probe configuration.
+        /// </summary>
         [Input("livenessProbe")]
         public Input<Inputs.ProbeSettingsArgs>? LivenessProbe { get; set; }
 
@@ -82,9 +85,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
             set => _properties = value;
         }
 
+        /// <summary>
+        /// Online deployment scoring requests configuration.
+        /// </summary>
         [Input("requestSettings")]
         public Input<Inputs.OnlineRequestSettingsArgs>? RequestSettings { get; set; }
 
+        /// <summary>
+        /// Online deployment scaling configuration.
+        /// </summary>
         [Input("scaleSettings")]
         public InputUnion<Inputs.AutoScaleSettingsArgs, Inputs.ManualScaleSettingsArgs>? ScaleSettings { get; set; }
 

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Early termination policies enable canceling poor-performing runs before they complete
+        /// Early termination policies enable canceling poor-performing runs before they complete.
         /// </summary>
         public readonly object? EarlyTermination;
         /// <summary>
@@ -48,8 +48,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// Expected value is 'Sweep'.
         /// </summary>
         public readonly string JobType;
+        /// <summary>
+        /// An upper bound on the number of trials performed in parallel.
+        /// </summary>
         public readonly int? MaxConcurrentTrials;
+        /// <summary>
+        /// An upper bound on the number of trials to perform.
+        /// </summary>
         public readonly int? MaxTotalTrials;
+        /// <summary>
+        /// Optimization objective.
+        /// </summary>
         public readonly Outputs.ObjectiveResponse Objective;
         /// <summary>
         /// Location of the job output logs and artifacts.
@@ -64,6 +73,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
+        /// Specifies the job provisioning state.
+        /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter

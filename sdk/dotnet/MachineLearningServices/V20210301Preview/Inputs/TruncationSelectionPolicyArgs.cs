@@ -15,9 +15,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
     /// </summary>
     public sealed class TruncationSelectionPolicyArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Number of intervals by which to delay the first evaluation.
+        /// </summary>
         [Input("delayEvaluation")]
         public Input<int>? DelayEvaluation { get; set; }
 
+        /// <summary>
+        /// Interval (number of runs) between policy evaluations.
+        /// </summary>
         [Input("evaluationInterval")]
         public Input<int>? EvaluationInterval { get; set; }
 
@@ -28,6 +34,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
+        /// <summary>
+        /// The percentage of runs to cancel at each evaluation interval.
+        /// </summary>
         [Input("truncationPercentage")]
         public Input<int>? TruncationPercentage { get; set; }
 

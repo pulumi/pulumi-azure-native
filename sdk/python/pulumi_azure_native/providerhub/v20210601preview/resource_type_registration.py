@@ -124,6 +124,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub/v20210601preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub:ResourceTypeRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20201120:ResourceTypeRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:ResourceTypeRegistration"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:ResourceTypeRegistration"), pulumi.Alias(type_="azure-nextgen:providerhub/v20210501preview:ResourceTypeRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -151,6 +152,7 @@ class ResourceTypeRegistration(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ResourceTypeRegistration(resource_name, opts=opts, __props__=__props__)
 
@@ -166,6 +168,14 @@ class ResourceTypeRegistration(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.ResourceTypeRegistrationResponseProperties']:
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

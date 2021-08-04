@@ -36,6 +36,9 @@ export class OnlineEndpoint extends pulumi.CustomResource {
      * Service identity associated with a resource.
      */
     public readonly identity!: pulumi.Output<outputs.machinelearningservices.v20210301preview.ResourceIdentityResponse | undefined>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+     */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
@@ -124,6 +127,9 @@ export interface OnlineEndpointArgs {
      * Service identity associated with a resource.
      */
     identity?: pulumi.Input<inputs.machinelearningservices.v20210301preview.ResourceIdentityArgs>;
+    /**
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+     */
     kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives

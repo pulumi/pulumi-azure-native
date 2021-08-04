@@ -398,6 +398,9 @@ export const ScaleType = {
     Manual: "Manual",
 } as const;
 
+/**
+ * Type of deployment scaling algorithm
+ */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
 export const SourceType = {

@@ -31,6 +31,7 @@ class OnlineEndpointInitArgs:
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Service identity associated with a resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -111,6 +112,9 @@ class OnlineEndpointInitArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -162,6 +166,7 @@ class OnlineEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Service identity associated with a resource.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['OnlineEndpointArgs']] properties: Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -273,6 +278,9 @@ class OnlineEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        """
         return pulumi.get(self, "kind")
 
     @property

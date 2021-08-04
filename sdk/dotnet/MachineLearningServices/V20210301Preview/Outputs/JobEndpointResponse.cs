@@ -25,6 +25,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
         /// Port for endpoint.
         /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Additional properties to set on the endpoint.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
 
         [OutputConstructor]

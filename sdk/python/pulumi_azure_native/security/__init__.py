@@ -21,25 +21,17 @@ from .get_automation import *
 from .get_connector import *
 from .get_device_security_group import *
 from .get_ingestion_setting import *
-from .get_iot_defender_setting import *
 from .get_iot_security_solution import *
-from .get_iot_sensor import *
-from .get_iot_site import *
 from .get_jit_network_access_policy import *
-from .get_on_premise_iot_sensor import *
 from .get_security_contact import *
 from .get_server_vulnerability_assessment import *
 from .get_sql_vulnerability_assessment_baseline_rule import *
 from .get_workspace_setting import *
 from .ingestion_setting import *
-from .iot_defender_setting import *
 from .iot_security_solution import *
-from .iot_sensor import *
-from .iot_site import *
 from .jit_network_access_policy import *
 from .list_ingestion_setting_connection_strings import *
 from .list_ingestion_setting_tokens import *
-from .on_premise_iot_sensor import *
 from .security_contact import *
 from .server_vulnerability_assessment import *
 from .sql_vulnerability_assessment_baseline_rule import *
@@ -56,7 +48,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.security.v20200101 as v20200101
     import pulumi_azure_native.security.v20200101preview as v20200101preview
     import pulumi_azure_native.security.v20200701preview as v20200701preview
-    import pulumi_azure_native.security.v20200806preview as v20200806preview
     import pulumi_azure_native.security.v20210115preview as v20210115preview
 else:
     v20150601preview = _utilities.lazy_import('pulumi_azure_native.security.v20150601preview')
@@ -66,6 +57,5 @@ else:
     v20200101 = _utilities.lazy_import('pulumi_azure_native.security.v20200101')
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.security.v20200101preview')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.security.v20200701preview')
-    v20200806preview = _utilities.lazy_import('pulumi_azure_native.security.v20200806preview')
     v20210115preview = _utilities.lazy_import('pulumi_azure_native.security.v20210115preview')
 
