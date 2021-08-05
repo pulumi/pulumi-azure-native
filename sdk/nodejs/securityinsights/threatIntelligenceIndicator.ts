@@ -120,7 +120,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }, { type: "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }, { type: "azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator" }, { type: "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator" }, { type: "azure-nextgen:securityinsights/v20210401:ThreatIntelligenceIndicator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ThreatIntelligenceIndicator.__pulumiType, name, inputs, opts);
     }

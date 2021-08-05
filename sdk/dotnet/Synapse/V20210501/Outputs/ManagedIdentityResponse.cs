@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
         /// The type of managed identity for the workspace
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The user assigned managed identities.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedManagedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ManagedIdentityResponse(
@@ -32,11 +36,14 @@ namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedManagedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

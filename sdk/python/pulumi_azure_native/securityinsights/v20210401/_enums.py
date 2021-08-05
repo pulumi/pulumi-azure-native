@@ -10,6 +10,7 @@ __all__ = [
     'IncidentSeverity',
     'IncidentStatus',
     'Source',
+    'ThreatIntelligenceResourceInnerKind',
 ]
 
 
@@ -58,3 +59,10 @@ class Source(str, Enum):
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
+
+
+class ThreatIntelligenceResourceInnerKind(str, Enum):
+    """
+    The kind of the entity.
+    """
+    INDICATOR = "indicator"

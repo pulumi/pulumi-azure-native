@@ -60,6 +60,7 @@ __all__ = [
     'SsisParameterResponse',
     'SsisProjectResponse',
     'SsisVariableResponse',
+    'UserAssignedManagedIdentityResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
     'WorkspaceKeyDetailsResponse',
@@ -1637,6 +1638,8 @@ class ManagedIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1652,17 +1655,21 @@ class ManagedIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
         The workspace managed identity
         :param str principal_id: The principal ID of the workspace managed identity
         :param str tenant_id: The tenant ID of the workspace managed identity
         :param str type: The type of managed identity for the workspace
+        :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The user assigned managed identities.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1687,6 +1694,14 @@ class ManagedIdentityResponse(dict):
         The type of managed identity for the workspace
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']]:
+        """
+        The user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -3697,6 +3712,58 @@ class SsisVariableResponse(dict):
         Variable value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class UserAssignedManagedIdentityResponse(dict):
+    """
+    User Assigned Managed Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User Assigned Managed Identity
+        :param str client_id: The client ID.
+        :param str principal_id: The principal ID.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

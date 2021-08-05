@@ -670,6 +670,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
         public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);

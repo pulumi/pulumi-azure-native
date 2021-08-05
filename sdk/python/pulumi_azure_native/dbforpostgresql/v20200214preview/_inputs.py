@@ -202,14 +202,18 @@ class SkuArgs:
 class StorageProfileArgs:
     def __init__(__self__, *,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 geo_redundant_backup: Optional[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None):
         """
         Storage Profile properties of a server
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server.
+        :param pulumi.Input[Union[str, 'GeoRedundantBackupEnum']] geo_redundant_backup: A value indicating whether Geo-Redundant backup is enabled on the server.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server.
         """
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if geo_redundant_backup is not None:
+            pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
         if storage_mb is not None:
             pulumi.set(__self__, "storage_mb", storage_mb)
 
@@ -224,6 +228,18 @@ class StorageProfileArgs:
     @backup_retention_days.setter
     def backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="geoRedundantBackup")
+    def geo_redundant_backup(self) -> Optional[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]]:
+        """
+        A value indicating whether Geo-Redundant backup is enabled on the server.
+        """
+        return pulumi.get(self, "geo_redundant_backup")
+
+    @geo_redundant_backup.setter
+    def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[str, 'GeoRedundantBackupEnum']]]):
+        pulumi.set(self, "geo_redundant_backup", value)
 
     @property
     @pulumi.getter(name="storageMB")

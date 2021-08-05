@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
     }
 
     /// <summary>
+    /// A value indicating whether Geo-Redundant backup is enabled on the server.
+    /// </summary>
+    [EnumType]
+    public readonly struct GeoRedundantBackupEnum : IEquatable<GeoRedundantBackupEnum>
+    {
+        private readonly string _value;
+
+        private GeoRedundantBackupEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeoRedundantBackupEnum Enabled { get; } = new GeoRedundantBackupEnum("Enabled");
+        public static GeoRedundantBackupEnum Disabled { get; } = new GeoRedundantBackupEnum("Disabled");
+
+        public static bool operator ==(GeoRedundantBackupEnum left, GeoRedundantBackupEnum right) => left.Equals(right);
+        public static bool operator !=(GeoRedundantBackupEnum left, GeoRedundantBackupEnum right) => !left.Equals(right);
+
+        public static explicit operator string(GeoRedundantBackupEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeoRedundantBackupEnum other && Equals(other);
+        public bool Equals(GeoRedundantBackupEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// stand by count value can be either enabled or disabled
     /// </summary>
     [EnumType]

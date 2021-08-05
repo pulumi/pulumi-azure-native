@@ -13133,6 +13133,7 @@ _utilities.register(
    "azure-native:securityinsights/v20210401:Incident": "Incident",
    "azure-native:securityinsights/v20210401:IncidentComment": "IncidentComment",
    "azure-native:securityinsights/v20210401:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
    "azure-native:securityinsights/v20210401:Watchlist": "Watchlist",
    "azure-native:securityinsights/v20210401:WatchlistItem": "WatchlistItem"
   }

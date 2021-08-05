@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, maintenance_window=None, name=None, point_in_time_utc=None, private_dns_zone_arguments=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, availability_zone=None, byok_enforcement=None, delegated_subnet_arguments=None, display_name=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, location=None, log_backup_storage_sku=None, maintenance_window=None, minor_version=None, name=None, point_in_time_utc=None, private_dns_zone_arguments=None, public_network_access=None, sku=None, source_resource_group_name=None, source_server_name=None, source_subscription_id=None, standby_availability_zone=None, standby_count=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -54,9 +54,15 @@ class GetServerResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if log_backup_storage_sku and not isinstance(log_backup_storage_sku, str):
+            raise TypeError("Expected argument 'log_backup_storage_sku' to be a str")
+        pulumi.set(__self__, "log_backup_storage_sku", log_backup_storage_sku)
         if maintenance_window and not isinstance(maintenance_window, dict):
             raise TypeError("Expected argument 'maintenance_window' to be a dict")
         pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if minor_version and not isinstance(minor_version, str):
+            raise TypeError("Expected argument 'minor_version' to be a str")
+        pulumi.set(__self__, "minor_version", minor_version)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -84,6 +90,9 @@ class GetServerResult:
         if standby_availability_zone and not isinstance(standby_availability_zone, str):
             raise TypeError("Expected argument 'standby_availability_zone' to be a str")
         pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
+        if standby_count and not isinstance(standby_count, int):
+            raise TypeError("Expected argument 'standby_count' to be a int")
+        pulumi.set(__self__, "standby_count", standby_count)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -186,12 +195,28 @@ class GetServerResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="logBackupStorageSku")
+    def log_backup_storage_sku(self) -> Optional[str]:
+        """
+        The log backup storage sku of the server.
+        """
+        return pulumi.get(self, "log_backup_storage_sku")
+
+    @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
         """
         Maintenance window of a server.
         """
         return pulumi.get(self, "maintenance_window")
+
+    @property
+    @pulumi.getter(name="minorVersion")
+    def minor_version(self) -> str:
+        """
+        The minor version of the server.
+        """
+        return pulumi.get(self, "minor_version")
 
     @property
     @pulumi.getter
@@ -263,6 +288,14 @@ class GetServerResult:
         return pulumi.get(self, "standby_availability_zone")
 
     @property
+    @pulumi.getter(name="standbyCount")
+    def standby_count(self) -> Optional[int]:
+        """
+        The number of standbys.
+        """
+        return pulumi.get(self, "standby_count")
+
+    @property
     @pulumi.getter
     def state(self) -> str:
         """
@@ -320,7 +353,9 @@ class AwaitableGetServerResult(GetServerResult):
             id=self.id,
             identity=self.identity,
             location=self.location,
+            log_backup_storage_sku=self.log_backup_storage_sku,
             maintenance_window=self.maintenance_window,
+            minor_version=self.minor_version,
             name=self.name,
             point_in_time_utc=self.point_in_time_utc,
             private_dns_zone_arguments=self.private_dns_zone_arguments,
@@ -330,6 +365,7 @@ class AwaitableGetServerResult(GetServerResult):
             source_server_name=self.source_server_name,
             source_subscription_id=self.source_subscription_id,
             standby_availability_zone=self.standby_availability_zone,
+            standby_count=self.standby_count,
             state=self.state,
             storage_profile=self.storage_profile,
             tags=self.tags,
@@ -368,7 +404,9 @@ def get_server(resource_group_name: Optional[str] = None,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
+        log_backup_storage_sku=__ret__.log_backup_storage_sku,
         maintenance_window=__ret__.maintenance_window,
+        minor_version=__ret__.minor_version,
         name=__ret__.name,
         point_in_time_utc=__ret__.point_in_time_utc,
         private_dns_zone_arguments=__ret__.private_dns_zone_arguments,
@@ -378,6 +416,7 @@ def get_server(resource_group_name: Optional[str] = None,
         source_server_name=__ret__.source_server_name,
         source_subscription_id=__ret__.source_subscription_id,
         standby_availability_zone=__ret__.standby_availability_zone,
+        standby_count=__ret__.standby_count,
         state=__ret__.state,
         storage_profile=__ret__.storage_profile,
         tags=__ret__.tags,

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'CreateMode',
+    'GeoRedundantBackupEnum',
     'HAEnabledEnum',
     'ResourceIdentityType',
     'ServerVersion',
@@ -19,6 +20,14 @@ class CreateMode(str, Enum):
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
+
+
+class GeoRedundantBackupEnum(str, Enum):
+    """
+    A value indicating whether Geo-Redundant backup is enabled on the server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class HAEnabledEnum(str, Enum):

@@ -26,6 +26,7 @@ class ServerArgs:
                  ha_enabled: Optional[pulumi.Input['HAEnabledEnum']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_backup_storage_sku: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input['MaintenanceWindowArgs']] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_arguments: Optional[pulumi.Input['ServerPropertiesPrivateDnsZoneArgumentsArgs']] = None,
@@ -34,6 +35,7 @@ class ServerArgs:
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_name: Optional[pulumi.Input[str]] = None,
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
+                 standby_count: Optional[pulumi.Input[int]] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
@@ -48,6 +50,7 @@ class ServerArgs:
         :param pulumi.Input['HAEnabledEnum'] ha_enabled: stand by count value can be either enabled or disabled
         :param pulumi.Input['IdentityArgs'] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] log_backup_storage_sku: The log backup storage sku of the server.
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window of a server.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -55,6 +58,7 @@ class ServerArgs:
         :param pulumi.Input[str] source_resource_group_name: The resource group name of source serve PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_server_name: The source PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_subscription_id: The subscription id of source serve PostgreSQL server name to restore from.
+        :param pulumi.Input[int] standby_count: The number of standbys.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
@@ -78,6 +82,8 @@ class ServerArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if log_backup_storage_sku is not None:
+            pulumi.set(__self__, "log_backup_storage_sku", log_backup_storage_sku)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if point_in_time_utc is not None:
@@ -94,6 +100,8 @@ class ServerArgs:
             pulumi.set(__self__, "source_server_name", source_server_name)
         if source_subscription_id is not None:
             pulumi.set(__self__, "source_subscription_id", source_subscription_id)
+        if standby_count is not None:
+            pulumi.set(__self__, "standby_count", standby_count)
         if storage_profile is not None:
             pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
@@ -219,6 +227,18 @@ class ServerArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="logBackupStorageSku")
+    def log_backup_storage_sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log backup storage sku of the server.
+        """
+        return pulumi.get(self, "log_backup_storage_sku")
+
+    @log_backup_storage_sku.setter
+    def log_backup_storage_sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_backup_storage_sku", value)
+
+    @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
         """
@@ -312,6 +332,18 @@ class ServerArgs:
         pulumi.set(self, "source_subscription_id", value)
 
     @property
+    @pulumi.getter(name="standbyCount")
+    def standby_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of standbys.
+        """
+        return pulumi.get(self, "standby_count")
+
+    @standby_count.setter
+    def standby_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "standby_count", value)
+
+    @property
     @pulumi.getter(name="storageProfile")
     def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
         """
@@ -362,6 +394,7 @@ class Server(pulumi.CustomResource):
                  ha_enabled: Optional[pulumi.Input['HAEnabledEnum']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_backup_storage_sku: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
@@ -371,6 +404,7 @@ class Server(pulumi.CustomResource):
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_name: Optional[pulumi.Input[str]] = None,
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
+                 standby_count: Optional[pulumi.Input[int]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
@@ -388,6 +422,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input['HAEnabledEnum'] ha_enabled: stand by count value can be either enabled or disabled
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] log_backup_storage_sku: The log backup storage sku of the server.
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
         :param pulumi.Input[str] point_in_time_utc: Restore point creation time (ISO8601 format), specifying the time to restore from.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -396,6 +431,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] source_resource_group_name: The resource group name of source serve PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_server_name: The source PostgreSQL server name to restore from.
         :param pulumi.Input[str] source_subscription_id: The subscription id of source serve PostgreSQL server name to restore from.
+        :param pulumi.Input[int] standby_count: The number of standbys.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage profile of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
@@ -433,6 +469,7 @@ class Server(pulumi.CustomResource):
                  ha_enabled: Optional[pulumi.Input['HAEnabledEnum']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_backup_storage_sku: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  point_in_time_utc: Optional[pulumi.Input[str]] = None,
                  private_dns_zone_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesPrivateDnsZoneArgumentsArgs']]] = None,
@@ -442,6 +479,7 @@ class Server(pulumi.CustomResource):
                  source_resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_server_name: Optional[pulumi.Input[str]] = None,
                  source_subscription_id: Optional[pulumi.Input[str]] = None,
+                 standby_count: Optional[pulumi.Input[int]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
@@ -466,6 +504,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["ha_enabled"] = ha_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["log_backup_storage_sku"] = log_backup_storage_sku
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["point_in_time_utc"] = point_in_time_utc
             __props__.__dict__["private_dns_zone_arguments"] = private_dns_zone_arguments
@@ -477,12 +516,14 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["source_resource_group_name"] = source_resource_group_name
             __props__.__dict__["source_server_name"] = source_server_name
             __props__.__dict__["source_subscription_id"] = source_subscription_id
+            __props__.__dict__["standby_count"] = standby_count
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["byok_enforcement"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["ha_state"] = None
+            __props__.__dict__["minor_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["standby_availability_zone"] = None
@@ -522,7 +563,9 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["ha_state"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["log_backup_storage_sku"] = None
         __props__.__dict__["maintenance_window"] = None
+        __props__.__dict__["minor_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["point_in_time_utc"] = None
         __props__.__dict__["private_dns_zone_arguments"] = None
@@ -532,6 +575,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["source_server_name"] = None
         __props__.__dict__["source_subscription_id"] = None
         __props__.__dict__["standby_availability_zone"] = None
+        __props__.__dict__["standby_count"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["storage_profile"] = None
         __props__.__dict__["tags"] = None
@@ -617,12 +661,28 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="logBackupStorageSku")
+    def log_backup_storage_sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        The log backup storage sku of the server.
+        """
+        return pulumi.get(self, "log_backup_storage_sku")
+
+    @property
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowResponse']]:
         """
         Maintenance window of a server.
         """
         return pulumi.get(self, "maintenance_window")
+
+    @property
+    @pulumi.getter(name="minorVersion")
+    def minor_version(self) -> pulumi.Output[str]:
+        """
+        The minor version of the server.
+        """
+        return pulumi.get(self, "minor_version")
 
     @property
     @pulumi.getter
@@ -692,6 +752,14 @@ class Server(pulumi.CustomResource):
         availability Zone information of the server.
         """
         return pulumi.get(self, "standby_availability_zone")
+
+    @property
+    @pulumi.getter(name="standbyCount")
+    def standby_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of standbys.
+        """
+        return pulumi.get(self, "standby_count")
 
     @property
     @pulumi.getter

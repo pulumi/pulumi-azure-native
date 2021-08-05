@@ -1231,6 +1231,589 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes external reference
+type ThreatIntelligenceExternalReference struct {
+	// External reference description
+	Description *string `pulumi:"description"`
+	// External reference ID
+	ExternalId *string `pulumi:"externalId"`
+	// External reference hashes
+	Hashes map[string]string `pulumi:"hashes"`
+	// External reference source name
+	SourceName *string `pulumi:"sourceName"`
+	// External reference URL
+	Url *string `pulumi:"url"`
+}
+
+// ThreatIntelligenceExternalReferenceInput is an input type that accepts ThreatIntelligenceExternalReferenceArgs and ThreatIntelligenceExternalReferenceOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceExternalReferenceInput` via:
+//
+//          ThreatIntelligenceExternalReferenceArgs{...}
+type ThreatIntelligenceExternalReferenceInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceExternalReferenceOutput() ThreatIntelligenceExternalReferenceOutput
+	ToThreatIntelligenceExternalReferenceOutputWithContext(context.Context) ThreatIntelligenceExternalReferenceOutput
+}
+
+// Describes external reference
+type ThreatIntelligenceExternalReferenceArgs struct {
+	// External reference description
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// External reference ID
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// External reference hashes
+	Hashes pulumi.StringMapInput `pulumi:"hashes"`
+	// External reference source name
+	SourceName pulumi.StringPtrInput `pulumi:"sourceName"`
+	// External reference URL
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ThreatIntelligenceExternalReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceExternalReferenceArgs) ToThreatIntelligenceExternalReferenceOutput() ThreatIntelligenceExternalReferenceOutput {
+	return i.ToThreatIntelligenceExternalReferenceOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceExternalReferenceArgs) ToThreatIntelligenceExternalReferenceOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceExternalReferenceOutput)
+}
+
+// ThreatIntelligenceExternalReferenceArrayInput is an input type that accepts ThreatIntelligenceExternalReferenceArray and ThreatIntelligenceExternalReferenceArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceExternalReferenceArrayInput` via:
+//
+//          ThreatIntelligenceExternalReferenceArray{ ThreatIntelligenceExternalReferenceArgs{...} }
+type ThreatIntelligenceExternalReferenceArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceExternalReferenceArrayOutput() ThreatIntelligenceExternalReferenceArrayOutput
+	ToThreatIntelligenceExternalReferenceArrayOutputWithContext(context.Context) ThreatIntelligenceExternalReferenceArrayOutput
+}
+
+type ThreatIntelligenceExternalReferenceArray []ThreatIntelligenceExternalReferenceInput
+
+func (ThreatIntelligenceExternalReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceExternalReferenceArray) ToThreatIntelligenceExternalReferenceArrayOutput() ThreatIntelligenceExternalReferenceArrayOutput {
+	return i.ToThreatIntelligenceExternalReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceExternalReferenceArray) ToThreatIntelligenceExternalReferenceArrayOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceExternalReferenceArrayOutput)
+}
+
+// Describes external reference
+type ThreatIntelligenceExternalReferenceOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceExternalReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceExternalReferenceOutput) ToThreatIntelligenceExternalReferenceOutput() ThreatIntelligenceExternalReferenceOutput {
+	return o
+}
+
+func (o ThreatIntelligenceExternalReferenceOutput) ToThreatIntelligenceExternalReferenceOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceOutput {
+	return o
+}
+
+// External reference description
+func (o ThreatIntelligenceExternalReferenceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// External reference ID
+func (o ThreatIntelligenceExternalReferenceOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// External reference hashes
+func (o ThreatIntelligenceExternalReferenceOutput) Hashes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) map[string]string { return v.Hashes }).(pulumi.StringMapOutput)
+}
+
+// External reference source name
+func (o ThreatIntelligenceExternalReferenceOutput) SourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.SourceName }).(pulumi.StringPtrOutput)
+}
+
+// External reference URL
+func (o ThreatIntelligenceExternalReferenceOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceExternalReference) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type ThreatIntelligenceExternalReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceExternalReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceExternalReference)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceExternalReferenceArrayOutput) ToThreatIntelligenceExternalReferenceArrayOutput() ThreatIntelligenceExternalReferenceArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceExternalReferenceArrayOutput) ToThreatIntelligenceExternalReferenceArrayOutputWithContext(ctx context.Context) ThreatIntelligenceExternalReferenceArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceExternalReferenceArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceExternalReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceExternalReference {
+		return vs[0].([]ThreatIntelligenceExternalReference)[vs[1].(int)]
+	}).(ThreatIntelligenceExternalReferenceOutput)
+}
+
+// Describes threat granular marking model entity
+type ThreatIntelligenceGranularMarkingModel struct {
+	// Language granular marking model
+	Language *string `pulumi:"language"`
+	// marking reference granular marking model
+	MarkingRef *int `pulumi:"markingRef"`
+	// granular marking model selectors
+	Selectors []string `pulumi:"selectors"`
+}
+
+// ThreatIntelligenceGranularMarkingModelInput is an input type that accepts ThreatIntelligenceGranularMarkingModelArgs and ThreatIntelligenceGranularMarkingModelOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceGranularMarkingModelInput` via:
+//
+//          ThreatIntelligenceGranularMarkingModelArgs{...}
+type ThreatIntelligenceGranularMarkingModelInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceGranularMarkingModelOutput() ThreatIntelligenceGranularMarkingModelOutput
+	ToThreatIntelligenceGranularMarkingModelOutputWithContext(context.Context) ThreatIntelligenceGranularMarkingModelOutput
+}
+
+// Describes threat granular marking model entity
+type ThreatIntelligenceGranularMarkingModelArgs struct {
+	// Language granular marking model
+	Language pulumi.StringPtrInput `pulumi:"language"`
+	// marking reference granular marking model
+	MarkingRef pulumi.IntPtrInput `pulumi:"markingRef"`
+	// granular marking model selectors
+	Selectors pulumi.StringArrayInput `pulumi:"selectors"`
+}
+
+func (ThreatIntelligenceGranularMarkingModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceGranularMarkingModel)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceGranularMarkingModelArgs) ToThreatIntelligenceGranularMarkingModelOutput() ThreatIntelligenceGranularMarkingModelOutput {
+	return i.ToThreatIntelligenceGranularMarkingModelOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceGranularMarkingModelArgs) ToThreatIntelligenceGranularMarkingModelOutputWithContext(ctx context.Context) ThreatIntelligenceGranularMarkingModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceGranularMarkingModelOutput)
+}
+
+// ThreatIntelligenceGranularMarkingModelArrayInput is an input type that accepts ThreatIntelligenceGranularMarkingModelArray and ThreatIntelligenceGranularMarkingModelArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceGranularMarkingModelArrayInput` via:
+//
+//          ThreatIntelligenceGranularMarkingModelArray{ ThreatIntelligenceGranularMarkingModelArgs{...} }
+type ThreatIntelligenceGranularMarkingModelArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceGranularMarkingModelArrayOutput() ThreatIntelligenceGranularMarkingModelArrayOutput
+	ToThreatIntelligenceGranularMarkingModelArrayOutputWithContext(context.Context) ThreatIntelligenceGranularMarkingModelArrayOutput
+}
+
+type ThreatIntelligenceGranularMarkingModelArray []ThreatIntelligenceGranularMarkingModelInput
+
+func (ThreatIntelligenceGranularMarkingModelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceGranularMarkingModel)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceGranularMarkingModelArray) ToThreatIntelligenceGranularMarkingModelArrayOutput() ThreatIntelligenceGranularMarkingModelArrayOutput {
+	return i.ToThreatIntelligenceGranularMarkingModelArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceGranularMarkingModelArray) ToThreatIntelligenceGranularMarkingModelArrayOutputWithContext(ctx context.Context) ThreatIntelligenceGranularMarkingModelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceGranularMarkingModelArrayOutput)
+}
+
+// Describes threat granular marking model entity
+type ThreatIntelligenceGranularMarkingModelOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceGranularMarkingModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceGranularMarkingModel)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceGranularMarkingModelOutput) ToThreatIntelligenceGranularMarkingModelOutput() ThreatIntelligenceGranularMarkingModelOutput {
+	return o
+}
+
+func (o ThreatIntelligenceGranularMarkingModelOutput) ToThreatIntelligenceGranularMarkingModelOutputWithContext(ctx context.Context) ThreatIntelligenceGranularMarkingModelOutput {
+	return o
+}
+
+// Language granular marking model
+func (o ThreatIntelligenceGranularMarkingModelOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceGranularMarkingModel) *string { return v.Language }).(pulumi.StringPtrOutput)
+}
+
+// marking reference granular marking model
+func (o ThreatIntelligenceGranularMarkingModelOutput) MarkingRef() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceGranularMarkingModel) *int { return v.MarkingRef }).(pulumi.IntPtrOutput)
+}
+
+// granular marking model selectors
+func (o ThreatIntelligenceGranularMarkingModelOutput) Selectors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThreatIntelligenceGranularMarkingModel) []string { return v.Selectors }).(pulumi.StringArrayOutput)
+}
+
+type ThreatIntelligenceGranularMarkingModelArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceGranularMarkingModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceGranularMarkingModel)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceGranularMarkingModelArrayOutput) ToThreatIntelligenceGranularMarkingModelArrayOutput() ThreatIntelligenceGranularMarkingModelArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceGranularMarkingModelArrayOutput) ToThreatIntelligenceGranularMarkingModelArrayOutputWithContext(ctx context.Context) ThreatIntelligenceGranularMarkingModelArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceGranularMarkingModelArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceGranularMarkingModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceGranularMarkingModel {
+		return vs[0].([]ThreatIntelligenceGranularMarkingModel)[vs[1].(int)]
+	}).(ThreatIntelligenceGranularMarkingModelOutput)
+}
+
+// Describes threat kill chain phase entity
+type ThreatIntelligenceKillChainPhase struct {
+	// Kill chainName name
+	KillChainName *string `pulumi:"killChainName"`
+	// Phase name
+	PhaseName *string `pulumi:"phaseName"`
+}
+
+// ThreatIntelligenceKillChainPhaseInput is an input type that accepts ThreatIntelligenceKillChainPhaseArgs and ThreatIntelligenceKillChainPhaseOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceKillChainPhaseInput` via:
+//
+//          ThreatIntelligenceKillChainPhaseArgs{...}
+type ThreatIntelligenceKillChainPhaseInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceKillChainPhaseOutput() ThreatIntelligenceKillChainPhaseOutput
+	ToThreatIntelligenceKillChainPhaseOutputWithContext(context.Context) ThreatIntelligenceKillChainPhaseOutput
+}
+
+// Describes threat kill chain phase entity
+type ThreatIntelligenceKillChainPhaseArgs struct {
+	// Kill chainName name
+	KillChainName pulumi.StringPtrInput `pulumi:"killChainName"`
+	// Phase name
+	PhaseName pulumi.StringPtrInput `pulumi:"phaseName"`
+}
+
+func (ThreatIntelligenceKillChainPhaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceKillChainPhase)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceKillChainPhaseArgs) ToThreatIntelligenceKillChainPhaseOutput() ThreatIntelligenceKillChainPhaseOutput {
+	return i.ToThreatIntelligenceKillChainPhaseOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceKillChainPhaseArgs) ToThreatIntelligenceKillChainPhaseOutputWithContext(ctx context.Context) ThreatIntelligenceKillChainPhaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceKillChainPhaseOutput)
+}
+
+// ThreatIntelligenceKillChainPhaseArrayInput is an input type that accepts ThreatIntelligenceKillChainPhaseArray and ThreatIntelligenceKillChainPhaseArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceKillChainPhaseArrayInput` via:
+//
+//          ThreatIntelligenceKillChainPhaseArray{ ThreatIntelligenceKillChainPhaseArgs{...} }
+type ThreatIntelligenceKillChainPhaseArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceKillChainPhaseArrayOutput() ThreatIntelligenceKillChainPhaseArrayOutput
+	ToThreatIntelligenceKillChainPhaseArrayOutputWithContext(context.Context) ThreatIntelligenceKillChainPhaseArrayOutput
+}
+
+type ThreatIntelligenceKillChainPhaseArray []ThreatIntelligenceKillChainPhaseInput
+
+func (ThreatIntelligenceKillChainPhaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceKillChainPhase)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceKillChainPhaseArray) ToThreatIntelligenceKillChainPhaseArrayOutput() ThreatIntelligenceKillChainPhaseArrayOutput {
+	return i.ToThreatIntelligenceKillChainPhaseArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceKillChainPhaseArray) ToThreatIntelligenceKillChainPhaseArrayOutputWithContext(ctx context.Context) ThreatIntelligenceKillChainPhaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceKillChainPhaseArrayOutput)
+}
+
+// Describes threat kill chain phase entity
+type ThreatIntelligenceKillChainPhaseOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceKillChainPhaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceKillChainPhase)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceKillChainPhaseOutput) ToThreatIntelligenceKillChainPhaseOutput() ThreatIntelligenceKillChainPhaseOutput {
+	return o
+}
+
+func (o ThreatIntelligenceKillChainPhaseOutput) ToThreatIntelligenceKillChainPhaseOutputWithContext(ctx context.Context) ThreatIntelligenceKillChainPhaseOutput {
+	return o
+}
+
+// Kill chainName name
+func (o ThreatIntelligenceKillChainPhaseOutput) KillChainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceKillChainPhase) *string { return v.KillChainName }).(pulumi.StringPtrOutput)
+}
+
+// Phase name
+func (o ThreatIntelligenceKillChainPhaseOutput) PhaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceKillChainPhase) *string { return v.PhaseName }).(pulumi.StringPtrOutput)
+}
+
+type ThreatIntelligenceKillChainPhaseArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceKillChainPhaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceKillChainPhase)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceKillChainPhaseArrayOutput) ToThreatIntelligenceKillChainPhaseArrayOutput() ThreatIntelligenceKillChainPhaseArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceKillChainPhaseArrayOutput) ToThreatIntelligenceKillChainPhaseArrayOutputWithContext(ctx context.Context) ThreatIntelligenceKillChainPhaseArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceKillChainPhaseArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceKillChainPhaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceKillChainPhase {
+		return vs[0].([]ThreatIntelligenceKillChainPhase)[vs[1].(int)]
+	}).(ThreatIntelligenceKillChainPhaseOutput)
+}
+
+// Describes parsed pattern entity
+type ThreatIntelligenceParsedPattern struct {
+	// Pattern type key
+	PatternTypeKey *string `pulumi:"patternTypeKey"`
+	// Pattern type keys
+	PatternTypeValues []ThreatIntelligenceParsedPatternTypeValue `pulumi:"patternTypeValues"`
+}
+
+// ThreatIntelligenceParsedPatternInput is an input type that accepts ThreatIntelligenceParsedPatternArgs and ThreatIntelligenceParsedPatternOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceParsedPatternInput` via:
+//
+//          ThreatIntelligenceParsedPatternArgs{...}
+type ThreatIntelligenceParsedPatternInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceParsedPatternOutput() ThreatIntelligenceParsedPatternOutput
+	ToThreatIntelligenceParsedPatternOutputWithContext(context.Context) ThreatIntelligenceParsedPatternOutput
+}
+
+// Describes parsed pattern entity
+type ThreatIntelligenceParsedPatternArgs struct {
+	// Pattern type key
+	PatternTypeKey pulumi.StringPtrInput `pulumi:"patternTypeKey"`
+	// Pattern type keys
+	PatternTypeValues ThreatIntelligenceParsedPatternTypeValueArrayInput `pulumi:"patternTypeValues"`
+}
+
+func (ThreatIntelligenceParsedPatternArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceParsedPattern)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceParsedPatternArgs) ToThreatIntelligenceParsedPatternOutput() ThreatIntelligenceParsedPatternOutput {
+	return i.ToThreatIntelligenceParsedPatternOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceParsedPatternArgs) ToThreatIntelligenceParsedPatternOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceParsedPatternOutput)
+}
+
+// ThreatIntelligenceParsedPatternArrayInput is an input type that accepts ThreatIntelligenceParsedPatternArray and ThreatIntelligenceParsedPatternArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceParsedPatternArrayInput` via:
+//
+//          ThreatIntelligenceParsedPatternArray{ ThreatIntelligenceParsedPatternArgs{...} }
+type ThreatIntelligenceParsedPatternArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceParsedPatternArrayOutput() ThreatIntelligenceParsedPatternArrayOutput
+	ToThreatIntelligenceParsedPatternArrayOutputWithContext(context.Context) ThreatIntelligenceParsedPatternArrayOutput
+}
+
+type ThreatIntelligenceParsedPatternArray []ThreatIntelligenceParsedPatternInput
+
+func (ThreatIntelligenceParsedPatternArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceParsedPattern)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceParsedPatternArray) ToThreatIntelligenceParsedPatternArrayOutput() ThreatIntelligenceParsedPatternArrayOutput {
+	return i.ToThreatIntelligenceParsedPatternArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceParsedPatternArray) ToThreatIntelligenceParsedPatternArrayOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceParsedPatternArrayOutput)
+}
+
+// Describes parsed pattern entity
+type ThreatIntelligenceParsedPatternOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceParsedPatternOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceParsedPattern)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceParsedPatternOutput) ToThreatIntelligenceParsedPatternOutput() ThreatIntelligenceParsedPatternOutput {
+	return o
+}
+
+func (o ThreatIntelligenceParsedPatternOutput) ToThreatIntelligenceParsedPatternOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternOutput {
+	return o
+}
+
+// Pattern type key
+func (o ThreatIntelligenceParsedPatternOutput) PatternTypeKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceParsedPattern) *string { return v.PatternTypeKey }).(pulumi.StringPtrOutput)
+}
+
+// Pattern type keys
+func (o ThreatIntelligenceParsedPatternOutput) PatternTypeValues() ThreatIntelligenceParsedPatternTypeValueArrayOutput {
+	return o.ApplyT(func(v ThreatIntelligenceParsedPattern) []ThreatIntelligenceParsedPatternTypeValue {
+		return v.PatternTypeValues
+	}).(ThreatIntelligenceParsedPatternTypeValueArrayOutput)
+}
+
+type ThreatIntelligenceParsedPatternArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceParsedPatternArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceParsedPattern)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceParsedPatternArrayOutput) ToThreatIntelligenceParsedPatternArrayOutput() ThreatIntelligenceParsedPatternArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceParsedPatternArrayOutput) ToThreatIntelligenceParsedPatternArrayOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceParsedPatternArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceParsedPatternOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceParsedPattern {
+		return vs[0].([]ThreatIntelligenceParsedPattern)[vs[1].(int)]
+	}).(ThreatIntelligenceParsedPatternOutput)
+}
+
+// Describes threat kill chain phase entity
+type ThreatIntelligenceParsedPatternTypeValue struct {
+	// Value of parsed pattern
+	Value *string `pulumi:"value"`
+	// Type of the value
+	ValueType *string `pulumi:"valueType"`
+}
+
+// ThreatIntelligenceParsedPatternTypeValueInput is an input type that accepts ThreatIntelligenceParsedPatternTypeValueArgs and ThreatIntelligenceParsedPatternTypeValueOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceParsedPatternTypeValueInput` via:
+//
+//          ThreatIntelligenceParsedPatternTypeValueArgs{...}
+type ThreatIntelligenceParsedPatternTypeValueInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceParsedPatternTypeValueOutput() ThreatIntelligenceParsedPatternTypeValueOutput
+	ToThreatIntelligenceParsedPatternTypeValueOutputWithContext(context.Context) ThreatIntelligenceParsedPatternTypeValueOutput
+}
+
+// Describes threat kill chain phase entity
+type ThreatIntelligenceParsedPatternTypeValueArgs struct {
+	// Value of parsed pattern
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// Type of the value
+	ValueType pulumi.StringPtrInput `pulumi:"valueType"`
+}
+
+func (ThreatIntelligenceParsedPatternTypeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceParsedPatternTypeValue)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceParsedPatternTypeValueArgs) ToThreatIntelligenceParsedPatternTypeValueOutput() ThreatIntelligenceParsedPatternTypeValueOutput {
+	return i.ToThreatIntelligenceParsedPatternTypeValueOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceParsedPatternTypeValueArgs) ToThreatIntelligenceParsedPatternTypeValueOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternTypeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceParsedPatternTypeValueOutput)
+}
+
+// ThreatIntelligenceParsedPatternTypeValueArrayInput is an input type that accepts ThreatIntelligenceParsedPatternTypeValueArray and ThreatIntelligenceParsedPatternTypeValueArrayOutput values.
+// You can construct a concrete instance of `ThreatIntelligenceParsedPatternTypeValueArrayInput` via:
+//
+//          ThreatIntelligenceParsedPatternTypeValueArray{ ThreatIntelligenceParsedPatternTypeValueArgs{...} }
+type ThreatIntelligenceParsedPatternTypeValueArrayInput interface {
+	pulumi.Input
+
+	ToThreatIntelligenceParsedPatternTypeValueArrayOutput() ThreatIntelligenceParsedPatternTypeValueArrayOutput
+	ToThreatIntelligenceParsedPatternTypeValueArrayOutputWithContext(context.Context) ThreatIntelligenceParsedPatternTypeValueArrayOutput
+}
+
+type ThreatIntelligenceParsedPatternTypeValueArray []ThreatIntelligenceParsedPatternTypeValueInput
+
+func (ThreatIntelligenceParsedPatternTypeValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceParsedPatternTypeValue)(nil)).Elem()
+}
+
+func (i ThreatIntelligenceParsedPatternTypeValueArray) ToThreatIntelligenceParsedPatternTypeValueArrayOutput() ThreatIntelligenceParsedPatternTypeValueArrayOutput {
+	return i.ToThreatIntelligenceParsedPatternTypeValueArrayOutputWithContext(context.Background())
+}
+
+func (i ThreatIntelligenceParsedPatternTypeValueArray) ToThreatIntelligenceParsedPatternTypeValueArrayOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternTypeValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceParsedPatternTypeValueArrayOutput)
+}
+
+// Describes threat kill chain phase entity
+type ThreatIntelligenceParsedPatternTypeValueOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceParsedPatternTypeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThreatIntelligenceParsedPatternTypeValue)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceParsedPatternTypeValueOutput) ToThreatIntelligenceParsedPatternTypeValueOutput() ThreatIntelligenceParsedPatternTypeValueOutput {
+	return o
+}
+
+func (o ThreatIntelligenceParsedPatternTypeValueOutput) ToThreatIntelligenceParsedPatternTypeValueOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternTypeValueOutput {
+	return o
+}
+
+// Value of parsed pattern
+func (o ThreatIntelligenceParsedPatternTypeValueOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceParsedPatternTypeValue) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+// Type of the value
+func (o ThreatIntelligenceParsedPatternTypeValueOutput) ValueType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThreatIntelligenceParsedPatternTypeValue) *string { return v.ValueType }).(pulumi.StringPtrOutput)
+}
+
+type ThreatIntelligenceParsedPatternTypeValueArrayOutput struct{ *pulumi.OutputState }
+
+func (ThreatIntelligenceParsedPatternTypeValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThreatIntelligenceParsedPatternTypeValue)(nil)).Elem()
+}
+
+func (o ThreatIntelligenceParsedPatternTypeValueArrayOutput) ToThreatIntelligenceParsedPatternTypeValueArrayOutput() ThreatIntelligenceParsedPatternTypeValueArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceParsedPatternTypeValueArrayOutput) ToThreatIntelligenceParsedPatternTypeValueArrayOutputWithContext(ctx context.Context) ThreatIntelligenceParsedPatternTypeValueArrayOutput {
+	return o
+}
+
+func (o ThreatIntelligenceParsedPatternTypeValueArrayOutput) Index(i pulumi.IntInput) ThreatIntelligenceParsedPatternTypeValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThreatIntelligenceParsedPatternTypeValue {
+		return vs[0].([]ThreatIntelligenceParsedPatternTypeValue)[vs[1].(int)]
+	}).(ThreatIntelligenceParsedPatternTypeValueOutput)
+}
+
 // User information that made some action
 type WatchlistUserInfo struct {
 	// The object id of the user.
@@ -1552,6 +2135,16 @@ func init() {
 	pulumi.RegisterOutputType(IncidentOwnerInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceExternalReferenceOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceExternalReferenceArrayOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceGranularMarkingModelArrayOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceKillChainPhaseOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceKillChainPhaseArrayOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceParsedPatternOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceParsedPatternArrayOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceParsedPatternTypeValueOutput{})
+	pulumi.RegisterOutputType(ThreatIntelligenceParsedPatternTypeValueArrayOutput{})
 	pulumi.RegisterOutputType(WatchlistUserInfoOutput{})
 	pulumi.RegisterOutputType(WatchlistUserInfoPtrOutput{})
 	pulumi.RegisterOutputType(WatchlistUserInfoResponseOutput{})

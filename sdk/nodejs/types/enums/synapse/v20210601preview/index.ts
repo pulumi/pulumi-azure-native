@@ -254,6 +254,7 @@ export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 export const ResourceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**

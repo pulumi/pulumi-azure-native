@@ -7710,6 +7710,8 @@ func (o LinkedIntegrationRuntimeResponseArrayOutput) Index(i pulumi.IntInput) Li
 type ManagedIdentity struct {
 	// The type of managed identity for the workspace
 	Type *string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -7727,6 +7729,8 @@ type ManagedIdentityInput interface {
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the workspace
 	Type *ResourceIdentityType `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -7812,6 +7816,11 @@ func (o ManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The user assigned managed identities.
+func (o ManagedIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ManagedIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPtrOutput) ElementType() reflect.Type {
@@ -7840,6 +7849,16 @@ func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The user assigned managed identities.
+func (o ManagedIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ManagedIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
 // The workspace managed identity
 type ManagedIdentityResponse struct {
 	// The principal ID of the workspace managed identity
@@ -7848,6 +7867,8 @@ type ManagedIdentityResponse struct {
 	TenantId string `pulumi:"tenantId"`
 	// The type of managed identity for the workspace
 	Type *string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities map[string]UserAssignedManagedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityResponseInput is an input type that accepts ManagedIdentityResponseArgs and ManagedIdentityResponseOutput values.
@@ -7869,6 +7890,8 @@ type ManagedIdentityResponseArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// The type of managed identity for the workspace
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities UserAssignedManagedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityResponseArgs) ElementType() reflect.Type {
@@ -7964,6 +7987,13 @@ func (o ManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentityResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// The user assigned managed identities.
+func (o ManagedIdentityResponseOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
+}
+
 type ManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityResponsePtrOutput) ElementType() reflect.Type {
@@ -8010,6 +8040,16 @@ func (o ManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned managed identities.
+func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
 }
 
 // Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
@@ -13588,6 +13628,115 @@ func (o TableLevelSharingPropertiesResponsePtrOutput) TablesToInclude() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
+// User Assigned Managed Identity
+type UserAssignedManagedIdentityResponse struct {
+	// The client ID.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// UserAssignedManagedIdentityResponseInput is an input type that accepts UserAssignedManagedIdentityResponseArgs and UserAssignedManagedIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedManagedIdentityResponseInput` via:
+//
+//          UserAssignedManagedIdentityResponseArgs{...}
+type UserAssignedManagedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedManagedIdentityResponseOutput() UserAssignedManagedIdentityResponseOutput
+	ToUserAssignedManagedIdentityResponseOutputWithContext(context.Context) UserAssignedManagedIdentityResponseOutput
+}
+
+// User Assigned Managed Identity
+type UserAssignedManagedIdentityResponseArgs struct {
+	// The client ID.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal ID.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedManagedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedManagedIdentityResponseArgs) ToUserAssignedManagedIdentityResponseOutput() UserAssignedManagedIdentityResponseOutput {
+	return i.ToUserAssignedManagedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedManagedIdentityResponseArgs) ToUserAssignedManagedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedManagedIdentityResponseOutput)
+}
+
+// UserAssignedManagedIdentityResponseMapInput is an input type that accepts UserAssignedManagedIdentityResponseMap and UserAssignedManagedIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedManagedIdentityResponseMapInput` via:
+//
+//          UserAssignedManagedIdentityResponseMap{ "key": UserAssignedManagedIdentityResponseArgs{...} }
+type UserAssignedManagedIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedManagedIdentityResponseMapOutput() UserAssignedManagedIdentityResponseMapOutput
+	ToUserAssignedManagedIdentityResponseMapOutputWithContext(context.Context) UserAssignedManagedIdentityResponseMapOutput
+}
+
+type UserAssignedManagedIdentityResponseMap map[string]UserAssignedManagedIdentityResponseInput
+
+func (UserAssignedManagedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedManagedIdentityResponseMap) ToUserAssignedManagedIdentityResponseMapOutput() UserAssignedManagedIdentityResponseMapOutput {
+	return i.ToUserAssignedManagedIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedManagedIdentityResponseMap) ToUserAssignedManagedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedManagedIdentityResponseMapOutput)
+}
+
+// User Assigned Managed Identity
+type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutput() UserAssignedManagedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseOutput {
+	return o
+}
+
+// The client ID.
+func (o UserAssignedManagedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID.
+func (o UserAssignedManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedManagedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutput() UserAssignedManagedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedManagedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedManagedIdentityResponse {
+		return vs[0].(map[string]UserAssignedManagedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedManagedIdentityResponseOutput)
+}
+
 // Virtual Network Profile
 type VirtualNetworkProfile struct {
 	// Subnet ID used for computes in workspace
@@ -15250,6 +15399,8 @@ func init() {
 	pulumi.RegisterOutputType(TableLevelSharingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TableLevelSharingPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})

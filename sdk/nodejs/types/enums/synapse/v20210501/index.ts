@@ -95,6 +95,7 @@ export type NodeSizeFamily = (typeof NodeSizeFamily)[keyof typeof NodeSizeFamily
 export const ResourceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**

@@ -1536,6 +1536,8 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 type StorageProfile struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// A value indicating whether Geo-Redundant backup is enabled on the server.
+	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server.
 	StorageMB *int `pulumi:"storageMB"`
 }
@@ -1555,6 +1557,8 @@ type StorageProfileInput interface {
 type StorageProfileArgs struct {
 	// Backup retention days for the server.
 	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
+	// A value indicating whether Geo-Redundant backup is enabled on the server.
+	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server.
 	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
 }
@@ -1642,6 +1646,11 @@ func (o StorageProfileOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
+// A value indicating whether Geo-Redundant backup is enabled on the server.
+func (o StorageProfileOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfile) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+}
+
 // Max storage allowed for a server.
 func (o StorageProfileOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfile) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
@@ -1675,6 +1684,16 @@ func (o StorageProfilePtrOutput) BackupRetentionDays() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A value indicating whether Geo-Redundant backup is enabled on the server.
+func (o StorageProfilePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRedundantBackup
+	}).(pulumi.StringPtrOutput)
+}
+
 // Max storage allowed for a server.
 func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) *int {
@@ -1689,6 +1708,10 @@ func (o StorageProfilePtrOutput) StorageMB() pulumi.IntPtrOutput {
 type StorageProfileResponse struct {
 	// Backup retention days for the server.
 	BackupRetentionDays *int `pulumi:"backupRetentionDays"`
+	// The earliest restore point time (ISO8601 format) for server.
+	EarliestRestoreDate string `pulumi:"earliestRestoreDate"`
+	// A value indicating whether Geo-Redundant backup is enabled on the server.
+	GeoRedundantBackup *string `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server.
 	StorageMB *int `pulumi:"storageMB"`
 }
@@ -1708,6 +1731,10 @@ type StorageProfileResponseInput interface {
 type StorageProfileResponseArgs struct {
 	// Backup retention days for the server.
 	BackupRetentionDays pulumi.IntPtrInput `pulumi:"backupRetentionDays"`
+	// The earliest restore point time (ISO8601 format) for server.
+	EarliestRestoreDate pulumi.StringInput `pulumi:"earliestRestoreDate"`
+	// A value indicating whether Geo-Redundant backup is enabled on the server.
+	GeoRedundantBackup pulumi.StringPtrInput `pulumi:"geoRedundantBackup"`
 	// Max storage allowed for a server.
 	StorageMB pulumi.IntPtrInput `pulumi:"storageMB"`
 }
@@ -1795,6 +1822,16 @@ func (o StorageProfileResponseOutput) BackupRetentionDays() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.BackupRetentionDays }).(pulumi.IntPtrOutput)
 }
 
+// The earliest restore point time (ISO8601 format) for server.
+func (o StorageProfileResponseOutput) EarliestRestoreDate() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageProfileResponse) string { return v.EarliestRestoreDate }).(pulumi.StringOutput)
+}
+
+// A value indicating whether Geo-Redundant backup is enabled on the server.
+func (o StorageProfileResponseOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageProfileResponse) *string { return v.GeoRedundantBackup }).(pulumi.StringPtrOutput)
+}
+
 // Max storage allowed for a server.
 func (o StorageProfileResponseOutput) StorageMB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageProfileResponse) *int { return v.StorageMB }).(pulumi.IntPtrOutput)
@@ -1826,6 +1863,26 @@ func (o StorageProfileResponsePtrOutput) BackupRetentionDays() pulumi.IntPtrOutp
 		}
 		return v.BackupRetentionDays
 	}).(pulumi.IntPtrOutput)
+}
+
+// The earliest restore point time (ISO8601 format) for server.
+func (o StorageProfileResponsePtrOutput) EarliestRestoreDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EarliestRestoreDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// A value indicating whether Geo-Redundant backup is enabled on the server.
+func (o StorageProfileResponsePtrOutput) GeoRedundantBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GeoRedundantBackup
+	}).(pulumi.StringPtrOutput)
 }
 
 // Max storage allowed for a server.

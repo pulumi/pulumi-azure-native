@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.Inputs
         public Input<int>? BackupRetentionDays { get; set; }
 
         /// <summary>
+        /// A value indicating whether Geo-Redundant backup is enabled on the server.
+        /// </summary>
+        [Input("geoRedundantBackup")]
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview.GeoRedundantBackupEnum>? GeoRedundantBackup { get; set; }
+
+        /// <summary>
         /// Max storage allowed for a server.
         /// </summary>
         [Input("storageMB")]

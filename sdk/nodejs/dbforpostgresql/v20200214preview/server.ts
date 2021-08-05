@@ -73,9 +73,17 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The log backup storage sku of the server.
+     */
+    public readonly logBackupStorageSku!: pulumi.Output<string | undefined>;
+    /**
      * Maintenance window of a server.
      */
     public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.v20200214preview.MaintenanceWindowResponse | undefined>;
+    /**
+     * The minor version of the server.
+     */
+    public /*out*/ readonly minorVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -109,6 +117,10 @@ export class Server extends pulumi.CustomResource {
      * availability Zone information of the server.
      */
     public /*out*/ readonly standbyAvailabilityZone!: pulumi.Output<string>;
+    /**
+     * The number of standbys.
+     */
+    public readonly standbyCount!: pulumi.Output<number | undefined>;
     /**
      * A state of a server that is visible to user.
      */
@@ -153,6 +165,7 @@ export class Server extends pulumi.CustomResource {
             inputs["haEnabled"] = args ? args.haEnabled : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logBackupStorageSku"] = args ? args.logBackupStorageSku : undefined;
             inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
             inputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
@@ -162,12 +175,14 @@ export class Server extends pulumi.CustomResource {
             inputs["sourceResourceGroupName"] = args ? args.sourceResourceGroupName : undefined;
             inputs["sourceServerName"] = args ? args.sourceServerName : undefined;
             inputs["sourceSubscriptionId"] = args ? args.sourceSubscriptionId : undefined;
+            inputs["standbyCount"] = args ? args.standbyCount : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["byokEnforcement"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["haState"] = undefined /*out*/;
+            inputs["minorVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["standbyAvailabilityZone"] = undefined /*out*/;
@@ -184,7 +199,9 @@ export class Server extends pulumi.CustomResource {
             inputs["haState"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["logBackupStorageSku"] = undefined /*out*/;
             inputs["maintenanceWindow"] = undefined /*out*/;
+            inputs["minorVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["pointInTimeUTC"] = undefined /*out*/;
             inputs["privateDnsZoneArguments"] = undefined /*out*/;
@@ -194,6 +211,7 @@ export class Server extends pulumi.CustomResource {
             inputs["sourceServerName"] = undefined /*out*/;
             inputs["sourceSubscriptionId"] = undefined /*out*/;
             inputs["standbyAvailabilityZone"] = undefined /*out*/;
+            inputs["standbyCount"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["storageProfile"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -247,6 +265,10 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The log backup storage sku of the server.
+     */
+    logBackupStorageSku?: pulumi.Input<string>;
+    /**
      * Maintenance window of a server.
      */
     maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.v20200214preview.MaintenanceWindowArgs>;
@@ -279,6 +301,10 @@ export interface ServerArgs {
      * The subscription id of source serve PostgreSQL server name to restore from.
      */
     sourceSubscriptionId?: pulumi.Input<string>;
+    /**
+     * The number of standbys.
+     */
+    standbyCount?: pulumi.Input<number>;
     /**
      * Storage profile of a server.
      */

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IncidentComment{}
 	case "azure-native:securityinsights/v20210401:IncidentRelation":
 		r = &IncidentRelation{}
+	case "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator":
+		r = &ThreatIntelligenceIndicator{}
 	case "azure-native:securityinsights/v20210401:Watchlist":
 		r = &Watchlist{}
 	case "azure-native:securityinsights/v20210401:WatchlistItem":

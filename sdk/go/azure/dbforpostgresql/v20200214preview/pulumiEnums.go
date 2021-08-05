@@ -38,6 +38,34 @@ func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+// A value indicating whether Geo-Redundant backup is enabled on the server.
+type GeoRedundantBackupEnum pulumi.String
+
+const (
+	GeoRedundantBackupEnumEnabled  = GeoRedundantBackupEnum("Enabled")
+	GeoRedundantBackupEnumDisabled = GeoRedundantBackupEnum("Disabled")
+)
+
+func (GeoRedundantBackupEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e GeoRedundantBackupEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GeoRedundantBackupEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GeoRedundantBackupEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GeoRedundantBackupEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
 // stand by count value can be either enabled or disabled
 type HAEnabledEnum pulumi.String
 

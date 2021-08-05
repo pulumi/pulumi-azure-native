@@ -47,8 +47,12 @@ type LookupServerResult struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The log backup storage sku of the server.
+	LogBackupStorageSku *string `pulumi:"logBackupStorageSku"`
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
+	// The minor version of the server.
+	MinorVersion string `pulumi:"minorVersion"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -66,6 +70,8 @@ type LookupServerResult struct {
 	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// availability Zone information of the server.
 	StandbyAvailabilityZone string `pulumi:"standbyAvailabilityZone"`
+	// The number of standbys.
+	StandbyCount *int `pulumi:"standbyCount"`
 	// A state of a server that is visible to user.
 	State string `pulumi:"state"`
 	// Storage profile of a server.

@@ -101,6 +101,7 @@ class ResourceIdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class SensitivityLabelRank(str, Enum):

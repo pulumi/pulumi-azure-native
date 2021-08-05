@@ -34,8 +34,12 @@ type Server struct {
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The log backup storage sku of the server.
+	LogBackupStorageSku pulumi.StringPtrOutput `pulumi:"logBackupStorageSku"`
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowResponsePtrOutput `pulumi:"maintenanceWindow"`
+	// The minor version of the server.
+	MinorVersion pulumi.StringOutput `pulumi:"minorVersion"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -53,6 +57,8 @@ type Server struct {
 	SourceSubscriptionId pulumi.StringPtrOutput `pulumi:"sourceSubscriptionId"`
 	// availability Zone information of the server.
 	StandbyAvailabilityZone pulumi.StringOutput `pulumi:"standbyAvailabilityZone"`
+	// The number of standbys.
+	StandbyCount pulumi.IntPtrOutput `pulumi:"standbyCount"`
 	// A state of a server that is visible to user.
 	State pulumi.StringOutput `pulumi:"state"`
 	// Storage profile of a server.
@@ -152,8 +158,12 @@ type serverState struct {
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The log backup storage sku of the server.
+	LogBackupStorageSku *string `pulumi:"logBackupStorageSku"`
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
+	// The minor version of the server.
+	MinorVersion *string `pulumi:"minorVersion"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -171,6 +181,8 @@ type serverState struct {
 	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
 	// availability Zone information of the server.
 	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
+	// The number of standbys.
+	StandbyCount *int `pulumi:"standbyCount"`
 	// A state of a server that is visible to user.
 	State *string `pulumi:"state"`
 	// Storage profile of a server.
@@ -203,8 +215,12 @@ type ServerState struct {
 	Identity IdentityResponsePtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The log backup storage sku of the server.
+	LogBackupStorageSku pulumi.StringPtrInput
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowResponsePtrInput
+	// The minor version of the server.
+	MinorVersion pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -222,6 +238,8 @@ type ServerState struct {
 	SourceSubscriptionId pulumi.StringPtrInput
 	// availability Zone information of the server.
 	StandbyAvailabilityZone pulumi.StringPtrInput
+	// The number of standbys.
+	StandbyCount pulumi.IntPtrInput
 	// A state of a server that is visible to user.
 	State pulumi.StringPtrInput
 	// Storage profile of a server.
@@ -256,6 +274,8 @@ type serverArgs struct {
 	Identity *Identity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The log backup storage sku of the server.
+	LogBackupStorageSku *string `pulumi:"logBackupStorageSku"`
 	// Maintenance window of a server.
 	MaintenanceWindow *MaintenanceWindow `pulumi:"maintenanceWindow"`
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -273,6 +293,8 @@ type serverArgs struct {
 	SourceServerName *string `pulumi:"sourceServerName"`
 	// The subscription id of source serve PostgreSQL server name to restore from.
 	SourceSubscriptionId *string `pulumi:"sourceSubscriptionId"`
+	// The number of standbys.
+	StandbyCount *int `pulumi:"standbyCount"`
 	// Storage profile of a server.
 	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Resource tags.
@@ -300,6 +322,8 @@ type ServerArgs struct {
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The log backup storage sku of the server.
+	LogBackupStorageSku pulumi.StringPtrInput
 	// Maintenance window of a server.
 	MaintenanceWindow MaintenanceWindowPtrInput
 	// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -317,6 +341,8 @@ type ServerArgs struct {
 	SourceServerName pulumi.StringPtrInput
 	// The subscription id of source serve PostgreSQL server name to restore from.
 	SourceSubscriptionId pulumi.StringPtrInput
+	// The number of standbys.
+	StandbyCount pulumi.IntPtrInput
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput
 	// Resource tags.

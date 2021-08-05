@@ -248,8 +248,9 @@ func (e NodeSizeFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi
 type ResourceIdentityType pulumi.String
 
 const (
-	ResourceIdentityTypeNone           = ResourceIdentityType("None")
-	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityTypeNone                         = ResourceIdentityType("None")
+	ResourceIdentityTypeSystemAssigned               = ResourceIdentityType("SystemAssigned")
+	ResourceIdentityType_SystemAssigned_UserAssigned = ResourceIdentityType("SystemAssigned,UserAssigned")
 )
 
 func (ResourceIdentityType) ElementType() reflect.Type {

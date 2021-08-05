@@ -84,9 +84,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The log backup storage sku of the server.
+        /// </summary>
+        public readonly string? LogBackupStorageSku;
+        /// <summary>
         /// Maintenance window of a server.
         /// </summary>
         public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
+        /// <summary>
+        /// The minor version of the server.
+        /// </summary>
+        public readonly string MinorVersion;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -120,6 +128,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// availability Zone information of the server.
         /// </summary>
         public readonly string StandbyAvailabilityZone;
+        /// <summary>
+        /// The number of standbys.
+        /// </summary>
+        public readonly int? StandbyCount;
         /// <summary>
         /// A state of a server that is visible to user.
         /// </summary>
@@ -165,7 +177,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
 
             string location,
 
+            string? logBackupStorageSku,
+
             Outputs.MaintenanceWindowResponse? maintenanceWindow,
+
+            string minorVersion,
 
             string name,
 
@@ -184,6 +200,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
             string? sourceSubscriptionId,
 
             string standbyAvailabilityZone,
+
+            int? standbyCount,
 
             string state,
 
@@ -206,7 +224,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
             Id = id;
             Identity = identity;
             Location = location;
+            LogBackupStorageSku = logBackupStorageSku;
             MaintenanceWindow = maintenanceWindow;
+            MinorVersion = minorVersion;
             Name = name;
             PointInTimeUTC = pointInTimeUTC;
             PrivateDnsZoneArguments = privateDnsZoneArguments;
@@ -216,6 +236,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
             SourceServerName = sourceServerName;
             SourceSubscriptionId = sourceSubscriptionId;
             StandbyAvailabilityZone = standbyAvailabilityZone;
+            StandbyCount = standbyCount;
             State = state;
             StorageProfile = storageProfile;
             Tags = tags;

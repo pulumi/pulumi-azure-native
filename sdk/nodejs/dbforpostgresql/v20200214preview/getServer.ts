@@ -79,9 +79,17 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
+     * The log backup storage sku of the server.
+     */
+    readonly logBackupStorageSku?: string;
+    /**
      * Maintenance window of a server.
      */
     readonly maintenanceWindow?: outputs.dbforpostgresql.v20200214preview.MaintenanceWindowResponse;
+    /**
+     * The minor version of the server.
+     */
+    readonly minorVersion: string;
     /**
      * The name of the resource
      */
@@ -115,6 +123,10 @@ export interface GetServerResult {
      * availability Zone information of the server.
      */
     readonly standbyAvailabilityZone: string;
+    /**
+     * The number of standbys.
+     */
+    readonly standbyCount?: number;
     /**
      * A state of a server that is visible to user.
      */

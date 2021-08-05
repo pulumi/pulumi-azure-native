@@ -73,10 +73,22 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The log backup storage sku of the server.
+        /// </summary>
+        [Output("logBackupStorageSku")]
+        public Output<string?> LogBackupStorageSku { get; private set; } = null!;
+
+        /// <summary>
         /// Maintenance window of a server.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// The minor version of the server.
+        /// </summary>
+        [Output("minorVersion")]
+        public Output<string> MinorVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -128,6 +140,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// </summary>
         [Output("standbyAvailabilityZone")]
         public Output<string> StandbyAvailabilityZone { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of standbys.
+        /// </summary>
+        [Output("standbyCount")]
+        public Output<int?> StandbyCount { get; private set; } = null!;
 
         /// <summary>
         /// A state of a server that is visible to user.
@@ -270,6 +288,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The log backup storage sku of the server.
+        /// </summary>
+        [Input("logBackupStorageSku")]
+        public Input<string>? LogBackupStorageSku { get; set; }
+
+        /// <summary>
         /// Maintenance window of a server.
         /// </summary>
         [Input("maintenanceWindow")]
@@ -319,6 +343,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
         /// </summary>
         [Input("sourceSubscriptionId")]
         public Input<string>? SourceSubscriptionId { get; set; }
+
+        /// <summary>
+        /// The number of standbys.
+        /// </summary>
+        [Input("standbyCount")]
+        public Input<int>? StandbyCount { get; set; }
 
         /// <summary>
         /// Storage profile of a server.

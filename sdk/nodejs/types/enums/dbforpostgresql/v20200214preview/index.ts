@@ -12,6 +12,16 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
+export const GeoRedundantBackupEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * A value indicating whether Geo-Redundant backup is enabled on the server.
+ */
+export type GeoRedundantBackupEnum = (typeof GeoRedundantBackupEnum)[keyof typeof GeoRedundantBackupEnum];
+
 export const HAEnabledEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",

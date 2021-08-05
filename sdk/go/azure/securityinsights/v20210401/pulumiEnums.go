@@ -171,3 +171,31 @@ func (e Source) ToStringPtrOutput() pulumi.StringPtrOutput {
 func (e Source) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
+
+// The kind of the entity.
+type ThreatIntelligenceResourceInnerKind pulumi.String
+
+const (
+	// Entity represents threat intelligence indicator in the system.
+	ThreatIntelligenceResourceInnerKindIndicator = ThreatIntelligenceResourceInnerKind("indicator")
+)
+
+func (ThreatIntelligenceResourceInnerKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+}
+
+func (e ThreatIntelligenceResourceInnerKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThreatIntelligenceResourceInnerKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThreatIntelligenceResourceInnerKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThreatIntelligenceResourceInnerKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}

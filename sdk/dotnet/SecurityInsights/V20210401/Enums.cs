@@ -213,4 +213,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The kind of the entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ThreatIntelligenceResourceInnerKind : IEquatable<ThreatIntelligenceResourceInnerKind>
+    {
+        private readonly string _value;
+
+        private ThreatIntelligenceResourceInnerKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Entity represents threat intelligence indicator in the system.
+        /// </summary>
+        public static ThreatIntelligenceResourceInnerKind Indicator { get; } = new ThreatIntelligenceResourceInnerKind("indicator");
+
+        public static bool operator ==(ThreatIntelligenceResourceInnerKind left, ThreatIntelligenceResourceInnerKind right) => left.Equals(right);
+        public static bool operator !=(ThreatIntelligenceResourceInnerKind left, ThreatIntelligenceResourceInnerKind right) => !left.Equals(right);
+
+        public static explicit operator string(ThreatIntelligenceResourceInnerKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThreatIntelligenceResourceInnerKind other && Equals(other);
+        public bool Equals(ThreatIntelligenceResourceInnerKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }
