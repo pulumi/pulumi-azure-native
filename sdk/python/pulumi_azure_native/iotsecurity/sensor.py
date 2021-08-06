@@ -181,7 +181,7 @@ class Sensor(pulumi.CustomResource):
             __props__.__dict__["ti_status"] = None
             __props__.__dict__["ti_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotsecurity:Sensor"), pulumi.Alias(type_="azure-native:iotsecurity/v20210201preview:Sensor"), pulumi.Alias(type_="azure-nextgen:iotsecurity/v20210201preview:Sensor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotsecurity:Sensor"), pulumi.Alias(type_="azure-native:iotsecurity/v20210201preview:Sensor"), pulumi.Alias(type_="azure-nextgen:iotsecurity/v20210201preview:Sensor"), pulumi.Alias(type_="azure-native:iotsecurity/v20210901preview:Sensor"), pulumi.Alias(type_="azure-nextgen:iotsecurity/v20210901preview:Sensor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Sensor, __self__).__init__(
             'azure-native:iotsecurity:Sensor',

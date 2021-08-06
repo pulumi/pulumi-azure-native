@@ -9,29 +9,37 @@ export * from "./defenderSetting";
 export * from "./deviceGroup";
 export * from "./getDefenderSetting";
 export * from "./getDeviceGroup";
+export * from "./getLocationSite";
 export * from "./getOnPremiseSensor";
 export * from "./getSensor";
 export * from "./getSite";
+export * from "./getSiteSensor";
+export * from "./locationSite";
 export * from "./onPremiseSensor";
 export * from "./sensor";
 export * from "./site";
+export * from "./siteSensor";
 
 // Export enums:
 export * from "../types/enums/iotsecurity";
 
 // Export sub-modules:
 import * as v20210201preview from "./v20210201preview";
+import * as v20210901preview from "./v20210901preview";
 
 export {
     v20210201preview,
+    v20210901preview,
 };
 
 // Import resources to register:
 import { DefenderSetting } from "./defenderSetting";
 import { DeviceGroup } from "./deviceGroup";
+import { LocationSite } from "./locationSite";
 import { OnPremiseSensor } from "./onPremiseSensor";
 import { Sensor } from "./sensor";
 import { Site } from "./site";
+import { SiteSensor } from "./siteSensor";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,12 +49,16 @@ const _module = {
                 return new DefenderSetting(name, <any>undefined, { urn })
             case "azure-native:iotsecurity:DeviceGroup":
                 return new DeviceGroup(name, <any>undefined, { urn })
+            case "azure-native:iotsecurity:LocationSite":
+                return new LocationSite(name, <any>undefined, { urn })
             case "azure-native:iotsecurity:OnPremiseSensor":
                 return new OnPremiseSensor(name, <any>undefined, { urn })
             case "azure-native:iotsecurity:Sensor":
                 return new Sensor(name, <any>undefined, { urn })
             case "azure-native:iotsecurity:Site":
                 return new Site(name, <any>undefined, { urn })
+            case "azure-native:iotsecurity:SiteSensor":
+                return new SiteSensor(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -3,8 +3,20 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New resources
+
+- `iotsecurity.LocationSite`
+- `iotsecurity.SiteSensor`
+
+#### New functions
+
+- `iotsecurity.getLocationSite`
+- `iotsecurity.getSiteSensor`
+
+#### Enhancements
+
 - Support initialization failures by checkpointing partially created resources to state
-  [938](https://github.com/pulumi/pulumi-azure-native/issues/938)
+  [#938](https://github.com/pulumi/pulumi-azure-native/issues/938)
 
 #### Breaking Changes published by Microsoft:
 
@@ -22,7 +34,7 @@ CHANGELOG
 #### Enhancements:
 
 - Updates Authorization::RoleAssignment to force replace on principalId or scope change
-  [771](https://github.com/pulumi/pulumi-azure-native/issues/771)
+  [#771](https://github.com/pulumi/pulumi-azure-native/issues/771)
 
 #### New resources:
 

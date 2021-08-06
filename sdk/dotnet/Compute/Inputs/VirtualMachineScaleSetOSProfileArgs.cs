@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         private InputList<Inputs.VaultSecretGroupArgs>? _secrets;
 
         /// <summary>
-        /// Specifies set of certificates that should be installed onto the virtual machines in the scale set.
+        /// Specifies set of certificates that should be installed onto the virtual machines in the scale set. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
         /// </summary>
         public InputList<Inputs.VaultSecretGroupArgs> Secrets
         {

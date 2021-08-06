@@ -63,6 +63,12 @@ func NewSensor(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:iotsecurity:Sensor"),
 		},
+		{
+			Type: pulumi.String("azure-native:iotsecurity/v20210901preview:Sensor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:iotsecurity/v20210901preview:Sensor"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Sensor

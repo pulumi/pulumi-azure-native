@@ -7594,9 +7594,11 @@ _utilities.register(
   "classes": {
    "azure-native:iotsecurity:DefenderSetting": "DefenderSetting",
    "azure-native:iotsecurity:DeviceGroup": "DeviceGroup",
+   "azure-native:iotsecurity:LocationSite": "LocationSite",
    "azure-native:iotsecurity:OnPremiseSensor": "OnPremiseSensor",
    "azure-native:iotsecurity:Sensor": "Sensor",
-   "azure-native:iotsecurity:Site": "Site"
+   "azure-native:iotsecurity:Site": "Site",
+   "azure-native:iotsecurity:SiteSensor": "SiteSensor"
   }
  },
  {
@@ -7609,6 +7611,17 @@ _utilities.register(
    "azure-native:iotsecurity/v20210201preview:OnPremiseSensor": "OnPremiseSensor",
    "azure-native:iotsecurity/v20210201preview:Sensor": "Sensor",
    "azure-native:iotsecurity/v20210201preview:Site": "Site"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "iotsecurity/v20210901preview",
+  "fqn": "pulumi_azure_native.iotsecurity.v20210901preview",
+  "classes": {
+   "azure-native:iotsecurity/v20210901preview:LocationSite": "LocationSite",
+   "azure-native:iotsecurity/v20210901preview:Sensor": "Sensor",
+   "azure-native:iotsecurity/v20210901preview:Site": "Site",
+   "azure-native:iotsecurity/v20210901preview:SiteSensor": "SiteSensor"
   }
  },
  {

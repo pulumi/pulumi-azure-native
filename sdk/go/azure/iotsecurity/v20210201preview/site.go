@@ -50,6 +50,12 @@ func NewSite(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:iotsecurity:Site"),
 		},
+		{
+			Type: pulumi.String("azure-native:iotsecurity/v20210901preview:Site"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:iotsecurity/v20210901preview:Site"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Site
