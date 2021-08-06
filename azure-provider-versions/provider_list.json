@@ -87242,6 +87242,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2020-04-30",
           "2019-12-31-preview"
         ],
@@ -87256,6 +87257,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2020-04-30"
         ],
         "capabilities": "None",
@@ -87300,6 +87302,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2020-04-30"
         ],
         "capabilities": "None",
@@ -87388,6 +87391,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-09-01-preview",
           "2020-04-30",
           "2019-12-31-preview"
         ],
@@ -93936,8 +93940,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -93961,8 +93964,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -93986,8 +93988,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94011,8 +94012,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94036,8 +94036,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -94054,8 +94053,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -94082,8 +94080,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -94098,8 +94095,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -94114,8 +94110,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94139,8 +94134,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94164,8 +94158,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -94180,8 +94173,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94207,8 +94199,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94234,8 +94225,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94261,8 +94251,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94288,8 +94277,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94315,8 +94303,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
@@ -94342,8 +94329,7 @@
         "apiVersions": [
           "2021-02-01-preview",
           "2021-01-01-preview",
-          "2020-12-01-preview",
-          "2019-09-01-preview"
+          "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
