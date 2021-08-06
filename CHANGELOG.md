@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.20.0 (2021-08-06)
+
 #### New resources
 
 - `iotsecurity.LocationSite`
@@ -26,8 +32,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15264))
 - Version `2020-08-06-preview` of the `security` module is deprecated, all resource removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15434))
-
----
 
 ## 1.19.0 (2021-07-22)
 
