@@ -3026,6 +3026,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3081,6 +3082,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3173,6 +3175,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3229,6 +3232,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -50768,6 +50772,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01",
           "2021-03-01",
           "2017-07-01",
           "2016-06-01"
@@ -50788,6 +50793,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01",
           "2021-03-01",
           "2017-07-01",
           "2016-06-01"
@@ -51002,6 +51008,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01",
           "2021-03-01",
           "2017-07-01"
         ],
@@ -51056,6 +51063,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01",
           "2021-03-01",
           "2017-07-01"
         ],
@@ -65313,7 +65321,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "configurationStores"
@@ -65355,7 +65364,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "configurationStores/keyValues"
@@ -65401,7 +65411,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "configurationStores/eventGridFilters"
@@ -65447,7 +65458,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -65493,7 +65505,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -65539,7 +65552,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus"
@@ -65585,7 +65599,8 @@
           "UAE North",
           "Norway East",
           "South Africa North",
-          "UK West"
+          "UK West",
+          "Japan West"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -90875,7 +90890,8 @@
           "Japan East",
           "North Europe",
           "UK South",
-          "Southeast Asia"
+          "Southeast Asia",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "diskPools"
@@ -90900,7 +90916,8 @@
           "Japan East",
           "North Europe",
           "UK South",
-          "Southeast Asia"
+          "Southeast Asia",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "diskPools/iscsiTargets"
@@ -90939,7 +90956,8 @@
           "Japan East",
           "North Europe",
           "UK South",
-          "Southeast Asia"
+          "Southeast Asia",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "locations/operationResults"
@@ -90964,7 +90982,8 @@
           "Japan East",
           "North Europe",
           "UK South",
-          "Southeast Asia"
+          "Southeast Asia",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "locations/operationsStatus"
@@ -90988,7 +91007,8 @@
           "Japan East",
           "North Europe",
           "UK South",
-          "Southeast Asia"
+          "Southeast Asia",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "locations/diskPoolZones"
