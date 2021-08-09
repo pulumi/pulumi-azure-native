@@ -50,7 +50,7 @@ type BigDataPool struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled pulumi.BoolPtrOutput `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties LibraryRequirementsResponsePtrOutput `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties SparkConfigPropertiesResponsePtrOutput `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrOutput `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -173,7 +173,7 @@ type bigDataPoolState struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties *SparkConfigPropertiesResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -220,7 +220,7 @@ type BigDataPoolState struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties LibraryRequirementsResponsePtrInput
+	SparkConfigProperties SparkConfigPropertiesResponsePtrInput
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrInput
 	// The Apache Spark version.
@@ -273,7 +273,7 @@ type bigDataPoolArgs struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirements `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties *SparkConfigProperties `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.
@@ -323,7 +323,7 @@ type BigDataPoolArgs struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled pulumi.BoolPtrInput
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties LibraryRequirementsPtrInput
+	SparkConfigProperties SparkConfigPropertiesPtrInput
 	// The Spark events folder
 	SparkEventsFolder pulumi.StringPtrInput
 	// The Apache Spark version.

@@ -8,7 +8,7 @@ import (
 )
 
 // The Network Security Perimeter resource
-// API Version: 2021-03-01-preview.
+// API Version: 2021-02-01-preview.
 func LookupNetworkSecurityPerimeter(ctx *pulumi.Context, args *LookupNetworkSecurityPerimeterArgs, opts ...pulumi.InvokeOption) (*LookupNetworkSecurityPerimeterResult, error) {
 	var rv LookupNetworkSecurityPerimeterResult
 	err := ctx.Invoke("azure-native:network:getNetworkSecurityPerimeter", args, &rv, opts...)

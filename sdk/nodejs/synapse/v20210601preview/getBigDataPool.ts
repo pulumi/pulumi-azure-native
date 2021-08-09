@@ -117,7 +117,7 @@ export interface GetBigDataPoolResult {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: outputs.synapse.v20210601preview.LibraryRequirementsResponse;
+    readonly sparkConfigProperties?: outputs.synapse.v20210601preview.SparkConfigPropertiesResponse;
     /**
      * The Spark events folder
      */

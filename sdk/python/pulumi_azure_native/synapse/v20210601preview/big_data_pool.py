@@ -35,7 +35,7 @@ class BigDataPoolArgs:
                  node_size_family: Optional[pulumi.Input[Union[str, 'NodeSizeFamily']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input['LibraryRequirementsArgs']] = None,
+                 spark_config_properties: Optional[pulumi.Input['SparkConfigPropertiesArgs']] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -60,7 +60,7 @@ class BigDataPoolArgs:
         :param pulumi.Input[Union[str, 'NodeSizeFamily']] node_size_family: The kind of nodes that the Big Data pool provides.
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[bool] session_level_packages_enabled: Whether session level packages enabled.
-        :param pulumi.Input['LibraryRequirementsArgs'] spark_config_properties: Spark configuration file to specify additional properties
+        :param pulumi.Input['SparkConfigPropertiesArgs'] spark_config_properties: Spark configuration file to specify additional properties
         :param pulumi.Input[str] spark_events_folder: The Spark events folder
         :param pulumi.Input[str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -340,14 +340,14 @@ class BigDataPoolArgs:
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional[pulumi.Input['LibraryRequirementsArgs']]:
+    def spark_config_properties(self) -> Optional[pulumi.Input['SparkConfigPropertiesArgs']]:
         """
         Spark configuration file to specify additional properties
         """
         return pulumi.get(self, "spark_config_properties")
 
     @spark_config_properties.setter
-    def spark_config_properties(self, value: Optional[pulumi.Input['LibraryRequirementsArgs']]):
+    def spark_config_properties(self, value: Optional[pulumi.Input['SparkConfigPropertiesArgs']]):
         pulumi.set(self, "spark_config_properties", value)
 
     @property
@@ -410,7 +410,7 @@ class BigDataPool(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
+                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['SparkConfigPropertiesArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -439,7 +439,7 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] session_level_packages_enabled: Whether session level packages enabled.
-        :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] spark_config_properties: Spark configuration file to specify additional properties
+        :param pulumi.Input[pulumi.InputType['SparkConfigPropertiesArgs']] spark_config_properties: Spark configuration file to specify additional properties
         :param pulumi.Input[str] spark_events_folder: The Spark events folder
         :param pulumi.Input[str] spark_version: The Apache Spark version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -487,7 +487,7 @@ class BigDataPool(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
-                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
+                 spark_config_properties: Optional[pulumi.Input[pulumi.InputType['SparkConfigPropertiesArgs']]] = None,
                  spark_events_folder: Optional[pulumi.Input[str]] = None,
                  spark_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -720,7 +720,7 @@ class BigDataPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> pulumi.Output[Optional['outputs.LibraryRequirementsResponse']]:
+    def spark_config_properties(self) -> pulumi.Output[Optional['outputs.SparkConfigPropertiesResponse']]:
         """
         Spark configuration file to specify additional properties
         """

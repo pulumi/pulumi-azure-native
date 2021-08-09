@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Inputs
         public Input<string>? Subnet { get; set; }
 
         /// <summary>
+        /// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
+        /// <summary>
         /// The ID of the VNet that this integration runtime will join.
         /// </summary>
         [Input("vNetId")]

@@ -12,7 +12,7 @@ import (
 )
 
 // Resource information with extended details.
-// API Version: 2021-04-01-preview.
+// API Version: 2021-06-01-preview.
 type ManagedHsm struct {
 	pulumi.CustomResourceState
 

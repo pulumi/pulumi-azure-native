@@ -121,7 +121,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Spark configuration file to specify additional properties
         /// </summary>
         [Output("sparkConfigProperties")]
-        public Output<Outputs.LibraryRequirementsResponse?> SparkConfigProperties { get; private set; } = null!;
+        public Output<Outputs.SparkConfigPropertiesResponse?> SparkConfigProperties { get; private set; } = null!;
 
         /// <summary>
         /// The Spark events folder
@@ -326,7 +326,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// Spark configuration file to specify additional properties
         /// </summary>
         [Input("sparkConfigProperties")]
-        public Input<Inputs.LibraryRequirementsArgs>? SparkConfigProperties { get; set; }
+        public Input<Inputs.SparkConfigPropertiesArgs>? SparkConfigProperties { get; set; }
 
         /// <summary>
         /// The Spark events folder

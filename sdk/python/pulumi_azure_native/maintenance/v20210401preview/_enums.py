@@ -43,7 +43,7 @@ class TaskScope(str, Enum):
 
 class Visibility(str, Enum):
     """
-    Gets or sets the visibility of the configuration
+    Gets or sets the visibility of the configuration. The default value is 'Custom'
     """
     CUSTOM = "Custom"
     PUBLIC = "Public"

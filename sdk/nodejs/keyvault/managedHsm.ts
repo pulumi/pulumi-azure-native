@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource information with extended details.
- * API Version: 2021-04-01-preview.
+ * API Version: 2021-06-01-preview.
  */
 export class ManagedHsm extends pulumi.CustomResource {
     /**

@@ -14,11 +14,17 @@ import (
 type MaintenanceScope pulumi.String
 
 const (
-	MaintenanceScopeHost               = MaintenanceScope("Host")
-	MaintenanceScopeOSImage            = MaintenanceScope("OSImage")
-	MaintenanceScopeExtension          = MaintenanceScope("Extension")
-	MaintenanceScopeInGuestPatch       = MaintenanceScope("InGuestPatch")
-	MaintenanceScopeSQLDB              = MaintenanceScope("SQLDB")
+	// This maintenance scope controls installation of azure platform updates i.e. services on physical nodes hosting customer VMs.
+	MaintenanceScopeHost = MaintenanceScope("Host")
+	// This maintenance scope controls os image installation on VM/VMSS
+	MaintenanceScopeOSImage = MaintenanceScope("OSImage")
+	// This maintenance scope controls extension installation on VM/VMSS
+	MaintenanceScopeExtension = MaintenanceScope("Extension")
+	// This maintenance scope controls installation of windows and linux packages on VM/VMSS
+	MaintenanceScopeInGuestPatch = MaintenanceScope("InGuestPatch")
+	// This maintenance scope controls installation of SQL server platform updates.
+	MaintenanceScopeSQLDB = MaintenanceScope("SQLDB")
+	// This maintenance scope controls installation of SQL managed instance platform update.
 	MaintenanceScopeSQLManagedInstance = MaintenanceScope("SQLManagedInstance")
 )
 
@@ -99,11 +105,13 @@ func (e TaskScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Stri
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Gets or sets the visibility of the configuration
+// Gets or sets the visibility of the configuration. The default value is 'Custom'
 type Visibility pulumi.String
 
 const (
+	// Only visible to users with permissions.
 	VisibilityCustom = Visibility("Custom")
+	// Visible to all users.
 	VisibilityPublic = Visibility("Public")
 )
 

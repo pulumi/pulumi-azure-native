@@ -8,6 +8,7 @@ __all__ = [
     'BlobStorageEventType',
     'ClusterPrincipalRole',
     'Compression',
+    'ConfigurationType',
     'DataConnectionKind',
     'DataFlowComputeType',
     'DatabasePrincipalRole',
@@ -56,6 +57,14 @@ class Compression(str, Enum):
     """
     NONE = "None"
     G_ZIP = "GZip"
+
+
+class ConfigurationType(str, Enum):
+    """
+    The type of the spark config properties file.
+    """
+    FILE = "File"
+    ARTIFACT = "Artifact"
 
 
 class DataConnectionKind(str, Enum):

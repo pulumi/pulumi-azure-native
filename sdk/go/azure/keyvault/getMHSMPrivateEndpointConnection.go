@@ -8,7 +8,7 @@ import (
 )
 
 // Private endpoint connection resource.
-// API Version: 2021-04-01-preview.
+// API Version: 2021-06-01-preview.
 func LookupMHSMPrivateEndpointConnection(ctx *pulumi.Context, args *LookupMHSMPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupMHSMPrivateEndpointConnectionResult, error) {
 	var rv LookupMHSMPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:keyvault:getMHSMPrivateEndpointConnection", args, &rv, opts...)

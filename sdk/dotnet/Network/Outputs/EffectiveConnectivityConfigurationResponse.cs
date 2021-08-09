@@ -50,11 +50,6 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? IsGlobal;
         /// <summary>
-        /// Effective configuration Type.
-        /// Expected value is 'ConnectivityConfiguration'.
-        /// </summary>
-        public readonly string Kind;
-        /// <summary>
         /// The provisioning state of the connectivity configuration resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -79,8 +74,6 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? isGlobal,
 
-            string kind,
-
             string provisioningState)
         {
             AppliesToGroups = appliesToGroups;
@@ -92,7 +85,6 @@ namespace Pulumi.AzureNative.Network.Outputs
             HubId = hubId;
             Id = id;
             IsGlobal = isGlobal;
-            Kind = kind;
             ProvisioningState = provisioningState;
         }
     }

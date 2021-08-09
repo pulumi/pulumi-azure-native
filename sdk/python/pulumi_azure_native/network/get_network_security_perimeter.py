@@ -143,7 +143,7 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityPerimeterResult:
     """
     The Network Security Perimeter resource
-    API Version: 2021-03-01-preview.
+    API Version: 2021-02-01-preview.
 
 
     :param str network_security_perimeter_name: The name of the network security perimeter.

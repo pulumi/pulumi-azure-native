@@ -3,7 +3,21 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New functions
+
+- `network.listActiveConnectivityConfiguration`
+- `network.listActiveSecurityAdminRule`
+- `network.listActiveSecurityUserRule`
+- `network.listEffectiveConnectivityConfiguration`
+- `network.listEffectiveSecurityUserRuleBySubnet`
+- `network.listNetworkManagerEffectiveSecurityAdminRule`
+
+#### Breaking Changes published by Microsoft:
+
+- `network.listEffectiveConfiguration`, `network.listActiveConfiguration`,
+  `network.listEffectiveConfigurationBySubnet` were removed in favor of the functions listed
+  in "New functions" above
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15282))
 
 ---
 

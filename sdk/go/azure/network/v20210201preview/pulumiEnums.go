@@ -70,8 +70,8 @@ func (e AdminRuleKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 type ConfigurationType pulumi.String
 
 const (
-	ConfigurationTypeAdminSecurity = ConfigurationType("AdminSecurity")
-	ConfigurationTypeUserSecurity  = ConfigurationType("UserSecurity")
+	ConfigurationTypeSecurityAdmin = ConfigurationType("SecurityAdmin")
+	ConfigurationTypeSecurityUser  = ConfigurationType("SecurityUser")
 	ConfigurationTypeConnectivity  = ConfigurationType("Connectivity")
 )
 

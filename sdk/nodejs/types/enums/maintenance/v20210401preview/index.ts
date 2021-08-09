@@ -3,11 +3,29 @@
 
 
 export const MaintenanceScope = {
+    /**
+     * This maintenance scope controls installation of azure platform updates i.e. services on physical nodes hosting customer VMs.
+     */
     Host: "Host",
+    /**
+     * This maintenance scope controls os image installation on VM/VMSS
+     */
     OSImage: "OSImage",
+    /**
+     * This maintenance scope controls extension installation on VM/VMSS
+     */
     Extension: "Extension",
+    /**
+     * This maintenance scope controls installation of windows and linux packages on VM/VMSS
+     */
     InGuestPatch: "InGuestPatch",
+    /**
+     * This maintenance scope controls installation of SQL server platform updates.
+     */
     SQLDB: "SQLDB",
+    /**
+     * This maintenance scope controls installation of SQL managed instance platform update.
+     */
     SQLManagedInstance: "SQLManagedInstance",
 } as const;
 
@@ -38,11 +56,17 @@ export const TaskScope = {
 export type TaskScope = (typeof TaskScope)[keyof typeof TaskScope];
 
 export const Visibility = {
+    /**
+     * Only visible to users with permissions.
+     */
     Custom: "Custom",
+    /**
+     * Visible to all users.
+     */
     Public: "Public",
 } as const;
 
 /**
- * Gets or sets the visibility of the configuration
+ * Gets or sets the visibility of the configuration. The default value is 'Custom'
  */
 export type Visibility = (typeof Visibility)[keyof typeof Visibility];

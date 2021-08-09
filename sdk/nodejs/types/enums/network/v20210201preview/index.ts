@@ -23,8 +23,8 @@ export const AdminRuleKind = {
 export type AdminRuleKind = (typeof AdminRuleKind)[keyof typeof AdminRuleKind];
 
 export const ConfigurationType = {
-    AdminSecurity: "AdminSecurity",
-    UserSecurity: "UserSecurity",
+    SecurityAdmin: "SecurityAdmin",
+    SecurityUser: "SecurityUser",
     Connectivity: "Connectivity",
 } as const;
 

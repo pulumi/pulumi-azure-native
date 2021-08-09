@@ -161,7 +161,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
                  __props__=None):
         """
         The Network Security Perimeter resource
-        API Version: 2021-03-01-preview.
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,7 +182,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Security Perimeter resource
-        API Version: 2021-03-01-preview.
+        API Version: 2021-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterArgs args: The arguments to use to populate this resource's properties.
@@ -232,7 +232,7 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20210301preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-nextgen:network/v20210201preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-native:network/v20210301preview:NetworkSecurityPerimeter"), pulumi.Alias(type_="azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeter, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeter',

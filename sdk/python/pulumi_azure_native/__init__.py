@@ -11468,6 +11468,7 @@ _utilities.register(
    "azure-native:network/v20210201preview:DefaultUserRule": "DefaultUserRule",
    "azure-native:network/v20210201preview:NetworkGroup": "NetworkGroup",
    "azure-native:network/v20210201preview:NetworkManager": "NetworkManager",
+   "azure-native:network/v20210201preview:NetworkSecurityPerimeter": "NetworkSecurityPerimeter",
    "azure-native:network/v20210201preview:SecurityAdminConfiguration": "SecurityAdminConfiguration",
    "azure-native:network/v20210201preview:SecurityUserConfiguration": "SecurityUserConfiguration",
    "azure-native:network/v20210201preview:UserRule": "UserRule",

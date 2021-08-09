@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
         /// </summary>
         public readonly string? Subnet;
         /// <summary>
+        /// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        /// </summary>
+        public readonly string? SubnetId;
+        /// <summary>
         /// The ID of the VNet that this integration runtime will join.
         /// </summary>
         public readonly string? VNetId;
@@ -32,10 +36,13 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 
             string? subnet,
 
+            string? subnetId,
+
             string? vNetId)
         {
             PublicIPs = publicIPs;
             Subnet = subnet;
+            SubnetId = subnetId;
             VNetId = vNetId;
         }
     }

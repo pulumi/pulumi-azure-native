@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Security Perimeter resource
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-02-01-preview.
  */
 export function getNetworkSecurityPerimeter(args: GetNetworkSecurityPerimeterArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterResult> {
     if (!opts) {

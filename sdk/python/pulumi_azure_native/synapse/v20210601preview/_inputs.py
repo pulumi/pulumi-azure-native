@@ -44,6 +44,7 @@ __all__ = [
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
+    'SparkConfigPropertiesArgs',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
     'TableLevelSharingPropertiesArgs',
     'VirtualNetworkProfileArgs',
@@ -1012,17 +1013,21 @@ class IntegrationRuntimeVNetPropertiesArgs:
     def __init__(__self__, *,
                  public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
                  v_net_id: Optional[pulumi.Input[str]] = None):
         """
         VNet properties for managed integration runtime.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param pulumi.Input[str] subnet: The name of the subnet this integration runtime will join.
+        :param pulumi.Input[str] subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
         :param pulumi.Input[str] v_net_id: The ID of the VNet that this integration runtime will join.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if v_net_id is not None:
             pulumi.set(__self__, "v_net_id", v_net_id)
 
@@ -1049,6 +1054,18 @@ class IntegrationRuntimeVNetPropertiesArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
     @property
     @pulumi.getter(name="vNetId")
@@ -1771,6 +1788,62 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SparkConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 filename: Optional[pulumi.Input[str]] = None):
+        """
+        SparkConfig Properties for a Big Data pool powered by Apache Spark
+        :param pulumi.Input[Union[str, 'ConfigurationType']] configuration_type: The type of the spark config properties file.
+        :param pulumi.Input[str] content: The spark config properties.
+        :param pulumi.Input[str] filename: The filename of the spark config properties file.
+        """
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationType']]]:
+        """
+        The type of the spark config properties file.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: Optional[pulumi.Input[Union[str, 'ConfigurationType']]]):
+        pulumi.set(self, "configuration_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The spark config properties.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filename of the spark config properties file.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
 
 
 @pulumi.input_type

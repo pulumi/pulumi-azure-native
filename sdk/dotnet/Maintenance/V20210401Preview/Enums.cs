@@ -20,11 +20,29 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// This maintenance scope controls installation of azure platform updates i.e. services on physical nodes hosting customer VMs.
+        /// </summary>
         public static MaintenanceScope Host { get; } = new MaintenanceScope("Host");
+        /// <summary>
+        /// This maintenance scope controls os image installation on VM/VMSS
+        /// </summary>
         public static MaintenanceScope OSImage { get; } = new MaintenanceScope("OSImage");
+        /// <summary>
+        /// This maintenance scope controls extension installation on VM/VMSS
+        /// </summary>
         public static MaintenanceScope Extension { get; } = new MaintenanceScope("Extension");
+        /// <summary>
+        /// This maintenance scope controls installation of windows and linux packages on VM/VMSS
+        /// </summary>
         public static MaintenanceScope InGuestPatch { get; } = new MaintenanceScope("InGuestPatch");
+        /// <summary>
+        /// This maintenance scope controls installation of SQL server platform updates.
+        /// </summary>
         public static MaintenanceScope SQLDB { get; } = new MaintenanceScope("SQLDB");
+        /// <summary>
+        /// This maintenance scope controls installation of SQL managed instance platform update.
+        /// </summary>
         public static MaintenanceScope SQLManagedInstance { get; } = new MaintenanceScope("SQLManagedInstance");
 
         public static bool operator ==(MaintenanceScope left, MaintenanceScope right) => left.Equals(right);
@@ -106,7 +124,7 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
     }
 
     /// <summary>
-    /// Gets or sets the visibility of the configuration
+    /// Gets or sets the visibility of the configuration. The default value is 'Custom'
     /// </summary>
     [EnumType]
     public readonly struct Visibility : IEquatable<Visibility>
@@ -118,7 +136,13 @@ namespace Pulumi.AzureNative.Maintenance.V20210401Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Only visible to users with permissions.
+        /// </summary>
         public static Visibility Custom { get; } = new Visibility("Custom");
+        /// <summary>
+        /// Visible to all users.
+        /// </summary>
         public static Visibility Public { get; } = new Visibility("Public");
 
         public static bool operator ==(Visibility left, Visibility right) => left.Equals(right);

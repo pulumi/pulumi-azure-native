@@ -5818,6 +5818,8 @@ type IntegrationRuntimeVNetProperties struct {
 	PublicIPs []string `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet *string `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId *string `pulumi:"vNetId"`
 }
@@ -5839,6 +5841,8 @@ type IntegrationRuntimeVNetPropertiesArgs struct {
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId pulumi.StringPtrInput `pulumi:"vNetId"`
 }
@@ -5931,6 +5935,11 @@ func (o IntegrationRuntimeVNetPropertiesOutput) Subnet() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VNet that this integration runtime will join.
 func (o IntegrationRuntimeVNetPropertiesOutput) VNetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeVNetProperties) *string { return v.VNetId }).(pulumi.StringPtrOutput)
@@ -5974,6 +5983,16 @@ func (o IntegrationRuntimeVNetPropertiesPtrOutput) Subnet() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VNet that this integration runtime will join.
 func (o IntegrationRuntimeVNetPropertiesPtrOutput) VNetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeVNetProperties) *string {
@@ -5990,6 +6009,8 @@ type IntegrationRuntimeVNetPropertiesResponse struct {
 	PublicIPs []string `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet *string `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId *string `pulumi:"vNetId"`
 }
@@ -6011,6 +6032,8 @@ type IntegrationRuntimeVNetPropertiesResponseArgs struct {
 	PublicIPs pulumi.StringArrayInput `pulumi:"publicIPs"`
 	// The name of the subnet this integration runtime will join.
 	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
+	// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The ID of the VNet that this integration runtime will join.
 	VNetId pulumi.StringPtrInput `pulumi:"vNetId"`
 }
@@ -6103,6 +6126,11 @@ func (o IntegrationRuntimeVNetPropertiesResponseOutput) Subnet() pulumi.StringPt
 	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesResponseOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the VNet that this integration runtime will join.
 func (o IntegrationRuntimeVNetPropertiesResponseOutput) VNetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeVNetPropertiesResponse) *string { return v.VNetId }).(pulumi.StringPtrOutput)
@@ -6143,6 +6171,16 @@ func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) Subnet() pulumi.Strin
 			return nil
 		}
 		return v.Subnet
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+func (o IntegrationRuntimeVNetPropertiesResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeVNetPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11831,6 +11869,369 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigProperties struct {
+	// The type of the spark config properties file.
+	ConfigurationType *string `pulumi:"configurationType"`
+	// The spark config properties.
+	Content *string `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename *string `pulumi:"filename"`
+}
+
+// SparkConfigPropertiesInput is an input type that accepts SparkConfigPropertiesArgs and SparkConfigPropertiesOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesInput` via:
+//
+//          SparkConfigPropertiesArgs{...}
+type SparkConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput
+	ToSparkConfigPropertiesOutputWithContext(context.Context) SparkConfigPropertiesOutput
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesArgs struct {
+	// The type of the spark config properties file.
+	ConfigurationType pulumi.StringPtrInput `pulumi:"configurationType"`
+	// The spark config properties.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+}
+
+func (SparkConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigProperties)(nil)).Elem()
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput {
+	return i.ToSparkConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesOutputWithContext(ctx context.Context) SparkConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesOutput)
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return i.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesArgs) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesOutput).ToSparkConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// SparkConfigPropertiesPtrInput is an input type that accepts SparkConfigPropertiesArgs, SparkConfigPropertiesPtr and SparkConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesPtrInput` via:
+//
+//          SparkConfigPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput
+	ToSparkConfigPropertiesPtrOutputWithContext(context.Context) SparkConfigPropertiesPtrOutput
+}
+
+type sparkConfigPropertiesPtrType SparkConfigPropertiesArgs
+
+func SparkConfigPropertiesPtr(v *SparkConfigPropertiesArgs) SparkConfigPropertiesPtrInput {
+	return (*sparkConfigPropertiesPtrType)(v)
+}
+
+func (*sparkConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigProperties)(nil)).Elem()
+}
+
+func (i *sparkConfigPropertiesPtrType) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return i.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkConfigPropertiesPtrType) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigProperties)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesOutput() SparkConfigPropertiesOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesOutputWithContext(ctx context.Context) SparkConfigPropertiesOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return o.ToSparkConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SparkConfigPropertiesOutput) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *SparkConfigProperties {
+		return &v
+	}).(SparkConfigPropertiesPtrOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigProperties) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+type SparkConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigProperties)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesPtrOutput) ToSparkConfigPropertiesPtrOutput() SparkConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesPtrOutput) ToSparkConfigPropertiesPtrOutputWithContext(ctx context.Context) SparkConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesPtrOutput) Elem() SparkConfigPropertiesOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) SparkConfigProperties { return *v }).(SparkConfigPropertiesOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesPtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponse struct {
+	// The type of the spark config properties file.
+	ConfigurationType *string `pulumi:"configurationType"`
+	// The spark config properties.
+	Content *string `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename *string `pulumi:"filename"`
+	// The last update time of the spark config properties file.
+	Time string `pulumi:"time"`
+}
+
+// SparkConfigPropertiesResponseInput is an input type that accepts SparkConfigPropertiesResponseArgs and SparkConfigPropertiesResponseOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesResponseInput` via:
+//
+//          SparkConfigPropertiesResponseArgs{...}
+type SparkConfigPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesResponseOutput() SparkConfigPropertiesResponseOutput
+	ToSparkConfigPropertiesResponseOutputWithContext(context.Context) SparkConfigPropertiesResponseOutput
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponseArgs struct {
+	// The type of the spark config properties file.
+	ConfigurationType pulumi.StringPtrInput `pulumi:"configurationType"`
+	// The spark config properties.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The filename of the spark config properties file.
+	Filename pulumi.StringPtrInput `pulumi:"filename"`
+	// The last update time of the spark config properties file.
+	Time pulumi.StringInput `pulumi:"time"`
+}
+
+func (SparkConfigPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (i SparkConfigPropertiesResponseArgs) ToSparkConfigPropertiesResponseOutput() SparkConfigPropertiesResponseOutput {
+	return i.ToSparkConfigPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesResponseArgs) ToSparkConfigPropertiesResponseOutputWithContext(ctx context.Context) SparkConfigPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesResponseOutput)
+}
+
+func (i SparkConfigPropertiesResponseArgs) ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput {
+	return i.ToSparkConfigPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SparkConfigPropertiesResponseArgs) ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) SparkConfigPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesResponseOutput).ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+// SparkConfigPropertiesResponsePtrInput is an input type that accepts SparkConfigPropertiesResponseArgs, SparkConfigPropertiesResponsePtr and SparkConfigPropertiesResponsePtrOutput values.
+// You can construct a concrete instance of `SparkConfigPropertiesResponsePtrInput` via:
+//
+//          SparkConfigPropertiesResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type SparkConfigPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput
+	ToSparkConfigPropertiesResponsePtrOutputWithContext(context.Context) SparkConfigPropertiesResponsePtrOutput
+}
+
+type sparkConfigPropertiesResponsePtrType SparkConfigPropertiesResponseArgs
+
+func SparkConfigPropertiesResponsePtr(v *SparkConfigPropertiesResponseArgs) SparkConfigPropertiesResponsePtrInput {
+	return (*sparkConfigPropertiesResponsePtrType)(v)
+}
+
+func (*sparkConfigPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (i *sparkConfigPropertiesResponsePtrType) ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput {
+	return i.ToSparkConfigPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *sparkConfigPropertiesResponsePtrType) ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) SparkConfigPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkConfigPropertiesResponsePtrOutput)
+}
+
+// SparkConfig Properties for a Big Data pool powered by Apache Spark
+type SparkConfigPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponseOutput() SparkConfigPropertiesResponseOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponseOutputWithContext(ctx context.Context) SparkConfigPropertiesResponseOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput {
+	return o.ToSparkConfigPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SparkConfigPropertiesResponseOutput) ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) SparkConfigPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *SparkConfigPropertiesResponse {
+		return &v
+	}).(SparkConfigPropertiesResponsePtrOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesResponseOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) *string { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the spark config properties file.
+func (o SparkConfigPropertiesResponseOutput) Time() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkConfigPropertiesResponse) string { return v.Time }).(pulumi.StringOutput)
+}
+
+type SparkConfigPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SparkConfigPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkConfigPropertiesResponse)(nil)).Elem()
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) ToSparkConfigPropertiesResponsePtrOutput() SparkConfigPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) ToSparkConfigPropertiesResponsePtrOutputWithContext(ctx context.Context) SparkConfigPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o SparkConfigPropertiesResponsePtrOutput) Elem() SparkConfigPropertiesResponseOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) SparkConfigPropertiesResponse { return *v }).(SparkConfigPropertiesResponseOutput)
+}
+
+// The type of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The spark config properties.
+func (o SparkConfigPropertiesResponsePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The filename of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Filename
+	}).(pulumi.StringPtrOutput)
+}
+
+// The last update time of the spark config properties file.
+func (o SparkConfigPropertiesResponsePtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkConfigPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Time
+	}).(pulumi.StringPtrOutput)
+}
+
 // Properties for an Sql pool vulnerability assessment rule baseline's result.
 type SqlPoolVulnerabilityAssessmentRuleBaselineItem struct {
 	// The rule baseline result
@@ -15379,6 +15780,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SparkConfigPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemArrayOutput{})
 	pulumi.RegisterOutputType(SqlPoolVulnerabilityAssessmentRuleBaselineItemResponseOutput{})

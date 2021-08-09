@@ -169,7 +169,7 @@ def get_mhsm_private_endpoint_connection(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMHSMPrivateEndpointConnectionResult:
     """
     Private endpoint connection resource.
-    API Version: 2021-04-01-preview.
+    API Version: 2021-06-01-preview.
 
 
     :param str name: Name of the managed HSM Pool

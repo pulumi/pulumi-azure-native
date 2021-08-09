@@ -43,8 +43,8 @@ class ConfigurationType(str, Enum):
     """
     Configuration Deployment Type.
     """
-    ADMIN_SECURITY = "AdminSecurity"
-    USER_SECURITY = "UserSecurity"
+    SECURITY_ADMIN = "SecurityAdmin"
+    SECURITY_USER = "SecurityUser"
     CONNECTIVITY = "Connectivity"
 
 

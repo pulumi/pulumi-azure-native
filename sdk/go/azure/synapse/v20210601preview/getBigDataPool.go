@@ -65,7 +65,7 @@ type LookupBigDataPoolResult struct {
 	// Whether session level packages enabled.
 	SessionLevelPackagesEnabled *bool `pulumi:"sessionLevelPackagesEnabled"`
 	// Spark configuration file to specify additional properties
-	SparkConfigProperties *LibraryRequirementsResponse `pulumi:"sparkConfigProperties"`
+	SparkConfigProperties *SparkConfigPropertiesResponse `pulumi:"sparkConfigProperties"`
 	// The Spark events folder
 	SparkEventsFolder *string `pulumi:"sparkEventsFolder"`
 	// The Apache Spark version.

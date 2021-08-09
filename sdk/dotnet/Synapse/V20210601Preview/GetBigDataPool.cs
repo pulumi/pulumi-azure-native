@@ -123,7 +123,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// <summary>
         /// Spark configuration file to specify additional properties
         /// </summary>
-        public readonly Outputs.LibraryRequirementsResponse? SparkConfigProperties;
+        public readonly Outputs.SparkConfigPropertiesResponse? SparkConfigProperties;
         /// <summary>
         /// The Spark events folder
         /// </summary>
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             bool? sessionLevelPackagesEnabled,
 
-            Outputs.LibraryRequirementsResponse? sparkConfigProperties,
+            Outputs.SparkConfigPropertiesResponse? sparkConfigProperties,
 
             string? sparkEventsFolder,
 

@@ -17,18 +17,23 @@ export * from "./getDefaultAdminRule";
 export * from "./getDefaultUserRule";
 export * from "./getNetworkGroup";
 export * from "./getNetworkManager";
+export * from "./getNetworkSecurityPerimeter";
 export * from "./getSecurityAdminConfiguration";
 export * from "./getSecurityUserConfiguration";
 export * from "./getUserRule";
 export * from "./getUserRuleCollection";
-export * from "./listActiveConfiguration";
-export * from "./listEffectiveConfiguration";
-export * from "./listEffectiveConfigurationBySubnet";
+export * from "./listActiveConnectivityConfiguration";
+export * from "./listActiveSecurityAdminRule";
+export * from "./listActiveSecurityUserRule";
+export * from "./listEffectiveConnectivityConfiguration";
+export * from "./listEffectiveSecurityUserRuleBySubnet";
 export * from "./listEffectiveVirtualNetworkByNetworkGroup";
 export * from "./listEffectiveVirtualNetworkByNetworkManager";
 export * from "./listNetworkManagerDeploymentStatus";
+export * from "./listNetworkManagerEffectiveSecurityAdminRule";
 export * from "./networkGroup";
 export * from "./networkManager";
+export * from "./networkSecurityPerimeter";
 export * from "./securityAdminConfiguration";
 export * from "./securityUserConfiguration";
 export * from "./userRule";
@@ -45,6 +50,7 @@ import { DefaultAdminRule } from "./defaultAdminRule";
 import { DefaultUserRule } from "./defaultUserRule";
 import { NetworkGroup } from "./networkGroup";
 import { NetworkManager } from "./networkManager";
+import { NetworkSecurityPerimeter } from "./networkSecurityPerimeter";
 import { SecurityAdminConfiguration } from "./securityAdminConfiguration";
 import { SecurityUserConfiguration } from "./securityUserConfiguration";
 import { UserRule } from "./userRule";
@@ -68,6 +74,8 @@ const _module = {
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NetworkManager":
                 return new NetworkManager(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:NetworkSecurityPerimeter":
+                return new NetworkSecurityPerimeter(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:SecurityAdminConfiguration":
                 return new SecurityAdminConfiguration(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:SecurityUserConfiguration":

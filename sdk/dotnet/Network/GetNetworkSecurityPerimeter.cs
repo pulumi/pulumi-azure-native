@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// The Network Security Perimeter resource
-        /// API Version: 2021-03-01-preview.
+        /// API Version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterResult> InvokeAsync(GetNetworkSecurityPerimeterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterResult>("azure-native:network:getNetworkSecurityPerimeter", args ?? new GetNetworkSecurityPerimeterArgs(), options.WithVersion());

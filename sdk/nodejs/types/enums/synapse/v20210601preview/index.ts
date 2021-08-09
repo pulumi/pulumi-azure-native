@@ -32,6 +32,16 @@ export const Compression = {
  */
 export type Compression = (typeof Compression)[keyof typeof Compression];
 
+export const ConfigurationType = {
+    File: "File",
+    Artifact: "Artifact",
+} as const;
+
+/**
+ * The type of the spark config properties file.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const DataConnectionKind = {
     EventHub: "EventHub",
     EventGrid: "EventGrid",

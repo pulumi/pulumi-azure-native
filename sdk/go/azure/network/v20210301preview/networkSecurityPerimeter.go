@@ -53,6 +53,12 @@ func NewNetworkSecurityPerimeter(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:network:NetworkSecurityPerimeter"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201preview:NetworkSecurityPerimeter"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201preview:NetworkSecurityPerimeter"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkSecurityPerimeter

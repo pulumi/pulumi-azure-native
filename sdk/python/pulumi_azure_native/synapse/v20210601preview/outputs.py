@@ -58,6 +58,7 @@ __all__ = [
     'SelfHostedIntegrationRuntimeResponse',
     'SelfHostedIntegrationRuntimeStatusResponse',
     'SkuResponse',
+    'SparkConfigPropertiesResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
     'SsisEnvironmentReferenceResponse',
     'SsisEnvironmentResponse',
@@ -1289,6 +1290,8 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         suggest = None
         if key == "publicIPs":
             suggest = "public_ips"
+        elif key == "subnetId":
+            suggest = "subnet_id"
         elif key == "vNetId":
             suggest = "v_net_id"
 
@@ -1306,17 +1309,21 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
     def __init__(__self__, *,
                  public_ips: Optional[Sequence[str]] = None,
                  subnet: Optional[str] = None,
+                 subnet_id: Optional[str] = None,
                  v_net_id: Optional[str] = None):
         """
         VNet properties for managed integration runtime.
         :param Sequence[str] public_ips: Resource IDs of the public IP addresses that this integration runtime will use.
         :param str subnet: The name of the subnet this integration runtime will join.
+        :param str subnet_id: The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
         :param str v_net_id: The ID of the VNet that this integration runtime will join.
         """
         if public_ips is not None:
             pulumi.set(__self__, "public_ips", public_ips)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if v_net_id is not None:
             pulumi.set(__self__, "v_net_id", v_net_id)
 
@@ -1335,6 +1342,14 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
         The name of the subnet this integration runtime will join.
         """
         return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of subnet, to which this Azure-SSIS integration runtime will be joined.
+        """
+        return pulumi.get(self, "subnet_id")
 
     @property
     @pulumi.getter(name="vNetId")
@@ -3262,6 +3277,81 @@ class SkuResponse(dict):
         The service tier
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SparkConfigPropertiesResponse(dict):
+    """
+    SparkConfig Properties for a Big Data pool powered by Apache Spark
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time: str,
+                 configuration_type: Optional[str] = None,
+                 content: Optional[str] = None,
+                 filename: Optional[str] = None):
+        """
+        SparkConfig Properties for a Big Data pool powered by Apache Spark
+        :param str time: The last update time of the spark config properties file.
+        :param str configuration_type: The type of the spark config properties file.
+        :param str content: The spark config properties.
+        :param str filename: The filename of the spark config properties file.
+        """
+        pulumi.set(__self__, "time", time)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The last update time of the spark config properties file.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[str]:
+        """
+        The type of the spark config properties file.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The spark config properties.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the spark config properties file.
+        """
+        return pulumi.get(self, "filename")
 
 
 @pulumi.output_type

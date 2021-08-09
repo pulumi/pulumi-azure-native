@@ -906,8 +906,8 @@ namespace Pulumi.AzureNative.Network
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ConfigurationType AdminSecurity { get; } = new ConfigurationType("AdminSecurity");
-        public static ConfigurationType UserSecurity { get; } = new ConfigurationType("UserSecurity");
+        public static ConfigurationType SecurityAdmin { get; } = new ConfigurationType("SecurityAdmin");
+        public static ConfigurationType SecurityUser { get; } = new ConfigurationType("SecurityUser");
         public static ConfigurationType Connectivity { get; } = new ConfigurationType("Connectivity");
 
         public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);

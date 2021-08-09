@@ -91,6 +91,8 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter"},
                     new Pulumi.Alias { Type = "azure-native:network:NetworkSecurityPerimeter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkSecurityPerimeter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:NetworkSecurityPerimeter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

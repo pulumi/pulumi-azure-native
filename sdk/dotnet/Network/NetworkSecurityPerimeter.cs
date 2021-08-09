@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Network Security Perimeter resource
-    /// API Version: 2021-03-01-preview.
+    /// API Version: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeter")]
     public partial class NetworkSecurityPerimeter : Pulumi.CustomResource
@@ -90,6 +90,8 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:network:NetworkSecurityPerimeter"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeter"},
+                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:NetworkSecurityPerimeter"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301preview:NetworkSecurityPerimeter"},
                     new Pulumi.Alias { Type = "azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter"},
                 },

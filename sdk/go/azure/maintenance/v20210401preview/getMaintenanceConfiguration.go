@@ -20,7 +20,7 @@ func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenance
 type LookupMaintenanceConfigurationArgs struct {
 	// Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource Identifier
+	// Maintenance Configuration Name
 	ResourceName string `pulumi:"resourceName"`
 }
 
@@ -44,7 +44,7 @@ type LookupMaintenanceConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// Gets or sets namespace of the resource
 	Namespace *string `pulumi:"namespace"`
-	// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
+	// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
 	RecurEvery *string `pulumi:"recurEvery"`
 	// Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
 	StartDateTime *string `pulumi:"startDateTime"`
@@ -56,6 +56,6 @@ type LookupMaintenanceConfigurationResult struct {
 	TimeZone *string `pulumi:"timeZone"`
 	// Type of the resource
 	Type string `pulumi:"type"`
-	// Gets or sets the visibility of the configuration
+	// Gets or sets the visibility of the configuration. The default value is 'Custom'
 	Visibility *string `pulumi:"visibility"`
 }

@@ -819,8 +819,8 @@ func (e CommissionedState) ToStringPtrOutputWithContext(ctx context.Context) pul
 type ConfigurationType pulumi.String
 
 const (
-	ConfigurationTypeAdminSecurity = ConfigurationType("AdminSecurity")
-	ConfigurationTypeUserSecurity  = ConfigurationType("UserSecurity")
+	ConfigurationTypeSecurityAdmin = ConfigurationType("SecurityAdmin")
+	ConfigurationTypeSecurityUser  = ConfigurationType("SecurityUser")
 	ConfigurationTypeConnectivity  = ConfigurationType("Connectivity")
 )
 

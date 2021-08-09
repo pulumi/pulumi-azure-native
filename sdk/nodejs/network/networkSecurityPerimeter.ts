@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Security Perimeter resource
- * API Version: 2021-03-01-preview.
+ * API Version: 2021-02-01-preview.
  */
 export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class NetworkSecurityPerimeter extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20210301preview:NetworkSecurityPerimeter" }, { type: "azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20210201preview:NetworkSecurityPerimeter" }, { type: "azure-nextgen:network/v20210201preview:NetworkSecurityPerimeter" }, { type: "azure-native:network/v20210301preview:NetworkSecurityPerimeter" }, { type: "azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeter.__pulumiType, name, inputs, opts);
     }

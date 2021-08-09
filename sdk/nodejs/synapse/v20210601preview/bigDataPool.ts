@@ -106,7 +106,7 @@ export class BigDataPool extends pulumi.CustomResource {
     /**
      * Spark configuration file to specify additional properties
      */
-    public readonly sparkConfigProperties!: pulumi.Output<outputs.synapse.v20210601preview.LibraryRequirementsResponse | undefined>;
+    public readonly sparkConfigProperties!: pulumi.Output<outputs.synapse.v20210601preview.SparkConfigPropertiesResponse | undefined>;
     /**
      * The Spark events folder
      */
@@ -279,7 +279,7 @@ export interface BigDataPoolArgs {
     /**
      * Spark configuration file to specify additional properties
      */
-    sparkConfigProperties?: pulumi.Input<inputs.synapse.v20210601preview.LibraryRequirementsArgs>;
+    sparkConfigProperties?: pulumi.Input<inputs.synapse.v20210601preview.SparkConfigPropertiesArgs>;
     /**
      * The Spark events folder
      */

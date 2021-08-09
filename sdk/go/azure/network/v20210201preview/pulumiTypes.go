@@ -10,122 +10,1149 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Active Configuration.
-type ActiveConfigurationResponse struct {
+// Active connectivity configuration.
+type ActiveConnectivityConfigurationResponse struct {
+	// Groups for configuration
+	AppliesToGroups []ConnectivityGroupItemResponse `pulumi:"appliesToGroups"`
 	// Deployment time string.
 	CommitTime *string `pulumi:"commitTime"`
-	// Configuration such as connectivity configuration or security rule collection.
-	CommittedConfiguration interface{} `pulumi:"committedConfiguration"`
+	// Effective configuration groups.
+	ConfigurationGroups []ConfigurationGroupResponse `pulumi:"configurationGroups"`
+	// Connectivity topology type.
+	ConnectivityTopology string `pulumi:"connectivityTopology"`
+	// Flag if need to remove current existing peerings.
+	DeleteExistingPeering *string `pulumi:"deleteExistingPeering"`
+	// A description of the connectivity configuration.
+	Description *string `pulumi:"description"`
+	// A friendly name for the resource.
+	DisplayName *string `pulumi:"displayName"`
+	// The hub vnet Id.
+	HubId *string `pulumi:"hubId"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Flag if global mesh is supported.
+	IsGlobal *string `pulumi:"isGlobal"`
+	// The provisioning state of the connectivity configuration resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Deployment region.
 	Region *string `pulumi:"region"`
 }
 
-// ActiveConfigurationResponseInput is an input type that accepts ActiveConfigurationResponseArgs and ActiveConfigurationResponseOutput values.
-// You can construct a concrete instance of `ActiveConfigurationResponseInput` via:
+// ActiveConnectivityConfigurationResponseInput is an input type that accepts ActiveConnectivityConfigurationResponseArgs and ActiveConnectivityConfigurationResponseOutput values.
+// You can construct a concrete instance of `ActiveConnectivityConfigurationResponseInput` via:
 //
-//          ActiveConfigurationResponseArgs{...}
-type ActiveConfigurationResponseInput interface {
+//          ActiveConnectivityConfigurationResponseArgs{...}
+type ActiveConnectivityConfigurationResponseInput interface {
 	pulumi.Input
 
-	ToActiveConfigurationResponseOutput() ActiveConfigurationResponseOutput
-	ToActiveConfigurationResponseOutputWithContext(context.Context) ActiveConfigurationResponseOutput
+	ToActiveConnectivityConfigurationResponseOutput() ActiveConnectivityConfigurationResponseOutput
+	ToActiveConnectivityConfigurationResponseOutputWithContext(context.Context) ActiveConnectivityConfigurationResponseOutput
 }
 
-// Active Configuration.
-type ActiveConfigurationResponseArgs struct {
+// Active connectivity configuration.
+type ActiveConnectivityConfigurationResponseArgs struct {
+	// Groups for configuration
+	AppliesToGroups ConnectivityGroupItemResponseArrayInput `pulumi:"appliesToGroups"`
 	// Deployment time string.
 	CommitTime pulumi.StringPtrInput `pulumi:"commitTime"`
-	// Configuration such as connectivity configuration or security rule collection.
-	CommittedConfiguration pulumi.Input `pulumi:"committedConfiguration"`
+	// Effective configuration groups.
+	ConfigurationGroups ConfigurationGroupResponseArrayInput `pulumi:"configurationGroups"`
+	// Connectivity topology type.
+	ConnectivityTopology pulumi.StringInput `pulumi:"connectivityTopology"`
+	// Flag if need to remove current existing peerings.
+	DeleteExistingPeering pulumi.StringPtrInput `pulumi:"deleteExistingPeering"`
+	// A description of the connectivity configuration.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A friendly name for the resource.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// The hub vnet Id.
+	HubId pulumi.StringPtrInput `pulumi:"hubId"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Flag if global mesh is supported.
+	IsGlobal pulumi.StringPtrInput `pulumi:"isGlobal"`
+	// The provisioning state of the connectivity configuration resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Deployment region.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
-func (ActiveConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveConfigurationResponse)(nil)).Elem()
+func (ActiveConnectivityConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveConnectivityConfigurationResponse)(nil)).Elem()
 }
 
-func (i ActiveConfigurationResponseArgs) ToActiveConfigurationResponseOutput() ActiveConfigurationResponseOutput {
-	return i.ToActiveConfigurationResponseOutputWithContext(context.Background())
+func (i ActiveConnectivityConfigurationResponseArgs) ToActiveConnectivityConfigurationResponseOutput() ActiveConnectivityConfigurationResponseOutput {
+	return i.ToActiveConnectivityConfigurationResponseOutputWithContext(context.Background())
 }
 
-func (i ActiveConfigurationResponseArgs) ToActiveConfigurationResponseOutputWithContext(ctx context.Context) ActiveConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveConfigurationResponseOutput)
+func (i ActiveConnectivityConfigurationResponseArgs) ToActiveConnectivityConfigurationResponseOutputWithContext(ctx context.Context) ActiveConnectivityConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveConnectivityConfigurationResponseOutput)
 }
 
-// ActiveConfigurationResponseArrayInput is an input type that accepts ActiveConfigurationResponseArray and ActiveConfigurationResponseArrayOutput values.
-// You can construct a concrete instance of `ActiveConfigurationResponseArrayInput` via:
+// ActiveConnectivityConfigurationResponseArrayInput is an input type that accepts ActiveConnectivityConfigurationResponseArray and ActiveConnectivityConfigurationResponseArrayOutput values.
+// You can construct a concrete instance of `ActiveConnectivityConfigurationResponseArrayInput` via:
 //
-//          ActiveConfigurationResponseArray{ ActiveConfigurationResponseArgs{...} }
-type ActiveConfigurationResponseArrayInput interface {
+//          ActiveConnectivityConfigurationResponseArray{ ActiveConnectivityConfigurationResponseArgs{...} }
+type ActiveConnectivityConfigurationResponseArrayInput interface {
 	pulumi.Input
 
-	ToActiveConfigurationResponseArrayOutput() ActiveConfigurationResponseArrayOutput
-	ToActiveConfigurationResponseArrayOutputWithContext(context.Context) ActiveConfigurationResponseArrayOutput
+	ToActiveConnectivityConfigurationResponseArrayOutput() ActiveConnectivityConfigurationResponseArrayOutput
+	ToActiveConnectivityConfigurationResponseArrayOutputWithContext(context.Context) ActiveConnectivityConfigurationResponseArrayOutput
 }
 
-type ActiveConfigurationResponseArray []ActiveConfigurationResponseInput
+type ActiveConnectivityConfigurationResponseArray []ActiveConnectivityConfigurationResponseInput
 
-func (ActiveConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveConfigurationResponse)(nil)).Elem()
+func (ActiveConnectivityConfigurationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveConnectivityConfigurationResponse)(nil)).Elem()
 }
 
-func (i ActiveConfigurationResponseArray) ToActiveConfigurationResponseArrayOutput() ActiveConfigurationResponseArrayOutput {
-	return i.ToActiveConfigurationResponseArrayOutputWithContext(context.Background())
+func (i ActiveConnectivityConfigurationResponseArray) ToActiveConnectivityConfigurationResponseArrayOutput() ActiveConnectivityConfigurationResponseArrayOutput {
+	return i.ToActiveConnectivityConfigurationResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ActiveConfigurationResponseArray) ToActiveConfigurationResponseArrayOutputWithContext(ctx context.Context) ActiveConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveConfigurationResponseArrayOutput)
+func (i ActiveConnectivityConfigurationResponseArray) ToActiveConnectivityConfigurationResponseArrayOutputWithContext(ctx context.Context) ActiveConnectivityConfigurationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveConnectivityConfigurationResponseArrayOutput)
 }
 
-// Active Configuration.
-type ActiveConfigurationResponseOutput struct{ *pulumi.OutputState }
+// Active connectivity configuration.
+type ActiveConnectivityConfigurationResponseOutput struct{ *pulumi.OutputState }
 
-func (ActiveConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActiveConfigurationResponse)(nil)).Elem()
+func (ActiveConnectivityConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveConnectivityConfigurationResponse)(nil)).Elem()
 }
 
-func (o ActiveConfigurationResponseOutput) ToActiveConfigurationResponseOutput() ActiveConfigurationResponseOutput {
+func (o ActiveConnectivityConfigurationResponseOutput) ToActiveConnectivityConfigurationResponseOutput() ActiveConnectivityConfigurationResponseOutput {
 	return o
 }
 
-func (o ActiveConfigurationResponseOutput) ToActiveConfigurationResponseOutputWithContext(ctx context.Context) ActiveConfigurationResponseOutput {
+func (o ActiveConnectivityConfigurationResponseOutput) ToActiveConnectivityConfigurationResponseOutputWithContext(ctx context.Context) ActiveConnectivityConfigurationResponseOutput {
+	return o
+}
+
+// Groups for configuration
+func (o ActiveConnectivityConfigurationResponseOutput) AppliesToGroups() ConnectivityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) []ConnectivityGroupItemResponse {
+		return v.AppliesToGroups
+	}).(ConnectivityGroupItemResponseArrayOutput)
+}
+
+// Deployment time string.
+func (o ActiveConnectivityConfigurationResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o ActiveConnectivityConfigurationResponseOutput) ConfigurationGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) []ConfigurationGroupResponse {
+		return v.ConfigurationGroups
+	}).(ConfigurationGroupResponseArrayOutput)
+}
+
+// Connectivity topology type.
+func (o ActiveConnectivityConfigurationResponseOutput) ConnectivityTopology() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) string { return v.ConnectivityTopology }).(pulumi.StringOutput)
+}
+
+// Flag if need to remove current existing peerings.
+func (o ActiveConnectivityConfigurationResponseOutput) DeleteExistingPeering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.DeleteExistingPeering }).(pulumi.StringPtrOutput)
+}
+
+// A description of the connectivity configuration.
+func (o ActiveConnectivityConfigurationResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A friendly name for the resource.
+func (o ActiveConnectivityConfigurationResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The hub vnet Id.
+func (o ActiveConnectivityConfigurationResponseOutput) HubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.HubId }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ActiveConnectivityConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Flag if global mesh is supported.
+func (o ActiveConnectivityConfigurationResponseOutput) IsGlobal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.IsGlobal }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning state of the connectivity configuration resource.
+func (o ActiveConnectivityConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Deployment region.
+func (o ActiveConnectivityConfigurationResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveConnectivityConfigurationResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+type ActiveConnectivityConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ActiveConnectivityConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ActiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (o ActiveConnectivityConfigurationResponseArrayOutput) ToActiveConnectivityConfigurationResponseArrayOutput() ActiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o ActiveConnectivityConfigurationResponseArrayOutput) ToActiveConnectivityConfigurationResponseArrayOutputWithContext(ctx context.Context) ActiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o ActiveConnectivityConfigurationResponseArrayOutput) Index(i pulumi.IntInput) ActiveConnectivityConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveConnectivityConfigurationResponse {
+		return vs[0].([]ActiveConnectivityConfigurationResponse)[vs[1].(int)]
+	}).(ActiveConnectivityConfigurationResponseOutput)
+}
+
+// Network default admin rule.
+type ActiveDefaultSecurityAdminRuleResponse struct {
+	// Indicates the access allowed for this particular rule
+	Access string `pulumi:"access"`
+	// Deployment time string.
+	CommitTime *string `pulumi:"commitTime"`
+	// A description of the security admin configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description string `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction string `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName string `pulumi:"displayName"`
+	// Default rule flag.
+	Flag *string `pulumi:"flag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Default'.
+	Kind string `pulumi:"kind"`
+	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority int `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Deployment region.
+	Region *string `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources []AddressPrefixItemResponse `pulumi:"sources"`
+}
+
+// ActiveDefaultSecurityAdminRuleResponseInput is an input type that accepts ActiveDefaultSecurityAdminRuleResponseArgs and ActiveDefaultSecurityAdminRuleResponseOutput values.
+// You can construct a concrete instance of `ActiveDefaultSecurityAdminRuleResponseInput` via:
+//
+//          ActiveDefaultSecurityAdminRuleResponseArgs{...}
+type ActiveDefaultSecurityAdminRuleResponseInput interface {
+	pulumi.Input
+
+	ToActiveDefaultSecurityAdminRuleResponseOutput() ActiveDefaultSecurityAdminRuleResponseOutput
+	ToActiveDefaultSecurityAdminRuleResponseOutputWithContext(context.Context) ActiveDefaultSecurityAdminRuleResponseOutput
+}
+
+// Network default admin rule.
+type ActiveDefaultSecurityAdminRuleResponseArgs struct {
+	// Indicates the access allowed for this particular rule
+	Access pulumi.StringInput `pulumi:"access"`
+	// Deployment time string.
+	CommitTime pulumi.StringPtrInput `pulumi:"commitTime"`
+	// A description of the security admin configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations AddressPrefixItemResponseArrayInput `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Default rule flag.
+	Flag pulumi.StringPtrInput `pulumi:"flag"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Default'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Deployment region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
+}
+
+func (ActiveDefaultSecurityAdminRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDefaultSecurityAdminRuleResponse)(nil)).Elem()
+}
+
+func (i ActiveDefaultSecurityAdminRuleResponseArgs) ToActiveDefaultSecurityAdminRuleResponseOutput() ActiveDefaultSecurityAdminRuleResponseOutput {
+	return i.ToActiveDefaultSecurityAdminRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveDefaultSecurityAdminRuleResponseArgs) ToActiveDefaultSecurityAdminRuleResponseOutputWithContext(ctx context.Context) ActiveDefaultSecurityAdminRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDefaultSecurityAdminRuleResponseOutput)
+}
+
+// Network default admin rule.
+type ActiveDefaultSecurityAdminRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDefaultSecurityAdminRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDefaultSecurityAdminRuleResponse)(nil)).Elem()
+}
+
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) ToActiveDefaultSecurityAdminRuleResponseOutput() ActiveDefaultSecurityAdminRuleResponseOutput {
+	return o
+}
+
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) ToActiveDefaultSecurityAdminRuleResponseOutputWithContext(ctx context.Context) ActiveDefaultSecurityAdminRuleResponseOutput {
+	return o
+}
+
+// Indicates the access allowed for this particular rule
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// Deployment time string.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+}
+
+// A description of the security admin configuration.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security admin configuration.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A description for this rule. Restricted to 140 chars.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The destination port ranges.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Default rule flag.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Flag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.Flag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Default'.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Network protocol this rule applies to.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Deployment region.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Groups for rule collection
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
+}
+
+// The source port ranges.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o ActiveDefaultSecurityAdminRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Network security default user rule.
+type ActiveDefaultSecurityUserRuleResponse struct {
+	// Deployment time string.
+	CommitTime *string `pulumi:"commitTime"`
+	// A description of the security user configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description string `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction string `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName string `pulumi:"displayName"`
+	// Default rule flag.
+	Flag *string `pulumi:"flag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Default'.
+	Kind string `pulumi:"kind"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The provisioning state of the security configuration user rule resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Deployment region.
+	Region *string `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources []AddressPrefixItemResponse `pulumi:"sources"`
+}
+
+// ActiveDefaultSecurityUserRuleResponseInput is an input type that accepts ActiveDefaultSecurityUserRuleResponseArgs and ActiveDefaultSecurityUserRuleResponseOutput values.
+// You can construct a concrete instance of `ActiveDefaultSecurityUserRuleResponseInput` via:
+//
+//          ActiveDefaultSecurityUserRuleResponseArgs{...}
+type ActiveDefaultSecurityUserRuleResponseInput interface {
+	pulumi.Input
+
+	ToActiveDefaultSecurityUserRuleResponseOutput() ActiveDefaultSecurityUserRuleResponseOutput
+	ToActiveDefaultSecurityUserRuleResponseOutputWithContext(context.Context) ActiveDefaultSecurityUserRuleResponseOutput
+}
+
+// Network security default user rule.
+type ActiveDefaultSecurityUserRuleResponseArgs struct {
+	// Deployment time string.
+	CommitTime pulumi.StringPtrInput `pulumi:"commitTime"`
+	// A description of the security user configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations AddressPrefixItemResponseArrayInput `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// Default rule flag.
+	Flag pulumi.StringPtrInput `pulumi:"flag"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Default'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Network protocol this rule applies to.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The provisioning state of the security configuration user rule resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Deployment region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
+}
+
+func (ActiveDefaultSecurityUserRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDefaultSecurityUserRuleResponse)(nil)).Elem()
+}
+
+func (i ActiveDefaultSecurityUserRuleResponseArgs) ToActiveDefaultSecurityUserRuleResponseOutput() ActiveDefaultSecurityUserRuleResponseOutput {
+	return i.ToActiveDefaultSecurityUserRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveDefaultSecurityUserRuleResponseArgs) ToActiveDefaultSecurityUserRuleResponseOutputWithContext(ctx context.Context) ActiveDefaultSecurityUserRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveDefaultSecurityUserRuleResponseOutput)
+}
+
+// Network security default user rule.
+type ActiveDefaultSecurityUserRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveDefaultSecurityUserRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveDefaultSecurityUserRuleResponse)(nil)).Elem()
+}
+
+func (o ActiveDefaultSecurityUserRuleResponseOutput) ToActiveDefaultSecurityUserRuleResponseOutput() ActiveDefaultSecurityUserRuleResponseOutput {
+	return o
+}
+
+func (o ActiveDefaultSecurityUserRuleResponseOutput) ToActiveDefaultSecurityUserRuleResponseOutputWithContext(ctx context.Context) ActiveDefaultSecurityUserRuleResponseOutput {
 	return o
 }
 
 // Deployment time string.
-func (o ActiveConfigurationResponseOutput) CommitTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveConfigurationResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+func (o ActiveDefaultSecurityUserRuleResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
 }
 
-// Configuration such as connectivity configuration or security rule collection.
-func (o ActiveConfigurationResponseOutput) CommittedConfiguration() pulumi.AnyOutput {
-	return o.ApplyT(func(v ActiveConfigurationResponse) interface{} { return v.CommittedConfiguration }).(pulumi.AnyOutput)
+// A description of the security user configuration.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security user configuration.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A description for this rule. Restricted to 140 chars.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The destination port ranges.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// Default rule flag.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Flag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.Flag }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Default'.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Network protocol this rule applies to.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the security configuration user rule resource.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 // Deployment region.
-func (o ActiveConfigurationResponseOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActiveConfigurationResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-type ActiveConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ActiveConfigurationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveConfigurationResponse)(nil)).Elem()
+// Groups for rule collection
+func (o ActiveDefaultSecurityUserRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
 }
 
-func (o ActiveConfigurationResponseArrayOutput) ToActiveConfigurationResponseArrayOutput() ActiveConfigurationResponseArrayOutput {
+// A description of the rule collection.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
+}
+
+// The source port ranges.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o ActiveDefaultSecurityUserRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveDefaultSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Network admin rule.
+type ActiveSecurityAdminRuleResponse struct {
+	// Indicates the access allowed for this particular rule
+	Access string `pulumi:"access"`
+	// Deployment time string.
+	CommitTime *string `pulumi:"commitTime"`
+	// A description of the security admin configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description *string `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction string `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Custom'.
+	Kind string `pulumi:"kind"`
+	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority *int `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Deployment region.
+	Region *string `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources []AddressPrefixItemResponse `pulumi:"sources"`
+}
+
+// ActiveSecurityAdminRuleResponseInput is an input type that accepts ActiveSecurityAdminRuleResponseArgs and ActiveSecurityAdminRuleResponseOutput values.
+// You can construct a concrete instance of `ActiveSecurityAdminRuleResponseInput` via:
+//
+//          ActiveSecurityAdminRuleResponseArgs{...}
+type ActiveSecurityAdminRuleResponseInput interface {
+	pulumi.Input
+
+	ToActiveSecurityAdminRuleResponseOutput() ActiveSecurityAdminRuleResponseOutput
+	ToActiveSecurityAdminRuleResponseOutputWithContext(context.Context) ActiveSecurityAdminRuleResponseOutput
+}
+
+// Network admin rule.
+type ActiveSecurityAdminRuleResponseArgs struct {
+	// Indicates the access allowed for this particular rule
+	Access pulumi.StringInput `pulumi:"access"`
+	// Deployment time string.
+	CommitTime pulumi.StringPtrInput `pulumi:"commitTime"`
+	// A description of the security admin configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations AddressPrefixItemResponseArrayInput `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Custom'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Deployment region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
+}
+
+func (ActiveSecurityAdminRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveSecurityAdminRuleResponse)(nil)).Elem()
+}
+
+func (i ActiveSecurityAdminRuleResponseArgs) ToActiveSecurityAdminRuleResponseOutput() ActiveSecurityAdminRuleResponseOutput {
+	return i.ToActiveSecurityAdminRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveSecurityAdminRuleResponseArgs) ToActiveSecurityAdminRuleResponseOutputWithContext(ctx context.Context) ActiveSecurityAdminRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveSecurityAdminRuleResponseOutput)
+}
+
+// Network admin rule.
+type ActiveSecurityAdminRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveSecurityAdminRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveSecurityAdminRuleResponse)(nil)).Elem()
+}
+
+func (o ActiveSecurityAdminRuleResponseOutput) ToActiveSecurityAdminRuleResponseOutput() ActiveSecurityAdminRuleResponseOutput {
 	return o
 }
 
-func (o ActiveConfigurationResponseArrayOutput) ToActiveConfigurationResponseArrayOutputWithContext(ctx context.Context) ActiveConfigurationResponseArrayOutput {
+func (o ActiveSecurityAdminRuleResponseOutput) ToActiveSecurityAdminRuleResponseOutputWithContext(ctx context.Context) ActiveSecurityAdminRuleResponseOutput {
 	return o
 }
 
-func (o ActiveConfigurationResponseArrayOutput) Index(i pulumi.IntInput) ActiveConfigurationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveConfigurationResponse {
-		return vs[0].([]ActiveConfigurationResponse)[vs[1].(int)]
-	}).(ActiveConfigurationResponseOutput)
+// Indicates the access allowed for this particular rule
+func (o ActiveSecurityAdminRuleResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// Deployment time string.
+func (o ActiveSecurityAdminRuleResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+}
+
+// A description of the security admin configuration.
+func (o ActiveSecurityAdminRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security admin configuration.
+func (o ActiveSecurityAdminRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A description for this rule. Restricted to 140 chars.
+func (o ActiveSecurityAdminRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The destination port ranges.
+func (o ActiveSecurityAdminRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o ActiveSecurityAdminRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o ActiveSecurityAdminRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o ActiveSecurityAdminRuleResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ActiveSecurityAdminRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Custom'.
+func (o ActiveSecurityAdminRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o ActiveSecurityAdminRuleResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Network protocol this rule applies to.
+func (o ActiveSecurityAdminRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o ActiveSecurityAdminRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Deployment region.
+func (o ActiveSecurityAdminRuleResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Groups for rule collection
+func (o ActiveSecurityAdminRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o ActiveSecurityAdminRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o ActiveSecurityAdminRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o ActiveSecurityAdminRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
+}
+
+// The source port ranges.
+func (o ActiveSecurityAdminRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o ActiveSecurityAdminRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Network security user rule.
+type ActiveSecurityUserRuleResponse struct {
+	// Deployment time string.
+	CommitTime *string `pulumi:"commitTime"`
+	// A description of the security user configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
+	// A description for this rule.
+	Description *string `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction string `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Custom'.
+	Kind string `pulumi:"kind"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The provisioning state of the security configuration user rule resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Deployment region.
+	Region *string `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources []AddressPrefixItemResponse `pulumi:"sources"`
+}
+
+// ActiveSecurityUserRuleResponseInput is an input type that accepts ActiveSecurityUserRuleResponseArgs and ActiveSecurityUserRuleResponseOutput values.
+// You can construct a concrete instance of `ActiveSecurityUserRuleResponseInput` via:
+//
+//          ActiveSecurityUserRuleResponseArgs{...}
+type ActiveSecurityUserRuleResponseInput interface {
+	pulumi.Input
+
+	ToActiveSecurityUserRuleResponseOutput() ActiveSecurityUserRuleResponseOutput
+	ToActiveSecurityUserRuleResponseOutputWithContext(context.Context) ActiveSecurityUserRuleResponseOutput
+}
+
+// Network security user rule.
+type ActiveSecurityUserRuleResponseArgs struct {
+	// Deployment time string.
+	CommitTime pulumi.StringPtrInput `pulumi:"commitTime"`
+	// A description of the security user configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
+	// A description for this rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations AddressPrefixItemResponseArrayInput `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Custom'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// Network protocol this rule applies to.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The provisioning state of the security configuration user rule resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Deployment region.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
+}
+
+func (ActiveSecurityUserRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveSecurityUserRuleResponse)(nil)).Elem()
+}
+
+func (i ActiveSecurityUserRuleResponseArgs) ToActiveSecurityUserRuleResponseOutput() ActiveSecurityUserRuleResponseOutput {
+	return i.ToActiveSecurityUserRuleResponseOutputWithContext(context.Background())
+}
+
+func (i ActiveSecurityUserRuleResponseArgs) ToActiveSecurityUserRuleResponseOutputWithContext(ctx context.Context) ActiveSecurityUserRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActiveSecurityUserRuleResponseOutput)
+}
+
+// Network security user rule.
+type ActiveSecurityUserRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (ActiveSecurityUserRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActiveSecurityUserRuleResponse)(nil)).Elem()
+}
+
+func (o ActiveSecurityUserRuleResponseOutput) ToActiveSecurityUserRuleResponseOutput() ActiveSecurityUserRuleResponseOutput {
+	return o
+}
+
+func (o ActiveSecurityUserRuleResponseOutput) ToActiveSecurityUserRuleResponseOutputWithContext(ctx context.Context) ActiveSecurityUserRuleResponseOutput {
+	return o
+}
+
+// Deployment time string.
+func (o ActiveSecurityUserRuleResponseOutput) CommitTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.CommitTime }).(pulumi.StringPtrOutput)
+}
+
+// A description of the security user configuration.
+func (o ActiveSecurityUserRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security user configuration.
+func (o ActiveSecurityUserRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A description for this rule.
+func (o ActiveSecurityUserRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The destination port ranges.
+func (o ActiveSecurityUserRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o ActiveSecurityUserRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o ActiveSecurityUserRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o ActiveSecurityUserRuleResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o ActiveSecurityUserRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Custom'.
+func (o ActiveSecurityUserRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// Network protocol this rule applies to.
+func (o ActiveSecurityUserRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the security configuration user rule resource.
+func (o ActiveSecurityUserRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Deployment region.
+func (o ActiveSecurityUserRuleResponseOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Groups for rule collection
+func (o ActiveSecurityUserRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o ActiveSecurityUserRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o ActiveSecurityUserRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o ActiveSecurityUserRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
+}
+
+// The source port ranges.
+func (o ActiveSecurityUserRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o ActiveSecurityUserRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v ActiveSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Address prefix item.
@@ -703,173 +1730,7 @@ func (o ConnectivityGroupItemResponseArrayOutput) Index(i pulumi.IntInput) Conne
 	}).(ConnectivityGroupItemResponseOutput)
 }
 
-// Network admin rule.
-type EffectiveAdminRuleResponse struct {
-	// Indicates the access allowed for this particular rule
-	Access string `pulumi:"access"`
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// The destination port ranges.
-	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction string `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Whether the rule collection is custom or default.
-	// Expected value is 'Custom'.
-	Kind string `pulumi:"kind"`
-	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority *int `pulumi:"priority"`
-	// Network protocol this rule applies to.
-	Protocol string `pulumi:"protocol"`
-	// The provisioning state of the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The source port ranges.
-	SourcePortRanges []string `pulumi:"sourcePortRanges"`
-	// The CIDR or source IP ranges.
-	Sources []AddressPrefixItemResponse `pulumi:"sources"`
-}
-
-// EffectiveAdminRuleResponseInput is an input type that accepts EffectiveAdminRuleResponseArgs and EffectiveAdminRuleResponseOutput values.
-// You can construct a concrete instance of `EffectiveAdminRuleResponseInput` via:
-//
-//          EffectiveAdminRuleResponseArgs{...}
-type EffectiveAdminRuleResponseInput interface {
-	pulumi.Input
-
-	ToEffectiveAdminRuleResponseOutput() EffectiveAdminRuleResponseOutput
-	ToEffectiveAdminRuleResponseOutputWithContext(context.Context) EffectiveAdminRuleResponseOutput
-}
-
-// Network admin rule.
-type EffectiveAdminRuleResponseArgs struct {
-	// Indicates the access allowed for this particular rule
-	Access pulumi.StringInput `pulumi:"access"`
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The destination port ranges.
-	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
-	// The destination address prefixes. CIDR or destination IP ranges.
-	Destinations AddressPrefixItemResponseArrayInput `pulumi:"destinations"`
-	// Indicates if the traffic matched against the rule in inbound or outbound.
-	Direction pulumi.StringInput `pulumi:"direction"`
-	// A friendly name for the rule.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Whether the rule collection is custom or default.
-	// Expected value is 'Custom'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Network protocol this rule applies to.
-	Protocol pulumi.StringInput `pulumi:"protocol"`
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The source port ranges.
-	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
-	// The CIDR or source IP ranges.
-	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
-}
-
-func (EffectiveAdminRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveAdminRuleResponse)(nil)).Elem()
-}
-
-func (i EffectiveAdminRuleResponseArgs) ToEffectiveAdminRuleResponseOutput() EffectiveAdminRuleResponseOutput {
-	return i.ToEffectiveAdminRuleResponseOutputWithContext(context.Background())
-}
-
-func (i EffectiveAdminRuleResponseArgs) ToEffectiveAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveAdminRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EffectiveAdminRuleResponseOutput)
-}
-
-// Network admin rule.
-type EffectiveAdminRuleResponseOutput struct{ *pulumi.OutputState }
-
-func (EffectiveAdminRuleResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveAdminRuleResponse)(nil)).Elem()
-}
-
-func (o EffectiveAdminRuleResponseOutput) ToEffectiveAdminRuleResponseOutput() EffectiveAdminRuleResponseOutput {
-	return o
-}
-
-func (o EffectiveAdminRuleResponseOutput) ToEffectiveAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveAdminRuleResponseOutput {
-	return o
-}
-
-// Indicates the access allowed for this particular rule
-func (o EffectiveAdminRuleResponseOutput) Access() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) string { return v.Access }).(pulumi.StringOutput)
-}
-
-// A description for this rule. Restricted to 140 chars.
-func (o EffectiveAdminRuleResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The destination port ranges.
-func (o EffectiveAdminRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
-}
-
-// The destination address prefixes. CIDR or destination IP ranges.
-func (o EffectiveAdminRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
-}
-
-// Indicates if the traffic matched against the rule in inbound or outbound.
-func (o EffectiveAdminRuleResponseOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
-}
-
-// A friendly name for the rule.
-func (o EffectiveAdminRuleResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Resource ID.
-func (o EffectiveAdminRuleResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Whether the rule collection is custom or default.
-// Expected value is 'Custom'.
-func (o EffectiveAdminRuleResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-func (o EffectiveAdminRuleResponseOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
-}
-
-// Network protocol this rule applies to.
-func (o EffectiveAdminRuleResponseOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
-}
-
-// The provisioning state of the resource.
-func (o EffectiveAdminRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The source port ranges.
-func (o EffectiveAdminRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
-}
-
-// The CIDR or source IP ranges.
-func (o EffectiveAdminRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveAdminRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
-}
-
-// The network manager connectivity configuration resource
+// The network manager effective connectivity configuration
 type EffectiveConnectivityConfigurationResponse struct {
 	// Groups for configuration
 	AppliesToGroups []ConnectivityGroupItemResponse `pulumi:"appliesToGroups"`
@@ -889,9 +1750,6 @@ type EffectiveConnectivityConfigurationResponse struct {
 	Id *string `pulumi:"id"`
 	// Flag if global mesh is supported.
 	IsGlobal *string `pulumi:"isGlobal"`
-	// Effective configuration Type.
-	// Expected value is 'ConnectivityConfiguration'.
-	Kind string `pulumi:"kind"`
 	// The provisioning state of the connectivity configuration resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 }
@@ -907,7 +1765,7 @@ type EffectiveConnectivityConfigurationResponseInput interface {
 	ToEffectiveConnectivityConfigurationResponseOutputWithContext(context.Context) EffectiveConnectivityConfigurationResponseOutput
 }
 
-// The network manager connectivity configuration resource
+// The network manager effective connectivity configuration
 type EffectiveConnectivityConfigurationResponseArgs struct {
 	// Groups for configuration
 	AppliesToGroups ConnectivityGroupItemResponseArrayInput `pulumi:"appliesToGroups"`
@@ -927,9 +1785,6 @@ type EffectiveConnectivityConfigurationResponseArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Flag if global mesh is supported.
 	IsGlobal pulumi.StringPtrInput `pulumi:"isGlobal"`
-	// Effective configuration Type.
-	// Expected value is 'ConnectivityConfiguration'.
-	Kind pulumi.StringInput `pulumi:"kind"`
 	// The provisioning state of the connectivity configuration resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
@@ -946,7 +1801,32 @@ func (i EffectiveConnectivityConfigurationResponseArgs) ToEffectiveConnectivityC
 	return pulumi.ToOutputWithContext(ctx, i).(EffectiveConnectivityConfigurationResponseOutput)
 }
 
-// The network manager connectivity configuration resource
+// EffectiveConnectivityConfigurationResponseArrayInput is an input type that accepts EffectiveConnectivityConfigurationResponseArray and EffectiveConnectivityConfigurationResponseArrayOutput values.
+// You can construct a concrete instance of `EffectiveConnectivityConfigurationResponseArrayInput` via:
+//
+//          EffectiveConnectivityConfigurationResponseArray{ EffectiveConnectivityConfigurationResponseArgs{...} }
+type EffectiveConnectivityConfigurationResponseArrayInput interface {
+	pulumi.Input
+
+	ToEffectiveConnectivityConfigurationResponseArrayOutput() EffectiveConnectivityConfigurationResponseArrayOutput
+	ToEffectiveConnectivityConfigurationResponseArrayOutputWithContext(context.Context) EffectiveConnectivityConfigurationResponseArrayOutput
+}
+
+type EffectiveConnectivityConfigurationResponseArray []EffectiveConnectivityConfigurationResponseInput
+
+func (EffectiveConnectivityConfigurationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EffectiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (i EffectiveConnectivityConfigurationResponseArray) ToEffectiveConnectivityConfigurationResponseArrayOutput() EffectiveConnectivityConfigurationResponseArrayOutput {
+	return i.ToEffectiveConnectivityConfigurationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i EffectiveConnectivityConfigurationResponseArray) ToEffectiveConnectivityConfigurationResponseArrayOutputWithContext(ctx context.Context) EffectiveConnectivityConfigurationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EffectiveConnectivityConfigurationResponseArrayOutput)
+}
+
+// The network manager effective connectivity configuration
 type EffectiveConnectivityConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (EffectiveConnectivityConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1010,21 +1890,39 @@ func (o EffectiveConnectivityConfigurationResponseOutput) IsGlobal() pulumi.Stri
 	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) *string { return v.IsGlobal }).(pulumi.StringPtrOutput)
 }
 
-// Effective configuration Type.
-// Expected value is 'ConnectivityConfiguration'.
-func (o EffectiveConnectivityConfigurationResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
 // The provisioning state of the connectivity configuration resource.
 func (o EffectiveConnectivityConfigurationResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v EffectiveConnectivityConfigurationResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
+type EffectiveConnectivityConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (EffectiveConnectivityConfigurationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EffectiveConnectivityConfigurationResponse)(nil)).Elem()
+}
+
+func (o EffectiveConnectivityConfigurationResponseArrayOutput) ToEffectiveConnectivityConfigurationResponseArrayOutput() EffectiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o EffectiveConnectivityConfigurationResponseArrayOutput) ToEffectiveConnectivityConfigurationResponseArrayOutputWithContext(ctx context.Context) EffectiveConnectivityConfigurationResponseArrayOutput {
+	return o
+}
+
+func (o EffectiveConnectivityConfigurationResponseArrayOutput) Index(i pulumi.IntInput) EffectiveConnectivityConfigurationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EffectiveConnectivityConfigurationResponse {
+		return vs[0].([]EffectiveConnectivityConfigurationResponse)[vs[1].(int)]
+	}).(EffectiveConnectivityConfigurationResponseOutput)
+}
+
 // Network default admin rule.
-type EffectiveDefaultAdminRuleResponse struct {
+type EffectiveDefaultSecurityAdminRuleResponse struct {
 	// Indicates the access allowed for this particular rule
 	Access string `pulumi:"access"`
+	// A description of the security admin configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
 	// A description for this rule. Restricted to 140 chars.
 	Description string `pulumi:"description"`
 	// The destination port ranges.
@@ -1039,7 +1937,7 @@ type EffectiveDefaultAdminRuleResponse struct {
 	Flag *string `pulumi:"flag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// Whether the rule collection is custom or default.
+	// Whether the rule is custom or default.
 	// Expected value is 'Default'.
 	Kind string `pulumi:"kind"`
 	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
@@ -1048,27 +1946,39 @@ type EffectiveDefaultAdminRuleResponse struct {
 	Protocol string `pulumi:"protocol"`
 	// The provisioning state of the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
 	// The source port ranges.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 	// The CIDR or source IP ranges.
 	Sources []AddressPrefixItemResponse `pulumi:"sources"`
 }
 
-// EffectiveDefaultAdminRuleResponseInput is an input type that accepts EffectiveDefaultAdminRuleResponseArgs and EffectiveDefaultAdminRuleResponseOutput values.
-// You can construct a concrete instance of `EffectiveDefaultAdminRuleResponseInput` via:
+// EffectiveDefaultSecurityAdminRuleResponseInput is an input type that accepts EffectiveDefaultSecurityAdminRuleResponseArgs and EffectiveDefaultSecurityAdminRuleResponseOutput values.
+// You can construct a concrete instance of `EffectiveDefaultSecurityAdminRuleResponseInput` via:
 //
-//          EffectiveDefaultAdminRuleResponseArgs{...}
-type EffectiveDefaultAdminRuleResponseInput interface {
+//          EffectiveDefaultSecurityAdminRuleResponseArgs{...}
+type EffectiveDefaultSecurityAdminRuleResponseInput interface {
 	pulumi.Input
 
-	ToEffectiveDefaultAdminRuleResponseOutput() EffectiveDefaultAdminRuleResponseOutput
-	ToEffectiveDefaultAdminRuleResponseOutputWithContext(context.Context) EffectiveDefaultAdminRuleResponseOutput
+	ToEffectiveDefaultSecurityAdminRuleResponseOutput() EffectiveDefaultSecurityAdminRuleResponseOutput
+	ToEffectiveDefaultSecurityAdminRuleResponseOutputWithContext(context.Context) EffectiveDefaultSecurityAdminRuleResponseOutput
 }
 
 // Network default admin rule.
-type EffectiveDefaultAdminRuleResponseArgs struct {
+type EffectiveDefaultSecurityAdminRuleResponseArgs struct {
 	// Indicates the access allowed for this particular rule
 	Access pulumi.StringInput `pulumi:"access"`
+	// A description of the security admin configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
 	// A description for this rule. Restricted to 140 chars.
 	Description pulumi.StringInput `pulumi:"description"`
 	// The destination port ranges.
@@ -1083,7 +1993,7 @@ type EffectiveDefaultAdminRuleResponseArgs struct {
 	Flag pulumi.StringPtrInput `pulumi:"flag"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Whether the rule collection is custom or default.
+	// Whether the rule is custom or default.
 	// Expected value is 'Default'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
@@ -1092,112 +2002,156 @@ type EffectiveDefaultAdminRuleResponseArgs struct {
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The provisioning state of the resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
 	// The source port ranges.
 	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 	// The CIDR or source IP ranges.
 	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
 }
 
-func (EffectiveDefaultAdminRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveDefaultAdminRuleResponse)(nil)).Elem()
+func (EffectiveDefaultSecurityAdminRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveDefaultSecurityAdminRuleResponse)(nil)).Elem()
 }
 
-func (i EffectiveDefaultAdminRuleResponseArgs) ToEffectiveDefaultAdminRuleResponseOutput() EffectiveDefaultAdminRuleResponseOutput {
-	return i.ToEffectiveDefaultAdminRuleResponseOutputWithContext(context.Background())
+func (i EffectiveDefaultSecurityAdminRuleResponseArgs) ToEffectiveDefaultSecurityAdminRuleResponseOutput() EffectiveDefaultSecurityAdminRuleResponseOutput {
+	return i.ToEffectiveDefaultSecurityAdminRuleResponseOutputWithContext(context.Background())
 }
 
-func (i EffectiveDefaultAdminRuleResponseArgs) ToEffectiveDefaultAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultAdminRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EffectiveDefaultAdminRuleResponseOutput)
+func (i EffectiveDefaultSecurityAdminRuleResponseArgs) ToEffectiveDefaultSecurityAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultSecurityAdminRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EffectiveDefaultSecurityAdminRuleResponseOutput)
 }
 
 // Network default admin rule.
-type EffectiveDefaultAdminRuleResponseOutput struct{ *pulumi.OutputState }
+type EffectiveDefaultSecurityAdminRuleResponseOutput struct{ *pulumi.OutputState }
 
-func (EffectiveDefaultAdminRuleResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveDefaultAdminRuleResponse)(nil)).Elem()
+func (EffectiveDefaultSecurityAdminRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveDefaultSecurityAdminRuleResponse)(nil)).Elem()
 }
 
-func (o EffectiveDefaultAdminRuleResponseOutput) ToEffectiveDefaultAdminRuleResponseOutput() EffectiveDefaultAdminRuleResponseOutput {
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) ToEffectiveDefaultSecurityAdminRuleResponseOutput() EffectiveDefaultSecurityAdminRuleResponseOutput {
 	return o
 }
 
-func (o EffectiveDefaultAdminRuleResponseOutput) ToEffectiveDefaultAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultAdminRuleResponseOutput {
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) ToEffectiveDefaultSecurityAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultSecurityAdminRuleResponseOutput {
 	return o
 }
 
 // Indicates the access allowed for this particular rule
-func (o EffectiveDefaultAdminRuleResponseOutput) Access() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.Access }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// A description of the security admin configuration.
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security admin configuration.
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // A description for this rule. Restricted to 140 chars.
-func (o EffectiveDefaultAdminRuleResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // The destination port ranges.
-func (o EffectiveDefaultAdminRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
 }
 
 // The destination address prefixes. CIDR or destination IP ranges.
-func (o EffectiveDefaultAdminRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Indicates if the traffic matched against the rule in inbound or outbound.
-func (o EffectiveDefaultAdminRuleResponseOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
 // A friendly name for the rule.
-func (o EffectiveDefaultAdminRuleResponseOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Default rule flag.
-func (o EffectiveDefaultAdminRuleResponseOutput) Flag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) *string { return v.Flag }).(pulumi.StringPtrOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Flag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) *string { return v.Flag }).(pulumi.StringPtrOutput)
 }
 
 // Resource ID.
-func (o EffectiveDefaultAdminRuleResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Whether the rule collection is custom or default.
+// Whether the rule is custom or default.
 // Expected value is 'Default'.
-func (o EffectiveDefaultAdminRuleResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-func (o EffectiveDefaultAdminRuleResponseOutput) Priority() pulumi.IntOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // Network protocol this rule applies to.
-func (o EffectiveDefaultAdminRuleResponseOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // The provisioning state of the resource.
-func (o EffectiveDefaultAdminRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Groups for rule collection
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
 }
 
 // The source port ranges.
-func (o EffectiveDefaultAdminRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
 }
 
 // The CIDR or source IP ranges.
-func (o EffectiveDefaultAdminRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultAdminRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+func (o EffectiveDefaultSecurityAdminRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Network security default user rule.
-type EffectiveDefaultUserRuleResponse struct {
+type EffectiveDefaultSecurityUserRuleResponse struct {
+	// A description of the security user configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
 	// A description for this rule. Restricted to 140 chars.
 	Description string `pulumi:"description"`
 	// The destination port ranges.
@@ -1212,32 +2166,44 @@ type EffectiveDefaultUserRuleResponse struct {
 	Flag *string `pulumi:"flag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// Whether the rule collection is custom or default.
+	// Whether the rule is custom or default.
 	// Expected value is 'Default'.
 	Kind string `pulumi:"kind"`
 	// Network protocol this rule applies to.
 	Protocol string `pulumi:"protocol"`
 	// The provisioning state of the security configuration user rule resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
 	// The source port ranges.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 	// The CIDR or source IP ranges.
 	Sources []AddressPrefixItemResponse `pulumi:"sources"`
 }
 
-// EffectiveDefaultUserRuleResponseInput is an input type that accepts EffectiveDefaultUserRuleResponseArgs and EffectiveDefaultUserRuleResponseOutput values.
-// You can construct a concrete instance of `EffectiveDefaultUserRuleResponseInput` via:
+// EffectiveDefaultSecurityUserRuleResponseInput is an input type that accepts EffectiveDefaultSecurityUserRuleResponseArgs and EffectiveDefaultSecurityUserRuleResponseOutput values.
+// You can construct a concrete instance of `EffectiveDefaultSecurityUserRuleResponseInput` via:
 //
-//          EffectiveDefaultUserRuleResponseArgs{...}
-type EffectiveDefaultUserRuleResponseInput interface {
+//          EffectiveDefaultSecurityUserRuleResponseArgs{...}
+type EffectiveDefaultSecurityUserRuleResponseInput interface {
 	pulumi.Input
 
-	ToEffectiveDefaultUserRuleResponseOutput() EffectiveDefaultUserRuleResponseOutput
-	ToEffectiveDefaultUserRuleResponseOutputWithContext(context.Context) EffectiveDefaultUserRuleResponseOutput
+	ToEffectiveDefaultSecurityUserRuleResponseOutput() EffectiveDefaultSecurityUserRuleResponseOutput
+	ToEffectiveDefaultSecurityUserRuleResponseOutputWithContext(context.Context) EffectiveDefaultSecurityUserRuleResponseOutput
 }
 
 // Network security default user rule.
-type EffectiveDefaultUserRuleResponseArgs struct {
+type EffectiveDefaultSecurityUserRuleResponseArgs struct {
+	// A description of the security user configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
 	// A description for this rule. Restricted to 140 chars.
 	Description pulumi.StringInput `pulumi:"description"`
 	// The destination port ranges.
@@ -1252,109 +2218,375 @@ type EffectiveDefaultUserRuleResponseArgs struct {
 	Flag pulumi.StringPtrInput `pulumi:"flag"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Whether the rule collection is custom or default.
+	// Whether the rule is custom or default.
 	// Expected value is 'Default'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Network protocol this rule applies to.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The provisioning state of the security configuration user rule resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
 	// The source port ranges.
 	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 	// The CIDR or source IP ranges.
 	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
 }
 
-func (EffectiveDefaultUserRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveDefaultUserRuleResponse)(nil)).Elem()
+func (EffectiveDefaultSecurityUserRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveDefaultSecurityUserRuleResponse)(nil)).Elem()
 }
 
-func (i EffectiveDefaultUserRuleResponseArgs) ToEffectiveDefaultUserRuleResponseOutput() EffectiveDefaultUserRuleResponseOutput {
-	return i.ToEffectiveDefaultUserRuleResponseOutputWithContext(context.Background())
+func (i EffectiveDefaultSecurityUserRuleResponseArgs) ToEffectiveDefaultSecurityUserRuleResponseOutput() EffectiveDefaultSecurityUserRuleResponseOutput {
+	return i.ToEffectiveDefaultSecurityUserRuleResponseOutputWithContext(context.Background())
 }
 
-func (i EffectiveDefaultUserRuleResponseArgs) ToEffectiveDefaultUserRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultUserRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EffectiveDefaultUserRuleResponseOutput)
+func (i EffectiveDefaultSecurityUserRuleResponseArgs) ToEffectiveDefaultSecurityUserRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultSecurityUserRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EffectiveDefaultSecurityUserRuleResponseOutput)
 }
 
 // Network security default user rule.
-type EffectiveDefaultUserRuleResponseOutput struct{ *pulumi.OutputState }
+type EffectiveDefaultSecurityUserRuleResponseOutput struct{ *pulumi.OutputState }
 
-func (EffectiveDefaultUserRuleResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveDefaultUserRuleResponse)(nil)).Elem()
+func (EffectiveDefaultSecurityUserRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveDefaultSecurityUserRuleResponse)(nil)).Elem()
 }
 
-func (o EffectiveDefaultUserRuleResponseOutput) ToEffectiveDefaultUserRuleResponseOutput() EffectiveDefaultUserRuleResponseOutput {
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) ToEffectiveDefaultSecurityUserRuleResponseOutput() EffectiveDefaultSecurityUserRuleResponseOutput {
 	return o
 }
 
-func (o EffectiveDefaultUserRuleResponseOutput) ToEffectiveDefaultUserRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultUserRuleResponseOutput {
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) ToEffectiveDefaultSecurityUserRuleResponseOutputWithContext(ctx context.Context) EffectiveDefaultSecurityUserRuleResponseOutput {
 	return o
+}
+
+// A description of the security user configuration.
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security user configuration.
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // A description for this rule. Restricted to 140 chars.
-func (o EffectiveDefaultUserRuleResponseOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) string { return v.Description }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // The destination port ranges.
-func (o EffectiveDefaultUserRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
 }
 
 // The destination address prefixes. CIDR or destination IP ranges.
-func (o EffectiveDefaultUserRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Indicates if the traffic matched against the rule in inbound or outbound.
-func (o EffectiveDefaultUserRuleResponseOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
 // A friendly name for the rule.
-func (o EffectiveDefaultUserRuleResponseOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Default rule flag.
-func (o EffectiveDefaultUserRuleResponseOutput) Flag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) *string { return v.Flag }).(pulumi.StringPtrOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Flag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) *string { return v.Flag }).(pulumi.StringPtrOutput)
 }
 
 // Resource ID.
-func (o EffectiveDefaultUserRuleResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Whether the rule collection is custom or default.
+// Whether the rule is custom or default.
 // Expected value is 'Default'.
-func (o EffectiveDefaultUserRuleResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Network protocol this rule applies to.
-func (o EffectiveDefaultUserRuleResponseOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // The provisioning state of the security configuration user rule resource.
-func (o EffectiveDefaultUserRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Groups for rule collection
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
 }
 
 // The source port ranges.
-func (o EffectiveDefaultUserRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
 }
 
 // The CIDR or source IP ranges.
-func (o EffectiveDefaultUserRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveDefaultUserRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+func (o EffectiveDefaultSecurityUserRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveDefaultSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Network admin rule.
+type EffectiveSecurityAdminRuleResponse struct {
+	// Indicates the access allowed for this particular rule
+	Access string `pulumi:"access"`
+	// A description of the security admin configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description *string `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges []string `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations []AddressPrefixItemResponse `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction string `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Custom'.
+	Kind string `pulumi:"kind"`
+	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority *int `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol string `pulumi:"protocol"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources []AddressPrefixItemResponse `pulumi:"sources"`
+}
+
+// EffectiveSecurityAdminRuleResponseInput is an input type that accepts EffectiveSecurityAdminRuleResponseArgs and EffectiveSecurityAdminRuleResponseOutput values.
+// You can construct a concrete instance of `EffectiveSecurityAdminRuleResponseInput` via:
+//
+//          EffectiveSecurityAdminRuleResponseArgs{...}
+type EffectiveSecurityAdminRuleResponseInput interface {
+	pulumi.Input
+
+	ToEffectiveSecurityAdminRuleResponseOutput() EffectiveSecurityAdminRuleResponseOutput
+	ToEffectiveSecurityAdminRuleResponseOutputWithContext(context.Context) EffectiveSecurityAdminRuleResponseOutput
+}
+
+// Network admin rule.
+type EffectiveSecurityAdminRuleResponseArgs struct {
+	// Indicates the access allowed for this particular rule
+	Access pulumi.StringInput `pulumi:"access"`
+	// A description of the security admin configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security admin configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
+	// A description for this rule. Restricted to 140 chars.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The destination port ranges.
+	DestinationPortRanges pulumi.StringArrayInput `pulumi:"destinationPortRanges"`
+	// The destination address prefixes. CIDR or destination IP ranges.
+	Destinations AddressPrefixItemResponseArrayInput `pulumi:"destinations"`
+	// Indicates if the traffic matched against the rule in inbound or outbound.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// A friendly name for the rule.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Resource ID.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Whether the rule is custom or default.
+	// Expected value is 'Custom'.
+	Kind pulumi.StringInput `pulumi:"kind"`
+	// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Network protocol this rule applies to.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
+	// The source port ranges.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
+	// The CIDR or source IP ranges.
+	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
+}
+
+func (EffectiveSecurityAdminRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveSecurityAdminRuleResponse)(nil)).Elem()
+}
+
+func (i EffectiveSecurityAdminRuleResponseArgs) ToEffectiveSecurityAdminRuleResponseOutput() EffectiveSecurityAdminRuleResponseOutput {
+	return i.ToEffectiveSecurityAdminRuleResponseOutputWithContext(context.Background())
+}
+
+func (i EffectiveSecurityAdminRuleResponseArgs) ToEffectiveSecurityAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveSecurityAdminRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EffectiveSecurityAdminRuleResponseOutput)
+}
+
+// Network admin rule.
+type EffectiveSecurityAdminRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (EffectiveSecurityAdminRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveSecurityAdminRuleResponse)(nil)).Elem()
+}
+
+func (o EffectiveSecurityAdminRuleResponseOutput) ToEffectiveSecurityAdminRuleResponseOutput() EffectiveSecurityAdminRuleResponseOutput {
+	return o
+}
+
+func (o EffectiveSecurityAdminRuleResponseOutput) ToEffectiveSecurityAdminRuleResponseOutputWithContext(ctx context.Context) EffectiveSecurityAdminRuleResponseOutput {
+	return o
+}
+
+// Indicates the access allowed for this particular rule
+func (o EffectiveSecurityAdminRuleResponseOutput) Access() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) string { return v.Access }).(pulumi.StringOutput)
+}
+
+// A description of the security admin configuration.
+func (o EffectiveSecurityAdminRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security admin configuration.
+func (o EffectiveSecurityAdminRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A description for this rule. Restricted to 140 chars.
+func (o EffectiveSecurityAdminRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The destination port ranges.
+func (o EffectiveSecurityAdminRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The destination address prefixes. CIDR or destination IP ranges.
+func (o EffectiveSecurityAdminRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+}
+
+// Indicates if the traffic matched against the rule in inbound or outbound.
+func (o EffectiveSecurityAdminRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// A friendly name for the rule.
+func (o EffectiveSecurityAdminRuleResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Resource ID.
+func (o EffectiveSecurityAdminRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Whether the rule is custom or default.
+// Expected value is 'Custom'.
+func (o EffectiveSecurityAdminRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+func (o EffectiveSecurityAdminRuleResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Network protocol this rule applies to.
+func (o EffectiveSecurityAdminRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the resource.
+func (o EffectiveSecurityAdminRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Groups for rule collection
+func (o EffectiveSecurityAdminRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o EffectiveSecurityAdminRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o EffectiveSecurityAdminRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o EffectiveSecurityAdminRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
+}
+
+// The source port ranges.
+func (o EffectiveSecurityAdminRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+}
+
+// The CIDR or source IP ranges.
+func (o EffectiveSecurityAdminRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityAdminRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Network security user rule.
-type EffectiveUserRuleResponse struct {
+type EffectiveSecurityUserRuleResponse struct {
+	// A description of the security user configuration.
+	ConfigurationDescription *string `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
 	// A description for this rule.
 	Description *string `pulumi:"description"`
 	// The destination port ranges.
@@ -1367,32 +2599,44 @@ type EffectiveUserRuleResponse struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
-	// Whether the rule collection is custom or default.
+	// Whether the rule is custom or default.
 	// Expected value is 'Custom'.
 	Kind string `pulumi:"kind"`
 	// Network protocol this rule applies to.
 	Protocol string `pulumi:"protocol"`
 	// The provisioning state of the security configuration user rule resource.
 	ProvisioningState string `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription *string `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName *string `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups []ConfigurationGroupResponse `pulumi:"ruleGroups"`
 	// The source port ranges.
 	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 	// The CIDR or source IP ranges.
 	Sources []AddressPrefixItemResponse `pulumi:"sources"`
 }
 
-// EffectiveUserRuleResponseInput is an input type that accepts EffectiveUserRuleResponseArgs and EffectiveUserRuleResponseOutput values.
-// You can construct a concrete instance of `EffectiveUserRuleResponseInput` via:
+// EffectiveSecurityUserRuleResponseInput is an input type that accepts EffectiveSecurityUserRuleResponseArgs and EffectiveSecurityUserRuleResponseOutput values.
+// You can construct a concrete instance of `EffectiveSecurityUserRuleResponseInput` via:
 //
-//          EffectiveUserRuleResponseArgs{...}
-type EffectiveUserRuleResponseInput interface {
+//          EffectiveSecurityUserRuleResponseArgs{...}
+type EffectiveSecurityUserRuleResponseInput interface {
 	pulumi.Input
 
-	ToEffectiveUserRuleResponseOutput() EffectiveUserRuleResponseOutput
-	ToEffectiveUserRuleResponseOutputWithContext(context.Context) EffectiveUserRuleResponseOutput
+	ToEffectiveSecurityUserRuleResponseOutput() EffectiveSecurityUserRuleResponseOutput
+	ToEffectiveSecurityUserRuleResponseOutputWithContext(context.Context) EffectiveSecurityUserRuleResponseOutput
 }
 
 // Network security user rule.
-type EffectiveUserRuleResponseArgs struct {
+type EffectiveSecurityUserRuleResponseArgs struct {
+	// A description of the security user configuration.
+	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
+	// A display name of the security user configuration.
+	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
 	// A description for this rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The destination port ranges.
@@ -1405,100 +2649,140 @@ type EffectiveUserRuleResponseArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Whether the rule collection is custom or default.
+	// Whether the rule is custom or default.
 	// Expected value is 'Custom'.
 	Kind pulumi.StringInput `pulumi:"kind"`
 	// Network protocol this rule applies to.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The provisioning state of the security configuration user rule resource.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// Groups for rule collection
+	RuleCollectionAppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"ruleCollectionAppliesToGroups"`
+	// A description of the rule collection.
+	RuleCollectionDescription pulumi.StringPtrInput `pulumi:"ruleCollectionDescription"`
+	// A display name of the rule collection.
+	RuleCollectionDisplayName pulumi.StringPtrInput `pulumi:"ruleCollectionDisplayName"`
+	// Effective configuration groups.
+	RuleGroups ConfigurationGroupResponseArrayInput `pulumi:"ruleGroups"`
 	// The source port ranges.
 	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 	// The CIDR or source IP ranges.
 	Sources AddressPrefixItemResponseArrayInput `pulumi:"sources"`
 }
 
-func (EffectiveUserRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveUserRuleResponse)(nil)).Elem()
+func (EffectiveSecurityUserRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveSecurityUserRuleResponse)(nil)).Elem()
 }
 
-func (i EffectiveUserRuleResponseArgs) ToEffectiveUserRuleResponseOutput() EffectiveUserRuleResponseOutput {
-	return i.ToEffectiveUserRuleResponseOutputWithContext(context.Background())
+func (i EffectiveSecurityUserRuleResponseArgs) ToEffectiveSecurityUserRuleResponseOutput() EffectiveSecurityUserRuleResponseOutput {
+	return i.ToEffectiveSecurityUserRuleResponseOutputWithContext(context.Background())
 }
 
-func (i EffectiveUserRuleResponseArgs) ToEffectiveUserRuleResponseOutputWithContext(ctx context.Context) EffectiveUserRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EffectiveUserRuleResponseOutput)
+func (i EffectiveSecurityUserRuleResponseArgs) ToEffectiveSecurityUserRuleResponseOutputWithContext(ctx context.Context) EffectiveSecurityUserRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EffectiveSecurityUserRuleResponseOutput)
 }
 
 // Network security user rule.
-type EffectiveUserRuleResponseOutput struct{ *pulumi.OutputState }
+type EffectiveSecurityUserRuleResponseOutput struct{ *pulumi.OutputState }
 
-func (EffectiveUserRuleResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EffectiveUserRuleResponse)(nil)).Elem()
+func (EffectiveSecurityUserRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EffectiveSecurityUserRuleResponse)(nil)).Elem()
 }
 
-func (o EffectiveUserRuleResponseOutput) ToEffectiveUserRuleResponseOutput() EffectiveUserRuleResponseOutput {
+func (o EffectiveSecurityUserRuleResponseOutput) ToEffectiveSecurityUserRuleResponseOutput() EffectiveSecurityUserRuleResponseOutput {
 	return o
 }
 
-func (o EffectiveUserRuleResponseOutput) ToEffectiveUserRuleResponseOutputWithContext(ctx context.Context) EffectiveUserRuleResponseOutput {
+func (o EffectiveSecurityUserRuleResponseOutput) ToEffectiveSecurityUserRuleResponseOutputWithContext(ctx context.Context) EffectiveSecurityUserRuleResponseOutput {
 	return o
+}
+
+// A description of the security user configuration.
+func (o EffectiveSecurityUserRuleResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the security user configuration.
+func (o EffectiveSecurityUserRuleResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
 }
 
 // A description for this rule.
-func (o EffectiveUserRuleResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // The destination port ranges.
-func (o EffectiveUserRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) DestinationPortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) []string { return v.DestinationPortRanges }).(pulumi.StringArrayOutput)
 }
 
 // The destination address prefixes. CIDR or destination IP ranges.
-func (o EffectiveUserRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Destinations() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Destinations }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Indicates if the traffic matched against the rule in inbound or outbound.
-func (o EffectiveUserRuleResponseOutput) Direction() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
 // A friendly name for the rule.
-func (o EffectiveUserRuleResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
 // Resource ID.
-func (o EffectiveUserRuleResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Whether the rule collection is custom or default.
+// Whether the rule is custom or default.
 // Expected value is 'Custom'.
-func (o EffectiveUserRuleResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) string { return v.Kind }).(pulumi.StringOutput)
 }
 
 // Network protocol this rule applies to.
-func (o EffectiveUserRuleResponseOutput) Protocol() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
 // The provisioning state of the security configuration user rule resource.
-func (o EffectiveUserRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Groups for rule collection
+func (o EffectiveSecurityUserRuleResponseOutput) RuleCollectionAppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) []NetworkManagerSecurityGroupItemResponse {
+		return v.RuleCollectionAppliesToGroups
+	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
+}
+
+// A description of the rule collection.
+func (o EffectiveSecurityUserRuleResponseOutput) RuleCollectionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.RuleCollectionDescription }).(pulumi.StringPtrOutput)
+}
+
+// A display name of the rule collection.
+func (o EffectiveSecurityUserRuleResponseOutput) RuleCollectionDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) *string { return v.RuleCollectionDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Effective configuration groups.
+func (o EffectiveSecurityUserRuleResponseOutput) RuleGroups() ConfigurationGroupResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) []ConfigurationGroupResponse { return v.RuleGroups }).(ConfigurationGroupResponseArrayOutput)
 }
 
 // The source port ranges.
-func (o EffectiveUserRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) []string { return v.SourcePortRanges }).(pulumi.StringArrayOutput)
 }
 
 // The CIDR or source IP ranges.
-func (o EffectiveUserRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
-	return o.ApplyT(func(v EffectiveUserRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
+func (o EffectiveSecurityUserRuleResponseOutput) Sources() AddressPrefixItemResponseArrayOutput {
+	return o.ApplyT(func(v EffectiveSecurityUserRuleResponse) []AddressPrefixItemResponse { return v.Sources }).(AddressPrefixItemResponseArrayOutput)
 }
 
 // Effective Virtual Network
@@ -2492,288 +3776,6 @@ func (o NetworkManagerSecurityGroupItemResponseArrayOutput) Index(i pulumi.IntIn
 	}).(NetworkManagerSecurityGroupItemResponseOutput)
 }
 
-// The network manager effective security admin rule collection
-type SecurityAdminRuleCollectionResponse struct {
-	// Groups for configuration
-	AppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	ConfigurationDescription *string `pulumi:"configurationDescription"`
-	// A display name of the rule collection.
-	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
-	// Effective configuration groups.
-	ConfigurationGroups []ConfigurationGroupResponse `pulumi:"configurationGroups"`
-	// A description of the rule collection.
-	Description *string `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Effective configuration Type.
-	// Expected value is 'SecurityAdminRuleCollection'.
-	Kind string `pulumi:"kind"`
-	// The provisioning state of the the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Base admin rule List
-	Rules []interface{} `pulumi:"rules"`
-}
-
-// SecurityAdminRuleCollectionResponseInput is an input type that accepts SecurityAdminRuleCollectionResponseArgs and SecurityAdminRuleCollectionResponseOutput values.
-// You can construct a concrete instance of `SecurityAdminRuleCollectionResponseInput` via:
-//
-//          SecurityAdminRuleCollectionResponseArgs{...}
-type SecurityAdminRuleCollectionResponseInput interface {
-	pulumi.Input
-
-	ToSecurityAdminRuleCollectionResponseOutput() SecurityAdminRuleCollectionResponseOutput
-	ToSecurityAdminRuleCollectionResponseOutputWithContext(context.Context) SecurityAdminRuleCollectionResponseOutput
-}
-
-// The network manager effective security admin rule collection
-type SecurityAdminRuleCollectionResponseArgs struct {
-	// Groups for configuration
-	AppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
-	// A display name of the rule collection.
-	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
-	// Effective configuration groups.
-	ConfigurationGroups ConfigurationGroupResponseArrayInput `pulumi:"configurationGroups"`
-	// A description of the rule collection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Effective configuration Type.
-	// Expected value is 'SecurityAdminRuleCollection'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The provisioning state of the the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Base admin rule List
-	Rules pulumi.ArrayInput `pulumi:"rules"`
-}
-
-func (SecurityAdminRuleCollectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAdminRuleCollectionResponse)(nil)).Elem()
-}
-
-func (i SecurityAdminRuleCollectionResponseArgs) ToSecurityAdminRuleCollectionResponseOutput() SecurityAdminRuleCollectionResponseOutput {
-	return i.ToSecurityAdminRuleCollectionResponseOutputWithContext(context.Background())
-}
-
-func (i SecurityAdminRuleCollectionResponseArgs) ToSecurityAdminRuleCollectionResponseOutputWithContext(ctx context.Context) SecurityAdminRuleCollectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityAdminRuleCollectionResponseOutput)
-}
-
-// The network manager effective security admin rule collection
-type SecurityAdminRuleCollectionResponseOutput struct{ *pulumi.OutputState }
-
-func (SecurityAdminRuleCollectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityAdminRuleCollectionResponse)(nil)).Elem()
-}
-
-func (o SecurityAdminRuleCollectionResponseOutput) ToSecurityAdminRuleCollectionResponseOutput() SecurityAdminRuleCollectionResponseOutput {
-	return o
-}
-
-func (o SecurityAdminRuleCollectionResponseOutput) ToSecurityAdminRuleCollectionResponseOutputWithContext(ctx context.Context) SecurityAdminRuleCollectionResponseOutput {
-	return o
-}
-
-// Groups for configuration
-func (o SecurityAdminRuleCollectionResponseOutput) AppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) []NetworkManagerSecurityGroupItemResponse {
-		return v.AppliesToGroups
-	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
-}
-
-// A description of the rule collection.
-func (o SecurityAdminRuleCollectionResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
-}
-
-// A display name of the rule collection.
-func (o SecurityAdminRuleCollectionResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Effective configuration groups.
-func (o SecurityAdminRuleCollectionResponseOutput) ConfigurationGroups() ConfigurationGroupResponseArrayOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) []ConfigurationGroupResponse { return v.ConfigurationGroups }).(ConfigurationGroupResponseArrayOutput)
-}
-
-// A description of the rule collection.
-func (o SecurityAdminRuleCollectionResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// A display name of the rule collection.
-func (o SecurityAdminRuleCollectionResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Resource ID.
-func (o SecurityAdminRuleCollectionResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Effective configuration Type.
-// Expected value is 'SecurityAdminRuleCollection'.
-func (o SecurityAdminRuleCollectionResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// The provisioning state of the the resource.
-func (o SecurityAdminRuleCollectionResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Base admin rule List
-func (o SecurityAdminRuleCollectionResponseOutput) Rules() pulumi.ArrayOutput {
-	return o.ApplyT(func(v SecurityAdminRuleCollectionResponse) []interface{} { return v.Rules }).(pulumi.ArrayOutput)
-}
-
-// The network manager effective security user rule collection
-type SecurityUserRuleCollectionResponse struct {
-	// Groups for configuration
-	AppliesToGroups []NetworkManagerSecurityGroupItemResponse `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	ConfigurationDescription *string `pulumi:"configurationDescription"`
-	// A display name of the rule collection.
-	ConfigurationDisplayName *string `pulumi:"configurationDisplayName"`
-	// Effective configuration groups.
-	ConfigurationGroups []ConfigurationGroupResponse `pulumi:"configurationGroups"`
-	// A description of the rule collection.
-	Description *string `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource ID.
-	Id *string `pulumi:"id"`
-	// Effective configuration Type.
-	// Expected value is 'SecurityUserRuleCollection'.
-	Kind string `pulumi:"kind"`
-	// The provisioning state of the the resource.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Base user rule List
-	Rules []interface{} `pulumi:"rules"`
-}
-
-// SecurityUserRuleCollectionResponseInput is an input type that accepts SecurityUserRuleCollectionResponseArgs and SecurityUserRuleCollectionResponseOutput values.
-// You can construct a concrete instance of `SecurityUserRuleCollectionResponseInput` via:
-//
-//          SecurityUserRuleCollectionResponseArgs{...}
-type SecurityUserRuleCollectionResponseInput interface {
-	pulumi.Input
-
-	ToSecurityUserRuleCollectionResponseOutput() SecurityUserRuleCollectionResponseOutput
-	ToSecurityUserRuleCollectionResponseOutputWithContext(context.Context) SecurityUserRuleCollectionResponseOutput
-}
-
-// The network manager effective security user rule collection
-type SecurityUserRuleCollectionResponseArgs struct {
-	// Groups for configuration
-	AppliesToGroups NetworkManagerSecurityGroupItemResponseArrayInput `pulumi:"appliesToGroups"`
-	// A description of the rule collection.
-	ConfigurationDescription pulumi.StringPtrInput `pulumi:"configurationDescription"`
-	// A display name of the rule collection.
-	ConfigurationDisplayName pulumi.StringPtrInput `pulumi:"configurationDisplayName"`
-	// Effective configuration groups.
-	ConfigurationGroups ConfigurationGroupResponseArrayInput `pulumi:"configurationGroups"`
-	// A description of the rule collection.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// A display name of the rule collection.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Effective configuration Type.
-	// Expected value is 'SecurityUserRuleCollection'.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The provisioning state of the the resource.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Base user rule List
-	Rules pulumi.ArrayInput `pulumi:"rules"`
-}
-
-func (SecurityUserRuleCollectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityUserRuleCollectionResponse)(nil)).Elem()
-}
-
-func (i SecurityUserRuleCollectionResponseArgs) ToSecurityUserRuleCollectionResponseOutput() SecurityUserRuleCollectionResponseOutput {
-	return i.ToSecurityUserRuleCollectionResponseOutputWithContext(context.Background())
-}
-
-func (i SecurityUserRuleCollectionResponseArgs) ToSecurityUserRuleCollectionResponseOutputWithContext(ctx context.Context) SecurityUserRuleCollectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityUserRuleCollectionResponseOutput)
-}
-
-// The network manager effective security user rule collection
-type SecurityUserRuleCollectionResponseOutput struct{ *pulumi.OutputState }
-
-func (SecurityUserRuleCollectionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityUserRuleCollectionResponse)(nil)).Elem()
-}
-
-func (o SecurityUserRuleCollectionResponseOutput) ToSecurityUserRuleCollectionResponseOutput() SecurityUserRuleCollectionResponseOutput {
-	return o
-}
-
-func (o SecurityUserRuleCollectionResponseOutput) ToSecurityUserRuleCollectionResponseOutputWithContext(ctx context.Context) SecurityUserRuleCollectionResponseOutput {
-	return o
-}
-
-// Groups for configuration
-func (o SecurityUserRuleCollectionResponseOutput) AppliesToGroups() NetworkManagerSecurityGroupItemResponseArrayOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) []NetworkManagerSecurityGroupItemResponse {
-		return v.AppliesToGroups
-	}).(NetworkManagerSecurityGroupItemResponseArrayOutput)
-}
-
-// A description of the rule collection.
-func (o SecurityUserRuleCollectionResponseOutput) ConfigurationDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) *string { return v.ConfigurationDescription }).(pulumi.StringPtrOutput)
-}
-
-// A display name of the rule collection.
-func (o SecurityUserRuleCollectionResponseOutput) ConfigurationDisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) *string { return v.ConfigurationDisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Effective configuration groups.
-func (o SecurityUserRuleCollectionResponseOutput) ConfigurationGroups() ConfigurationGroupResponseArrayOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) []ConfigurationGroupResponse { return v.ConfigurationGroups }).(ConfigurationGroupResponseArrayOutput)
-}
-
-// A description of the rule collection.
-func (o SecurityUserRuleCollectionResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// A display name of the rule collection.
-func (o SecurityUserRuleCollectionResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// Resource ID.
-func (o SecurityUserRuleCollectionResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Effective configuration Type.
-// Expected value is 'SecurityUserRuleCollection'.
-func (o SecurityUserRuleCollectionResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// The provisioning state of the the resource.
-func (o SecurityUserRuleCollectionResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Base user rule List
-func (o SecurityUserRuleCollectionResponseOutput) Rules() pulumi.ArrayOutput {
-	return o.ApplyT(func(v SecurityUserRuleCollectionResponse) []interface{} { return v.Rules }).(pulumi.ArrayOutput)
-}
-
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -3004,8 +4006,12 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActiveConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(ActiveConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActiveConnectivityConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(ActiveConnectivityConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActiveDefaultSecurityAdminRuleResponseOutput{})
+	pulumi.RegisterOutputType(ActiveDefaultSecurityUserRuleResponseOutput{})
+	pulumi.RegisterOutputType(ActiveSecurityAdminRuleResponseOutput{})
+	pulumi.RegisterOutputType(ActiveSecurityUserRuleResponseOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemResponseOutput{})
 	pulumi.RegisterOutputType(AddressPrefixItemResponseArrayOutput{})
@@ -3015,11 +4021,12 @@ func init() {
 	pulumi.RegisterOutputType(ConnectivityGroupItemArrayOutput{})
 	pulumi.RegisterOutputType(ConnectivityGroupItemResponseOutput{})
 	pulumi.RegisterOutputType(ConnectivityGroupItemResponseArrayOutput{})
-	pulumi.RegisterOutputType(EffectiveAdminRuleResponseOutput{})
 	pulumi.RegisterOutputType(EffectiveConnectivityConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(EffectiveDefaultAdminRuleResponseOutput{})
-	pulumi.RegisterOutputType(EffectiveDefaultUserRuleResponseOutput{})
-	pulumi.RegisterOutputType(EffectiveUserRuleResponseOutput{})
+	pulumi.RegisterOutputType(EffectiveConnectivityConfigurationResponseArrayOutput{})
+	pulumi.RegisterOutputType(EffectiveDefaultSecurityAdminRuleResponseOutput{})
+	pulumi.RegisterOutputType(EffectiveDefaultSecurityUserRuleResponseOutput{})
+	pulumi.RegisterOutputType(EffectiveSecurityAdminRuleResponseOutput{})
+	pulumi.RegisterOutputType(EffectiveSecurityUserRuleResponseOutput{})
 	pulumi.RegisterOutputType(EffectiveVirtualNetworkResponseOutput{})
 	pulumi.RegisterOutputType(EffectiveVirtualNetworkResponseArrayOutput{})
 	pulumi.RegisterOutputType(GroupMembersItemOutput{})
@@ -3036,8 +4043,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkManagerSecurityGroupItemArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagerSecurityGroupItemResponseOutput{})
 	pulumi.RegisterOutputType(NetworkManagerSecurityGroupItemResponseArrayOutput{})
-	pulumi.RegisterOutputType(SecurityAdminRuleCollectionResponseOutput{})
-	pulumi.RegisterOutputType(SecurityUserRuleCollectionResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

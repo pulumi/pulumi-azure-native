@@ -237,7 +237,7 @@ class GetBigDataPoolResult:
 
     @property
     @pulumi.getter(name="sparkConfigProperties")
-    def spark_config_properties(self) -> Optional['outputs.LibraryRequirementsResponse']:
+    def spark_config_properties(self) -> Optional['outputs.SparkConfigPropertiesResponse']:
         """
         Spark configuration file to specify additional properties
         """

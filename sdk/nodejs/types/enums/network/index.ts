@@ -420,8 +420,8 @@ export const CommissionedState = {
 export type CommissionedState = (typeof CommissionedState)[keyof typeof CommissionedState];
 
 export const ConfigurationType = {
-    AdminSecurity: "AdminSecurity",
-    UserSecurity: "UserSecurity",
+    SecurityAdmin: "SecurityAdmin",
+    SecurityUser: "SecurityUser",
     Connectivity: "Connectivity",
 } as const;
 
