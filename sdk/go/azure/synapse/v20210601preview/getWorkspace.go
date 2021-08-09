@@ -28,6 +28,8 @@ type LookupWorkspaceArgs struct {
 type LookupWorkspaceResult struct {
 	// The ADLA resource ID.
 	AdlaResourceId string `pulumi:"adlaResourceId"`
+	// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Initial workspace AAD admin properties for a CSP subscription
@@ -60,6 +62,8 @@ type LookupWorkspaceResult struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
+	// Workspace settings
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password

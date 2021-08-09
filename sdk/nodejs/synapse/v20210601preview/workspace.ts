@@ -40,6 +40,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly adlaResourceId!: pulumi.Output<string>;
     /**
+     * Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+     */
+    public readonly azureADOnlyAuthentication!: pulumi.Output<boolean | undefined>;
+    /**
      * Connectivity endpoints
      */
     public readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -100,6 +104,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly purviewConfiguration!: pulumi.Output<outputs.synapse.v20210601preview.PurviewConfigurationResponse | undefined>;
     /**
+     * Workspace settings
+     */
+    public /*out*/ readonly settings!: pulumi.Output<{[key: string]: any}>;
+    /**
      * Login for workspace SQL active directory administrator
      */
     public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
@@ -142,6 +150,7 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
             inputs["connectivityEndpoints"] = args ? args.connectivityEndpoints : undefined;
             inputs["cspWorkspaceAdminProperties"] = args ? args.cspWorkspaceAdminProperties : undefined;
             inputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
@@ -165,10 +174,12 @@ export class Workspace extends pulumi.CustomResource {
             inputs["extraProperties"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["settings"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["workspaceUID"] = undefined /*out*/;
         } else {
             inputs["adlaResourceId"] = undefined /*out*/;
+            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
             inputs["connectivityEndpoints"] = undefined /*out*/;
             inputs["cspWorkspaceAdminProperties"] = undefined /*out*/;
             inputs["defaultDataLakeStorage"] = undefined /*out*/;
@@ -184,6 +195,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["purviewConfiguration"] = undefined /*out*/;
+            inputs["settings"] = undefined /*out*/;
             inputs["sqlAdministratorLogin"] = undefined /*out*/;
             inputs["sqlAdministratorLoginPassword"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -205,6 +217,10 @@ export class Workspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Workspace resource.
  */
 export interface WorkspaceArgs {
+    /**
+     * Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+     */
+    azureADOnlyAuthentication?: pulumi.Input<boolean>;
     /**
      * Connectivity endpoints
      */

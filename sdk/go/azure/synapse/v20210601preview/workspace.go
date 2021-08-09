@@ -17,6 +17,8 @@ type Workspace struct {
 
 	// The ADLA resource ID.
 	AdlaResourceId pulumi.StringOutput `pulumi:"adlaResourceId"`
+	// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+	AzureADOnlyAuthentication pulumi.BoolPtrOutput `pulumi:"azureADOnlyAuthentication"`
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// Initial workspace AAD admin properties for a CSP subscription
@@ -47,6 +49,8 @@ type Workspace struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationResponsePtrOutput `pulumi:"purviewConfiguration"`
+	// Workspace settings
+	Settings pulumi.MapOutput `pulumi:"settings"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin pulumi.StringPtrOutput `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
@@ -139,6 +143,8 @@ func GetWorkspace(ctx *pulumi.Context,
 type workspaceState struct {
 	// The ADLA resource ID.
 	AdlaResourceId *string `pulumi:"adlaResourceId"`
+	// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Initial workspace AAD admin properties for a CSP subscription
@@ -169,6 +175,8 @@ type workspaceState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Purview Configuration
 	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
+	// Workspace settings
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
 	// SQL administrator login password
@@ -188,6 +196,8 @@ type workspaceState struct {
 type WorkspaceState struct {
 	// The ADLA resource ID.
 	AdlaResourceId pulumi.StringPtrInput
+	// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+	AzureADOnlyAuthentication pulumi.BoolPtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Initial workspace AAD admin properties for a CSP subscription
@@ -218,6 +228,8 @@ type WorkspaceState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Purview Configuration
 	PurviewConfiguration PurviewConfigurationResponsePtrInput
+	// Workspace settings
+	Settings pulumi.MapInput
 	// Login for workspace SQL active directory administrator
 	SqlAdministratorLogin pulumi.StringPtrInput
 	// SQL administrator login password
@@ -239,6 +251,8 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
 	// Connectivity endpoints
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// Initial workspace AAD admin properties for a CSP subscription
@@ -281,6 +295,8 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+	AzureADOnlyAuthentication pulumi.BoolPtrInput
 	// Connectivity endpoints
 	ConnectivityEndpoints pulumi.StringMapInput
 	// Initial workspace AAD admin properties for a CSP subscription

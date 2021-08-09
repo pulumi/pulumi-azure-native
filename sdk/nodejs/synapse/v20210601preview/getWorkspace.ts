@@ -42,6 +42,10 @@ export interface GetWorkspaceResult {
      */
     readonly adlaResourceId: string;
     /**
+     * Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+     */
+    readonly azureADOnlyAuthentication?: boolean;
+    /**
      * Connectivity endpoints
      */
     readonly connectivityEndpoints?: {[key: string]: string};
@@ -105,6 +109,10 @@ export interface GetWorkspaceResult {
      * Purview Configuration
      */
     readonly purviewConfiguration?: outputs.synapse.v20210601preview.PurviewConfigurationResponse;
+    /**
+     * Workspace settings
+     */
+    readonly settings: {[key: string]: any};
     /**
      * Login for workspace SQL active directory administrator
      */

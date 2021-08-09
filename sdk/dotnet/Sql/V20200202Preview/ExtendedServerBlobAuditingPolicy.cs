@@ -48,6 +48,9 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// USER_CHANGE_PASSWORD_GROUP
         /// BATCH_STARTED_GROUP
         /// BATCH_COMPLETED_GROUP
+        /// DBCC_GROUP
+        /// DATABASE_OWNERSHIP_CHANGE_GROUP
+        /// DATABASE_CHANGE_GROUP
         /// 
         /// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         /// 
@@ -258,6 +261,9 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
         /// USER_CHANGE_PASSWORD_GROUP
         /// BATCH_STARTED_GROUP
         /// BATCH_COMPLETED_GROUP
+        /// DBCC_GROUP
+        /// DATABASE_OWNERSHIP_CHANGE_GROUP
+        /// DATABASE_CHANGE_GROUP
         /// 
         /// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         /// 

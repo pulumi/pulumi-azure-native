@@ -64,6 +64,9 @@ class ExtendedServerBlobAuditingPolicyArgs:
                USER_CHANGE_PASSWORD_GROUP
                BATCH_STARTED_GROUP
                BATCH_COMPLETED_GROUP
+               DBCC_GROUP
+               DATABASE_OWNERSHIP_CHANGE_GROUP
+               DATABASE_CHANGE_GROUP
                
                These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
                
@@ -211,6 +214,9 @@ class ExtendedServerBlobAuditingPolicyArgs:
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
+        DBCC_GROUP
+        DATABASE_OWNERSHIP_CHANGE_GROUP
+        DATABASE_CHANGE_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         
@@ -424,6 +430,9 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
                USER_CHANGE_PASSWORD_GROUP
                BATCH_STARTED_GROUP
                BATCH_COMPLETED_GROUP
+               DBCC_GROUP
+               DATABASE_OWNERSHIP_CHANGE_GROUP
+               DATABASE_CHANGE_GROUP
                
                These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
                
@@ -621,6 +630,9 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
+        DBCC_GROUP
+        DATABASE_OWNERSHIP_CHANGE_GROUP
+        DATABASE_CHANGE_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         

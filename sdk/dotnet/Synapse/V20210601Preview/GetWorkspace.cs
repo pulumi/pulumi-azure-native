@@ -47,6 +47,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly string AdlaResourceId;
         /// <summary>
+        /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        /// </summary>
+        public readonly bool? AzureADOnlyAuthentication;
+        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConnectivityEndpoints;
@@ -111,6 +115,10 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         public readonly Outputs.PurviewConfigurationResponse? PurviewConfiguration;
         /// <summary>
+        /// Workspace settings
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Settings;
+        /// <summary>
         /// Login for workspace SQL active directory administrator
         /// </summary>
         public readonly string? SqlAdministratorLogin;
@@ -142,6 +150,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         [OutputConstructor]
         private GetWorkspaceResult(
             string adlaResourceId,
+
+            bool? azureADOnlyAuthentication,
 
             ImmutableDictionary<string, string>? connectivityEndpoints,
 
@@ -175,6 +185,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
             Outputs.PurviewConfigurationResponse? purviewConfiguration,
 
+            ImmutableDictionary<string, object> settings,
+
             string? sqlAdministratorLogin,
 
             string? sqlAdministratorLoginPassword,
@@ -190,6 +202,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             string workspaceUID)
         {
             AdlaResourceId = adlaResourceId;
+            AzureADOnlyAuthentication = azureADOnlyAuthentication;
             ConnectivityEndpoints = connectivityEndpoints;
             CspWorkspaceAdminProperties = cspWorkspaceAdminProperties;
             DefaultDataLakeStorage = defaultDataLakeStorage;
@@ -206,6 +219,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             PurviewConfiguration = purviewConfiguration;
+            Settings = settings;
             SqlAdministratorLogin = sqlAdministratorLogin;
             SqlAdministratorLoginPassword = sqlAdministratorLoginPassword;
             Tags = tags;

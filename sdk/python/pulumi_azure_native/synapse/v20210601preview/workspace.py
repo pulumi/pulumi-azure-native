@@ -17,6 +17,7 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  csp_workspace_admin_properties: Optional[pulumi.Input['CspWorkspaceAdminPropertiesArgs']] = None,
                  default_data_lake_storage: Optional[pulumi.Input['DataLakeStorageAccountDetailsArgs']] = None,
@@ -38,6 +39,7 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] azure_ad_only_authentication: Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
         :param pulumi.Input['CspWorkspaceAdminPropertiesArgs'] csp_workspace_admin_properties: Initial workspace AAD admin properties for a CSP subscription
         :param pulumi.Input['DataLakeStorageAccountDetailsArgs'] default_data_lake_storage: Workspace default data lake storage account details
@@ -58,6 +60,8 @@ class WorkspaceArgs:
         :param pulumi.Input['WorkspaceRepositoryConfigurationArgs'] workspace_repository_configuration: Git integration settings
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_ad_only_authentication is not None:
+            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
         if connectivity_endpoints is not None:
             pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
         if csp_workspace_admin_properties is not None:
@@ -106,6 +110,18 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
+
+    @azure_ad_only_authentication.setter
+    def azure_ad_only_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_ad_only_authentication", value)
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -329,6 +345,7 @@ class Workspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  csp_workspace_admin_properties: Optional[pulumi.Input[pulumi.InputType['CspWorkspaceAdminPropertiesArgs']]] = None,
                  default_data_lake_storage: Optional[pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']]] = None,
@@ -354,6 +371,7 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] azure_ad_only_authentication: Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
         :param pulumi.Input[pulumi.InputType['CspWorkspaceAdminPropertiesArgs']] csp_workspace_admin_properties: Initial workspace AAD admin properties for a CSP subscription
         :param pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']] default_data_lake_storage: Workspace default data lake storage account details
@@ -398,6 +416,7 @@ class Workspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
                  connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  csp_workspace_admin_properties: Optional[pulumi.Input[pulumi.InputType['CspWorkspaceAdminPropertiesArgs']]] = None,
                  default_data_lake_storage: Optional[pulumi.Input[pulumi.InputType['DataLakeStorageAccountDetailsArgs']]] = None,
@@ -429,6 +448,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            __props__.__dict__["azure_ad_only_authentication"] = azure_ad_only_authentication
             __props__.__dict__["connectivity_endpoints"] = connectivity_endpoints
             __props__.__dict__["csp_workspace_admin_properties"] = csp_workspace_admin_properties
             __props__.__dict__["default_data_lake_storage"] = default_data_lake_storage
@@ -454,6 +474,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["extra_properties"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["settings"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workspace_uid"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:synapse/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:synapse:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20190601preview:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20190601preview:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20201201:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20201201:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20210301:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20210301:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20210401preview:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20210401preview:Workspace"), pulumi.Alias(type_="azure-native:synapse/v20210501:Workspace"), pulumi.Alias(type_="azure-nextgen:synapse/v20210501:Workspace")])
@@ -481,6 +502,7 @@ class Workspace(pulumi.CustomResource):
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
         __props__.__dict__["adla_resource_id"] = None
+        __props__.__dict__["azure_ad_only_authentication"] = None
         __props__.__dict__["connectivity_endpoints"] = None
         __props__.__dict__["csp_workspace_admin_properties"] = None
         __props__.__dict__["default_data_lake_storage"] = None
@@ -496,6 +518,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["purview_configuration"] = None
+        __props__.__dict__["settings"] = None
         __props__.__dict__["sql_administrator_login"] = None
         __props__.__dict__["sql_administrator_login_password"] = None
         __props__.__dict__["tags"] = None
@@ -512,6 +535,14 @@ class Workspace(pulumi.CustomResource):
         The ADLA resource ID.
         """
         return pulumi.get(self, "adla_resource_id")
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -632,6 +663,14 @@ class Workspace(pulumi.CustomResource):
         Purview Configuration
         """
         return pulumi.get(self, "purview_configuration")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> pulumi.Output[Mapping[str, Any]]:
+        """
+        Workspace settings
+        """
+        return pulumi.get(self, "settings")
 
     @property
     @pulumi.getter(name="sqlAdministratorLogin")

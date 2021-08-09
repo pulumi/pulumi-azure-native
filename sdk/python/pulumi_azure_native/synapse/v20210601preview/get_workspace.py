@@ -20,10 +20,13 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, azure_ad_only_authentication=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, settings=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if adla_resource_id and not isinstance(adla_resource_id, str):
             raise TypeError("Expected argument 'adla_resource_id' to be a str")
         pulumi.set(__self__, "adla_resource_id", adla_resource_id)
+        if azure_ad_only_authentication and not isinstance(azure_ad_only_authentication, bool):
+            raise TypeError("Expected argument 'azure_ad_only_authentication' to be a bool")
+        pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
@@ -72,6 +75,9 @@ class GetWorkspaceResult:
         if purview_configuration and not isinstance(purview_configuration, dict):
             raise TypeError("Expected argument 'purview_configuration' to be a dict")
         pulumi.set(__self__, "purview_configuration", purview_configuration)
+        if settings and not isinstance(settings, dict):
+            raise TypeError("Expected argument 'settings' to be a dict")
+        pulumi.set(__self__, "settings", settings)
         if sql_administrator_login and not isinstance(sql_administrator_login, str):
             raise TypeError("Expected argument 'sql_administrator_login' to be a str")
         pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
@@ -101,6 +107,14 @@ class GetWorkspaceResult:
         The ADLA resource ID.
         """
         return pulumi.get(self, "adla_resource_id")
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> Optional[bool]:
+        """
+        Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
@@ -231,6 +245,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "purview_configuration")
 
     @property
+    @pulumi.getter
+    def settings(self) -> Mapping[str, Any]:
+        """
+        Workspace settings
+        """
+        return pulumi.get(self, "settings")
+
+    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> Optional[str]:
         """
@@ -294,6 +316,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             yield self
         return GetWorkspaceResult(
             adla_resource_id=self.adla_resource_id,
+            azure_ad_only_authentication=self.azure_ad_only_authentication,
             connectivity_endpoints=self.connectivity_endpoints,
             csp_workspace_admin_properties=self.csp_workspace_admin_properties,
             default_data_lake_storage=self.default_data_lake_storage,
@@ -310,6 +333,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             purview_configuration=self.purview_configuration,
+            settings=self.settings,
             sql_administrator_login=self.sql_administrator_login,
             sql_administrator_login_password=self.sql_administrator_login_password,
             tags=self.tags,
@@ -340,6 +364,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkspaceResult(
         adla_resource_id=__ret__.adla_resource_id,
+        azure_ad_only_authentication=__ret__.azure_ad_only_authentication,
         connectivity_endpoints=__ret__.connectivity_endpoints,
         csp_workspace_admin_properties=__ret__.csp_workspace_admin_properties,
         default_data_lake_storage=__ret__.default_data_lake_storage,
@@ -356,6 +381,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         purview_configuration=__ret__.purview_configuration,
+        settings=__ret__.settings,
         sql_administrator_login=__ret__.sql_administrator_login,
         sql_administrator_login_password=__ret__.sql_administrator_login_password,
         tags=__ret__.tags,

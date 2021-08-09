@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Output<string> AdlaResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        /// </summary>
+        [Output("azureADOnlyAuthentication")]
+        public Output<bool?> AzureADOnlyAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// Connectivity endpoints
         /// </summary>
         [Output("connectivityEndpoints")]
@@ -110,6 +116,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         /// </summary>
         [Output("purviewConfiguration")]
         public Output<Outputs.PurviewConfigurationResponse?> PurviewConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Workspace settings
+        /// </summary>
+        [Output("settings")]
+        public Output<ImmutableDictionary<string, object>> Settings { get; private set; } = null!;
 
         /// <summary>
         /// Login for workspace SQL active directory administrator
@@ -214,6 +226,12 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable or Disable AzureADOnlyAuthentication on All Workspace subresource
+        /// </summary>
+        [Input("azureADOnlyAuthentication")]
+        public Input<bool>? AzureADOnlyAuthentication { get; set; }
+
         [Input("connectivityEndpoints")]
         private InputMap<string>? _connectivityEndpoints;
 

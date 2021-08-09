@@ -47,6 +47,9 @@ type DatabaseBlobAuditingPolicy struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -218,6 +221,9 @@ type databaseBlobAuditingPolicyState struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -310,6 +316,9 @@ type DatabaseBlobAuditingPolicyState struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -406,6 +415,9 @@ type databaseBlobAuditingPolicyArgs struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
@@ -508,6 +520,9 @@ type DatabaseBlobAuditingPolicyArgs struct {
 	// USER_CHANGE_PASSWORD_GROUP
 	// BATCH_STARTED_GROUP
 	// BATCH_COMPLETED_GROUP
+	// DBCC_GROUP
+	// DATABASE_OWNERSHIP_CHANGE_GROUP
+	// DATABASE_CHANGE_GROUP
 	//
 	// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
 	//
