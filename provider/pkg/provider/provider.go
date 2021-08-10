@@ -894,10 +894,10 @@ func (k *azureNativeProvider) currentResourceStateCheckpoint(ctx context.Context
 	return plugin.MarshalProperties(
 		obj,
 		plugin.MarshalOptions{
-			Label: "currentResourceStateCheckpoint.checkpoint",
-			KeepSecrets: true,
+			Label:        "currentResourceStateCheckpoint.checkpoint",
+			KeepSecrets:  true,
 			KeepUnknowns: true,
-			SkipNulls: true,
+			SkipNulls:    true,
 		},
 	)
 }
@@ -1629,8 +1629,9 @@ func (k *azureNativeProvider) getAuthConfig() (*authentication.Config, error) {
 		ClientCertPath: k.getConfig("clientCertificatePath", "ARM_CLIENT_CERTIFICATE_PATH"),
 		ClientCertPassword: k.getConfig("clientCertificatePassword",
 			"ARM_CLIENT_CERTIFICATE_PASSWORD"),
-		MsiEndpoint:        k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
-		AuxiliaryTenantIDs: auxTenants,
+		MsiEndpoint:          k.getConfig("msiEndpoint", "ARM_MSI_ENDPOINT"),
+		AuxiliaryTenantIDs:   auxTenants,
+		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
 
 		// Feature Toggles
 		SupportsClientCertAuth:         true,
