@@ -9,18 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ServiceFabric
 {
-    public static class ListClusterUpgradableVersions
+    public static class ListListUpgradableVersionPost
     {
         /// <summary>
         /// The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-12-01-preview.
         /// </summary>
-        public static Task<ListClusterUpgradableVersionsResult> InvokeAsync(ListClusterUpgradableVersionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<ListClusterUpgradableVersionsResult>("azure-native:servicefabric:listClusterUpgradableVersions", args ?? new ListClusterUpgradableVersionsArgs(), options.WithVersion());
+        public static Task<ListListUpgradableVersionPostResult> InvokeAsync(ListListUpgradableVersionPostArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<ListListUpgradableVersionPostResult>("azure-native:servicefabric:listListUpgradableVersionPost", args ?? new ListListUpgradableVersionPostArgs(), options.WithVersion());
     }
 
 
-    public sealed class ListClusterUpgradableVersionsArgs : Pulumi.InvokeArgs
+    public sealed class ListListUpgradableVersionPostArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the cluster resource.
@@ -40,19 +40,19 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("targetVersion", required: true)]
         public string TargetVersion { get; set; } = null!;
 
-        public ListClusterUpgradableVersionsArgs()
+        public ListListUpgradableVersionPostArgs()
         {
         }
     }
 
 
     [OutputType]
-    public sealed class ListClusterUpgradableVersionsResult
+    public sealed class ListListUpgradableVersionPostResult
     {
         public readonly ImmutableArray<string> SupportedPath;
 
         [OutputConstructor]
-        private ListClusterUpgradableVersionsResult(ImmutableArray<string> supportedPath)
+        private ListListUpgradableVersionPostResult(ImmutableArray<string> supportedPath)
         {
             SupportedPath = supportedPath;
         }

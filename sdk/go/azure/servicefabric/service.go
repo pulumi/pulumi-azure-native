@@ -12,7 +12,7 @@ import (
 )
 
 // The service resource.
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -44,8 +44,6 @@ type Service struct {
 	ServicePlacementPolicies ServicePlacementPolicyDescriptionResponseArrayOutput `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName pulumi.StringPtrOutput `pulumi:"serviceTypeName"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
@@ -175,8 +173,6 @@ type serviceState struct {
 	ServicePlacementPolicies []ServicePlacementPolicyDescriptionResponse `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName *string `pulumi:"serviceTypeName"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -212,8 +208,6 @@ type ServiceState struct {
 	ServicePlacementPolicies ServicePlacementPolicyDescriptionResponseArrayInput
 	// The name of the service type
 	ServiceTypeName pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.

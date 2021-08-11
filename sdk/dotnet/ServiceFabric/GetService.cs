@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// The service resource.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:servicefabric:getService", args ?? new GetServiceArgs(), options.WithVersion());
@@ -116,10 +116,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string? ServiceTypeName;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Azure resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -160,8 +156,6 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string? serviceTypeName,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -181,7 +175,6 @@ namespace Pulumi.AzureNative.ServiceFabric
             ServicePackageActivationMode = servicePackageActivationMode;
             ServicePlacementPolicies = servicePlacementPolicies;
             ServiceTypeName = serviceTypeName;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

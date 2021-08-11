@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Purview.Outputs
 {
 
     [OutputType]
-    public sealed class TrackedResourceResponseSystemData
+    public sealed class AccountPropertiesResponseSystemData
     {
         /// <summary>
         /// The timestamp of resource creation (UTC).
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Purview.Outputs
         public readonly string LastModifiedByType;
 
         [OutputConstructor]
-        private TrackedResourceResponseSystemData(
+        private AccountPropertiesResponseSystemData(
             string createdAt,
 
             string createdBy,

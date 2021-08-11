@@ -33,8 +33,6 @@ __all__ = [
     'ManagedIdentityArgs',
     'NamedPartitionSchemeDescriptionArgs',
     'NodeTypeDescriptionArgs',
-    'NotificationArgs',
-    'NotificationTargetArgs',
     'ServerCertificateCommonNameArgs',
     'ServerCertificateCommonNamesArgs',
     'ServiceCorrelationDescriptionArgs',
@@ -1555,8 +1553,6 @@ class NodeTypeDescriptionArgs:
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  durability_level: Optional[pulumi.Input[str]] = None,
                  ephemeral_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
-                 is_stateless: Optional[pulumi.Input[bool]] = None,
-                 multiple_availability_zones: Optional[pulumi.Input[bool]] = None,
                  placement_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  reverse_proxy_endpoint_port: Optional[pulumi.Input[int]] = None):
         """
@@ -1565,7 +1561,7 @@ class NodeTypeDescriptionArgs:
         :param pulumi.Input[int] http_gateway_endpoint_port: The HTTP cluster management endpoint port.
         :param pulumi.Input[bool] is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         :param pulumi.Input[str] name: The name of the node type.
-        :param pulumi.Input[int] vm_instance_count: VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+        :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] durability_level: The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -1574,8 +1570,6 @@ class NodeTypeDescriptionArgs:
                  - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
                  - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
         :param pulumi.Input['EndpointRangeDescriptionArgs'] ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
-        :param pulumi.Input[bool] is_stateless: Indicates if the node type can only host Stateless workloads.
-        :param pulumi.Input[bool] multiple_availability_zones: Indicates if the node type is enabled to support multiple zones.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param pulumi.Input[int] reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         """
@@ -1592,10 +1586,6 @@ class NodeTypeDescriptionArgs:
             pulumi.set(__self__, "durability_level", durability_level)
         if ephemeral_ports is not None:
             pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
-        if is_stateless is not None:
-            pulumi.set(__self__, "is_stateless", is_stateless)
-        if multiple_availability_zones is not None:
-            pulumi.set(__self__, "multiple_availability_zones", multiple_availability_zones)
         if placement_properties is not None:
             pulumi.set(__self__, "placement_properties", placement_properties)
         if reverse_proxy_endpoint_port is not None:
@@ -1653,7 +1643,7 @@ class NodeTypeDescriptionArgs:
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> pulumi.Input[int]:
         """
-        VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+        The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         """
         return pulumi.get(self, "vm_instance_count")
 
@@ -1714,30 +1704,6 @@ class NodeTypeDescriptionArgs:
         pulumi.set(self, "ephemeral_ports", value)
 
     @property
-    @pulumi.getter(name="isStateless")
-    def is_stateless(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the node type can only host Stateless workloads.
-        """
-        return pulumi.get(self, "is_stateless")
-
-    @is_stateless.setter
-    def is_stateless(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_stateless", value)
-
-    @property
-    @pulumi.getter(name="multipleAvailabilityZones")
-    def multiple_availability_zones(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the node type is enabled to support multiple zones.
-        """
-        return pulumi.get(self, "multiple_availability_zones")
-
-    @multiple_availability_zones.setter
-    def multiple_availability_zones(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "multiple_availability_zones", value)
-
-    @property
     @pulumi.getter(name="placementProperties")
     def placement_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -1760,112 +1726,6 @@ class NodeTypeDescriptionArgs:
     @reverse_proxy_endpoint_port.setter
     def reverse_proxy_endpoint_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
-
-
-@pulumi.input_type
-class NotificationArgs:
-    def __init__(__self__, *,
-                 is_enabled: pulumi.Input[bool],
-                 notification_category: pulumi.Input[Union[str, 'NotificationCategory']],
-                 notification_level: pulumi.Input[Union[str, 'NotificationLevel']],
-                 notification_targets: pulumi.Input[Sequence[pulumi.Input['NotificationTargetArgs']]]):
-        """
-        Describes the notification channel for cluster events.
-        :param pulumi.Input[bool] is_enabled: Indicates if the notification is enabled.
-        :param pulumi.Input[Union[str, 'NotificationCategory']] notification_category: The category of notification.
-        :param pulumi.Input[Union[str, 'NotificationLevel']] notification_level: The level of notification.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationTargetArgs']]] notification_targets: List of targets that subscribe to the notification.
-        """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "notification_category", notification_category)
-        pulumi.set(__self__, "notification_level", notification_level)
-        pulumi.set(__self__, "notification_targets", notification_targets)
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> pulumi.Input[bool]:
-        """
-        Indicates if the notification is enabled.
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @is_enabled.setter
-    def is_enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "is_enabled", value)
-
-    @property
-    @pulumi.getter(name="notificationCategory")
-    def notification_category(self) -> pulumi.Input[Union[str, 'NotificationCategory']]:
-        """
-        The category of notification.
-        """
-        return pulumi.get(self, "notification_category")
-
-    @notification_category.setter
-    def notification_category(self, value: pulumi.Input[Union[str, 'NotificationCategory']]):
-        pulumi.set(self, "notification_category", value)
-
-    @property
-    @pulumi.getter(name="notificationLevel")
-    def notification_level(self) -> pulumi.Input[Union[str, 'NotificationLevel']]:
-        """
-        The level of notification.
-        """
-        return pulumi.get(self, "notification_level")
-
-    @notification_level.setter
-    def notification_level(self, value: pulumi.Input[Union[str, 'NotificationLevel']]):
-        pulumi.set(self, "notification_level", value)
-
-    @property
-    @pulumi.getter(name="notificationTargets")
-    def notification_targets(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationTargetArgs']]]:
-        """
-        List of targets that subscribe to the notification.
-        """
-        return pulumi.get(self, "notification_targets")
-
-    @notification_targets.setter
-    def notification_targets(self, value: pulumi.Input[Sequence[pulumi.Input['NotificationTargetArgs']]]):
-        pulumi.set(self, "notification_targets", value)
-
-
-@pulumi.input_type
-class NotificationTargetArgs:
-    def __init__(__self__, *,
-                 notification_channel: pulumi.Input[Union[str, 'NotificationChannel']],
-                 receivers: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        """
-        Describes the notification target properties.
-        :param pulumi.Input[Union[str, 'NotificationChannel']] notification_channel: The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] receivers: List of targets that subscribe to the notification.
-        """
-        pulumi.set(__self__, "notification_channel", notification_channel)
-        pulumi.set(__self__, "receivers", receivers)
-
-    @property
-    @pulumi.getter(name="notificationChannel")
-    def notification_channel(self) -> pulumi.Input[Union[str, 'NotificationChannel']]:
-        """
-        The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-        """
-        return pulumi.get(self, "notification_channel")
-
-    @notification_channel.setter
-    def notification_channel(self, value: pulumi.Input[Union[str, 'NotificationChannel']]):
-        pulumi.set(self, "notification_channel", value)
-
-    @property
-    @pulumi.getter
-    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of targets that subscribe to the notification.
-        """
-        return pulumi.get(self, "receivers")
-
-    @receivers.setter
-    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "receivers", value)
 
 
 @pulumi.input_type

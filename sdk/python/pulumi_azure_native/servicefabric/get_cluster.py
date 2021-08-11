@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     The cluster resource
     """
-    def __init__(__self__, add_on_features=None, application_type_versions_cleanup_policy=None, available_cluster_versions=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, etag=None, event_store_service_enabled=None, fabric_settings=None, id=None, infrastructure_service_manager=None, location=None, management_endpoint=None, name=None, node_types=None, notifications=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, sf_zonal_upgrade_mode=None, system_data=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, upgrade_pause_end_timestamp_utc=None, upgrade_pause_start_timestamp_utc=None, upgrade_wave=None, vm_image=None, vmss_zonal_upgrade_mode=None, wave_upgrade_paused=None):
+    def __init__(__self__, add_on_features=None, application_type_versions_cleanup_policy=None, available_cluster_versions=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, etag=None, event_store_service_enabled=None, fabric_settings=None, id=None, location=None, management_endpoint=None, name=None, node_types=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, vm_image=None):
         if add_on_features and not isinstance(add_on_features, list):
             raise TypeError("Expected argument 'add_on_features' to be a list")
         pulumi.set(__self__, "add_on_features", add_on_features)
@@ -72,9 +72,6 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if infrastructure_service_manager and not isinstance(infrastructure_service_manager, bool):
-            raise TypeError("Expected argument 'infrastructure_service_manager' to be a bool")
-        pulumi.set(__self__, "infrastructure_service_manager", infrastructure_service_manager)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -87,9 +84,6 @@ class GetClusterResult:
         if node_types and not isinstance(node_types, list):
             raise TypeError("Expected argument 'node_types' to be a list")
         pulumi.set(__self__, "node_types", node_types)
-        if notifications and not isinstance(notifications, list):
-            raise TypeError("Expected argument 'notifications' to be a list")
-        pulumi.set(__self__, "notifications", notifications)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -102,12 +96,6 @@ class GetClusterResult:
         if reverse_proxy_certificate_common_names and not isinstance(reverse_proxy_certificate_common_names, dict):
             raise TypeError("Expected argument 'reverse_proxy_certificate_common_names' to be a dict")
         pulumi.set(__self__, "reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
-        if sf_zonal_upgrade_mode and not isinstance(sf_zonal_upgrade_mode, str):
-            raise TypeError("Expected argument 'sf_zonal_upgrade_mode' to be a str")
-        pulumi.set(__self__, "sf_zonal_upgrade_mode", sf_zonal_upgrade_mode)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -120,24 +108,9 @@ class GetClusterResult:
         if upgrade_mode and not isinstance(upgrade_mode, str):
             raise TypeError("Expected argument 'upgrade_mode' to be a str")
         pulumi.set(__self__, "upgrade_mode", upgrade_mode)
-        if upgrade_pause_end_timestamp_utc and not isinstance(upgrade_pause_end_timestamp_utc, str):
-            raise TypeError("Expected argument 'upgrade_pause_end_timestamp_utc' to be a str")
-        pulumi.set(__self__, "upgrade_pause_end_timestamp_utc", upgrade_pause_end_timestamp_utc)
-        if upgrade_pause_start_timestamp_utc and not isinstance(upgrade_pause_start_timestamp_utc, str):
-            raise TypeError("Expected argument 'upgrade_pause_start_timestamp_utc' to be a str")
-        pulumi.set(__self__, "upgrade_pause_start_timestamp_utc", upgrade_pause_start_timestamp_utc)
-        if upgrade_wave and not isinstance(upgrade_wave, str):
-            raise TypeError("Expected argument 'upgrade_wave' to be a str")
-        pulumi.set(__self__, "upgrade_wave", upgrade_wave)
         if vm_image and not isinstance(vm_image, str):
             raise TypeError("Expected argument 'vm_image' to be a str")
         pulumi.set(__self__, "vm_image", vm_image)
-        if vmss_zonal_upgrade_mode and not isinstance(vmss_zonal_upgrade_mode, str):
-            raise TypeError("Expected argument 'vmss_zonal_upgrade_mode' to be a str")
-        pulumi.set(__self__, "vmss_zonal_upgrade_mode", vmss_zonal_upgrade_mode)
-        if wave_upgrade_paused and not isinstance(wave_upgrade_paused, bool):
-            raise TypeError("Expected argument 'wave_upgrade_paused' to be a bool")
-        pulumi.set(__self__, "wave_upgrade_paused", wave_upgrade_paused)
 
     @property
     @pulumi.getter(name="addOnFeatures")
@@ -287,14 +260,6 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="infrastructureServiceManager")
-    def infrastructure_service_manager(self) -> Optional[bool]:
-        """
-        Indicates if infrastructure service manager is enabled.
-        """
-        return pulumi.get(self, "infrastructure_service_manager")
-
-    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -325,14 +290,6 @@ class GetClusterResult:
         The list of node types in the cluster.
         """
         return pulumi.get(self, "node_types")
-
-    @property
-    @pulumi.getter
-    def notifications(self) -> Optional[Sequence['outputs.NotificationResponse']]:
-        """
-        Indicates a list of notification channels for cluster events.
-        """
-        return pulumi.get(self, "notifications")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -373,22 +330,6 @@ class GetClusterResult:
         return pulumi.get(self, "reverse_proxy_certificate_common_names")
 
     @property
-    @pulumi.getter(name="sfZonalUpgradeMode")
-    def sf_zonal_upgrade_mode(self) -> Optional[str]:
-        """
-        This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-        """
-        return pulumi.get(self, "sf_zonal_upgrade_mode")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -417,32 +358,11 @@ class GetClusterResult:
     def upgrade_mode(self) -> Optional[str]:
         """
         The upgrade mode of the cluster when new Service Fabric runtime version is available.
+
+          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         """
         return pulumi.get(self, "upgrade_mode")
-
-    @property
-    @pulumi.getter(name="upgradePauseEndTimestampUtc")
-    def upgrade_pause_end_timestamp_utc(self) -> Optional[str]:
-        """
-        Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        """
-        return pulumi.get(self, "upgrade_pause_end_timestamp_utc")
-
-    @property
-    @pulumi.getter(name="upgradePauseStartTimestampUtc")
-    def upgrade_pause_start_timestamp_utc(self) -> Optional[str]:
-        """
-        Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        """
-        return pulumi.get(self, "upgrade_pause_start_timestamp_utc")
-
-    @property
-    @pulumi.getter(name="upgradeWave")
-    def upgrade_wave(self) -> Optional[str]:
-        """
-        Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-        """
-        return pulumi.get(self, "upgrade_wave")
 
     @property
     @pulumi.getter(name="vmImage")
@@ -451,22 +371,6 @@ class GetClusterResult:
         The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
         return pulumi.get(self, "vm_image")
-
-    @property
-    @pulumi.getter(name="vmssZonalUpgradeMode")
-    def vmss_zonal_upgrade_mode(self) -> Optional[str]:
-        """
-        This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        """
-        return pulumi.get(self, "vmss_zonal_upgrade_mode")
-
-    @property
-    @pulumi.getter(name="waveUpgradePaused")
-    def wave_upgrade_paused(self) -> Optional[bool]:
-        """
-        Boolean to pause automatic runtime version upgrades to the cluster.
-        """
-        return pulumi.get(self, "wave_upgrade_paused")
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -492,28 +396,19 @@ class AwaitableGetClusterResult(GetClusterResult):
             event_store_service_enabled=self.event_store_service_enabled,
             fabric_settings=self.fabric_settings,
             id=self.id,
-            infrastructure_service_manager=self.infrastructure_service_manager,
             location=self.location,
             management_endpoint=self.management_endpoint,
             name=self.name,
             node_types=self.node_types,
-            notifications=self.notifications,
             provisioning_state=self.provisioning_state,
             reliability_level=self.reliability_level,
             reverse_proxy_certificate=self.reverse_proxy_certificate,
             reverse_proxy_certificate_common_names=self.reverse_proxy_certificate_common_names,
-            sf_zonal_upgrade_mode=self.sf_zonal_upgrade_mode,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             upgrade_description=self.upgrade_description,
             upgrade_mode=self.upgrade_mode,
-            upgrade_pause_end_timestamp_utc=self.upgrade_pause_end_timestamp_utc,
-            upgrade_pause_start_timestamp_utc=self.upgrade_pause_start_timestamp_utc,
-            upgrade_wave=self.upgrade_wave,
-            vm_image=self.vm_image,
-            vmss_zonal_upgrade_mode=self.vmss_zonal_upgrade_mode,
-            wave_upgrade_paused=self.wave_upgrade_paused)
+            vm_image=self.vm_image)
 
 
 def get_cluster(cluster_name: Optional[str] = None,
@@ -522,7 +417,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     """
     The cluster resource
 
-    API Version: 2021-06-01.
+    API Version: 2020-03-01.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -555,25 +450,16 @@ def get_cluster(cluster_name: Optional[str] = None,
         event_store_service_enabled=__ret__.event_store_service_enabled,
         fabric_settings=__ret__.fabric_settings,
         id=__ret__.id,
-        infrastructure_service_manager=__ret__.infrastructure_service_manager,
         location=__ret__.location,
         management_endpoint=__ret__.management_endpoint,
         name=__ret__.name,
         node_types=__ret__.node_types,
-        notifications=__ret__.notifications,
         provisioning_state=__ret__.provisioning_state,
         reliability_level=__ret__.reliability_level,
         reverse_proxy_certificate=__ret__.reverse_proxy_certificate,
         reverse_proxy_certificate_common_names=__ret__.reverse_proxy_certificate_common_names,
-        sf_zonal_upgrade_mode=__ret__.sf_zonal_upgrade_mode,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         upgrade_description=__ret__.upgrade_description,
         upgrade_mode=__ret__.upgrade_mode,
-        upgrade_pause_end_timestamp_utc=__ret__.upgrade_pause_end_timestamp_utc,
-        upgrade_pause_start_timestamp_utc=__ret__.upgrade_pause_start_timestamp_utc,
-        upgrade_wave=__ret__.upgrade_wave,
-        vm_image=__ret__.vm_image,
-        vmss_zonal_upgrade_mode=__ret__.vmss_zonal_upgrade_mode,
-        wave_upgrade_paused=__ret__.wave_upgrade_paused)
+        vm_image=__ret__.vm_image)

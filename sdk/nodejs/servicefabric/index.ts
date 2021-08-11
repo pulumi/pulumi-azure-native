@@ -16,7 +16,7 @@ export * from "./getCluster";
 export * from "./getManagedCluster";
 export * from "./getNodeType";
 export * from "./getService";
-export * from "./listClusterUpgradableVersions";
+export * from "./listListUpgradableVersionPost";
 export * from "./managedCluster";
 export * from "./nodeType";
 export * from "./service";

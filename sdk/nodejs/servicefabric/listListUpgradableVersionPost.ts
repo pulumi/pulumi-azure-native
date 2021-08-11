@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 
 /**
  * The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
- * API Version: 2021-06-01.
+ * API Version: 2020-12-01-preview.
  */
-export function listClusterUpgradableVersions(args: ListClusterUpgradableVersionsArgs, opts?: pulumi.InvokeOptions): Promise<ListClusterUpgradableVersionsResult> {
+export function listListUpgradableVersionPost(args: ListListUpgradableVersionPostArgs, opts?: pulumi.InvokeOptions): Promise<ListListUpgradableVersionPostResult> {
     if (!opts) {
         opts = {}
     }
@@ -17,14 +17,14 @@ export function listClusterUpgradableVersions(args: ListClusterUpgradableVersion
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    return pulumi.runtime.invoke("azure-native:servicefabric:listClusterUpgradableVersions", {
+    return pulumi.runtime.invoke("azure-native:servicefabric:listListUpgradableVersionPost", {
         "clusterName": args.clusterName,
         "resourceGroupName": args.resourceGroupName,
         "targetVersion": args.targetVersion,
     }, opts);
 }
 
-export interface ListClusterUpgradableVersionsArgs {
+export interface ListListUpgradableVersionPostArgs {
     /**
      * The name of the cluster resource.
      */
@@ -42,6 +42,6 @@ export interface ListClusterUpgradableVersionsArgs {
 /**
  * The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
  */
-export interface ListClusterUpgradableVersionsResult {
+export interface ListListUpgradableVersionPostResult {
     readonly supportedPath?: string[];
 }

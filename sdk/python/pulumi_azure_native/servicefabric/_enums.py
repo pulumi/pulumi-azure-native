@@ -7,12 +7,8 @@ from enum import Enum
 __all__ = [
     'ArmServicePackageActivationMode',
     'ArmUpgradeFailureAction',
-    'ClusterUpgradeCadence',
     'ManagedIdentityType',
     'MoveCost',
-    'NotificationCategory',
-    'NotificationChannel',
-    'NotificationLevel',
     'PartitionScheme',
     'ProbeProtocol',
     'Protocol',
@@ -21,9 +17,6 @@ __all__ = [
     'ServiceKind',
     'ServiceLoadMetricWeight',
     'ServicePlacementPolicyType',
-    'SfZonalUpgradeMode',
-    'UpgradeMode',
-    'VmssZonalUpgradeMode',
 ]
 
 
@@ -41,15 +34,6 @@ class ArmUpgradeFailureAction(str, Enum):
     """
     ROLLBACK = "Rollback"
     MANUAL = "Manual"
-
-
-class ClusterUpgradeCadence(str, Enum):
-    """
-    Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-    """
-    WAVE0 = "Wave0"
-    WAVE1 = "Wave1"
-    WAVE2 = "Wave2"
 
 
 class ManagedIdentityType(str, Enum):
@@ -70,29 +54,6 @@ class MoveCost(str, Enum):
     LOW = "Low"
     MEDIUM = "Medium"
     HIGH = "High"
-
-
-class NotificationCategory(str, Enum):
-    """
-    The category of notification.
-    """
-    WAVE_PROGRESS = "WaveProgress"
-
-
-class NotificationChannel(str, Enum):
-    """
-    The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-    """
-    EMAIL_USER = "EmailUser"
-    EMAIL_SUBSCRIPTION = "EmailSubscription"
-
-
-class NotificationLevel(str, Enum):
-    """
-    The level of notification.
-    """
-    CRITICAL = "Critical"
-    ALL = "All"
 
 
 class PartitionScheme(str, Enum):
@@ -171,27 +132,3 @@ class ServicePlacementPolicyType(str, Enum):
     PREFERRED_PRIMARY_DOMAIN = "PreferredPrimaryDomain"
     REQUIRED_DOMAIN_DISTRIBUTION = "RequiredDomainDistribution"
     NON_PARTIALLY_PLACE_SERVICE = "NonPartiallyPlaceService"
-
-
-class SfZonalUpgradeMode(str, Enum):
-    """
-    This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-    """
-    PARALLEL = "Parallel"
-    HIERARCHICAL = "Hierarchical"
-
-
-class UpgradeMode(str, Enum):
-    """
-    The upgrade mode of the cluster when new Service Fabric runtime version is available.
-    """
-    AUTOMATIC = "Automatic"
-    MANUAL = "Manual"
-
-
-class VmssZonalUpgradeMode(str, Enum):
-    """
-    This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-    """
-    PARALLEL = "Parallel"
-    HIERARCHICAL = "Hierarchical"

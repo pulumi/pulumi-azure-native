@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// Account resource
-        /// API Version: 2021-07-01.
+        /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.TrackedResourceResponseSystemData SystemData;
+        public readonly Outputs.AccountPropertiesResponseSystemData SystemData;
         /// <summary>
         /// Tags on the azure resource.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.Purview
 
             Outputs.AccountSkuResponse? sku,
 
-            Outputs.TrackedResourceResponseSystemData systemData,
+            Outputs.AccountPropertiesResponseSystemData systemData,
 
             ImmutableDictionary<string, string>? tags,
 

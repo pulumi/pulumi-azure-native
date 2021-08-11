@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The cluster resource
  *
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {
@@ -119,10 +119,6 @@ export interface GetClusterResult {
      */
     readonly id: string;
     /**
-     * Indicates if infrastructure service manager is enabled.
-     */
-    readonly infrastructureServiceManager?: boolean;
-    /**
      * Azure resource location.
      */
     readonly location: string;
@@ -138,10 +134,6 @@ export interface GetClusterResult {
      * The list of node types in the cluster.
      */
     readonly nodeTypes: outputs.servicefabric.NodeTypeDescriptionResponse[];
-    /**
-     * Indicates a list of notification channels for cluster events.
-     */
-    readonly notifications?: outputs.servicefabric.NotificationResponse[];
     /**
      * The provisioning state of the cluster resource.
      */
@@ -165,14 +157,6 @@ export interface GetClusterResult {
      */
     readonly reverseProxyCertificateCommonNames?: outputs.servicefabric.ServerCertificateCommonNamesResponse;
     /**
-     * This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-     */
-    readonly sfZonalUpgradeMode?: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.servicefabric.SystemDataResponse;
-    /**
      * Azure resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -186,30 +170,13 @@ export interface GetClusterResult {
     readonly upgradeDescription?: outputs.servicefabric.ClusterUpgradePolicyResponse;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     *
+     *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+     *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
      */
     readonly upgradeMode?: string;
-    /**
-     * Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-     */
-    readonly upgradePauseEndTimestampUtc?: string;
-    /**
-     * Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-     */
-    readonly upgradePauseStartTimestampUtc?: string;
-    /**
-     * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-     */
-    readonly upgradeWave?: string;
     /**
      * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
      */
     readonly vmImage?: string;
-    /**
-     * This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-     */
-    readonly vmssZonalUpgradeMode?: string;
-    /**
-     * Boolean to pause automatic runtime version upgrades to the cluster.
-     */
-    readonly waveUpgradePaused?: boolean;
 }

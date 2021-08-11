@@ -284,7 +284,7 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         The application resource.
-        API Version: 2021-06-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -312,7 +312,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The application resource.
-        API Version: 2021-06-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -380,7 +380,6 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20170701preview:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20201201preview:Application"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Application"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210601:Application")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -417,7 +416,6 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["parameters"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["remove_application_capacity"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["type_name"] = None
@@ -512,14 +510,6 @@ class Application(pulumi.CustomResource):
         Remove the current application capacity settings.
         """
         return pulumi.get(self, "remove_application_capacity")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

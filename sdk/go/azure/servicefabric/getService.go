@@ -8,7 +8,7 @@ import (
 )
 
 // The service resource.
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:servicefabric:getService", args, &rv, opts...)
@@ -61,8 +61,6 @@ type LookupServiceResult struct {
 	ServicePlacementPolicies []ServicePlacementPolicyDescriptionResponse `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName *string `pulumi:"serviceTypeName"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

@@ -68,18 +68,6 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public Input<bool> IsPrimary { get; set; } = null!;
 
         /// <summary>
-        /// Indicates if the node type can only host Stateless workloads.
-        /// </summary>
-        [Input("isStateless")]
-        public Input<bool>? IsStateless { get; set; }
-
-        /// <summary>
-        /// Indicates if the node type is enabled to support multiple zones.
-        /// </summary>
-        [Input("multipleAvailabilityZones")]
-        public Input<bool>? MultipleAvailabilityZones { get; set; }
-
-        /// <summary>
         /// The name of the node type.
         /// </summary>
         [Input("name", required: true)]
@@ -104,7 +92,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         public Input<int>? ReverseProxyEndpointPort { get; set; }
 
         /// <summary>
-        /// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability &gt;= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+        /// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         /// </summary>
         [Input("vmInstanceCount", required: true)]
         public Input<int> VmInstanceCount { get; set; } = null!;

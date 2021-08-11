@@ -35,8 +35,6 @@ __all__ = [
     'ManagedIdentityResponse',
     'NamedPartitionSchemeDescriptionResponse',
     'NodeTypeDescriptionResponse',
-    'NotificationResponse',
-    'NotificationTargetResponse',
     'ServerCertificateCommonNameResponse',
     'ServerCertificateCommonNamesResponse',
     'ServiceCorrelationDescriptionResponse',
@@ -49,7 +47,6 @@ __all__ = [
     'SingletonPartitionSchemeDescriptionResponse',
     'SkuResponse',
     'SubResourceResponse',
-    'SystemDataResponse',
     'UniformInt64RangePartitionSchemeDescriptionResponse',
     'UserAssignedIdentityResponse',
     'VMSSExtensionResponse',
@@ -1877,10 +1874,6 @@ class NodeTypeDescriptionResponse(dict):
             suggest = "durability_level"
         elif key == "ephemeralPorts":
             suggest = "ephemeral_ports"
-        elif key == "isStateless":
-            suggest = "is_stateless"
-        elif key == "multipleAvailabilityZones":
-            suggest = "multiple_availability_zones"
         elif key == "placementProperties":
             suggest = "placement_properties"
         elif key == "reverseProxyEndpointPort":
@@ -1907,8 +1900,6 @@ class NodeTypeDescriptionResponse(dict):
                  capacities: Optional[Mapping[str, str]] = None,
                  durability_level: Optional[str] = None,
                  ephemeral_ports: Optional['outputs.EndpointRangeDescriptionResponse'] = None,
-                 is_stateless: Optional[bool] = None,
-                 multiple_availability_zones: Optional[bool] = None,
                  placement_properties: Optional[Mapping[str, str]] = None,
                  reverse_proxy_endpoint_port: Optional[int] = None):
         """
@@ -1917,7 +1908,7 @@ class NodeTypeDescriptionResponse(dict):
         :param int http_gateway_endpoint_port: The HTTP cluster management endpoint port.
         :param bool is_primary: The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         :param str name: The name of the node type.
-        :param int vm_instance_count: VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+        :param int vm_instance_count: The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         :param 'EndpointRangeDescriptionResponse' application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param Mapping[str, str] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param str durability_level: The durability level of the node type. Learn about [DurabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -1926,8 +1917,6 @@ class NodeTypeDescriptionResponse(dict):
                  - Silver - The infrastructure jobs can be paused for a duration of 10 minutes per UD.
                  - Gold - The infrastructure jobs can be paused for a duration of 2 hours per UD. Gold durability can be enabled only on full node VM skus like D15_V2, G5 etc.
         :param 'EndpointRangeDescriptionResponse' ephemeral_ports: The range of ephemeral ports that nodes in this node type should be configured with.
-        :param bool is_stateless: Indicates if the node type can only host Stateless workloads.
-        :param bool multiple_availability_zones: Indicates if the node type is enabled to support multiple zones.
         :param Mapping[str, str] placement_properties: The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
         :param int reverse_proxy_endpoint_port: The endpoint used by reverse proxy.
         """
@@ -1944,10 +1933,6 @@ class NodeTypeDescriptionResponse(dict):
             pulumi.set(__self__, "durability_level", durability_level)
         if ephemeral_ports is not None:
             pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
-        if is_stateless is not None:
-            pulumi.set(__self__, "is_stateless", is_stateless)
-        if multiple_availability_zones is not None:
-            pulumi.set(__self__, "multiple_availability_zones", multiple_availability_zones)
         if placement_properties is not None:
             pulumi.set(__self__, "placement_properties", placement_properties)
         if reverse_proxy_endpoint_port is not None:
@@ -1989,7 +1974,7 @@ class NodeTypeDescriptionResponse(dict):
     @pulumi.getter(name="vmInstanceCount")
     def vm_instance_count(self) -> int:
         """
-        VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+        The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         """
         return pulumi.get(self, "vm_instance_count")
 
@@ -2030,22 +2015,6 @@ class NodeTypeDescriptionResponse(dict):
         return pulumi.get(self, "ephemeral_ports")
 
     @property
-    @pulumi.getter(name="isStateless")
-    def is_stateless(self) -> Optional[bool]:
-        """
-        Indicates if the node type can only host Stateless workloads.
-        """
-        return pulumi.get(self, "is_stateless")
-
-    @property
-    @pulumi.getter(name="multipleAvailabilityZones")
-    def multiple_availability_zones(self) -> Optional[bool]:
-        """
-        Indicates if the node type is enabled to support multiple zones.
-        """
-        return pulumi.get(self, "multiple_availability_zones")
-
-    @property
     @pulumi.getter(name="placementProperties")
     def placement_properties(self) -> Optional[Mapping[str, str]]:
         """
@@ -2060,134 +2029,6 @@ class NodeTypeDescriptionResponse(dict):
         The endpoint used by reverse proxy.
         """
         return pulumi.get(self, "reverse_proxy_endpoint_port")
-
-
-@pulumi.output_type
-class NotificationResponse(dict):
-    """
-    Describes the notification channel for cluster events.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "isEnabled":
-            suggest = "is_enabled"
-        elif key == "notificationCategory":
-            suggest = "notification_category"
-        elif key == "notificationLevel":
-            suggest = "notification_level"
-        elif key == "notificationTargets":
-            suggest = "notification_targets"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NotificationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NotificationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NotificationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 is_enabled: bool,
-                 notification_category: str,
-                 notification_level: str,
-                 notification_targets: Sequence['outputs.NotificationTargetResponse']):
-        """
-        Describes the notification channel for cluster events.
-        :param bool is_enabled: Indicates if the notification is enabled.
-        :param str notification_category: The category of notification.
-        :param str notification_level: The level of notification.
-        :param Sequence['NotificationTargetResponse'] notification_targets: List of targets that subscribe to the notification.
-        """
-        pulumi.set(__self__, "is_enabled", is_enabled)
-        pulumi.set(__self__, "notification_category", notification_category)
-        pulumi.set(__self__, "notification_level", notification_level)
-        pulumi.set(__self__, "notification_targets", notification_targets)
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
-        """
-        Indicates if the notification is enabled.
-        """
-        return pulumi.get(self, "is_enabled")
-
-    @property
-    @pulumi.getter(name="notificationCategory")
-    def notification_category(self) -> str:
-        """
-        The category of notification.
-        """
-        return pulumi.get(self, "notification_category")
-
-    @property
-    @pulumi.getter(name="notificationLevel")
-    def notification_level(self) -> str:
-        """
-        The level of notification.
-        """
-        return pulumi.get(self, "notification_level")
-
-    @property
-    @pulumi.getter(name="notificationTargets")
-    def notification_targets(self) -> Sequence['outputs.NotificationTargetResponse']:
-        """
-        List of targets that subscribe to the notification.
-        """
-        return pulumi.get(self, "notification_targets")
-
-
-@pulumi.output_type
-class NotificationTargetResponse(dict):
-    """
-    Describes the notification target properties.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "notificationChannel":
-            suggest = "notification_channel"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NotificationTargetResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NotificationTargetResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NotificationTargetResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 notification_channel: str,
-                 receivers: Sequence[str]):
-        """
-        Describes the notification target properties.
-        :param str notification_channel: The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-        :param Sequence[str] receivers: List of targets that subscribe to the notification.
-        """
-        pulumi.set(__self__, "notification_channel", notification_channel)
-        pulumi.set(__self__, "receivers", receivers)
-
-    @property
-    @pulumi.getter(name="notificationChannel")
-    def notification_channel(self) -> str:
-        """
-        The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-        """
-        return pulumi.get(self, "notification_channel")
-
-    @property
-    @pulumi.getter
-    def receivers(self) -> Sequence[str]:
-        """
-        List of targets that subscribe to the notification.
-        """
-        return pulumi.get(self, "receivers")
 
 
 @pulumi.output_type
@@ -2699,116 +2540,6 @@ class SubResourceResponse(dict):
         Azure resource identifier.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC).
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC).
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

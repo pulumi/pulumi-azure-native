@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// <summary>
     /// The cluster resource
     /// 
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
@@ -125,12 +125,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<ImmutableArray<Outputs.SettingsSectionDescriptionResponse>> FabricSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if infrastructure service manager is enabled.
-        /// </summary>
-        [Output("infrastructureServiceManager")]
-        public Output<bool?> InfrastructureServiceManager { get; private set; } = null!;
-
-        /// <summary>
         /// Azure resource location.
         /// </summary>
         [Output("location")]
@@ -153,12 +147,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("nodeTypes")]
         public Output<ImmutableArray<Outputs.NodeTypeDescriptionResponse>> NodeTypes { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates a list of notification channels for cluster events.
-        /// </summary>
-        [Output("notifications")]
-        public Output<ImmutableArray<Outputs.NotificationResponse>> Notifications { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the cluster resource.
@@ -191,18 +179,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<Outputs.ServerCertificateCommonNamesResponse?> ReverseProxyCertificateCommonNames { get; private set; } = null!;
 
         /// <summary>
-        /// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-        /// </summary>
-        [Output("sfZonalUpgradeMode")]
-        public Output<string?> SfZonalUpgradeMode { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
         /// Azure resource tags.
         /// </summary>
         [Output("tags")]
@@ -222,45 +198,18 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+        /// 
+        ///   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+        ///   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         /// </summary>
         [Output("upgradeMode")]
         public Output<string?> UpgradeMode { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        /// </summary>
-        [Output("upgradePauseEndTimestampUtc")]
-        public Output<string?> UpgradePauseEndTimestampUtc { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        /// </summary>
-        [Output("upgradePauseStartTimestampUtc")]
-        public Output<string?> UpgradePauseStartTimestampUtc { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-        /// </summary>
-        [Output("upgradeWave")]
-        public Output<string?> UpgradeWave { get; private set; } = null!;
 
         /// <summary>
         /// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         /// </summary>
         [Output("vmImage")]
         public Output<string?> VmImage { get; private set; } = null!;
-
-        /// <summary>
-        /// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        /// </summary>
-        [Output("vmssZonalUpgradeMode")]
-        public Output<string?> VmssZonalUpgradeMode { get; private set; } = null!;
-
-        /// <summary>
-        /// Boolean to pause automatic runtime version upgrades to the cluster.
-        /// </summary>
-        [Output("waveUpgradePaused")]
-        public Output<bool?> WaveUpgradePaused { get; private set; } = null!;
 
 
         /// <summary>
@@ -428,12 +377,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         }
 
         /// <summary>
-        /// Indicates if infrastructure service manager is enabled.
-        /// </summary>
-        [Input("infrastructureServiceManager")]
-        public Input<bool>? InfrastructureServiceManager { get; set; }
-
-        /// <summary>
         /// Azure resource location.
         /// </summary>
         [Input("location")]
@@ -455,18 +398,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         {
             get => _nodeTypes ?? (_nodeTypes = new InputList<Inputs.NodeTypeDescriptionArgs>());
             set => _nodeTypes = value;
-        }
-
-        [Input("notifications")]
-        private InputList<Inputs.NotificationArgs>? _notifications;
-
-        /// <summary>
-        /// Indicates a list of notification channels for cluster events.
-        /// </summary>
-        public InputList<Inputs.NotificationArgs> Notifications
-        {
-            get => _notifications ?? (_notifications = new InputList<Inputs.NotificationArgs>());
-            set => _notifications = value;
         }
 
         /// <summary>
@@ -499,12 +430,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("reverseProxyCertificateCommonNames")]
         public Input<Inputs.ServerCertificateCommonNamesArgs>? ReverseProxyCertificateCommonNames { get; set; }
 
-        /// <summary>
-        /// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-        /// </summary>
-        [Input("sfZonalUpgradeMode")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.SfZonalUpgradeMode>? SfZonalUpgradeMode { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -525,45 +450,18 @@ namespace Pulumi.AzureNative.ServiceFabric
 
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+        /// 
+        ///   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+        ///   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         /// </summary>
         [Input("upgradeMode")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.UpgradeMode>? UpgradeMode { get; set; }
-
-        /// <summary>
-        /// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        /// </summary>
-        [Input("upgradePauseEndTimestampUtc")]
-        public Input<string>? UpgradePauseEndTimestampUtc { get; set; }
-
-        /// <summary>
-        /// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        /// </summary>
-        [Input("upgradePauseStartTimestampUtc")]
-        public Input<string>? UpgradePauseStartTimestampUtc { get; set; }
-
-        /// <summary>
-        /// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-        /// </summary>
-        [Input("upgradeWave")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.ClusterUpgradeCadence>? UpgradeWave { get; set; }
+        public Input<string>? UpgradeMode { get; set; }
 
         /// <summary>
         /// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         /// </summary>
         [Input("vmImage")]
         public Input<string>? VmImage { get; set; }
-
-        /// <summary>
-        /// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        /// </summary>
-        [Input("vmssZonalUpgradeMode")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.VmssZonalUpgradeMode>? VmssZonalUpgradeMode { get; set; }
-
-        /// <summary>
-        /// Boolean to pause automatic runtime version upgrades to the cluster.
-        /// </summary>
-        [Input("waveUpgradePaused")]
-        public Input<bool>? WaveUpgradePaused { get; set; }
 
         public ClusterArgs()
         {

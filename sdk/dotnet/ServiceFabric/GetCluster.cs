@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The cluster resource
         /// 
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:servicefabric:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
@@ -124,10 +124,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Indicates if infrastructure service manager is enabled.
-        /// </summary>
-        public readonly bool? InfrastructureServiceManager;
-        /// <summary>
         /// Azure resource location.
         /// </summary>
         public readonly string Location;
@@ -143,10 +139,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// The list of node types in the cluster.
         /// </summary>
         public readonly ImmutableArray<Outputs.NodeTypeDescriptionResponse> NodeTypes;
-        /// <summary>
-        /// Indicates a list of notification channels for cluster events.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NotificationResponse> Notifications;
         /// <summary>
         /// The provisioning state of the cluster resource.
         /// </summary>
@@ -170,14 +162,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly Outputs.ServerCertificateCommonNamesResponse? ReverseProxyCertificateCommonNames;
         /// <summary>
-        /// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-        /// </summary>
-        public readonly string? SfZonalUpgradeMode;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Azure resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -191,32 +175,15 @@ namespace Pulumi.AzureNative.ServiceFabric
         public readonly Outputs.ClusterUpgradePolicyResponse? UpgradeDescription;
         /// <summary>
         /// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+        /// 
+        ///   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+        ///   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         /// </summary>
         public readonly string? UpgradeMode;
-        /// <summary>
-        /// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        /// </summary>
-        public readonly string? UpgradePauseEndTimestampUtc;
-        /// <summary>
-        /// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        /// </summary>
-        public readonly string? UpgradePauseStartTimestampUtc;
-        /// <summary>
-        /// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-        /// </summary>
-        public readonly string? UpgradeWave;
         /// <summary>
         /// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         /// </summary>
         public readonly string? VmImage;
-        /// <summary>
-        /// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        /// </summary>
-        public readonly string? VmssZonalUpgradeMode;
-        /// <summary>
-        /// Boolean to pause automatic runtime version upgrades to the cluster.
-        /// </summary>
-        public readonly bool? WaveUpgradePaused;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -254,8 +221,6 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string id,
 
-            bool? infrastructureServiceManager,
-
             string location,
 
             string managementEndpoint,
@@ -263,8 +228,6 @@ namespace Pulumi.AzureNative.ServiceFabric
             string name,
 
             ImmutableArray<Outputs.NodeTypeDescriptionResponse> nodeTypes,
-
-            ImmutableArray<Outputs.NotificationResponse> notifications,
 
             string provisioningState,
 
@@ -274,10 +237,6 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             Outputs.ServerCertificateCommonNamesResponse? reverseProxyCertificateCommonNames,
 
-            string? sfZonalUpgradeMode,
-
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -286,17 +245,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string? upgradeMode,
 
-            string? upgradePauseEndTimestampUtc,
-
-            string? upgradePauseStartTimestampUtc,
-
-            string? upgradeWave,
-
-            string? vmImage,
-
-            string? vmssZonalUpgradeMode,
-
-            bool? waveUpgradePaused)
+            string? vmImage)
         {
             AddOnFeatures = addOnFeatures;
             ApplicationTypeVersionsCleanupPolicy = applicationTypeVersionsCleanupPolicy;
@@ -315,28 +264,19 @@ namespace Pulumi.AzureNative.ServiceFabric
             EventStoreServiceEnabled = eventStoreServiceEnabled;
             FabricSettings = fabricSettings;
             Id = id;
-            InfrastructureServiceManager = infrastructureServiceManager;
             Location = location;
             ManagementEndpoint = managementEndpoint;
             Name = name;
             NodeTypes = nodeTypes;
-            Notifications = notifications;
             ProvisioningState = provisioningState;
             ReliabilityLevel = reliabilityLevel;
             ReverseProxyCertificate = reverseProxyCertificate;
             ReverseProxyCertificateCommonNames = reverseProxyCertificateCommonNames;
-            SfZonalUpgradeMode = sfZonalUpgradeMode;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpgradeDescription = upgradeDescription;
             UpgradeMode = upgradeMode;
-            UpgradePauseEndTimestampUtc = upgradePauseEndTimestampUtc;
-            UpgradePauseStartTimestampUtc = upgradePauseStartTimestampUtc;
-            UpgradeWave = upgradeWave;
             VmImage = vmImage;
-            VmssZonalUpgradeMode = vmssZonalUpgradeMode;
-            WaveUpgradePaused = waveUpgradePaused;
         }
     }
 }

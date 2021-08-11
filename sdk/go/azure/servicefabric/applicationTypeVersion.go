@@ -12,7 +12,7 @@ import (
 )
 
 // An application type version resource for the specified application type name resource.
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 type ApplicationTypeVersion struct {
 	pulumi.CustomResourceState
 
@@ -28,8 +28,6 @@ type ApplicationTypeVersion struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
@@ -143,8 +141,6 @@ type applicationTypeVersionState struct {
 	Name *string `pulumi:"name"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -164,8 +160,6 @@ type ApplicationTypeVersionState struct {
 	Name pulumi.StringPtrInput
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.

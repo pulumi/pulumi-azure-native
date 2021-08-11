@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = ['ApplicationTypeVersionArgs', 'ApplicationTypeVersion']
 
@@ -142,7 +141,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                  __props__=None):
         """
         An application type version resource for the specified application type name resource.
-        API Version: 2021-06-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +161,7 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An application type version resource for the specified application type name resource.
-        API Version: 2021-06-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeVersionArgs args: The arguments to use to populate this resource's properties.
@@ -217,7 +216,6 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20201201preview:ApplicationTypeVersion"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:ApplicationTypeVersion"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210601:ApplicationTypeVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -249,7 +247,6 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ApplicationTypeVersion(resource_name, opts=opts, __props__=__props__)
@@ -301,14 +298,6 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         The current deployment or provisioning state, which only appears in the response
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

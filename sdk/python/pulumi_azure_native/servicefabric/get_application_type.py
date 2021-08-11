@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetApplicationTypeResult',
@@ -20,7 +19,7 @@ class GetApplicationTypeResult:
     """
     The application type name resource
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -36,9 +35,6 @@ class GetApplicationTypeResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -87,14 +83,6 @@ class GetApplicationTypeResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -122,7 +110,6 @@ class AwaitableGetApplicationTypeResult(GetApplicationTypeResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -133,7 +120,7 @@ def get_application_type(application_type_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationTypeResult:
     """
     The application type name resource
-    API Version: 2021-06-01.
+    API Version: 2020-03-01.
 
 
     :param str application_type_name: The name of the application type name resource.
@@ -156,6 +143,5 @@ def get_application_type(application_type_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

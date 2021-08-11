@@ -20,7 +20,7 @@ class GetServiceResult:
     """
     The service resource.
     """
-    def __init__(__self__, correlation_scheme=None, default_move_cost=None, etag=None, id=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_dns_name=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, correlation_scheme=None, default_move_cost=None, etag=None, id=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_dns_name=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, tags=None, type=None):
         if correlation_scheme and not isinstance(correlation_scheme, list):
             raise TypeError("Expected argument 'correlation_scheme' to be a list")
         pulumi.set(__self__, "correlation_scheme", correlation_scheme)
@@ -66,9 +66,6 @@ class GetServiceResult:
         if service_type_name and not isinstance(service_type_name, str):
             raise TypeError("Expected argument 'service_type_name' to be a str")
         pulumi.set(__self__, "service_type_name", service_type_name)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -197,14 +194,6 @@ class GetServiceResult:
         return pulumi.get(self, "service_type_name")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -242,7 +231,6 @@ class AwaitableGetServiceResult(GetServiceResult):
             service_package_activation_mode=self.service_package_activation_mode,
             service_placement_policies=self.service_placement_policies,
             service_type_name=self.service_type_name,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -254,7 +242,7 @@ def get_service(application_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     The service resource.
-    API Version: 2021-06-01.
+    API Version: 2020-03-01.
 
 
     :param str application_name: The name of the application resource.
@@ -289,6 +277,5 @@ def get_service(application_name: Optional[str] = None,
         service_package_activation_mode=__ret__.service_package_activation_mode,
         service_placement_policies=__ret__.service_placement_policies,
         service_type_name=__ret__.service_type_name,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

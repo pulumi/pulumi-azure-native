@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// The Account access keys.
-        /// API Version: 2021-07-01.
+        /// API Version: 2020-12-01-preview.
         /// </summary>
         public static Task<ListAccountKeysResult> InvokeAsync(ListAccountKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListAccountKeysResult>("azure-native:purview:listAccountKeys", args ?? new ListAccountKeysArgs(), options.WithVersion());

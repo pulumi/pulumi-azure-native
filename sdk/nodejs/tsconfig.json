@@ -14711,7 +14711,7 @@
         "servicefabric/getNodeType.ts",
         "servicefabric/getService.ts",
         "servicefabric/index.ts",
-        "servicefabric/listClusterUpgradableVersions.ts",
+        "servicefabric/listListUpgradableVersionPost.ts",
         "servicefabric/managedCluster.ts",
         "servicefabric/nodeType.ts",
         "servicefabric/service.ts",

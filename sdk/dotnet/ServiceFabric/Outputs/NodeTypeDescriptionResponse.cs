@@ -46,14 +46,6 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// </summary>
         public readonly bool IsPrimary;
         /// <summary>
-        /// Indicates if the node type can only host Stateless workloads.
-        /// </summary>
-        public readonly bool? IsStateless;
-        /// <summary>
-        /// Indicates if the node type is enabled to support multiple zones.
-        /// </summary>
-        public readonly bool? MultipleAvailabilityZones;
-        /// <summary>
         /// The name of the node type.
         /// </summary>
         public readonly string Name;
@@ -66,7 +58,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// </summary>
         public readonly int? ReverseProxyEndpointPort;
         /// <summary>
-        /// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability &gt;= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+        /// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
         /// </summary>
         public readonly int VmInstanceCount;
 
@@ -86,10 +78,6 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 
             bool isPrimary,
 
-            bool? isStateless,
-
-            bool? multipleAvailabilityZones,
-
             string name,
 
             ImmutableDictionary<string, string>? placementProperties,
@@ -105,8 +93,6 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
             EphemeralPorts = ephemeralPorts;
             HttpGatewayEndpointPort = httpGatewayEndpointPort;
             IsPrimary = isPrimary;
-            IsStateless = isStateless;
-            MultipleAvailabilityZones = multipleAvailabilityZones;
             Name = name;
             PlacementProperties = placementProperties;
             ReverseProxyEndpointPort = reverseProxyEndpointPort;

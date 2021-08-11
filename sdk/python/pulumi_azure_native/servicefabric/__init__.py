@@ -17,7 +17,7 @@ from .get_cluster import *
 from .get_managed_cluster import *
 from .get_node_type import *
 from .get_service import *
-from .list_cluster_upgradable_versions import *
+from .list_list_upgradable_version_post import *
 from .managed_cluster import *
 from .node_type import *
 from .service import *

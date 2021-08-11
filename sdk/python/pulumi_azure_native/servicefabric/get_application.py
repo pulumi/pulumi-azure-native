@@ -20,7 +20,7 @@ class GetApplicationResult:
     """
     The application resource.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, location=None, managed_identities=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, system_data=None, tags=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, managed_identities=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, tags=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -57,9 +57,6 @@ class GetApplicationResult:
         if remove_application_capacity and not isinstance(remove_application_capacity, bool):
             raise TypeError("Expected argument 'remove_application_capacity' to be a bool")
         pulumi.set(__self__, "remove_application_capacity", remove_application_capacity)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -173,14 +170,6 @@ class GetApplicationResult:
         return pulumi.get(self, "remove_application_capacity")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -239,7 +228,6 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             parameters=self.parameters,
             provisioning_state=self.provisioning_state,
             remove_application_capacity=self.remove_application_capacity,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             type_name=self.type_name,
@@ -253,7 +241,7 @@ def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     The application resource.
-    API Version: 2021-06-01.
+    API Version: 2020-03-01.
 
 
     :param str application_name: The name of the application resource.
@@ -283,7 +271,6 @@ def get_application(application_name: Optional[str] = None,
         parameters=__ret__.parameters,
         provisioning_state=__ret__.provisioning_state,
         remove_application_capacity=__ret__.remove_application_capacity,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         type_name=__ret__.type_name,

@@ -8,17 +8,17 @@ import (
 )
 
 // The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
-// API Version: 2021-06-01.
-func ListClusterUpgradableVersions(ctx *pulumi.Context, args *ListClusterUpgradableVersionsArgs, opts ...pulumi.InvokeOption) (*ListClusterUpgradableVersionsResult, error) {
-	var rv ListClusterUpgradableVersionsResult
-	err := ctx.Invoke("azure-native:servicefabric:listClusterUpgradableVersions", args, &rv, opts...)
+// API Version: 2020-12-01-preview.
+func ListListUpgradableVersionPost(ctx *pulumi.Context, args *ListListUpgradableVersionPostArgs, opts ...pulumi.InvokeOption) (*ListListUpgradableVersionPostResult, error) {
+	var rv ListListUpgradableVersionPostResult
+	err := ctx.Invoke("azure-native:servicefabric:listListUpgradableVersionPost", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-type ListClusterUpgradableVersionsArgs struct {
+type ListListUpgradableVersionPostArgs struct {
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the resource group.
@@ -28,6 +28,6 @@ type ListClusterUpgradableVersionsArgs struct {
 }
 
 // The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
-type ListClusterUpgradableVersionsResult struct {
+type ListListUpgradableVersionPostResult struct {
 	SupportedPath []string `pulumi:"supportedPath"`
 }

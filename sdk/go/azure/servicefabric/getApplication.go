@@ -8,7 +8,7 @@ import (
 )
 
 // The application resource.
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:servicefabric:getApplication", args, &rv, opts...)
@@ -53,8 +53,6 @@ type LookupApplicationResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Remove the current application capacity settings.
 	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

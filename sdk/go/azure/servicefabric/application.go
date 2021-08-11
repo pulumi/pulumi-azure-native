@@ -12,7 +12,7 @@ import (
 )
 
 // The application resource.
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -38,8 +38,6 @@ type Application struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Remove the current application capacity settings.
 	RemoveApplicationCapacity pulumi.BoolPtrOutput `pulumi:"removeApplicationCapacity"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
@@ -166,8 +164,6 @@ type applicationState struct {
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Remove the current application capacity settings.
 	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -203,8 +199,6 @@ type ApplicationState struct {
 	ProvisioningState pulumi.StringPtrInput
 	// Remove the current application capacity settings.
 	RemoveApplicationCapacity pulumi.BoolPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.

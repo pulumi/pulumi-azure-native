@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The application resource.
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -81,10 +81,6 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly removeApplicationCapacity!: pulumi.Output<boolean | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
-    /**
      * Azure resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -140,7 +136,6 @@ export class Application extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -154,7 +149,6 @@ export class Application extends pulumi.CustomResource {
             inputs["parameters"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["removeApplicationCapacity"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["typeName"] = undefined /*out*/;

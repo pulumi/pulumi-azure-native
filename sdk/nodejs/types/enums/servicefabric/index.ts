@@ -56,26 +56,6 @@ export const ArmUpgradeFailureAction = {
  */
 export type ArmUpgradeFailureAction = (typeof ArmUpgradeFailureAction)[keyof typeof ArmUpgradeFailureAction];
 
-export const ClusterUpgradeCadence = {
-    /**
-     * Cluster upgrade starts immediately after a new version is rolled out. Recommended for Test/Dev clusters.
-     */
-    Wave0: "Wave0",
-    /**
-     * Cluster upgrade starts 7 days after a new version is rolled out. Recommended for Pre-prod clusters.
-     */
-    Wave1: "Wave1",
-    /**
-     * Cluster upgrade starts 14 days after a new version is rolled out. Recommended for Production clusters.
-     */
-    Wave2: "Wave2",
-} as const;
-
-/**
- * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
- */
-export type ClusterUpgradeCadence = (typeof ClusterUpgradeCadence)[keyof typeof ClusterUpgradeCadence];
-
 export const ManagedIdentityType = {
     /**
      * Indicates that system assigned identity is associated with the resource.
@@ -123,50 +103,6 @@ export const MoveCost = {
  * Specifies the move cost for the service.
  */
 export type MoveCost = (typeof MoveCost)[keyof typeof MoveCost];
-
-export const NotificationCategory = {
-    /**
-     * Notification will be regarding wave progress.
-     */
-    WaveProgress: "WaveProgress",
-} as const;
-
-/**
- * The category of notification.
- */
-export type NotificationCategory = (typeof NotificationCategory)[keyof typeof NotificationCategory];
-
-export const NotificationChannel = {
-    /**
-     * For email user receivers. In this case, the parameter receivers should be a list of email addresses that will receive the notifications.
-     */
-    EmailUser: "EmailUser",
-    /**
-     * For subscription receivers. In this case, the parameter receivers should be a list of roles of the subscription for the cluster (eg. Owner, AccountAdmin, etc) that will receive the notifications.
-     */
-    EmailSubscription: "EmailSubscription",
-} as const;
-
-/**
- * The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
- */
-export type NotificationChannel = (typeof NotificationChannel)[keyof typeof NotificationChannel];
-
-export const NotificationLevel = {
-    /**
-     * Receive only critical notifications.
-     */
-    Critical: "Critical",
-    /**
-     * Receive all notifications.
-     */
-    All: "All",
-} as const;
-
-/**
- * The level of notification.
- */
-export type NotificationLevel = (typeof NotificationLevel)[keyof typeof NotificationLevel];
 
 export const PartitionScheme = {
     /**
@@ -336,51 +272,3 @@ export const ServicePlacementPolicyType = {
  * The type of placement policy for a service fabric service. Following are the possible values.
  */
 export type ServicePlacementPolicyType = (typeof ServicePlacementPolicyType)[keyof typeof ServicePlacementPolicyType];
-
-export const SfZonalUpgradeMode = {
-    /**
-     * VMs under the node type are grouped into UDs and ignore the zone info in five UDs. This setting causes UDs across all zones to be upgraded at the same time. This deployment mode is faster for upgrades, we don't recommend it because it goes against the SDP guidelines, which state that the updates should be applied to one zone at a time.
-     */
-    Parallel: "Parallel",
-    /**
-     * If this value is omitted or set to Hierarchical, VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone. This update process is safer for the cluster and the user application.
-     */
-    Hierarchical: "Hierarchical",
-} as const;
-
-/**
- * This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
- */
-export type SfZonalUpgradeMode = (typeof SfZonalUpgradeMode)[keyof typeof SfZonalUpgradeMode];
-
-export const UpgradeMode = {
-    /**
-     * The cluster will be automatically upgraded to the latest Service Fabric runtime version, **upgradeWave** will determine when the upgrade starts after the new version becomes available.
-     */
-    Automatic: "Automatic",
-    /**
-     * The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
-     */
-    Manual: "Manual",
-} as const;
-
-/**
- * The upgrade mode of the cluster when new Service Fabric runtime version is available.
- */
-export type UpgradeMode = (typeof UpgradeMode)[keyof typeof UpgradeMode];
-
-export const VmssZonalUpgradeMode = {
-    /**
-     * Updates will happen in all Availability Zones at once for the virtual machine scale sets.
-     */
-    Parallel: "Parallel",
-    /**
-     * VMs are grouped to reflect the zonal distribution in up to 15 UDs. Each of the three zones has five UDs. This ensures that the zones are updated one at a time, moving to next zone only after completing five UDs within the first zone.
-     */
-    Hierarchical: "Hierarchical",
-} as const;
-
-/**
- * This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
- */
-export type VmssZonalUpgradeMode = (typeof VmssZonalUpgradeMode)[keyof typeof VmssZonalUpgradeMode];

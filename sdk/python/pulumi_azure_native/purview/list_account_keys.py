@@ -59,7 +59,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
     The Account access keys.
-    API Version: 2021-07-01.
+    API Version: 2020-12-01-preview.
 
 
     :param str account_name: The name of the account.

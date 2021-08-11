@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The service resource.
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -93,10 +93,6 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly serviceTypeName!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
-    /**
      * Azure resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -147,7 +143,6 @@ export class Service extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["correlationScheme"] = undefined /*out*/;
@@ -164,7 +159,6 @@ export class Service extends pulumi.CustomResource {
             inputs["servicePackageActivationMode"] = undefined /*out*/;
             inputs["servicePlacementPolicies"] = undefined /*out*/;
             inputs["serviceTypeName"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

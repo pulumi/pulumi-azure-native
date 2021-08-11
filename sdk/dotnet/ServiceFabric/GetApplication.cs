@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// The application resource.
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:servicefabric:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
@@ -98,10 +98,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly bool? RemoveApplicationCapacity;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Azure resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -148,8 +144,6 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             bool? removeApplicationCapacity,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -172,7 +166,6 @@ namespace Pulumi.AzureNative.ServiceFabric
             Parameters = parameters;
             ProvisioningState = provisioningState;
             RemoveApplicationCapacity = removeApplicationCapacity;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
             TypeName = typeName;

@@ -9,7 +9,7 @@ import (
 
 // The cluster resource
 //
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:servicefabric:getCluster", args, &rv, opts...)
@@ -73,8 +73,6 @@ type LookupClusterResult struct {
 	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
-	// Indicates if infrastructure service manager is enabled.
-	InfrastructureServiceManager *bool `pulumi:"infrastructureServiceManager"`
 	// Azure resource location.
 	Location string `pulumi:"location"`
 	// The http management endpoint of the cluster.
@@ -83,8 +81,6 @@ type LookupClusterResult struct {
 	Name string `pulumi:"name"`
 	// The list of node types in the cluster.
 	NodeTypes []NodeTypeDescriptionResponse `pulumi:"nodeTypes"`
-	// Indicates a list of notification channels for cluster events.
-	Notifications []NotificationResponse `pulumi:"notifications"`
 	// The provisioning state of the cluster resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -99,10 +95,6 @@ type LookupClusterResult struct {
 	ReverseProxyCertificate *CertificateDescriptionResponse `pulumi:"reverseProxyCertificate"`
 	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 	ReverseProxyCertificateCommonNames *ServerCertificateCommonNamesResponse `pulumi:"reverseProxyCertificateCommonNames"`
-	// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-	SfZonalUpgradeMode *string `pulumi:"sfZonalUpgradeMode"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -110,17 +102,10 @@ type LookupClusterResult struct {
 	// The policy to use when upgrading the cluster.
 	UpgradeDescription *ClusterUpgradePolicyResponse `pulumi:"upgradeDescription"`
 	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
 	UpgradeMode *string `pulumi:"upgradeMode"`
-	// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseEndTimestampUtc *string `pulumi:"upgradePauseEndTimestampUtc"`
-	// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseStartTimestampUtc *string `pulumi:"upgradePauseStartTimestampUtc"`
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-	UpgradeWave *string `pulumi:"upgradeWave"`
 	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
 	VmImage *string `pulumi:"vmImage"`
-	// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-	VmssZonalUpgradeMode *string `pulumi:"vmssZonalUpgradeMode"`
-	// Boolean to pause automatic runtime version upgrades to the cluster.
-	WaveUpgradePaused *bool `pulumi:"waveUpgradePaused"`
 }

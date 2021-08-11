@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The service resource.
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {
@@ -108,10 +108,6 @@ export interface GetServiceResult {
      * The name of the service type
      */
     readonly serviceTypeName?: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */

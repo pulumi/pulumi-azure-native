@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// An application type version resource for the specified application type name resource.
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:ApplicationTypeVersion")]
     public partial class ApplicationTypeVersion : Pulumi.CustomResource
@@ -51,12 +51,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

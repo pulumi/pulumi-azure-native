@@ -9,13 +9,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ListClusterUpgradableVersionsResult',
-    'AwaitableListClusterUpgradableVersionsResult',
-    'list_cluster_upgradable_versions',
+    'ListListUpgradableVersionPostResult',
+    'AwaitableListListUpgradableVersionPostResult',
+    'list_list_upgradable_version_post',
 ]
 
 @pulumi.output_type
-class ListClusterUpgradableVersionsResult:
+class ListListUpgradableVersionPostResult:
     """
     The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
     """
@@ -30,22 +30,22 @@ class ListClusterUpgradableVersionsResult:
         return pulumi.get(self, "supported_path")
 
 
-class AwaitableListClusterUpgradableVersionsResult(ListClusterUpgradableVersionsResult):
+class AwaitableListListUpgradableVersionPostResult(ListListUpgradableVersionPostResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return ListClusterUpgradableVersionsResult(
+        return ListListUpgradableVersionPostResult(
             supported_path=self.supported_path)
 
 
-def list_cluster_upgradable_versions(cluster_name: Optional[str] = None,
-                                     resource_group_name: Optional[str] = None,
-                                     target_version: Optional[str] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterUpgradableVersionsResult:
+def list_list_upgradable_version_post(cluster_name: Optional[str] = None,
+                                      resource_group_name: Optional[str] = None,
+                                      target_version: Optional[str] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListListUpgradableVersionPostResult:
     """
     The list of intermediate cluster code versions for an upgrade or downgrade. Or minimum and maximum upgradable version if no target was given
-    API Version: 2021-06-01.
+    API Version: 2020-12-01-preview.
 
 
     :param str cluster_name: The name of the cluster resource.
@@ -60,7 +60,7 @@ def list_cluster_upgradable_versions(cluster_name: Optional[str] = None,
         opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = _utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure-native:servicefabric:listClusterUpgradableVersions', __args__, opts=opts, typ=ListClusterUpgradableVersionsResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:servicefabric:listListUpgradableVersionPost', __args__, opts=opts, typ=ListListUpgradableVersionPostResult).value
 
-    return AwaitableListClusterUpgradableVersionsResult(
+    return AwaitableListListUpgradableVersionPostResult(
         supported_path=__ret__.supported_path)

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// The application type name resource
-        /// API Version: 2021-06-01.
+        /// API Version: 2020-03-01.
         /// </summary>
         public static Task<GetApplicationTypeResult> InvokeAsync(GetApplicationTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationTypeResult>("azure-native:servicefabric:getApplicationType", args ?? new GetApplicationTypeArgs(), options.WithVersion());
@@ -70,10 +70,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Azure resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -94,8 +90,6 @@ namespace Pulumi.AzureNative.ServiceFabric
 
             string provisioningState,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -105,7 +99,6 @@ namespace Pulumi.AzureNative.ServiceFabric
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

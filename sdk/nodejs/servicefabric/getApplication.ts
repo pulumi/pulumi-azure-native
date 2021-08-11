@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The application resource.
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     if (!opts) {
@@ -91,10 +91,6 @@ export interface GetApplicationResult {
      * Remove the current application capacity settings.
      */
     readonly removeApplicationCapacity?: boolean;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */

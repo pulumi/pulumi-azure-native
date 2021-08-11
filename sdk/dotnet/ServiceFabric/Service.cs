@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// The service resource.
-    /// API Version: 2021-06-01.
+    /// API Version: 2020-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:Service")]
     public partial class Service : Pulumi.CustomResource
@@ -99,12 +99,6 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("serviceTypeName")]
         public Output<string?> ServiceTypeName { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

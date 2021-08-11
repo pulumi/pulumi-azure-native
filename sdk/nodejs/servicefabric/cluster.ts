@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * The cluster resource
  *
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -113,10 +113,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly fabricSettings!: pulumi.Output<outputs.servicefabric.SettingsSectionDescriptionResponse[] | undefined>;
     /**
-     * Indicates if infrastructure service manager is enabled.
-     */
-    public readonly infrastructureServiceManager!: pulumi.Output<boolean | undefined>;
-    /**
      * Azure resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -132,10 +128,6 @@ export class Cluster extends pulumi.CustomResource {
      * The list of node types in the cluster.
      */
     public readonly nodeTypes!: pulumi.Output<outputs.servicefabric.NodeTypeDescriptionResponse[]>;
-    /**
-     * Indicates a list of notification channels for cluster events.
-     */
-    public readonly notifications!: pulumi.Output<outputs.servicefabric.NotificationResponse[] | undefined>;
     /**
      * The provisioning state of the cluster resource.
      */
@@ -159,14 +151,6 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly reverseProxyCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ServerCertificateCommonNamesResponse | undefined>;
     /**
-     * This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-     */
-    public readonly sfZonalUpgradeMode!: pulumi.Output<string | undefined>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
-    /**
      * Azure resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -180,32 +164,15 @@ export class Cluster extends pulumi.CustomResource {
     public readonly upgradeDescription!: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicyResponse | undefined>;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     *
+     *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+     *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
      */
     public readonly upgradeMode!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-     */
-    public readonly upgradePauseEndTimestampUtc!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-     */
-    public readonly upgradePauseStartTimestampUtc!: pulumi.Output<string | undefined>;
-    /**
-     * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-     */
-    public readonly upgradeWave!: pulumi.Output<string | undefined>;
     /**
      * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
      */
     public readonly vmImage!: pulumi.Output<string | undefined>;
-    /**
-     * This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-     */
-    public readonly vmssZonalUpgradeMode!: pulumi.Output<string | undefined>;
-    /**
-     * Boolean to pause automatic runtime version upgrades to the cluster.
-     */
-    public readonly waveUpgradePaused!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -239,25 +206,17 @@ export class Cluster extends pulumi.CustomResource {
             inputs["diagnosticsStorageAccountConfig"] = args ? args.diagnosticsStorageAccountConfig : undefined;
             inputs["eventStoreServiceEnabled"] = args ? args.eventStoreServiceEnabled : undefined;
             inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            inputs["infrastructureServiceManager"] = args ? args.infrastructureServiceManager : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
             inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
             inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
             inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
-            inputs["sfZonalUpgradeMode"] = args ? args.sfZonalUpgradeMode : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradeDescription"] = args ? args.upgradeDescription : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
-            inputs["upgradePauseEndTimestampUtc"] = args ? args.upgradePauseEndTimestampUtc : undefined;
-            inputs["upgradePauseStartTimestampUtc"] = args ? args.upgradePauseStartTimestampUtc : undefined;
-            inputs["upgradeWave"] = args ? args.upgradeWave : undefined;
             inputs["vmImage"] = args ? args.vmImage : undefined;
-            inputs["vmssZonalUpgradeMode"] = args ? args.vmssZonalUpgradeMode : undefined;
-            inputs["waveUpgradePaused"] = args ? args.waveUpgradePaused : undefined;
             inputs["availableClusterVersions"] = undefined /*out*/;
             inputs["clusterEndpoint"] = undefined /*out*/;
             inputs["clusterId"] = undefined /*out*/;
@@ -265,7 +224,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["addOnFeatures"] = undefined /*out*/;
@@ -284,28 +242,19 @@ export class Cluster extends pulumi.CustomResource {
             inputs["etag"] = undefined /*out*/;
             inputs["eventStoreServiceEnabled"] = undefined /*out*/;
             inputs["fabricSettings"] = undefined /*out*/;
-            inputs["infrastructureServiceManager"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["managementEndpoint"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["nodeTypes"] = undefined /*out*/;
-            inputs["notifications"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["reliabilityLevel"] = undefined /*out*/;
             inputs["reverseProxyCertificate"] = undefined /*out*/;
             inputs["reverseProxyCertificateCommonNames"] = undefined /*out*/;
-            inputs["sfZonalUpgradeMode"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["upgradeDescription"] = undefined /*out*/;
             inputs["upgradeMode"] = undefined /*out*/;
-            inputs["upgradePauseEndTimestampUtc"] = undefined /*out*/;
-            inputs["upgradePauseStartTimestampUtc"] = undefined /*out*/;
-            inputs["upgradeWave"] = undefined /*out*/;
             inputs["vmImage"] = undefined /*out*/;
-            inputs["vmssZonalUpgradeMode"] = undefined /*out*/;
-            inputs["waveUpgradePaused"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -369,10 +318,6 @@ export interface ClusterArgs {
      */
     fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.SettingsSectionDescriptionArgs>[]>;
     /**
-     * Indicates if infrastructure service manager is enabled.
-     */
-    infrastructureServiceManager?: pulumi.Input<boolean>;
-    /**
      * Azure resource location.
      */
     location?: pulumi.Input<string>;
@@ -384,10 +329,6 @@ export interface ClusterArgs {
      * The list of node types in the cluster.
      */
     nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.NodeTypeDescriptionArgs>[]>;
-    /**
-     * Indicates a list of notification channels for cluster events.
-     */
-    notifications?: pulumi.Input<pulumi.Input<inputs.servicefabric.NotificationArgs>[]>;
     /**
      * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
      *
@@ -411,10 +352,6 @@ export interface ClusterArgs {
      */
     reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.ServerCertificateCommonNamesArgs>;
     /**
-     * This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-     */
-    sfZonalUpgradeMode?: pulumi.Input<string | enums.servicefabric.SfZonalUpgradeMode>;
-    /**
      * Azure resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -424,30 +361,13 @@ export interface ClusterArgs {
     upgradeDescription?: pulumi.Input<inputs.servicefabric.ClusterUpgradePolicyArgs>;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     *
+     *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+     *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
      */
-    upgradeMode?: pulumi.Input<string | enums.servicefabric.UpgradeMode>;
-    /**
-     * Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-     */
-    upgradePauseEndTimestampUtc?: pulumi.Input<string>;
-    /**
-     * Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-     */
-    upgradePauseStartTimestampUtc?: pulumi.Input<string>;
-    /**
-     * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-     */
-    upgradeWave?: pulumi.Input<string | enums.servicefabric.ClusterUpgradeCadence>;
+    upgradeMode?: pulumi.Input<string>;
     /**
      * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
      */
     vmImage?: pulumi.Input<string>;
-    /**
-     * This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-     */
-    vmssZonalUpgradeMode?: pulumi.Input<string | enums.servicefabric.VmssZonalUpgradeMode>;
-    /**
-     * Boolean to pause automatic runtime version upgrades to the cluster.
-     */
-    waveUpgradePaused?: pulumi.Input<boolean>;
 }

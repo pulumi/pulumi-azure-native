@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Account resource
- * API Version: 2021-07-01.
+ * API Version: 2020-12-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.TrackedResourceResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.AccountPropertiesResponseSystemData>;
     /**
      * Tags on the azure resource.
      */

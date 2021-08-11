@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ClusterArgs', 'Cluster']
@@ -31,22 +30,14 @@ class ClusterArgs:
                  diagnostics_storage_account_config: Optional[pulumi.Input['DiagnosticsStorageAccountConfigArgs']] = None,
                  event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]]] = None,
-                 infrastructure_service_manager: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input['CertificateDescriptionArgs']] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input['ServerCertificateCommonNamesArgs']] = None,
-                 sf_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'SfZonalUpgradeMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_description: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
-                 upgrade_mode: Optional[pulumi.Input[Union[str, 'UpgradeMode']]] = None,
-                 upgrade_pause_end_timestamp_utc: Optional[pulumi.Input[str]] = None,
-                 upgrade_pause_start_timestamp_utc: Optional[pulumi.Input[str]] = None,
-                 upgrade_wave: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
-                 vm_image: Optional[pulumi.Input[str]] = None,
-                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'VmssZonalUpgradeMode']]] = None,
-                 wave_upgrade_paused: Optional[pulumi.Input[bool]] = None):
+                 upgrade_mode: Optional[pulumi.Input[str]] = None,
+                 vm_image: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] management_endpoint: The http management endpoint of the cluster.
@@ -64,9 +55,7 @@ class ClusterArgs:
         :param pulumi.Input['DiagnosticsStorageAccountConfigArgs'] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
         :param pulumi.Input[bool] event_store_service_enabled: Indicates if the event store service is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['SettingsSectionDescriptionArgs']]] fabric_settings: The list of custom fabric settings to configure the cluster.
-        :param pulumi.Input[bool] infrastructure_service_manager: Indicates if infrastructure service manager is enabled.
         :param pulumi.Input[str] location: Azure resource location.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]] notifications: Indicates a list of notification channels for cluster events.
         :param pulumi.Input[str] reliability_level: The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
                
                  - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
@@ -76,16 +65,13 @@ class ClusterArgs:
                  - Platinum - Run the System services with a target replica set count of 9.
         :param pulumi.Input['CertificateDescriptionArgs'] reverse_proxy_certificate: The server certificate used by reverse proxy.
         :param pulumi.Input['ServerCertificateCommonNamesArgs'] reverse_proxy_certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        :param pulumi.Input[Union[str, 'SfZonalUpgradeMode']] sf_zonal_upgrade_mode: This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_description: The policy to use when upgrading the cluster.
-        :param pulumi.Input[Union[str, 'UpgradeMode']] upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
-        :param pulumi.Input[str] upgrade_pause_end_timestamp_utc: Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        :param pulumi.Input[str] upgrade_pause_start_timestamp_utc: Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] upgrade_wave: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
+        :param pulumi.Input[str] upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
+               
+                 - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+                 - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         :param pulumi.Input[str] vm_image: The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-        :param pulumi.Input[Union[str, 'VmssZonalUpgradeMode']] vmss_zonal_upgrade_mode: This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        :param pulumi.Input[bool] wave_upgrade_paused: Boolean to pause automatic runtime version upgrades to the cluster.
         """
         pulumi.set(__self__, "management_endpoint", management_endpoint)
         pulumi.set(__self__, "node_types", node_types)
@@ -114,38 +100,22 @@ class ClusterArgs:
             pulumi.set(__self__, "event_store_service_enabled", event_store_service_enabled)
         if fabric_settings is not None:
             pulumi.set(__self__, "fabric_settings", fabric_settings)
-        if infrastructure_service_manager is not None:
-            pulumi.set(__self__, "infrastructure_service_manager", infrastructure_service_manager)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if notifications is not None:
-            pulumi.set(__self__, "notifications", notifications)
         if reliability_level is not None:
             pulumi.set(__self__, "reliability_level", reliability_level)
         if reverse_proxy_certificate is not None:
             pulumi.set(__self__, "reverse_proxy_certificate", reverse_proxy_certificate)
         if reverse_proxy_certificate_common_names is not None:
             pulumi.set(__self__, "reverse_proxy_certificate_common_names", reverse_proxy_certificate_common_names)
-        if sf_zonal_upgrade_mode is not None:
-            pulumi.set(__self__, "sf_zonal_upgrade_mode", sf_zonal_upgrade_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_description is not None:
             pulumi.set(__self__, "upgrade_description", upgrade_description)
         if upgrade_mode is not None:
             pulumi.set(__self__, "upgrade_mode", upgrade_mode)
-        if upgrade_pause_end_timestamp_utc is not None:
-            pulumi.set(__self__, "upgrade_pause_end_timestamp_utc", upgrade_pause_end_timestamp_utc)
-        if upgrade_pause_start_timestamp_utc is not None:
-            pulumi.set(__self__, "upgrade_pause_start_timestamp_utc", upgrade_pause_start_timestamp_utc)
-        if upgrade_wave is not None:
-            pulumi.set(__self__, "upgrade_wave", upgrade_wave)
         if vm_image is not None:
             pulumi.set(__self__, "vm_image", vm_image)
-        if vmss_zonal_upgrade_mode is not None:
-            pulumi.set(__self__, "vmss_zonal_upgrade_mode", vmss_zonal_upgrade_mode)
-        if wave_upgrade_paused is not None:
-            pulumi.set(__self__, "wave_upgrade_paused", wave_upgrade_paused)
 
     @property
     @pulumi.getter(name="managementEndpoint")
@@ -328,18 +298,6 @@ class ClusterArgs:
         pulumi.set(self, "fabric_settings", value)
 
     @property
-    @pulumi.getter(name="infrastructureServiceManager")
-    def infrastructure_service_manager(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if infrastructure service manager is enabled.
-        """
-        return pulumi.get(self, "infrastructure_service_manager")
-
-    @infrastructure_service_manager.setter
-    def infrastructure_service_manager(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "infrastructure_service_manager", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -350,18 +308,6 @@ class ClusterArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]]:
-        """
-        Indicates a list of notification channels for cluster events.
-        """
-        return pulumi.get(self, "notifications")
-
-    @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationArgs']]]]):
-        pulumi.set(self, "notifications", value)
 
     @property
     @pulumi.getter(name="reliabilityLevel")
@@ -406,18 +352,6 @@ class ClusterArgs:
         pulumi.set(self, "reverse_proxy_certificate_common_names", value)
 
     @property
-    @pulumi.getter(name="sfZonalUpgradeMode")
-    def sf_zonal_upgrade_mode(self) -> Optional[pulumi.Input[Union[str, 'SfZonalUpgradeMode']]]:
-        """
-        This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-        """
-        return pulumi.get(self, "sf_zonal_upgrade_mode")
-
-    @sf_zonal_upgrade_mode.setter
-    def sf_zonal_upgrade_mode(self, value: Optional[pulumi.Input[Union[str, 'SfZonalUpgradeMode']]]):
-        pulumi.set(self, "sf_zonal_upgrade_mode", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -443,51 +377,18 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="upgradeMode")
-    def upgrade_mode(self) -> Optional[pulumi.Input[Union[str, 'UpgradeMode']]]:
+    def upgrade_mode(self) -> Optional[pulumi.Input[str]]:
         """
         The upgrade mode of the cluster when new Service Fabric runtime version is available.
+
+          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         """
         return pulumi.get(self, "upgrade_mode")
 
     @upgrade_mode.setter
-    def upgrade_mode(self, value: Optional[pulumi.Input[Union[str, 'UpgradeMode']]]):
+    def upgrade_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "upgrade_mode", value)
-
-    @property
-    @pulumi.getter(name="upgradePauseEndTimestampUtc")
-    def upgrade_pause_end_timestamp_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        """
-        return pulumi.get(self, "upgrade_pause_end_timestamp_utc")
-
-    @upgrade_pause_end_timestamp_utc.setter
-    def upgrade_pause_end_timestamp_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "upgrade_pause_end_timestamp_utc", value)
-
-    @property
-    @pulumi.getter(name="upgradePauseStartTimestampUtc")
-    def upgrade_pause_start_timestamp_utc(self) -> Optional[pulumi.Input[str]]:
-        """
-        Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        """
-        return pulumi.get(self, "upgrade_pause_start_timestamp_utc")
-
-    @upgrade_pause_start_timestamp_utc.setter
-    def upgrade_pause_start_timestamp_utc(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "upgrade_pause_start_timestamp_utc", value)
-
-    @property
-    @pulumi.getter(name="upgradeWave")
-    def upgrade_wave(self) -> Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]]:
-        """
-        Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-        """
-        return pulumi.get(self, "upgrade_wave")
-
-    @upgrade_wave.setter
-    def upgrade_wave(self, value: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]]):
-        pulumi.set(self, "upgrade_wave", value)
 
     @property
     @pulumi.getter(name="vmImage")
@@ -500,30 +401,6 @@ class ClusterArgs:
     @vm_image.setter
     def vm_image(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vm_image", value)
-
-    @property
-    @pulumi.getter(name="vmssZonalUpgradeMode")
-    def vmss_zonal_upgrade_mode(self) -> Optional[pulumi.Input[Union[str, 'VmssZonalUpgradeMode']]]:
-        """
-        This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        """
-        return pulumi.get(self, "vmss_zonal_upgrade_mode")
-
-    @vmss_zonal_upgrade_mode.setter
-    def vmss_zonal_upgrade_mode(self, value: Optional[pulumi.Input[Union[str, 'VmssZonalUpgradeMode']]]):
-        pulumi.set(self, "vmss_zonal_upgrade_mode", value)
-
-    @property
-    @pulumi.getter(name="waveUpgradePaused")
-    def wave_upgrade_paused(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Boolean to pause automatic runtime version upgrades to the cluster.
-        """
-        return pulumi.get(self, "wave_upgrade_paused")
-
-    @wave_upgrade_paused.setter
-    def wave_upgrade_paused(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "wave_upgrade_paused", value)
 
 
 class Cluster(pulumi.CustomResource):
@@ -543,30 +420,22 @@ class Cluster(pulumi.CustomResource):
                  diagnostics_storage_account_config: Optional[pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']]] = None,
                  event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
-                 infrastructure_service_manager: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_endpoint: Optional[pulumi.Input[str]] = None,
                  node_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']]] = None,
-                 sf_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'SfZonalUpgradeMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
-                 upgrade_mode: Optional[pulumi.Input[Union[str, 'UpgradeMode']]] = None,
-                 upgrade_pause_end_timestamp_utc: Optional[pulumi.Input[str]] = None,
-                 upgrade_pause_start_timestamp_utc: Optional[pulumi.Input[str]] = None,
-                 upgrade_wave: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
+                 upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
-                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'VmssZonalUpgradeMode']]] = None,
-                 wave_upgrade_paused: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The cluster resource
 
-        API Version: 2021-06-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -582,11 +451,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']] diagnostics_storage_account_config: The storage account information for storing Service Fabric diagnostic logs.
         :param pulumi.Input[bool] event_store_service_enabled: Indicates if the event store service is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]] fabric_settings: The list of custom fabric settings to configure the cluster.
-        :param pulumi.Input[bool] infrastructure_service_manager: Indicates if infrastructure service manager is enabled.
         :param pulumi.Input[str] location: Azure resource location.
         :param pulumi.Input[str] management_endpoint: The http management endpoint of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]] node_types: The list of node types in the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationArgs']]]] notifications: Indicates a list of notification channels for cluster events.
         :param pulumi.Input[str] reliability_level: The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
                
                  - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
@@ -597,16 +464,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']] reverse_proxy_certificate: The server certificate used by reverse proxy.
         :param pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']] reverse_proxy_certificate_common_names: Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        :param pulumi.Input[Union[str, 'SfZonalUpgradeMode']] sf_zonal_upgrade_mode: This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']] upgrade_description: The policy to use when upgrading the cluster.
-        :param pulumi.Input[Union[str, 'UpgradeMode']] upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
-        :param pulumi.Input[str] upgrade_pause_end_timestamp_utc: Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        :param pulumi.Input[str] upgrade_pause_start_timestamp_utc: Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        :param pulumi.Input[Union[str, 'ClusterUpgradeCadence']] upgrade_wave: Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
+        :param pulumi.Input[str] upgrade_mode: The upgrade mode of the cluster when new Service Fabric runtime version is available.
+               
+                 - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+                 - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         :param pulumi.Input[str] vm_image: The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-        :param pulumi.Input[Union[str, 'VmssZonalUpgradeMode']] vmss_zonal_upgrade_mode: This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        :param pulumi.Input[bool] wave_upgrade_paused: Boolean to pause automatic runtime version upgrades to the cluster.
         """
         ...
     @overload
@@ -617,7 +481,7 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
-        API Version: 2021-06-01.
+        API Version: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -646,25 +510,17 @@ class Cluster(pulumi.CustomResource):
                  diagnostics_storage_account_config: Optional[pulumi.Input[pulumi.InputType['DiagnosticsStorageAccountConfigArgs']]] = None,
                  event_store_service_enabled: Optional[pulumi.Input[bool]] = None,
                  fabric_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SettingsSectionDescriptionArgs']]]]] = None,
-                 infrastructure_service_manager: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_endpoint: Optional[pulumi.Input[str]] = None,
                  node_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeTypeDescriptionArgs']]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
                  reliability_level: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  reverse_proxy_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDescriptionArgs']]] = None,
                  reverse_proxy_certificate_common_names: Optional[pulumi.Input[pulumi.InputType['ServerCertificateCommonNamesArgs']]] = None,
-                 sf_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'SfZonalUpgradeMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  upgrade_description: Optional[pulumi.Input[pulumi.InputType['ClusterUpgradePolicyArgs']]] = None,
-                 upgrade_mode: Optional[pulumi.Input[Union[str, 'UpgradeMode']]] = None,
-                 upgrade_pause_end_timestamp_utc: Optional[pulumi.Input[str]] = None,
-                 upgrade_pause_start_timestamp_utc: Optional[pulumi.Input[str]] = None,
-                 upgrade_wave: Optional[pulumi.Input[Union[str, 'ClusterUpgradeCadence']]] = None,
+                 upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
-                 vmss_zonal_upgrade_mode: Optional[pulumi.Input[Union[str, 'VmssZonalUpgradeMode']]] = None,
-                 wave_upgrade_paused: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -689,7 +545,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["diagnostics_storage_account_config"] = diagnostics_storage_account_config
             __props__.__dict__["event_store_service_enabled"] = event_store_service_enabled
             __props__.__dict__["fabric_settings"] = fabric_settings
-            __props__.__dict__["infrastructure_service_manager"] = infrastructure_service_manager
             __props__.__dict__["location"] = location
             if management_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'management_endpoint'")
@@ -697,23 +552,16 @@ class Cluster(pulumi.CustomResource):
             if node_types is None and not opts.urn:
                 raise TypeError("Missing required property 'node_types'")
             __props__.__dict__["node_types"] = node_types
-            __props__.__dict__["notifications"] = notifications
             __props__.__dict__["reliability_level"] = reliability_level
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["reverse_proxy_certificate"] = reverse_proxy_certificate
             __props__.__dict__["reverse_proxy_certificate_common_names"] = reverse_proxy_certificate_common_names
-            __props__.__dict__["sf_zonal_upgrade_mode"] = sf_zonal_upgrade_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_description"] = upgrade_description
             __props__.__dict__["upgrade_mode"] = upgrade_mode
-            __props__.__dict__["upgrade_pause_end_timestamp_utc"] = upgrade_pause_end_timestamp_utc
-            __props__.__dict__["upgrade_pause_start_timestamp_utc"] = upgrade_pause_start_timestamp_utc
-            __props__.__dict__["upgrade_wave"] = upgrade_wave
             __props__.__dict__["vm_image"] = vm_image
-            __props__.__dict__["vmss_zonal_upgrade_mode"] = vmss_zonal_upgrade_mode
-            __props__.__dict__["wave_upgrade_paused"] = wave_upgrade_paused
             __props__.__dict__["available_cluster_versions"] = None
             __props__.__dict__["cluster_endpoint"] = None
             __props__.__dict__["cluster_id"] = None
@@ -721,7 +569,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabric:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20160901:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20170701preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20180201:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190301preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20190601preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20191101preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20200301:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20200301:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20201201preview:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20201201preview:Cluster"), pulumi.Alias(type_="azure-native:servicefabric/v20210601:Cluster"), pulumi.Alias(type_="azure-nextgen:servicefabric/v20210601:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -763,28 +610,19 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["event_store_service_enabled"] = None
         __props__.__dict__["fabric_settings"] = None
-        __props__.__dict__["infrastructure_service_manager"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["management_endpoint"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["node_types"] = None
-        __props__.__dict__["notifications"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["reliability_level"] = None
         __props__.__dict__["reverse_proxy_certificate"] = None
         __props__.__dict__["reverse_proxy_certificate_common_names"] = None
-        __props__.__dict__["sf_zonal_upgrade_mode"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["upgrade_description"] = None
         __props__.__dict__["upgrade_mode"] = None
-        __props__.__dict__["upgrade_pause_end_timestamp_utc"] = None
-        __props__.__dict__["upgrade_pause_start_timestamp_utc"] = None
-        __props__.__dict__["upgrade_wave"] = None
         __props__.__dict__["vm_image"] = None
-        __props__.__dict__["vmss_zonal_upgrade_mode"] = None
-        __props__.__dict__["wave_upgrade_paused"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -927,14 +765,6 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "fabric_settings")
 
     @property
-    @pulumi.getter(name="infrastructureServiceManager")
-    def infrastructure_service_manager(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Indicates if infrastructure service manager is enabled.
-        """
-        return pulumi.get(self, "infrastructure_service_manager")
-
-    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -965,14 +795,6 @@ class Cluster(pulumi.CustomResource):
         The list of node types in the cluster.
         """
         return pulumi.get(self, "node_types")
-
-    @property
-    @pulumi.getter
-    def notifications(self) -> pulumi.Output[Optional[Sequence['outputs.NotificationResponse']]]:
-        """
-        Indicates a list of notification channels for cluster events.
-        """
-        return pulumi.get(self, "notifications")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -1013,22 +835,6 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "reverse_proxy_certificate_common_names")
 
     @property
-    @pulumi.getter(name="sfZonalUpgradeMode")
-    def sf_zonal_upgrade_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-        """
-        return pulumi.get(self, "sf_zonal_upgrade_mode")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -1057,32 +863,11 @@ class Cluster(pulumi.CustomResource):
     def upgrade_mode(self) -> pulumi.Output[Optional[str]]:
         """
         The upgrade mode of the cluster when new Service Fabric runtime version is available.
+
+          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
         """
         return pulumi.get(self, "upgrade_mode")
-
-    @property
-    @pulumi.getter(name="upgradePauseEndTimestampUtc")
-    def upgrade_pause_end_timestamp_utc(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        """
-        return pulumi.get(self, "upgrade_pause_end_timestamp_utc")
-
-    @property
-    @pulumi.getter(name="upgradePauseStartTimestampUtc")
-    def upgrade_pause_start_timestamp_utc(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-        """
-        return pulumi.get(self, "upgrade_pause_start_timestamp_utc")
-
-    @property
-    @pulumi.getter(name="upgradeWave")
-    def upgrade_wave(self) -> pulumi.Output[Optional[str]]:
-        """
-        Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-        """
-        return pulumi.get(self, "upgrade_wave")
 
     @property
     @pulumi.getter(name="vmImage")
@@ -1091,20 +876,4 @@ class Cluster(pulumi.CustomResource):
         The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
         """
         return pulumi.get(self, "vm_image")
-
-    @property
-    @pulumi.getter(name="vmssZonalUpgradeMode")
-    def vmss_zonal_upgrade_mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-        """
-        return pulumi.get(self, "vmss_zonal_upgrade_mode")
-
-    @property
-    @pulumi.getter(name="waveUpgradePaused")
-    def wave_upgrade_paused(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Boolean to pause automatic runtime version upgrades to the cluster.
-        """
-        return pulumi.get(self, "wave_upgrade_paused")
 

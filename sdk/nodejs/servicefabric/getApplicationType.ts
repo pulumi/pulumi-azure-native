@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The application type name resource
- * API Version: 2021-06-01.
+ * API Version: 2020-03-01.
  */
 export function getApplicationType(args: GetApplicationTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationTypeResult> {
     if (!opts) {
@@ -63,10 +63,6 @@ export interface GetApplicationTypeResult {
      * The current deployment or provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */

@@ -7548,17 +7548,13 @@ type NodeTypeDescription struct {
 	HttpGatewayEndpointPort int `pulumi:"httpGatewayEndpointPort"`
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary bool `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless *bool `pulumi:"isStateless"`
-	// Indicates if the node type is enabled to support multiple zones.
-	MultipleAvailabilityZones *bool `pulumi:"multipleAvailabilityZones"`
 	// The name of the node type.
 	Name string `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties map[string]string `pulumi:"placementProperties"`
 	// The endpoint used by reverse proxy.
 	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
-	// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
 	VmInstanceCount int `pulumi:"vmInstanceCount"`
 }
 
@@ -7593,17 +7589,13 @@ type NodeTypeDescriptionArgs struct {
 	HttpGatewayEndpointPort pulumi.IntInput `pulumi:"httpGatewayEndpointPort"`
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless pulumi.BoolPtrInput `pulumi:"isStateless"`
-	// Indicates if the node type is enabled to support multiple zones.
-	MultipleAvailabilityZones pulumi.BoolPtrInput `pulumi:"multipleAvailabilityZones"`
 	// The name of the node type.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
 	// The endpoint used by reverse proxy.
 	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
-	// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
 	VmInstanceCount pulumi.IntInput `pulumi:"vmInstanceCount"`
 }
 
@@ -7698,16 +7690,6 @@ func (o NodeTypeDescriptionOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v NodeTypeDescription) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
-// Indicates if the node type can only host Stateless workloads.
-func (o NodeTypeDescriptionOutput) IsStateless() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescription) *bool { return v.IsStateless }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates if the node type is enabled to support multiple zones.
-func (o NodeTypeDescriptionOutput) MultipleAvailabilityZones() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescription) *bool { return v.MultipleAvailabilityZones }).(pulumi.BoolPtrOutput)
-}
-
 // The name of the node type.
 func (o NodeTypeDescriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeTypeDescription) string { return v.Name }).(pulumi.StringOutput)
@@ -7723,7 +7705,7 @@ func (o NodeTypeDescriptionOutput) ReverseProxyEndpointPort() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v NodeTypeDescription) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
 }
 
-// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
 func (o NodeTypeDescriptionOutput) VmInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v NodeTypeDescription) int { return v.VmInstanceCount }).(pulumi.IntOutput)
 }
@@ -7768,17 +7750,13 @@ type NodeTypeDescriptionResponse struct {
 	HttpGatewayEndpointPort int `pulumi:"httpGatewayEndpointPort"`
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary bool `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless *bool `pulumi:"isStateless"`
-	// Indicates if the node type is enabled to support multiple zones.
-	MultipleAvailabilityZones *bool `pulumi:"multipleAvailabilityZones"`
 	// The name of the node type.
 	Name string `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties map[string]string `pulumi:"placementProperties"`
 	// The endpoint used by reverse proxy.
 	ReverseProxyEndpointPort *int `pulumi:"reverseProxyEndpointPort"`
-	// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
 	VmInstanceCount int `pulumi:"vmInstanceCount"`
 }
 
@@ -7813,17 +7791,13 @@ type NodeTypeDescriptionResponseArgs struct {
 	HttpGatewayEndpointPort pulumi.IntInput `pulumi:"httpGatewayEndpointPort"`
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary pulumi.BoolInput `pulumi:"isPrimary"`
-	// Indicates if the node type can only host Stateless workloads.
-	IsStateless pulumi.BoolPtrInput `pulumi:"isStateless"`
-	// Indicates if the node type is enabled to support multiple zones.
-	MultipleAvailabilityZones pulumi.BoolPtrInput `pulumi:"multipleAvailabilityZones"`
 	// The name of the node type.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 	PlacementProperties pulumi.StringMapInput `pulumi:"placementProperties"`
 	// The endpoint used by reverse proxy.
 	ReverseProxyEndpointPort pulumi.IntPtrInput `pulumi:"reverseProxyEndpointPort"`
-	// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+	// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
 	VmInstanceCount pulumi.IntInput `pulumi:"vmInstanceCount"`
 }
 
@@ -7918,16 +7892,6 @@ func (o NodeTypeDescriptionResponseOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v NodeTypeDescriptionResponse) bool { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
-// Indicates if the node type can only host Stateless workloads.
-func (o NodeTypeDescriptionResponseOutput) IsStateless() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) *bool { return v.IsStateless }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates if the node type is enabled to support multiple zones.
-func (o NodeTypeDescriptionResponseOutput) MultipleAvailabilityZones() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NodeTypeDescriptionResponse) *bool { return v.MultipleAvailabilityZones }).(pulumi.BoolPtrOutput)
-}
-
 // The name of the node type.
 func (o NodeTypeDescriptionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v NodeTypeDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
@@ -7943,7 +7907,7 @@ func (o NodeTypeDescriptionResponseOutput) ReverseProxyEndpointPort() pulumi.Int
 	return o.ApplyT(func(v NodeTypeDescriptionResponse) *int { return v.ReverseProxyEndpointPort }).(pulumi.IntPtrOutput)
 }
 
-// VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability >= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.
+// The number of nodes in the node type. This count should match the capacity property in the corresponding VirtualMachineScaleSet resource.
 func (o NodeTypeDescriptionResponseOutput) VmInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v NodeTypeDescriptionResponse) int { return v.VmInstanceCount }).(pulumi.IntOutput)
 }
@@ -7966,478 +7930,6 @@ func (o NodeTypeDescriptionResponseArrayOutput) Index(i pulumi.IntInput) NodeTyp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeTypeDescriptionResponse {
 		return vs[0].([]NodeTypeDescriptionResponse)[vs[1].(int)]
 	}).(NodeTypeDescriptionResponseOutput)
-}
-
-// Describes the notification channel for cluster events.
-type Notification struct {
-	// Indicates if the notification is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The category of notification.
-	NotificationCategory string `pulumi:"notificationCategory"`
-	// The level of notification.
-	NotificationLevel string `pulumi:"notificationLevel"`
-	// List of targets that subscribe to the notification.
-	NotificationTargets []NotificationTarget `pulumi:"notificationTargets"`
-}
-
-// NotificationInput is an input type that accepts NotificationArgs and NotificationOutput values.
-// You can construct a concrete instance of `NotificationInput` via:
-//
-//          NotificationArgs{...}
-type NotificationInput interface {
-	pulumi.Input
-
-	ToNotificationOutput() NotificationOutput
-	ToNotificationOutputWithContext(context.Context) NotificationOutput
-}
-
-// Describes the notification channel for cluster events.
-type NotificationArgs struct {
-	// Indicates if the notification is enabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The category of notification.
-	NotificationCategory pulumi.StringInput `pulumi:"notificationCategory"`
-	// The level of notification.
-	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
-	// List of targets that subscribe to the notification.
-	NotificationTargets NotificationTargetArrayInput `pulumi:"notificationTargets"`
-}
-
-func (NotificationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Notification)(nil)).Elem()
-}
-
-func (i NotificationArgs) ToNotificationOutput() NotificationOutput {
-	return i.ToNotificationOutputWithContext(context.Background())
-}
-
-func (i NotificationArgs) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationOutput)
-}
-
-// NotificationArrayInput is an input type that accepts NotificationArray and NotificationArrayOutput values.
-// You can construct a concrete instance of `NotificationArrayInput` via:
-//
-//          NotificationArray{ NotificationArgs{...} }
-type NotificationArrayInput interface {
-	pulumi.Input
-
-	ToNotificationArrayOutput() NotificationArrayOutput
-	ToNotificationArrayOutputWithContext(context.Context) NotificationArrayOutput
-}
-
-type NotificationArray []NotificationInput
-
-func (NotificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Notification)(nil)).Elem()
-}
-
-func (i NotificationArray) ToNotificationArrayOutput() NotificationArrayOutput {
-	return i.ToNotificationArrayOutputWithContext(context.Background())
-}
-
-func (i NotificationArray) ToNotificationArrayOutputWithContext(ctx context.Context) NotificationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationArrayOutput)
-}
-
-// Describes the notification channel for cluster events.
-type NotificationOutput struct{ *pulumi.OutputState }
-
-func (NotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Notification)(nil)).Elem()
-}
-
-func (o NotificationOutput) ToNotificationOutput() NotificationOutput {
-	return o
-}
-
-func (o NotificationOutput) ToNotificationOutputWithContext(ctx context.Context) NotificationOutput {
-	return o
-}
-
-// Indicates if the notification is enabled.
-func (o NotificationOutput) IsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v Notification) bool { return v.IsEnabled }).(pulumi.BoolOutput)
-}
-
-// The category of notification.
-func (o NotificationOutput) NotificationCategory() pulumi.StringOutput {
-	return o.ApplyT(func(v Notification) string { return v.NotificationCategory }).(pulumi.StringOutput)
-}
-
-// The level of notification.
-func (o NotificationOutput) NotificationLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v Notification) string { return v.NotificationLevel }).(pulumi.StringOutput)
-}
-
-// List of targets that subscribe to the notification.
-func (o NotificationOutput) NotificationTargets() NotificationTargetArrayOutput {
-	return o.ApplyT(func(v Notification) []NotificationTarget { return v.NotificationTargets }).(NotificationTargetArrayOutput)
-}
-
-type NotificationArrayOutput struct{ *pulumi.OutputState }
-
-func (NotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Notification)(nil)).Elem()
-}
-
-func (o NotificationArrayOutput) ToNotificationArrayOutput() NotificationArrayOutput {
-	return o
-}
-
-func (o NotificationArrayOutput) ToNotificationArrayOutputWithContext(ctx context.Context) NotificationArrayOutput {
-	return o
-}
-
-func (o NotificationArrayOutput) Index(i pulumi.IntInput) NotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Notification {
-		return vs[0].([]Notification)[vs[1].(int)]
-	}).(NotificationOutput)
-}
-
-// Describes the notification channel for cluster events.
-type NotificationResponse struct {
-	// Indicates if the notification is enabled.
-	IsEnabled bool `pulumi:"isEnabled"`
-	// The category of notification.
-	NotificationCategory string `pulumi:"notificationCategory"`
-	// The level of notification.
-	NotificationLevel string `pulumi:"notificationLevel"`
-	// List of targets that subscribe to the notification.
-	NotificationTargets []NotificationTargetResponse `pulumi:"notificationTargets"`
-}
-
-// NotificationResponseInput is an input type that accepts NotificationResponseArgs and NotificationResponseOutput values.
-// You can construct a concrete instance of `NotificationResponseInput` via:
-//
-//          NotificationResponseArgs{...}
-type NotificationResponseInput interface {
-	pulumi.Input
-
-	ToNotificationResponseOutput() NotificationResponseOutput
-	ToNotificationResponseOutputWithContext(context.Context) NotificationResponseOutput
-}
-
-// Describes the notification channel for cluster events.
-type NotificationResponseArgs struct {
-	// Indicates if the notification is enabled.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-	// The category of notification.
-	NotificationCategory pulumi.StringInput `pulumi:"notificationCategory"`
-	// The level of notification.
-	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
-	// List of targets that subscribe to the notification.
-	NotificationTargets NotificationTargetResponseArrayInput `pulumi:"notificationTargets"`
-}
-
-func (NotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
-}
-
-func (i NotificationResponseArgs) ToNotificationResponseOutput() NotificationResponseOutput {
-	return i.ToNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationResponseArgs) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseOutput)
-}
-
-// NotificationResponseArrayInput is an input type that accepts NotificationResponseArray and NotificationResponseArrayOutput values.
-// You can construct a concrete instance of `NotificationResponseArrayInput` via:
-//
-//          NotificationResponseArray{ NotificationResponseArgs{...} }
-type NotificationResponseArrayInput interface {
-	pulumi.Input
-
-	ToNotificationResponseArrayOutput() NotificationResponseArrayOutput
-	ToNotificationResponseArrayOutputWithContext(context.Context) NotificationResponseArrayOutput
-}
-
-type NotificationResponseArray []NotificationResponseInput
-
-func (NotificationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationResponse)(nil)).Elem()
-}
-
-func (i NotificationResponseArray) ToNotificationResponseArrayOutput() NotificationResponseArrayOutput {
-	return i.ToNotificationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NotificationResponseArray) ToNotificationResponseArrayOutputWithContext(ctx context.Context) NotificationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseArrayOutput)
-}
-
-// Describes the notification channel for cluster events.
-type NotificationResponseOutput struct{ *pulumi.OutputState }
-
-func (NotificationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
-}
-
-func (o NotificationResponseOutput) ToNotificationResponseOutput() NotificationResponseOutput {
-	return o
-}
-
-func (o NotificationResponseOutput) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
-	return o
-}
-
-// Indicates if the notification is enabled.
-func (o NotificationResponseOutput) IsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v NotificationResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
-}
-
-// The category of notification.
-func (o NotificationResponseOutput) NotificationCategory() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationResponse) string { return v.NotificationCategory }).(pulumi.StringOutput)
-}
-
-// The level of notification.
-func (o NotificationResponseOutput) NotificationLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationResponse) string { return v.NotificationLevel }).(pulumi.StringOutput)
-}
-
-// List of targets that subscribe to the notification.
-func (o NotificationResponseOutput) NotificationTargets() NotificationTargetResponseArrayOutput {
-	return o.ApplyT(func(v NotificationResponse) []NotificationTargetResponse { return v.NotificationTargets }).(NotificationTargetResponseArrayOutput)
-}
-
-type NotificationResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (NotificationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationResponse)(nil)).Elem()
-}
-
-func (o NotificationResponseArrayOutput) ToNotificationResponseArrayOutput() NotificationResponseArrayOutput {
-	return o
-}
-
-func (o NotificationResponseArrayOutput) ToNotificationResponseArrayOutputWithContext(ctx context.Context) NotificationResponseArrayOutput {
-	return o
-}
-
-func (o NotificationResponseArrayOutput) Index(i pulumi.IntInput) NotificationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationResponse {
-		return vs[0].([]NotificationResponse)[vs[1].(int)]
-	}).(NotificationResponseOutput)
-}
-
-// Describes the notification target properties.
-type NotificationTarget struct {
-	// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-	NotificationChannel string `pulumi:"notificationChannel"`
-	// List of targets that subscribe to the notification.
-	Receivers []string `pulumi:"receivers"`
-}
-
-// NotificationTargetInput is an input type that accepts NotificationTargetArgs and NotificationTargetOutput values.
-// You can construct a concrete instance of `NotificationTargetInput` via:
-//
-//          NotificationTargetArgs{...}
-type NotificationTargetInput interface {
-	pulumi.Input
-
-	ToNotificationTargetOutput() NotificationTargetOutput
-	ToNotificationTargetOutputWithContext(context.Context) NotificationTargetOutput
-}
-
-// Describes the notification target properties.
-type NotificationTargetArgs struct {
-	// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-	NotificationChannel pulumi.StringInput `pulumi:"notificationChannel"`
-	// List of targets that subscribe to the notification.
-	Receivers pulumi.StringArrayInput `pulumi:"receivers"`
-}
-
-func (NotificationTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationTarget)(nil)).Elem()
-}
-
-func (i NotificationTargetArgs) ToNotificationTargetOutput() NotificationTargetOutput {
-	return i.ToNotificationTargetOutputWithContext(context.Background())
-}
-
-func (i NotificationTargetArgs) ToNotificationTargetOutputWithContext(ctx context.Context) NotificationTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationTargetOutput)
-}
-
-// NotificationTargetArrayInput is an input type that accepts NotificationTargetArray and NotificationTargetArrayOutput values.
-// You can construct a concrete instance of `NotificationTargetArrayInput` via:
-//
-//          NotificationTargetArray{ NotificationTargetArgs{...} }
-type NotificationTargetArrayInput interface {
-	pulumi.Input
-
-	ToNotificationTargetArrayOutput() NotificationTargetArrayOutput
-	ToNotificationTargetArrayOutputWithContext(context.Context) NotificationTargetArrayOutput
-}
-
-type NotificationTargetArray []NotificationTargetInput
-
-func (NotificationTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationTarget)(nil)).Elem()
-}
-
-func (i NotificationTargetArray) ToNotificationTargetArrayOutput() NotificationTargetArrayOutput {
-	return i.ToNotificationTargetArrayOutputWithContext(context.Background())
-}
-
-func (i NotificationTargetArray) ToNotificationTargetArrayOutputWithContext(ctx context.Context) NotificationTargetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationTargetArrayOutput)
-}
-
-// Describes the notification target properties.
-type NotificationTargetOutput struct{ *pulumi.OutputState }
-
-func (NotificationTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationTarget)(nil)).Elem()
-}
-
-func (o NotificationTargetOutput) ToNotificationTargetOutput() NotificationTargetOutput {
-	return o
-}
-
-func (o NotificationTargetOutput) ToNotificationTargetOutputWithContext(ctx context.Context) NotificationTargetOutput {
-	return o
-}
-
-// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-func (o NotificationTargetOutput) NotificationChannel() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationTarget) string { return v.NotificationChannel }).(pulumi.StringOutput)
-}
-
-// List of targets that subscribe to the notification.
-func (o NotificationTargetOutput) Receivers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v NotificationTarget) []string { return v.Receivers }).(pulumi.StringArrayOutput)
-}
-
-type NotificationTargetArrayOutput struct{ *pulumi.OutputState }
-
-func (NotificationTargetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationTarget)(nil)).Elem()
-}
-
-func (o NotificationTargetArrayOutput) ToNotificationTargetArrayOutput() NotificationTargetArrayOutput {
-	return o
-}
-
-func (o NotificationTargetArrayOutput) ToNotificationTargetArrayOutputWithContext(ctx context.Context) NotificationTargetArrayOutput {
-	return o
-}
-
-func (o NotificationTargetArrayOutput) Index(i pulumi.IntInput) NotificationTargetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationTarget {
-		return vs[0].([]NotificationTarget)[vs[1].(int)]
-	}).(NotificationTargetOutput)
-}
-
-// Describes the notification target properties.
-type NotificationTargetResponse struct {
-	// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-	NotificationChannel string `pulumi:"notificationChannel"`
-	// List of targets that subscribe to the notification.
-	Receivers []string `pulumi:"receivers"`
-}
-
-// NotificationTargetResponseInput is an input type that accepts NotificationTargetResponseArgs and NotificationTargetResponseOutput values.
-// You can construct a concrete instance of `NotificationTargetResponseInput` via:
-//
-//          NotificationTargetResponseArgs{...}
-type NotificationTargetResponseInput interface {
-	pulumi.Input
-
-	ToNotificationTargetResponseOutput() NotificationTargetResponseOutput
-	ToNotificationTargetResponseOutputWithContext(context.Context) NotificationTargetResponseOutput
-}
-
-// Describes the notification target properties.
-type NotificationTargetResponseArgs struct {
-	// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-	NotificationChannel pulumi.StringInput `pulumi:"notificationChannel"`
-	// List of targets that subscribe to the notification.
-	Receivers pulumi.StringArrayInput `pulumi:"receivers"`
-}
-
-func (NotificationTargetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationTargetResponse)(nil)).Elem()
-}
-
-func (i NotificationTargetResponseArgs) ToNotificationTargetResponseOutput() NotificationTargetResponseOutput {
-	return i.ToNotificationTargetResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationTargetResponseArgs) ToNotificationTargetResponseOutputWithContext(ctx context.Context) NotificationTargetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationTargetResponseOutput)
-}
-
-// NotificationTargetResponseArrayInput is an input type that accepts NotificationTargetResponseArray and NotificationTargetResponseArrayOutput values.
-// You can construct a concrete instance of `NotificationTargetResponseArrayInput` via:
-//
-//          NotificationTargetResponseArray{ NotificationTargetResponseArgs{...} }
-type NotificationTargetResponseArrayInput interface {
-	pulumi.Input
-
-	ToNotificationTargetResponseArrayOutput() NotificationTargetResponseArrayOutput
-	ToNotificationTargetResponseArrayOutputWithContext(context.Context) NotificationTargetResponseArrayOutput
-}
-
-type NotificationTargetResponseArray []NotificationTargetResponseInput
-
-func (NotificationTargetResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationTargetResponse)(nil)).Elem()
-}
-
-func (i NotificationTargetResponseArray) ToNotificationTargetResponseArrayOutput() NotificationTargetResponseArrayOutput {
-	return i.ToNotificationTargetResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NotificationTargetResponseArray) ToNotificationTargetResponseArrayOutputWithContext(ctx context.Context) NotificationTargetResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationTargetResponseArrayOutput)
-}
-
-// Describes the notification target properties.
-type NotificationTargetResponseOutput struct{ *pulumi.OutputState }
-
-func (NotificationTargetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationTargetResponse)(nil)).Elem()
-}
-
-func (o NotificationTargetResponseOutput) ToNotificationTargetResponseOutput() NotificationTargetResponseOutput {
-	return o
-}
-
-func (o NotificationTargetResponseOutput) ToNotificationTargetResponseOutputWithContext(ctx context.Context) NotificationTargetResponseOutput {
-	return o
-}
-
-// The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-func (o NotificationTargetResponseOutput) NotificationChannel() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationTargetResponse) string { return v.NotificationChannel }).(pulumi.StringOutput)
-}
-
-// List of targets that subscribe to the notification.
-func (o NotificationTargetResponseOutput) Receivers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v NotificationTargetResponse) []string { return v.Receivers }).(pulumi.StringArrayOutput)
-}
-
-type NotificationTargetResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (NotificationTargetResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationTargetResponse)(nil)).Elem()
-}
-
-func (o NotificationTargetResponseArrayOutput) ToNotificationTargetResponseArrayOutput() NotificationTargetResponseArrayOutput {
-	return o
-}
-
-func (o NotificationTargetResponseArrayOutput) ToNotificationTargetResponseArrayOutputWithContext(ctx context.Context) NotificationTargetResponseArrayOutput {
-	return o
-}
-
-func (o NotificationTargetResponseArrayOutput) Index(i pulumi.IntInput) NotificationTargetResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationTargetResponse {
-		return vs[0].([]NotificationTargetResponse)[vs[1].(int)]
-	}).(NotificationTargetResponseOutput)
 }
 
 // Describes the server certificate details using common name.
@@ -11318,235 +10810,6 @@ func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SubResourceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponse struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC).
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-// SystemDataResponseInput is an input type that accepts SystemDataResponseArgs and SystemDataResponseOutput values.
-// You can construct a concrete instance of `SystemDataResponseInput` via:
-//
-//          SystemDataResponseArgs{...}
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseArgs struct {
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput `pulumi:"createdByType"`
-	// The timestamp of resource last modification (UTC).
-	LastModifiedAt pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-// SystemDataResponsePtrInput is an input type that accepts SystemDataResponseArgs, SystemDataResponsePtr and SystemDataResponsePtrOutput values.
-// You can construct a concrete instance of `SystemDataResponsePtrInput` via:
-//
-//          SystemDataResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
-}
-
-// The timestamp of resource last modification (UTC).
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
-}
-
-// The timestamp of resource creation (UTC).
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that created the resource.
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The timestamp of resource last modification (UTC).
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of identity that last modified the resource.
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 // Describes a partitioning scheme where an integer range is allocated evenly across a number of partitions.
 type UniformInt64RangePartitionSchemeDescription struct {
 	// The number of partitions.
@@ -12719,14 +11982,6 @@ func init() {
 	pulumi.RegisterOutputType(NodeTypeDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(NodeTypeDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(NotificationOutput{})
-	pulumi.RegisterOutputType(NotificationArrayOutput{})
-	pulumi.RegisterOutputType(NotificationResponseOutput{})
-	pulumi.RegisterOutputType(NotificationResponseArrayOutput{})
-	pulumi.RegisterOutputType(NotificationTargetOutput{})
-	pulumi.RegisterOutputType(NotificationTargetArrayOutput{})
-	pulumi.RegisterOutputType(NotificationTargetResponseOutput{})
-	pulumi.RegisterOutputType(NotificationTargetResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNameOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNameArrayOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNameResponseOutput{})
@@ -12775,8 +12030,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UniformInt64RangePartitionSchemeDescriptionOutput{})
 	pulumi.RegisterOutputType(UniformInt64RangePartitionSchemeDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})

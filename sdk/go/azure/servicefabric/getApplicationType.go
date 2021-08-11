@@ -8,7 +8,7 @@ import (
 )
 
 // The application type name resource
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 func LookupApplicationType(ctx *pulumi.Context, args *LookupApplicationTypeArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeResult, error) {
 	var rv LookupApplicationTypeResult
 	err := ctx.Invoke("azure-native:servicefabric:getApplicationType", args, &rv, opts...)
@@ -39,8 +39,6 @@ type LookupApplicationTypeResult struct {
 	Name string `pulumi:"name"`
 	// The current deployment or provisioning state, which only appears in the response.
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

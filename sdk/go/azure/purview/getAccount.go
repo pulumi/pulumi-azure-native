@@ -8,7 +8,7 @@ import (
 )
 
 // Account resource
-// API Version: 2021-07-01.
+// API Version: 2020-12-01-preview.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:purview:getAccount", args, &rv, opts...)
@@ -61,7 +61,7 @@ type LookupAccountResult struct {
 	// Gets or sets the Sku.
 	Sku *AccountSkuResponse `pulumi:"sku"`
 	// Metadata pertaining to creation and last modification of the resource.
-	SystemData TrackedResourceResponseSystemData `pulumi:"systemData"`
+	SystemData AccountPropertiesResponseSystemData `pulumi:"systemData"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets or sets the type.

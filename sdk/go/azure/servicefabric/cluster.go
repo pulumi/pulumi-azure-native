@@ -13,7 +13,7 @@ import (
 
 // The cluster resource
 //
-// API Version: 2021-06-01.
+// API Version: 2020-03-01.
 type Cluster struct {
 	pulumi.CustomResourceState
 
@@ -60,8 +60,6 @@ type Cluster struct {
 	EventStoreServiceEnabled pulumi.BoolPtrOutput `pulumi:"eventStoreServiceEnabled"`
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings SettingsSectionDescriptionResponseArrayOutput `pulumi:"fabricSettings"`
-	// Indicates if infrastructure service manager is enabled.
-	InfrastructureServiceManager pulumi.BoolPtrOutput `pulumi:"infrastructureServiceManager"`
 	// Azure resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The http management endpoint of the cluster.
@@ -70,8 +68,6 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The list of node types in the cluster.
 	NodeTypes NodeTypeDescriptionResponseArrayOutput `pulumi:"nodeTypes"`
-	// Indicates a list of notification channels for cluster events.
-	Notifications NotificationResponseArrayOutput `pulumi:"notifications"`
 	// The provisioning state of the cluster resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -86,10 +82,6 @@ type Cluster struct {
 	ReverseProxyCertificate CertificateDescriptionResponsePtrOutput `pulumi:"reverseProxyCertificate"`
 	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 	ReverseProxyCertificateCommonNames ServerCertificateCommonNamesResponsePtrOutput `pulumi:"reverseProxyCertificateCommonNames"`
-	// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-	SfZonalUpgradeMode pulumi.StringPtrOutput `pulumi:"sfZonalUpgradeMode"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
@@ -97,19 +89,12 @@ type Cluster struct {
 	// The policy to use when upgrading the cluster.
 	UpgradeDescription ClusterUpgradePolicyResponsePtrOutput `pulumi:"upgradeDescription"`
 	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
-	// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseEndTimestampUtc pulumi.StringPtrOutput `pulumi:"upgradePauseEndTimestampUtc"`
-	// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseStartTimestampUtc pulumi.StringPtrOutput `pulumi:"upgradePauseStartTimestampUtc"`
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-	UpgradeWave pulumi.StringPtrOutput `pulumi:"upgradeWave"`
 	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
 	VmImage pulumi.StringPtrOutput `pulumi:"vmImage"`
-	// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-	VmssZonalUpgradeMode pulumi.StringPtrOutput `pulumi:"vmssZonalUpgradeMode"`
-	// Boolean to pause automatic runtime version upgrades to the cluster.
-	WaveUpgradePaused pulumi.BoolPtrOutput `pulumi:"waveUpgradePaused"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -259,8 +244,6 @@ type clusterState struct {
 	EventStoreServiceEnabled *bool `pulumi:"eventStoreServiceEnabled"`
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
-	// Indicates if infrastructure service manager is enabled.
-	InfrastructureServiceManager *bool `pulumi:"infrastructureServiceManager"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// The http management endpoint of the cluster.
@@ -269,8 +252,6 @@ type clusterState struct {
 	Name *string `pulumi:"name"`
 	// The list of node types in the cluster.
 	NodeTypes []NodeTypeDescriptionResponse `pulumi:"nodeTypes"`
-	// Indicates a list of notification channels for cluster events.
-	Notifications []NotificationResponse `pulumi:"notifications"`
 	// The provisioning state of the cluster resource.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -285,10 +266,6 @@ type clusterState struct {
 	ReverseProxyCertificate *CertificateDescriptionResponse `pulumi:"reverseProxyCertificate"`
 	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 	ReverseProxyCertificateCommonNames *ServerCertificateCommonNamesResponse `pulumi:"reverseProxyCertificateCommonNames"`
-	// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-	SfZonalUpgradeMode *string `pulumi:"sfZonalUpgradeMode"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -296,19 +273,12 @@ type clusterState struct {
 	// The policy to use when upgrading the cluster.
 	UpgradeDescription *ClusterUpgradePolicyResponse `pulumi:"upgradeDescription"`
 	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
 	UpgradeMode *string `pulumi:"upgradeMode"`
-	// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseEndTimestampUtc *string `pulumi:"upgradePauseEndTimestampUtc"`
-	// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseStartTimestampUtc *string `pulumi:"upgradePauseStartTimestampUtc"`
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-	UpgradeWave *string `pulumi:"upgradeWave"`
 	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
 	VmImage *string `pulumi:"vmImage"`
-	// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-	VmssZonalUpgradeMode *string `pulumi:"vmssZonalUpgradeMode"`
-	// Boolean to pause automatic runtime version upgrades to the cluster.
-	WaveUpgradePaused *bool `pulumi:"waveUpgradePaused"`
 }
 
 type ClusterState struct {
@@ -355,8 +325,6 @@ type ClusterState struct {
 	EventStoreServiceEnabled pulumi.BoolPtrInput
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings SettingsSectionDescriptionResponseArrayInput
-	// Indicates if infrastructure service manager is enabled.
-	InfrastructureServiceManager pulumi.BoolPtrInput
 	// Azure resource location.
 	Location pulumi.StringPtrInput
 	// The http management endpoint of the cluster.
@@ -365,8 +333,6 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// The list of node types in the cluster.
 	NodeTypes NodeTypeDescriptionResponseArrayInput
-	// Indicates a list of notification channels for cluster events.
-	Notifications NotificationResponseArrayInput
 	// The provisioning state of the cluster resource.
 	ProvisioningState pulumi.StringPtrInput
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
@@ -381,10 +347,6 @@ type ClusterState struct {
 	ReverseProxyCertificate CertificateDescriptionResponsePtrInput
 	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 	ReverseProxyCertificateCommonNames ServerCertificateCommonNamesResponsePtrInput
-	// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-	SfZonalUpgradeMode pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.
@@ -392,19 +354,12 @@ type ClusterState struct {
 	// The policy to use when upgrading the cluster.
 	UpgradeDescription ClusterUpgradePolicyResponsePtrInput
 	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
 	UpgradeMode pulumi.StringPtrInput
-	// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseEndTimestampUtc pulumi.StringPtrInput
-	// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseStartTimestampUtc pulumi.StringPtrInput
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-	UpgradeWave pulumi.StringPtrInput
 	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
 	VmImage pulumi.StringPtrInput
-	// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-	VmssZonalUpgradeMode pulumi.StringPtrInput
-	// Boolean to pause automatic runtime version upgrades to the cluster.
-	WaveUpgradePaused pulumi.BoolPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -436,16 +391,12 @@ type clusterArgs struct {
 	EventStoreServiceEnabled *bool `pulumi:"eventStoreServiceEnabled"`
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings []SettingsSectionDescription `pulumi:"fabricSettings"`
-	// Indicates if infrastructure service manager is enabled.
-	InfrastructureServiceManager *bool `pulumi:"infrastructureServiceManager"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// The http management endpoint of the cluster.
 	ManagementEndpoint string `pulumi:"managementEndpoint"`
 	// The list of node types in the cluster.
 	NodeTypes []NodeTypeDescription `pulumi:"nodeTypes"`
-	// Indicates a list of notification channels for cluster events.
-	Notifications []Notification `pulumi:"notifications"`
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 	//
 	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
@@ -460,26 +411,17 @@ type clusterArgs struct {
 	ReverseProxyCertificate *CertificateDescription `pulumi:"reverseProxyCertificate"`
 	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 	ReverseProxyCertificateCommonNames *ServerCertificateCommonNames `pulumi:"reverseProxyCertificateCommonNames"`
-	// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-	SfZonalUpgradeMode *string `pulumi:"sfZonalUpgradeMode"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The policy to use when upgrading the cluster.
 	UpgradeDescription *ClusterUpgradePolicy `pulumi:"upgradeDescription"`
 	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
 	UpgradeMode *string `pulumi:"upgradeMode"`
-	// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseEndTimestampUtc *string `pulumi:"upgradePauseEndTimestampUtc"`
-	// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseStartTimestampUtc *string `pulumi:"upgradePauseStartTimestampUtc"`
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-	UpgradeWave *string `pulumi:"upgradeWave"`
 	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
 	VmImage *string `pulumi:"vmImage"`
-	// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-	VmssZonalUpgradeMode *string `pulumi:"vmssZonalUpgradeMode"`
-	// Boolean to pause automatic runtime version upgrades to the cluster.
-	WaveUpgradePaused *bool `pulumi:"waveUpgradePaused"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -508,16 +450,12 @@ type ClusterArgs struct {
 	EventStoreServiceEnabled pulumi.BoolPtrInput
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings SettingsSectionDescriptionArrayInput
-	// Indicates if infrastructure service manager is enabled.
-	InfrastructureServiceManager pulumi.BoolPtrInput
 	// Azure resource location.
 	Location pulumi.StringPtrInput
 	// The http management endpoint of the cluster.
 	ManagementEndpoint pulumi.StringInput
 	// The list of node types in the cluster.
 	NodeTypes NodeTypeDescriptionArrayInput
-	// Indicates a list of notification channels for cluster events.
-	Notifications NotificationArrayInput
 	// The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 	//
 	//   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
@@ -532,26 +470,17 @@ type ClusterArgs struct {
 	ReverseProxyCertificate CertificateDescriptionPtrInput
 	// Describes a list of server certificates referenced by common name that are used to secure the cluster.
 	ReverseProxyCertificateCommonNames ServerCertificateCommonNamesPtrInput
-	// This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
-	SfZonalUpgradeMode pulumi.StringPtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// The policy to use when upgrading the cluster.
 	UpgradeDescription ClusterUpgradePolicyPtrInput
 	// The upgrade mode of the cluster when new Service Fabric runtime version is available.
+	//
+	//   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+	//   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
 	UpgradeMode pulumi.StringPtrInput
-	// Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseEndTimestampUtc pulumi.StringPtrInput
-	// Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC).
-	UpgradePauseStartTimestampUtc pulumi.StringPtrInput
-	// Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
-	UpgradeWave pulumi.StringPtrInput
 	// The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
 	VmImage pulumi.StringPtrInput
-	// This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
-	VmssZonalUpgradeMode pulumi.StringPtrInput
-	// Boolean to pause automatic runtime version upgrades to the cluster.
-	WaveUpgradePaused pulumi.BoolPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
