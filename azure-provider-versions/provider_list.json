@@ -39608,7 +39608,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -39659,7 +39660,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers"
@@ -39681,6 +39683,8 @@
           "East US 2",
           "Germany West Central",
           "Central India",
+          "Norway East",
+          "UAE North",
           "West US",
           "West US 2",
           "Brazil South",
@@ -39696,7 +39700,8 @@
           "Canada Central",
           "Central US",
           "East US",
-          "Switzerland North"
+          "Switzerland North",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "flexibleServers",
@@ -39790,6 +39795,10 @@
             "zones": []
           },
           {
+            "location": "South Central US",
+            "zones": []
+          },
+          {
             "location": "Canada Central",
             "zones": []
           },
@@ -39811,6 +39820,10 @@
           },
           {
             "location": "Korea Central",
+            "zones": []
+          },
+          {
+            "location": "Norway East",
             "zones": []
           },
           {
@@ -39869,7 +39882,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/recoverableServers"
@@ -39920,7 +39934,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/virtualNetworkRules"
@@ -39942,6 +39957,8 @@
           "East US 2",
           "Germany West Central",
           "Central India",
+          "Norway East",
+          "UAE North",
           "West US",
           "West US 2",
           "Brazil South",
@@ -39957,7 +39974,8 @@
           "Canada Central",
           "Central US",
           "East US",
-          "Switzerland North"
+          "Switzerland North",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "locations/capabilities"
@@ -39986,9 +40004,12 @@
           "Japan East",
           "Korea Central",
           "North Europe",
+          "Norway East",
           "South Africa North",
+          "South Central US",
           "Southeast Asia",
           "Switzerland North",
+          "UAE North",
           "UK South",
           "West Europe",
           "West US",
@@ -40046,7 +40067,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -40099,6 +40121,8 @@
           "East US 2",
           "Germany West Central",
           "Central India",
+          "Norway East",
+          "UAE North",
           "West US",
           "West US 2",
           "Brazil South",
@@ -40114,7 +40138,8 @@
           "Canada Central",
           "Central US",
           "East US",
-          "Switzerland North"
+          "Switzerland North",
+          "South Central US"
         ],
         "properties": null,
         "resourceType": "locations/checkVirtualNetworkSubnetUsage"
@@ -40165,7 +40190,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -40314,7 +40340,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/administratorOperationResults"
@@ -40365,7 +40392,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/administratorAzureAsyncOperation"
@@ -40417,7 +40445,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionProxyOperationResults"
@@ -40469,7 +40498,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionProxyAzureAsyncOperation"
@@ -40521,7 +40551,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionOperationResults"
@@ -40573,7 +40604,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/privateEndpointConnectionAzureAsyncOperation"
@@ -40624,7 +40656,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/performanceTiers"
@@ -40674,7 +40707,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/securityAlertPoliciesAzureAsyncOperation"
@@ -40724,7 +40758,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/securityAlertPoliciesOperationResults"
@@ -40776,7 +40811,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/recommendedActionSessionsAzureAsyncOperation"
@@ -40828,7 +40864,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/recommendedActionSessionsOperationResults"
@@ -40880,7 +40917,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/topQueryStatistics"
@@ -40932,7 +40970,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/queryTexts"
@@ -40984,7 +41023,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/waitStatistics"
@@ -41036,7 +41076,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/resetQueryPerformanceInsightData"
@@ -41088,7 +41129,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/advisors"
@@ -41140,7 +41182,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/privateLinkResources"
@@ -41192,7 +41235,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/privateEndpointConnections"
@@ -41244,7 +41288,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/privateEndpointConnectionProxies"
@@ -41296,7 +41341,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/keys"
@@ -41348,7 +41394,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/serverKeyAzureAsyncOperation"
@@ -41400,7 +41447,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/serverKeyOperationResults"
@@ -41452,7 +41500,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/start"
@@ -41504,7 +41553,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/stop"
@@ -41556,7 +41606,8 @@
           "West Europe",
           "West India",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "servers/upgrade"
@@ -47057,6 +47108,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47162,6 +47214,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47184,6 +47237,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01"
@@ -47199,6 +47253,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview"
         ],
@@ -47218,6 +47273,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47240,6 +47296,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47262,6 +47319,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47303,6 +47361,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47345,6 +47404,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -47367,6 +47427,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01"
@@ -47387,6 +47448,7 @@
           }
         ],
         "apiVersions": [
+          "2021-06-01-preview",
           "2021-01-01-preview",
           "2018-01-01-preview",
           "2017-04-01",
@@ -65855,7 +65917,35 @@
         "locationMappings": null,
         "locations": [],
         "properties": null,
-        "resourceType": "operations"
+        "resourceType": "Operations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "Locations/OperationStatuses"
       }
     ]
   },
@@ -77227,6 +77317,84 @@
         ],
         "properties": null,
         "resourceType": "images"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2020-05-07",
+            "profileVersion": "2019-03-01-hybrid"
+          }
+        ],
+        "apiVersions": [
+          "2020-05-07"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity",
+        "defaultApiVersion": "2020-05-07",
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2020-05-07",
+            "profileVersion": "2019-03-01-hybrid"
+          }
+        ],
+        "apiVersions": [
+          "2020-05-07"
+        ],
+        "capabilities": "SystemAssignedResourceIdentity",
+        "defaultApiVersion": "2020-05-07",
+        "locationMappings": null,
+        "locations": [
+          "Australia Central",
+          "Australia Central 2",
+          "Australia East",
+          "Australia Southeast",
+          "Japan East",
+          "Japan West",
+          "Korea Central",
+          "Korea South",
+          "South India",
+          "Southeast Asia",
+          "West US",
+          "West US 2",
+          "Brazil South",
+          "Brazil Southeast",
+          "Central India",
+          "East Asia",
+          "East US",
+          "East US 2",
+          "France Central",
+          "France South",
+          "Germany North",
+          "Germany West Central",
+          "North Europe",
+          "Norway East",
+          "Norway West",
+          "South Africa North",
+          "South Africa West",
+          "Switzerland North",
+          "Switzerland West",
+          "UAE Central",
+          "UAE North",
+          "UK South",
+          "UK West",
+          "West Europe",
+          "West India",
+          "Canada Central",
+          "Canada East",
+          "Central US",
+          "North Central US",
+          "South Central US",
+          "West Central US"
+        ],
+        "properties": null,
+        "resourceType": "locations/operations"
       }
     ]
   },
@@ -93202,6 +93370,19 @@
         ],
         "properties": null,
         "resourceType": "locations/operationstatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2021-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "checknameavailability"
       }
     ]
   },
