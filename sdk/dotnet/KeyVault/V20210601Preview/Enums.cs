@@ -241,6 +241,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public static KeyPermissions Recover { get; } = new KeyPermissions("recover");
         public static KeyPermissions Purge { get; } = new KeyPermissions("purge");
         public static KeyPermissions Release { get; } = new KeyPermissions("release");
+        public static KeyPermissions Rotate { get; } = new KeyPermissions("rotate");
 
         public static bool operator ==(KeyPermissions left, KeyPermissions right) => left.Equals(right);
         public static bool operator !=(KeyPermissions left, KeyPermissions right) => !left.Equals(right);

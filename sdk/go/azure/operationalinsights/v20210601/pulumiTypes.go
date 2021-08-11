@@ -139,8 +139,6 @@ func (o AssociatedWorkspaceResponseArrayOutput) Index(i pulumi.IntInput) Associa
 
 // The Capacity Reservation properties.
 type CapacityReservationPropertiesResponse struct {
-	// The capacity reservation level for this cluster in GB
-	CapacityReservationLevel int `pulumi:"capacityReservationLevel"`
 	// The last time Sku was updated.
 	LastSkuUpdate string `pulumi:"lastSkuUpdate"`
 	// Minimum CapacityReservation value in GB.
@@ -160,8 +158,6 @@ type CapacityReservationPropertiesResponseInput interface {
 
 // The Capacity Reservation properties.
 type CapacityReservationPropertiesResponseArgs struct {
-	// The capacity reservation level for this cluster in GB
-	CapacityReservationLevel pulumi.IntInput `pulumi:"capacityReservationLevel"`
 	// The last time Sku was updated.
 	LastSkuUpdate pulumi.StringInput `pulumi:"lastSkuUpdate"`
 	// Minimum CapacityReservation value in GB.
@@ -246,11 +242,6 @@ func (o CapacityReservationPropertiesResponseOutput) ToCapacityReservationProper
 	}).(CapacityReservationPropertiesResponsePtrOutput)
 }
 
-// The capacity reservation level for this cluster in GB
-func (o CapacityReservationPropertiesResponseOutput) CapacityReservationLevel() pulumi.IntOutput {
-	return o.ApplyT(func(v CapacityReservationPropertiesResponse) int { return v.CapacityReservationLevel }).(pulumi.IntOutput)
-}
-
 // The last time Sku was updated.
 func (o CapacityReservationPropertiesResponseOutput) LastSkuUpdate() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityReservationPropertiesResponse) string { return v.LastSkuUpdate }).(pulumi.StringOutput)
@@ -277,16 +268,6 @@ func (o CapacityReservationPropertiesResponsePtrOutput) ToCapacityReservationPro
 
 func (o CapacityReservationPropertiesResponsePtrOutput) Elem() CapacityReservationPropertiesResponseOutput {
 	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) CapacityReservationPropertiesResponse { return *v }).(CapacityReservationPropertiesResponseOutput)
-}
-
-// The capacity reservation level for this cluster in GB
-func (o CapacityReservationPropertiesResponsePtrOutput) CapacityReservationLevel() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CapacityReservationPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.CapacityReservationLevel
-	}).(pulumi.IntPtrOutput)
 }
 
 // The last time Sku was updated.

@@ -221,6 +221,7 @@ const (
 	KeyPermissionsRecover   = KeyPermissions("recover")
 	KeyPermissionsPurge     = KeyPermissions("purge")
 	KeyPermissionsRelease   = KeyPermissions("release")
+	KeyPermissionsRotate    = KeyPermissions("rotate")
 )
 
 func (KeyPermissions) ElementType() reflect.Type {

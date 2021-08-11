@@ -109,9 +109,7 @@ class CapacityReservationPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "capacityReservationLevel":
-            suggest = "capacity_reservation_level"
-        elif key == "lastSkuUpdate":
+        if key == "lastSkuUpdate":
             suggest = "last_sku_update"
         elif key == "minCapacity":
             suggest = "min_capacity"
@@ -128,26 +126,15 @@ class CapacityReservationPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 capacity_reservation_level: int,
                  last_sku_update: str,
                  min_capacity: float):
         """
         The Capacity Reservation properties.
-        :param int capacity_reservation_level: The capacity reservation level for this cluster in GB
         :param str last_sku_update: The last time Sku was updated.
         :param float min_capacity: Minimum CapacityReservation value in GB.
         """
-        pulumi.set(__self__, "capacity_reservation_level", capacity_reservation_level)
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "min_capacity", min_capacity)
-
-    @property
-    @pulumi.getter(name="capacityReservationLevel")
-    def capacity_reservation_level(self) -> int:
-        """
-        The capacity reservation level for this cluster in GB
-        """
-        return pulumi.get(self, "capacity_reservation_level")
 
     @property
     @pulumi.getter(name="lastSkuUpdate")

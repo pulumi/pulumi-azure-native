@@ -114,6 +114,7 @@ class KeyPermissions(str, Enum):
     RECOVER = "recover"
     PURGE = "purge"
     RELEASE = "release"
+    ROTATE = "rotate"
 
 
 class KeyRotationPolicyActionType(str, Enum):
