@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.21.0 (2021-08-12)
+
 #### New functions
 
 - `network.listActiveConnectivityConfiguration`
@@ -18,8 +24,6 @@ CHANGELOG
   `network.listEffectiveConfigurationBySubnet` were removed in favor of the functions listed
   in "New functions" above
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15282))
-
----
 
 ## 1.20.0 (2021-08-06)
 
