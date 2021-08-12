@@ -129,6 +129,8 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:SiteHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteHostNameBindingSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteHostNameBindingSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:SiteHostNameBindingSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

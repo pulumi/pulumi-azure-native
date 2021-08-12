@@ -322,6 +322,7 @@ const (
 	RoutingSourceDeviceJobLifecycleEvents    = RoutingSource("DeviceJobLifecycleEvents")
 	RoutingSourceDigitalTwinChangeEvents     = RoutingSource("DigitalTwinChangeEvents")
 	RoutingSourceDeviceConnectionStateEvents = RoutingSource("DeviceConnectionStateEvents")
+	RoutingSourceMqttBrokerMessages          = RoutingSource("MqttBrokerMessages")
 )
 
 func (RoutingSource) ElementType() reflect.Type {

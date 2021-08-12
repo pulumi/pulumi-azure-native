@@ -142,7 +142,7 @@ export class KubeEnvironment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:KubeEnvironment" }, { type: "azure-native:web/v20210101:KubeEnvironment" }, { type: "azure-nextgen:web/v20210101:KubeEnvironment" }, { type: "azure-native:web/v20210115:KubeEnvironment" }, { type: "azure-nextgen:web/v20210115:KubeEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:KubeEnvironment" }, { type: "azure-native:web/v20210101:KubeEnvironment" }, { type: "azure-nextgen:web/v20210101:KubeEnvironment" }, { type: "azure-native:web/v20210115:KubeEnvironment" }, { type: "azure-nextgen:web/v20210115:KubeEnvironment" }, { type: "azure-native:web/v20210201:KubeEnvironment" }, { type: "azure-nextgen:web/v20210201:KubeEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KubeEnvironment.__pulumiType, name, inputs, opts);
     }

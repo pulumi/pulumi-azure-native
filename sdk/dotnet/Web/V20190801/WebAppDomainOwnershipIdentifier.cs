@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.Web.V20190801
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:WebAppDomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

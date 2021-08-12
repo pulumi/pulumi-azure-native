@@ -129,6 +129,8 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHybridConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:WebAppHybridConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -103,7 +103,7 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210115:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web/v20210101:WebAppPrivateEndpointConnectionSlot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210115:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web/v20210101:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-nextgen:web/v20210201:WebAppPrivateEndpointConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppPrivateEndpointConnectionSlot.__pulumiType, name, inputs, opts);
     }

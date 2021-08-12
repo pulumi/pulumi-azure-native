@@ -143,6 +143,12 @@ func NewDomain(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:domainregistration/v20210115:Domain"),
 		},
+		{
+			Type: pulumi.String("azure-native:domainregistration/v20210201:Domain"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:domainregistration/v20210201:Domain"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Domain

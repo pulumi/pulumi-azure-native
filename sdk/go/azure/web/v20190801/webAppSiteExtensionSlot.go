@@ -142,6 +142,12 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSiteExtensionSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210201:WebAppSiteExtensionSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSiteExtensionSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppSiteExtensionSlot

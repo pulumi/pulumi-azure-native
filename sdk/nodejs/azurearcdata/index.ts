@@ -19,10 +19,12 @@ export * from "../types/enums/azurearcdata";
 
 // Export sub-modules:
 import * as v20210601preview from "./v20210601preview";
+import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
 
 export {
     v20210601preview,
+    v20210701preview,
     v20210801,
 };
 

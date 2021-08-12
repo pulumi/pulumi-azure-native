@@ -358,6 +358,7 @@ namespace Pulumi.AzureNative.Devices.V20210701Preview
         public static RoutingSource DeviceJobLifecycleEvents { get; } = new RoutingSource("DeviceJobLifecycleEvents");
         public static RoutingSource DigitalTwinChangeEvents { get; } = new RoutingSource("DigitalTwinChangeEvents");
         public static RoutingSource DeviceConnectionStateEvents { get; } = new RoutingSource("DeviceConnectionStateEvents");
+        public static RoutingSource MqttBrokerMessages { get; } = new RoutingSource("MqttBrokerMessages");
 
         public static bool operator ==(RoutingSource left, RoutingSource right) => left.Equals(right);
         public static bool operator !=(RoutingSource left, RoutingSource right) => !left.Equals(right);

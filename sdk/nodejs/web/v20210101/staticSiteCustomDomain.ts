@@ -104,7 +104,7 @@ export class StaticSiteCustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210101:StaticSiteCustomDomain" }, { type: "azure-native:web:StaticSiteCustomDomain" }, { type: "azure-nextgen:web:StaticSiteCustomDomain" }, { type: "azure-native:web/v20201201:StaticSiteCustomDomain" }, { type: "azure-nextgen:web/v20201201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210115:StaticSiteCustomDomain" }, { type: "azure-nextgen:web/v20210115:StaticSiteCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210101:StaticSiteCustomDomain" }, { type: "azure-native:web:StaticSiteCustomDomain" }, { type: "azure-nextgen:web:StaticSiteCustomDomain" }, { type: "azure-native:web/v20201201:StaticSiteCustomDomain" }, { type: "azure-nextgen:web/v20201201:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210115:StaticSiteCustomDomain" }, { type: "azure-nextgen:web/v20210115:StaticSiteCustomDomain" }, { type: "azure-native:web/v20210201:StaticSiteCustomDomain" }, { type: "azure-nextgen:web/v20210201:StaticSiteCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSiteCustomDomain.__pulumiType, name, inputs, opts);
     }

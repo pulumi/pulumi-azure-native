@@ -118,6 +118,12 @@ func NewSiteLogsConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210115:SiteLogsConfig"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210201:SiteLogsConfig"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210201:SiteLogsConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteLogsConfig

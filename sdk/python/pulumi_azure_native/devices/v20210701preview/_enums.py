@@ -131,3 +131,4 @@ class RoutingSource(str, Enum):
     DEVICE_JOB_LIFECYCLE_EVENTS = "DeviceJobLifecycleEvents"
     DIGITAL_TWIN_CHANGE_EVENTS = "DigitalTwinChangeEvents"
     DEVICE_CONNECTION_STATE_EVENTS = "DeviceConnectionStateEvents"
+    MQTT_BROKER_MESSAGES = "MqttBrokerMessages"

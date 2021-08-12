@@ -124,6 +124,12 @@ func NewSiteBackupConfigurationSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210115:SiteBackupConfigurationSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210201:SiteBackupConfigurationSlot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210201:SiteBackupConfigurationSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteBackupConfigurationSlot

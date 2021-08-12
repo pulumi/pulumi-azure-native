@@ -196,6 +196,8 @@ namespace Pulumi.AzureNative.Web.V20210101
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSiteExtension"},
                     new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSiteExtension"},
+                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:WebAppSiteExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -112,6 +112,12 @@ func NewSiteAppSettings(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210115:SiteAppSettings"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210201:SiteAppSettings"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210201:SiteAppSettings"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteAppSettings

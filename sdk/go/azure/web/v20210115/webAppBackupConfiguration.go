@@ -119,6 +119,12 @@ func NewWebAppBackupConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppBackupConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210201:WebAppBackupConfiguration"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppBackupConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppBackupConfiguration

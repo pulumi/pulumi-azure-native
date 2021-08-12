@@ -131,6 +131,7 @@ export const RoutingSource = {
     DeviceJobLifecycleEvents: "DeviceJobLifecycleEvents",
     DigitalTwinChangeEvents: "DigitalTwinChangeEvents",
     DeviceConnectionStateEvents: "DeviceConnectionStateEvents",
+    MqttBrokerMessages: "MqttBrokerMessages",
 } as const;
 
 /**

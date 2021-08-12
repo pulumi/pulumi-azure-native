@@ -114,6 +114,12 @@ func NewAppServicePlanRouteForVnet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:web/v20210115:AppServicePlanRouteForVnet"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20210201:AppServicePlanRouteForVnet"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:web/v20210201:AppServicePlanRouteForVnet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServicePlanRouteForVnet

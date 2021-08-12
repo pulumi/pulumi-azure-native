@@ -16,6 +16,7 @@ import * as v20201001 from "./v20201001";
 import * as v20201201 from "./v20201201";
 import * as v20210101 from "./v20210101";
 import * as v20210115 from "./v20210115";
+import * as v20210201 from "./v20210201";
 
 export {
     v20150801,
@@ -32,6 +33,7 @@ export {
     v20201201,
     v20210101,
     v20210115,
+    v20210201,
 };
 
 export const ApiType = {
