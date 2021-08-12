@@ -2652,7 +2652,8 @@
           "Korea South",
           "West US 3",
           "Norway West",
-          "Sweden Central"
+          "Sweden Central",
+          "Australia Central 2"
         ],
         "properties": null,
         "resourceType": "checkNameAvailability"
@@ -2766,7 +2767,8 @@
           "Korea South",
           "West US 3",
           "Norway West",
-          "Sweden Central"
+          "Sweden Central",
+          "Australia Central 2"
         ],
         "properties": null,
         "resourceType": "locations"
@@ -57435,6 +57437,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -57489,6 +57492,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-12-01-preview",
           "2020-09-01-preview"
@@ -57561,6 +57565,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -57596,6 +57601,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -57699,6 +57705,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -57752,6 +57759,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -57787,6 +57795,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -57822,6 +57831,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -57857,6 +57867,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-09-01-preview"
         ],
         "capabilities": "None",
@@ -57891,6 +57902,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-09-01-preview"
         ],
         "capabilities": "None",
@@ -57925,6 +57937,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -57995,8 +58008,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-03-01-preview",
-          "2020-09-01-preview",
           "2020-05-01-preview"
         ],
         "capabilities": "None",
@@ -58031,6 +58042,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58082,6 +58094,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -58117,6 +58130,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-09-01-preview"
         ],
@@ -58152,6 +58166,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58186,6 +58201,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58220,6 +58236,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58273,6 +58290,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-12-01-preview",
           "2020-09-01-preview"
@@ -58309,6 +58327,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-03-01-preview",
           "2020-12-01-preview",
           "2020-09-01-preview"
@@ -58345,6 +58364,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58400,6 +58420,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58452,6 +58473,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58504,6 +58526,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -58554,6 +58577,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-07-01",
           "2021-04-01",
           "2021-03-01-preview",
@@ -71737,7 +71761,10 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "global"
+          "West Central US",
+          "East US 2",
+          "West US",
+          "West US 2"
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
