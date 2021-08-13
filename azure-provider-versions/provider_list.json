@@ -39798,7 +39798,11 @@
           },
           {
             "location": "South Central US",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Canada Central",
@@ -40201,7 +40205,10 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2017-12-01-preview",
+          "2017-12-01"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -40250,7 +40257,10 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2017-12-01-preview",
+          "2017-12-01"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -77422,76 +77432,6 @@
         ],
         "properties": null,
         "resourceType": "locations/operations"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
-        "applicationId": "71af9eaf-3a7b-43eb-bc59-c504bfe12240",
-        "roleDefinitionId": "19b6cda9-0548-4af8-a2cd-e1228d75f5fe"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CodeSigning",
-    "namespace": "Microsoft.CodeSigning",
-    "providerAuthorizationConsentState": null,
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "Central US EUAP",
-          "West Central US"
-        ],
-        "properties": null,
-        "resourceType": "Locations/OperationStatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "checkNameAvailability"
       }
     ]
   },
