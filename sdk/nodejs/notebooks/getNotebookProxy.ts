@@ -51,9 +51,25 @@ export interface GetNotebookProxyResult {
      */
     readonly name: string;
     /**
+     * The public DNS name
+     */
+    readonly publicDns?: string;
+    /**
+     * The region of the NotebookProxy resource.
+     */
+    readonly region?: string;
+    /**
      * The unique identifier (a GUID) generated for every resource.
      */
     readonly resourceId: string;
+    /**
+     * The alternate application ID used for auth token request in the data plane
+     */
+    readonly secondaryAppId?: string;
+    /**
+     * System data for notebook resource
+     */
+    readonly systemData?: outputs.notebooks.NotebookResourceSystemDataResponse;
     /**
      * The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
      */

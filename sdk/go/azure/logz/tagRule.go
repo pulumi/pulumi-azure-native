@@ -44,6 +44,12 @@ func NewTagRule(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logz:TagRule"),
 		},
 		{
+			Type: pulumi.String("azure-native:logz/v20201001:TagRule"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:logz/v20201001:TagRule"),
+		},
+		{
 			Type: pulumi.String("azure-native:logz/v20201001preview:TagRule"),
 		},
 		{

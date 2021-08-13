@@ -8142,6 +8142,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "logz/v20201001",
+  "fqn": "pulumi_azure_native.logz.v20201001",
+  "classes": {
+   "azure-native:logz/v20201001:Monitor": "Monitor",
+   "azure-native:logz/v20201001:SubAccount": "SubAccount",
+   "azure-native:logz/v20201001:SubAccountTagRule": "SubAccountTagRule",
+   "azure-native:logz/v20201001:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "logz/v20201001preview",
   "fqn": "pulumi_azure_native.logz.v20201001preview",
   "classes": {

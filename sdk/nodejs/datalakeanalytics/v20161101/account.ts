@@ -80,14 +80,6 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
-     * The hierarchical queue associated with this account.
-     */
-    public /*out*/ readonly hierarchicalQueue!: pulumi.Output<outputs.datalakeanalytics.v20161101.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue>;
-    /**
-     * The hierarchical queue state associated with this account.
-     */
-    public /*out*/ readonly hierarchicalQueueState!: pulumi.Output<string>;
-    /**
      * The list of hiveMetastores associated with this account.
      */
     public /*out*/ readonly hiveMetastores!: pulumi.Output<outputs.datalakeanalytics.v20161101.HiveMetastoreResponse[]>;
@@ -218,8 +210,6 @@ export class Account extends pulumi.CustomResource {
             inputs["currentTier"] = undefined /*out*/;
             inputs["debugDataAccessLevel"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
-            inputs["hierarchicalQueue"] = undefined /*out*/;
-            inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["maxActiveJobCountPerUser"] = undefined /*out*/;
@@ -245,8 +235,6 @@ export class Account extends pulumi.CustomResource {
             inputs["firewallAllowAzureIps"] = undefined /*out*/;
             inputs["firewallRules"] = undefined /*out*/;
             inputs["firewallState"] = undefined /*out*/;
-            inputs["hierarchicalQueue"] = undefined /*out*/;
-            inputs["hierarchicalQueueState"] = undefined /*out*/;
             inputs["hiveMetastores"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;

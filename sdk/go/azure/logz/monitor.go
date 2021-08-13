@@ -43,6 +43,12 @@ func NewMonitor(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:logz:Monitor"),
 		},
 		{
+			Type: pulumi.String("azure-native:logz/v20201001:Monitor"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:logz/v20201001:Monitor"),
+		},
+		{
 			Type: pulumi.String("azure-native:logz/v20201001preview:Monitor"),
 		},
 		{

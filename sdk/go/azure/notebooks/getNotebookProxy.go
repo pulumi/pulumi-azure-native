@@ -33,8 +33,16 @@ type LookupNotebookProxyResult struct {
 	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// The public DNS name
+	PublicDns *string `pulumi:"publicDns"`
+	// The region of the NotebookProxy resource.
+	Region *string `pulumi:"region"`
 	// The unique identifier (a GUID) generated for every resource.
 	ResourceId string `pulumi:"resourceId"`
+	// The alternate application ID used for auth token request in the data plane
+	SecondaryAppId *string `pulumi:"secondaryAppId"`
+	// System data for notebook resource
+	SystemData *NotebookResourceSystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
 	Type string `pulumi:"type"`
 }

@@ -8,6 +8,8 @@ import typing
 from .get_notebook_proxy import *
 from .list_notebook_proxy_credentials import *
 from .notebook_proxy import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:

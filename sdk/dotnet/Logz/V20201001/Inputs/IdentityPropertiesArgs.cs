@@ -7,18 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DataLakeAnalytics.Outputs
+namespace Pulumi.AzureNative.Logz.V20201001.Inputs
 {
 
-    [OutputType]
-    public sealed class DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue
+    public sealed class IdentityPropertiesArgs : Pulumi.ResourceArgs
     {
-        public readonly object? Root;
+        [Input("type")]
+        public InputUnion<string, Pulumi.AzureNative.Logz.V20201001.ManagedIdentityTypes>? Type { get; set; }
 
-        [OutputConstructor]
-        private DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue(object? root)
+        public IdentityPropertiesArgs()
         {
-            Root = root;
         }
     }
 }

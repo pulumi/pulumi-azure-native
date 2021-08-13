@@ -20,8 +20,16 @@ type NotebookProxy struct {
 	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The public DNS name
+	PublicDns pulumi.StringPtrOutput `pulumi:"publicDns"`
+	// The region of the NotebookProxy resource.
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The unique identifier (a GUID) generated for every resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The alternate application ID used for auth token request in the data plane
+	SecondaryAppId pulumi.StringPtrOutput `pulumi:"secondaryAppId"`
+	// System data for notebook resource
+	SystemData NotebookResourceSystemDataResponsePtrOutput `pulumi:"systemData"`
 	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -74,8 +82,16 @@ type notebookProxyState struct {
 	Hostname *string `pulumi:"hostname"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
+	// The public DNS name
+	PublicDns *string `pulumi:"publicDns"`
+	// The region of the NotebookProxy resource.
+	Region *string `pulumi:"region"`
 	// The unique identifier (a GUID) generated for every resource.
 	ResourceId *string `pulumi:"resourceId"`
+	// The alternate application ID used for auth token request in the data plane
+	SecondaryAppId *string `pulumi:"secondaryAppId"`
+	// System data for notebook resource
+	SystemData *NotebookResourceSystemDataResponse `pulumi:"systemData"`
 	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
 	Type *string `pulumi:"type"`
 }
@@ -85,8 +101,16 @@ type NotebookProxyState struct {
 	Hostname pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
+	// The public DNS name
+	PublicDns pulumi.StringPtrInput
+	// The region of the NotebookProxy resource.
+	Region pulumi.StringPtrInput
 	// The unique identifier (a GUID) generated for every resource.
 	ResourceId pulumi.StringPtrInput
+	// The alternate application ID used for auth token request in the data plane
+	SecondaryAppId pulumi.StringPtrInput
+	// System data for notebook resource
+	SystemData NotebookResourceSystemDataResponsePtrInput
 	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
 	Type pulumi.StringPtrInput
 }
@@ -98,20 +122,36 @@ func (NotebookProxyState) ElementType() reflect.Type {
 type notebookProxyArgs struct {
 	// The friendly string identifier of the creator of the NotebookProxy resource.
 	Hostname *string `pulumi:"hostname"`
+	// The public DNS name
+	PublicDns *string `pulumi:"publicDns"`
+	// The region of the NotebookProxy resource.
+	Region *string `pulumi:"region"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource.
 	ResourceName *string `pulumi:"resourceName"`
+	// The alternate application ID used for auth token request in the data plane
+	SecondaryAppId *string `pulumi:"secondaryAppId"`
+	// System data for notebook resource
+	SystemData *NotebookResourceSystemData `pulumi:"systemData"`
 }
 
 // The set of arguments for constructing a NotebookProxy resource.
 type NotebookProxyArgs struct {
 	// The friendly string identifier of the creator of the NotebookProxy resource.
 	Hostname pulumi.StringPtrInput
+	// The public DNS name
+	PublicDns pulumi.StringPtrInput
+	// The region of the NotebookProxy resource.
+	Region pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource.
 	ResourceName pulumi.StringPtrInput
+	// The alternate application ID used for auth token request in the data plane
+	SecondaryAppId pulumi.StringPtrInput
+	// System data for notebook resource
+	SystemData NotebookResourceSystemDataPtrInput
 }
 
 func (NotebookProxyArgs) ElementType() reflect.Type {

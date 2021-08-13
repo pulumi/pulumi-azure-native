@@ -170,7 +170,7 @@ class SubAccountTagRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logz/v20201001preview:SubAccountTagRule"), pulumi.Alias(type_="azure-native:logz:SubAccountTagRule"), pulumi.Alias(type_="azure-nextgen:logz:SubAccountTagRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logz/v20201001preview:SubAccountTagRule"), pulumi.Alias(type_="azure-native:logz:SubAccountTagRule"), pulumi.Alias(type_="azure-nextgen:logz:SubAccountTagRule"), pulumi.Alias(type_="azure-native:logz/v20201001:SubAccountTagRule"), pulumi.Alias(type_="azure-nextgen:logz/v20201001:SubAccountTagRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubAccountTagRule, __self__).__init__(
             'azure-native:logz/v20201001preview:SubAccountTagRule',

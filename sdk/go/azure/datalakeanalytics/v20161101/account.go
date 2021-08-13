@@ -37,10 +37,6 @@ type Account struct {
 	FirewallRules FirewallRuleResponseArrayOutput `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrOutput `pulumi:"firewallState"`
-	// The hierarchical queue associated with this account.
-	HierarchicalQueue DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueueOutput `pulumi:"hierarchicalQueue"`
-	// The hierarchical queue state associated with this account.
-	HierarchicalQueueState pulumi.StringOutput `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores HiveMetastoreResponseArrayOutput `pulumi:"hiveMetastores"`
 	// The account last modified time.
@@ -189,10 +185,6 @@ type accountState struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
-	// The hierarchical queue associated with this account.
-	HierarchicalQueue *DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue `pulumi:"hierarchicalQueue"`
-	// The hierarchical queue state associated with this account.
-	HierarchicalQueueState *string `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
 	// The account last modified time.
@@ -262,10 +254,6 @@ type AccountState struct {
 	FirewallRules FirewallRuleResponseArrayInput
 	// The current state of the IP address firewall for this account.
 	FirewallState pulumi.StringPtrInput
-	// The hierarchical queue associated with this account.
-	HierarchicalQueue DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueuePtrInput
-	// The hierarchical queue state associated with this account.
-	HierarchicalQueueState pulumi.StringPtrInput
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores HiveMetastoreResponseArrayInput
 	// The account last modified time.

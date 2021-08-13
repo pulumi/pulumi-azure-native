@@ -82,14 +82,6 @@ export interface GetAccountResult {
      */
     readonly firewallState?: string;
     /**
-     * The hierarchical queue associated with this account.
-     */
-    readonly hierarchicalQueue: outputs.datalakeanalytics.v20161101.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue;
-    /**
-     * The hierarchical queue state associated with this account.
-     */
-    readonly hierarchicalQueueState: string;
-    /**
      * The list of hiveMetastores associated with this account.
      */
     readonly hiveMetastores: outputs.datalakeanalytics.v20161101.HiveMetastoreResponse[];

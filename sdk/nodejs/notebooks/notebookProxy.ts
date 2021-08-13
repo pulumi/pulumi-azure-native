@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -44,9 +45,25 @@ export class NotebookProxy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The public DNS name
+     */
+    public readonly publicDns!: pulumi.Output<string | undefined>;
+    /**
+     * The region of the NotebookProxy resource.
+     */
+    public readonly region!: pulumi.Output<string | undefined>;
+    /**
      * The unique identifier (a GUID) generated for every resource.
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
+    /**
+     * The alternate application ID used for auth token request in the data plane
+     */
+    public readonly secondaryAppId!: pulumi.Output<string | undefined>;
+    /**
+     * System data for notebook resource
+     */
+    public readonly systemData!: pulumi.Output<outputs.notebooks.NotebookResourceSystemDataResponse | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
      */
@@ -67,15 +84,23 @@ export class NotebookProxy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hostname"] = args ? args.hostname : undefined;
+            inputs["publicDns"] = args ? args.publicDns : undefined;
+            inputs["region"] = args ? args.region : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["secondaryAppId"] = args ? args.secondaryAppId : undefined;
+            inputs["systemData"] = args ? args.systemData : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["hostname"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["publicDns"] = undefined /*out*/;
+            inputs["region"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
+            inputs["secondaryAppId"] = undefined /*out*/;
+            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -96,6 +121,14 @@ export interface NotebookProxyArgs {
      */
     hostname?: pulumi.Input<string>;
     /**
+     * The public DNS name
+     */
+    publicDns?: pulumi.Input<string>;
+    /**
+     * The region of the NotebookProxy resource.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -103,4 +136,12 @@ export interface NotebookProxyArgs {
      * The name of the resource.
      */
     resourceName?: pulumi.Input<string>;
+    /**
+     * The alternate application ID used for auth token request in the data plane
+     */
+    secondaryAppId?: pulumi.Input<string>;
+    /**
+     * System data for notebook resource
+     */
+    systemData?: pulumi.Input<inputs.notebooks.NotebookResourceSystemDataArgs>;
 }

@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.Logz.V20201001Preview
                     new Pulumi.Alias { Type = "azure-nextgen:logz/v20201001preview:SubAccountTagRule"},
                     new Pulumi.Alias { Type = "azure-native:logz:SubAccountTagRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:logz:SubAccountTagRule"},
+                    new Pulumi.Alias { Type = "azure-native:logz/v20201001:SubAccountTagRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:logz/v20201001:SubAccountTagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

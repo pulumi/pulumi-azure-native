@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hierarchical_queue=None, hierarchical_queue_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_active_job_count_per_user=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_job_running_time_in_min=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_active_job_count_per_user=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_job_running_time_in_min=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -54,12 +54,6 @@ class GetAccountResult:
         if firewall_state and not isinstance(firewall_state, str):
             raise TypeError("Expected argument 'firewall_state' to be a str")
         pulumi.set(__self__, "firewall_state", firewall_state)
-        if hierarchical_queue and not isinstance(hierarchical_queue, dict):
-            raise TypeError("Expected argument 'hierarchical_queue' to be a dict")
-        pulumi.set(__self__, "hierarchical_queue", hierarchical_queue)
-        if hierarchical_queue_state and not isinstance(hierarchical_queue_state, str):
-            raise TypeError("Expected argument 'hierarchical_queue_state' to be a str")
-        pulumi.set(__self__, "hierarchical_queue_state", hierarchical_queue_state)
         if hive_metastores and not isinstance(hive_metastores, list):
             raise TypeError("Expected argument 'hive_metastores' to be a list")
         pulumi.set(__self__, "hive_metastores", hive_metastores)
@@ -217,22 +211,6 @@ class GetAccountResult:
         The current state of the IP address firewall for this account.
         """
         return pulumi.get(self, "firewall_state")
-
-    @property
-    @pulumi.getter(name="hierarchicalQueue")
-    def hierarchical_queue(self) -> 'outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue':
-        """
-        The hierarchical queue associated with this account.
-        """
-        return pulumi.get(self, "hierarchical_queue")
-
-    @property
-    @pulumi.getter(name="hierarchicalQueueState")
-    def hierarchical_queue_state(self) -> str:
-        """
-        The hierarchical queue state associated with this account.
-        """
-        return pulumi.get(self, "hierarchical_queue_state")
 
     @property
     @pulumi.getter(name="hiveMetastores")
@@ -436,8 +414,6 @@ class AwaitableGetAccountResult(GetAccountResult):
             firewall_allow_azure_ips=self.firewall_allow_azure_ips,
             firewall_rules=self.firewall_rules,
             firewall_state=self.firewall_state,
-            hierarchical_queue=self.hierarchical_queue,
-            hierarchical_queue_state=self.hierarchical_queue_state,
             hive_metastores=self.hive_metastores,
             id=self.id,
             last_modified_time=self.last_modified_time,
@@ -494,8 +470,6 @@ def get_account(account_name: Optional[str] = None,
         firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
         firewall_rules=__ret__.firewall_rules,
         firewall_state=__ret__.firewall_state,
-        hierarchical_queue=__ret__.hierarchical_queue,
-        hierarchical_queue_state=__ret__.hierarchical_queue_state,
         hive_metastores=__ret__.hive_metastores,
         id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,

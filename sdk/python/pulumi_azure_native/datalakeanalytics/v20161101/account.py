@@ -445,8 +445,6 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["current_tier"] = None
             __props__.__dict__["debug_data_access_level"] = None
             __props__.__dict__["endpoint"] = None
-            __props__.__dict__["hierarchical_queue"] = None
-            __props__.__dict__["hierarchical_queue_state"] = None
             __props__.__dict__["hive_metastores"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["max_active_job_count_per_user"] = None
@@ -495,8 +493,6 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["firewall_allow_azure_ips"] = None
         __props__.__dict__["firewall_rules"] = None
         __props__.__dict__["firewall_state"] = None
-        __props__.__dict__["hierarchical_queue"] = None
-        __props__.__dict__["hierarchical_queue_state"] = None
         __props__.__dict__["hive_metastores"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["location"] = None
@@ -608,22 +604,6 @@ class Account(pulumi.CustomResource):
         The current state of the IP address firewall for this account.
         """
         return pulumi.get(self, "firewall_state")
-
-    @property
-    @pulumi.getter(name="hierarchicalQueue")
-    def hierarchical_queue(self) -> pulumi.Output['outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue']:
-        """
-        The hierarchical queue associated with this account.
-        """
-        return pulumi.get(self, "hierarchical_queue")
-
-    @property
-    @pulumi.getter(name="hierarchicalQueueState")
-    def hierarchical_queue_state(self) -> pulumi.Output[str]:
-        """
-        The hierarchical queue state associated with this account.
-        """
-        return pulumi.get(self, "hierarchical_queue_state")
 
     @property
     @pulumi.getter(name="hiveMetastores")

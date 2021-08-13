@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 
 __all__ = [
     'GetNotebookProxyResult',
@@ -19,7 +20,7 @@ class GetNotebookProxyResult:
     """
     A NotebookProxy resource.
     """
-    def __init__(__self__, hostname=None, id=None, name=None, resource_id=None, type=None):
+    def __init__(__self__, hostname=None, id=None, name=None, public_dns=None, region=None, resource_id=None, secondary_app_id=None, system_data=None, type=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
@@ -29,9 +30,21 @@ class GetNotebookProxyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if public_dns and not isinstance(public_dns, str):
+            raise TypeError("Expected argument 'public_dns' to be a str")
+        pulumi.set(__self__, "public_dns", public_dns)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
+        if secondary_app_id and not isinstance(secondary_app_id, str):
+            raise TypeError("Expected argument 'secondary_app_id' to be a str")
+        pulumi.set(__self__, "secondary_app_id", secondary_app_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -61,12 +74,44 @@ class GetNotebookProxyResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="publicDns")
+    def public_dns(self) -> Optional[str]:
+        """
+        The public DNS name
+        """
+        return pulumi.get(self, "public_dns")
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[str]:
+        """
+        The region of the NotebookProxy resource.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> str:
         """
         The unique identifier (a GUID) generated for every resource.
         """
         return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="secondaryAppId")
+    def secondary_app_id(self) -> Optional[str]:
+        """
+        The alternate application ID used for auth token request in the data plane
+        """
+        return pulumi.get(self, "secondary_app_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> Optional['outputs.NotebookResourceSystemDataResponse']:
+        """
+        System data for notebook resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -86,7 +131,11 @@ class AwaitableGetNotebookProxyResult(GetNotebookProxyResult):
             hostname=self.hostname,
             id=self.id,
             name=self.name,
+            public_dns=self.public_dns,
+            region=self.region,
             resource_id=self.resource_id,
+            secondary_app_id=self.secondary_app_id,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -113,5 +162,9 @@ def get_notebook_proxy(resource_group_name: Optional[str] = None,
         hostname=__ret__.hostname,
         id=__ret__.id,
         name=__ret__.name,
+        public_dns=__ret__.public_dns,
+        region=__ret__.region,
         resource_id=__ret__.resource_id,
+        secondary_app_id=__ret__.secondary_app_id,
+        system_data=__ret__.system_data,
         type=__ret__.type)

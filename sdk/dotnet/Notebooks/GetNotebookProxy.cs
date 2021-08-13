@@ -56,9 +56,25 @@ namespace Pulumi.AzureNative.Notebooks
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The public DNS name
+        /// </summary>
+        public readonly string? PublicDns;
+        /// <summary>
+        /// The region of the NotebookProxy resource.
+        /// </summary>
+        public readonly string? Region;
+        /// <summary>
         /// The unique identifier (a GUID) generated for every resource.
         /// </summary>
         public readonly string ResourceId;
+        /// <summary>
+        /// The alternate application ID used for auth token request in the data plane
+        /// </summary>
+        public readonly string? SecondaryAppId;
+        /// <summary>
+        /// System data for notebook resource
+        /// </summary>
+        public readonly Outputs.NotebookResourceSystemDataResponse? SystemData;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
         /// </summary>
@@ -72,14 +88,26 @@ namespace Pulumi.AzureNative.Notebooks
 
             string name,
 
+            string? publicDns,
+
+            string? region,
+
             string resourceId,
+
+            string? secondaryAppId,
+
+            Outputs.NotebookResourceSystemDataResponse? systemData,
 
             string type)
         {
             Hostname = hostname;
             Id = id;
             Name = name;
+            PublicDns = publicDns;
+            Region = region;
             ResourceId = resourceId;
+            SecondaryAppId = secondaryAppId;
+            SystemData = systemData;
             Type = type;
         }
     }

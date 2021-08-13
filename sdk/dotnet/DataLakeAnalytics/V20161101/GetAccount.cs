@@ -87,14 +87,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
         /// </summary>
         public readonly string? FirewallState;
         /// <summary>
-        /// The hierarchical queue associated with this account.
-        /// </summary>
-        public readonly Outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue HierarchicalQueue;
-        /// <summary>
-        /// The hierarchical queue state associated with this account.
-        /// </summary>
-        public readonly string HierarchicalQueueState;
-        /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
         public readonly ImmutableArray<Outputs.HiveMetastoreResponse> HiveMetastores;
@@ -211,10 +203,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
 
             string? firewallState,
 
-            Outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue hierarchicalQueue,
-
-            string hierarchicalQueueState,
-
             ImmutableArray<Outputs.HiveMetastoreResponse> hiveMetastores,
 
             string id,
@@ -272,8 +260,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;
             FirewallState = firewallState;
-            HierarchicalQueue = hierarchicalQueue;
-            HierarchicalQueueState = hierarchicalQueueState;
             HiveMetastores = hiveMetastores;
             Id = id;
             LastModifiedTime = lastModifiedTime;

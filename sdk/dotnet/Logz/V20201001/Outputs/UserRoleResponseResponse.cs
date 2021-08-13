@@ -7,18 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.DataLakeAnalytics.V20161101.Outputs
+namespace Pulumi.AzureNative.Logz.V20201001.Outputs
 {
 
     [OutputType]
-    public sealed class DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue
+    public sealed class UserRoleResponseResponse
     {
-        public readonly object? Root;
+        /// <summary>
+        /// User roles on configured in Logz.io account.
+        /// </summary>
+        public readonly string? Role;
 
         [OutputConstructor]
-        private DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue(object? root)
+        private UserRoleResponseResponse(string? role)
         {
-            Root = root;
+            Role = role;
         }
     }
 }

@@ -83,18 +83,6 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         public Output<string?> FirewallState { get; private set; } = null!;
 
         /// <summary>
-        /// The hierarchical queue associated with this account.
-        /// </summary>
-        [Output("hierarchicalQueue")]
-        public Output<Outputs.DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue> HierarchicalQueue { get; private set; } = null!;
-
-        /// <summary>
-        /// The hierarchical queue state associated with this account.
-        /// </summary>
-        [Output("hierarchicalQueueState")]
-        public Output<string> HierarchicalQueueState { get; private set; } = null!;
-
-        /// <summary>
         /// The list of hiveMetastores associated with this account.
         /// </summary>
         [Output("hiveMetastores")]

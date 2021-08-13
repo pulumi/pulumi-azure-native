@@ -24,7 +24,9 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.logz.v20201001 as v20201001
     import pulumi_azure_native.logz.v20201001preview as v20201001preview
 else:
+    v20201001 = _utilities.lazy_import('pulumi_azure_native.logz.v20201001')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.logz.v20201001preview')
 

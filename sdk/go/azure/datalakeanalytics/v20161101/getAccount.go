@@ -48,10 +48,6 @@ type LookupAccountResult struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this account.
 	FirewallState *string `pulumi:"firewallState"`
-	// The hierarchical queue associated with this account.
-	HierarchicalQueue DataLakeAnalyticsAccountPropertiesResponseHierarchicalQueue `pulumi:"hierarchicalQueue"`
-	// The hierarchical queue state associated with this account.
-	HierarchicalQueueState string `pulumi:"hierarchicalQueueState"`
 	// The list of hiveMetastores associated with this account.
 	HiveMetastores []HiveMetastoreResponse `pulumi:"hiveMetastores"`
 	// The resource identifier.

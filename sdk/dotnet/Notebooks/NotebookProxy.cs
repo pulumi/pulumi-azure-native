@@ -29,10 +29,34 @@ namespace Pulumi.AzureNative.Notebooks
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The public DNS name
+        /// </summary>
+        [Output("publicDns")]
+        public Output<string?> PublicDns { get; private set; } = null!;
+
+        /// <summary>
+        /// The region of the NotebookProxy resource.
+        /// </summary>
+        [Output("region")]
+        public Output<string?> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier (a GUID) generated for every resource.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The alternate application ID used for auth token request in the data plane
+        /// </summary>
+        [Output("secondaryAppId")]
+        public Output<string?> SecondaryAppId { get; private set; } = null!;
+
+        /// <summary>
+        /// System data for notebook resource
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.NotebookResourceSystemDataResponse?> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
@@ -98,6 +122,18 @@ namespace Pulumi.AzureNative.Notebooks
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
+        /// The public DNS name
+        /// </summary>
+        [Input("publicDns")]
+        public Input<string>? PublicDns { get; set; }
+
+        /// <summary>
+        /// The region of the NotebookProxy resource.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -108,6 +144,18 @@ namespace Pulumi.AzureNative.Notebooks
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }
+
+        /// <summary>
+        /// The alternate application ID used for auth token request in the data plane
+        /// </summary>
+        [Input("secondaryAppId")]
+        public Input<string>? SecondaryAppId { get; set; }
+
+        /// <summary>
+        /// System data for notebook resource
+        /// </summary>
+        [Input("systemData")]
+        public Input<Inputs.NotebookResourceSystemDataArgs>? SystemData { get; set; }
 
         public NotebookProxyArgs()
         {
