@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes published by Microsoft:
+
+- All hierchicalQueue-related fields removed from `datalakeanalytics.Account`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15591))
 
 ---
 
