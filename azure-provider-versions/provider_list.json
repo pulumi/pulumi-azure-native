@@ -14722,6 +14722,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-22",
           "2021-04-01",
           "2020-01-13-preview",
           "2019-06-01",
@@ -39798,7 +39799,11 @@
           },
           {
             "location": "South Central US",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Canada Central",
@@ -40201,7 +40206,10 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2017-12-01-preview",
+          "2017-12-01"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -40250,7 +40258,10 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2017-12-01-preview",
+          "2017-12-01"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -77428,76 +77439,6 @@
   {
     "authorizations": [
       {
-        "applicationId": "71af9eaf-3a7b-43eb-bc59-c504bfe12240",
-        "roleDefinitionId": "19b6cda9-0548-4af8-a2cd-e1228d75f5fe"
-      }
-    ],
-    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.CodeSigning",
-    "namespace": "Microsoft.CodeSigning",
-    "providerAuthorizationConsentState": null,
-    "registrationPolicy": "RegistrationRequired",
-    "registrationState": "NotRegistered",
-    "resourceTypes": [
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Locations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "Central US EUAP",
-          "West Central US"
-        ],
-        "properties": null,
-        "resourceType": "Locations/OperationStatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "Operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-12-14-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "checkNameAvailability"
-      }
-    ]
-  },
-  {
-    "authorizations": [
-      {
         "applicationId": "9bd5ab7f-4031-4045-ace9-6bebbad202f6",
         "roleDefinitionId": "59cd8abb-1e79-437f-9a05-4bca235c4c35"
       },
@@ -82559,7 +82500,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "customLocations"
@@ -82588,7 +82531,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "customLocations/enabledResourceTypes"
@@ -82617,7 +82562,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "locations/operationsstatus"
@@ -82646,7 +82593,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "locations/operationresults"
@@ -87340,33 +87289,6 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-10-30-preview",
-          "2020-10-30"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "enterprisePolicies"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-10-30-preview"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "accounts"
       }
     ]
   },
