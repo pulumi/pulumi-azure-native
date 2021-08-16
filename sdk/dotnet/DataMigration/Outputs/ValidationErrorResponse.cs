@@ -16,17 +16,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Severity of the error
         /// </summary>
-        public readonly string? Severity;
+        public readonly string Severity;
         /// <summary>
         /// Error Text
         /// </summary>
-        public readonly string? Text;
+        public readonly string Text;
 
         [OutputConstructor]
         private ValidationErrorResponse(
-            string? severity,
+            string severity,
 
-            string? text)
+            string text)
         {
             Severity = severity;
             Text = text;

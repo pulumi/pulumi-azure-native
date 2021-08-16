@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Database Migration Service resource
- * API Version: 2021-06-30.
+ * API Version: 2018-04-19.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -65,10 +65,6 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.datamigration.ServiceSkuResponse | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -76,10 +72,6 @@ export class Service extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
-     */
-    public readonly virtualNicId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
@@ -110,11 +102,9 @@ export class Service extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNicId"] = args ? args.virtualNicId : undefined;
             inputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -124,10 +114,8 @@ export class Service extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicKey"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["virtualNicId"] = undefined /*out*/;
             inputs["virtualSubnetId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -175,10 +163,6 @@ export interface ServiceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
-     */
-    virtualNicId?: pulumi.Input<string>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */

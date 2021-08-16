@@ -12,7 +12,7 @@ import (
 )
 
 // A project resource
-// API Version: 2021-06-30.
+// API Version: 2018-04-19.
 type Project struct {
 	pulumi.CustomResourceState
 
@@ -30,8 +30,6 @@ type Project struct {
 	SourceConnectionInfo pulumi.AnyOutput `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform pulumi.StringOutput `pulumi:"sourcePlatform"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Information for connecting to target
@@ -139,8 +137,6 @@ type projectState struct {
 	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform *string `pulumi:"sourcePlatform"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
@@ -166,8 +162,6 @@ type ProjectState struct {
 	SourceConnectionInfo pulumi.Input
 	// Source platform for the project
 	SourcePlatform pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Information for connecting to target

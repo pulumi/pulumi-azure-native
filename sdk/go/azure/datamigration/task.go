@@ -12,7 +12,7 @@ import (
 )
 
 // A task resource
-// API Version: 2021-06-30.
+// API Version: 2018-04-19.
 type Task struct {
 	pulumi.CustomResourceState
 
@@ -22,8 +22,6 @@ type Task struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Custom task properties
 	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -114,8 +112,6 @@ type taskState struct {
 	Name *string `pulumi:"name"`
 	// Custom task properties
 	Properties interface{} `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -127,8 +123,6 @@ type TaskState struct {
 	Name pulumi.StringPtrInput
 	// Custom task properties
 	Properties pulumi.Input
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -16,23 +16,23 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Name of the object that has the difference
         /// </summary>
-        public readonly string? ObjectName;
+        public readonly string ObjectName;
         /// <summary>
         /// Type of the object that has the difference. e.g (Table/View/StoredProcedure)
         /// </summary>
-        public readonly string? ObjectType;
+        public readonly string ObjectType;
         /// <summary>
         /// Update action type with respect to target
         /// </summary>
-        public readonly string? UpdateAction;
+        public readonly string UpdateAction;
 
         [OutputConstructor]
         private SchemaComparisonValidationResultTypeResponse(
-            string? objectName,
+            string objectName,
 
-            string? objectType,
+            string objectType,
 
-            string? updateAction)
+            string updateAction)
         {
             ObjectName = objectName;
             ObjectType = objectType;

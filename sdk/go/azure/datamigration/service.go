@@ -12,7 +12,7 @@ import (
 )
 
 // A Database Migration Service resource
-// API Version: 2021-06-30.
+// API Version: 2018-04-19.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -30,14 +30,10 @@ type Service struct {
 	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// Service SKU
 	Sku ServiceSkuResponsePtrOutput `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId pulumi.StringPtrOutput `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringOutput `pulumi:"virtualSubnetId"`
 }
@@ -133,14 +129,10 @@ type serviceState struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// Service SKU
 	Sku *ServiceSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId *string `pulumi:"virtualSubnetId"`
 }
@@ -160,14 +152,10 @@ type ServiceState struct {
 	PublicKey pulumi.StringPtrInput
 	// Service SKU
 	Sku ServiceSkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId pulumi.StringPtrInput
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringPtrInput
 }
@@ -193,8 +181,6 @@ type serviceArgs struct {
 	Sku *ServiceSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId string `pulumi:"virtualSubnetId"`
 }
@@ -217,8 +203,6 @@ type ServiceArgs struct {
 	Sku ServiceSkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId pulumi.StringPtrInput
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId pulumi.StringInput
 }

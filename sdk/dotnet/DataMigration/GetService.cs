@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// A Database Migration Service resource
-        /// API Version: 2021-06-30.
+        /// API Version: 2018-04-19.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:datamigration:getService", args ?? new GetServiceArgs(), options.WithVersion());
@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public readonly Outputs.ServiceSkuResponse? Sku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -87,10 +83,6 @@ namespace Pulumi.AzureNative.DataMigration
         /// Resource type.
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-        /// </summary>
-        public readonly string? VirtualNicId;
         /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         /// </summary>
@@ -114,13 +106,9 @@ namespace Pulumi.AzureNative.DataMigration
 
             Outputs.ServiceSkuResponse? sku,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
-
-            string? virtualNicId,
 
             string virtualSubnetId)
         {
@@ -132,10 +120,8 @@ namespace Pulumi.AzureNative.DataMigration
             ProvisioningState = provisioningState;
             PublicKey = publicKey;
             Sku = sku;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
-            VirtualNicId = virtualNicId;
             VirtualSubnetId = virtualSubnetId;
         }
     }

@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class MySqlConnectionInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to encrypt the connection
-        /// </summary>
-        [Input("encryptConnection")]
-        public Input<bool>? EncryptConnection { get; set; }
-
-        /// <summary>
         /// Password credential.
         /// </summary>
         [Input("password")]
@@ -54,7 +48,6 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
 
         public MySqlConnectionInfoArgs()
         {
-            EncryptConnection = true;
         }
     }
 }

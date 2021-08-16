@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// CPU Time in millisecond(s) for the query execution
         /// </summary>
-        public readonly double? CpuTimeMs;
+        public readonly double CpuTimeMs;
         /// <summary>
         /// Time taken in millisecond(s) for executing the query
         /// </summary>
-        public readonly double? ElapsedTimeMs;
+        public readonly double ElapsedTimeMs;
         /// <summary>
         /// No. of query executions
         /// </summary>
-        public readonly double? ExecutionCount;
+        public readonly double ExecutionCount;
         /// <summary>
         /// Indicates whether the query resulted in an error
         /// </summary>
-        public readonly bool? HasErrors;
+        public readonly bool HasErrors;
         /// <summary>
         /// List of sql Errors
         /// </summary>
@@ -40,13 +40,13 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private ExecutionStatisticsResponse(
-            double? cpuTimeMs,
+            double cpuTimeMs,
 
-            double? elapsedTimeMs,
+            double elapsedTimeMs,
 
-            double? executionCount,
+            double executionCount,
 
-            bool? hasErrors,
+            bool hasErrors,
 
             ImmutableArray<string> sqlErrors,
 

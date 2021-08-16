@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class ConnectToTargetAzureDbForMySqlTaskInputResponse
     {
         /// <summary>
-        /// Flag for whether or not the migration is offline
-        /// </summary>
-        public readonly bool? IsOfflineMigration;
-        /// <summary>
         /// Connection information for source MySQL server
         /// </summary>
         public readonly Outputs.MySqlConnectionInfoResponse SourceConnectionInfo;
@@ -28,13 +24,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private ConnectToTargetAzureDbForMySqlTaskInputResponse(
-            bool? isOfflineMigration,
-
             Outputs.MySqlConnectionInfoResponse sourceConnectionInfo,
 
             Outputs.MySqlConnectionInfoResponse targetConnectionInfo)
         {
-            IsOfflineMigration = isOfflineMigration;
             SourceConnectionInfo = sourceConnectionInfo;
             TargetConnectionInfo = targetConnectionInfo;
         }

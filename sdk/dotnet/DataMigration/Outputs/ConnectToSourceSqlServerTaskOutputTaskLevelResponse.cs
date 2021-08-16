@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> AgentJobs;
         /// <summary>
-        /// Mapping from database name to TDE certificate name, if applicable
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> DatabaseTdeCertificateMapping;
-        /// <summary>
         /// Source databases as a map from database name to database id
         /// </summary>
         public readonly ImmutableDictionary<string, string> Databases;
@@ -55,8 +51,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         private ConnectToSourceSqlServerTaskOutputTaskLevelResponse(
             ImmutableDictionary<string, string> agentJobs,
 
-            ImmutableDictionary<string, string> databaseTdeCertificateMapping,
-
             ImmutableDictionary<string, string> databases,
 
             string id,
@@ -72,7 +66,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             ImmutableArray<Outputs.ReportableExceptionResponse> validationErrors)
         {
             AgentJobs = agentJobs;
-            DatabaseTdeCertificateMapping = databaseTdeCertificateMapping;
             Databases = databases;
             Id = id;
             Logins = logins;

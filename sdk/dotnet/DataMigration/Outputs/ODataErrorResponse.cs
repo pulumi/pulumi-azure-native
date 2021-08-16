@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
         /// </summary>
-        public readonly string? Code;
+        public readonly string Code;
         /// <summary>
         /// Inner errors that caused this error
         /// </summary>
@@ -24,15 +24,15 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// The human-readable description of the error
         /// </summary>
-        public readonly string? Message;
+        public readonly string Message;
 
         [OutputConstructor]
         private ODataErrorResponse(
-            string? code,
+            string code,
 
             ImmutableArray<Outputs.ODataErrorResponse> details,
 
-            string? message)
+            string message)
         {
             Code = code;
             Details = details;

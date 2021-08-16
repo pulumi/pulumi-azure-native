@@ -69,101 +69,12 @@ func (e BackupMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-// Describes how changes will be replicated from the source to the target. The default is OneTime.
-type MongoDbReplication pulumi.String
-
-const (
-	MongoDbReplicationDisabled   = MongoDbReplication("Disabled")
-	MongoDbReplicationOneTime    = MongoDbReplication("OneTime")
-	MongoDbReplicationContinuous = MongoDbReplication("Continuous")
-)
-
-func (MongoDbReplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e MongoDbReplication) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MongoDbReplication) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MongoDbReplication) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MongoDbReplication) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The field ordering
-type MongoDbShardKeyOrder pulumi.String
-
-const (
-	MongoDbShardKeyOrderForward = MongoDbShardKeyOrder("Forward")
-	MongoDbShardKeyOrderReverse = MongoDbShardKeyOrder("Reverse")
-	MongoDbShardKeyOrderHashed  = MongoDbShardKeyOrder("Hashed")
-)
-
-func (MongoDbShardKeyOrder) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e MongoDbShardKeyOrder) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MongoDbShardKeyOrder) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MongoDbShardKeyOrder) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MongoDbShardKeyOrder) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// Target Platform for the migration
-type MySqlTargetPlatformType pulumi.String
-
-const (
-	MySqlTargetPlatformTypeSqlServer       = MySqlTargetPlatformType("SqlServer")
-	MySqlTargetPlatformTypeAzureDbForMySQL = MySqlTargetPlatformType("AzureDbForMySQL")
-)
-
-func (MySqlTargetPlatformType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e MySqlTargetPlatformType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MySqlTargetPlatformType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e MySqlTargetPlatformType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e MySqlTargetPlatformType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
 // Source platform for the project
 type ProjectSourcePlatform pulumi.String
 
 const (
-	ProjectSourcePlatformSQL        = ProjectSourcePlatform("SQL")
-	ProjectSourcePlatformMySQL      = ProjectSourcePlatform("MySQL")
-	ProjectSourcePlatformPostgreSql = ProjectSourcePlatform("PostgreSql")
-	ProjectSourcePlatformMongoDb    = ProjectSourcePlatform("MongoDb")
-	ProjectSourcePlatformUnknown    = ProjectSourcePlatform("Unknown")
+	ProjectSourcePlatformSQL     = ProjectSourcePlatform("SQL")
+	ProjectSourcePlatformUnknown = ProjectSourcePlatform("Unknown")
 )
 
 func (ProjectSourcePlatform) ElementType() reflect.Type {
@@ -190,12 +101,8 @@ func (e ProjectSourcePlatform) ToStringPtrOutputWithContext(ctx context.Context)
 type ProjectTargetPlatform pulumi.String
 
 const (
-	ProjectTargetPlatformSQLDB                = ProjectTargetPlatform("SQLDB")
-	ProjectTargetPlatformSQLMI                = ProjectTargetPlatform("SQLMI")
-	ProjectTargetPlatformAzureDbForMySql      = ProjectTargetPlatform("AzureDbForMySql")
-	ProjectTargetPlatformAzureDbForPostgreSql = ProjectTargetPlatform("AzureDbForPostgreSql")
-	ProjectTargetPlatformMongoDb              = ProjectTargetPlatform("MongoDb")
-	ProjectTargetPlatformUnknown              = ProjectTargetPlatform("Unknown")
+	ProjectTargetPlatformSQLDB   = ProjectTargetPlatform("SQLDB")
+	ProjectTargetPlatformUnknown = ProjectTargetPlatform("Unknown")
 )
 
 func (ProjectTargetPlatform) ElementType() reflect.Type {
@@ -272,60 +179,5 @@ func (e SqlSourcePlatform) ToStringPtrOutput() pulumi.StringPtrOutput {
 }
 
 func (e SqlSourcePlatform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The overwrite option for the SSIS project migration
-type SsisMigrationOverwriteOption pulumi.String
-
-const (
-	SsisMigrationOverwriteOptionIgnore    = SsisMigrationOverwriteOption("Ignore")
-	SsisMigrationOverwriteOptionOverwrite = SsisMigrationOverwriteOption("Overwrite")
-)
-
-func (SsisMigrationOverwriteOption) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SsisMigrationOverwriteOption) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SsisMigrationOverwriteOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SsisMigrationOverwriteOption) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SsisMigrationOverwriteOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-// The SSIS store type of source, only SSIS catalog is supported now in DMS
-type SsisStoreType pulumi.String
-
-const (
-	SsisStoreTypeSsisCatalog = SsisStoreType("SsisCatalog")
-)
-
-func (SsisStoreType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
-}
-
-func (e SsisStoreType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SsisStoreType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e SsisStoreType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e SsisStoreType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }

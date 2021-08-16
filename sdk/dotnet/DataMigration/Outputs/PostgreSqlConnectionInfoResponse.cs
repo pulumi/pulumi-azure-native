@@ -18,10 +18,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string? DatabaseName;
         /// <summary>
-        /// Whether to encrypt the connection
-        /// </summary>
-        public readonly bool? EncryptConnection;
-        /// <summary>
         /// Password credential.
         /// </summary>
         public readonly string? Password;
@@ -33,10 +29,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// Name of the server
         /// </summary>
         public readonly string ServerName;
-        /// <summary>
-        /// Whether to trust the server certificate
-        /// </summary>
-        public readonly bool? TrustServerCertificate;
         /// <summary>
         /// Type of connection info
         /// Expected value is 'PostgreSqlConnectionInfo'.
@@ -51,26 +43,20 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         private PostgreSqlConnectionInfoResponse(
             string? databaseName,
 
-            bool? encryptConnection,
-
             string? password,
 
             int port,
 
             string serverName,
 
-            bool? trustServerCertificate,
-
             string type,
 
             string? userName)
         {
             DatabaseName = databaseName;
-            EncryptConnection = encryptConnection;
             Password = password;
             Port = port;
             ServerName = serverName;
-            TrustServerCertificate = trustServerCertificate;
             Type = type;
             UserName = userName;
         }

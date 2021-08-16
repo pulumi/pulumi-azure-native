@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSqlServerSqlDbTaskOutputValidationResultResponse
     {
         /// <summary>
-        /// Migration validation result identifier
+        /// Result identifier
         /// </summary>
         public readonly string Id;
         /// <summary>

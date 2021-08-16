@@ -14,10 +14,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MySqlConnectionInfoResponse
     {
         /// <summary>
-        /// Whether to encrypt the connection
-        /// </summary>
-        public readonly bool? EncryptConnection;
-        /// <summary>
         /// Password credential.
         /// </summary>
         public readonly string? Password;
@@ -41,8 +37,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MySqlConnectionInfoResponse(
-            bool? encryptConnection,
-
             string? password,
 
             int port,
@@ -53,7 +47,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string? userName)
         {
-            EncryptConnection = encryptConnection;
             Password = password;
             Port = port;
             ServerName = serverName;

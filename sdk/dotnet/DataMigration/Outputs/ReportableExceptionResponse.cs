@@ -20,37 +20,37 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// The path to the file where exception occurred
         /// </summary>
-        public readonly string? FilePath;
+        public readonly string FilePath;
         /// <summary>
         /// Coded numerical value that is assigned to a specific exception
         /// </summary>
-        public readonly int? HResult;
+        public readonly int HResult;
         /// <summary>
         /// The line number where exception occurred
         /// </summary>
-        public readonly string? LineNumber;
+        public readonly string LineNumber;
         /// <summary>
         /// Error message
         /// </summary>
-        public readonly string? Message;
+        public readonly string Message;
         /// <summary>
         /// Stack trace
         /// </summary>
-        public readonly string? StackTrace;
+        public readonly string StackTrace;
 
         [OutputConstructor]
         private ReportableExceptionResponse(
             string? actionableMessage,
 
-            string? filePath,
+            string filePath,
 
-            int? hResult,
+            int hResult,
 
-            string? lineNumber,
+            string lineNumber,
 
-            string? message,
+            string message,
 
-            string? stackTrace)
+            string stackTrace)
         {
             ActionableMessage = actionableMessage;
             FilePath = filePath;

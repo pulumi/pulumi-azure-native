@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A file resource
- * API Version: 2021-06-30.
+ * API Version: 2018-07-15-preview.
  */
 export function getFile(args: GetFileArgs, opts?: pulumi.InvokeOptions): Promise<GetFileResult> {
     if (!opts) {
@@ -64,10 +64,6 @@ export interface GetFileResult {
      * Custom file properties
      */
     readonly properties: outputs.datamigration.ProjectFilePropertiesResponse;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.datamigration.SystemDataResponse;
     /**
      * Resource type.
      */

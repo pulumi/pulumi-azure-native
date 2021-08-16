@@ -44,11 +44,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Migration Report Result, provides unique url for downloading your migration report.
         /// </summary>
-        public readonly Outputs.MigrationReportResultResponse? MigrationReportResult;
-        /// <summary>
-        /// Migration Validation Results
-        /// </summary>
-        public readonly Outputs.MigrationValidationResultResponse? MigrationValidationResult;
+        public readonly Outputs.MigrationReportResultResponse MigrationReport;
         /// <summary>
         /// Result type
         /// Expected value is 'MigrationLevelOutput'.
@@ -99,9 +95,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string message,
 
-            Outputs.MigrationReportResultResponse? migrationReportResult,
-
-            Outputs.MigrationValidationResultResponse? migrationValidationResult,
+            Outputs.MigrationReportResultResponse migrationReport,
 
             string resultType,
 
@@ -126,8 +120,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             ExceptionsAndWarnings = exceptionsAndWarnings;
             Id = id;
             Message = message;
-            MigrationReportResult = migrationReportResult;
-            MigrationValidationResult = migrationValidationResult;
+            MigrationReport = migrationReport;
             ResultType = resultType;
             SourceServerBrandVersion = sourceServerBrandVersion;
             SourceServerVersion = sourceServerVersion;

@@ -8,7 +8,7 @@ import (
 )
 
 // A project resource
-// API Version: 2021-06-30.
+// API Version: 2018-04-19.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
 	err := ctx.Invoke("azure-native:datamigration:getProject", args, &rv, opts...)
@@ -45,8 +45,6 @@ type LookupProjectResult struct {
 	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
 	SourcePlatform string `pulumi:"sourcePlatform"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target

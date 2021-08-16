@@ -23,9 +23,9 @@ class ProjectArgs:
                  databases_info: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
+                 source_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None):
+                 target_connection_info: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] group_name: Name of the resource group
@@ -35,9 +35,9 @@ class ProjectArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]] databases_info: List of DatabaseInfo
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] project_name: Name of the project
-        :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] source_connection_info: Information for connecting to source
+        :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] source_connection_info: Information for connecting to source
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] target_connection_info: Information for connecting to target
+        :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] target_connection_info: Information for connecting to target
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "service_name", service_name)
@@ -142,14 +142,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="sourceConnectionInfo")
-    def source_connection_info(self) -> Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
+    def source_connection_info(self) -> Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
         """
         Information for connecting to source
         """
         return pulumi.get(self, "source_connection_info")
 
     @source_connection_info.setter
-    def source_connection_info(self, value: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
+    def source_connection_info(self, value: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
         pulumi.set(self, "source_connection_info", value)
 
     @property
@@ -166,14 +166,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="targetConnectionInfo")
-    def target_connection_info(self) -> Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
+    def target_connection_info(self) -> Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]:
         """
         Information for connecting to target
         """
         return pulumi.get(self, "target_connection_info")
 
     @target_connection_info.setter
-    def target_connection_info(self, value: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
+    def target_connection_info(self, value: Optional[pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]]):
         pulumi.set(self, "target_connection_info", value)
 
 
@@ -187,15 +187,15 @@ class Project(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
+                 source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
                  source_platform: Optional[pulumi.Input[Union[str, 'ProjectSourcePlatform']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
+                 target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
                  target_platform: Optional[pulumi.Input[Union[str, 'ProjectTargetPlatform']]] = None,
                  __props__=None):
         """
         A project resource
-        API Version: 2021-06-30.
+        API Version: 2018-04-19.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,10 +204,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
-        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] source_connection_info: Information for connecting to source
+        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] source_connection_info: Information for connecting to source
         :param pulumi.Input[Union[str, 'ProjectSourcePlatform']] source_platform: Source platform for the project
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] target_connection_info: Information for connecting to target
+        :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] target_connection_info: Information for connecting to target
         :param pulumi.Input[Union[str, 'ProjectTargetPlatform']] target_platform: Target platform for the project
         """
         ...
@@ -218,7 +218,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A project resource
-        API Version: 2021-06-30.
+        API Version: 2018-04-19.
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -240,10 +240,10 @@ class Project(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
+                 source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
                  source_platform: Optional[pulumi.Input[Union[str, 'ProjectSourcePlatform']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MongoDbConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['OracleConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
+                 target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
                  target_platform: Optional[pulumi.Input[Union[str, 'ProjectTargetPlatform']]] = None,
                  __props__=None):
         if opts is None:
@@ -278,7 +278,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration:Project"), pulumi.Alias(type_="azure-native:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20171115preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180315preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180331preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180419:Project"), pulumi.Alias(type_="azure-native:datamigration/v20180715preview:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:Project"), pulumi.Alias(type_="azure-native:datamigration/v20210630:Project"), pulumi.Alias(type_="azure-nextgen:datamigration/v20210630:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -311,7 +310,6 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source_connection_info"] = None
         __props__.__dict__["source_platform"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_connection_info"] = None
         __props__.__dict__["target_platform"] = None
@@ -373,14 +371,6 @@ class Project(pulumi.CustomResource):
         Source platform for the project
         """
         return pulumi.get(self, "source_platform")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

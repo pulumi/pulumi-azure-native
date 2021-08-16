@@ -16,34 +16,13 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     public sealed class ConnectToTargetSqlMITaskInputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Flag for whether to collect agent jobs from target SQL MI server.
-        /// </summary>
-        [Input("collectAgentJobs")]
-        public Input<bool>? CollectAgentJobs { get; set; }
-
-        /// <summary>
-        /// Flag for whether to collect logins from target SQL MI server.
-        /// </summary>
-        [Input("collectLogins")]
-        public Input<bool>? CollectLogins { get; set; }
-
-        /// <summary>
         /// Connection information for target SQL Server
         /// </summary>
         [Input("targetConnectionInfo", required: true)]
         public Input<Inputs.SqlConnectionInfoArgs> TargetConnectionInfo { get; set; } = null!;
 
-        /// <summary>
-        /// Flag for whether to validate SSIS catalog is reachable on the target SQL MI server.
-        /// </summary>
-        [Input("validateSsisCatalogOnly")]
-        public Input<bool>? ValidateSsisCatalogOnly { get; set; }
-
         public ConnectToTargetSqlMITaskInputArgs()
         {
-            CollectAgentJobs = true;
-            CollectLogins = true;
-            ValidateSsisCatalogOnly = false;
         }
     }
 }

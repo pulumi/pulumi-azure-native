@@ -8,7 +8,7 @@ import (
 )
 
 // A Database Migration Service resource
-// API Version: 2021-06-30.
+// API Version: 2018-04-19.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:datamigration:getService", args, &rv, opts...)
@@ -43,14 +43,10 @@ type LookupServiceResult struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// Service SKU
 	Sku *ServiceSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
-	// The ID of the Microsoft.Network/networkInterfaces resource which the service have
-	VirtualNicId *string `pulumi:"virtualNicId"`
 	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
 	VirtualSubnetId string `pulumi:"virtualSubnetId"`
 }

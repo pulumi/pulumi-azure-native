@@ -18,19 +18,19 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The state of the original Agent Job.
+        /// The state of the original AgentJob.
         /// </summary>
         public readonly bool IsEnabled;
         /// <summary>
-        /// The type of Agent Job.
+        /// The type of AgentJob.
         /// </summary>
         public readonly string JobCategory;
         /// <summary>
-        /// The owner of the Agent Job
+        /// The owner of the AgentJob
         /// </summary>
         public readonly string JobOwner;
         /// <summary>
-        /// UTC Date and time when the Agent Job was last executed.
+        /// UTC Date and time when the AgentJob was last executed.
         /// </summary>
         public readonly string LastExecutedOn;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.MigrationEligibilityInfoResponse MigrationEligibility;
         /// <summary>
-        /// Agent Job name
+        /// AgentJob name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -46,10 +46,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// Expected value is 'AgentJobLevelOutput'.
         /// </summary>
         public readonly string ResultType;
-        /// <summary>
-        /// Validation errors
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ReportableExceptionResponse> ValidationErrors;
 
         [OutputConstructor]
         private ConnectToSourceSqlServerTaskOutputAgentJobLevelResponse(
@@ -67,9 +63,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string name,
 
-            string resultType,
-
-            ImmutableArray<Outputs.ReportableExceptionResponse> validationErrors)
+            string resultType)
         {
             Id = id;
             IsEnabled = isEnabled;
@@ -79,7 +73,6 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             MigrationEligibility = migrationEligibility;
             Name = name;
             ResultType = resultType;
-            ValidationErrors = validationErrors;
         }
     }
 }

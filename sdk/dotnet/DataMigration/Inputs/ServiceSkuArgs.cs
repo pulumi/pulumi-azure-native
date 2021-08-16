@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public Input<string>? Size { get; set; }
 
         /// <summary>
-        /// The tier of the SKU, such as 'Basic', 'General Purpose', or 'Business Critical'
+        /// The tier of the SKU, such as 'Free', 'Basic', 'Standard', or 'Premium'
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

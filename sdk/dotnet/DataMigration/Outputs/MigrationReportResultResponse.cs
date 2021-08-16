@@ -16,17 +16,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// <summary>
         /// Migration validation result identifier
         /// </summary>
-        public readonly string? Id;
+        public readonly string Id;
         /// <summary>
         /// The url of the report.
         /// </summary>
-        public readonly string? ReportUrl;
+        public readonly string ReportUrl;
 
         [OutputConstructor]
         private MigrationReportResultResponse(
-            string? id,
+            string id,
 
-            string? reportUrl)
+            string reportUrl)
         {
             Id = id;
             ReportUrl = reportUrl;

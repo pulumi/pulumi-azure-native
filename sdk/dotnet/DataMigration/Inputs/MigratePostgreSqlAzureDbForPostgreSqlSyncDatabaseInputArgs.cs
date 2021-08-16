@@ -33,18 +33,6 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("selectedTables")]
-        private InputList<Inputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs>? _selectedTables;
-
-        /// <summary>
-        /// Tables selected for migration
-        /// </summary>
-        public InputList<Inputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs> SelectedTables
-        {
-            get => _selectedTables ?? (_selectedTables = new InputList<Inputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputArgs>());
-            set => _selectedTables = value;
-        }
-
         [Input("sourceSetting")]
         private InputMap<string>? _sourceSetting;
 
