@@ -49,29 +49,45 @@ func (i ActionsArgs) ToActionsOutputWithContext(ctx context.Context) ActionsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsOutput)
 }
 
-// ActionsArrayInput is an input type that accepts ActionsArray and ActionsArrayOutput values.
-// You can construct a concrete instance of `ActionsArrayInput` via:
+func (i ActionsArgs) ToActionsPtrOutput() ActionsPtrOutput {
+	return i.ToActionsPtrOutputWithContext(context.Background())
+}
+
+func (i ActionsArgs) ToActionsPtrOutputWithContext(ctx context.Context) ActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsOutput).ToActionsPtrOutputWithContext(ctx)
+}
+
+// ActionsPtrInput is an input type that accepts ActionsArgs, ActionsPtr and ActionsPtrOutput values.
+// You can construct a concrete instance of `ActionsPtrInput` via:
 //
-//          ActionsArray{ ActionsArgs{...} }
-type ActionsArrayInput interface {
+//          ActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionsPtrInput interface {
 	pulumi.Input
 
-	ToActionsArrayOutput() ActionsArrayOutput
-	ToActionsArrayOutputWithContext(context.Context) ActionsArrayOutput
+	ToActionsPtrOutput() ActionsPtrOutput
+	ToActionsPtrOutputWithContext(context.Context) ActionsPtrOutput
 }
 
-type ActionsArray []ActionsInput
+type actionsPtrType ActionsArgs
 
-func (ActionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Actions)(nil)).Elem()
+func ActionsPtr(v *ActionsArgs) ActionsPtrInput {
+	return (*actionsPtrType)(v)
 }
 
-func (i ActionsArray) ToActionsArrayOutput() ActionsArrayOutput {
-	return i.ToActionsArrayOutputWithContext(context.Background())
+func (*actionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Actions)(nil)).Elem()
 }
 
-func (i ActionsArray) ToActionsArrayOutputWithContext(ctx context.Context) ActionsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsArrayOutput)
+func (i *actionsPtrType) ToActionsPtrOutput() ActionsPtrOutput {
+	return i.ToActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *actionsPtrType) ToActionsPtrOutputWithContext(ctx context.Context) ActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsPtrOutput)
 }
 
 // Actions to invoke when the alert fires.
@@ -89,6 +105,16 @@ func (o ActionsOutput) ToActionsOutputWithContext(ctx context.Context) ActionsOu
 	return o
 }
 
+func (o ActionsOutput) ToActionsPtrOutput() ActionsPtrOutput {
+	return o.ToActionsPtrOutputWithContext(context.Background())
+}
+
+func (o ActionsOutput) ToActionsPtrOutputWithContext(ctx context.Context) ActionsPtrOutput {
+	return o.ApplyT(func(v Actions) *Actions {
+		return &v
+	}).(ActionsPtrOutput)
+}
+
 // Action Group resource Ids to invoke when the alert fires.
 func (o ActionsOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v Actions) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
@@ -99,24 +125,42 @@ func (o ActionsOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v Actions) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
-type ActionsArrayOutput struct{ *pulumi.OutputState }
+type ActionsPtrOutput struct{ *pulumi.OutputState }
 
-func (ActionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Actions)(nil)).Elem()
+func (ActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Actions)(nil)).Elem()
 }
 
-func (o ActionsArrayOutput) ToActionsArrayOutput() ActionsArrayOutput {
+func (o ActionsPtrOutput) ToActionsPtrOutput() ActionsPtrOutput {
 	return o
 }
 
-func (o ActionsArrayOutput) ToActionsArrayOutputWithContext(ctx context.Context) ActionsArrayOutput {
+func (o ActionsPtrOutput) ToActionsPtrOutputWithContext(ctx context.Context) ActionsPtrOutput {
 	return o
 }
 
-func (o ActionsArrayOutput) Index(i pulumi.IntInput) ActionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Actions {
-		return vs[0].([]Actions)[vs[1].(int)]
-	}).(ActionsOutput)
+func (o ActionsPtrOutput) Elem() ActionsOutput {
+	return o.ApplyT(func(v *Actions) Actions { return *v }).(ActionsOutput)
+}
+
+// Action Group resource Ids to invoke when the alert fires.
+func (o ActionsPtrOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Actions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The properties of an alert payload.
+func (o ActionsPtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Actions) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomProperties
+	}).(pulumi.StringMapOutput)
 }
 
 // Actions to invoke when the alert fires.
@@ -158,29 +202,45 @@ func (i ActionsResponseArgs) ToActionsResponseOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponseOutput)
 }
 
-// ActionsResponseArrayInput is an input type that accepts ActionsResponseArray and ActionsResponseArrayOutput values.
-// You can construct a concrete instance of `ActionsResponseArrayInput` via:
+func (i ActionsResponseArgs) ToActionsResponsePtrOutput() ActionsResponsePtrOutput {
+	return i.ToActionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ActionsResponseArgs) ToActionsResponsePtrOutputWithContext(ctx context.Context) ActionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponseOutput).ToActionsResponsePtrOutputWithContext(ctx)
+}
+
+// ActionsResponsePtrInput is an input type that accepts ActionsResponseArgs, ActionsResponsePtr and ActionsResponsePtrOutput values.
+// You can construct a concrete instance of `ActionsResponsePtrInput` via:
 //
-//          ActionsResponseArray{ ActionsResponseArgs{...} }
-type ActionsResponseArrayInput interface {
+//          ActionsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionsResponsePtrInput interface {
 	pulumi.Input
 
-	ToActionsResponseArrayOutput() ActionsResponseArrayOutput
-	ToActionsResponseArrayOutputWithContext(context.Context) ActionsResponseArrayOutput
+	ToActionsResponsePtrOutput() ActionsResponsePtrOutput
+	ToActionsResponsePtrOutputWithContext(context.Context) ActionsResponsePtrOutput
 }
 
-type ActionsResponseArray []ActionsResponseInput
+type actionsResponsePtrType ActionsResponseArgs
 
-func (ActionsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionsResponse)(nil)).Elem()
+func ActionsResponsePtr(v *ActionsResponseArgs) ActionsResponsePtrInput {
+	return (*actionsResponsePtrType)(v)
 }
 
-func (i ActionsResponseArray) ToActionsResponseArrayOutput() ActionsResponseArrayOutput {
-	return i.ToActionsResponseArrayOutputWithContext(context.Background())
+func (*actionsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsResponse)(nil)).Elem()
 }
 
-func (i ActionsResponseArray) ToActionsResponseArrayOutputWithContext(ctx context.Context) ActionsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponseArrayOutput)
+func (i *actionsResponsePtrType) ToActionsResponsePtrOutput() ActionsResponsePtrOutput {
+	return i.ToActionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *actionsResponsePtrType) ToActionsResponsePtrOutputWithContext(ctx context.Context) ActionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionsResponsePtrOutput)
 }
 
 // Actions to invoke when the alert fires.
@@ -198,6 +258,16 @@ func (o ActionsResponseOutput) ToActionsResponseOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ActionsResponseOutput) ToActionsResponsePtrOutput() ActionsResponsePtrOutput {
+	return o.ToActionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ActionsResponseOutput) ToActionsResponsePtrOutputWithContext(ctx context.Context) ActionsResponsePtrOutput {
+	return o.ApplyT(func(v ActionsResponse) *ActionsResponse {
+		return &v
+	}).(ActionsResponsePtrOutput)
+}
+
 // Action Group resource Ids to invoke when the alert fires.
 func (o ActionsResponseOutput) ActionGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ActionsResponse) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
@@ -208,24 +278,42 @@ func (o ActionsResponseOutput) CustomProperties() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ActionsResponse) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
 }
 
-type ActionsResponseArrayOutput struct{ *pulumi.OutputState }
+type ActionsResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (ActionsResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionsResponse)(nil)).Elem()
+func (ActionsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionsResponse)(nil)).Elem()
 }
 
-func (o ActionsResponseArrayOutput) ToActionsResponseArrayOutput() ActionsResponseArrayOutput {
+func (o ActionsResponsePtrOutput) ToActionsResponsePtrOutput() ActionsResponsePtrOutput {
 	return o
 }
 
-func (o ActionsResponseArrayOutput) ToActionsResponseArrayOutputWithContext(ctx context.Context) ActionsResponseArrayOutput {
+func (o ActionsResponsePtrOutput) ToActionsResponsePtrOutputWithContext(ctx context.Context) ActionsResponsePtrOutput {
 	return o
 }
 
-func (o ActionsResponseArrayOutput) Index(i pulumi.IntInput) ActionsResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActionsResponse {
-		return vs[0].([]ActionsResponse)[vs[1].(int)]
-	}).(ActionsResponseOutput)
+func (o ActionsResponsePtrOutput) Elem() ActionsResponseOutput {
+	return o.ApplyT(func(v *ActionsResponse) ActionsResponse { return *v }).(ActionsResponseOutput)
+}
+
+// Action Group resource Ids to invoke when the alert fires.
+func (o ActionsResponsePtrOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ActionsResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The properties of an alert payload.
+func (o ActionsResponsePtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ActionsResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomProperties
+	}).(pulumi.StringMapOutput)
 }
 
 // A condition of the scheduled query rule.
@@ -1613,9 +1701,9 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 
 func init() {
 	pulumi.RegisterOutputType(ActionsOutput{})
-	pulumi.RegisterOutputType(ActionsArrayOutput{})
+	pulumi.RegisterOutputType(ActionsPtrOutput{})
 	pulumi.RegisterOutputType(ActionsResponseOutput{})
-	pulumi.RegisterOutputType(ActionsResponseArrayOutput{})
+	pulumi.RegisterOutputType(ActionsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionOutput{})
 	pulumi.RegisterOutputType(ConditionArrayOutput{})
 	pulumi.RegisterOutputType(ConditionFailingPeriodsOutput{})

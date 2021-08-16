@@ -14722,6 +14722,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-22",
           "2021-04-01",
           "2020-01-13-preview",
           "2019-06-01",
@@ -39798,7 +39799,11 @@
           },
           {
             "location": "South Central US",
-            "zones": []
+            "zones": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           {
             "location": "Canada Central",
@@ -40201,7 +40206,10 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2017-12-01-preview",
+          "2017-12-01"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -40250,7 +40258,10 @@
       {
         "aliases": null,
         "apiProfiles": null,
-        "apiVersions": [],
+        "apiVersions": [
+          "2017-12-01-preview",
+          "2017-12-01"
+        ],
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
@@ -52822,6 +52833,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01",
           "2020-01-01",
           "2019-01-01-preview"
         ],
@@ -52836,6 +52848,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-06-01",
           "2020-01-01",
           "2019-01-01-preview"
         ],
@@ -58812,6 +58825,9 @@
       {
         "applicationId": "366cbfa5-46b3-47fb-9d70-55fb923b4833",
         "roleDefinitionId": "d63d711d-1c1a-41d9-905a-fb87b28d47d9"
+      },
+      {
+        "applicationId": "86adf623-eea3-4453-9f4a-18134ac1410d"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.AppPlatform",
@@ -58984,6 +59000,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-05-01-preview",
           "2021-06-01-preview",
           "2020-11-01-preview",
           "2020-07-01",
@@ -63171,11 +63188,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "applications"
@@ -63215,11 +63233,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "networks"
@@ -63259,11 +63278,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "volumes"
@@ -63303,11 +63323,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "secrets"
@@ -63347,11 +63368,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "gateways"
@@ -63405,11 +63427,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/applicationOperations"
@@ -63449,11 +63472,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/networkOperations"
@@ -63493,11 +63517,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/volumeOperations"
@@ -63537,11 +63562,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/gatewayOperations"
@@ -63581,11 +63607,12 @@
           "North Central US",
           "Switzerland West",
           "Canada East",
-          "Japan West",
           "Australia Southeast",
           "Central India",
           "Norway East",
-          "UAE North"
+          "UAE North",
+          "Japan West",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/secretOperations"
@@ -78109,6 +78136,10 @@
       {
         "applicationId": "d2a590e7-6906-4a45-8f41-cecfdca9bca1",
         "roleDefinitionId": "59a59e1d-c18a-4c7c-8a99-2b5b311f08d2"
+      },
+      {
+        "applicationId": "5e5e43d4-54da-4211-86a4-c6e7f3715801",
+        "roleDefinitionId": "ffcd6e5b-8772-457d-bb17-89703c03428f"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ConnectedVMwarevSphere",
@@ -82559,7 +82590,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "customLocations"
@@ -82588,7 +82621,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "customLocations/enabledResourceTypes"
@@ -82617,7 +82652,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "locations/operationsstatus"
@@ -82646,7 +82683,9 @@
           "West US",
           "North Central US",
           "South Central US",
-          "Korea Central"
+          "Korea Central",
+          "Japan East",
+          "East Asia"
         ],
         "properties": null,
         "resourceType": "locations/operationresults"
@@ -87340,33 +87379,6 @@
         "locations": [],
         "properties": null,
         "resourceType": "operations"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-10-30-preview",
-          "2020-10-30"
-        ],
-        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "enterprisePolicies"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2020-10-30-preview"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [],
-        "properties": null,
-        "resourceType": "accounts"
       }
     ]
   },

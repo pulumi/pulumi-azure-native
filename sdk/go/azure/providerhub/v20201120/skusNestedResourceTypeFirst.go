@@ -37,9 +37,6 @@ func NewSkusNestedResourceTypeFirst(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst"),
@@ -107,29 +104,27 @@ func (SkusNestedResourceTypeFirstState) ElementType() reflect.Type {
 
 type skusNestedResourceTypeFirstArgs struct {
 	// The first child resource type.
-	NestedResourceTypeFirst string `pulumi:"nestedResourceTypeFirst"`
+	NestedResourceTypeFirst string                 `pulumi:"nestedResourceTypeFirst"`
+	Properties              *SkuResourceProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string  `pulumi:"providerNamespace"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
-	Sku         *string      `pulumi:"sku"`
-	SkuSettings []SkuSetting `pulumi:"skuSettings"`
+	Sku *string `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeFirst resource.
 type SkusNestedResourceTypeFirstArgs struct {
 	// The first child resource type.
 	NestedResourceTypeFirst pulumi.StringInput
+	Properties              SkuResourcePropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
-	ProvisioningState pulumi.StringPtrInput
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.
-	Sku         pulumi.StringPtrInput
-	SkuSettings SkuSettingArrayInput
+	Sku pulumi.StringPtrInput
 }
 
 func (SkusNestedResourceTypeFirstArgs) ElementType() reflect.Type {

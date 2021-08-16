@@ -39,7 +39,7 @@ export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.providerhub.SkuResourceResponseProperties>;
+    public readonly properties!: pulumi.Output<outputs.providerhub.SkuResourceResponseProperties>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -65,17 +65,12 @@ export class SkusNestedResourceTypeFirst extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if ((!args || args.skuSettings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'skuSettings'");
-            }
             inputs["nestedResourceTypeFirst"] = args ? args.nestedResourceTypeFirst : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["skuSettings"] = args ? args.skuSettings : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
@@ -99,11 +94,11 @@ export interface SkusNestedResourceTypeFirstArgs {
      * The first child resource type.
      */
     nestedResourceTypeFirst: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.providerhub.SkuResourcePropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
     providerNamespace: pulumi.Input<string>;
-    provisioningState?: pulumi.Input<string | enums.providerhub.ProvisioningState>;
     /**
      * The resource type.
      */
@@ -112,5 +107,4 @@ export interface SkusNestedResourceTypeFirstArgs {
      * The SKU.
      */
     sku?: pulumi.Input<string>;
-    skuSettings: pulumi.Input<pulumi.Input<inputs.providerhub.SkuSettingArgs>[]>;
 }

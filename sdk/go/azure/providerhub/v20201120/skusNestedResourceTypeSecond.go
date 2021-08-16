@@ -40,9 +40,6 @@ func NewSkusNestedResourceTypeSecond(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond"),
@@ -112,15 +109,14 @@ type skusNestedResourceTypeSecondArgs struct {
 	// The first child resource type.
 	NestedResourceTypeFirst string `pulumi:"nestedResourceTypeFirst"`
 	// The second child resource type.
-	NestedResourceTypeSecond string `pulumi:"nestedResourceTypeSecond"`
+	NestedResourceTypeSecond string                 `pulumi:"nestedResourceTypeSecond"`
+	Properties               *SkuResourceProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string  `pulumi:"providerNamespace"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
-	Sku         *string      `pulumi:"sku"`
-	SkuSettings []SkuSetting `pulumi:"skuSettings"`
+	Sku *string `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeSecond resource.
@@ -129,14 +125,13 @@ type SkusNestedResourceTypeSecondArgs struct {
 	NestedResourceTypeFirst pulumi.StringInput
 	// The second child resource type.
 	NestedResourceTypeSecond pulumi.StringInput
+	Properties               SkuResourcePropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
-	ProvisioningState pulumi.StringPtrInput
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.
-	Sku         pulumi.StringPtrInput
-	SkuSettings SkuSettingArrayInput
+	Sku pulumi.StringPtrInput
 }
 
 func (SkusNestedResourceTypeSecondArgs) ElementType() reflect.Type {

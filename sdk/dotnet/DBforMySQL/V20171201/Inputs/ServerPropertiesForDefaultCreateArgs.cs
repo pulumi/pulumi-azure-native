@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20171201.Inputs
     public sealed class ServerPropertiesForDefaultCreateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
         /// </summary>
         [Input("administratorLogin", required: true)]
         public Input<string> AdministratorLogin { get; set; } = null!;

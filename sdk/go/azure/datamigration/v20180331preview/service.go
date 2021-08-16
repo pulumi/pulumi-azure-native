@@ -84,6 +84,12 @@ func NewService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Service"),
 		},
+		{
+			Type: pulumi.String("azure-native:datamigration/v20210630:Service"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:datamigration/v20210630:Service"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Service

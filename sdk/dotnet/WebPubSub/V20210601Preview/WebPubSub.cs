@@ -183,6 +183,8 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
                     new Pulumi.Alias { Type = "azure-nextgen:webpubsub:WebPubSub"},
                     new Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSub"},
                     new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20210401preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSub"},
+                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20210901preview:WebPubSub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

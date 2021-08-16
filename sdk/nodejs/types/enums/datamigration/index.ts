@@ -7,6 +7,7 @@ import * as v20180315preview from "./v20180315preview";
 import * as v20180331preview from "./v20180331preview";
 import * as v20180419 from "./v20180419";
 import * as v20180715preview from "./v20180715preview";
+import * as v20210630 from "./v20210630";
 
 export {
     v20171115preview,
@@ -14,6 +15,7 @@ export {
     v20180331preview,
     v20180419,
     v20180715preview,
+    v20210630,
 };
 
 export const AuthenticationType = {

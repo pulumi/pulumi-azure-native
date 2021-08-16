@@ -57,7 +57,7 @@ class ServerPropertiesForDefaultCreateArgs:
                  version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
         """
         The properties used to create a new server.
-        :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
         :param pulumi.Input[str] create_mode: The mode to create a new server.
                Expected value is 'Default'.
@@ -88,7 +88,7 @@ class ServerPropertiesForDefaultCreateArgs:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> pulumi.Input[str]:
         """
-        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
         """
         return pulumi.get(self, "administrator_login")
 

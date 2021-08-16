@@ -16,7 +16,7 @@ type ScheduledQueryRule struct {
 	pulumi.CustomResourceState
 
 	// Actions to invoke when the alert fires.
-	Actions ActionsResponseArrayOutput `pulumi:"actions"`
+	Actions ActionsResponsePtrOutput `pulumi:"actions"`
 	// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
 	AutoMitigate pulumi.BoolPtrOutput `pulumi:"autoMitigate"`
 	// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
@@ -133,7 +133,7 @@ func GetScheduledQueryRule(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ScheduledQueryRule resources.
 type scheduledQueryRuleState struct {
 	// Actions to invoke when the alert fires.
-	Actions []ActionsResponse `pulumi:"actions"`
+	Actions *ActionsResponse `pulumi:"actions"`
 	// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
@@ -186,7 +186,7 @@ type scheduledQueryRuleState struct {
 
 type ScheduledQueryRuleState struct {
 	// Actions to invoke when the alert fires.
-	Actions ActionsResponseArrayInput
+	Actions ActionsResponsePtrInput
 	// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
 	AutoMitigate pulumi.BoolPtrInput
 	// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
@@ -243,7 +243,7 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 
 type scheduledQueryRuleArgs struct {
 	// Actions to invoke when the alert fires.
-	Actions []Actions `pulumi:"actions"`
+	Actions *Actions `pulumi:"actions"`
 	// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
 	// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
@@ -287,7 +287,7 @@ type scheduledQueryRuleArgs struct {
 // The set of arguments for constructing a ScheduledQueryRule resource.
 type ScheduledQueryRuleArgs struct {
 	// Actions to invoke when the alert fires.
-	Actions ActionsArrayInput
+	Actions ActionsPtrInput
 	// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
 	AutoMitigate pulumi.BoolPtrInput
 	// The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.

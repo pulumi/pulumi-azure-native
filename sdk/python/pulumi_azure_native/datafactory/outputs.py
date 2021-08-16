@@ -210,6 +210,7 @@ __all__ = [
     'ExecuteDataFlowActivityTypePropertiesResponseCompute',
     'ExecutePipelineActivityResponse',
     'ExecuteSSISPackageActivityResponse',
+    'ExecuteWranglingDataflowActivityResponse',
     'ExecutionActivityResponse',
     'ExpressionResponse',
     'FactoryGitHubConfigurationResponse',
@@ -389,6 +390,8 @@ __all__ = [
     'PostgreSqlLinkedServiceResponse',
     'PostgreSqlSourceResponse',
     'PostgreSqlTableDatasetResponse',
+    'PowerQuerySinkResponse',
+    'PowerQuerySourceResponse',
     'PrestoLinkedServiceResponse',
     'PrestoObjectDatasetResponse',
     'PrestoSourceResponse',
@@ -547,6 +550,7 @@ __all__ = [
     'WebLinkedServiceResponse',
     'WebSourceResponse',
     'WebTableDatasetResponse',
+    'WranglingDataFlowResponse',
     'XeroLinkedServiceResponse',
     'XeroObjectDatasetResponse',
     'XeroSourceResponse',
@@ -27975,6 +27979,213 @@ class ExecuteSSISPackageActivityResponse(dict):
 
 
 @pulumi.output_type
+class ExecuteWranglingDataflowActivityResponse(dict):
+    """
+    Execute power query activity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataFlow":
+            suggest = "data_flow"
+        elif key == "continueOnError":
+            suggest = "continue_on_error"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "integrationRuntime":
+            suggest = "integration_runtime"
+        elif key == "runConcurrently":
+            suggest = "run_concurrently"
+        elif key == "traceLevel":
+            suggest = "trace_level"
+        elif key == "userProperties":
+            suggest = "user_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExecuteWranglingDataflowActivityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExecuteWranglingDataflowActivityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExecuteWranglingDataflowActivityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_flow: 'outputs.DataFlowReferenceResponse',
+                 name: str,
+                 type: str,
+                 compute: Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute'] = None,
+                 continue_on_error: Optional[Any] = None,
+                 depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
+                 description: Optional[str] = None,
+                 integration_runtime: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 run_concurrently: Optional[Any] = None,
+                 sinks: Optional[Mapping[str, 'outputs.PowerQuerySinkResponse']] = None,
+                 staging: Optional['outputs.DataFlowStagingInfoResponse'] = None,
+                 trace_level: Optional[Any] = None,
+                 user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
+        """
+        Execute power query activity.
+        :param 'DataFlowReferenceResponse' data_flow: Data flow reference.
+        :param str name: Activity name.
+        :param str type: Type of activity.
+               Expected value is 'ExecuteWranglingDataflow'.
+        :param 'ExecuteDataFlowActivityTypePropertiesResponseCompute' compute: Compute properties for data flow activity.
+        :param Any continue_on_error: Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
+        :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
+        :param str description: Activity description.
+        :param 'IntegrationRuntimeReferenceResponse' integration_runtime: The integration runtime reference.
+        :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
+        :param Mapping[str, 'PowerQuerySinkResponse'] sinks: List of Power Query activity sinks mapped to a queryName.
+        :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
+        :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
+        :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
+        """
+        pulumi.set(__self__, "data_flow", data_flow)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", 'ExecuteWranglingDataflow')
+        if compute is not None:
+            pulumi.set(__self__, "compute", compute)
+        if continue_on_error is not None:
+            pulumi.set(__self__, "continue_on_error", continue_on_error)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if integration_runtime is not None:
+            pulumi.set(__self__, "integration_runtime", integration_runtime)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if run_concurrently is not None:
+            pulumi.set(__self__, "run_concurrently", run_concurrently)
+        if sinks is not None:
+            pulumi.set(__self__, "sinks", sinks)
+        if staging is not None:
+            pulumi.set(__self__, "staging", staging)
+        if trace_level is not None:
+            pulumi.set(__self__, "trace_level", trace_level)
+        if user_properties is not None:
+            pulumi.set(__self__, "user_properties", user_properties)
+
+    @property
+    @pulumi.getter(name="dataFlow")
+    def data_flow(self) -> 'outputs.DataFlowReferenceResponse':
+        """
+        Data flow reference.
+        """
+        return pulumi.get(self, "data_flow")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Activity name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of activity.
+        Expected value is 'ExecuteWranglingDataflow'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def compute(self) -> Optional['outputs.ExecuteDataFlowActivityTypePropertiesResponseCompute']:
+        """
+        Compute properties for data flow activity.
+        """
+        return pulumi.get(self, "compute")
+
+    @property
+    @pulumi.getter(name="continueOnError")
+    def continue_on_error(self) -> Optional[Any]:
+        """
+        Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)
+        """
+        return pulumi.get(self, "continue_on_error")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ActivityDependencyResponse']]:
+        """
+        Activity depends on condition.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Activity description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="integrationRuntime")
+    def integration_runtime(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "integration_runtime")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="runConcurrently")
+    def run_concurrently(self) -> Optional[Any]:
+        """
+        Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
+        """
+        return pulumi.get(self, "run_concurrently")
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> Optional[Mapping[str, 'outputs.PowerQuerySinkResponse']]:
+        """
+        List of Power Query activity sinks mapped to a queryName.
+        """
+        return pulumi.get(self, "sinks")
+
+    @property
+    @pulumi.getter
+    def staging(self) -> Optional['outputs.DataFlowStagingInfoResponse']:
+        """
+        Staging info for execute data flow activity.
+        """
+        return pulumi.get(self, "staging")
+
+    @property
+    @pulumi.getter(name="traceLevel")
+    def trace_level(self) -> Optional[Any]:
+        """
+        Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "trace_level")
+
+    @property
+    @pulumi.getter(name="userProperties")
+    def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
+        """
+        Activity user properties.
+        """
+        return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
 class ExecutionActivityResponse(dict):
     """
     Base class for all execution activities.
@@ -29600,7 +29811,7 @@ class ForEachActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute .
         :param 'ExpressionResponse' items: Collection to iterate.
         :param str name: Activity name.
         :param str type: Type of activity.
@@ -37119,8 +37330,8 @@ class IfConditionActivityResponse(dict):
                Expected value is 'IfCondition'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "expression", expression)
@@ -51851,6 +52062,208 @@ class PostgreSqlTableDatasetResponse(dict):
         This property will be retired. Please consider using schema + table properties instead.
         """
         return pulumi.get(self, "table_name")
+
+
+@pulumi.output_type
+class PowerQuerySinkResponse(dict):
+    """
+    Power query sink.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+        elif key == "schemaLinkedService":
+            suggest = "schema_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerQuerySinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerQuerySinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerQuerySinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset: Optional['outputs.DatasetReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 script: Optional[str] = None):
+        """
+        Power query sink.
+        :param str name: Transformation name.
+        :param 'DatasetReferenceResponse' dataset: Dataset reference.
+        :param str description: Transformation description.
+        :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
+        :param str script: sink script.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
+        if schema_linked_service is not None:
+            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Transformation name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.DatasetReferenceResponse']:
+        """
+        Dataset reference.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Transformation description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="schemaLinkedService")
+    def schema_linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Schema linked service reference.
+        """
+        return pulumi.get(self, "schema_linked_service")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        """
+        sink script.
+        """
+        return pulumi.get(self, "script")
+
+
+@pulumi.output_type
+class PowerQuerySourceResponse(dict):
+    """
+    Power query source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+        elif key == "schemaLinkedService":
+            suggest = "schema_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PowerQuerySourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PowerQuerySourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PowerQuerySourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset: Optional['outputs.DatasetReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 script: Optional[str] = None):
+        """
+        Power query source.
+        :param str name: Transformation name.
+        :param 'DatasetReferenceResponse' dataset: Dataset reference.
+        :param str description: Transformation description.
+        :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
+        :param str script: source script.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
+        if schema_linked_service is not None:
+            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Transformation name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.DatasetReferenceResponse']:
+        """
+        Dataset reference.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Transformation description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="schemaLinkedService")
+    def schema_linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Schema linked service reference.
+        """
+        return pulumi.get(self, "schema_linked_service")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        """
+        source script.
+        """
+        return pulumi.get(self, "script")
 
 
 @pulumi.output_type
@@ -68505,7 +68918,7 @@ class SwitchActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'Switch'.
         :param Sequence['SwitchCaseResponse'] cases: List of cases that correspond to expected values of the 'on' property. This is an optional property and if not provided, the activity will execute activities provided in defaultActivities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -68600,7 +69013,7 @@ class SwitchCaseResponse(dict):
                  value: Optional[str] = None):
         """
         Switch cases with have a value and corresponding activities.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute for satisfied case condition.
         :param str value: Expected value that satisfies the expression result of the 'on' property.
         """
         if activities is not None:
@@ -70525,7 +70938,7 @@ class UntilActivityResponse(dict):
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity executes inner activities until the specified boolean expression results to true or timeout is reached, whichever is earlier.
-        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
+        :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] activities: List of activities to execute.
         :param 'ExpressionResponse' expression: An expression that would evaluate to Boolean. The loop will continue until this expression evaluates to true
         :param str name: Activity name.
         :param str type: Type of activity.
@@ -72495,6 +72908,91 @@ class WebTableDatasetResponse(dict):
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
         return pulumi.get(self, "structure")
+
+
+@pulumi.output_type
+class WranglingDataFlowResponse(dict):
+    """
+    Power Query data flow.
+    """
+    def __init__(__self__, *,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DataFlowResponseFolder'] = None,
+                 script: Optional[str] = None,
+                 sources: Optional[Sequence['outputs.PowerQuerySourceResponse']] = None,
+                 type: Optional[str] = None):
+        """
+        Power Query data flow.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
+        :param str description: The description of the data flow.
+        :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        :param str script: Power query mashup script.
+        :param Sequence['PowerQuerySourceResponse'] sources: List of sources in Power Query.
+        :param str type: Type of data flow.
+               Expected value is 'WranglingDataFlow'.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+        if type is not None:
+            pulumi.set(__self__, "type", 'WranglingDataFlow')
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the data flow.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description of the data flow.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DataFlowResponseFolder']:
+        """
+        The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[str]:
+        """
+        Power query mashup script.
+        """
+        return pulumi.get(self, "script")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.PowerQuerySourceResponse']]:
+        """
+        List of sources in Power Query.
+        """
+        return pulumi.get(self, "sources")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of data flow.
+        Expected value is 'WranglingDataFlow'.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

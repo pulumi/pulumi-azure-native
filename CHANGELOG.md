@@ -8,6 +8,12 @@ CHANGELOG
 - All hierchicalQueue-related fields removed from `datalakeanalytics.Account`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15591))
 
+- Fixes in SKU schema of providerhub resources
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15608))
+
+- Fixes in SKU schema of providerhub resources
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15608))
+
 ---
 
 ## 1.21.0 (2021-08-12)

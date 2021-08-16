@@ -19,10 +19,12 @@ export * from "../types/enums/webpubsub";
 // Export sub-modules:
 import * as v20210401preview from "./v20210401preview";
 import * as v20210601preview from "./v20210601preview";
+import * as v20210901preview from "./v20210901preview";
 
 export {
     v20210401preview,
     v20210601preview,
+    v20210901preview,
 };
 
 // Import resources to register:

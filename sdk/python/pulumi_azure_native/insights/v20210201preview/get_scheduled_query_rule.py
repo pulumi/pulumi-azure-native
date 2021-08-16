@@ -21,8 +21,8 @@ class GetScheduledQueryRuleResult:
     The scheduled query rule resource.
     """
     def __init__(__self__, actions=None, auto_mitigate=None, check_workspace_alerts_storage_configured=None, created_with_api_version=None, criteria=None, description=None, display_name=None, enabled=None, etag=None, evaluation_frequency=None, id=None, is_legacy_log_analytics_rule=None, is_workspace_alerts_storage_configured=None, kind=None, location=None, mute_actions_duration=None, name=None, override_query_time_range=None, scopes=None, severity=None, skip_query_validation=None, system_data=None, tags=None, target_resource_types=None, type=None, window_size=None):
-        if actions and not isinstance(actions, list):
-            raise TypeError("Expected argument 'actions' to be a list")
+        if actions and not isinstance(actions, dict):
+            raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
         if auto_mitigate and not isinstance(auto_mitigate, bool):
             raise TypeError("Expected argument 'auto_mitigate' to be a bool")
@@ -102,7 +102,7 @@ class GetScheduledQueryRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence['outputs.ActionsResponse']]:
+    def actions(self) -> Optional['outputs.ActionsResponse']:
         """
         Actions to invoke when the alert fires.
         """

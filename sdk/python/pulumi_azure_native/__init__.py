@@ -4587,6 +4587,18 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "datamigration/v20210630",
+  "fqn": "pulumi_azure_native.datamigration.v20210630",
+  "classes": {
+   "azure-native:datamigration/v20210630:File": "File",
+   "azure-native:datamigration/v20210630:Project": "Project",
+   "azure-native:datamigration/v20210630:Service": "Service",
+   "azure-native:datamigration/v20210630:ServiceTask": "ServiceTask",
+   "azure-native:datamigration/v20210630:Task": "Task"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "dataprotection",
   "fqn": "pulumi_azure_native.dataprotection",
   "classes": {
@@ -15874,6 +15886,16 @@ _utilities.register(
    "azure-native:webpubsub/v20210601preview:WebPubSub": "WebPubSub",
    "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20210901preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20210901preview",
+  "classes": {
+   "azure-native:webpubsub/v20210901preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
         /// Actions to invoke when the alert fires.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Outputs.ActionsResponse>> Actions { get; private set; } = null!;
+        public Output<Outputs.ActionsResponse?> Actions { get; private set; } = null!;
 
         /// <summary>
         /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.
@@ -220,17 +220,11 @@ namespace Pulumi.AzureNative.Insights.V20210201Preview
 
     public sealed class ScheduledQueryRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("actions")]
-        private InputList<Inputs.ActionsArgs>? _actions;
-
         /// <summary>
         /// Actions to invoke when the alert fires.
         /// </summary>
-        public InputList<Inputs.ActionsArgs> Actions
-        {
-            get => _actions ?? (_actions = new InputList<Inputs.ActionsArgs>());
-            set => _actions = value;
-        }
+        [Input("actions")]
+        public Input<Inputs.ActionsArgs>? Actions { get; set; }
 
         /// <summary>
         /// The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of the kind LogAlert.

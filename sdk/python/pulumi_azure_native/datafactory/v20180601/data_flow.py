@@ -16,13 +16,13 @@ __all__ = ['DataFlowArgs', 'DataFlow']
 class DataFlowArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[str],
-                 properties: pulumi.Input['MappingDataFlowArgs'],
+                 properties: pulumi.Input[Union['MappingDataFlowArgs', 'WranglingDataFlowArgs']],
                  resource_group_name: pulumi.Input[str],
                  data_flow_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataFlow resource.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input['MappingDataFlowArgs'] properties: Data flow properties.
+        :param pulumi.Input[Union['MappingDataFlowArgs', 'WranglingDataFlowArgs']] properties: Data flow properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] data_flow_name: The data flow name.
         """
@@ -46,14 +46,14 @@ class DataFlowArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['MappingDataFlowArgs']:
+    def properties(self) -> pulumi.Input[Union['MappingDataFlowArgs', 'WranglingDataFlowArgs']]:
         """
         Data flow properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['MappingDataFlowArgs']):
+    def properties(self, value: pulumi.Input[Union['MappingDataFlowArgs', 'WranglingDataFlowArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -88,7 +88,7 @@ class DataFlow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_flow_name: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MappingDataFlowArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['MappingDataFlowArgs'], pulumi.InputType['WranglingDataFlowArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -98,7 +98,7 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_flow_name: The data flow name.
         :param pulumi.Input[str] factory_name: The factory name.
-        :param pulumi.Input[pulumi.InputType['MappingDataFlowArgs']] properties: Data flow properties.
+        :param pulumi.Input[Union[pulumi.InputType['MappingDataFlowArgs'], pulumi.InputType['WranglingDataFlowArgs']]] properties: Data flow properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
         ...
@@ -127,7 +127,7 @@ class DataFlow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_flow_name: Optional[pulumi.Input[str]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['MappingDataFlowArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['MappingDataFlowArgs'], pulumi.InputType['WranglingDataFlowArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -202,7 +202,7 @@ class DataFlow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.MappingDataFlowResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Data flow properties.
         """

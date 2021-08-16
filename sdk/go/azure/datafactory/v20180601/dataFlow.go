@@ -20,7 +20,7 @@ type DataFlow struct {
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Data flow properties.
-	Properties MappingDataFlowResponseOutput `pulumi:"properties"`
+	Properties pulumi.AnyOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -80,7 +80,7 @@ type dataFlowState struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
 	// Data flow properties.
-	Properties *MappingDataFlowResponse `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -91,7 +91,7 @@ type DataFlowState struct {
 	// The resource name.
 	Name pulumi.StringPtrInput
 	// Data flow properties.
-	Properties MappingDataFlowResponsePtrInput
+	Properties pulumi.Input
 	// The resource type.
 	Type pulumi.StringPtrInput
 }
@@ -106,7 +106,7 @@ type dataFlowArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// Data flow properties.
-	Properties MappingDataFlow `pulumi:"properties"`
+	Properties interface{} `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -118,7 +118,7 @@ type DataFlowArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// Data flow properties.
-	Properties MappingDataFlowInput
+	Properties pulumi.Input
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

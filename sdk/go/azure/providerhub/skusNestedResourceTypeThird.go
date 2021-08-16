@@ -44,9 +44,6 @@ func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
-	if args.SkuSettings == nil {
-		return nil, errors.New("invalid value for required argument 'SkuSettings'")
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:providerhub:SkusNestedResourceTypeThird"),
@@ -118,15 +115,14 @@ type skusNestedResourceTypeThirdArgs struct {
 	// The second child resource type.
 	NestedResourceTypeSecond string `pulumi:"nestedResourceTypeSecond"`
 	// The third child resource type.
-	NestedResourceTypeThird string `pulumi:"nestedResourceTypeThird"`
+	NestedResourceTypeThird string                 `pulumi:"nestedResourceTypeThird"`
+	Properties              *SkuResourceProperties `pulumi:"properties"`
 	// The name of the resource provider hosted within ProviderHub.
-	ProviderNamespace string  `pulumi:"providerNamespace"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProviderNamespace string `pulumi:"providerNamespace"`
 	// The resource type.
 	ResourceType string `pulumi:"resourceType"`
 	// The SKU.
-	Sku         *string      `pulumi:"sku"`
-	SkuSettings []SkuSetting `pulumi:"skuSettings"`
+	Sku *string `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a SkusNestedResourceTypeThird resource.
@@ -137,14 +133,13 @@ type SkusNestedResourceTypeThirdArgs struct {
 	NestedResourceTypeSecond pulumi.StringInput
 	// The third child resource type.
 	NestedResourceTypeThird pulumi.StringInput
+	Properties              SkuResourcePropertiesPtrInput
 	// The name of the resource provider hosted within ProviderHub.
 	ProviderNamespace pulumi.StringInput
-	ProvisioningState pulumi.StringPtrInput
 	// The resource type.
 	ResourceType pulumi.StringInput
 	// The SKU.
-	Sku         pulumi.StringPtrInput
-	SkuSettings SkuSettingArrayInput
+	Sku pulumi.StringPtrInput
 }
 
 func (SkusNestedResourceTypeThirdArgs) ElementType() reflect.Type {

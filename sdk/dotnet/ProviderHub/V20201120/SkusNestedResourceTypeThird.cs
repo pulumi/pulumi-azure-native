@@ -100,14 +100,14 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         [Input("nestedResourceTypeThird", required: true)]
         public Input<string> NestedResourceTypeThird { get; set; } = null!;
 
+        [Input("properties")]
+        public Input<Inputs.SkuResourcePropertiesArgs>? Properties { get; set; }
+
         /// <summary>
         /// The name of the resource provider hosted within ProviderHub.
         /// </summary>
         [Input("providerNamespace", required: true)]
         public Input<string> ProviderNamespace { get; set; } = null!;
-
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource type.
@@ -120,14 +120,6 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
-
-        [Input("skuSettings", required: true)]
-        private InputList<Inputs.SkuSettingArgs>? _skuSettings;
-        public InputList<Inputs.SkuSettingArgs> SkuSettings
-        {
-            get => _skuSettings ?? (_skuSettings = new InputList<Inputs.SkuSettingArgs>());
-            set => _skuSettings = value;
-        }
 
         public SkusNestedResourceTypeThirdArgs()
         {

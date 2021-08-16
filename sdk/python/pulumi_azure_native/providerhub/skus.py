@@ -18,8 +18,7 @@ class SkusArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
-                 sku_settings: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]],
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 properties: Optional[pulumi.Input['SkuResourcePropertiesArgs']] = None,
                  sku: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Skus resource.
@@ -29,9 +28,8 @@ class SkusArgs:
         """
         pulumi.set(__self__, "provider_namespace", provider_namespace)
         pulumi.set(__self__, "resource_type", resource_type)
-        pulumi.set(__self__, "sku_settings", sku_settings)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
 
@@ -60,22 +58,13 @@ class SkusArgs:
         pulumi.set(self, "resource_type", value)
 
     @property
-    @pulumi.getter(name="skuSettings")
-    def sku_settings(self) -> pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]]:
-        return pulumi.get(self, "sku_settings")
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['SkuResourcePropertiesArgs']]:
+        return pulumi.get(self, "properties")
 
-    @sku_settings.setter
-    def sku_settings(self, value: pulumi.Input[Sequence[pulumi.Input['SkuSettingArgs']]]):
-        pulumi.set(self, "sku_settings", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['SkuResourcePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -95,11 +84,10 @@ class Skus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SkuResourcePropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 sku_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SkuSettingArgs']]]]] = None,
                  __props__=None):
         """
         API Version: 2020-11-20.
@@ -134,11 +122,10 @@ class Skus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['SkuResourcePropertiesArgs']]] = None,
                  provider_namespace: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
-                 sku_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SkuSettingArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -151,19 +138,15 @@ class Skus(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SkusArgs.__new__(SkusArgs)
 
+            __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
-            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["sku"] = sku
-            if sku_settings is None and not opts.urn:
-                raise TypeError("Missing required property 'sku_settings'")
-            __props__.__dict__["sku_settings"] = sku_settings
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:providerhub:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20201120:Skus"), pulumi.Alias(type_="azure-nextgen:providerhub/v20201120:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210501preview:Skus"), pulumi.Alias(type_="azure-nextgen:providerhub/v20210501preview:Skus"), pulumi.Alias(type_="azure-native:providerhub/v20210601preview:Skus"), pulumi.Alias(type_="azure-nextgen:providerhub/v20210601preview:Skus")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)

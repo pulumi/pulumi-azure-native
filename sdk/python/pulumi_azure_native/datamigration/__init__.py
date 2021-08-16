@@ -24,10 +24,12 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.datamigration.v20180331preview as v20180331preview
     import pulumi_azure_native.datamigration.v20180419 as v20180419
     import pulumi_azure_native.datamigration.v20180715preview as v20180715preview
+    import pulumi_azure_native.datamigration.v20210630 as v20210630
 else:
     v20171115preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20171115preview')
     v20180315preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180315preview')
     v20180331preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180331preview')
     v20180419 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180419')
     v20180715preview = _utilities.lazy_import('pulumi_azure_native.datamigration.v20180715preview')
+    v20210630 = _utilities.lazy_import('pulumi_azure_native.datamigration.v20210630')
 

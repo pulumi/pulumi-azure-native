@@ -808,7 +808,7 @@ func (o ServerPrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status
 
 // The properties used to create a new server.
 type ServerPropertiesForDefaultCreate struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
 	AdministratorLogin string `pulumi:"administratorLogin"`
 	// The password of the administrator login.
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
@@ -842,7 +842,7 @@ type ServerPropertiesForDefaultCreateInput interface {
 
 // The properties used to create a new server.
 type ServerPropertiesForDefaultCreateArgs struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
 	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
 	// The password of the administrator login.
 	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
@@ -890,7 +890,7 @@ func (o ServerPropertiesForDefaultCreateOutput) ToServerPropertiesForDefaultCrea
 	return o
 }
 
-// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password.
 func (o ServerPropertiesForDefaultCreateOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerPropertiesForDefaultCreate) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
