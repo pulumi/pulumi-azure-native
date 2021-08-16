@@ -68613,7 +68613,12 @@
     ]
   },
   {
-    "authorizations": [],
+    "authorizations": [
+      {
+        "applicationId": "dba650ed-9577-4bc0-9b5f-ef73e2d5bdfc",
+        "roleDefinitionId": "09b4df5b-7d96-4f1a-98c9-315718a70c92"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Dynatrace.Observability",
     "namespace": "Dynatrace.Observability",
     "providerAuthorizationConsentState": null,
@@ -68674,36 +68679,6 @@
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-06-01-preview"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2"
-        ],
-        "properties": null,
-        "resourceType": "monitors"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2"
-        ],
-        "properties": null,
-        "resourceType": "monitors/tagRules"
       }
     ]
   },
@@ -70764,6 +70739,24 @@
         "locations": [],
         "properties": null,
         "resourceType": "checkAccess"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": [
+          {
+            "apiVersion": "2018-09-01-preview",
+            "profileVersion": "2018-06-01-profile"
+          }
+        ],
+        "apiVersions": [
+          "2018-09-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "batchResourceCheckAccess"
       },
       {
         "aliases": null,
@@ -74870,6 +74863,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-beta",
+          "2021-07-01",
           "2020-10-01-preview",
           "2020-10-01-beta",
           "2020-06-01-beta",
@@ -74933,6 +74928,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-beta",
+          "2021-07-01",
           "2021-03-01-privatepreview",
           "2021-03-01-beta",
           "2020-10-01-preview",
@@ -75039,6 +75036,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-beta",
+          "2021-07-01",
           "2020-10-01-preview",
           "2020-10-01-beta",
           "2019-04-01-beta",
@@ -75057,6 +75056,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-07-01-beta",
+          "2021-07-01",
           "2020-10-01-preview",
           "2020-10-01-beta",
           "2020-06-01-beta",
