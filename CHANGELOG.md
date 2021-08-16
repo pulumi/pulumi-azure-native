@@ -3,6 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Bug Fixes
+
+- Remove validation of properties with type `any`
+  [#1058](https://github.com/pulumi/pulumi-azure-native/issues/1058).
+
 #### Breaking Changes published by Microsoft:
 
 - All hierchicalQueue-related fields removed from `datalakeanalytics.Account`

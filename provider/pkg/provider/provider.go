@@ -526,6 +526,10 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 		return failures
 	}
 
+	if prop.Ref == resources.TypeAny {
+		return failures
+	}
+
 	switch value := value.(type) {
 	case resource.Computed:
 		// Skip an unresolved value.
