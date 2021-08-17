@@ -1251,24 +1251,26 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 	// Future+WaitForCompletion+GetResult steps in that case. However, if we get 202, we don't want to
 	// consider this a failure - so try following the awaiting protocol in case the service hasn't marked
 	// its API as long-running by an oversight.
+	created := false
 	if asyncStyle != "" || resp.StatusCode == http.StatusAccepted {
 		// We have now created a resource. It is very important to ensure that from this point on,
 		// any other error below returns the ID using the `pulumirpc.ErrorResourceInitFailed` error
 		// details annotation. Otherwise, the resource is leaked. We ensure that we wrap any await
 		// errors as a partial error to the RPC.
+		created = resp.StatusCode < 400
 
 		// Ignore the style value for now, let go-autorest handle the headers.
 		future, err := azure.NewFutureFromResponse(resp)
 		if err != nil {
-			return nil, true, err
+			return nil, created, err
 		}
 		err = future.WaitForCompletionRef(ctx, k.client)
 		if err != nil {
-			return nil, true, err
+			return nil, created, err
 		}
 		resp, err = future.GetResult(k.client)
 		if err != nil {
-			return nil, true, err
+			return nil, created, err
 		}
 	}
 
@@ -1280,7 +1282,7 @@ func (k *azureNativeProvider) azureCreateOrUpdate(
 		autorest.ByUnmarshallingJSON(&outputs),
 		autorest.ByClosing())
 	if err != nil {
-		return nil, true, err
+		return nil, created, err
 	}
 	return outputs, true, nil
 }

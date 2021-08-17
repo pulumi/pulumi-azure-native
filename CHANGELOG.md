@@ -8,6 +8,9 @@ CHANGELOG
 - Remove validation of properties with type `any`
   [#1058](https://github.com/pulumi/pulumi-azure-native/issues/1058).
 
+- Better support for initialization failures by checkpointing partially created resources to state
+  [#938](https://github.com/pulumi/pulumi-azure-native/issues/938)
+
 #### Breaking Changes published by Microsoft:
 
 - All hierchicalQueue-related fields removed from `datalakeanalytics.Account`
