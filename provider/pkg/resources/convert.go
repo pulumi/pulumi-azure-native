@@ -236,10 +236,24 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter,
 		if param.Location == body {
 			for key, value := range k.BodyPropertiesToSDK(param.Body.Properties, response) {
 				switch reflect.TypeOf(value).Kind() {
-				case reflect.Map, reflect.Slice, reflect.Array:
+				case reflect.Slice, reflect.Array:
 					collection := reflect.ValueOf(value)
 					if collection.Len() > 0 {
 						return false
+					}
+				case reflect.Map:
+					iter := reflect.ValueOf(value).MapRange()
+					for iter.Next() {
+						mk := iter.Key().String()
+						mv := iter.Value().Interface()
+						defaultMap, ok := defaultBody[key].(map[string]interface{})
+						if !ok {
+							return false
+						}
+						defaultValue, has := defaultMap[mk]
+						if !has || defaultValue != mv {
+							return false
+						}
 					}
 				case reflect.Bool:
 					b := value.(bool)
