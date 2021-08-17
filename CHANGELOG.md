@@ -25,9 +25,6 @@ CHANGELOG
 - Fixes in SKU schema of providerhub resources
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15608))
 
-- Fixes in SKU schema of providerhub resources
-  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15608))
-
 ## 1.21.0 (2021-08-12)
 
 #### New functions
@@ -65,8 +62,6 @@ CHANGELOG
 
 #### Breaking Changes published by Microsoft:
 
-- `datafactory` adjusted the type of `additionalColumns` and `compressionType` properties
-  ([source](https://github.com/Azure/azure-rest-api-specs/pull/15264))
 - `datafactory` adjusted the type of `additionalColumns` and `compressionType` properties
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15264))
 - Version `2020-08-06-preview` of the `security` module is deprecated, all resource removed
