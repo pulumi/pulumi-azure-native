@@ -117,7 +117,7 @@ var resourceMap = &AzureAPIMetadata{
 							"tags":         {},
 							"untypedArray": {},
 							"untypedDict": {
-								Ref: "pulumi.json#/Any",
+								Ref: TypeAny,
 							},
 						},
 					},
@@ -165,7 +165,7 @@ var resourceMap = &AzureAPIMetadata{
 				"tags":         {},
 				"untypedArray": {},
 				"untypedDict": {
-					Ref: "pulumi.json#/Any",
+					Ref: TypeAny,
 				},
 				"readOnly": {},
 			},

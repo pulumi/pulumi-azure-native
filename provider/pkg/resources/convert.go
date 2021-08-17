@@ -13,6 +13,8 @@ import (
 
 const body = "body"
 
+const TypeAny = "pulumi.json#/Any"
+
 // SdkShapeConverter providers functions to convert between HTTP request/response shapes and
 // Pulumi SDK shapes (with flattening, renaming, etc.).
 type SdkShapeConverter struct {

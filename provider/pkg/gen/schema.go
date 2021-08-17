@@ -1392,7 +1392,7 @@ func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values
 // API property definition of that element type. It only converts the relevant subset of properties,
 // and does so recursively.
 func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *resources.AzureAPIProperty {
-	if typ == nil || typ.Ref == "pulumi.json#/Any" {
+	if typ == nil || typ.Ref == resources.TypeAny {
 		return nil
 	}
 
@@ -1609,7 +1609,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		// Use a generic 'object' value type for a dictionary with empty value type.
 		if additionalProperties == nil {
 			additionalProperties = &pschema.TypeSpec{
-				Ref: "pulumi.json#/Any",
+				Ref: resources.TypeAny,
 			}
 		}
 
@@ -1623,7 +1623,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		// > A schema without a type matches any data type – numbers, strings, objects, and so on.
 		// Azure uses a 'naked' object type for the same purpose: to specify 'any' type.
 		return &pschema.TypeSpec{
-			Ref: "pulumi.json#/Any",
+			Ref: resources.TypeAny,
 		}, nil
 
 	default:
