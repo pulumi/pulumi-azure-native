@@ -24,6 +24,7 @@ func TestResourceName(t *testing.T) {
 		"SaasResource-listAccessToken":            "SaasResourceAccessToken",
 		"WebApps_ListApplicationSettings":         "WebAppApplicationSettings",
 		"Products_GetProducts":                    "Products",
+		"PowerBIResources_ListByResourceName":     "PowerBIResource",
 	}
 	for operationID, expected := range testCases {
 		actual := ResourceName(operationID)

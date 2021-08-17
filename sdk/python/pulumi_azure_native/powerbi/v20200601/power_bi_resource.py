@@ -11,10 +11,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PowerBIResourceByResourceNameArgs', 'PowerBIResourceByResourceName']
+__all__ = ['PowerBIResourceArgs', 'PowerBIResource']
 
 @pulumi.input_type
-class PowerBIResourceByResourceNameArgs:
+class PowerBIResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  azure_resource_name: Optional[pulumi.Input[str]] = None,
@@ -23,7 +23,7 @@ class PowerBIResourceByResourceNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        The set of arguments for constructing a PowerBIResourceByResourceName resource.
+        The set of arguments for constructing a PowerBIResource resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] azure_resource_name: The name of the Azure resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
@@ -116,7 +116,7 @@ class PowerBIResourceByResourceNameArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-class PowerBIResourceByResourceName(pulumi.CustomResource):
+class PowerBIResource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -129,7 +129,7 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PowerBIResourceByResourceName resource with the given unique name, props, and options.
+        Create a PowerBIResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_resource_name: The name of the Azure resource.
@@ -143,17 +143,17 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PowerBIResourceByResourceNameArgs,
+                 args: PowerBIResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PowerBIResourceByResourceName resource with the given unique name, props, and options.
+        Create a PowerBIResource resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param PowerBIResourceByResourceNameArgs args: The arguments to use to populate this resource's properties.
+        :param PowerBIResourceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PowerBIResourceByResourceNameArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PowerBIResourceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -178,7 +178,7 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PowerBIResourceByResourceNameArgs.__new__(PowerBIResourceByResourceNameArgs)
+            __props__ = PowerBIResourceArgs.__new__(PowerBIResourceArgs)
 
             __props__.__dict__["azure_resource_name"] = azure_resource_name
             __props__.__dict__["location"] = location
@@ -191,10 +191,10 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbi/v20200601:PowerBIResourceByResourceName"), pulumi.Alias(type_="azure-native:powerbi:PowerBIResourceByResourceName"), pulumi.Alias(type_="azure-nextgen:powerbi:PowerBIResourceByResourceName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbi/v20200601:PowerBIResource"), pulumi.Alias(type_="azure-native:powerbi:PowerBIResource"), pulumi.Alias(type_="azure-nextgen:powerbi:PowerBIResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(PowerBIResourceByResourceName, __self__).__init__(
-            'azure-native:powerbi/v20200601:PowerBIResourceByResourceName',
+        super(PowerBIResource, __self__).__init__(
+            'azure-native:powerbi/v20200601:PowerBIResource',
             resource_name,
             __props__,
             opts)
@@ -202,9 +202,9 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'PowerBIResourceByResourceName':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'PowerBIResource':
         """
-        Get an existing PowerBIResourceByResourceName resource's state with the given name, id, and optional extra
+        Get an existing PowerBIResource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -213,7 +213,7 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = PowerBIResourceByResourceNameArgs.__new__(PowerBIResourceByResourceNameArgs)
+        __props__ = PowerBIResourceArgs.__new__(PowerBIResourceArgs)
 
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -222,7 +222,7 @@ class PowerBIResourceByResourceName(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
-        return PowerBIResourceByResourceName(resource_name, opts=opts, __props__=__props__)
+        return PowerBIResource(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter

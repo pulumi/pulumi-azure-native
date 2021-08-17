@@ -6,22 +6,22 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getPrivateEndpointConnection";
-export * from "./powerBIResourceByResourceName";
+export * from "./powerBIResource";
 export * from "./privateEndpointConnection";
 
 // Export enums:
 export * from "../../types/enums/powerbi/v20200601";
 
 // Import resources to register:
-import { PowerBIResourceByResourceName } from "./powerBIResourceByResourceName";
+import { PowerBIResource } from "./powerBIResource";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:powerbi/v20200601:PowerBIResourceByResourceName":
-                return new PowerBIResourceByResourceName(name, <any>undefined, { urn })
+            case "azure-native:powerbi/v20200601:PowerBIResource":
+                return new PowerBIResource(name, <any>undefined, { urn })
             case "azure-native:powerbi/v20200601:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

@@ -7,13 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.PowerBI
+namespace Pulumi.AzureNative.PowerBI.V20200601
 {
-    /// <summary>
-    /// API Version: 2020-06-01.
-    /// </summary>
-    [AzureNativeResourceType("azure-native:powerbi:PowerBIResourceByResourceName")]
-    public partial class PowerBIResourceByResourceName : Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:powerbi/v20200601:PowerBIResource")]
+    public partial class PowerBIResource : Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the location of the resource.
@@ -59,19 +56,19 @@ namespace Pulumi.AzureNative.PowerBI
 
 
         /// <summary>
-        /// Create a PowerBIResourceByResourceName resource with the given unique name, arguments, and options.
+        /// Create a PowerBIResource resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PowerBIResourceByResourceName(string name, PowerBIResourceByResourceNameArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:powerbi:PowerBIResourceByResourceName", name, args ?? new PowerBIResourceByResourceNameArgs(), MakeResourceOptions(options, ""))
+        public PowerBIResource(string name, PowerBIResourceArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:powerbi/v20200601:PowerBIResource", name, args ?? new PowerBIResourceArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private PowerBIResourceByResourceName(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:powerbi:PowerBIResourceByResourceName", name, null, MakeResourceOptions(options, id))
+        private PowerBIResource(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:powerbi/v20200601:PowerBIResource", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -82,9 +79,9 @@ namespace Pulumi.AzureNative.PowerBI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi:PowerBIResourceByResourceName"},
-                    new Pulumi.Alias { Type = "azure-native:powerbi/v20200601:PowerBIResourceByResourceName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20200601:PowerBIResourceByResourceName"},
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20200601:PowerBIResource"},
+                    new Pulumi.Alias { Type = "azure-native:powerbi:PowerBIResource"},
+                    new Pulumi.Alias { Type = "azure-nextgen:powerbi:PowerBIResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -93,20 +90,20 @@ namespace Pulumi.AzureNative.PowerBI
             return merged;
         }
         /// <summary>
-        /// Get an existing PowerBIResourceByResourceName resource's state with the given name, ID, and optional extra
+        /// Get an existing PowerBIResource resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static PowerBIResourceByResourceName Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static PowerBIResource Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new PowerBIResourceByResourceName(name, id, options);
+            return new PowerBIResource(name, id, options);
         }
     }
 
-    public sealed class PowerBIResourceByResourceNameArgs : Pulumi.ResourceArgs
+    public sealed class PowerBIResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure resource.
@@ -156,7 +153,7 @@ namespace Pulumi.AzureNative.PowerBI
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
-        public PowerBIResourceByResourceNameArgs()
+        public PowerBIResourceArgs()
         {
         }
     }

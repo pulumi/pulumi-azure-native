@@ -2,37 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
-import * as utilities from "../utilities";
+import { input as inputs, output as outputs, enums } from "../../types";
+import * as utilities from "../../utilities";
 
-/**
- * API Version: 2020-06-01.
- */
-export class PowerBIResourceByResourceName extends pulumi.CustomResource {
+export class PowerBIResource extends pulumi.CustomResource {
     /**
-     * Get an existing PowerBIResourceByResourceName resource's state with the given name, ID, and optional extra
+     * Get an existing PowerBIResource resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PowerBIResourceByResourceName {
-        return new PowerBIResourceByResourceName(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PowerBIResource {
+        return new PowerBIResource(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:powerbi:PowerBIResourceByResourceName';
+    public static readonly __pulumiType = 'azure-native:powerbi/v20200601:PowerBIResource';
 
     /**
-     * Returns true if the given object is an instance of PowerBIResourceByResourceName.  This is designed to work even
+     * Returns true if the given object is an instance of PowerBIResource.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is PowerBIResourceByResourceName {
+    public static isInstance(obj: any): obj is PowerBIResource {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === PowerBIResourceByResourceName.__pulumiType;
+        return obj['__pulumiType'] === PowerBIResource.__pulumiType;
     }
 
     /**
@@ -46,11 +43,11 @@ export class PowerBIResourceByResourceName extends pulumi.CustomResource {
     /**
      * Specifies the private endpoint connections of the resource.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.powerbi.PrivateEndpointConnectionResponse[] | undefined>;
+    public readonly privateEndpointConnections!: pulumi.Output<outputs.powerbi.v20200601.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * The system metadata relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbi.SystemDataResponse>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbi.v20200601.SystemDataResponse>;
     /**
      * Specifies the tags of the resource.
      */
@@ -65,13 +62,13 @@ export class PowerBIResourceByResourceName extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a PowerBIResourceByResourceName resource with the given unique name, arguments, and options.
+     * Create a PowerBIResource resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PowerBIResourceByResourceNameArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PowerBIResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -99,16 +96,16 @@ export class PowerBIResourceByResourceName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi:PowerBIResourceByResourceName" }, { type: "azure-native:powerbi/v20200601:PowerBIResourceByResourceName" }, { type: "azure-nextgen:powerbi/v20200601:PowerBIResourceByResourceName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi/v20200601:PowerBIResource" }, { type: "azure-native:powerbi:PowerBIResource" }, { type: "azure-nextgen:powerbi:PowerBIResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PowerBIResourceByResourceName.__pulumiType, name, inputs, opts);
+        super(PowerBIResource.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a PowerBIResourceByResourceName resource.
+ * The set of arguments for constructing a PowerBIResource resource.
  */
-export interface PowerBIResourceByResourceNameArgs {
+export interface PowerBIResourceArgs {
     /**
      * The name of the Azure resource.
      */
@@ -120,7 +117,7 @@ export interface PowerBIResourceByResourceNameArgs {
     /**
      * Specifies the private endpoint connections of the resource.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.powerbi.PrivateEndpointConnectionArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.powerbi.v20200601.PrivateEndpointConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */

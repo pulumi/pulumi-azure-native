@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 export * from "./getPrivateEndpointConnection";
 export * from "./getWorkspaceCollection";
 export * from "./listWorkspaceCollectionAccessKeys";
-export * from "./powerBIResourceByResourceName";
+export * from "./powerBIResource";
 export * from "./privateEndpointConnection";
 export * from "./workspaceCollection";
 
@@ -25,7 +25,7 @@ export {
 };
 
 // Import resources to register:
-import { PowerBIResourceByResourceName } from "./powerBIResourceByResourceName";
+import { PowerBIResource } from "./powerBIResource";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { WorkspaceCollection } from "./workspaceCollection";
 
@@ -33,8 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:powerbi:PowerBIResourceByResourceName":
-                return new PowerBIResourceByResourceName(name, <any>undefined, { urn })
+            case "azure-native:powerbi:PowerBIResource":
+                return new PowerBIResource(name, <any>undefined, { urn })
             case "azure-native:powerbi:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:powerbi:WorkspaceCollection":

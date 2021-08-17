@@ -11958,7 +11958,7 @@ _utilities.register(
   "mod": "powerbi",
   "fqn": "pulumi_azure_native.powerbi",
   "classes": {
-   "azure-native:powerbi:PowerBIResourceByResourceName": "PowerBIResourceByResourceName",
+   "azure-native:powerbi:PowerBIResource": "PowerBIResource",
    "azure-native:powerbi:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:powerbi:WorkspaceCollection": "WorkspaceCollection"
   }
@@ -11976,7 +11976,7 @@ _utilities.register(
   "mod": "powerbi/v20200601",
   "fqn": "pulumi_azure_native.powerbi.v20200601",
   "classes": {
-   "azure-native:powerbi/v20200601:PowerBIResourceByResourceName": "PowerBIResourceByResourceName",
+   "azure-native:powerbi/v20200601:PowerBIResource": "PowerBIResource",
    "azure-native:powerbi/v20200601:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },

@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:powerbi/v20200601:PowerBIResourceByResourceName":
-		r = &PowerBIResourceByResourceName{}
+	case "azure-native:powerbi/v20200601:PowerBIResource":
+		r = &PowerBIResource{}
 	case "azure-native:powerbi/v20200601:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	default:

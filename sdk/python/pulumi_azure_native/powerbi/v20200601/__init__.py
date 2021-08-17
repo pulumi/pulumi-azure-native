@@ -7,7 +7,7 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_private_endpoint_connection import *
-from .power_bi_resource_by_resource_name import *
+from .power_bi_resource import *
 from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
