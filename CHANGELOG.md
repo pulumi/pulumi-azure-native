@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.22.0 (2021-08-17)
+
 #### Bug Fixes
 
 - Remove validation of properties with type `any`
@@ -21,8 +27,6 @@ CHANGELOG
 
 - Fixes in SKU schema of providerhub resources
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/15608))
-
----
 
 ## 1.21.0 (2021-08-12)
 
