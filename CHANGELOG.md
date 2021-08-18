@@ -12,6 +12,11 @@ CHANGELOG
 
 - `powerbi.getPrivateEndpointConnection`
 
+#### Bug Fixes
+
+- Fix `sql.ServerVulnerabilityAssessment` existence check
+  [#1050](https://github.com/pulumi/pulumi-azure-native/issues/1050).
+
 ---
 
 ## 1.22.0 (2021-08-17)
