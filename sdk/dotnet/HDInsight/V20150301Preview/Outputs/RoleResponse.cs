@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a role on the cluster.
+    /// </summary>
     [OutputType]
     public sealed class RoleResponse
     {

@@ -178,81 +178,9 @@ func GetHostPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostPool resources.
 type hostPoolState struct {
-	// List of applicationGroup links.
-	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
-	// Custom rdp property of HostPool.
-	CustomRdpProperty *string `pulumi:"customRdpProperty"`
-	// Description of HostPool.
-	Description *string `pulumi:"description"`
-	// Friendly name of HostPool.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// HostPool type for desktop.
-	HostPoolType *string `pulumi:"hostPoolType"`
-	// The type of the load balancer.
-	LoadBalancerType *string `pulumi:"loadBalancerType"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The max session limit of HostPool.
-	MaxSessionLimit *int `pulumi:"maxSessionLimit"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// PersonalDesktopAssignment type for HostPool.
-	PersonalDesktopAssignmentType *string `pulumi:"personalDesktopAssignmentType"`
-	// The type of preferred application group type, default to Desktop Application Group
-	PreferredAppGroupType *string `pulumi:"preferredAppGroupType"`
-	// The registration info of HostPool.
-	RegistrationInfo *RegistrationInfoResponse `pulumi:"registrationInfo"`
-	// The ring number of HostPool.
-	Ring *int `pulumi:"ring"`
-	// Path to keyvault containing ssoContext secret.
-	SsoContext *string `pulumi:"ssoContext"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Is validation environment.
-	ValidationEnvironment *bool `pulumi:"validationEnvironment"`
-	// VM template for sessionhosts configuration within hostpool.
-	VmTemplate *string `pulumi:"vmTemplate"`
 }
 
 type HostPoolState struct {
-	// List of applicationGroup links.
-	ApplicationGroupReferences pulumi.StringArrayInput
-	// Custom rdp property of HostPool.
-	CustomRdpProperty pulumi.StringPtrInput
-	// Description of HostPool.
-	Description pulumi.StringPtrInput
-	// Friendly name of HostPool.
-	FriendlyName pulumi.StringPtrInput
-	// HostPool type for desktop.
-	HostPoolType pulumi.StringPtrInput
-	// The type of the load balancer.
-	LoadBalancerType pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The max session limit of HostPool.
-	MaxSessionLimit pulumi.IntPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// PersonalDesktopAssignment type for HostPool.
-	PersonalDesktopAssignmentType pulumi.StringPtrInput
-	// The type of preferred application group type, default to Desktop Application Group
-	PreferredAppGroupType pulumi.StringPtrInput
-	// The registration info of HostPool.
-	RegistrationInfo RegistrationInfoResponsePtrInput
-	// The ring number of HostPool.
-	Ring pulumi.IntPtrInput
-	// Path to keyvault containing ssoContext secret.
-	SsoContext pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Is validation environment.
-	ValidationEnvironment pulumi.BoolPtrInput
-	// VM template for sessionhosts configuration within hostpool.
-	VmTemplate pulumi.StringPtrInput
 }
 
 func (HostPoolState) ElementType() reflect.Type {
@@ -357,9 +285,7 @@ func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolOutput)
 }
 
-type HostPoolOutput struct {
-	*pulumi.OutputState
-}
+type HostPoolOutput struct{ *pulumi.OutputState }
 
 func (HostPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostPool)(nil))

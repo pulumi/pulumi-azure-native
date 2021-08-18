@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Migration Validation Result
+    /// </summary>
     [OutputType]
     public sealed class MigrationValidationResultResponse
     {

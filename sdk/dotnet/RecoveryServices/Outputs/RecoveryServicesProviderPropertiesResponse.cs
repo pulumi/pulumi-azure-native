@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Recovery services provider properties.
+    /// </summary>
     [OutputType]
     public sealed class RecoveryServicesProviderPropertiesResponse
     {

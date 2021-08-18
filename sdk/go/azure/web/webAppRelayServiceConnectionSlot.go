@@ -147,35 +147,9 @@ func GetWebAppRelayServiceConnectionSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppRelayServiceConnectionSlot resources.
 type webAppRelayServiceConnectionSlotState struct {
-	BiztalkUri             *string `pulumi:"biztalkUri"`
-	EntityConnectionString *string `pulumi:"entityConnectionString"`
-	EntityName             *string `pulumi:"entityName"`
-	Hostname               *string `pulumi:"hostname"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name                     *string `pulumi:"name"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	ResourceType             *string `pulumi:"resourceType"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppRelayServiceConnectionSlotState struct {
-	BiztalkUri             pulumi.StringPtrInput
-	EntityConnectionString pulumi.StringPtrInput
-	EntityName             pulumi.StringPtrInput
-	Hostname               pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name                     pulumi.StringPtrInput
-	Port                     pulumi.IntPtrInput
-	ResourceConnectionString pulumi.StringPtrInput
-	ResourceType             pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppRelayServiceConnectionSlotState) ElementType() reflect.Type {
@@ -242,9 +216,7 @@ func (i *WebAppRelayServiceConnectionSlot) ToWebAppRelayServiceConnectionSlotOut
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppRelayServiceConnectionSlotOutput)
 }
 
-type WebAppRelayServiceConnectionSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppRelayServiceConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppRelayServiceConnectionSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppRelayServiceConnectionSlot)(nil))

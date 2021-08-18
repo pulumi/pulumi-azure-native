@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Backup Vault
+    /// </summary>
     [OutputType]
     public sealed class BackupVaultResponse
     {

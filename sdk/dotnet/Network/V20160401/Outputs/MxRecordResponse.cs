@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160401.Outputs
 {
 
+    /// <summary>
+    /// An MX record.
+    /// </summary>
     [OutputType]
     public sealed class MxRecordResponse
     {

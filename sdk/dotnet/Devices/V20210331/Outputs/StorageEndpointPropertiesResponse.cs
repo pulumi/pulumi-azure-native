@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20210331.Outputs
 {
 
+    /// <summary>
+    /// The properties of the Azure Storage endpoint for file upload.
+    /// </summary>
     [OutputType]
     public sealed class StorageEndpointPropertiesResponse
     {

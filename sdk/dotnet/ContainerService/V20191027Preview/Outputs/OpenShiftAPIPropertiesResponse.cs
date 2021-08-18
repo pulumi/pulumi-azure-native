@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines further properties on the API.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftAPIPropertiesResponse
     {

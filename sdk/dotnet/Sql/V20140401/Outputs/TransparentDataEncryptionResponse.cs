@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20140401.Outputs
 {
 
+    /// <summary>
+    /// Represents a database transparent data encryption configuration.
+    /// </summary>
     [OutputType]
     public sealed class TransparentDataEncryptionResponse
     {

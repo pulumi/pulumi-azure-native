@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20191001.Outputs
 {
 
+    /// <summary>
+    /// Access profile for managed cluster API server.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterAPIServerAccessProfileResponse
     {

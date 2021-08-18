@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity MongoDB sink.
+    /// </summary>
     [OutputType]
     public sealed class MongoDbV2SinkResponse
     {

@@ -18,10 +18,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.machinelearning.v20160401 as v20160401
-    import pulumi_azure_native.machinelearning.v20160501preview as v20160501preview
-    import pulumi_azure_native.machinelearning.v20170101 as v20170101
-    import pulumi_azure_native.machinelearning.v20191001 as v20191001
+    import pulumi_azure_native.machinelearning.v20160401 as __v20160401
+    v20160401 = __v20160401
+    import pulumi_azure_native.machinelearning.v20160501preview as __v20160501preview
+    v20160501preview = __v20160501preview
+    import pulumi_azure_native.machinelearning.v20170101 as __v20170101
+    v20170101 = __v20170101
+    import pulumi_azure_native.machinelearning.v20191001 as __v20191001
+    v20191001 = __v20191001
 else:
     v20160401 = _utilities.lazy_import('pulumi_azure_native.machinelearning.v20160401')
     v20160501preview = _utilities.lazy_import('pulumi_azure_native.machinelearning.v20160501preview')

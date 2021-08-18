@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
+    /// </summary>
     [OutputType]
     public sealed class LiveEventTranscriptionResponse
     {

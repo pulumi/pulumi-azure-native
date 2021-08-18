@@ -110,7 +110,7 @@ func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponsePt
 }
 
 func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponsePtrOutputWithContext(ctx context.Context) ConnectivityCollectionResponsePtrOutput {
-	return o.ApplyT(func(v ConnectivityCollectionResponse) *ConnectivityCollectionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectivityCollectionResponse) *ConnectivityCollectionResponse {
 		return &v
 	}).(ConnectivityCollectionResponsePtrOutput)
 }
@@ -140,7 +140,13 @@ func (o ConnectivityCollectionResponsePtrOutput) ToConnectivityCollectionRespons
 }
 
 func (o ConnectivityCollectionResponsePtrOutput) Elem() ConnectivityCollectionResponseOutput {
-	return o.ApplyT(func(v *ConnectivityCollectionResponse) ConnectivityCollectionResponse { return *v }).(ConnectivityCollectionResponseOutput)
+	return o.ApplyT(func(v *ConnectivityCollectionResponse) ConnectivityCollectionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectivityCollectionResponse
+		return ret
+	}).(ConnectivityCollectionResponseOutput)
 }
 
 // The collection of connectivity related Managed Network Groups within the Managed Network
@@ -461,7 +467,7 @@ func (o ManagedNetworkPeeringPolicyPropertiesOutput) ToManagedNetworkPeeringPoli
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesOutput) ToManagedNetworkPeeringPolicyPropertiesPtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedNetworkPeeringPolicyProperties) *ManagedNetworkPeeringPolicyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedNetworkPeeringPolicyProperties) *ManagedNetworkPeeringPolicyProperties {
 		return &v
 	}).(ManagedNetworkPeeringPolicyPropertiesPtrOutput)
 }
@@ -501,7 +507,13 @@ func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) ToManagedNetworkPeeringP
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesPtrOutput) Elem() ManagedNetworkPeeringPolicyPropertiesOutput {
-	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) ManagedNetworkPeeringPolicyProperties { return *v }).(ManagedNetworkPeeringPolicyPropertiesOutput)
+	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyProperties) ManagedNetworkPeeringPolicyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedNetworkPeeringPolicyProperties
+		return ret
+	}).(ManagedNetworkPeeringPolicyPropertiesOutput)
 }
 
 // Gets or sets the hub virtual network ID
@@ -660,7 +672,7 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPee
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagedNetworkPeeringPolicyPropertiesResponse) *ManagedNetworkPeeringPolicyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedNetworkPeeringPolicyPropertiesResponse) *ManagedNetworkPeeringPolicyPropertiesResponse {
 		return &v
 	}).(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput)
 }
@@ -711,7 +723,11 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) ToManagedNetwork
 
 func (o ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput) Elem() ManagedNetworkPeeringPolicyPropertiesResponseOutput {
 	return o.ApplyT(func(v *ManagedNetworkPeeringPolicyPropertiesResponse) ManagedNetworkPeeringPolicyPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedNetworkPeeringPolicyPropertiesResponse
+		return ret
 	}).(ManagedNetworkPeeringPolicyPropertiesResponseOutput)
 }
 
@@ -1034,7 +1050,7 @@ func (o ResourceIdOutput) ToResourceIdPtrOutput() ResourceIdPtrOutput {
 }
 
 func (o ResourceIdOutput) ToResourceIdPtrOutputWithContext(ctx context.Context) ResourceIdPtrOutput {
-	return o.ApplyT(func(v ResourceId) *ResourceId {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceId) *ResourceId {
 		return &v
 	}).(ResourceIdPtrOutput)
 }
@@ -1059,7 +1075,13 @@ func (o ResourceIdPtrOutput) ToResourceIdPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ResourceIdPtrOutput) Elem() ResourceIdOutput {
-	return o.ApplyT(func(v *ResourceId) ResourceId { return *v }).(ResourceIdOutput)
+	return o.ApplyT(func(v *ResourceId) ResourceId {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceId
+		return ret
+	}).(ResourceIdOutput)
 }
 
 // Resource Id
@@ -1213,7 +1235,7 @@ func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResp
 }
 
 func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdResponse) *ResourceIdResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
 		return &v
 	}).(ResourceIdResponsePtrOutput)
 }
@@ -1238,7 +1260,13 @@ func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ct
 }
 
 func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
-	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse { return *v }).(ResourceIdResponseOutput)
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdResponse
+		return ret
+	}).(ResourceIdResponseOutput)
 }
 
 // Resource Id
@@ -1379,7 +1407,7 @@ func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
 }
 
 func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
-	return o.ApplyT(func(v Scope) *Scope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Scope) *Scope {
 		return &v
 	}).(ScopePtrOutput)
 }
@@ -1419,7 +1447,13 @@ func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePt
 }
 
 func (o ScopePtrOutput) Elem() ScopeOutput {
-	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
+	return o.ApplyT(func(v *Scope) Scope {
+		if v != nil {
+			return *v
+		}
+		var ret Scope
+		return ret
+	}).(ScopeOutput)
 }
 
 // The collection of management groups covered by the Managed Network
@@ -1570,7 +1604,7 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
 }
 
 func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
 		return &v
 	}).(ScopeResponsePtrOutput)
 }
@@ -1610,7 +1644,13 @@ func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
-	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeResponse
+		return ret
+	}).(ScopeResponseOutput)
 }
 
 // The collection of management groups covered by the Managed Network

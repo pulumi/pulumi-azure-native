@@ -154,57 +154,9 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData *CreationDataResponse `pulumi:"creationData"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption settings for disk or snapshot
-	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-	// The disk provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku *SnapshotSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The time when the disk was created.
-	TimeCreated *string `pulumi:"timeCreated"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SnapshotState struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataResponsePtrInput
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput
-	// Encryption settings for disk or snapshot
-	EncryptionSettings EncryptionSettingsResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Unused. Always Null.
-	ManagedBy pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The Operating System type.
-	OsType pulumi.StringPtrInput
-	// The disk provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku SnapshotSkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The time when the disk was created.
-	TimeCreated pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -221,7 +173,7 @@ type snapshotArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The Operating System type.
-	OsType *string `pulumi:"osType"`
+	OsType *OperatingSystemTypes `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -243,7 +195,7 @@ type SnapshotArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The Operating System type.
-	OsType *OperatingSystemTypes
+	OsType OperatingSystemTypesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -277,9 +229,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

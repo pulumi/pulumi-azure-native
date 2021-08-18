@@ -97,63 +97,9 @@ func GetAFDOrigin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AFDOrigin resources.
 type afdoriginState struct {
-	// Resource reference to the Azure origin resource.
-	AzureOrigin      *ResourceReferenceResponse `pulumi:"azureOrigin"`
-	DeploymentStatus *string                    `pulumi:"deploymentStatus"`
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState *string `pulumi:"enabledState"`
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-	HostName *string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
-	OriginHostHeader *string `pulumi:"originHostHeader"`
-	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-	Priority *int `pulumi:"priority"`
-	// Provisioning status
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource []SharedPrivateLinkResourcePropertiesResponse `pulumi:"sharedPrivateLinkResource"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-	Weight *int `pulumi:"weight"`
 }
 
 type AFDOriginState struct {
-	// Resource reference to the Azure origin resource.
-	AzureOrigin      ResourceReferenceResponsePtrInput
-	DeploymentStatus pulumi.StringPtrInput
-	// Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-	EnabledState pulumi.StringPtrInput
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-	HostName pulumi.StringPtrInput
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
-	OriginHostHeader pulumi.StringPtrInput
-	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-	Priority pulumi.IntPtrInput
-	// Provisioning status
-	ProvisioningState pulumi.StringPtrInput
-	// The properties of the private link resource for private origin.
-	SharedPrivateLinkResource SharedPrivateLinkResourcePropertiesResponseArrayInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-	Weight pulumi.IntPtrInput
 }
 
 func (AFDOriginState) ElementType() reflect.Type {
@@ -242,9 +188,7 @@ func (i *AFDOrigin) ToAFDOriginOutputWithContext(ctx context.Context) AFDOriginO
 	return pulumi.ToOutputWithContext(ctx, i).(AFDOriginOutput)
 }
 
-type AFDOriginOutput struct {
-	*pulumi.OutputState
-}
+type AFDOriginOutput struct{ *pulumi.OutputState }
 
 func (AFDOriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AFDOrigin)(nil))

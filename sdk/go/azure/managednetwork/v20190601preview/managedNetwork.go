@@ -77,41 +77,9 @@ func GetManagedNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedNetwork resources.
 type managedNetworkState struct {
-	// The collection of groups and policies concerned with connectivity
-	Connectivity *ConnectivityCollectionResponse `pulumi:"connectivity"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
-	Scope *ScopeResponse `pulumi:"scope"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedNetworkState struct {
-	// The collection of groups and policies concerned with connectivity
-	Connectivity ConnectivityCollectionResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the ManagedNetwork resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
-	Scope ScopeResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedNetworkState) ElementType() reflect.Type {
@@ -168,9 +136,7 @@ func (i *ManagedNetwork) ToManagedNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkOutput)
 }
 
-type ManagedNetworkOutput struct {
-	*pulumi.OutputState
-}
+type ManagedNetworkOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedNetwork)(nil))

@@ -76,31 +76,9 @@ func GetSecurityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityPolicy resources.
 type securityPolicyState struct {
-	DeploymentStatus *string `pulumi:"deploymentStatus"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// object which contains security policy parameters
-	Parameters *SecurityPolicyWebApplicationFirewallParametersResponse `pulumi:"parameters"`
-	// Provisioning status
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SecurityPolicyState struct {
-	DeploymentStatus pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// object which contains security policy parameters
-	Parameters SecurityPolicyWebApplicationFirewallParametersResponsePtrInput
-	// Provisioning status
-	ProvisioningState pulumi.StringPtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SecurityPolicyState) ElementType() reflect.Type {
@@ -153,9 +131,7 @@ func (i *SecurityPolicy) ToSecurityPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyOutput)
 }
 
-type SecurityPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecurityPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityPolicy)(nil))

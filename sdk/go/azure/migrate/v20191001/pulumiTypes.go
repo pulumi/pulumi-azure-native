@@ -166,7 +166,7 @@ func (o AssessmentPropertiesOutput) ToAssessmentPropertiesPtrOutput() Assessment
 }
 
 func (o AssessmentPropertiesOutput) ToAssessmentPropertiesPtrOutputWithContext(ctx context.Context) AssessmentPropertiesPtrOutput {
-	return o.ApplyT(func(v AssessmentProperties) *AssessmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentProperties) *AssessmentProperties {
 		return &v
 	}).(AssessmentPropertiesPtrOutput)
 }
@@ -266,7 +266,13 @@ func (o AssessmentPropertiesPtrOutput) ToAssessmentPropertiesPtrOutputWithContex
 }
 
 func (o AssessmentPropertiesPtrOutput) Elem() AssessmentPropertiesOutput {
-	return o.ApplyT(func(v *AssessmentProperties) AssessmentProperties { return *v }).(AssessmentPropertiesOutput)
+	return o.ApplyT(func(v *AssessmentProperties) AssessmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentProperties
+		return ret
+	}).(AssessmentPropertiesOutput)
 }
 
 // Storage type selected for this disk.
@@ -641,7 +647,7 @@ func (o AssessmentPropertiesResponseOutput) ToAssessmentPropertiesResponsePtrOut
 }
 
 func (o AssessmentPropertiesResponseOutput) ToAssessmentPropertiesResponsePtrOutputWithContext(ctx context.Context) AssessmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AssessmentPropertiesResponse) *AssessmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentPropertiesResponse) *AssessmentPropertiesResponse {
 		return &v
 	}).(AssessmentPropertiesResponsePtrOutput)
 }
@@ -811,7 +817,13 @@ func (o AssessmentPropertiesResponsePtrOutput) ToAssessmentPropertiesResponsePtr
 }
 
 func (o AssessmentPropertiesResponsePtrOutput) Elem() AssessmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *AssessmentPropertiesResponse) AssessmentPropertiesResponse { return *v }).(AssessmentPropertiesResponseOutput)
+	return o.ApplyT(func(v *AssessmentPropertiesResponse) AssessmentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentPropertiesResponse
+		return ret
+	}).(AssessmentPropertiesResponseOutput)
 }
 
 // Storage type selected for this disk.
@@ -1205,10 +1217,11 @@ func (o CollectorAgentPropertiesOutput) ToCollectorAgentPropertiesPtrOutput() Co
 }
 
 func (o CollectorAgentPropertiesOutput) ToCollectorAgentPropertiesPtrOutputWithContext(ctx context.Context) CollectorAgentPropertiesPtrOutput {
-	return o.ApplyT(func(v CollectorAgentProperties) *CollectorAgentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectorAgentProperties) *CollectorAgentProperties {
 		return &v
 	}).(CollectorAgentPropertiesPtrOutput)
 }
+
 func (o CollectorAgentPropertiesOutput) SpnDetails() CollectorBodyAgentSpnPropertiesPtrOutput {
 	return o.ApplyT(func(v CollectorAgentProperties) *CollectorBodyAgentSpnProperties { return v.SpnDetails }).(CollectorBodyAgentSpnPropertiesPtrOutput)
 }
@@ -1228,7 +1241,13 @@ func (o CollectorAgentPropertiesPtrOutput) ToCollectorAgentPropertiesPtrOutputWi
 }
 
 func (o CollectorAgentPropertiesPtrOutput) Elem() CollectorAgentPropertiesOutput {
-	return o.ApplyT(func(v *CollectorAgentProperties) CollectorAgentProperties { return *v }).(CollectorAgentPropertiesOutput)
+	return o.ApplyT(func(v *CollectorAgentProperties) CollectorAgentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CollectorAgentProperties
+		return ret
+	}).(CollectorAgentPropertiesOutput)
 }
 
 func (o CollectorAgentPropertiesPtrOutput) SpnDetails() CollectorBodyAgentSpnPropertiesPtrOutput {
@@ -1337,10 +1356,11 @@ func (o CollectorAgentPropertiesResponseOutput) ToCollectorAgentPropertiesRespon
 }
 
 func (o CollectorAgentPropertiesResponseOutput) ToCollectorAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) CollectorAgentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CollectorAgentPropertiesResponse) *CollectorAgentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectorAgentPropertiesResponse) *CollectorAgentPropertiesResponse {
 		return &v
 	}).(CollectorAgentPropertiesResponsePtrOutput)
 }
+
 func (o CollectorAgentPropertiesResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CollectorAgentPropertiesResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1372,7 +1392,13 @@ func (o CollectorAgentPropertiesResponsePtrOutput) ToCollectorAgentPropertiesRes
 }
 
 func (o CollectorAgentPropertiesResponsePtrOutput) Elem() CollectorAgentPropertiesResponseOutput {
-	return o.ApplyT(func(v *CollectorAgentPropertiesResponse) CollectorAgentPropertiesResponse { return *v }).(CollectorAgentPropertiesResponseOutput)
+	return o.ApplyT(func(v *CollectorAgentPropertiesResponse) CollectorAgentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CollectorAgentPropertiesResponse
+		return ret
+	}).(CollectorAgentPropertiesResponseOutput)
 }
 
 func (o CollectorAgentPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
@@ -1520,7 +1546,7 @@ func (o CollectorBodyAgentSpnPropertiesOutput) ToCollectorBodyAgentSpnProperties
 }
 
 func (o CollectorBodyAgentSpnPropertiesOutput) ToCollectorBodyAgentSpnPropertiesPtrOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesPtrOutput {
-	return o.ApplyT(func(v CollectorBodyAgentSpnProperties) *CollectorBodyAgentSpnProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectorBodyAgentSpnProperties) *CollectorBodyAgentSpnProperties {
 		return &v
 	}).(CollectorBodyAgentSpnPropertiesPtrOutput)
 }
@@ -1565,7 +1591,13 @@ func (o CollectorBodyAgentSpnPropertiesPtrOutput) ToCollectorBodyAgentSpnPropert
 }
 
 func (o CollectorBodyAgentSpnPropertiesPtrOutput) Elem() CollectorBodyAgentSpnPropertiesOutput {
-	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) CollectorBodyAgentSpnProperties { return *v }).(CollectorBodyAgentSpnPropertiesOutput)
+	return o.ApplyT(func(v *CollectorBodyAgentSpnProperties) CollectorBodyAgentSpnProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CollectorBodyAgentSpnProperties
+		return ret
+	}).(CollectorBodyAgentSpnPropertiesOutput)
 }
 
 // Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
@@ -1727,7 +1759,7 @@ func (o CollectorBodyAgentSpnPropertiesResponseOutput) ToCollectorBodyAgentSpnPr
 }
 
 func (o CollectorBodyAgentSpnPropertiesResponseOutput) ToCollectorBodyAgentSpnPropertiesResponsePtrOutputWithContext(ctx context.Context) CollectorBodyAgentSpnPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CollectorBodyAgentSpnPropertiesResponse) *CollectorBodyAgentSpnPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectorBodyAgentSpnPropertiesResponse) *CollectorBodyAgentSpnPropertiesResponse {
 		return &v
 	}).(CollectorBodyAgentSpnPropertiesResponsePtrOutput)
 }
@@ -1772,7 +1804,13 @@ func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) ToCollectorBodyAgentSp
 }
 
 func (o CollectorBodyAgentSpnPropertiesResponsePtrOutput) Elem() CollectorBodyAgentSpnPropertiesResponseOutput {
-	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) CollectorBodyAgentSpnPropertiesResponse { return *v }).(CollectorBodyAgentSpnPropertiesResponseOutput)
+	return o.ApplyT(func(v *CollectorBodyAgentSpnPropertiesResponse) CollectorBodyAgentSpnPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CollectorBodyAgentSpnPropertiesResponse
+		return ret
+	}).(CollectorBodyAgentSpnPropertiesResponseOutput)
 }
 
 // Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
@@ -1920,10 +1958,11 @@ func (o CollectorPropertiesOutput) ToCollectorPropertiesPtrOutput() CollectorPro
 }
 
 func (o CollectorPropertiesOutput) ToCollectorPropertiesPtrOutputWithContext(ctx context.Context) CollectorPropertiesPtrOutput {
-	return o.ApplyT(func(v CollectorProperties) *CollectorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectorProperties) *CollectorProperties {
 		return &v
 	}).(CollectorPropertiesPtrOutput)
 }
+
 func (o CollectorPropertiesOutput) AgentProperties() CollectorAgentPropertiesPtrOutput {
 	return o.ApplyT(func(v CollectorProperties) *CollectorAgentProperties { return v.AgentProperties }).(CollectorAgentPropertiesPtrOutput)
 }
@@ -1948,7 +1987,13 @@ func (o CollectorPropertiesPtrOutput) ToCollectorPropertiesPtrOutputWithContext(
 }
 
 func (o CollectorPropertiesPtrOutput) Elem() CollectorPropertiesOutput {
-	return o.ApplyT(func(v *CollectorProperties) CollectorProperties { return *v }).(CollectorPropertiesOutput)
+	return o.ApplyT(func(v *CollectorProperties) CollectorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CollectorProperties
+		return ret
+	}).(CollectorPropertiesOutput)
 }
 
 func (o CollectorPropertiesPtrOutput) AgentProperties() CollectorAgentPropertiesPtrOutput {
@@ -2073,10 +2118,11 @@ func (o CollectorPropertiesResponseOutput) ToCollectorPropertiesResponsePtrOutpu
 }
 
 func (o CollectorPropertiesResponseOutput) ToCollectorPropertiesResponsePtrOutputWithContext(ctx context.Context) CollectorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CollectorPropertiesResponse) *CollectorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollectorPropertiesResponse) *CollectorPropertiesResponse {
 		return &v
 	}).(CollectorPropertiesResponsePtrOutput)
 }
+
 func (o CollectorPropertiesResponseOutput) AgentProperties() CollectorAgentPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v CollectorPropertiesResponse) *CollectorAgentPropertiesResponse { return v.AgentProperties }).(CollectorAgentPropertiesResponsePtrOutput)
 }
@@ -2111,7 +2157,13 @@ func (o CollectorPropertiesResponsePtrOutput) ToCollectorPropertiesResponsePtrOu
 }
 
 func (o CollectorPropertiesResponsePtrOutput) Elem() CollectorPropertiesResponseOutput {
-	return o.ApplyT(func(v *CollectorPropertiesResponse) CollectorPropertiesResponse { return *v }).(CollectorPropertiesResponseOutput)
+	return o.ApplyT(func(v *CollectorPropertiesResponse) CollectorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CollectorPropertiesResponse
+		return ret
+	}).(CollectorPropertiesResponseOutput)
 }
 
 func (o CollectorPropertiesResponsePtrOutput) AgentProperties() CollectorAgentPropertiesResponsePtrOutput {
@@ -2249,7 +2301,7 @@ func (o GroupPropertiesOutput) ToGroupPropertiesPtrOutput() GroupPropertiesPtrOu
 }
 
 func (o GroupPropertiesOutput) ToGroupPropertiesPtrOutputWithContext(ctx context.Context) GroupPropertiesPtrOutput {
-	return o.ApplyT(func(v GroupProperties) *GroupProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupProperties) *GroupProperties {
 		return &v
 	}).(GroupPropertiesPtrOutput)
 }
@@ -2274,7 +2326,13 @@ func (o GroupPropertiesPtrOutput) ToGroupPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o GroupPropertiesPtrOutput) Elem() GroupPropertiesOutput {
-	return o.ApplyT(func(v *GroupProperties) GroupProperties { return *v }).(GroupPropertiesOutput)
+	return o.ApplyT(func(v *GroupProperties) GroupProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GroupProperties
+		return ret
+	}).(GroupPropertiesOutput)
 }
 
 // The type of group.
@@ -2407,7 +2465,7 @@ func (o GroupPropertiesResponseOutput) ToGroupPropertiesResponsePtrOutput() Grou
 }
 
 func (o GroupPropertiesResponseOutput) ToGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) GroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GroupPropertiesResponse) *GroupPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupPropertiesResponse) *GroupPropertiesResponse {
 		return &v
 	}).(GroupPropertiesResponsePtrOutput)
 }
@@ -2462,7 +2520,13 @@ func (o GroupPropertiesResponsePtrOutput) ToGroupPropertiesResponsePtrOutputWith
 }
 
 func (o GroupPropertiesResponsePtrOutput) Elem() GroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *GroupPropertiesResponse) GroupPropertiesResponse { return *v }).(GroupPropertiesResponseOutput)
+	return o.ApplyT(func(v *GroupPropertiesResponse) GroupPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GroupPropertiesResponse
+		return ret
+	}).(GroupPropertiesResponseOutput)
 }
 
 // If the assessments are in running state.
@@ -2626,10 +2690,11 @@ func (o ImportCollectorPropertiesOutput) ToImportCollectorPropertiesPtrOutput() 
 }
 
 func (o ImportCollectorPropertiesOutput) ToImportCollectorPropertiesPtrOutputWithContext(ctx context.Context) ImportCollectorPropertiesPtrOutput {
-	return o.ApplyT(func(v ImportCollectorProperties) *ImportCollectorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImportCollectorProperties) *ImportCollectorProperties {
 		return &v
 	}).(ImportCollectorPropertiesPtrOutput)
 }
+
 func (o ImportCollectorPropertiesOutput) DiscoverySiteId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImportCollectorProperties) *string { return v.DiscoverySiteId }).(pulumi.StringPtrOutput)
 }
@@ -2649,7 +2714,13 @@ func (o ImportCollectorPropertiesPtrOutput) ToImportCollectorPropertiesPtrOutput
 }
 
 func (o ImportCollectorPropertiesPtrOutput) Elem() ImportCollectorPropertiesOutput {
-	return o.ApplyT(func(v *ImportCollectorProperties) ImportCollectorProperties { return *v }).(ImportCollectorPropertiesOutput)
+	return o.ApplyT(func(v *ImportCollectorProperties) ImportCollectorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ImportCollectorProperties
+		return ret
+	}).(ImportCollectorPropertiesOutput)
 }
 
 func (o ImportCollectorPropertiesPtrOutput) DiscoverySiteId() pulumi.StringPtrOutput {
@@ -2756,10 +2827,11 @@ func (o ImportCollectorPropertiesResponseOutput) ToImportCollectorPropertiesResp
 }
 
 func (o ImportCollectorPropertiesResponseOutput) ToImportCollectorPropertiesResponsePtrOutputWithContext(ctx context.Context) ImportCollectorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ImportCollectorPropertiesResponse) *ImportCollectorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImportCollectorPropertiesResponse) *ImportCollectorPropertiesResponse {
 		return &v
 	}).(ImportCollectorPropertiesResponsePtrOutput)
 }
+
 func (o ImportCollectorPropertiesResponseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v ImportCollectorPropertiesResponse) string { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }
@@ -2787,7 +2859,13 @@ func (o ImportCollectorPropertiesResponsePtrOutput) ToImportCollectorPropertiesR
 }
 
 func (o ImportCollectorPropertiesResponsePtrOutput) Elem() ImportCollectorPropertiesResponseOutput {
-	return o.ApplyT(func(v *ImportCollectorPropertiesResponse) ImportCollectorPropertiesResponse { return *v }).(ImportCollectorPropertiesResponseOutput)
+	return o.ApplyT(func(v *ImportCollectorPropertiesResponse) ImportCollectorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImportCollectorPropertiesResponse
+		return ret
+	}).(ImportCollectorPropertiesResponseOutput)
 }
 
 func (o ImportCollectorPropertiesResponsePtrOutput) CreatedTimestamp() pulumi.StringPtrOutput {
@@ -2913,7 +2991,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -2940,7 +3018,13 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // State of the private endpoint connection.
@@ -3057,7 +3141,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -3095,7 +3179,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -3371,7 +3459,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -3406,7 +3494,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // Actions required on the private endpoint connection.
@@ -3543,7 +3637,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -3579,7 +3673,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -3729,7 +3827,7 @@ func (o ProjectPropertiesOutput) ToProjectPropertiesPtrOutput() ProjectPropertie
 }
 
 func (o ProjectPropertiesOutput) ToProjectPropertiesPtrOutputWithContext(ctx context.Context) ProjectPropertiesPtrOutput {
-	return o.ApplyT(func(v ProjectProperties) *ProjectProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectProperties) *ProjectProperties {
 		return &v
 	}).(ProjectPropertiesPtrOutput)
 }
@@ -3779,7 +3877,13 @@ func (o ProjectPropertiesPtrOutput) ToProjectPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o ProjectPropertiesPtrOutput) Elem() ProjectPropertiesOutput {
-	return o.ApplyT(func(v *ProjectProperties) ProjectProperties { return *v }).(ProjectPropertiesOutput)
+	return o.ApplyT(func(v *ProjectProperties) ProjectProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectProperties
+		return ret
+	}).(ProjectPropertiesOutput)
 }
 
 // Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
@@ -3994,7 +4098,7 @@ func (o ProjectPropertiesResponseOutput) ToProjectPropertiesResponsePtrOutput() 
 }
 
 func (o ProjectPropertiesResponseOutput) ToProjectPropertiesResponsePtrOutputWithContext(ctx context.Context) ProjectPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProjectPropertiesResponse) *ProjectPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectPropertiesResponse) *ProjectPropertiesResponse {
 		return &v
 	}).(ProjectPropertiesResponsePtrOutput)
 }
@@ -4091,7 +4195,13 @@ func (o ProjectPropertiesResponsePtrOutput) ToProjectPropertiesResponsePtrOutput
 }
 
 func (o ProjectPropertiesResponsePtrOutput) Elem() ProjectPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProjectPropertiesResponse) ProjectPropertiesResponse { return *v }).(ProjectPropertiesResponseOutput)
+	return o.ApplyT(func(v *ProjectPropertiesResponse) ProjectPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectPropertiesResponse
+		return ret
+	}).(ProjectPropertiesResponseOutput)
 }
 
 // Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
@@ -4338,10 +4448,11 @@ func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResp
 }
 
 func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdResponse) *ResourceIdResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
 		return &v
 	}).(ResourceIdResponsePtrOutput)
 }
+
 func (o ResourceIdResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceIdResponse) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -4361,7 +4472,13 @@ func (o ResourceIdResponsePtrOutput) ToResourceIdResponsePtrOutputWithContext(ct
 }
 
 func (o ResourceIdResponsePtrOutput) Elem() ResourceIdResponseOutput {
-	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse { return *v }).(ResourceIdResponseOutput)
+	return o.ApplyT(func(v *ResourceIdResponse) ResourceIdResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdResponse
+		return ret
+	}).(ResourceIdResponseOutput)
 }
 
 func (o ResourceIdResponsePtrOutput) Id() pulumi.StringPtrOutput {
@@ -4470,7 +4587,7 @@ func (o VmUptimeOutput) ToVmUptimePtrOutput() VmUptimePtrOutput {
 }
 
 func (o VmUptimeOutput) ToVmUptimePtrOutputWithContext(ctx context.Context) VmUptimePtrOutput {
-	return o.ApplyT(func(v VmUptime) *VmUptime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VmUptime) *VmUptime {
 		return &v
 	}).(VmUptimePtrOutput)
 }
@@ -4500,7 +4617,13 @@ func (o VmUptimePtrOutput) ToVmUptimePtrOutputWithContext(ctx context.Context) V
 }
 
 func (o VmUptimePtrOutput) Elem() VmUptimeOutput {
-	return o.ApplyT(func(v *VmUptime) VmUptime { return *v }).(VmUptimeOutput)
+	return o.ApplyT(func(v *VmUptime) VmUptime {
+		if v != nil {
+			return *v
+		}
+		var ret VmUptime
+		return ret
+	}).(VmUptimeOutput)
 }
 
 // Number of days in a month for VM uptime.
@@ -4620,7 +4743,7 @@ func (o VmUptimeResponseOutput) ToVmUptimeResponsePtrOutput() VmUptimeResponsePt
 }
 
 func (o VmUptimeResponseOutput) ToVmUptimeResponsePtrOutputWithContext(ctx context.Context) VmUptimeResponsePtrOutput {
-	return o.ApplyT(func(v VmUptimeResponse) *VmUptimeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VmUptimeResponse) *VmUptimeResponse {
 		return &v
 	}).(VmUptimeResponsePtrOutput)
 }
@@ -4650,7 +4773,13 @@ func (o VmUptimeResponsePtrOutput) ToVmUptimeResponsePtrOutputWithContext(ctx co
 }
 
 func (o VmUptimeResponsePtrOutput) Elem() VmUptimeResponseOutput {
-	return o.ApplyT(func(v *VmUptimeResponse) VmUptimeResponse { return *v }).(VmUptimeResponseOutput)
+	return o.ApplyT(func(v *VmUptimeResponse) VmUptimeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VmUptimeResponse
+		return ret
+	}).(VmUptimeResponseOutput)
 }
 
 // Number of days in a month for VM uptime.

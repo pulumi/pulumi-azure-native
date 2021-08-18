@@ -67,17 +67,9 @@ func GetHyperVCollector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HyperVCollector resources.
 type hyperVCollectorState struct {
-	ETag       *string                      `pulumi:"eTag"`
-	Name       *string                      `pulumi:"name"`
-	Properties *CollectorPropertiesResponse `pulumi:"properties"`
-	Type       *string                      `pulumi:"type"`
 }
 
 type HyperVCollectorState struct {
-	ETag       pulumi.StringPtrInput
-	Name       pulumi.StringPtrInput
-	Properties CollectorPropertiesResponsePtrInput
-	Type       pulumi.StringPtrInput
 }
 
 func (HyperVCollectorState) ElementType() reflect.Type {
@@ -130,9 +122,7 @@ func (i *HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(HyperVCollectorOutput)
 }
 
-type HyperVCollectorOutput struct {
-	*pulumi.OutputState
-}
+type HyperVCollectorOutput struct{ *pulumi.OutputState }
 
 func (HyperVCollectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HyperVCollector)(nil))

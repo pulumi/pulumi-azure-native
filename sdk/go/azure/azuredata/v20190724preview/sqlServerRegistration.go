@@ -83,41 +83,9 @@ func GetSqlServerRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlServerRegistration resources.
 type sqlServerRegistrationState struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Optional Properties as JSON string
-	PropertyBag *string `pulumi:"propertyBag"`
-	// Resource Group Name
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Subscription Id
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type SqlServerRegistrationState struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Optional Properties as JSON string
-	PropertyBag pulumi.StringPtrInput
-	// Resource Group Name
-	ResourceGroup pulumi.StringPtrInput
-	// Subscription Id
-	SubscriptionId pulumi.StringPtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (SqlServerRegistrationState) ElementType() reflect.Type {
@@ -182,9 +150,7 @@ func (i *SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerRegistrationOutput)
 }
 
-type SqlServerRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerRegistrationOutput struct{ *pulumi.OutputState }
 
 func (SqlServerRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServerRegistration)(nil))

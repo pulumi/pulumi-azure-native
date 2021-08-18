@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// SAP HANA Linked Service.
+    /// </summary>
     [OutputType]
     public sealed class SapHanaLinkedServiceResponse
     {

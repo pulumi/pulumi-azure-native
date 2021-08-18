@@ -106,7 +106,7 @@ func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput {
 }
 
 func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) AppSkuInfoPtrOutput {
-	return o.ApplyT(func(v AppSkuInfo) *AppSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSkuInfo) *AppSkuInfo {
 		return &v
 	}).(AppSkuInfoPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o AppSkuInfoPtrOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Contex
 }
 
 func (o AppSkuInfoPtrOutput) Elem() AppSkuInfoOutput {
-	return o.ApplyT(func(v *AppSkuInfo) AppSkuInfo { return *v }).(AppSkuInfoOutput)
+	return o.ApplyT(func(v *AppSkuInfo) AppSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AppSkuInfo
+		return ret
+	}).(AppSkuInfoOutput)
 }
 
 // The name of the SKU.
@@ -240,7 +246,7 @@ func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutput() AppSkuInfoResp
 }
 
 func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutputWithContext(ctx context.Context) AppSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v AppSkuInfoResponse) *AppSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSkuInfoResponse) *AppSkuInfoResponse {
 		return &v
 	}).(AppSkuInfoResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o AppSkuInfoResponsePtrOutput) ToAppSkuInfoResponsePtrOutputWithContext(ct
 }
 
 func (o AppSkuInfoResponsePtrOutput) Elem() AppSkuInfoResponseOutput {
-	return o.ApplyT(func(v *AppSkuInfoResponse) AppSkuInfoResponse { return *v }).(AppSkuInfoResponseOutput)
+	return o.ApplyT(func(v *AppSkuInfoResponse) AppSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AppSkuInfoResponse
+		return ret
+	}).(AppSkuInfoResponseOutput)
 }
 
 // The name of the SKU.

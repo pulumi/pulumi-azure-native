@@ -442,7 +442,7 @@ func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingD
 }
 
 func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationBillingDetailsDefinitionResponse) *ApplicationBillingDetailsDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationBillingDetailsDefinitionResponse) *ApplicationBillingDetailsDefinitionResponse {
 		return &v
 	}).(ApplicationBillingDetailsDefinitionResponsePtrOutput)
 }
@@ -468,7 +468,11 @@ func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ToApplicationBilli
 
 func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) Elem() ApplicationBillingDetailsDefinitionResponseOutput {
 	return o.ApplyT(func(v *ApplicationBillingDetailsDefinitionResponse) ApplicationBillingDetailsDefinitionResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationBillingDetailsDefinitionResponse
+		return ret
 	}).(ApplicationBillingDetailsDefinitionResponseOutput)
 }
 
@@ -586,7 +590,7 @@ func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsRespon
 }
 
 func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsResponsePtrOutputWithContext(ctx context.Context) ApplicationClientDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationClientDetailsResponse) *ApplicationClientDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationClientDetailsResponse) *ApplicationClientDetailsResponse {
 		return &v
 	}).(ApplicationClientDetailsResponsePtrOutput)
 }
@@ -621,7 +625,13 @@ func (o ApplicationClientDetailsResponsePtrOutput) ToApplicationClientDetailsRes
 }
 
 func (o ApplicationClientDetailsResponsePtrOutput) Elem() ApplicationClientDetailsResponseOutput {
-	return o.ApplyT(func(v *ApplicationClientDetailsResponse) ApplicationClientDetailsResponse { return *v }).(ApplicationClientDetailsResponseOutput)
+	return o.ApplyT(func(v *ApplicationClientDetailsResponse) ApplicationClientDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationClientDetailsResponse
+		return ret
+	}).(ApplicationClientDetailsResponseOutput)
 }
 
 // The client application Id.
@@ -659,7 +669,7 @@ type ApplicationDefinitionArtifact struct {
 	// The managed application definition artifact name.
 	Name string `pulumi:"name"`
 	// The managed application definition artifact type.
-	Type string `pulumi:"type"`
+	Type ApplicationArtifactType `pulumi:"type"`
 	// The managed application definition artifact blob uri.
 	Uri string `pulumi:"uri"`
 }
@@ -680,7 +690,7 @@ type ApplicationDefinitionArtifactArgs struct {
 	// The managed application definition artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The managed application definition artifact type.
-	Type ApplicationArtifactType `pulumi:"type"`
+	Type ApplicationArtifactTypeInput `pulumi:"type"`
 	// The managed application definition artifact blob uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -743,8 +753,8 @@ func (o ApplicationDefinitionArtifactOutput) Name() pulumi.StringOutput {
 }
 
 // The managed application definition artifact type.
-func (o ApplicationDefinitionArtifactOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationDefinitionArtifact) string { return v.Type }).(pulumi.StringOutput)
+func (o ApplicationDefinitionArtifactOutput) Type() ApplicationArtifactTypeOutput {
+	return o.ApplyT(func(v ApplicationDefinitionArtifact) ApplicationArtifactType { return v.Type }).(ApplicationArtifactTypeOutput)
 }
 
 // The managed application definition artifact blob uri.
@@ -986,7 +996,7 @@ func (o ApplicationDeploymentPolicyOutput) ToApplicationDeploymentPolicyPtrOutpu
 }
 
 func (o ApplicationDeploymentPolicyOutput) ToApplicationDeploymentPolicyPtrOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationDeploymentPolicy) *ApplicationDeploymentPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDeploymentPolicy) *ApplicationDeploymentPolicy {
 		return &v
 	}).(ApplicationDeploymentPolicyPtrOutput)
 }
@@ -1011,7 +1021,13 @@ func (o ApplicationDeploymentPolicyPtrOutput) ToApplicationDeploymentPolicyPtrOu
 }
 
 func (o ApplicationDeploymentPolicyPtrOutput) Elem() ApplicationDeploymentPolicyOutput {
-	return o.ApplyT(func(v *ApplicationDeploymentPolicy) ApplicationDeploymentPolicy { return *v }).(ApplicationDeploymentPolicyOutput)
+	return o.ApplyT(func(v *ApplicationDeploymentPolicy) ApplicationDeploymentPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationDeploymentPolicy
+		return ret
+	}).(ApplicationDeploymentPolicyOutput)
 }
 
 // The managed application deployment mode.
@@ -1120,7 +1136,7 @@ func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicy
 }
 
 func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationDeploymentPolicyResponse) *ApplicationDeploymentPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDeploymentPolicyResponse) *ApplicationDeploymentPolicyResponse {
 		return &v
 	}).(ApplicationDeploymentPolicyResponsePtrOutput)
 }
@@ -1145,7 +1161,13 @@ func (o ApplicationDeploymentPolicyResponsePtrOutput) ToApplicationDeploymentPol
 }
 
 func (o ApplicationDeploymentPolicyResponsePtrOutput) Elem() ApplicationDeploymentPolicyResponseOutput {
-	return o.ApplyT(func(v *ApplicationDeploymentPolicyResponse) ApplicationDeploymentPolicyResponse { return *v }).(ApplicationDeploymentPolicyResponseOutput)
+	return o.ApplyT(func(v *ApplicationDeploymentPolicyResponse) ApplicationDeploymentPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationDeploymentPolicyResponse
+		return ret
+	}).(ApplicationDeploymentPolicyResponseOutput)
 }
 
 // The managed application deployment mode.
@@ -1266,7 +1288,7 @@ func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyPtrOutput(
 }
 
 func (o ApplicationJitAccessPolicyOutput) ToApplicationJitAccessPolicyPtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationJitAccessPolicy) *ApplicationJitAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJitAccessPolicy) *ApplicationJitAccessPolicy {
 		return &v
 	}).(ApplicationJitAccessPolicyPtrOutput)
 }
@@ -1306,7 +1328,13 @@ func (o ApplicationJitAccessPolicyPtrOutput) ToApplicationJitAccessPolicyPtrOutp
 }
 
 func (o ApplicationJitAccessPolicyPtrOutput) Elem() ApplicationJitAccessPolicyOutput {
-	return o.ApplyT(func(v *ApplicationJitAccessPolicy) ApplicationJitAccessPolicy { return *v }).(ApplicationJitAccessPolicyOutput)
+	return o.ApplyT(func(v *ApplicationJitAccessPolicy) ApplicationJitAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationJitAccessPolicy
+		return ret
+	}).(ApplicationJitAccessPolicyOutput)
 }
 
 // Whether the JIT access is enabled.
@@ -1457,7 +1485,7 @@ func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyRe
 }
 
 func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationJitAccessPolicyResponse) *ApplicationJitAccessPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJitAccessPolicyResponse) *ApplicationJitAccessPolicyResponse {
 		return &v
 	}).(ApplicationJitAccessPolicyResponsePtrOutput)
 }
@@ -1497,7 +1525,13 @@ func (o ApplicationJitAccessPolicyResponsePtrOutput) ToApplicationJitAccessPolic
 }
 
 func (o ApplicationJitAccessPolicyResponsePtrOutput) Elem() ApplicationJitAccessPolicyResponseOutput {
-	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) ApplicationJitAccessPolicyResponse { return *v }).(ApplicationJitAccessPolicyResponseOutput)
+	return o.ApplyT(func(v *ApplicationJitAccessPolicyResponse) ApplicationJitAccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationJitAccessPolicyResponse
+		return ret
+	}).(ApplicationJitAccessPolicyResponseOutput)
 }
 
 // Whether the JIT access is enabled.
@@ -1636,7 +1670,7 @@ func (o ApplicationManagementPolicyOutput) ToApplicationManagementPolicyPtrOutpu
 }
 
 func (o ApplicationManagementPolicyOutput) ToApplicationManagementPolicyPtrOutputWithContext(ctx context.Context) ApplicationManagementPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationManagementPolicy) *ApplicationManagementPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationManagementPolicy) *ApplicationManagementPolicy {
 		return &v
 	}).(ApplicationManagementPolicyPtrOutput)
 }
@@ -1661,7 +1695,13 @@ func (o ApplicationManagementPolicyPtrOutput) ToApplicationManagementPolicyPtrOu
 }
 
 func (o ApplicationManagementPolicyPtrOutput) Elem() ApplicationManagementPolicyOutput {
-	return o.ApplyT(func(v *ApplicationManagementPolicy) ApplicationManagementPolicy { return *v }).(ApplicationManagementPolicyOutput)
+	return o.ApplyT(func(v *ApplicationManagementPolicy) ApplicationManagementPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationManagementPolicy
+		return ret
+	}).(ApplicationManagementPolicyOutput)
 }
 
 // The managed application management mode.
@@ -1770,7 +1810,7 @@ func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicy
 }
 
 func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationManagementPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationManagementPolicyResponse) *ApplicationManagementPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationManagementPolicyResponse) *ApplicationManagementPolicyResponse {
 		return &v
 	}).(ApplicationManagementPolicyResponsePtrOutput)
 }
@@ -1795,7 +1835,13 @@ func (o ApplicationManagementPolicyResponsePtrOutput) ToApplicationManagementPol
 }
 
 func (o ApplicationManagementPolicyResponsePtrOutput) Elem() ApplicationManagementPolicyResponseOutput {
-	return o.ApplyT(func(v *ApplicationManagementPolicyResponse) ApplicationManagementPolicyResponse { return *v }).(ApplicationManagementPolicyResponseOutput)
+	return o.ApplyT(func(v *ApplicationManagementPolicyResponse) ApplicationManagementPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationManagementPolicyResponse
+		return ret
+	}).(ApplicationManagementPolicyResponseOutput)
 }
 
 // The managed application management mode.
@@ -2104,7 +2150,7 @@ func (o ApplicationNotificationPolicyOutput) ToApplicationNotificationPolicyPtrO
 }
 
 func (o ApplicationNotificationPolicyOutput) ToApplicationNotificationPolicyPtrOutputWithContext(ctx context.Context) ApplicationNotificationPolicyPtrOutput {
-	return o.ApplyT(func(v ApplicationNotificationPolicy) *ApplicationNotificationPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationNotificationPolicy) *ApplicationNotificationPolicy {
 		return &v
 	}).(ApplicationNotificationPolicyPtrOutput)
 }
@@ -2131,7 +2177,13 @@ func (o ApplicationNotificationPolicyPtrOutput) ToApplicationNotificationPolicyP
 }
 
 func (o ApplicationNotificationPolicyPtrOutput) Elem() ApplicationNotificationPolicyOutput {
-	return o.ApplyT(func(v *ApplicationNotificationPolicy) ApplicationNotificationPolicy { return *v }).(ApplicationNotificationPolicyOutput)
+	return o.ApplyT(func(v *ApplicationNotificationPolicy) ApplicationNotificationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationNotificationPolicy
+		return ret
+	}).(ApplicationNotificationPolicyOutput)
 }
 
 // The managed application notification endpoint.
@@ -2240,7 +2292,7 @@ func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPo
 }
 
 func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationNotificationPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationNotificationPolicyResponse) *ApplicationNotificationPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationNotificationPolicyResponse) *ApplicationNotificationPolicyResponse {
 		return &v
 	}).(ApplicationNotificationPolicyResponsePtrOutput)
 }
@@ -2267,7 +2319,13 @@ func (o ApplicationNotificationPolicyResponsePtrOutput) ToApplicationNotificatio
 }
 
 func (o ApplicationNotificationPolicyResponsePtrOutput) Elem() ApplicationNotificationPolicyResponseOutput {
-	return o.ApplyT(func(v *ApplicationNotificationPolicyResponse) ApplicationNotificationPolicyResponse { return *v }).(ApplicationNotificationPolicyResponseOutput)
+	return o.ApplyT(func(v *ApplicationNotificationPolicyResponse) ApplicationNotificationPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationNotificationPolicyResponse
+		return ret
+	}).(ApplicationNotificationPolicyResponseOutput)
 }
 
 // The managed application notification endpoint.
@@ -2384,7 +2442,7 @@ func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResp
 }
 
 func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageContactResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationPackageContactResponse) *ApplicationPackageContactResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageContactResponse) *ApplicationPackageContactResponse {
 		return &v
 	}).(ApplicationPackageContactResponsePtrOutput)
 }
@@ -2419,7 +2477,13 @@ func (o ApplicationPackageContactResponsePtrOutput) ToApplicationPackageContactR
 }
 
 func (o ApplicationPackageContactResponsePtrOutput) Elem() ApplicationPackageContactResponseOutput {
-	return o.ApplyT(func(v *ApplicationPackageContactResponse) ApplicationPackageContactResponse { return *v }).(ApplicationPackageContactResponseOutput)
+	return o.ApplyT(func(v *ApplicationPackageContactResponse) ApplicationPackageContactResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPackageContactResponse
+		return ret
+	}).(ApplicationPackageContactResponseOutput)
 }
 
 // The contact name.
@@ -2548,7 +2612,7 @@ func (o ApplicationPackageLockingPolicyDefinitionOutput) ToApplicationPackageLoc
 }
 
 func (o ApplicationPackageLockingPolicyDefinitionOutput) ToApplicationPackageLockingPolicyDefinitionPtrOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinition) *ApplicationPackageLockingPolicyDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageLockingPolicyDefinition) *ApplicationPackageLockingPolicyDefinition {
 		return &v
 	}).(ApplicationPackageLockingPolicyDefinitionPtrOutput)
 }
@@ -2574,7 +2638,11 @@ func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) ToApplicationPackage
 
 func (o ApplicationPackageLockingPolicyDefinitionPtrOutput) Elem() ApplicationPackageLockingPolicyDefinitionOutput {
 	return o.ApplyT(func(v *ApplicationPackageLockingPolicyDefinition) ApplicationPackageLockingPolicyDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPackageLockingPolicyDefinition
+		return ret
 	}).(ApplicationPackageLockingPolicyDefinitionOutput)
 }
 
@@ -2684,7 +2752,7 @@ func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPa
 }
 
 func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationPackageLockingPolicyDefinitionResponse) *ApplicationPackageLockingPolicyDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageLockingPolicyDefinitionResponse) *ApplicationPackageLockingPolicyDefinitionResponse {
 		return &v
 	}).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
 }
@@ -2710,7 +2778,11 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) ToApplicatio
 
 func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) Elem() ApplicationPackageLockingPolicyDefinitionResponseOutput {
 	return o.ApplyT(func(v *ApplicationPackageLockingPolicyDefinitionResponse) ApplicationPackageLockingPolicyDefinitionResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPackageLockingPolicyDefinitionResponse
+		return ret
 	}).(ApplicationPackageLockingPolicyDefinitionResponseOutput)
 }
 
@@ -2824,7 +2896,7 @@ func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupport
 }
 
 func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *ApplicationPackageSupportUrlsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageSupportUrlsResponse) *ApplicationPackageSupportUrlsResponse {
 		return &v
 	}).(ApplicationPackageSupportUrlsResponsePtrOutput)
 }
@@ -2854,7 +2926,13 @@ func (o ApplicationPackageSupportUrlsResponsePtrOutput) ToApplicationPackageSupp
 }
 
 func (o ApplicationPackageSupportUrlsResponsePtrOutput) Elem() ApplicationPackageSupportUrlsResponseOutput {
-	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) ApplicationPackageSupportUrlsResponse { return *v }).(ApplicationPackageSupportUrlsResponseOutput)
+	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) ApplicationPackageSupportUrlsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPackageSupportUrlsResponse
+		return ret
+	}).(ApplicationPackageSupportUrlsResponseOutput)
 }
 
 // The government cloud support URL.
@@ -3116,7 +3194,7 @@ func (o ApplicationPolicyResponseArrayOutput) Index(i pulumi.IntInput) Applicati
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -3135,7 +3213,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -3213,14 +3291,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -3243,17 +3321,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -3374,7 +3458,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -3416,7 +3500,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -4011,10 +4101,11 @@ func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyPtrOutput() JitSchedulin
 }
 
 func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyPtrOutputWithContext(ctx context.Context) JitSchedulingPolicyPtrOutput {
-	return o.ApplyT(func(v JitSchedulingPolicy) *JitSchedulingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JitSchedulingPolicy) *JitSchedulingPolicy {
 		return &v
 	}).(JitSchedulingPolicyPtrOutput)
 }
+
 func (o JitSchedulingPolicyOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -4039,7 +4130,13 @@ func (o JitSchedulingPolicyPtrOutput) ToJitSchedulingPolicyPtrOutputWithContext(
 }
 
 func (o JitSchedulingPolicyPtrOutput) Elem() JitSchedulingPolicyOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicy) JitSchedulingPolicy { return *v }).(JitSchedulingPolicyOutput)
+	return o.ApplyT(func(v *JitSchedulingPolicy) JitSchedulingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret JitSchedulingPolicy
+		return ret
+	}).(JitSchedulingPolicyOutput)
 }
 
 func (o JitSchedulingPolicyPtrOutput) Duration() pulumi.StringPtrOutput {
@@ -4163,10 +4260,11 @@ func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponsePtrOutpu
 }
 
 func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponsePtrOutputWithContext(ctx context.Context) JitSchedulingPolicyResponsePtrOutput {
-	return o.ApplyT(func(v JitSchedulingPolicyResponse) *JitSchedulingPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JitSchedulingPolicyResponse) *JitSchedulingPolicyResponse {
 		return &v
 	}).(JitSchedulingPolicyResponsePtrOutput)
 }
+
 func (o JitSchedulingPolicyResponseOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -4196,7 +4294,13 @@ func (o JitSchedulingPolicyResponsePtrOutput) ToJitSchedulingPolicyResponsePtrOu
 }
 
 func (o JitSchedulingPolicyResponsePtrOutput) Elem() JitSchedulingPolicyResponseOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicyResponse) JitSchedulingPolicyResponse { return *v }).(JitSchedulingPolicyResponseOutput)
+	return o.ApplyT(func(v *JitSchedulingPolicyResponse) JitSchedulingPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JitSchedulingPolicyResponse
+		return ret
+	}).(JitSchedulingPolicyResponseOutput)
 }
 
 func (o JitSchedulingPolicyResponsePtrOutput) Duration() pulumi.StringPtrOutput {
@@ -4340,7 +4444,7 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
@@ -4385,7 +4489,13 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
 // The plan name.
@@ -4550,7 +4660,7 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
@@ -4595,7 +4705,13 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
 // The plan name.
@@ -4764,7 +4880,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -4814,7 +4930,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The SKU capacity.
@@ -4993,7 +5115,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -5043,7 +5165,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The SKU capacity.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.V20170418.Outputs
 {
 
+    /// <summary>
+    /// Properties to configure Encryption
+    /// </summary>
     [OutputType]
     public sealed class EncryptionResponse
     {

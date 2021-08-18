@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20150701.Outputs
 {
 
+    /// <summary>
+    /// Role assignment properties with scope.
+    /// </summary>
     [OutputType]
     public sealed class RoleAssignmentPropertiesWithScopeResponse
     {

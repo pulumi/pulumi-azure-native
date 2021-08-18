@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview.Outputs
 {
 
+    /// <summary>
+    /// The available data types for Amazon Web Services CloudTrail data connector.
+    /// </summary>
     [OutputType]
     public sealed class AwsCloudTrailDataConnectorDataTypesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Description of the App Service plan scale options.
+    /// </summary>
     [OutputType]
     public sealed class SkuCapacityResponse
     {

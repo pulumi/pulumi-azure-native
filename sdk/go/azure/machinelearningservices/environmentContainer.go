@@ -76,25 +76,9 @@ func GetEnvironmentContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentContainer resources.
 type environmentContainerState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties *EnvironmentContainerResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type EnvironmentContainerState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties EnvironmentContainerResponsePtrInput
-	// System data associated with resource provider
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (EnvironmentContainerState) ElementType() reflect.Type {
@@ -147,9 +131,7 @@ func (i *EnvironmentContainer) ToEnvironmentContainerOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentContainerOutput)
 }
 
-type EnvironmentContainerOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentContainerOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentContainer)(nil))

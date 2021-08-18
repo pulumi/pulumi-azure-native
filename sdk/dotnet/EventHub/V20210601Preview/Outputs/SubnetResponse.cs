@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties supplied for Subnet
+    /// </summary>
     [OutputType]
     public sealed class SubnetResponse
     {

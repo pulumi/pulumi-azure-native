@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
+    /// <summary>
+    /// Describes a list of inputs to a Job.
+    /// </summary>
     [OutputType]
     public sealed class JobInputsResponse
     {

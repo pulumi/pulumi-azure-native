@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 {
 
+    /// <summary>
+    /// Skype channel definition
+    /// </summary>
     [OutputType]
     public sealed class SkypeChannelResponse
     {

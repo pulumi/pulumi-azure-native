@@ -31,9 +31,9 @@ __all__ = [
     'EventHubStreamInputDataSourceArgs',
     'EventHubV2OutputDataSourceArgs',
     'EventHubV2StreamInputDataSourceArgs',
-    'FunctionArgs',
     'FunctionInputArgs',
     'FunctionOutputArgs',
+    'FunctionArgs',
     'IdentityArgs',
     'InputArgs',
     'IoTHubStreamInputDataSourceArgs',
@@ -2141,46 +2141,6 @@ class EventHubV2StreamInputDataSourceArgs:
 
 
 @pulumi.input_type
-class FunctionArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']] = None):
-        """
-        A function object, containing all information associated with the named function. All functions are contained under a streaming job.
-        :param pulumi.Input[str] name: Resource name
-        :param pulumi.Input['ScalarFunctionPropertiesArgs'] properties: The properties that are associated with a function.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]:
-        """
-        The properties that are associated with a function.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class FunctionInputArgs:
     def __init__(__self__, *,
                  data_type: Optional[pulumi.Input[str]] = None,
@@ -2242,6 +2202,46 @@ class FunctionOutputArgs:
     @data_type.setter
     def data_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_type", value)
+
+
+@pulumi.input_type
+class FunctionArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']] = None):
+        """
+        A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+        :param pulumi.Input[str] name: Resource name
+        :param pulumi.Input['ScalarFunctionPropertiesArgs'] properties: The properties that are associated with a function.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]:
+        """
+        The properties that are associated with a function.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ScalarFunctionPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type

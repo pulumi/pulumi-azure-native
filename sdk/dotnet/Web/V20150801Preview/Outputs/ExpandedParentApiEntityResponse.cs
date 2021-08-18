@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Outputs
 {
 
+    /// <summary>
+    /// expanded parent object for expansion
+    /// </summary>
     [OutputType]
     public sealed class ExpandedParentApiEntityResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170601.Outputs
 {
 
+    /// <summary>
+    /// VPN client root certificate of virtual network gateway
+    /// </summary>
     [OutputType]
     public sealed class VpnClientRootCertificateResponse
     {

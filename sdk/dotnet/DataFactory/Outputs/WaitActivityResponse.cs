@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// This activity suspends pipeline execution for the specified interval.
+    /// </summary>
     [OutputType]
     public sealed class WaitActivityResponse
     {

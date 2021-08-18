@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.Outputs
 {
 
+    /// <summary>
+    /// A class that contains virtual network definition.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkConfigurationResponse
     {

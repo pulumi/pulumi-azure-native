@@ -85,57 +85,9 @@ func GetSapMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SapMonitor resources.
 type sapMonitorState struct {
-	// The value indicating whether to send analytics to Microsoft
-	EnableCustomerAnalytics *bool `pulumi:"enableCustomerAnalytics"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The ARM ID of the Log Analytics Workspace that is used for monitoring
-	LogAnalyticsWorkspaceArmId *string `pulumi:"logAnalyticsWorkspaceArmId"`
-	// The workspace ID of the log analytics workspace to be used for monitoring
-	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
-	// The shared key of the log analytics workspace that is used for monitoring
-	LogAnalyticsWorkspaceSharedKey *string `pulumi:"logAnalyticsWorkspaceSharedKey"`
-	// The name of the resource group the SAP Monitor resources get deployed into.
-	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// The subnet which the SAP monitor will be deployed in
-	MonitorSubnet *string `pulumi:"monitorSubnet"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// State of provisioning of the HanaInstance
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The version of the payload running in the Collector VM
-	SapMonitorCollectorVersion *string `pulumi:"sapMonitorCollectorVersion"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SapMonitorState struct {
-	// The value indicating whether to send analytics to Microsoft
-	EnableCustomerAnalytics pulumi.BoolPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The ARM ID of the Log Analytics Workspace that is used for monitoring
-	LogAnalyticsWorkspaceArmId pulumi.StringPtrInput
-	// The workspace ID of the log analytics workspace to be used for monitoring
-	LogAnalyticsWorkspaceId pulumi.StringPtrInput
-	// The shared key of the log analytics workspace that is used for monitoring
-	LogAnalyticsWorkspaceSharedKey pulumi.StringPtrInput
-	// The name of the resource group the SAP Monitor resources get deployed into.
-	ManagedResourceGroupName pulumi.StringPtrInput
-	// The subnet which the SAP monitor will be deployed in
-	MonitorSubnet pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// State of provisioning of the HanaInstance
-	ProvisioningState pulumi.StringPtrInput
-	// The version of the payload running in the Collector VM
-	SapMonitorCollectorVersion pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SapMonitorState) ElementType() reflect.Type {
@@ -208,9 +160,7 @@ func (i *SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonit
 	return pulumi.ToOutputWithContext(ctx, i).(SapMonitorOutput)
 }
 
-type SapMonitorOutput struct {
-	*pulumi.OutputState
-}
+type SapMonitorOutput struct{ *pulumi.OutputState }
 
 func (SapMonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SapMonitor)(nil))

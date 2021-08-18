@@ -11,14 +11,30 @@ import (
 )
 
 // specifies the type of the alert criterion.
-type HealthAlertsNamespace pulumi.String
+type HealthAlertsNamespace string
 
 const (
 	HealthAlertsNamespaceGuestVmHealth = HealthAlertsNamespace("GuestVmHealth")
 )
 
 func (HealthAlertsNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*HealthAlertsNamespace)(nil)).Elem()
+}
+
+func (e HealthAlertsNamespace) ToHealthAlertsNamespaceOutput() HealthAlertsNamespaceOutput {
+	return pulumi.ToOutput(e).(HealthAlertsNamespaceOutput)
+}
+
+func (e HealthAlertsNamespace) ToHealthAlertsNamespaceOutputWithContext(ctx context.Context) HealthAlertsNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthAlertsNamespaceOutput)
+}
+
+func (e HealthAlertsNamespace) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
+	return e.ToHealthAlertsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (e HealthAlertsNamespace) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
+	return HealthAlertsNamespace(e).ToHealthAlertsNamespaceOutputWithContext(ctx).ToHealthAlertsNamespacePtrOutputWithContext(ctx)
 }
 
 func (e HealthAlertsNamespace) ToStringOutput() pulumi.StringOutput {
@@ -37,8 +53,129 @@ func (e HealthAlertsNamespace) ToStringPtrOutputWithContext(ctx context.Context)
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type HealthAlertsNamespaceOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertsNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthAlertsNamespace)(nil)).Elem()
+}
+
+func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespaceOutput() HealthAlertsNamespaceOutput {
+	return o
+}
+
+func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespaceOutputWithContext(ctx context.Context) HealthAlertsNamespaceOutput {
+	return o
+}
+
+func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
+	return o.ToHealthAlertsNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o HealthAlertsNamespaceOutput) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthAlertsNamespace) *HealthAlertsNamespace {
+		return &v
+	}).(HealthAlertsNamespacePtrOutput)
+}
+
+func (o HealthAlertsNamespaceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthAlertsNamespaceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthAlertsNamespace) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthAlertsNamespaceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthAlertsNamespaceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthAlertsNamespace) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthAlertsNamespacePtrOutput struct{ *pulumi.OutputState }
+
+func (HealthAlertsNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthAlertsNamespace)(nil)).Elem()
+}
+
+func (o HealthAlertsNamespacePtrOutput) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
+	return o
+}
+
+func (o HealthAlertsNamespacePtrOutput) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
+	return o
+}
+
+func (o HealthAlertsNamespacePtrOutput) Elem() HealthAlertsNamespaceOutput {
+	return o.ApplyT(func(v *HealthAlertsNamespace) HealthAlertsNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret HealthAlertsNamespace
+		return ret
+	}).(HealthAlertsNamespaceOutput)
+}
+
+func (o HealthAlertsNamespacePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthAlertsNamespacePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthAlertsNamespace) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HealthAlertsNamespaceInput is an input type that accepts HealthAlertsNamespaceArgs and HealthAlertsNamespaceOutput values.
+// You can construct a concrete instance of `HealthAlertsNamespaceInput` via:
+//
+//          HealthAlertsNamespaceArgs{...}
+type HealthAlertsNamespaceInput interface {
+	pulumi.Input
+
+	ToHealthAlertsNamespaceOutput() HealthAlertsNamespaceOutput
+	ToHealthAlertsNamespaceOutputWithContext(context.Context) HealthAlertsNamespaceOutput
+}
+
+var healthAlertsNamespacePtrType = reflect.TypeOf((**HealthAlertsNamespace)(nil)).Elem()
+
+type HealthAlertsNamespacePtrInput interface {
+	pulumi.Input
+
+	ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput
+	ToHealthAlertsNamespacePtrOutputWithContext(context.Context) HealthAlertsNamespacePtrOutput
+}
+
+type healthAlertsNamespacePtr string
+
+func HealthAlertsNamespacePtr(v string) HealthAlertsNamespacePtrInput {
+	return (*healthAlertsNamespacePtr)(&v)
+}
+
+func (*healthAlertsNamespacePtr) ElementType() reflect.Type {
+	return healthAlertsNamespacePtrType
+}
+
+func (in *healthAlertsNamespacePtr) ToHealthAlertsNamespacePtrOutput() HealthAlertsNamespacePtrOutput {
+	return pulumi.ToOutput(in).(HealthAlertsNamespacePtrOutput)
+}
+
+func (in *healthAlertsNamespacePtr) ToHealthAlertsNamespacePtrOutputWithContext(ctx context.Context) HealthAlertsNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthAlertsNamespacePtrOutput)
+}
+
 // Health state name
-type HealthStateName pulumi.String
+type HealthStateName string
 
 const (
 	HealthStateNameWarning  = HealthStateName("Warning")
@@ -46,7 +183,23 @@ const (
 )
 
 func (HealthStateName) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*HealthStateName)(nil)).Elem()
+}
+
+func (e HealthStateName) ToHealthStateNameOutput() HealthStateNameOutput {
+	return pulumi.ToOutput(e).(HealthStateNameOutput)
+}
+
+func (e HealthStateName) ToHealthStateNameOutputWithContext(ctx context.Context) HealthStateNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HealthStateNameOutput)
+}
+
+func (e HealthStateName) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
+	return e.ToHealthStateNamePtrOutputWithContext(context.Background())
+}
+
+func (e HealthStateName) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
+	return HealthStateName(e).ToHealthStateNameOutputWithContext(ctx).ToHealthStateNamePtrOutputWithContext(ctx)
 }
 
 func (e HealthStateName) ToStringOutput() pulumi.StringOutput {
@@ -63,4 +216,132 @@ func (e HealthStateName) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e HealthStateName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HealthStateNameOutput struct{ *pulumi.OutputState }
+
+func (HealthStateNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HealthStateName)(nil)).Elem()
+}
+
+func (o HealthStateNameOutput) ToHealthStateNameOutput() HealthStateNameOutput {
+	return o
+}
+
+func (o HealthStateNameOutput) ToHealthStateNameOutputWithContext(ctx context.Context) HealthStateNameOutput {
+	return o
+}
+
+func (o HealthStateNameOutput) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
+	return o.ToHealthStateNamePtrOutputWithContext(context.Background())
+}
+
+func (o HealthStateNameOutput) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthStateName) *HealthStateName {
+		return &v
+	}).(HealthStateNamePtrOutput)
+}
+
+func (o HealthStateNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HealthStateNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthStateName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HealthStateNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthStateNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HealthStateName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HealthStateNamePtrOutput struct{ *pulumi.OutputState }
+
+func (HealthStateNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HealthStateName)(nil)).Elem()
+}
+
+func (o HealthStateNamePtrOutput) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
+	return o
+}
+
+func (o HealthStateNamePtrOutput) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
+	return o
+}
+
+func (o HealthStateNamePtrOutput) Elem() HealthStateNameOutput {
+	return o.ApplyT(func(v *HealthStateName) HealthStateName {
+		if v != nil {
+			return *v
+		}
+		var ret HealthStateName
+		return ret
+	}).(HealthStateNameOutput)
+}
+
+func (o HealthStateNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HealthStateNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HealthStateName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HealthStateNameInput is an input type that accepts HealthStateNameArgs and HealthStateNameOutput values.
+// You can construct a concrete instance of `HealthStateNameInput` via:
+//
+//          HealthStateNameArgs{...}
+type HealthStateNameInput interface {
+	pulumi.Input
+
+	ToHealthStateNameOutput() HealthStateNameOutput
+	ToHealthStateNameOutputWithContext(context.Context) HealthStateNameOutput
+}
+
+var healthStateNamePtrType = reflect.TypeOf((**HealthStateName)(nil)).Elem()
+
+type HealthStateNamePtrInput interface {
+	pulumi.Input
+
+	ToHealthStateNamePtrOutput() HealthStateNamePtrOutput
+	ToHealthStateNamePtrOutputWithContext(context.Context) HealthStateNamePtrOutput
+}
+
+type healthStateNamePtr string
+
+func HealthStateNamePtr(v string) HealthStateNamePtrInput {
+	return (*healthStateNamePtr)(&v)
+}
+
+func (*healthStateNamePtr) ElementType() reflect.Type {
+	return healthStateNamePtrType
+}
+
+func (in *healthStateNamePtr) ToHealthStateNamePtrOutput() HealthStateNamePtrOutput {
+	return pulumi.ToOutput(in).(HealthStateNamePtrOutput)
+}
+
+func (in *healthStateNamePtr) ToHealthStateNamePtrOutputWithContext(ctx context.Context) HealthStateNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HealthStateNamePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(HealthAlertsNamespaceOutput{})
+	pulumi.RegisterOutputType(HealthAlertsNamespacePtrOutput{})
+	pulumi.RegisterOutputType(HealthStateNameOutput{})
+	pulumi.RegisterOutputType(HealthStateNamePtrOutput{})
 }

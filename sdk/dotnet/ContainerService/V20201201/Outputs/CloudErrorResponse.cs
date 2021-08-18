@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20201201.Outputs
 {
 
+    /// <summary>
+    /// An error response from the Container service.
+    /// </summary>
     [OutputType]
     public sealed class CloudErrorResponse
     {

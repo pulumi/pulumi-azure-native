@@ -144,37 +144,9 @@ func GetSiteSlotConfigNames(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteSlotConfigNames resources.
 type siteSlotConfigNamesState struct {
-	// List of application settings names
-	AppSettingNames []string `pulumi:"appSettingNames"`
-	// List of connection string names
-	ConnectionStringNames []string `pulumi:"connectionStringNames"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SiteSlotConfigNamesState struct {
-	// List of application settings names
-	AppSettingNames pulumi.StringArrayInput
-	// List of connection string names
-	ConnectionStringNames pulumi.StringArrayInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SiteSlotConfigNamesState) ElementType() reflect.Type {
@@ -247,9 +219,7 @@ func (i *SiteSlotConfigNames) ToSiteSlotConfigNamesOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SiteSlotConfigNamesOutput)
 }
 
-type SiteSlotConfigNamesOutput struct {
-	*pulumi.OutputState
-}
+type SiteSlotConfigNamesOutput struct{ *pulumi.OutputState }
 
 func (SiteSlotConfigNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteSlotConfigNames)(nil))

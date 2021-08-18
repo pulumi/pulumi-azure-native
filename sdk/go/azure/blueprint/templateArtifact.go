@@ -94,47 +94,9 @@ func GetTemplateArtifact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TemplateArtifact resources.
 type templateArtifactState struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'template'.
-	Kind *string `pulumi:"kind"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Resource Manager template blueprint artifact parameter values.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
-	// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The Resource Manager template blueprint artifact body.
-	Template interface{} `pulumi:"template"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type TemplateArtifactState struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'template'.
-	Kind pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Resource Manager template blueprint artifact parameter values.
-	Parameters ParameterValueResponseMapInput
-	// If applicable, the name of the resource group placeholder to which the Resource Manager template blueprint artifact will be deployed.
-	ResourceGroup pulumi.StringPtrInput
-	// The Resource Manager template blueprint artifact body.
-	Template pulumi.Input
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TemplateArtifactState) ElementType() reflect.Type {
@@ -213,9 +175,7 @@ func (i *TemplateArtifact) ToTemplateArtifactOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateArtifactOutput)
 }
 
-type TemplateArtifactOutput struct {
-	*pulumi.OutputState
-}
+type TemplateArtifactOutput struct{ *pulumi.OutputState }
 
 func (TemplateArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TemplateArtifact)(nil))

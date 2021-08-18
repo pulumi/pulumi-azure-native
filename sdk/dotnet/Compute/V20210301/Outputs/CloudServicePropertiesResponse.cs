@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Cloud service properties
+    /// </summary>
     [OutputType]
     public sealed class CloudServicePropertiesResponse
     {

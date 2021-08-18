@@ -223,69 +223,9 @@ func GetVirtualHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHub resources.
 type virtualHubState struct {
-	// Address-prefix for this VirtualHub.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// The azureFirewall associated with this VirtualHub.
-	AzureFirewall *SubResourceResponse `pulumi:"azureFirewall"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The expressRouteGateway associated with this VirtualHub.
-	ExpressRouteGateway *SubResourceResponse `pulumi:"expressRouteGateway"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The P2SVpnGateway associated with this VirtualHub.
-	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
-	// The provisioning state of the virtual hub resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The routeTable associated with this virtual hub.
-	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
-	// The Security Provider name.
-	SecurityProviderName *string `pulumi:"securityProviderName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// List of all vnet connections with this VirtualHub.
-	VirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"virtualNetworkConnections"`
-	// The VirtualWAN to which the VirtualHub belongs.
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
-	// The VpnGateway associated with this VirtualHub.
-	VpnGateway *SubResourceResponse `pulumi:"vpnGateway"`
 }
 
 type VirtualHubState struct {
-	// Address-prefix for this VirtualHub.
-	AddressPrefix pulumi.StringPtrInput
-	// The azureFirewall associated with this VirtualHub.
-	AzureFirewall SubResourceResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The expressRouteGateway associated with this VirtualHub.
-	ExpressRouteGateway SubResourceResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The P2SVpnGateway associated with this VirtualHub.
-	P2SVpnGateway SubResourceResponsePtrInput
-	// The provisioning state of the virtual hub resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The routeTable associated with this virtual hub.
-	RouteTable VirtualHubRouteTableResponsePtrInput
-	// The Security Provider name.
-	SecurityProviderName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// List of all vnet connections with this VirtualHub.
-	VirtualNetworkConnections HubVirtualNetworkConnectionResponseArrayInput
-	// The VirtualWAN to which the VirtualHub belongs.
-	VirtualWan SubResourceResponsePtrInput
-	// The VpnGateway associated with this VirtualHub.
-	VpnGateway SubResourceResponsePtrInput
 }
 
 func (VirtualHubState) ElementType() reflect.Type {
@@ -378,9 +318,7 @@ func (i *VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualH
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
 }
 
-type VirtualHubOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHub)(nil))

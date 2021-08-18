@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// Property/Properties which represent a unique ID.
+    /// </summary>
     [OutputType]
     public sealed class StrongIdResponse
     {

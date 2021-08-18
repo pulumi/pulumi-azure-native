@@ -70,25 +70,9 @@ func GetAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Association resources.
 type associationState struct {
-	// The association name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the association.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The REST resource instance of the target resource for this association.
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The association type.
-	Type *string `pulumi:"type"`
 }
 
 type AssociationState struct {
-	// The association name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the association.
-	ProvisioningState pulumi.StringPtrInput
-	// The REST resource instance of the target resource for this association.
-	TargetResourceId pulumi.StringPtrInput
-	// The association type.
-	Type pulumi.StringPtrInput
 }
 
 func (AssociationState) ElementType() reflect.Type {
@@ -137,9 +121,7 @@ func (i *Association) ToAssociationOutputWithContext(ctx context.Context) Associ
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationOutput)
 }
 
-type AssociationOutput struct {
-	*pulumi.OutputState
-}
+type AssociationOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Association)(nil))

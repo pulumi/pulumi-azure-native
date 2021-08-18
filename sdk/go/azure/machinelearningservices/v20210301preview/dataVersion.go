@@ -78,25 +78,9 @@ func GetDataVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataVersion resources.
 type dataVersionState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties *DataVersionResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DataVersionState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties DataVersionResponsePtrInput
-	// System data associated with resource provider
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DataVersionState) ElementType() reflect.Type {
@@ -153,9 +137,7 @@ func (i *DataVersion) ToDataVersionOutputWithContext(ctx context.Context) DataVe
 	return pulumi.ToOutputWithContext(ctx, i).(DataVersionOutput)
 }
 
-type DataVersionOutput struct {
-	*pulumi.OutputState
-}
+type DataVersionOutput struct{ *pulumi.OutputState }
 
 func (DataVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataVersion)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeAnalytics.V20151001Preview.Outputs
 {
 
+    /// <summary>
+    /// SAS token information.
+    /// </summary>
     [OutputType]
     public sealed class SasTokenInformationResponse
     {

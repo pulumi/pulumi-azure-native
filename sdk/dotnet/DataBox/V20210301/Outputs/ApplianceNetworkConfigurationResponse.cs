@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20210301.Outputs
 {
 
+    /// <summary>
+    /// The Network Adapter configuration of a DataBox.
+    /// </summary>
     [OutputType]
     public sealed class ApplianceNetworkConfigurationResponse
     {

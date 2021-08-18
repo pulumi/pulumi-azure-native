@@ -16,8 +16,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.offazure.v20200101 as v20200101
-    import pulumi_azure_native.offazure.v20200707 as v20200707
+    import pulumi_azure_native.offazure.v20200101 as __v20200101
+    v20200101 = __v20200101
+    import pulumi_azure_native.offazure.v20200707 as __v20200707
+    v20200707 = __v20200707
 else:
     v20200101 = _utilities.lazy_import('pulumi_azure_native.offazure.v20200101')
     v20200707 = _utilities.lazy_import('pulumi_azure_native.offazure.v20200707')

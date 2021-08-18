@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Auto-scaling properties of a Big Data pool powered by Apache Spark
+    /// </summary>
     [OutputType]
     public sealed class AutoScalePropertiesResponse
     {

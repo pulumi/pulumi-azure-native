@@ -107,7 +107,7 @@ func (o AzureSkuOutput) ToAzureSkuPtrOutput() AzureSkuPtrOutput {
 }
 
 func (o AzureSkuOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) AzureSkuPtrOutput {
-	return o.ApplyT(func(v AzureSku) *AzureSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSku) *AzureSku {
 		return &v
 	}).(AzureSkuPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o AzureSkuPtrOutput) ToAzureSkuPtrOutputWithContext(ctx context.Context) A
 }
 
 func (o AzureSkuPtrOutput) Elem() AzureSkuOutput {
-	return o.ApplyT(func(v *AzureSku) AzureSku { return *v }).(AzureSkuOutput)
+	return o.ApplyT(func(v *AzureSku) AzureSku {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSku
+		return ret
+	}).(AzureSkuOutput)
 }
 
 // SKU name
@@ -257,7 +263,7 @@ func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutput() AzureSkuResponsePt
 }
 
 func (o AzureSkuResponseOutput) ToAzureSkuResponsePtrOutputWithContext(ctx context.Context) AzureSkuResponsePtrOutput {
-	return o.ApplyT(func(v AzureSkuResponse) *AzureSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuResponse) *AzureSkuResponse {
 		return &v
 	}).(AzureSkuResponsePtrOutput)
 }
@@ -287,7 +293,13 @@ func (o AzureSkuResponsePtrOutput) ToAzureSkuResponsePtrOutputWithContext(ctx co
 }
 
 func (o AzureSkuResponsePtrOutput) Elem() AzureSkuResponseOutput {
-	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse { return *v }).(AzureSkuResponseOutput)
+	return o.ApplyT(func(v *AzureSkuResponse) AzureSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSkuResponse
+		return ret
+	}).(AzureSkuResponseOutput)
 }
 
 // SKU name

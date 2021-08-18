@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Microsoft Azure CosmosDB (SQL API) Collection dataset.
+    /// </summary>
     [OutputType]
     public sealed class CosmosDbSqlApiCollectionDatasetResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Preferences related to the Encryption.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionPreferencesResponse
     {

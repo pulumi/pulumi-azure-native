@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// The configuration of the partition key to be used for partitioning data into multiple partitions
+    /// </summary>
     [OutputType]
     public sealed class ContainerPartitionKeyResponse
     {

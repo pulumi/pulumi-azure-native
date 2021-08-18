@@ -78,31 +78,9 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	Location *string                     `pulumi:"location"`
-	// Name of the monitor resource.
-	Name *string `pulumi:"name"`
-	// Properties specific to the monitor resource.
-	Properties *MonitorPropertiesResponse `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	Tags       map[string]string   `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type *string `pulumi:"type"`
 }
 
 type MonitorState struct {
-	Identity IdentityPropertiesResponsePtrInput
-	Location pulumi.StringPtrInput
-	// Name of the monitor resource.
-	Name pulumi.StringPtrInput
-	// Properties specific to the monitor resource.
-	Properties MonitorPropertiesResponsePtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	Tags       pulumi.StringMapInput
-	// The type of the monitor resource.
-	Type pulumi.StringPtrInput
 }
 
 func (MonitorState) ElementType() reflect.Type {
@@ -157,9 +135,7 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
 }
 
-type MonitorOutput struct {
-	*pulumi.OutputState
-}
+type MonitorOutput struct{ *pulumi.OutputState }
 
 func (MonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Monitor)(nil))

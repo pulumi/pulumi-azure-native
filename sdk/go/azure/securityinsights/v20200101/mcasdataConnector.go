@@ -93,35 +93,9 @@ func GetMCASDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MCASDataConnector resources.
 type mcasdataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *MCASDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'MicrosoftCloudAppSecurity'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type MCASDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes MCASDataConnectorDataTypesResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'MicrosoftCloudAppSecurity'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MCASDataConnectorState) ElementType() reflect.Type {
@@ -188,9 +162,7 @@ func (i *MCASDataConnector) ToMCASDataConnectorOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MCASDataConnectorOutput)
 }
 
-type MCASDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type MCASDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MCASDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MCASDataConnector)(nil))

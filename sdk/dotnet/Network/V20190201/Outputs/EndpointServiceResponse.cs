@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190201.Outputs
 {
 
+    /// <summary>
+    /// Identifies the service being brought into the virtual network.
+    /// </summary>
     [OutputType]
     public sealed class EndpointServiceResponse
     {

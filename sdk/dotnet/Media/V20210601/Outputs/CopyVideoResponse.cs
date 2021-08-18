@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// A codec flag, which tells the encoder to copy the input video bitstream without re-encoding.
+    /// </summary>
     [OutputType]
     public sealed class CopyVideoResponse
     {

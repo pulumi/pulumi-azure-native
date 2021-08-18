@@ -103,61 +103,9 @@ func GetNotificationHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationHub resources.
 type notificationHubState struct {
-	// The AdmCredential of the created NotificationHub
-	AdmCredential *AdmCredentialResponse `pulumi:"admCredential"`
-	// The ApnsCredential of the created NotificationHub
-	ApnsCredential *ApnsCredentialResponse `pulumi:"apnsCredential"`
-	// The AuthorizationRules of the created NotificationHub
-	AuthorizationRules []SharedAccessAuthorizationRulePropertiesResponse `pulumi:"authorizationRules"`
-	// The BaiduCredential of the created NotificationHub
-	BaiduCredential *BaiduCredentialResponse `pulumi:"baiduCredential"`
-	// The GcmCredential of the created NotificationHub
-	GcmCredential *GcmCredentialResponse `pulumi:"gcmCredential"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The MpnsCredential of the created NotificationHub
-	MpnsCredential *MpnsCredentialResponse `pulumi:"mpnsCredential"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The RegistrationTtl of the created NotificationHub
-	RegistrationTtl *string `pulumi:"registrationTtl"`
-	// The sku of the created namespace
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The WnsCredential of the created NotificationHub
-	WnsCredential *WnsCredentialResponse `pulumi:"wnsCredential"`
 }
 
 type NotificationHubState struct {
-	// The AdmCredential of the created NotificationHub
-	AdmCredential AdmCredentialResponsePtrInput
-	// The ApnsCredential of the created NotificationHub
-	ApnsCredential ApnsCredentialResponsePtrInput
-	// The AuthorizationRules of the created NotificationHub
-	AuthorizationRules SharedAccessAuthorizationRulePropertiesResponseArrayInput
-	// The BaiduCredential of the created NotificationHub
-	BaiduCredential BaiduCredentialResponsePtrInput
-	// The GcmCredential of the created NotificationHub
-	GcmCredential GcmCredentialResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The MpnsCredential of the created NotificationHub
-	MpnsCredential MpnsCredentialResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The RegistrationTtl of the created NotificationHub
-	RegistrationTtl pulumi.StringPtrInput
-	// The sku of the created namespace
-	Sku SkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The WnsCredential of the created NotificationHub
-	WnsCredential WnsCredentialResponsePtrInput
 }
 
 func (NotificationHubState) ElementType() reflect.Type {
@@ -254,9 +202,7 @@ func (i *NotificationHub) ToNotificationHubOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubOutput)
 }
 
-type NotificationHubOutput struct {
-	*pulumi.OutputState
-}
+type NotificationHubOutput struct{ *pulumi.OutputState }
 
 func (NotificationHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationHub)(nil))

@@ -140,93 +140,9 @@ func GetStreamingEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingEndpoint resources.
 type streamingEndpointState struct {
-	// The access control definition of the streaming endpoint.
-	AccessControl *StreamingEndpointAccessControlResponse `pulumi:"accessControl"`
-	// This feature is deprecated, do not set a value for this property.
-	AvailabilitySetName *string `pulumi:"availabilitySetName"`
-	// The CDN enabled flag.
-	CdnEnabled *bool `pulumi:"cdnEnabled"`
-	// The CDN profile name.
-	CdnProfile *string `pulumi:"cdnProfile"`
-	// The CDN provider name.
-	CdnProvider *string `pulumi:"cdnProvider"`
-	// The exact time the streaming endpoint was created.
-	Created *string `pulumi:"created"`
-	// The streaming endpoint access policies.
-	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
-	// The custom host names of the streaming endpoint
-	CustomHostNames []string `pulumi:"customHostNames"`
-	// The streaming endpoint description.
-	Description *string `pulumi:"description"`
-	// The free trial expiration time.
-	FreeTrialEndTime *string `pulumi:"freeTrialEndTime"`
-	// The streaming endpoint host name.
-	HostName *string `pulumi:"hostName"`
-	// The exact time the streaming endpoint was last modified.
-	LastModified *string `pulumi:"lastModified"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Max cache age
-	MaxCacheAge *float64 `pulumi:"maxCacheAge"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioning state of the streaming endpoint.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource state of the streaming endpoint.
-	ResourceState *string `pulumi:"resourceState"`
-	// The number of scale units. Use the Scale operation to adjust this value.
-	ScaleUnits *int `pulumi:"scaleUnits"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type StreamingEndpointState struct {
-	// The access control definition of the streaming endpoint.
-	AccessControl StreamingEndpointAccessControlResponsePtrInput
-	// This feature is deprecated, do not set a value for this property.
-	AvailabilitySetName pulumi.StringPtrInput
-	// The CDN enabled flag.
-	CdnEnabled pulumi.BoolPtrInput
-	// The CDN profile name.
-	CdnProfile pulumi.StringPtrInput
-	// The CDN provider name.
-	CdnProvider pulumi.StringPtrInput
-	// The exact time the streaming endpoint was created.
-	Created pulumi.StringPtrInput
-	// The streaming endpoint access policies.
-	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrInput
-	// The custom host names of the streaming endpoint
-	CustomHostNames pulumi.StringArrayInput
-	// The streaming endpoint description.
-	Description pulumi.StringPtrInput
-	// The free trial expiration time.
-	FreeTrialEndTime pulumi.StringPtrInput
-	// The streaming endpoint host name.
-	HostName pulumi.StringPtrInput
-	// The exact time the streaming endpoint was last modified.
-	LastModified pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Max cache age
-	MaxCacheAge pulumi.Float64PtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioning state of the streaming endpoint.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource state of the streaming endpoint.
-	ResourceState pulumi.StringPtrInput
-	// The number of scale units. Use the Scale operation to adjust this value.
-	ScaleUnits pulumi.IntPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (StreamingEndpointState) ElementType() reflect.Type {
@@ -327,9 +243,7 @@ func (i *StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointOutput)
 }
 
-type StreamingEndpointOutput struct {
-	*pulumi.OutputState
-}
+type StreamingEndpointOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingEndpoint)(nil))

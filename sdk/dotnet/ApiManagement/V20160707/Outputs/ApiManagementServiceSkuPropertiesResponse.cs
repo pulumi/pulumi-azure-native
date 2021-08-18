@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20160707.Outputs
 {
 
+    /// <summary>
+    /// API Management service resource SKU properties.
+    /// </summary>
     [OutputType]
     public sealed class ApiManagementServiceSkuPropertiesResponse
     {

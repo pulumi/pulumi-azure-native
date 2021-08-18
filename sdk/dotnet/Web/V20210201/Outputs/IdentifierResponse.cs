@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210201.Outputs
 {
 
+    /// <summary>
+    /// A domain specific resource identifier.
+    /// </summary>
     [OutputType]
     public sealed class IdentifierResponse
     {

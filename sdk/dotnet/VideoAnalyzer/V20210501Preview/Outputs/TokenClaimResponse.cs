@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties for expected token claims.
+    /// </summary>
     [OutputType]
     public sealed class TokenClaimResponse
     {

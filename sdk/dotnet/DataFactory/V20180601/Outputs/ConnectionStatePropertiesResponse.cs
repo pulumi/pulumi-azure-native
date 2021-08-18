@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The connection state of a managed private endpoint
+    /// </summary>
     [OutputType]
     public sealed class ConnectionStatePropertiesResponse
     {

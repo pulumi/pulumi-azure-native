@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.EventGrid.V20190601
         /// Information about the destination where events have to be delivered for the event subscription.
         /// </summary>
         [Input("destination")]
-        public Input<object>? Destination { get; set; }
+        public object? Destination { get; set; }
 
         /// <summary>
         /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.

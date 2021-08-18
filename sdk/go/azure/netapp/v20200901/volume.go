@@ -88,9 +88,6 @@ func NewVolume(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	if args.UsageThreshold == nil {
-		return nil, errors.New("invalid value for required argument 'UsageThreshold'")
-	}
 	if args.KerberosEnabled == nil {
 		args.KerberosEnabled = pulumi.BoolPtr(false)
 	}
@@ -257,107 +254,9 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// UUID v4 or resource identifier used to identify the Backup.
-	BackupId *string `pulumi:"backupId"`
-	// Unique Baremetal Tenant Identifier.
-	BaremetalTenantId *string `pulumi:"baremetalTenantId"`
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken *string `pulumi:"creationToken"`
-	// DataProtection type volumes include an object containing details of the replication
-	DataProtection *VolumePropertiesResponseDataProtection `pulumi:"dataProtection"`
-	// Set of export policy rules
-	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
-	// Unique FileSystem Identifier.
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Restoring
-	IsRestoring *bool `pulumi:"isRestoring"`
-	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// List of mount targets
-	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Set of protocol types, default NFSv3, CIFS for SMB protocol
-	ProtocolTypes []string `pulumi:"protocolTypes"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
-	SecurityStyle *string `pulumi:"securityStyle"`
-	// The service level of the file system
-	ServiceLevel *string `pulumi:"serviceLevel"`
-	// Enables continuously available share property for smb volume. Only applicable for SMB volume
-	SmbContinuouslyAvailable *bool `pulumi:"smbContinuouslyAvailable"`
-	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-	SmbEncryption *bool `pulumi:"smbEncryption"`
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
-	SnapshotDirectoryVisible *bool `pulumi:"snapshotDirectoryVisible"`
-	// UUID v4 or resource identifier used to identify the Snapshot.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId *string `pulumi:"subnetId"`
-	// Resource tags
-	Tags            map[string]string `pulumi:"tags"`
-	ThroughputMibps *float64          `pulumi:"throughputMibps"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold *float64 `pulumi:"usageThreshold"`
-	// What type of volume is this
-	VolumeType *string `pulumi:"volumeType"`
 }
 
 type VolumeState struct {
-	// UUID v4 or resource identifier used to identify the Backup.
-	BackupId pulumi.StringPtrInput
-	// Unique Baremetal Tenant Identifier.
-	BaremetalTenantId pulumi.StringPtrInput
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringPtrInput
-	// DataProtection type volumes include an object containing details of the replication
-	DataProtection VolumePropertiesResponseDataProtectionPtrInput
-	// Set of export policy rules
-	ExportPolicy VolumePropertiesResponseExportPolicyPtrInput
-	// Unique FileSystem Identifier.
-	FileSystemId pulumi.StringPtrInput
-	// Restoring
-	IsRestoring pulumi.BoolPtrInput
-	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
-	KerberosEnabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// List of mount targets
-	MountTargets MountTargetPropertiesResponseArrayInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Set of protocol types, default NFSv3, CIFS for SMB protocol
-	ProtocolTypes pulumi.StringArrayInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// The security style of volume, default unix, ntfs for dual protocol or CIFS protocol
-	SecurityStyle pulumi.StringPtrInput
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrInput
-	// Enables continuously available share property for smb volume. Only applicable for SMB volume
-	SmbContinuouslyAvailable pulumi.BoolPtrInput
-	// Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-	SmbEncryption pulumi.BoolPtrInput
-	// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
-	SnapshotDirectoryVisible pulumi.BoolPtrInput
-	// UUID v4 or resource identifier used to identify the Snapshot.
-	SnapshotId pulumi.StringPtrInput
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringPtrInput
-	// Resource tags
-	Tags            pulumi.StringMapInput
-	ThroughputMibps pulumi.Float64PtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.Float64PtrInput
-	// What type of volume is this
-	VolumeType pulumi.StringPtrInput
 }
 
 func (VolumeState) ElementType() reflect.Type {
@@ -484,9 +383,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-type VolumeOutput struct {
-	*pulumi.OutputState
-}
+type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Volume)(nil))

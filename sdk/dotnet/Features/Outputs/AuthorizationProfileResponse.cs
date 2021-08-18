@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Features.Outputs
 {
 
+    /// <summary>
+    /// Authorization Profile
+    /// </summary>
     [OutputType]
     public sealed class AuthorizationProfileResponse
     {

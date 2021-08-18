@@ -87,49 +87,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// Windows IoT Device Service OEM AAD domain
-	AdminDomainName *string `pulumi:"adminDomainName"`
-	// Windows IoT Device Service ODM AAD domain
-	BillingDomainName *string `pulumi:"billingDomainName"`
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Windows IoT Device Service notes.
-	Notes *string `pulumi:"notes"`
-	// Windows IoT Device Service device allocation,
-	Quantity *float64 `pulumi:"quantity"`
-	// Windows IoT Device Service start date,
-	StartDate *string `pulumi:"startDate"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	// Windows IoT Device Service OEM AAD domain
-	AdminDomainName pulumi.StringPtrInput
-	// Windows IoT Device Service ODM AAD domain
-	BillingDomainName pulumi.StringPtrInput
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Windows IoT Device Service notes.
-	Notes pulumi.StringPtrInput
-	// Windows IoT Device Service device allocation,
-	Quantity pulumi.Float64PtrInput
-	// Windows IoT Device Service start date,
-	StartDate pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -202,9 +162,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

@@ -118,7 +118,7 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutput() MaintenanceWindo
 }
 
 func (o MaintenanceWindowOutput) ToMaintenanceWindowPtrOutputWithContext(ctx context.Context) MaintenanceWindowPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindow) *MaintenanceWindow {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindow) *MaintenanceWindow {
 		return &v
 	}).(MaintenanceWindowPtrOutput)
 }
@@ -158,7 +158,13 @@ func (o MaintenanceWindowPtrOutput) ToMaintenanceWindowPtrOutputWithContext(ctx 
 }
 
 func (o MaintenanceWindowPtrOutput) Elem() MaintenanceWindowOutput {
-	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow { return *v }).(MaintenanceWindowOutput)
+	return o.ApplyT(func(v *MaintenanceWindow) MaintenanceWindow {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindow
+		return ret
+	}).(MaintenanceWindowOutput)
 }
 
 // indicates whether custom window is enabled or disabled
@@ -309,7 +315,7 @@ func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutput() 
 }
 
 func (o MaintenanceWindowResponseOutput) ToMaintenanceWindowResponsePtrOutputWithContext(ctx context.Context) MaintenanceWindowResponsePtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowResponse) *MaintenanceWindowResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowResponse) *MaintenanceWindowResponse {
 		return &v
 	}).(MaintenanceWindowResponsePtrOutput)
 }
@@ -349,7 +355,13 @@ func (o MaintenanceWindowResponsePtrOutput) ToMaintenanceWindowResponsePtrOutput
 }
 
 func (o MaintenanceWindowResponsePtrOutput) Elem() MaintenanceWindowResponseOutput {
-	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse { return *v }).(MaintenanceWindowResponseOutput)
+	return o.ApplyT(func(v *MaintenanceWindowResponse) MaintenanceWindowResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowResponse
+		return ret
+	}).(MaintenanceWindowResponseOutput)
 }
 
 // indicates whether custom window is enabled or disabled
@@ -488,7 +500,7 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsOutput) ToServerGroupProper
 }
 
 func (o ServerGroupPropertiesDelegatedSubnetArgumentsOutput) ToServerGroupPropertiesDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesDelegatedSubnetArguments) *ServerGroupPropertiesDelegatedSubnetArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesDelegatedSubnetArguments) *ServerGroupPropertiesDelegatedSubnetArguments {
 		return &v
 	}).(ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput)
 }
@@ -514,7 +526,11 @@ func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) ToServerGroupPro
 
 func (o ServerGroupPropertiesDelegatedSubnetArgumentsPtrOutput) Elem() ServerGroupPropertiesDelegatedSubnetArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesDelegatedSubnetArguments) ServerGroupPropertiesDelegatedSubnetArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesDelegatedSubnetArguments
+		return ret
 	}).(ServerGroupPropertiesDelegatedSubnetArgumentsOutput)
 }
 
@@ -624,7 +640,7 @@ func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropert
 }
 
 func (o ServerGroupPropertiesPrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesPrivateDnsZoneArguments) *ServerGroupPropertiesPrivateDnsZoneArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesPrivateDnsZoneArguments) *ServerGroupPropertiesPrivateDnsZoneArguments {
 		return &v
 	}).(ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput)
 }
@@ -650,7 +666,11 @@ func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) ToServerGroupProp
 
 func (o ServerGroupPropertiesPrivateDnsZoneArgumentsPtrOutput) Elem() ServerGroupPropertiesPrivateDnsZoneArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesPrivateDnsZoneArguments) ServerGroupPropertiesPrivateDnsZoneArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesPrivateDnsZoneArguments
+		return ret
 	}).(ServerGroupPropertiesPrivateDnsZoneArgumentsOutput)
 }
 
@@ -760,7 +780,7 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput) ToServerGro
 }
 
 func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput) ToServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesResponseDelegatedSubnetArguments) *ServerGroupPropertiesResponseDelegatedSubnetArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesResponseDelegatedSubnetArguments) *ServerGroupPropertiesResponseDelegatedSubnetArguments {
 		return &v
 	}).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput)
 }
@@ -786,7 +806,11 @@ func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) ToServer
 
 func (o ServerGroupPropertiesResponseDelegatedSubnetArgumentsPtrOutput) Elem() ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesResponseDelegatedSubnetArguments) ServerGroupPropertiesResponseDelegatedSubnetArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesResponseDelegatedSubnetArguments
+		return ret
 	}).(ServerGroupPropertiesResponseDelegatedSubnetArgumentsOutput)
 }
 
@@ -896,7 +920,7 @@ func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGrou
 }
 
 func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput) ToServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutputWithContext(ctx context.Context) ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput {
-	return o.ApplyT(func(v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *ServerGroupPropertiesResponsePrivateDnsZoneArguments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerGroupPropertiesResponsePrivateDnsZoneArguments) *ServerGroupPropertiesResponsePrivateDnsZoneArguments {
 		return &v
 	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput)
 }
@@ -924,7 +948,11 @@ func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) ToServerG
 
 func (o ServerGroupPropertiesResponsePrivateDnsZoneArgumentsPtrOutput) Elem() ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput {
 	return o.ApplyT(func(v *ServerGroupPropertiesResponsePrivateDnsZoneArguments) ServerGroupPropertiesResponsePrivateDnsZoneArguments {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServerGroupPropertiesResponsePrivateDnsZoneArguments
+		return ret
 	}).(ServerGroupPropertiesResponsePrivateDnsZoneArgumentsOutput)
 }
 
@@ -1489,7 +1517,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1539,7 +1567,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

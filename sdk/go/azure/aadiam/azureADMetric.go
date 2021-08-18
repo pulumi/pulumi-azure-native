@@ -71,27 +71,9 @@ func GetAzureADMetric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AzureADMetric resources.
 type azureADMetricState struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name       *string                                 `pulumi:"name"`
-	Properties *AzureADMetricsPropertiesFormatResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type AzureADMetricState struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Properties AzureADMetricsPropertiesFormatResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (AzureADMetricState) ElementType() reflect.Type {
@@ -144,9 +126,7 @@ func (i *AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) Az
 	return pulumi.ToOutputWithContext(ctx, i).(AzureADMetricOutput)
 }
 
-type AzureADMetricOutput struct {
-	*pulumi.OutputState
-}
+type AzureADMetricOutput struct{ *pulumi.OutputState }
 
 func (AzureADMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureADMetric)(nil))

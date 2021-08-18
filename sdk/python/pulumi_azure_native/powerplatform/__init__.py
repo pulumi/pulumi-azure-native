@@ -17,7 +17,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.powerplatform.v20201030preview as v20201030preview
+    import pulumi_azure_native.powerplatform.v20201030preview as __v20201030preview
+    v20201030preview = __v20201030preview
 else:
     v20201030preview = _utilities.lazy_import('pulumi_azure_native.powerplatform.v20201030preview')
 

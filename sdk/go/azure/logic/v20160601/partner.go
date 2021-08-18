@@ -48,6 +48,9 @@ func NewPartner(ctx *pulumi.Context,
 	if args.IntegrationAccountName == nil {
 		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
 	}
+	if args.PartnerType == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerType'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -103,45 +106,9 @@ func GetPartner(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Partner resources.
 type partnerState struct {
-	// The changed time.
-	ChangedTime *string `pulumi:"changedTime"`
-	// The partner content.
-	Content *PartnerContentResponse `pulumi:"content"`
-	// The created time.
-	CreatedTime *string `pulumi:"createdTime"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The partner type.
-	PartnerType *string `pulumi:"partnerType"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PartnerState struct {
-	// The changed time.
-	ChangedTime pulumi.StringPtrInput
-	// The partner content.
-	Content PartnerContentResponsePtrInput
-	// The created time.
-	CreatedTime pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The metadata.
-	Metadata pulumi.Input
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The partner type.
-	PartnerType pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PartnerState) ElementType() reflect.Type {
@@ -160,7 +127,7 @@ type partnerArgs struct {
 	// The integration account partner name.
 	PartnerName *string `pulumi:"partnerName"`
 	// The partner type.
-	PartnerType string `pulumi:"partnerType"`
+	PartnerType PartnerType `pulumi:"partnerType"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -180,7 +147,7 @@ type PartnerArgs struct {
 	// The integration account partner name.
 	PartnerName pulumi.StringPtrInput
 	// The partner type.
-	PartnerType PartnerType
+	PartnerType PartnerTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
@@ -210,9 +177,7 @@ func (i *Partner) ToPartnerOutputWithContext(ctx context.Context) PartnerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PartnerOutput)
 }
 
-type PartnerOutput struct {
-	*pulumi.OutputState
-}
+type PartnerOutput struct{ *pulumi.OutputState }
 
 func (PartnerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Partner)(nil))

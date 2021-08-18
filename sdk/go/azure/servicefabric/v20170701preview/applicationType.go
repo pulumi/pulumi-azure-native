@@ -114,25 +114,9 @@ func GetApplicationType(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationType resources.
 type applicationTypeState struct {
-	// Azure resource location.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name *string `pulumi:"name"`
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Azure resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ApplicationTypeState struct {
-	// Azure resource location.
-	Location pulumi.StringPtrInput
-	// Azure resource name.
-	Name pulumi.StringPtrInput
-	// The current deployment or provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// Azure resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ApplicationTypeState) ElementType() reflect.Type {
@@ -185,9 +169,7 @@ func (i *ApplicationType) ToApplicationTypeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
 }
 
-type ApplicationTypeOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationTypeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationType)(nil))

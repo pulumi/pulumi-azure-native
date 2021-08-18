@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kubernetes.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Contains the REP (rendezvous endpoint) and “Sender” access token.
+    /// </summary>
     [OutputType]
     public sealed class HybridConnectionConfigResponse
     {

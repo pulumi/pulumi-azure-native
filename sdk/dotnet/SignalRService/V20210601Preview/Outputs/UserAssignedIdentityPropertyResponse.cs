@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of user assigned identity.
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityPropertyResponse
     {

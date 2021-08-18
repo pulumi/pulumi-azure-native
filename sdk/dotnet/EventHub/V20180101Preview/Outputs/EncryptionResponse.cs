@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20180101Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties to configure Encryption
+    /// </summary>
     [OutputType]
     public sealed class EncryptionResponse
     {

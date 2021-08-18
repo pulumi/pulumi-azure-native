@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20140401.Outputs
 {
 
+    /// <summary>
+    /// A management event rule condition.
+    /// </summary>
     [OutputType]
     public sealed class ManagementEventRuleConditionResponse
     {

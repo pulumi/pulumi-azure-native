@@ -140,77 +140,9 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	// Collation of the metadata catalog.
-	CatalogCollation *string `pulumi:"catalogCollation"`
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// The creation date of the database (ISO8601 format).
-	CreationDate *string `pulumi:"creationDate"`
-	// The current service level objective name of the database.
-	CurrentServiceObjectiveName *string `pulumi:"currentServiceObjectiveName"`
-	// The ID of the database.
-	DatabaseId *string `pulumi:"databaseId"`
-	// The default secondary region for this database.
-	DefaultSecondaryLocation *string `pulumi:"defaultSecondaryLocation"`
-	// The resource identifier of the elastic pool containing this database.
-	ElasticPoolId *string `pulumi:"elasticPoolId"`
-	// Failover Group resource identifier that this database belongs to.
-	FailoverGroupId *string `pulumi:"failoverGroupId"`
-	// Kind of database. This is metadata used for the Azure portal experience.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The max size of the database expressed in bytes.
-	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The name and tier of the SKU.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The status of the database.
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type DatabaseState struct {
-	// Collation of the metadata catalog.
-	CatalogCollation pulumi.StringPtrInput
-	// The collation of the database.
-	Collation pulumi.StringPtrInput
-	// The creation date of the database (ISO8601 format).
-	CreationDate pulumi.StringPtrInput
-	// The current service level objective name of the database.
-	CurrentServiceObjectiveName pulumi.StringPtrInput
-	// The ID of the database.
-	DatabaseId pulumi.StringPtrInput
-	// The default secondary region for this database.
-	DefaultSecondaryLocation pulumi.StringPtrInput
-	// The resource identifier of the elastic pool containing this database.
-	ElasticPoolId pulumi.StringPtrInput
-	// Failover Group resource identifier that this database belongs to.
-	FailoverGroupId pulumi.StringPtrInput
-	// Kind of database. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The max size of the database expressed in bytes.
-	MaxSizeBytes pulumi.Float64PtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The name and tier of the SKU.
-	Sku SkuResponsePtrInput
-	// The status of the database.
-	Status pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -359,9 +291,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

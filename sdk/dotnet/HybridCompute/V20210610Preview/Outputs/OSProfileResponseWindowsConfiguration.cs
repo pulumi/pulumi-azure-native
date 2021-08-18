@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210610Preview.Outputs
 {
 
+    /// <summary>
+    /// Specifies the windows configuration for update management.
+    /// </summary>
     [OutputType]
     public sealed class OSProfileResponseWindowsConfiguration
     {

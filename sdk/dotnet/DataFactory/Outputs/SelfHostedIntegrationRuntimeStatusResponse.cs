@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Self-hosted integration runtime status.
+    /// </summary>
     [OutputType]
     public sealed class SelfHostedIntegrationRuntimeStatusResponse
     {

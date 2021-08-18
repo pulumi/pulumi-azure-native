@@ -110,7 +110,7 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
@@ -140,7 +140,13 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfile
+		return ret
+	}).(ContainerServiceLinuxProfileOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -263,7 +269,7 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfileResponse
+		return ret
+	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -436,7 +448,7 @@ func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePt
 }
 
 func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
 		return &v
 	}).(ContainerServiceNetworkProfilePtrOutput)
 }
@@ -491,7 +503,13 @@ func (o ContainerServiceNetworkProfilePtrOutput) ToContainerServiceNetworkProfil
 }
 
 func (o ContainerServiceNetworkProfilePtrOutput) Elem() ContainerServiceNetworkProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile { return *v }).(ContainerServiceNetworkProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceNetworkProfile
+		return ret
+	}).(ContainerServiceNetworkProfileOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -684,7 +702,7 @@ func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkP
 }
 
 func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
 		return &v
 	}).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
@@ -739,7 +757,13 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ToContainerServiceNetwo
 }
 
 func (o ContainerServiceNetworkProfileResponsePtrOutput) Elem() ContainerServiceNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse { return *v }).(ContainerServiceNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceNetworkProfileResponse
+		return ret
+	}).(ContainerServiceNetworkProfileResponseOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -908,7 +932,7 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
@@ -933,7 +957,13 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfiguration
+		return ret
+	}).(ContainerServiceSshConfigurationOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -1042,7 +1072,7 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
@@ -1069,7 +1099,13 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfigurationResponse
+		return ret
+	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -1499,7 +1535,7 @@ func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutput() Ma
 }
 
 func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAADProfile) *ManagedClusterAADProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfile) *ManagedClusterAADProfile {
 		return &v
 	}).(ManagedClusterAADProfilePtrOutput)
 }
@@ -1539,7 +1575,13 @@ func (o ManagedClusterAADProfilePtrOutput) ToManagedClusterAADProfilePtrOutputWi
 }
 
 func (o ManagedClusterAADProfilePtrOutput) Elem() ManagedClusterAADProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile { return *v }).(ManagedClusterAADProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAADProfile
+		return ret
+	}).(ManagedClusterAADProfileOutput)
 }
 
 // The client AAD application ID.
@@ -1690,7 +1732,7 @@ func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileRespon
 }
 
 func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
 		return &v
 	}).(ManagedClusterAADProfileResponsePtrOutput)
 }
@@ -1730,7 +1772,13 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ToManagedClusterAADProfileRes
 }
 
 func (o ManagedClusterAADProfileResponsePtrOutput) Elem() ManagedClusterAADProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse { return *v }).(ManagedClusterAADProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAADProfileResponse
+		return ret
+	}).(ManagedClusterAADProfileResponseOutput)
 }
 
 // The client AAD application ID.
@@ -2491,7 +2539,7 @@ func (o ManagedClusterAgentPoolProfileResponseArrayOutput) Index(i pulumi.IntInp
 // Identity for the managed cluster.
 type ManagedClusterIdentity struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // ManagedClusterIdentityInput is an input type that accepts ManagedClusterIdentityArgs and ManagedClusterIdentityOutput values.
@@ -2508,7 +2556,7 @@ type ManagedClusterIdentityInput interface {
 // Identity for the managed cluster.
 type ManagedClusterIdentityArgs struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (ManagedClusterIdentityArgs) ElementType() reflect.Type {
@@ -2584,14 +2632,14 @@ func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutput() Manage
 }
 
 func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutputWithContext(ctx context.Context) ManagedClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) *ManagedClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentity) *ManagedClusterIdentity {
 		return &v
 	}).(ManagedClusterIdentityPtrOutput)
 }
 
 // The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-func (o ManagedClusterIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ManagedClusterIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type ManagedClusterIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -2609,17 +2657,23 @@ func (o ManagedClusterIdentityPtrOutput) ToManagedClusterIdentityPtrOutputWithCo
 }
 
 func (o ManagedClusterIdentityPtrOutput) Elem() ManagedClusterIdentityOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) ManagedClusterIdentity { return *v }).(ManagedClusterIdentityOutput)
+	return o.ApplyT(func(v *ManagedClusterIdentity) ManagedClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterIdentity
+		return ret
+	}).(ManagedClusterIdentityOutput)
 }
 
 // The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-func (o ManagedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) *string {
+func (o ManagedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ManagedClusterIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the managed cluster.
@@ -2726,7 +2780,7 @@ func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePt
 }
 
 func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
 		return &v
 	}).(ManagedClusterIdentityResponsePtrOutput)
 }
@@ -2761,7 +2815,13 @@ func (o ManagedClusterIdentityResponsePtrOutput) ToManagedClusterIdentityRespons
 }
 
 func (o ManagedClusterIdentityResponsePtrOutput) Elem() ManagedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentityResponse) ManagedClusterIdentityResponse { return *v }).(ManagedClusterIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterIdentityResponse) ManagedClusterIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterIdentityResponse
+		return ret
+	}).(ManagedClusterIdentityResponseOutput)
 }
 
 // The principal id of the system assigned identity which is used by master components.
@@ -2894,7 +2954,7 @@ func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrin
 }
 
 func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
 		return &v
 	}).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
@@ -2924,7 +2984,13 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) ToManagedClusterServiceP
 }
 
 func (o ManagedClusterServicePrincipalProfilePtrOutput) Elem() ManagedClusterServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile { return *v }).(ManagedClusterServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterServicePrincipalProfile
+		return ret
+	}).(ManagedClusterServicePrincipalProfileOutput)
 }
 
 // The ID for the service principal.
@@ -3047,7 +3113,7 @@ func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterSer
 }
 
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
 		return &v
 	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
@@ -3078,7 +3144,11 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ToManagedCluster
 
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Elem() ManagedClusterServicePrincipalProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) ManagedClusterServicePrincipalProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterServicePrincipalProfileResponse
+		return ret
 	}).(ManagedClusterServicePrincipalProfileResponseOutput)
 }
 
@@ -3202,7 +3272,7 @@ func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOut
 }
 
 func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterWindowsProfile) *ManagedClusterWindowsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfile) *ManagedClusterWindowsProfile {
 		return &v
 	}).(ManagedClusterWindowsProfilePtrOutput)
 }
@@ -3232,7 +3302,13 @@ func (o ManagedClusterWindowsProfilePtrOutput) ToManagedClusterWindowsProfilePtr
 }
 
 func (o ManagedClusterWindowsProfilePtrOutput) Elem() ManagedClusterWindowsProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterWindowsProfile) ManagedClusterWindowsProfile { return *v }).(ManagedClusterWindowsProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterWindowsProfile) ManagedClusterWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterWindowsProfile
+		return ret
+	}).(ManagedClusterWindowsProfileOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
@@ -3355,7 +3431,7 @@ func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfi
 }
 
 func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
 		return &v
 	}).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
@@ -3385,7 +3461,13 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) ToManagedClusterWindowsPr
 }
 
 func (o ManagedClusterWindowsProfileResponsePtrOutput) Elem() ManagedClusterWindowsProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) ManagedClusterWindowsProfileResponse { return *v }).(ManagedClusterWindowsProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) ManagedClusterWindowsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterWindowsProfileResponse
+		return ret
+	}).(ManagedClusterWindowsProfileResponseOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"

@@ -79,33 +79,9 @@ func GetDefenderSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefenderSetting resources.
 type defenderSettingState struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota *int `pulumi:"deviceQuota"`
-	// End time of the evaluation period, if such exist
-	EvaluationEndTime *string `pulumi:"evaluationEndTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The kind of onboarding for the subscription
-	OnboardingKind *string `pulumi:"onboardingKind"`
-	// Sentinel Workspace Resource Ids
-	SentinelWorkspaceResourceIds []string `pulumi:"sentinelWorkspaceResourceIds"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DefenderSettingState struct {
-	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
-	DeviceQuota pulumi.IntPtrInput
-	// End time of the evaluation period, if such exist
-	EvaluationEndTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The kind of onboarding for the subscription
-	OnboardingKind pulumi.StringPtrInput
-	// Sentinel Workspace Resource Ids
-	SentinelWorkspaceResourceIds pulumi.StringArrayInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DefenderSettingState) ElementType() reflect.Type {
@@ -154,9 +130,7 @@ func (i *DefenderSetting) ToDefenderSettingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DefenderSettingOutput)
 }
 
-type DefenderSettingOutput struct {
-	*pulumi.OutputState
-}
+type DefenderSettingOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefenderSetting)(nil))

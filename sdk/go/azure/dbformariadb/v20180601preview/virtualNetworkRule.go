@@ -83,29 +83,9 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Virtual Network Rule State
-	State *string `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The ARM resource id of the virtual network subnet.
-	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type VirtualNetworkRuleState struct {
-	// Create firewall rule before the virtual network has vnet service endpoint enabled.
-	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Virtual Network Rule State
-	State pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The ARM resource id of the virtual network subnet.
-	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (VirtualNetworkRuleState) ElementType() reflect.Type {
@@ -162,9 +142,7 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
 }
 
-type VirtualNetworkRuleOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkRule)(nil))

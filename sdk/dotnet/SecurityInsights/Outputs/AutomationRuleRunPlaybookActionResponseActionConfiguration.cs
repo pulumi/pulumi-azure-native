@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// The configuration of the run playbook automation rule action
+    /// </summary>
     [OutputType]
     public sealed class AutomationRuleRunPlaybookActionResponseActionConfiguration
     {

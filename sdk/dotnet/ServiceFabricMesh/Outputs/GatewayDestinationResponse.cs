@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Describes destination endpoint for routing traffic.
+    /// </summary>
     [OutputType]
     public sealed class GatewayDestinationResponse
     {

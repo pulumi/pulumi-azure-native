@@ -140,71 +140,9 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// Endpoint for the domain.
-	Endpoint *string `pulumi:"endpoint"`
-	// Identity information for the resource.
-	Identity *IdentityInfoResponse `pulumi:"identity"`
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
-	// This determines the format that Event Grid should expect for incoming events published to the domain.
-	InputSchema *string `pulumi:"inputSchema"`
-	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
-	// Location of the resource.
-	Location *string `pulumi:"location"`
-	// Metric resource id for the domain.
-	MetricResourceId *string `pulumi:"metricResourceId"`
-	// Name of the resource.
-	Name *string `pulumi:"name"`
-	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the domain.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The Sku pricing tier for the domain.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// The system metadata relating to Domain resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type DomainState struct {
-	// Endpoint for the domain.
-	Endpoint pulumi.StringPtrInput
-	// Identity information for the resource.
-	Identity IdentityInfoResponsePtrInput
-	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-	InboundIpRules InboundIpRuleResponseArrayInput
-	// This determines the format that Event Grid should expect for incoming events published to the domain.
-	InputSchema pulumi.StringPtrInput
-	// Information about the InputSchemaMapping which specified the info about mapping event payload.
-	InputSchemaMapping JsonInputSchemaMappingResponsePtrInput
-	// Location of the resource.
-	Location pulumi.StringPtrInput
-	// Metric resource id for the domain.
-	MetricResourceId pulumi.StringPtrInput
-	// Name of the resource.
-	Name pulumi.StringPtrInput
-	// List of private endpoint connections.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Provisioning state of the domain.
-	ProvisioningState pulumi.StringPtrInput
-	// This determines if traffic is allowed over public network. By default it is enabled.
-	// You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The Sku pricing tier for the domain.
-	Sku ResourceSkuResponsePtrInput
-	// The system metadata relating to Domain resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags of the resource.
-	Tags pulumi.StringMapInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DomainState) ElementType() reflect.Type {
@@ -283,9 +221,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
-type DomainOutput struct {
-	*pulumi.OutputState
-}
+type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Domain)(nil))

@@ -119,41 +119,9 @@ func GetSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlPoolWorkloadClassifier resources.
 type sqlPoolWorkloadClassifierState struct {
-	// The workload classifier context.
-	Context *string `pulumi:"context"`
-	// The workload classifier end time for classification.
-	EndTime *string `pulumi:"endTime"`
-	// The workload classifier importance.
-	Importance *string `pulumi:"importance"`
-	// The workload classifier label.
-	Label *string `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName *string `pulumi:"memberName"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The workload classifier start time for classification.
-	StartTime *string `pulumi:"startTime"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SqlPoolWorkloadClassifierState struct {
-	// The workload classifier context.
-	Context pulumi.StringPtrInput
-	// The workload classifier end time for classification.
-	EndTime pulumi.StringPtrInput
-	// The workload classifier importance.
-	Importance pulumi.StringPtrInput
-	// The workload classifier label.
-	Label pulumi.StringPtrInput
-	// The workload classifier member name.
-	MemberName pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The workload classifier start time for classification.
-	StartTime pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SqlPoolWorkloadClassifierState) ElementType() reflect.Type {
@@ -234,9 +202,7 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
 }
 
-type SqlPoolWorkloadClassifierOutput struct {
-	*pulumi.OutputState
-}
+type SqlPoolWorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))

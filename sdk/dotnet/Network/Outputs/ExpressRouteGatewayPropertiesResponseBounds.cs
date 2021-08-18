@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Minimum and maximum number of scale units to deploy.
+    /// </summary>
     [OutputType]
     public sealed class ExpressRouteGatewayPropertiesResponseBounds
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Properties for the task that validates MySQL database connection
+    /// </summary>
     [OutputType]
     public sealed class ConnectToSourceMySqlTaskPropertiesResponse
     {

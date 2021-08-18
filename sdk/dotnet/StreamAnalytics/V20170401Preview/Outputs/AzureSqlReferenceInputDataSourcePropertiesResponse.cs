@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes Azure SQL database reference input data source properties.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlReferenceInputDataSourcePropertiesResponse
     {

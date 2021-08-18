@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.Outputs
 {
 
+    /// <summary>
+    /// Description of the shared access key.
+    /// </summary>
     [OutputType]
     public sealed class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse
     {

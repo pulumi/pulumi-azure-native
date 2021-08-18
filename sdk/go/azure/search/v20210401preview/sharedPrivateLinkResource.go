@@ -82,21 +82,9 @@ func GetSharedPrivateLinkResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedPrivateLinkResource resources.
 type sharedPrivateLinkResourceState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties *SharedPrivateLinkResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SharedPrivateLinkResourceState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
-	Properties SharedPrivateLinkResourcePropertiesResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SharedPrivateLinkResourceState) ElementType() reflect.Type {
@@ -149,9 +137,7 @@ func (i *SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourceOutput)
 }
 
-type SharedPrivateLinkResourceOutput struct {
-	*pulumi.OutputState
-}
+type SharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SharedPrivateLinkResource)(nil))

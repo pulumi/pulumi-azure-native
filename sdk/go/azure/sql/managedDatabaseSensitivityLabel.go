@@ -124,55 +124,9 @@ func GetManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedDatabaseSensitivityLabel resources.
 type managedDatabaseSensitivityLabelState struct {
-	// The column name.
-	ColumnName *string `pulumi:"columnName"`
-	// The information type.
-	InformationType *string `pulumi:"informationType"`
-	// The information type ID.
-	InformationTypeId *string `pulumi:"informationTypeId"`
-	// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
-	IsDisabled *bool `pulumi:"isDisabled"`
-	// The label ID.
-	LabelId *string `pulumi:"labelId"`
-	// The label name.
-	LabelName *string `pulumi:"labelName"`
-	// Resource that manages the sensitivity label.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	Rank *string `pulumi:"rank"`
-	// The schema name.
-	SchemaName *string `pulumi:"schemaName"`
-	// The table name.
-	TableName *string `pulumi:"tableName"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedDatabaseSensitivityLabelState struct {
-	// The column name.
-	ColumnName pulumi.StringPtrInput
-	// The information type.
-	InformationType pulumi.StringPtrInput
-	// The information type ID.
-	InformationTypeId pulumi.StringPtrInput
-	// Is sensitivity recommendation disabled. Applicable for recommended sensitivity label only. Specifies whether the sensitivity recommendation on this column is disabled (dismissed) or not.
-	IsDisabled pulumi.BoolPtrInput
-	// The label ID.
-	LabelId pulumi.StringPtrInput
-	// The label name.
-	LabelName pulumi.StringPtrInput
-	// Resource that manages the sensitivity label.
-	ManagedBy pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	Rank pulumi.StringPtrInput
-	// The schema name.
-	SchemaName pulumi.StringPtrInput
-	// The table name.
-	TableName pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedDatabaseSensitivityLabelState) ElementType() reflect.Type {
@@ -193,8 +147,8 @@ type managedDatabaseSensitivityLabelArgs struct {
 	// The label name.
 	LabelName *string `pulumi:"labelName"`
 	// The name of the managed instance.
-	ManagedInstanceName string  `pulumi:"managedInstanceName"`
-	Rank                *string `pulumi:"rank"`
+	ManagedInstanceName string                `pulumi:"managedInstanceName"`
+	Rank                *SensitivityLabelRank `pulumi:"rank"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the schema.
@@ -221,7 +175,7 @@ type ManagedDatabaseSensitivityLabelArgs struct {
 	LabelName pulumi.StringPtrInput
 	// The name of the managed instance.
 	ManagedInstanceName pulumi.StringInput
-	Rank                *SensitivityLabelRank
+	Rank                SensitivityLabelRankPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.
@@ -255,9 +209,7 @@ func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseSensitivityLabelOutput)
 }
 
-type ManagedDatabaseSensitivityLabelOutput struct {
-	*pulumi.OutputState
-}
+type ManagedDatabaseSensitivityLabelOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseSensitivityLabelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))

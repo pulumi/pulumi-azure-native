@@ -109,33 +109,9 @@ func GetWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceSqlAadAdmin resources.
 type workspaceSqlAadAdminState struct {
-	// Workspace active directory administrator type
-	AdministratorType *string `pulumi:"administratorType"`
-	// Login of the workspace active directory administrator
-	Login *string `pulumi:"login"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Object ID of the workspace active directory administrator
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the workspace active directory administrator
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type WorkspaceSqlAadAdminState struct {
-	// Workspace active directory administrator type
-	AdministratorType pulumi.StringPtrInput
-	// Login of the workspace active directory administrator
-	Login pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Object ID of the workspace active directory administrator
-	Sid pulumi.StringPtrInput
-	// Tenant ID of the workspace active directory administrator
-	TenantId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (WorkspaceSqlAadAdminState) ElementType() reflect.Type {
@@ -196,9 +172,7 @@ func (i *WorkspaceSqlAadAdmin) ToWorkspaceSqlAadAdminOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminOutput)
 }
 
-type WorkspaceSqlAadAdminOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceSqlAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSqlAadAdminOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceSqlAadAdmin)(nil))

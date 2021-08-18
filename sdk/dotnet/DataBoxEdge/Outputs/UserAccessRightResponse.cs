@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// The mapping between a particular user and the access type on the SMB share.
+    /// </summary>
     [OutputType]
     public sealed class UserAccessRightResponse
     {

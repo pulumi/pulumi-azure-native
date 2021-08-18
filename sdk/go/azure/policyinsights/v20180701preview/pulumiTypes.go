@@ -404,7 +404,7 @@ func (o RemediationDeploymentSummaryOutput) ToRemediationDeploymentSummaryPtrOut
 }
 
 func (o RemediationDeploymentSummaryOutput) ToRemediationDeploymentSummaryPtrOutputWithContext(ctx context.Context) RemediationDeploymentSummaryPtrOutput {
-	return o.ApplyT(func(v RemediationDeploymentSummary) *RemediationDeploymentSummary {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationDeploymentSummary) *RemediationDeploymentSummary {
 		return &v
 	}).(RemediationDeploymentSummaryPtrOutput)
 }
@@ -439,7 +439,13 @@ func (o RemediationDeploymentSummaryPtrOutput) ToRemediationDeploymentSummaryPtr
 }
 
 func (o RemediationDeploymentSummaryPtrOutput) Elem() RemediationDeploymentSummaryOutput {
-	return o.ApplyT(func(v *RemediationDeploymentSummary) RemediationDeploymentSummary { return *v }).(RemediationDeploymentSummaryOutput)
+	return o.ApplyT(func(v *RemediationDeploymentSummary) RemediationDeploymentSummary {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationDeploymentSummary
+		return ret
+	}).(RemediationDeploymentSummaryOutput)
 }
 
 // The number of deployments required by the remediation that have failed.
@@ -576,7 +582,7 @@ func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSumma
 }
 
 func (o RemediationDeploymentSummaryResponseOutput) ToRemediationDeploymentSummaryResponsePtrOutputWithContext(ctx context.Context) RemediationDeploymentSummaryResponsePtrOutput {
-	return o.ApplyT(func(v RemediationDeploymentSummaryResponse) *RemediationDeploymentSummaryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationDeploymentSummaryResponse) *RemediationDeploymentSummaryResponse {
 		return &v
 	}).(RemediationDeploymentSummaryResponsePtrOutput)
 }
@@ -611,7 +617,13 @@ func (o RemediationDeploymentSummaryResponsePtrOutput) ToRemediationDeploymentSu
 }
 
 func (o RemediationDeploymentSummaryResponsePtrOutput) Elem() RemediationDeploymentSummaryResponseOutput {
-	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) RemediationDeploymentSummaryResponse { return *v }).(RemediationDeploymentSummaryResponseOutput)
+	return o.ApplyT(func(v *RemediationDeploymentSummaryResponse) RemediationDeploymentSummaryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationDeploymentSummaryResponse
+		return ret
+	}).(RemediationDeploymentSummaryResponseOutput)
 }
 
 // The number of deployments required by the remediation that have failed.
@@ -740,7 +752,7 @@ func (o RemediationFiltersOutput) ToRemediationFiltersPtrOutput() RemediationFil
 }
 
 func (o RemediationFiltersOutput) ToRemediationFiltersPtrOutputWithContext(ctx context.Context) RemediationFiltersPtrOutput {
-	return o.ApplyT(func(v RemediationFilters) *RemediationFilters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationFilters) *RemediationFilters {
 		return &v
 	}).(RemediationFiltersPtrOutput)
 }
@@ -765,7 +777,13 @@ func (o RemediationFiltersPtrOutput) ToRemediationFiltersPtrOutputWithContext(ct
 }
 
 func (o RemediationFiltersPtrOutput) Elem() RemediationFiltersOutput {
-	return o.ApplyT(func(v *RemediationFilters) RemediationFilters { return *v }).(RemediationFiltersOutput)
+	return o.ApplyT(func(v *RemediationFilters) RemediationFilters {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationFilters
+		return ret
+	}).(RemediationFiltersOutput)
 }
 
 // The resource locations that will be remediated.
@@ -874,7 +892,7 @@ func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutput(
 }
 
 func (o RemediationFiltersResponseOutput) ToRemediationFiltersResponsePtrOutputWithContext(ctx context.Context) RemediationFiltersResponsePtrOutput {
-	return o.ApplyT(func(v RemediationFiltersResponse) *RemediationFiltersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationFiltersResponse) *RemediationFiltersResponse {
 		return &v
 	}).(RemediationFiltersResponsePtrOutput)
 }
@@ -899,7 +917,13 @@ func (o RemediationFiltersResponsePtrOutput) ToRemediationFiltersResponsePtrOutp
 }
 
 func (o RemediationFiltersResponsePtrOutput) Elem() RemediationFiltersResponseOutput {
-	return o.ApplyT(func(v *RemediationFiltersResponse) RemediationFiltersResponse { return *v }).(RemediationFiltersResponseOutput)
+	return o.ApplyT(func(v *RemediationFiltersResponse) RemediationFiltersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationFiltersResponse
+		return ret
+	}).(RemediationFiltersResponseOutput)
 }
 
 // The resource locations that will be remediated.

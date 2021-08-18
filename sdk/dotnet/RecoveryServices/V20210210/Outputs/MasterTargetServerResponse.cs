@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
+    /// <summary>
+    /// Details of a Master Target Server.
+    /// </summary>
     [OutputType]
     public sealed class MasterTargetServerResponse
     {

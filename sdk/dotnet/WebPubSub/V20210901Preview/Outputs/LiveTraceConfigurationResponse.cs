@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210901Preview.Outputs
 {
 
+    /// <summary>
+    /// Live trace configuration of a Microsoft.SignalRService resource.
+    /// </summary>
     [OutputType]
     public sealed class LiveTraceConfigurationResponse
     {

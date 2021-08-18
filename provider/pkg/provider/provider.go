@@ -8,8 +8,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	structpb "github.com/golang/protobuf/ptypes/struct"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 	"io"
 	"io/ioutil"
 	"log"
@@ -19,6 +17,9 @@ import (
 	"regexp"
 	"strings"
 	"time"
+
+	structpb "github.com/golang/protobuf/ptypes/struct"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/rpcutil/rpcerror"
 
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/adal"
@@ -1188,6 +1189,11 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 // Construct creates a new component resource.
 func (k *azureNativeProvider) Construct(_ context.Context, _ *rpc.ConstructRequest) (*rpc.ConstructResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "Construct is not yet implemented")
+}
+
+// Call dynamically executes a method in the provider associated with a component resource.
+func (k *azureNativeProvider) Call(_ context.Context, _ *rpc.CallRequest) (*rpc.CallResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "Call is not yet implemented")
 }
 
 // GetPluginInfo returns generic information about this plugin, like its version.

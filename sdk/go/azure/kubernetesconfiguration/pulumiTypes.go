@@ -118,7 +118,7 @@ func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutput() Co
 }
 
 func (o ComplianceStatusResponseOutput) ToComplianceStatusResponsePtrOutputWithContext(ctx context.Context) ComplianceStatusResponsePtrOutput {
-	return o.ApplyT(func(v ComplianceStatusResponse) *ComplianceStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComplianceStatusResponse) *ComplianceStatusResponse {
 		return &v
 	}).(ComplianceStatusResponsePtrOutput)
 }
@@ -158,7 +158,13 @@ func (o ComplianceStatusResponsePtrOutput) ToComplianceStatusResponsePtrOutputWi
 }
 
 func (o ComplianceStatusResponsePtrOutput) Elem() ComplianceStatusResponseOutput {
-	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse { return *v }).(ComplianceStatusResponseOutput)
+	return o.ApplyT(func(v *ComplianceStatusResponse) ComplianceStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ComplianceStatusResponse
+		return ret
+	}).(ComplianceStatusResponseOutput)
 }
 
 // The compliance state of the configuration.
@@ -204,7 +210,7 @@ func (o ComplianceStatusResponsePtrOutput) MessageLevel() pulumi.StringPtrOutput
 // Identity for the managed cluster.
 type ConfigurationIdentity struct {
 	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // ConfigurationIdentityInput is an input type that accepts ConfigurationIdentityArgs and ConfigurationIdentityOutput values.
@@ -221,7 +227,7 @@ type ConfigurationIdentityInput interface {
 // Identity for the managed cluster.
 type ConfigurationIdentityArgs struct {
 	// The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (ConfigurationIdentityArgs) ElementType() reflect.Type {
@@ -297,14 +303,14 @@ func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutput() Configur
 }
 
 func (o ConfigurationIdentityOutput) ToConfigurationIdentityPtrOutputWithContext(ctx context.Context) ConfigurationIdentityPtrOutput {
-	return o.ApplyT(func(v ConfigurationIdentity) *ConfigurationIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationIdentity) *ConfigurationIdentity {
 		return &v
 	}).(ConfigurationIdentityPtrOutput)
 }
 
 // The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConfigurationIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ConfigurationIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type ConfigurationIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -322,17 +328,23 @@ func (o ConfigurationIdentityPtrOutput) ToConfigurationIdentityPtrOutputWithCont
 }
 
 func (o ConfigurationIdentityPtrOutput) Elem() ConfigurationIdentityOutput {
-	return o.ApplyT(func(v *ConfigurationIdentity) ConfigurationIdentity { return *v }).(ConfigurationIdentityOutput)
+	return o.ApplyT(func(v *ConfigurationIdentity) ConfigurationIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationIdentity
+		return ret
+	}).(ConfigurationIdentityOutput)
 }
 
 // The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
-func (o ConfigurationIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationIdentity) *string {
+func (o ConfigurationIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ConfigurationIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the managed cluster.
@@ -439,7 +451,7 @@ func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponsePtrO
 }
 
 func (o ConfigurationIdentityResponseOutput) ToConfigurationIdentityResponsePtrOutputWithContext(ctx context.Context) ConfigurationIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationIdentityResponse) *ConfigurationIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationIdentityResponse) *ConfigurationIdentityResponse {
 		return &v
 	}).(ConfigurationIdentityResponsePtrOutput)
 }
@@ -474,7 +486,13 @@ func (o ConfigurationIdentityResponsePtrOutput) ToConfigurationIdentityResponseP
 }
 
 func (o ConfigurationIdentityResponsePtrOutput) Elem() ConfigurationIdentityResponseOutput {
-	return o.ApplyT(func(v *ConfigurationIdentityResponse) ConfigurationIdentityResponse { return *v }).(ConfigurationIdentityResponseOutput)
+	return o.ApplyT(func(v *ConfigurationIdentityResponse) ConfigurationIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationIdentityResponse
+		return ret
+	}).(ConfigurationIdentityResponseOutput)
 }
 
 // The principal id of the system assigned identity which is used by the configuration.
@@ -607,7 +625,7 @@ func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponsePtrOutput() Erro
 }
 
 func (o ErrorDefinitionResponseOutput) ToErrorDefinitionResponsePtrOutputWithContext(ctx context.Context) ErrorDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v ErrorDefinitionResponse) *ErrorDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDefinitionResponse) *ErrorDefinitionResponse {
 		return &v
 	}).(ErrorDefinitionResponsePtrOutput)
 }
@@ -637,7 +655,13 @@ func (o ErrorDefinitionResponsePtrOutput) ToErrorDefinitionResponsePtrOutputWith
 }
 
 func (o ErrorDefinitionResponsePtrOutput) Elem() ErrorDefinitionResponseOutput {
-	return o.ApplyT(func(v *ErrorDefinitionResponse) ErrorDefinitionResponse { return *v }).(ErrorDefinitionResponseOutput)
+	return o.ApplyT(func(v *ErrorDefinitionResponse) ErrorDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorDefinitionResponse
+		return ret
+	}).(ErrorDefinitionResponseOutput)
 }
 
 // Service specific error code which serves as the substatus for the HTTP error code.
@@ -1032,7 +1056,7 @@ func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutput() HelmOp
 }
 
 func (o HelmOperatorPropertiesOutput) ToHelmOperatorPropertiesPtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesPtrOutput {
-	return o.ApplyT(func(v HelmOperatorProperties) *HelmOperatorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorProperties) *HelmOperatorProperties {
 		return &v
 	}).(HelmOperatorPropertiesPtrOutput)
 }
@@ -1062,7 +1086,13 @@ func (o HelmOperatorPropertiesPtrOutput) ToHelmOperatorPropertiesPtrOutputWithCo
 }
 
 func (o HelmOperatorPropertiesPtrOutput) Elem() HelmOperatorPropertiesOutput {
-	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties { return *v }).(HelmOperatorPropertiesOutput)
+	return o.ApplyT(func(v *HelmOperatorProperties) HelmOperatorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret HelmOperatorProperties
+		return ret
+	}).(HelmOperatorPropertiesOutput)
 }
 
 // Values override for the operator Helm chart.
@@ -1185,7 +1215,7 @@ func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePt
 }
 
 func (o HelmOperatorPropertiesResponseOutput) ToHelmOperatorPropertiesResponsePtrOutputWithContext(ctx context.Context) HelmOperatorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HelmOperatorPropertiesResponse) *HelmOperatorPropertiesResponse {
 		return &v
 	}).(HelmOperatorPropertiesResponsePtrOutput)
 }
@@ -1215,7 +1245,13 @@ func (o HelmOperatorPropertiesResponsePtrOutput) ToHelmOperatorPropertiesRespons
 }
 
 func (o HelmOperatorPropertiesResponsePtrOutput) Elem() HelmOperatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse { return *v }).(HelmOperatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *HelmOperatorPropertiesResponse) HelmOperatorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HelmOperatorPropertiesResponse
+		return ret
+	}).(HelmOperatorPropertiesResponseOutput)
 }
 
 // Values override for the operator Helm chart.
@@ -1338,7 +1374,7 @@ func (o ScopeOutput) ToScopePtrOutput() ScopePtrOutput {
 }
 
 func (o ScopeOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePtrOutput {
-	return o.ApplyT(func(v Scope) *Scope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Scope) *Scope {
 		return &v
 	}).(ScopePtrOutput)
 }
@@ -1368,7 +1404,13 @@ func (o ScopePtrOutput) ToScopePtrOutputWithContext(ctx context.Context) ScopePt
 }
 
 func (o ScopePtrOutput) Elem() ScopeOutput {
-	return o.ApplyT(func(v *Scope) Scope { return *v }).(ScopeOutput)
+	return o.ApplyT(func(v *Scope) Scope {
+		if v != nil {
+			return *v
+		}
+		var ret Scope
+		return ret
+	}).(ScopeOutput)
 }
 
 // Specifies that the scope of the extensionInstance is Cluster
@@ -1487,7 +1529,7 @@ func (o ScopeClusterOutput) ToScopeClusterPtrOutput() ScopeClusterPtrOutput {
 }
 
 func (o ScopeClusterOutput) ToScopeClusterPtrOutputWithContext(ctx context.Context) ScopeClusterPtrOutput {
-	return o.ApplyT(func(v ScopeCluster) *ScopeCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeCluster) *ScopeCluster {
 		return &v
 	}).(ScopeClusterPtrOutput)
 }
@@ -1512,7 +1554,13 @@ func (o ScopeClusterPtrOutput) ToScopeClusterPtrOutputWithContext(ctx context.Co
 }
 
 func (o ScopeClusterPtrOutput) Elem() ScopeClusterOutput {
-	return o.ApplyT(func(v *ScopeCluster) ScopeCluster { return *v }).(ScopeClusterOutput)
+	return o.ApplyT(func(v *ScopeCluster) ScopeCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeCluster
+		return ret
+	}).(ScopeClusterOutput)
 }
 
 // Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
@@ -1621,7 +1669,7 @@ func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutput() ScopeClust
 }
 
 func (o ScopeClusterResponseOutput) ToScopeClusterResponsePtrOutputWithContext(ctx context.Context) ScopeClusterResponsePtrOutput {
-	return o.ApplyT(func(v ScopeClusterResponse) *ScopeClusterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeClusterResponse) *ScopeClusterResponse {
 		return &v
 	}).(ScopeClusterResponsePtrOutput)
 }
@@ -1646,7 +1694,13 @@ func (o ScopeClusterResponsePtrOutput) ToScopeClusterResponsePtrOutputWithContex
 }
 
 func (o ScopeClusterResponsePtrOutput) Elem() ScopeClusterResponseOutput {
-	return o.ApplyT(func(v *ScopeClusterResponse) ScopeClusterResponse { return *v }).(ScopeClusterResponseOutput)
+	return o.ApplyT(func(v *ScopeClusterResponse) ScopeClusterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeClusterResponse
+		return ret
+	}).(ScopeClusterResponseOutput)
 }
 
 // Namespace where the extension Release must be placed, for a Cluster scoped extensionInstance.  If this namespace does not exist, it will be created
@@ -1755,7 +1809,7 @@ func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutput() ScopeNamespacePtrOutpu
 }
 
 func (o ScopeNamespaceOutput) ToScopeNamespacePtrOutputWithContext(ctx context.Context) ScopeNamespacePtrOutput {
-	return o.ApplyT(func(v ScopeNamespace) *ScopeNamespace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeNamespace) *ScopeNamespace {
 		return &v
 	}).(ScopeNamespacePtrOutput)
 }
@@ -1780,7 +1834,13 @@ func (o ScopeNamespacePtrOutput) ToScopeNamespacePtrOutputWithContext(ctx contex
 }
 
 func (o ScopeNamespacePtrOutput) Elem() ScopeNamespaceOutput {
-	return o.ApplyT(func(v *ScopeNamespace) ScopeNamespace { return *v }).(ScopeNamespaceOutput)
+	return o.ApplyT(func(v *ScopeNamespace) ScopeNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeNamespace
+		return ret
+	}).(ScopeNamespaceOutput)
 }
 
 // Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
@@ -1889,7 +1949,7 @@ func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutput() ScopeN
 }
 
 func (o ScopeNamespaceResponseOutput) ToScopeNamespaceResponsePtrOutputWithContext(ctx context.Context) ScopeNamespaceResponsePtrOutput {
-	return o.ApplyT(func(v ScopeNamespaceResponse) *ScopeNamespaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeNamespaceResponse) *ScopeNamespaceResponse {
 		return &v
 	}).(ScopeNamespaceResponsePtrOutput)
 }
@@ -1914,7 +1974,13 @@ func (o ScopeNamespaceResponsePtrOutput) ToScopeNamespaceResponsePtrOutputWithCo
 }
 
 func (o ScopeNamespaceResponsePtrOutput) Elem() ScopeNamespaceResponseOutput {
-	return o.ApplyT(func(v *ScopeNamespaceResponse) ScopeNamespaceResponse { return *v }).(ScopeNamespaceResponseOutput)
+	return o.ApplyT(func(v *ScopeNamespaceResponse) ScopeNamespaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeNamespaceResponse
+		return ret
+	}).(ScopeNamespaceResponseOutput)
 }
 
 // Namespace where the extensionInstance will be created for an Namespace scoped extensionInstance.  If this namespace does not exist, it will be created
@@ -2027,7 +2093,7 @@ func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
 }
 
 func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyT(func(v ScopeResponse) *ScopeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
 		return &v
 	}).(ScopeResponsePtrOutput)
 }
@@ -2057,7 +2123,13 @@ func (o ScopeResponsePtrOutput) ToScopeResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ScopeResponsePtrOutput) Elem() ScopeResponseOutput {
-	return o.ApplyT(func(v *ScopeResponse) ScopeResponse { return *v }).(ScopeResponseOutput)
+	return o.ApplyT(func(v *ScopeResponse) ScopeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScopeResponse
+		return ret
+	}).(ScopeResponseOutput)
 }
 
 // Specifies that the scope of the extensionInstance is Cluster
@@ -2196,7 +2268,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2246,7 +2318,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

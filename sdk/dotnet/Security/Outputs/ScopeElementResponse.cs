@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// A more specific scope used to identify the alerts to suppress.
+    /// </summary>
     [OutputType]
     public sealed class ScopeElementResponse
     {

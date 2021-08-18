@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// The compute resource properties for managed integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeComputePropertiesResponse
     {

@@ -91,45 +91,9 @@ func GetDigitalTwin(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DigitalTwin resources.
 type digitalTwinState struct {
-	// Time when DigitalTwinsInstance was created.
-	CreatedTime *string `pulumi:"createdTime"`
-	// Api endpoint to work with DigitalTwinsInstance.
-	HostName *string `pulumi:"hostName"`
-	// Time when DigitalTwinsInstance was created.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// This property is reserved for future use, and will be ignored/omitted
-	Sku *DigitalTwinsSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DigitalTwinState struct {
-	// Time when DigitalTwinsInstance was created.
-	CreatedTime pulumi.StringPtrInput
-	// Api endpoint to work with DigitalTwinsInstance.
-	HostName pulumi.StringPtrInput
-	// Time when DigitalTwinsInstance was created.
-	LastUpdatedTime pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// This property is reserved for future use, and will be ignored/omitted
-	Sku DigitalTwinsSkuInfoResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DigitalTwinState) ElementType() reflect.Type {
@@ -186,9 +150,7 @@ func (i *DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) Digita
 	return pulumi.ToOutputWithContext(ctx, i).(DigitalTwinOutput)
 }
 
-type DigitalTwinOutput struct {
-	*pulumi.OutputState
-}
+type DigitalTwinOutput struct{ *pulumi.OutputState }
 
 func (DigitalTwinOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DigitalTwin)(nil))

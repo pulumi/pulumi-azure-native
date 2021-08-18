@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Presto server dataset.
+    /// </summary>
     [OutputType]
     public sealed class PrestoObjectDatasetResponse
     {

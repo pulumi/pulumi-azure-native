@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// The storage profile.
+    /// </summary>
     [OutputType]
     public sealed class StorageProfileResponse
     {

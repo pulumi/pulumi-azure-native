@@ -78,25 +78,9 @@ func GetManagementAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementAssociation resources.
 type managementAssociationState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
-	Properties *ManagementAssociationPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagementAssociationState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
-	Properties ManagementAssociationPropertiesResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagementAssociationState) ElementType() reflect.Type {
@@ -161,9 +145,7 @@ func (i *ManagementAssociation) ToManagementAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ManagementAssociationOutput)
 }
 
-type ManagementAssociationOutput struct {
-	*pulumi.OutputState
-}
+type ManagementAssociationOutput struct{ *pulumi.OutputState }
 
 func (ManagementAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagementAssociation)(nil))

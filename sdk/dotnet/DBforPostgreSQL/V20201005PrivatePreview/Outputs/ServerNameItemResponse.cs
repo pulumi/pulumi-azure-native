@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// The name object for a server.
+    /// </summary>
     [OutputType]
     public sealed class ServerNameItemResponse
     {

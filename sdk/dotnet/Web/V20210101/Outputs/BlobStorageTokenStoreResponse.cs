@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the storage of the tokens if blob storage is used.
+    /// </summary>
     [OutputType]
     public sealed class BlobStorageTokenStoreResponse
     {

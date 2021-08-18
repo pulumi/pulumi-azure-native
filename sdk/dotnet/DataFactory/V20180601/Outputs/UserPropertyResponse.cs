@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// User property.
+    /// </summary>
     [OutputType]
     public sealed class UserPropertyResponse
     {

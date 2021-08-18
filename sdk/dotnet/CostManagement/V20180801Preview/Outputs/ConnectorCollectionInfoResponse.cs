@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20180801Preview.Outputs
 {
 
+    /// <summary>
+    /// Collection and ingestion information
+    /// </summary>
     [OutputType]
     public sealed class ConnectorCollectionInfoResponse
     {

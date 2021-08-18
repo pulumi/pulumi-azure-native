@@ -81,25 +81,9 @@ func GetTrigger(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Trigger resources.
 type triggerState struct {
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Properties of the trigger.
-	Properties interface{} `pulumi:"properties"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type TriggerState struct {
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Properties of the trigger.
-	Properties pulumi.Input
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (TriggerState) ElementType() reflect.Type {
@@ -152,9 +136,7 @@ func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
 }
 
-type TriggerOutput struct {
-	*pulumi.OutputState
-}
+type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))

@@ -95,29 +95,9 @@ func GetSshPublicKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SshPublicKey resources.
 type sshPublicKeyState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-	PublicKey *string `pulumi:"publicKey"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SshPublicKeyState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-	PublicKey pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SshPublicKeyState) ElementType() reflect.Type {
@@ -174,9 +154,7 @@ func (i *SshPublicKey) ToSshPublicKeyOutputWithContext(ctx context.Context) SshP
 	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyOutput)
 }
 
-type SshPublicKeyOutput struct {
-	*pulumi.OutputState
-}
+type SshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SshPublicKey)(nil))

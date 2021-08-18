@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure ML Batch Execution activity.
+    /// </summary>
     [OutputType]
     public sealed class AzureMLBatchExecutionActivityResponse
     {

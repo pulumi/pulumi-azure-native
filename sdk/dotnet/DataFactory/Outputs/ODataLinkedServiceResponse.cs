@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Open Data Protocol (OData) linked service.
+    /// </summary>
     [OutputType]
     public sealed class ODataLinkedServiceResponse
     {

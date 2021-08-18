@@ -40,6 +40,9 @@ func NewService(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -107,41 +110,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceResponseIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind *string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The common properties of a service.
-	Properties *ServicesPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponseIdentityPtrInput
-	// The kind of the service.
-	Kind pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The common properties of a service.
-	Properties ServicesPropertiesResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -154,7 +125,7 @@ type serviceArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
-	Kind string `pulumi:"kind"`
+	Kind Kind `pulumi:"kind"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The common properties of a service.
@@ -174,7 +145,7 @@ type ServiceArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ResourceIdentityPtrInput
 	// The kind of the service.
-	Kind Kind
+	Kind KindInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The common properties of a service.
@@ -210,9 +181,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

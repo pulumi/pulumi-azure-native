@@ -210,43 +210,9 @@ func GetVirtualWAN(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualWAN resources.
 type virtualWANState struct {
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
-	VpnSites    []SubResourceResponse `pulumi:"vpnSites"`
 }
 
 type VirtualWANState struct {
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs SubResourceResponseArrayInput
-	VpnSites    SubResourceResponseArrayInput
 }
 
 func (VirtualWANState) ElementType() reflect.Type {
@@ -307,9 +273,7 @@ func (i *VirtualWAN) ToVirtualWANOutputWithContext(ctx context.Context) VirtualW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWANOutput)
 }
 
-type VirtualWANOutput struct {
-	*pulumi.OutputState
-}
+type VirtualWANOutput struct{ *pulumi.OutputState }
 
 func (VirtualWANOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualWAN)(nil))

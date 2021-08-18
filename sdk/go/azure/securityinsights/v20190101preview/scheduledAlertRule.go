@@ -97,6 +97,9 @@ func NewScheduledAlertRule(ctx *pulumi.Context,
 	if args.SuppressionEnabled == nil {
 		return nil, errors.New("invalid value for required argument 'SuppressionEnabled'")
 	}
+	if args.TriggerOperator == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerOperator'")
+	}
 	if args.TriggerThreshold == nil {
 		return nil, errors.New("invalid value for required argument 'TriggerThreshold'")
 	}
@@ -150,89 +153,9 @@ func GetScheduledAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScheduledAlertRule resources.
 type scheduledAlertRuleState struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName *string `pulumi:"alertRuleTemplateName"`
-	// The description of the alert rule.
-	Description *string `pulumi:"description"`
-	// The display name for alerts created by this alert rule.
-	DisplayName *string `pulumi:"displayName"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The event grouping settings.
-	EventGroupingSettings *EventGroupingSettingsResponse `pulumi:"eventGroupingSettings"`
-	// The settings of the incidents that created from alerts triggered by this analytics rule
-	IncidentConfiguration *IncidentConfigurationResponse `pulumi:"incidentConfiguration"`
-	// Expected value is 'Scheduled'.
-	Kind *string `pulumi:"kind"`
-	// The last time that this alert rule has been modified.
-	LastModifiedUtc *string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The query that creates alerts for this rule.
-	Query *string `pulumi:"query"`
-	// The frequency (in ISO 8601 duration format) for this alert rule to run.
-	QueryFrequency *string `pulumi:"queryFrequency"`
-	// The period (in ISO 8601 duration format) that this alert rule looks at.
-	QueryPeriod *string `pulumi:"queryPeriod"`
-	// The severity for alerts created by this alert rule.
-	Severity *string `pulumi:"severity"`
-	// The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
-	SuppressionDuration *string `pulumi:"suppressionDuration"`
-	// Determines whether the suppression for this alert rule is enabled or disabled.
-	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
-	// The tactics of the alert rule
-	Tactics []string `pulumi:"tactics"`
-	// The operation against the threshold that triggers alert rule.
-	TriggerOperator *string `pulumi:"triggerOperator"`
-	// The threshold triggers this alert rule.
-	TriggerThreshold *int `pulumi:"triggerThreshold"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ScheduledAlertRuleState struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName pulumi.StringPtrInput
-	// The description of the alert rule.
-	Description pulumi.StringPtrInput
-	// The display name for alerts created by this alert rule.
-	DisplayName pulumi.StringPtrInput
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled pulumi.BoolPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The event grouping settings.
-	EventGroupingSettings EventGroupingSettingsResponsePtrInput
-	// The settings of the incidents that created from alerts triggered by this analytics rule
-	IncidentConfiguration IncidentConfigurationResponsePtrInput
-	// Expected value is 'Scheduled'.
-	Kind pulumi.StringPtrInput
-	// The last time that this alert rule has been modified.
-	LastModifiedUtc pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The query that creates alerts for this rule.
-	Query pulumi.StringPtrInput
-	// The frequency (in ISO 8601 duration format) for this alert rule to run.
-	QueryFrequency pulumi.StringPtrInput
-	// The period (in ISO 8601 duration format) that this alert rule looks at.
-	QueryPeriod pulumi.StringPtrInput
-	// The severity for alerts created by this alert rule.
-	Severity pulumi.StringPtrInput
-	// The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
-	SuppressionDuration pulumi.StringPtrInput
-	// Determines whether the suppression for this alert rule is enabled or disabled.
-	SuppressionEnabled pulumi.BoolPtrInput
-	// The tactics of the alert rule
-	Tactics pulumi.StringArrayInput
-	// The operation against the threshold that triggers alert rule.
-	TriggerOperator pulumi.StringPtrInput
-	// The threshold triggers this alert rule.
-	TriggerThreshold pulumi.IntPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ScheduledAlertRuleState) ElementType() reflect.Type {
@@ -277,7 +200,7 @@ type scheduledAlertRuleArgs struct {
 	// The tactics of the alert rule
 	Tactics []string `pulumi:"tactics"`
 	// The operation against the threshold that triggers alert rule.
-	TriggerOperator string `pulumi:"triggerOperator"`
+	TriggerOperator TriggerOperator `pulumi:"triggerOperator"`
 	// The threshold triggers this alert rule.
 	TriggerThreshold int `pulumi:"triggerThreshold"`
 	// The name of the workspace.
@@ -323,7 +246,7 @@ type ScheduledAlertRuleArgs struct {
 	// The tactics of the alert rule
 	Tactics pulumi.StringArrayInput
 	// The operation against the threshold that triggers alert rule.
-	TriggerOperator TriggerOperator
+	TriggerOperator TriggerOperatorInput
 	// The threshold triggers this alert rule.
 	TriggerThreshold pulumi.IntInput
 	// The name of the workspace.
@@ -353,9 +276,7 @@ func (i *ScheduledAlertRule) ToScheduledAlertRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledAlertRuleOutput)
 }
 
-type ScheduledAlertRuleOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (ScheduledAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledAlertRule)(nil))

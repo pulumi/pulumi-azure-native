@@ -41,14 +41,22 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.security.v20150601preview as v20150601preview
-    import pulumi_azure_native.security.v20170801preview as v20170801preview
-    import pulumi_azure_native.security.v20190101preview as v20190101preview
-    import pulumi_azure_native.security.v20190801 as v20190801
-    import pulumi_azure_native.security.v20200101 as v20200101
-    import pulumi_azure_native.security.v20200101preview as v20200101preview
-    import pulumi_azure_native.security.v20200701preview as v20200701preview
-    import pulumi_azure_native.security.v20210115preview as v20210115preview
+    import pulumi_azure_native.security.v20150601preview as __v20150601preview
+    v20150601preview = __v20150601preview
+    import pulumi_azure_native.security.v20170801preview as __v20170801preview
+    v20170801preview = __v20170801preview
+    import pulumi_azure_native.security.v20190101preview as __v20190101preview
+    v20190101preview = __v20190101preview
+    import pulumi_azure_native.security.v20190801 as __v20190801
+    v20190801 = __v20190801
+    import pulumi_azure_native.security.v20200101 as __v20200101
+    v20200101 = __v20200101
+    import pulumi_azure_native.security.v20200101preview as __v20200101preview
+    v20200101preview = __v20200101preview
+    import pulumi_azure_native.security.v20200701preview as __v20200701preview
+    v20200701preview = __v20200701preview
+    import pulumi_azure_native.security.v20210115preview as __v20210115preview
+    v20210115preview = __v20210115preview
 else:
     v20150601preview = _utilities.lazy_import('pulumi_azure_native.security.v20150601preview')
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')

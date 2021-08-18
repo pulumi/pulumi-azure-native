@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20150601Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a user that is recommended to be allowed for a certain rule
+    /// </summary>
     [OutputType]
     public sealed class UserRecommendationResponse
     {

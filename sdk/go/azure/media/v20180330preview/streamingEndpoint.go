@@ -134,89 +134,9 @@ func GetStreamingEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingEndpoint resources.
 type streamingEndpointState struct {
-	// The access control definition of the StreamingEndpoint.
-	AccessControl *StreamingEndpointAccessControlResponse `pulumi:"accessControl"`
-	// AvailabilitySet name
-	AvailabilitySetName *string `pulumi:"availabilitySetName"`
-	// The CDN enabled flag.
-	CdnEnabled *bool `pulumi:"cdnEnabled"`
-	// The CDN profile name.
-	CdnProfile *string `pulumi:"cdnProfile"`
-	// The CDN provider name.
-	CdnProvider *string `pulumi:"cdnProvider"`
-	// The exact time the StreamingEndpoint was created.
-	Created *string `pulumi:"created"`
-	// The StreamingEndpoint access policies.
-	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
-	// The custom host names of the StreamingEndpoint
-	CustomHostNames []string `pulumi:"customHostNames"`
-	// The StreamingEndpoint description.
-	Description *string `pulumi:"description"`
-	// The free trial expiration time.
-	FreeTrialEndTime *string `pulumi:"freeTrialEndTime"`
-	// The StreamingEndpoint host name.
-	HostName *string `pulumi:"hostName"`
-	// The exact time the StreamingEndpoint was last modified.
-	LastModified *string `pulumi:"lastModified"`
-	// The Azure Region of the resource.
-	Location *string `pulumi:"location"`
-	// Max cache age
-	MaxCacheAge *float64 `pulumi:"maxCacheAge"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the StreamingEndpoint.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource state of the StreamingEndpoint.
-	ResourceState *string `pulumi:"resourceState"`
-	// The number of scale units.
-	ScaleUnits *int `pulumi:"scaleUnits"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type StreamingEndpointState struct {
-	// The access control definition of the StreamingEndpoint.
-	AccessControl StreamingEndpointAccessControlResponsePtrInput
-	// AvailabilitySet name
-	AvailabilitySetName pulumi.StringPtrInput
-	// The CDN enabled flag.
-	CdnEnabled pulumi.BoolPtrInput
-	// The CDN profile name.
-	CdnProfile pulumi.StringPtrInput
-	// The CDN provider name.
-	CdnProvider pulumi.StringPtrInput
-	// The exact time the StreamingEndpoint was created.
-	Created pulumi.StringPtrInput
-	// The StreamingEndpoint access policies.
-	CrossSiteAccessPolicies CrossSiteAccessPoliciesResponsePtrInput
-	// The custom host names of the StreamingEndpoint
-	CustomHostNames pulumi.StringArrayInput
-	// The StreamingEndpoint description.
-	Description pulumi.StringPtrInput
-	// The free trial expiration time.
-	FreeTrialEndTime pulumi.StringPtrInput
-	// The StreamingEndpoint host name.
-	HostName pulumi.StringPtrInput
-	// The exact time the StreamingEndpoint was last modified.
-	LastModified pulumi.StringPtrInput
-	// The Azure Region of the resource.
-	Location pulumi.StringPtrInput
-	// Max cache age
-	MaxCacheAge pulumi.Float64PtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the StreamingEndpoint.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource state of the StreamingEndpoint.
-	ResourceState pulumi.StringPtrInput
-	// The number of scale units.
-	ScaleUnits pulumi.IntPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (StreamingEndpointState) ElementType() reflect.Type {
@@ -317,9 +237,7 @@ func (i *StreamingEndpoint) ToStreamingEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointOutput)
 }
 
-type StreamingEndpointOutput struct {
-	*pulumi.OutputState
-}
+type StreamingEndpointOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingEndpoint)(nil))

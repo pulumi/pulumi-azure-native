@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
+    /// <summary>
+    /// The type of the paths for alias.
+    /// </summary>
     [OutputType]
     public sealed class AliasPathResponse
     {

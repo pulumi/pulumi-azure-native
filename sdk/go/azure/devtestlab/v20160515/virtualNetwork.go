@@ -100,57 +100,9 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetwork resources.
 type virtualNetworkState struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets []SubnetResponse `pulumi:"allowedSubnets"`
-	// The creation date of the virtual network.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The description of the virtual network.
-	Description *string `pulumi:"description"`
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
-	// The external subnet properties.
-	ExternalSubnets []ExternalSubnetResponse `pulumi:"externalSubnets"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The subnet overrides of the virtual network.
-	SubnetOverrides []SubnetOverrideResponse `pulumi:"subnetOverrides"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type VirtualNetworkState struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets SubnetResponseArrayInput
-	// The creation date of the virtual network.
-	CreatedDate pulumi.StringPtrInput
-	// The description of the virtual network.
-	Description pulumi.StringPtrInput
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId pulumi.StringPtrInput
-	// The external subnet properties.
-	ExternalSubnets ExternalSubnetResponseArrayInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The subnet overrides of the virtual network.
-	SubnetOverrides SubnetOverrideResponseArrayInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (VirtualNetworkState) ElementType() reflect.Type {
@@ -235,9 +187,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-type VirtualNetworkOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetwork)(nil))

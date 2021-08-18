@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20181102PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// Action rule properties defining scope, conditions, suppression logic for action rule
+    /// </summary>
     [OutputType]
     public sealed class ActionRulePropertiesResponse
     {

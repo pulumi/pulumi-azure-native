@@ -90,35 +90,9 @@ func GetEyesOn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EyesOn resources.
 type eyesOnState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// The kind of the setting
-	// Expected value is 'EyesOn'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type EyesOnState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Determines whether the setting is enable or disabled.
-	IsEnabled pulumi.BoolPtrInput
-	// The kind of the setting
-	// Expected value is 'EyesOn'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EyesOnState) ElementType() reflect.Type {
@@ -181,9 +155,7 @@ func (i *EyesOn) ToEyesOnOutputWithContext(ctx context.Context) EyesOnOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EyesOnOutput)
 }
 
-type EyesOnOutput struct {
-	*pulumi.OutputState
-}
+type EyesOnOutput struct{ *pulumi.OutputState }
 
 func (EyesOnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EyesOn)(nil))

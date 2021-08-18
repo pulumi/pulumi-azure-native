@@ -133,25 +133,9 @@ func GetApiOperationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiOperationPolicy resources.
 type apiOperationPolicyState struct {
-	// Format of the policyContent.
-	Format *string `pulumi:"format"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// Contents of the Policy as defined by the format.
-	Value *string `pulumi:"value"`
 }
 
 type ApiOperationPolicyState struct {
-	// Format of the policyContent.
-	Format pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// Contents of the Policy as defined by the format.
-	Value pulumi.StringPtrInput
 }
 
 func (ApiOperationPolicyState) ElementType() reflect.Type {
@@ -216,9 +200,7 @@ func (i *ApiOperationPolicy) ToApiOperationPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApiOperationPolicyOutput)
 }
 
-type ApiOperationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ApiOperationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiOperationPolicy)(nil))

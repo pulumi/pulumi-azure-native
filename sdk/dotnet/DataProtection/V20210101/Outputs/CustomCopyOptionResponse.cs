@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Duration based custom options to copy
+    /// </summary>
     [OutputType]
     public sealed class CustomCopyOptionResponse
     {

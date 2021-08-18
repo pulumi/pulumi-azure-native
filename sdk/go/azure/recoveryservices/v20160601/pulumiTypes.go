@@ -13,7 +13,7 @@ import (
 // IaaS VM workload-specific backup item representing the classic VM.
 type AzureIaaSClassicComputeVMProtectedItem struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
+	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -30,7 +30,7 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
+	ProtectionState *ProtectionState `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -38,7 +38,7 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType *string `pulumi:"workloadType"`
+	WorkloadType *DataSourceType `pulumi:"workloadType"`
 }
 
 // AzureIaaSClassicComputeVMProtectedItemInput is an input type that accepts AzureIaaSClassicComputeVMProtectedItemArgs and AzureIaaSClassicComputeVMProtectedItemOutput values.
@@ -55,7 +55,7 @@ type AzureIaaSClassicComputeVMProtectedItemInput interface {
 // IaaS VM workload-specific backup item representing the classic VM.
 type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementTypePtrInput `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -72,7 +72,7 @@ type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState *ProtectionState `pulumi:"protectionState"`
+	ProtectionState ProtectionStatePtrInput `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -80,7 +80,7 @@ type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType *DataSourceType `pulumi:"workloadType"`
+	WorkloadType DataSourceTypePtrInput `pulumi:"workloadType"`
 }
 
 func (AzureIaaSClassicComputeVMProtectedItemArgs) ElementType() reflect.Type {
@@ -111,8 +111,8 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) ToAzureIaaSClassicComputeV
 }
 
 // The backup management type associated with the backup item.
-func (o AzureIaaSClassicComputeVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) BackupManagementType() BackupManagementTypePtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *BackupManagementType { return v.BackupManagementType }).(BackupManagementTypePtrOutput)
 }
 
 // Additional information for this backup item.
@@ -154,8 +154,8 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemType() pulumi
 }
 
 // The backup state of this backup item.
-func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectionState() ProtectionStatePtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *ProtectionState { return v.ProtectionState }).(ProtectionStatePtrOutput)
 }
 
 // The backup status of this backup item.
@@ -174,14 +174,14 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) VirtualMachineId() pulumi.
 }
 
 // The workload type for this item.
-func (o AzureIaaSClassicComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) WorkloadType() DataSourceTypePtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *DataSourceType { return v.WorkloadType }).(DataSourceTypePtrOutput)
 }
 
 // IaaS VM workload-specific backup item representing the Resource Manager VM.
 type AzureIaaSComputeVMProtectedItem struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
+	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -198,7 +198,7 @@ type AzureIaaSComputeVMProtectedItem struct {
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
+	ProtectionState *ProtectionState `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -206,7 +206,7 @@ type AzureIaaSComputeVMProtectedItem struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType *string `pulumi:"workloadType"`
+	WorkloadType *DataSourceType `pulumi:"workloadType"`
 }
 
 // AzureIaaSComputeVMProtectedItemInput is an input type that accepts AzureIaaSComputeVMProtectedItemArgs and AzureIaaSComputeVMProtectedItemOutput values.
@@ -223,7 +223,7 @@ type AzureIaaSComputeVMProtectedItemInput interface {
 // IaaS VM workload-specific backup item representing the Resource Manager VM.
 type AzureIaaSComputeVMProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementTypePtrInput `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -240,7 +240,7 @@ type AzureIaaSComputeVMProtectedItemArgs struct {
 	// Expected value is 'Microsoft.Compute/virtualMachines'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState *ProtectionState `pulumi:"protectionState"`
+	ProtectionState ProtectionStatePtrInput `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -248,7 +248,7 @@ type AzureIaaSComputeVMProtectedItemArgs struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType *DataSourceType `pulumi:"workloadType"`
+	WorkloadType DataSourceTypePtrInput `pulumi:"workloadType"`
 }
 
 func (AzureIaaSComputeVMProtectedItemArgs) ElementType() reflect.Type {
@@ -279,8 +279,8 @@ func (o AzureIaaSComputeVMProtectedItemOutput) ToAzureIaaSComputeVMProtectedItem
 }
 
 // The backup management type associated with the backup item.
-func (o AzureIaaSComputeVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o AzureIaaSComputeVMProtectedItemOutput) BackupManagementType() BackupManagementTypePtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *BackupManagementType { return v.BackupManagementType }).(BackupManagementTypePtrOutput)
 }
 
 // Additional information for this backup item.
@@ -320,8 +320,8 @@ func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemType() pulumi.String
 }
 
 // The backup state of this backup item.
-func (o AzureIaaSComputeVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+func (o AzureIaaSComputeVMProtectedItemOutput) ProtectionState() ProtectionStatePtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *ProtectionState { return v.ProtectionState }).(ProtectionStatePtrOutput)
 }
 
 // The backup status of this backup item.
@@ -340,14 +340,14 @@ func (o AzureIaaSComputeVMProtectedItemOutput) VirtualMachineId() pulumi.StringP
 }
 
 // The workload type for this item.
-func (o AzureIaaSComputeVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o AzureIaaSComputeVMProtectedItemOutput) WorkloadType() DataSourceTypePtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *DataSourceType { return v.WorkloadType }).(DataSourceTypePtrOutput)
 }
 
 // This Azure VM workload-specific (also known as IaaS VM workload-specific) backup item has been backed up.
 type AzureIaaSVMProtectedItem struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
+	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo *AzureIaaSVMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -364,7 +364,7 @@ type AzureIaaSVMProtectedItem struct {
 	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
+	ProtectionState *ProtectionState `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus *string `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -372,7 +372,7 @@ type AzureIaaSVMProtectedItem struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId *string `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType *string `pulumi:"workloadType"`
+	WorkloadType *DataSourceType `pulumi:"workloadType"`
 }
 
 // AzureIaaSVMProtectedItemInput is an input type that accepts AzureIaaSVMProtectedItemArgs and AzureIaaSVMProtectedItemOutput values.
@@ -389,7 +389,7 @@ type AzureIaaSVMProtectedItemInput interface {
 // This Azure VM workload-specific (also known as IaaS VM workload-specific) backup item has been backed up.
 type AzureIaaSVMProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementTypePtrInput `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -406,7 +406,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// Expected value is 'AzureIaaSVMProtectedItem'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState *ProtectionState `pulumi:"protectionState"`
+	ProtectionState ProtectionStatePtrInput `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -414,7 +414,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType *DataSourceType `pulumi:"workloadType"`
+	WorkloadType DataSourceTypePtrInput `pulumi:"workloadType"`
 }
 
 func (AzureIaaSVMProtectedItemArgs) ElementType() reflect.Type {
@@ -445,8 +445,8 @@ func (o AzureIaaSVMProtectedItemOutput) ToAzureIaaSVMProtectedItemOutputWithCont
 }
 
 // The backup management type associated with the backup item.
-func (o AzureIaaSVMProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o AzureIaaSVMProtectedItemOutput) BackupManagementType() BackupManagementTypePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *BackupManagementType { return v.BackupManagementType }).(BackupManagementTypePtrOutput)
 }
 
 // Additional information for this backup item.
@@ -486,8 +486,8 @@ func (o AzureIaaSVMProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutp
 }
 
 // The backup state of this backup item.
-func (o AzureIaaSVMProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+func (o AzureIaaSVMProtectedItemOutput) ProtectionState() ProtectionStatePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *ProtectionState { return v.ProtectionState }).(ProtectionStatePtrOutput)
 }
 
 // The backup status of this backup item.
@@ -506,8 +506,8 @@ func (o AzureIaaSVMProtectedItemOutput) VirtualMachineId() pulumi.StringPtrOutpu
 }
 
 // The workload type for this item.
-func (o AzureIaaSVMProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o AzureIaaSVMProtectedItemOutput) WorkloadType() DataSourceTypePtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *DataSourceType { return v.WorkloadType }).(DataSourceTypePtrOutput)
 }
 
 // Additional information for the Azure VM (also known as IaaS VM)-specific backup item.
@@ -614,7 +614,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemEx
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
@@ -649,7 +649,13 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) ToAzureIaaSVMProtectedIte
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo { return *v }).(AzureIaaSVMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIaaSVMProtectedItemExtendedInfo
+		return ret
+	}).(AzureIaaSVMProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this backup item.
@@ -855,7 +861,7 @@ func (o AzureIaaSVMProtectionPolicyResponseOutput) SchedulePolicy() pulumi.AnyOu
 // This is an Azure SQL workload-specific backup item.
 type AzureSqlProtectedItem struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
+	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo *AzureSqlProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	// The timestamp when the most recent backup copy was created for this backup item.
@@ -868,11 +874,11 @@ type AzureSqlProtectedItem struct {
 	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType *string `pulumi:"protectedItemType"`
 	// The backup state of the backup item.
-	ProtectionState *string `pulumi:"protectionState"`
+	ProtectionState *ProtectedItemState `pulumi:"protectionState"`
 	// The ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// The workload type for this item.
-	WorkloadType *string `pulumi:"workloadType"`
+	WorkloadType *DataSourceType `pulumi:"workloadType"`
 }
 
 // AzureSqlProtectedItemInput is an input type that accepts AzureSqlProtectedItemArgs and AzureSqlProtectedItemOutput values.
@@ -889,7 +895,7 @@ type AzureSqlProtectedItemInput interface {
 // This is an Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementTypePtrInput `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo AzureSqlProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	// The timestamp when the most recent backup copy was created for this backup item.
@@ -902,11 +908,11 @@ type AzureSqlProtectedItemArgs struct {
 	// Expected value is 'Microsoft.Sql/servers/databases'.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of the backup item.
-	ProtectionState *ProtectedItemState `pulumi:"protectionState"`
+	ProtectionState ProtectedItemStatePtrInput `pulumi:"protectionState"`
 	// The ID of the resource to be backed up.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 	// The workload type for this item.
-	WorkloadType *DataSourceType `pulumi:"workloadType"`
+	WorkloadType DataSourceTypePtrInput `pulumi:"workloadType"`
 }
 
 func (AzureSqlProtectedItemArgs) ElementType() reflect.Type {
@@ -937,8 +943,8 @@ func (o AzureSqlProtectedItemOutput) ToAzureSqlProtectedItemOutputWithContext(ct
 }
 
 // The backup management type associated with the backup item.
-func (o AzureSqlProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o AzureSqlProtectedItemOutput) BackupManagementType() BackupManagementTypePtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItem) *BackupManagementType { return v.BackupManagementType }).(BackupManagementTypePtrOutput)
 }
 
 // Additional information for this backup item.
@@ -968,8 +974,8 @@ func (o AzureSqlProtectedItemOutput) ProtectedItemType() pulumi.StringPtrOutput 
 }
 
 // The backup state of the backup item.
-func (o AzureSqlProtectedItemOutput) ProtectionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+func (o AzureSqlProtectedItemOutput) ProtectionState() ProtectedItemStatePtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItem) *ProtectedItemState { return v.ProtectionState }).(ProtectedItemStatePtrOutput)
 }
 
 // The ID of the resource to be backed up.
@@ -978,8 +984,8 @@ func (o AzureSqlProtectedItemOutput) SourceResourceId() pulumi.StringPtrOutput {
 }
 
 // The workload type for this item.
-func (o AzureSqlProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o AzureSqlProtectedItemOutput) WorkloadType() DataSourceTypePtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItem) *DataSourceType { return v.WorkloadType }).(DataSourceTypePtrOutput)
 }
 
 // Additional information for the Azure SQL specific backup item.
@@ -1086,7 +1092,7 @@ func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtended
 }
 
 func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
@@ -1121,7 +1127,13 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) ToAzureSqlProtectedItemExten
 }
 
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) Elem() AzureSqlProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo { return *v }).(AzureSqlProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSqlProtectedItemExtendedInfo
+		return ret
+	}).(AzureSqlProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this item in the service.
@@ -1402,7 +1414,7 @@ func (o DailyRetentionFormatOutput) ToDailyRetentionFormatPtrOutput() DailyReten
 }
 
 func (o DailyRetentionFormatOutput) ToDailyRetentionFormatPtrOutputWithContext(ctx context.Context) DailyRetentionFormatPtrOutput {
-	return o.ApplyT(func(v DailyRetentionFormat) *DailyRetentionFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionFormat) *DailyRetentionFormat {
 		return &v
 	}).(DailyRetentionFormatPtrOutput)
 }
@@ -1427,7 +1439,13 @@ func (o DailyRetentionFormatPtrOutput) ToDailyRetentionFormatPtrOutputWithContex
 }
 
 func (o DailyRetentionFormatPtrOutput) Elem() DailyRetentionFormatOutput {
-	return o.ApplyT(func(v *DailyRetentionFormat) DailyRetentionFormat { return *v }).(DailyRetentionFormatOutput)
+	return o.ApplyT(func(v *DailyRetentionFormat) DailyRetentionFormat {
+		if v != nil {
+			return *v
+		}
+		var ret DailyRetentionFormat
+		return ret
+	}).(DailyRetentionFormatOutput)
 }
 
 // List of days of the month.
@@ -1536,7 +1554,7 @@ func (o DailyRetentionFormatResponseOutput) ToDailyRetentionFormatResponsePtrOut
 }
 
 func (o DailyRetentionFormatResponseOutput) ToDailyRetentionFormatResponsePtrOutputWithContext(ctx context.Context) DailyRetentionFormatResponsePtrOutput {
-	return o.ApplyT(func(v DailyRetentionFormatResponse) *DailyRetentionFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionFormatResponse) *DailyRetentionFormatResponse {
 		return &v
 	}).(DailyRetentionFormatResponsePtrOutput)
 }
@@ -1561,7 +1579,13 @@ func (o DailyRetentionFormatResponsePtrOutput) ToDailyRetentionFormatResponsePtr
 }
 
 func (o DailyRetentionFormatResponsePtrOutput) Elem() DailyRetentionFormatResponseOutput {
-	return o.ApplyT(func(v *DailyRetentionFormatResponse) DailyRetentionFormatResponse { return *v }).(DailyRetentionFormatResponseOutput)
+	return o.ApplyT(func(v *DailyRetentionFormatResponse) DailyRetentionFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DailyRetentionFormatResponse
+		return ret
+	}).(DailyRetentionFormatResponseOutput)
 }
 
 // List of days of the month.
@@ -1674,7 +1698,7 @@ func (o DailyRetentionScheduleOutput) ToDailyRetentionSchedulePtrOutput() DailyR
 }
 
 func (o DailyRetentionScheduleOutput) ToDailyRetentionSchedulePtrOutputWithContext(ctx context.Context) DailyRetentionSchedulePtrOutput {
-	return o.ApplyT(func(v DailyRetentionSchedule) *DailyRetentionSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionSchedule) *DailyRetentionSchedule {
 		return &v
 	}).(DailyRetentionSchedulePtrOutput)
 }
@@ -1704,7 +1728,13 @@ func (o DailyRetentionSchedulePtrOutput) ToDailyRetentionSchedulePtrOutputWithCo
 }
 
 func (o DailyRetentionSchedulePtrOutput) Elem() DailyRetentionScheduleOutput {
-	return o.ApplyT(func(v *DailyRetentionSchedule) DailyRetentionSchedule { return *v }).(DailyRetentionScheduleOutput)
+	return o.ApplyT(func(v *DailyRetentionSchedule) DailyRetentionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DailyRetentionSchedule
+		return ret
+	}).(DailyRetentionScheduleOutput)
 }
 
 // The retention duration of retention policy.
@@ -1827,7 +1857,7 @@ func (o DailyRetentionScheduleResponseOutput) ToDailyRetentionScheduleResponsePt
 }
 
 func (o DailyRetentionScheduleResponseOutput) ToDailyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) DailyRetentionScheduleResponsePtrOutput {
-	return o.ApplyT(func(v DailyRetentionScheduleResponse) *DailyRetentionScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DailyRetentionScheduleResponse) *DailyRetentionScheduleResponse {
 		return &v
 	}).(DailyRetentionScheduleResponsePtrOutput)
 }
@@ -1857,7 +1887,13 @@ func (o DailyRetentionScheduleResponsePtrOutput) ToDailyRetentionScheduleRespons
 }
 
 func (o DailyRetentionScheduleResponsePtrOutput) Elem() DailyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *DailyRetentionScheduleResponse) DailyRetentionScheduleResponse { return *v }).(DailyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *DailyRetentionScheduleResponse) DailyRetentionScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DailyRetentionScheduleResponse
+		return ret
+	}).(DailyRetentionScheduleResponseOutput)
 }
 
 // The retention duration of retention policy.
@@ -2182,7 +2218,7 @@ func (o IdentityDataOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
 }
 
 func (o IdentityDataOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
-	return o.ApplyT(func(v IdentityData) *IdentityData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityData) *IdentityData {
 		return &v
 	}).(IdentityDataPtrOutput)
 }
@@ -2207,7 +2243,13 @@ func (o IdentityDataPtrOutput) ToIdentityDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o IdentityDataPtrOutput) Elem() IdentityDataOutput {
-	return o.ApplyT(func(v *IdentityData) IdentityData { return *v }).(IdentityDataOutput)
+	return o.ApplyT(func(v *IdentityData) IdentityData {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityData
+		return ret
+	}).(IdentityDataOutput)
 }
 
 // The identity type.
@@ -2324,7 +2366,7 @@ func (o IdentityDataResponseOutput) ToIdentityDataResponsePtrOutput() IdentityDa
 }
 
 func (o IdentityDataResponseOutput) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
-	return o.ApplyT(func(v IdentityDataResponse) *IdentityDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityDataResponse) *IdentityDataResponse {
 		return &v
 	}).(IdentityDataResponsePtrOutput)
 }
@@ -2359,7 +2401,13 @@ func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutputWithContex
 }
 
 func (o IdentityDataResponsePtrOutput) Elem() IdentityDataResponseOutput {
-	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse { return *v }).(IdentityDataResponseOutput)
+	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityDataResponse
+		return ret
+	}).(IdentityDataResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -2699,7 +2747,7 @@ func (o LongTermSchedulePolicyResponseOutput) SchedulePolicyType() pulumi.String
 // This is a file or folder workload-specific backup item.
 type MabFileFolderProtectedItem struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
+	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
 	// The name of the computer associated with this backup item.
 	ComputerName *string `pulumi:"computerName"`
 	// Additional information for this backup item.
@@ -2721,7 +2769,7 @@ type MabFileFolderProtectedItem struct {
 	// The ID of the resource to be backed up.
 	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// The workload type for this item.
-	WorkloadType *string `pulumi:"workloadType"`
+	WorkloadType *DataSourceType `pulumi:"workloadType"`
 }
 
 // MabFileFolderProtectedItemInput is an input type that accepts MabFileFolderProtectedItemArgs and MabFileFolderProtectedItemOutput values.
@@ -2738,7 +2786,7 @@ type MabFileFolderProtectedItemInput interface {
 // This is a file or folder workload-specific backup item.
 type MabFileFolderProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType *BackupManagementType `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementTypePtrInput `pulumi:"backupManagementType"`
 	// The name of the computer associated with this backup item.
 	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
 	// Additional information for this backup item.
@@ -2760,7 +2808,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// The ID of the resource to be backed up.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 	// The workload type for this item.
-	WorkloadType *DataSourceType `pulumi:"workloadType"`
+	WorkloadType DataSourceTypePtrInput `pulumi:"workloadType"`
 }
 
 func (MabFileFolderProtectedItemArgs) ElementType() reflect.Type {
@@ -2791,8 +2839,8 @@ func (o MabFileFolderProtectedItemOutput) ToMabFileFolderProtectedItemOutputWith
 }
 
 // The backup management type associated with the backup item.
-func (o MabFileFolderProtectedItemOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o MabFileFolderProtectedItemOutput) BackupManagementType() BackupManagementTypePtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItem) *BackupManagementType { return v.BackupManagementType }).(BackupManagementTypePtrOutput)
 }
 
 // The name of the computer associated with this backup item.
@@ -2846,8 +2894,8 @@ func (o MabFileFolderProtectedItemOutput) SourceResourceId() pulumi.StringPtrOut
 }
 
 // The workload type for this item.
-func (o MabFileFolderProtectedItemOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o MabFileFolderProtectedItemOutput) WorkloadType() DataSourceTypePtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItem) *DataSourceType { return v.WorkloadType }).(DataSourceTypePtrOutput)
 }
 
 // Additional information for the backup item.
@@ -2954,7 +3002,7 @@ func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedIt
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
@@ -2989,7 +3037,13 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) ToMabFileFolderProtecte
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo { return *v }).(MabFileFolderProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret MabFileFolderProtectedItemExtendedInfo
+		return ret
+	}).(MabFileFolderProtectedItemExtendedInfoOutput)
 }
 
 // The last day and time the agent synced with the service.
@@ -3199,7 +3253,7 @@ type MonthlyRetentionSchedule struct {
 	// Daily retention format for the monthly retention policy.
 	RetentionScheduleDaily *DailyRetentionFormat `pulumi:"retentionScheduleDaily"`
 	// Retention schedule format type for monthly retention policy.
-	RetentionScheduleFormatType *string `pulumi:"retentionScheduleFormatType"`
+	RetentionScheduleFormatType *RetentionScheduleFormat `pulumi:"retentionScheduleFormatType"`
 	// Weekly retention format for the monthly retention policy.
 	RetentionScheduleWeekly *WeeklyRetentionFormat `pulumi:"retentionScheduleWeekly"`
 	// Retention times of the retention policy.
@@ -3224,7 +3278,7 @@ type MonthlyRetentionScheduleArgs struct {
 	// Daily retention format for the monthly retention policy.
 	RetentionScheduleDaily DailyRetentionFormatPtrInput `pulumi:"retentionScheduleDaily"`
 	// Retention schedule format type for monthly retention policy.
-	RetentionScheduleFormatType *RetentionScheduleFormat `pulumi:"retentionScheduleFormatType"`
+	RetentionScheduleFormatType RetentionScheduleFormatPtrInput `pulumi:"retentionScheduleFormatType"`
 	// Weekly retention format for the monthly retention policy.
 	RetentionScheduleWeekly WeeklyRetentionFormatPtrInput `pulumi:"retentionScheduleWeekly"`
 	// Retention times of the retention policy.
@@ -3304,7 +3358,7 @@ func (o MonthlyRetentionScheduleOutput) ToMonthlyRetentionSchedulePtrOutput() Mo
 }
 
 func (o MonthlyRetentionScheduleOutput) ToMonthlyRetentionSchedulePtrOutputWithContext(ctx context.Context) MonthlyRetentionSchedulePtrOutput {
-	return o.ApplyT(func(v MonthlyRetentionSchedule) *MonthlyRetentionSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlyRetentionSchedule) *MonthlyRetentionSchedule {
 		return &v
 	}).(MonthlyRetentionSchedulePtrOutput)
 }
@@ -3320,8 +3374,8 @@ func (o MonthlyRetentionScheduleOutput) RetentionScheduleDaily() DailyRetentionF
 }
 
 // Retention schedule format type for monthly retention policy.
-func (o MonthlyRetentionScheduleOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonthlyRetentionSchedule) *string { return v.RetentionScheduleFormatType }).(pulumi.StringPtrOutput)
+func (o MonthlyRetentionScheduleOutput) RetentionScheduleFormatType() RetentionScheduleFormatPtrOutput {
+	return o.ApplyT(func(v MonthlyRetentionSchedule) *RetentionScheduleFormat { return v.RetentionScheduleFormatType }).(RetentionScheduleFormatPtrOutput)
 }
 
 // Weekly retention format for the monthly retention policy.
@@ -3349,7 +3403,13 @@ func (o MonthlyRetentionSchedulePtrOutput) ToMonthlyRetentionSchedulePtrOutputWi
 }
 
 func (o MonthlyRetentionSchedulePtrOutput) Elem() MonthlyRetentionScheduleOutput {
-	return o.ApplyT(func(v *MonthlyRetentionSchedule) MonthlyRetentionSchedule { return *v }).(MonthlyRetentionScheduleOutput)
+	return o.ApplyT(func(v *MonthlyRetentionSchedule) MonthlyRetentionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret MonthlyRetentionSchedule
+		return ret
+	}).(MonthlyRetentionScheduleOutput)
 }
 
 // Retention duration of the retention policy.
@@ -3373,13 +3433,13 @@ func (o MonthlyRetentionSchedulePtrOutput) RetentionScheduleDaily() DailyRetenti
 }
 
 // Retention schedule format type for monthly retention policy.
-func (o MonthlyRetentionSchedulePtrOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonthlyRetentionSchedule) *string {
+func (o MonthlyRetentionSchedulePtrOutput) RetentionScheduleFormatType() RetentionScheduleFormatPtrOutput {
+	return o.ApplyT(func(v *MonthlyRetentionSchedule) *RetentionScheduleFormat {
 		if v == nil {
 			return nil
 		}
 		return v.RetentionScheduleFormatType
-	}).(pulumi.StringPtrOutput)
+	}).(RetentionScheduleFormatPtrOutput)
 }
 
 // Weekly retention format for the monthly retention policy.
@@ -3514,7 +3574,7 @@ func (o MonthlyRetentionScheduleResponseOutput) ToMonthlyRetentionScheduleRespon
 }
 
 func (o MonthlyRetentionScheduleResponseOutput) ToMonthlyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) MonthlyRetentionScheduleResponsePtrOutput {
-	return o.ApplyT(func(v MonthlyRetentionScheduleResponse) *MonthlyRetentionScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonthlyRetentionScheduleResponse) *MonthlyRetentionScheduleResponse {
 		return &v
 	}).(MonthlyRetentionScheduleResponsePtrOutput)
 }
@@ -3563,7 +3623,13 @@ func (o MonthlyRetentionScheduleResponsePtrOutput) ToMonthlyRetentionScheduleRes
 }
 
 func (o MonthlyRetentionScheduleResponsePtrOutput) Elem() MonthlyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *MonthlyRetentionScheduleResponse) MonthlyRetentionScheduleResponse { return *v }).(MonthlyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *MonthlyRetentionScheduleResponse) MonthlyRetentionScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonthlyRetentionScheduleResponse
+		return ret
+	}).(MonthlyRetentionScheduleResponseOutput)
 }
 
 // Retention duration of the retention policy.
@@ -3788,7 +3854,7 @@ type RetentionDuration struct {
 	//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
 	Count *int `pulumi:"count"`
 	// The retention duration type of the retention policy.
-	DurationType *string `pulumi:"durationType"`
+	DurationType *RetentionDurationType `pulumi:"durationType"`
 }
 
 // RetentionDurationInput is an input type that accepts RetentionDurationArgs and RetentionDurationOutput values.
@@ -3808,7 +3874,7 @@ type RetentionDurationArgs struct {
 	//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// The retention duration type of the retention policy.
-	DurationType *RetentionDurationType `pulumi:"durationType"`
+	DurationType RetentionDurationTypePtrInput `pulumi:"durationType"`
 }
 
 func (RetentionDurationArgs) ElementType() reflect.Type {
@@ -3884,7 +3950,7 @@ func (o RetentionDurationOutput) ToRetentionDurationPtrOutput() RetentionDuratio
 }
 
 func (o RetentionDurationOutput) ToRetentionDurationPtrOutputWithContext(ctx context.Context) RetentionDurationPtrOutput {
-	return o.ApplyT(func(v RetentionDuration) *RetentionDuration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionDuration) *RetentionDuration {
 		return &v
 	}).(RetentionDurationPtrOutput)
 }
@@ -3896,8 +3962,8 @@ func (o RetentionDurationOutput) Count() pulumi.IntPtrOutput {
 }
 
 // The retention duration type of the retention policy.
-func (o RetentionDurationOutput) DurationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RetentionDuration) *string { return v.DurationType }).(pulumi.StringPtrOutput)
+func (o RetentionDurationOutput) DurationType() RetentionDurationTypePtrOutput {
+	return o.ApplyT(func(v RetentionDuration) *RetentionDurationType { return v.DurationType }).(RetentionDurationTypePtrOutput)
 }
 
 type RetentionDurationPtrOutput struct{ *pulumi.OutputState }
@@ -3915,7 +3981,13 @@ func (o RetentionDurationPtrOutput) ToRetentionDurationPtrOutputWithContext(ctx 
 }
 
 func (o RetentionDurationPtrOutput) Elem() RetentionDurationOutput {
-	return o.ApplyT(func(v *RetentionDuration) RetentionDuration { return *v }).(RetentionDurationOutput)
+	return o.ApplyT(func(v *RetentionDuration) RetentionDuration {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionDuration
+		return ret
+	}).(RetentionDurationOutput)
 }
 
 // Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
@@ -3930,13 +4002,13 @@ func (o RetentionDurationPtrOutput) Count() pulumi.IntPtrOutput {
 }
 
 // The retention duration type of the retention policy.
-func (o RetentionDurationPtrOutput) DurationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RetentionDuration) *string {
+func (o RetentionDurationPtrOutput) DurationType() RetentionDurationTypePtrOutput {
+	return o.ApplyT(func(v *RetentionDuration) *RetentionDurationType {
 		if v == nil {
 			return nil
 		}
 		return v.DurationType
-	}).(pulumi.StringPtrOutput)
+	}).(RetentionDurationTypePtrOutput)
 }
 
 // Retention duration.
@@ -4041,7 +4113,7 @@ func (o RetentionDurationResponseOutput) ToRetentionDurationResponsePtrOutput() 
 }
 
 func (o RetentionDurationResponseOutput) ToRetentionDurationResponsePtrOutputWithContext(ctx context.Context) RetentionDurationResponsePtrOutput {
-	return o.ApplyT(func(v RetentionDurationResponse) *RetentionDurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionDurationResponse) *RetentionDurationResponse {
 		return &v
 	}).(RetentionDurationResponsePtrOutput)
 }
@@ -4072,7 +4144,13 @@ func (o RetentionDurationResponsePtrOutput) ToRetentionDurationResponsePtrOutput
 }
 
 func (o RetentionDurationResponsePtrOutput) Elem() RetentionDurationResponseOutput {
-	return o.ApplyT(func(v *RetentionDurationResponse) RetentionDurationResponse { return *v }).(RetentionDurationResponseOutput)
+	return o.ApplyT(func(v *RetentionDurationResponse) RetentionDurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionDurationResponse
+		return ret
+	}).(RetentionDurationResponseOutput)
 }
 
 // Count of the duration types. Retention duration is determined by the combining the Count times and durationType.
@@ -4236,9 +4314,9 @@ type SimpleSchedulePolicy struct {
 	// Expected value is 'SimpleSchedulePolicy'.
 	SchedulePolicyType *string `pulumi:"schedulePolicyType"`
 	// This list is the days of the week when the schedule runs.
-	ScheduleRunDays []string `pulumi:"scheduleRunDays"`
+	ScheduleRunDays []DayOfWeek `pulumi:"scheduleRunDays"`
 	// Defines the frequency interval (daily or weekly) for the schedule policy.
-	ScheduleRunFrequency *string `pulumi:"scheduleRunFrequency"`
+	ScheduleRunFrequency *ScheduleRunType `pulumi:"scheduleRunFrequency"`
 	// List of times, during a day, when the schedule runs.
 	ScheduleRunTimes []string `pulumi:"scheduleRunTimes"`
 	// The number of times per week the schedule runs.
@@ -4264,7 +4342,7 @@ type SimpleSchedulePolicyArgs struct {
 	// This list is the days of the week when the schedule runs.
 	ScheduleRunDays DayOfWeekArrayInput `pulumi:"scheduleRunDays"`
 	// Defines the frequency interval (daily or weekly) for the schedule policy.
-	ScheduleRunFrequency *ScheduleRunType `pulumi:"scheduleRunFrequency"`
+	ScheduleRunFrequency ScheduleRunTypePtrInput `pulumi:"scheduleRunFrequency"`
 	// List of times, during a day, when the schedule runs.
 	ScheduleRunTimes pulumi.StringArrayInput `pulumi:"scheduleRunTimes"`
 	// The number of times per week the schedule runs.
@@ -4305,13 +4383,13 @@ func (o SimpleSchedulePolicyOutput) SchedulePolicyType() pulumi.StringPtrOutput 
 }
 
 // This list is the days of the week when the schedule runs.
-func (o SimpleSchedulePolicyOutput) ScheduleRunDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SimpleSchedulePolicy) []string { return v.ScheduleRunDays }).(pulumi.StringArrayOutput)
+func (o SimpleSchedulePolicyOutput) ScheduleRunDays() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicy) []DayOfWeek { return v.ScheduleRunDays }).(DayOfWeekArrayOutput)
 }
 
 // Defines the frequency interval (daily or weekly) for the schedule policy.
-func (o SimpleSchedulePolicyOutput) ScheduleRunFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SimpleSchedulePolicy) *string { return v.ScheduleRunFrequency }).(pulumi.StringPtrOutput)
+func (o SimpleSchedulePolicyOutput) ScheduleRunFrequency() ScheduleRunTypePtrOutput {
+	return o.ApplyT(func(v SimpleSchedulePolicy) *ScheduleRunType { return v.ScheduleRunFrequency }).(ScheduleRunTypePtrOutput)
 }
 
 // List of times, during a day, when the schedule runs.
@@ -4514,7 +4592,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -4539,7 +4617,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The Sku name.
@@ -4648,7 +4732,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -4673,7 +4757,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The Sku name.
@@ -4814,7 +4904,7 @@ func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponsePtrOutput() Upgrad
 }
 
 func (o UpgradeDetailsResponseOutput) ToUpgradeDetailsResponsePtrOutputWithContext(ctx context.Context) UpgradeDetailsResponsePtrOutput {
-	return o.ApplyT(func(v UpgradeDetailsResponse) *UpgradeDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpgradeDetailsResponse) *UpgradeDetailsResponse {
 		return &v
 	}).(UpgradeDetailsResponsePtrOutput)
 }
@@ -4879,7 +4969,13 @@ func (o UpgradeDetailsResponsePtrOutput) ToUpgradeDetailsResponsePtrOutputWithCo
 }
 
 func (o UpgradeDetailsResponsePtrOutput) Elem() UpgradeDetailsResponseOutput {
-	return o.ApplyT(func(v *UpgradeDetailsResponse) UpgradeDetailsResponse { return *v }).(UpgradeDetailsResponseOutput)
+	return o.ApplyT(func(v *UpgradeDetailsResponse) UpgradeDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UpgradeDetailsResponse
+		return ret
+	}).(UpgradeDetailsResponseOutput)
 }
 
 // UTC time at which the upgrade operation has ended.
@@ -5232,7 +5328,7 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
@@ -5279,7 +5375,13 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPropertiesResponse
+		return ret
+	}).(VaultPropertiesResponseOutput)
 }
 
 // List of private endpoint connection.
@@ -5335,9 +5437,9 @@ func (o VaultPropertiesResponsePtrOutput) UpgradeDetails() UpgradeDetailsRespons
 // Weekly retention format.
 type WeeklyRetentionFormat struct {
 	// List of days of the week.
-	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
 	// List of weeks of the month.
-	WeeksOfTheMonth []string `pulumi:"weeksOfTheMonth"`
+	WeeksOfTheMonth []WeekOfMonth `pulumi:"weeksOfTheMonth"`
 }
 
 // WeeklyRetentionFormatInput is an input type that accepts WeeklyRetentionFormatArgs and WeeklyRetentionFormatOutput values.
@@ -5432,19 +5534,19 @@ func (o WeeklyRetentionFormatOutput) ToWeeklyRetentionFormatPtrOutput() WeeklyRe
 }
 
 func (o WeeklyRetentionFormatOutput) ToWeeklyRetentionFormatPtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatPtrOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) *WeeklyRetentionFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionFormat) *WeeklyRetentionFormat {
 		return &v
 	}).(WeeklyRetentionFormatPtrOutput)
 }
 
 // List of days of the week.
-func (o WeeklyRetentionFormatOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+func (o WeeklyRetentionFormatOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormat) []DayOfWeek { return v.DaysOfTheWeek }).(DayOfWeekArrayOutput)
 }
 
 // List of weeks of the month.
-func (o WeeklyRetentionFormatOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormat) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
+func (o WeeklyRetentionFormatOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionFormat) []WeekOfMonth { return v.WeeksOfTheMonth }).(WeekOfMonthArrayOutput)
 }
 
 type WeeklyRetentionFormatPtrOutput struct{ *pulumi.OutputState }
@@ -5462,27 +5564,33 @@ func (o WeeklyRetentionFormatPtrOutput) ToWeeklyRetentionFormatPtrOutputWithCont
 }
 
 func (o WeeklyRetentionFormatPtrOutput) Elem() WeeklyRetentionFormatOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) WeeklyRetentionFormat { return *v }).(WeeklyRetentionFormatOutput)
+	return o.ApplyT(func(v *WeeklyRetentionFormat) WeeklyRetentionFormat {
+		if v != nil {
+			return *v
+		}
+		var ret WeeklyRetentionFormat
+		return ret
+	}).(WeeklyRetentionFormatOutput)
 }
 
 // List of days of the week.
-func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
+func (o WeeklyRetentionFormatPtrOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormat) []DayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.DaysOfTheWeek
-	}).(pulumi.StringArrayOutput)
+	}).(DayOfWeekArrayOutput)
 }
 
 // List of weeks of the month.
-func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormat) []string {
+func (o WeeklyRetentionFormatPtrOutput) WeeksOfTheMonth() WeekOfMonthArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionFormat) []WeekOfMonth {
 		if v == nil {
 			return nil
 		}
 		return v.WeeksOfTheMonth
-	}).(pulumi.StringArrayOutput)
+	}).(WeekOfMonthArrayOutput)
 }
 
 // Weekly retention format.
@@ -5585,7 +5693,7 @@ func (o WeeklyRetentionFormatResponseOutput) ToWeeklyRetentionFormatResponsePtrO
 }
 
 func (o WeeklyRetentionFormatResponseOutput) ToWeeklyRetentionFormatResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionFormatResponsePtrOutput {
-	return o.ApplyT(func(v WeeklyRetentionFormatResponse) *WeeklyRetentionFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionFormatResponse) *WeeklyRetentionFormatResponse {
 		return &v
 	}).(WeeklyRetentionFormatResponsePtrOutput)
 }
@@ -5615,7 +5723,13 @@ func (o WeeklyRetentionFormatResponsePtrOutput) ToWeeklyRetentionFormatResponseP
 }
 
 func (o WeeklyRetentionFormatResponsePtrOutput) Elem() WeeklyRetentionFormatResponseOutput {
-	return o.ApplyT(func(v *WeeklyRetentionFormatResponse) WeeklyRetentionFormatResponse { return *v }).(WeeklyRetentionFormatResponseOutput)
+	return o.ApplyT(func(v *WeeklyRetentionFormatResponse) WeeklyRetentionFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WeeklyRetentionFormatResponse
+		return ret
+	}).(WeeklyRetentionFormatResponseOutput)
 }
 
 // List of days of the week.
@@ -5641,7 +5755,7 @@ func (o WeeklyRetentionFormatResponsePtrOutput) WeeksOfTheMonth() pulumi.StringA
 // Weekly retention schedule.
 type WeeklyRetentionSchedule struct {
 	// List of the days of the week for the weekly retention policy.
-	DaysOfTheWeek []string `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek []DayOfWeek `pulumi:"daysOfTheWeek"`
 	// Retention duration of retention policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// Retention times of the retention policy.
@@ -5742,14 +5856,14 @@ func (o WeeklyRetentionScheduleOutput) ToWeeklyRetentionSchedulePtrOutput() Week
 }
 
 func (o WeeklyRetentionScheduleOutput) ToWeeklyRetentionSchedulePtrOutputWithContext(ctx context.Context) WeeklyRetentionSchedulePtrOutput {
-	return o.ApplyT(func(v WeeklyRetentionSchedule) *WeeklyRetentionSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionSchedule) *WeeklyRetentionSchedule {
 		return &v
 	}).(WeeklyRetentionSchedulePtrOutput)
 }
 
 // List of the days of the week for the weekly retention policy.
-func (o WeeklyRetentionScheduleOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WeeklyRetentionSchedule) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+func (o WeeklyRetentionScheduleOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v WeeklyRetentionSchedule) []DayOfWeek { return v.DaysOfTheWeek }).(DayOfWeekArrayOutput)
 }
 
 // Retention duration of retention policy.
@@ -5777,17 +5891,23 @@ func (o WeeklyRetentionSchedulePtrOutput) ToWeeklyRetentionSchedulePtrOutputWith
 }
 
 func (o WeeklyRetentionSchedulePtrOutput) Elem() WeeklyRetentionScheduleOutput {
-	return o.ApplyT(func(v *WeeklyRetentionSchedule) WeeklyRetentionSchedule { return *v }).(WeeklyRetentionScheduleOutput)
+	return o.ApplyT(func(v *WeeklyRetentionSchedule) WeeklyRetentionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret WeeklyRetentionSchedule
+		return ret
+	}).(WeeklyRetentionScheduleOutput)
 }
 
 // List of the days of the week for the weekly retention policy.
-func (o WeeklyRetentionSchedulePtrOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WeeklyRetentionSchedule) []string {
+func (o WeeklyRetentionSchedulePtrOutput) DaysOfTheWeek() DayOfWeekArrayOutput {
+	return o.ApplyT(func(v *WeeklyRetentionSchedule) []DayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.DaysOfTheWeek
-	}).(pulumi.StringArrayOutput)
+	}).(DayOfWeekArrayOutput)
 }
 
 // Retention duration of retention policy.
@@ -5914,7 +6034,7 @@ func (o WeeklyRetentionScheduleResponseOutput) ToWeeklyRetentionScheduleResponse
 }
 
 func (o WeeklyRetentionScheduleResponseOutput) ToWeeklyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) WeeklyRetentionScheduleResponsePtrOutput {
-	return o.ApplyT(func(v WeeklyRetentionScheduleResponse) *WeeklyRetentionScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WeeklyRetentionScheduleResponse) *WeeklyRetentionScheduleResponse {
 		return &v
 	}).(WeeklyRetentionScheduleResponsePtrOutput)
 }
@@ -5949,7 +6069,13 @@ func (o WeeklyRetentionScheduleResponsePtrOutput) ToWeeklyRetentionScheduleRespo
 }
 
 func (o WeeklyRetentionScheduleResponsePtrOutput) Elem() WeeklyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *WeeklyRetentionScheduleResponse) WeeklyRetentionScheduleResponse { return *v }).(WeeklyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *WeeklyRetentionScheduleResponse) WeeklyRetentionScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WeeklyRetentionScheduleResponse
+		return ret
+	}).(WeeklyRetentionScheduleResponseOutput)
 }
 
 // List of the days of the week for the weekly retention policy.
@@ -5985,13 +6111,13 @@ func (o WeeklyRetentionScheduleResponsePtrOutput) RetentionTimes() pulumi.String
 // Yearly retention schedule.
 type YearlyRetentionSchedule struct {
 	// List of the months of year for the yearly retention policy.
-	MonthsOfYear []string `pulumi:"monthsOfYear"`
+	MonthsOfYear []MonthOfYear `pulumi:"monthsOfYear"`
 	// Retention duration for the retention policy.
 	RetentionDuration *RetentionDuration `pulumi:"retentionDuration"`
 	// Daily retention format for the yearly retention policy.
 	RetentionScheduleDaily *DailyRetentionFormat `pulumi:"retentionScheduleDaily"`
 	// Retention schedule format for the yearly retention policy.
-	RetentionScheduleFormatType *string `pulumi:"retentionScheduleFormatType"`
+	RetentionScheduleFormatType *RetentionScheduleFormat `pulumi:"retentionScheduleFormatType"`
 	// Weekly retention format for the yearly retention policy.
 	RetentionScheduleWeekly *WeeklyRetentionFormat `pulumi:"retentionScheduleWeekly"`
 	// Retention times for the retention policy.
@@ -6018,7 +6144,7 @@ type YearlyRetentionScheduleArgs struct {
 	// Daily retention format for the yearly retention policy.
 	RetentionScheduleDaily DailyRetentionFormatPtrInput `pulumi:"retentionScheduleDaily"`
 	// Retention schedule format for the yearly retention policy.
-	RetentionScheduleFormatType *RetentionScheduleFormat `pulumi:"retentionScheduleFormatType"`
+	RetentionScheduleFormatType RetentionScheduleFormatPtrInput `pulumi:"retentionScheduleFormatType"`
 	// Weekly retention format for the yearly retention policy.
 	RetentionScheduleWeekly WeeklyRetentionFormatPtrInput `pulumi:"retentionScheduleWeekly"`
 	// Retention times for the retention policy.
@@ -6098,14 +6224,14 @@ func (o YearlyRetentionScheduleOutput) ToYearlyRetentionSchedulePtrOutput() Year
 }
 
 func (o YearlyRetentionScheduleOutput) ToYearlyRetentionSchedulePtrOutputWithContext(ctx context.Context) YearlyRetentionSchedulePtrOutput {
-	return o.ApplyT(func(v YearlyRetentionSchedule) *YearlyRetentionSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v YearlyRetentionSchedule) *YearlyRetentionSchedule {
 		return &v
 	}).(YearlyRetentionSchedulePtrOutput)
 }
 
 // List of the months of year for the yearly retention policy.
-func (o YearlyRetentionScheduleOutput) MonthsOfYear() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v YearlyRetentionSchedule) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
+func (o YearlyRetentionScheduleOutput) MonthsOfYear() MonthOfYearArrayOutput {
+	return o.ApplyT(func(v YearlyRetentionSchedule) []MonthOfYear { return v.MonthsOfYear }).(MonthOfYearArrayOutput)
 }
 
 // Retention duration for the retention policy.
@@ -6119,8 +6245,8 @@ func (o YearlyRetentionScheduleOutput) RetentionScheduleDaily() DailyRetentionFo
 }
 
 // Retention schedule format for the yearly retention policy.
-func (o YearlyRetentionScheduleOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v YearlyRetentionSchedule) *string { return v.RetentionScheduleFormatType }).(pulumi.StringPtrOutput)
+func (o YearlyRetentionScheduleOutput) RetentionScheduleFormatType() RetentionScheduleFormatPtrOutput {
+	return o.ApplyT(func(v YearlyRetentionSchedule) *RetentionScheduleFormat { return v.RetentionScheduleFormatType }).(RetentionScheduleFormatPtrOutput)
 }
 
 // Weekly retention format for the yearly retention policy.
@@ -6148,17 +6274,23 @@ func (o YearlyRetentionSchedulePtrOutput) ToYearlyRetentionSchedulePtrOutputWith
 }
 
 func (o YearlyRetentionSchedulePtrOutput) Elem() YearlyRetentionScheduleOutput {
-	return o.ApplyT(func(v *YearlyRetentionSchedule) YearlyRetentionSchedule { return *v }).(YearlyRetentionScheduleOutput)
+	return o.ApplyT(func(v *YearlyRetentionSchedule) YearlyRetentionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret YearlyRetentionSchedule
+		return ret
+	}).(YearlyRetentionScheduleOutput)
 }
 
 // List of the months of year for the yearly retention policy.
-func (o YearlyRetentionSchedulePtrOutput) MonthsOfYear() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *YearlyRetentionSchedule) []string {
+func (o YearlyRetentionSchedulePtrOutput) MonthsOfYear() MonthOfYearArrayOutput {
+	return o.ApplyT(func(v *YearlyRetentionSchedule) []MonthOfYear {
 		if v == nil {
 			return nil
 		}
 		return v.MonthsOfYear
-	}).(pulumi.StringArrayOutput)
+	}).(MonthOfYearArrayOutput)
 }
 
 // Retention duration for the retention policy.
@@ -6182,13 +6314,13 @@ func (o YearlyRetentionSchedulePtrOutput) RetentionScheduleDaily() DailyRetentio
 }
 
 // Retention schedule format for the yearly retention policy.
-func (o YearlyRetentionSchedulePtrOutput) RetentionScheduleFormatType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *YearlyRetentionSchedule) *string {
+func (o YearlyRetentionSchedulePtrOutput) RetentionScheduleFormatType() RetentionScheduleFormatPtrOutput {
+	return o.ApplyT(func(v *YearlyRetentionSchedule) *RetentionScheduleFormat {
 		if v == nil {
 			return nil
 		}
 		return v.RetentionScheduleFormatType
-	}).(pulumi.StringPtrOutput)
+	}).(RetentionScheduleFormatPtrOutput)
 }
 
 // Weekly retention format for the yearly retention policy.
@@ -6327,7 +6459,7 @@ func (o YearlyRetentionScheduleResponseOutput) ToYearlyRetentionScheduleResponse
 }
 
 func (o YearlyRetentionScheduleResponseOutput) ToYearlyRetentionScheduleResponsePtrOutputWithContext(ctx context.Context) YearlyRetentionScheduleResponsePtrOutput {
-	return o.ApplyT(func(v YearlyRetentionScheduleResponse) *YearlyRetentionScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v YearlyRetentionScheduleResponse) *YearlyRetentionScheduleResponse {
 		return &v
 	}).(YearlyRetentionScheduleResponsePtrOutput)
 }
@@ -6379,7 +6511,13 @@ func (o YearlyRetentionScheduleResponsePtrOutput) ToYearlyRetentionScheduleRespo
 }
 
 func (o YearlyRetentionScheduleResponsePtrOutput) Elem() YearlyRetentionScheduleResponseOutput {
-	return o.ApplyT(func(v *YearlyRetentionScheduleResponse) YearlyRetentionScheduleResponse { return *v }).(YearlyRetentionScheduleResponseOutput)
+	return o.ApplyT(func(v *YearlyRetentionScheduleResponse) YearlyRetentionScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret YearlyRetentionScheduleResponse
+		return ret
+	}).(YearlyRetentionScheduleResponseOutput)
 }
 
 // List of the months of year for the yearly retention policy.

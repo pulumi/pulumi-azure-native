@@ -196,33 +196,9 @@ func GetServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointPolicyDefinition resources.
 type serviceEndpointPolicyDefinitionState struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description *string `pulumi:"description"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the service endpoint policy definition resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Service endpoint name.
-	Service *string `pulumi:"service"`
-	// A list of service resources.
-	ServiceResources []string `pulumi:"serviceResources"`
 }
 
 type ServiceEndpointPolicyDefinitionState struct {
-	// A description for this rule. Restricted to 140 chars.
-	Description pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the service endpoint policy definition resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Service endpoint name.
-	Service pulumi.StringPtrInput
-	// A list of service resources.
-	ServiceResources pulumi.StringArrayInput
 }
 
 func (ServiceEndpointPolicyDefinitionState) ElementType() reflect.Type {
@@ -291,9 +267,7 @@ func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPolicyDefinitionOutput)
 }
 
-type ServiceEndpointPolicyDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPolicyDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))

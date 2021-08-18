@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20190615.Outputs
 {
 
+    /// <summary>
+    /// Extended Properties for Azure IaasVM Backup.
+    /// </summary>
     [OutputType]
     public sealed class ExtendedPropertiesResponse
     {

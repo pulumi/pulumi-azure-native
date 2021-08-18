@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
+    /// <summary>
+    /// Binding resource properties payload
+    /// </summary>
     [OutputType]
     public sealed class BindingResourcePropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20150615.Outputs
 {
 
+    /// <summary>
+    /// A load balancer probe.
+    /// </summary>
     [OutputType]
     public sealed class ProbeResponse
     {

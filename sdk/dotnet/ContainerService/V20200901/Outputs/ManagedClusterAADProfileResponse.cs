@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200901.Outputs
 {
 
+    /// <summary>
+    /// AADProfile specifies attributes for Azure Active Directory integration.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterAADProfileResponse
     {

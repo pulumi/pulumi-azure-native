@@ -99,37 +99,9 @@ func GetIncidentRelation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IncidentRelation resources.
 type incidentRelationState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The resource ID of the related resource
-	RelatedResourceId *string `pulumi:"relatedResourceId"`
-	// The resource kind of the related resource
-	RelatedResourceKind *string `pulumi:"relatedResourceKind"`
-	// The name of the related resource
-	RelatedResourceName *string `pulumi:"relatedResourceName"`
-	// The resource type of the related resource
-	RelatedResourceType *string `pulumi:"relatedResourceType"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type IncidentRelationState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The resource ID of the related resource
-	RelatedResourceId pulumi.StringPtrInput
-	// The resource kind of the related resource
-	RelatedResourceKind pulumi.StringPtrInput
-	// The name of the related resource
-	RelatedResourceName pulumi.StringPtrInput
-	// The resource type of the related resource
-	RelatedResourceType pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (IncidentRelationState) ElementType() reflect.Type {
@@ -194,9 +166,7 @@ func (i *IncidentRelation) ToIncidentRelationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentRelationOutput)
 }
 
-type IncidentRelationOutput struct {
-	*pulumi.OutputState
-}
+type IncidentRelationOutput struct{ *pulumi.OutputState }
 
 func (IncidentRelationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IncidentRelation)(nil))

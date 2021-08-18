@@ -29,20 +29,34 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.dbforpostgresql.v20171201 as v20171201
-    import pulumi_azure_native.dbforpostgresql.v20171201preview as v20171201preview
-    import pulumi_azure_native.dbforpostgresql.v20180601 as v20180601
-    import pulumi_azure_native.dbforpostgresql.v20180601privatepreview as v20180601privatepreview
-    import pulumi_azure_native.dbforpostgresql.v20200101 as v20200101
-    import pulumi_azure_native.dbforpostgresql.v20200101privatepreview as v20200101privatepreview
-    import pulumi_azure_native.dbforpostgresql.v20200214preview as v20200214preview
-    import pulumi_azure_native.dbforpostgresql.v20200214privatepreview as v20200214privatepreview
-    import pulumi_azure_native.dbforpostgresql.v20201005privatepreview as v20201005privatepreview
-    import pulumi_azure_native.dbforpostgresql.v20201105preview as v20201105preview
-    import pulumi_azure_native.dbforpostgresql.v20210410privatepreview as v20210410privatepreview
-    import pulumi_azure_native.dbforpostgresql.v20210601 as v20210601
-    import pulumi_azure_native.dbforpostgresql.v20210601preview as v20210601preview
-    import pulumi_azure_native.dbforpostgresql.v20210615privatepreview as v20210615privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20171201 as __v20171201
+    v20171201 = __v20171201
+    import pulumi_azure_native.dbforpostgresql.v20171201preview as __v20171201preview
+    v20171201preview = __v20171201preview
+    import pulumi_azure_native.dbforpostgresql.v20180601 as __v20180601
+    v20180601 = __v20180601
+    import pulumi_azure_native.dbforpostgresql.v20180601privatepreview as __v20180601privatepreview
+    v20180601privatepreview = __v20180601privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20200101 as __v20200101
+    v20200101 = __v20200101
+    import pulumi_azure_native.dbforpostgresql.v20200101privatepreview as __v20200101privatepreview
+    v20200101privatepreview = __v20200101privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20200214preview as __v20200214preview
+    v20200214preview = __v20200214preview
+    import pulumi_azure_native.dbforpostgresql.v20200214privatepreview as __v20200214privatepreview
+    v20200214privatepreview = __v20200214privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20201005privatepreview as __v20201005privatepreview
+    v20201005privatepreview = __v20201005privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20201105preview as __v20201105preview
+    v20201105preview = __v20201105preview
+    import pulumi_azure_native.dbforpostgresql.v20210410privatepreview as __v20210410privatepreview
+    v20210410privatepreview = __v20210410privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.dbforpostgresql.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
+    import pulumi_azure_native.dbforpostgresql.v20210615privatepreview as __v20210615privatepreview
+    v20210615privatepreview = __v20210615privatepreview
 else:
     v20171201 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201')
     v20171201preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20171201preview')

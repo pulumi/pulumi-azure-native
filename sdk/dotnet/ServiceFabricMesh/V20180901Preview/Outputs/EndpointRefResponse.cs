@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a reference to a service endpoint.
+    /// </summary>
     [OutputType]
     public sealed class EndpointRefResponse
     {

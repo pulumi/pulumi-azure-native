@@ -117,37 +117,9 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
-	// Has definition for the export.
-	Definition *QueryDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo *ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the export being delivered.
-	Format *string `pulumi:"format"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Has schedule information for the export.
-	Schedule *ExportScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ExportState struct {
-	// Has definition for the export.
-	Definition QueryDefinitionResponsePtrInput
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoResponsePtrInput
-	// The format of the export being delivered.
-	Format pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Has schedule information for the export.
-	Schedule ExportScheduleResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ExportState) ElementType() reflect.Type {
@@ -208,9 +180,7 @@ func (i *Export) ToExportOutputWithContext(ctx context.Context) ExportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExportOutput)
 }
 
-type ExportOutput struct {
-	*pulumi.OutputState
-}
+type ExportOutput struct{ *pulumi.OutputState }
 
 func (ExportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Export)(nil))

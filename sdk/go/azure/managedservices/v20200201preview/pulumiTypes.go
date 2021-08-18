@@ -840,7 +840,7 @@ func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutput() JustIn
 }
 
 func (o JustInTimeAccessPolicyOutput) ToJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyPtrOutput {
-	return o.ApplyT(func(v JustInTimeAccessPolicy) *JustInTimeAccessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JustInTimeAccessPolicy) *JustInTimeAccessPolicy {
 		return &v
 	}).(JustInTimeAccessPolicyPtrOutput)
 }
@@ -875,7 +875,13 @@ func (o JustInTimeAccessPolicyPtrOutput) ToJustInTimeAccessPolicyPtrOutputWithCo
 }
 
 func (o JustInTimeAccessPolicyPtrOutput) Elem() JustInTimeAccessPolicyOutput {
-	return o.ApplyT(func(v *JustInTimeAccessPolicy) JustInTimeAccessPolicy { return *v }).(JustInTimeAccessPolicyOutput)
+	return o.ApplyT(func(v *JustInTimeAccessPolicy) JustInTimeAccessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret JustInTimeAccessPolicy
+		return ret
+	}).(JustInTimeAccessPolicyOutput)
 }
 
 // The list of managedByTenant approvers for the eligible authorization.
@@ -1012,7 +1018,7 @@ func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePt
 }
 
 func (o JustInTimeAccessPolicyResponseOutput) ToJustInTimeAccessPolicyResponsePtrOutputWithContext(ctx context.Context) JustInTimeAccessPolicyResponsePtrOutput {
-	return o.ApplyT(func(v JustInTimeAccessPolicyResponse) *JustInTimeAccessPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JustInTimeAccessPolicyResponse) *JustInTimeAccessPolicyResponse {
 		return &v
 	}).(JustInTimeAccessPolicyResponsePtrOutput)
 }
@@ -1047,7 +1053,13 @@ func (o JustInTimeAccessPolicyResponsePtrOutput) ToJustInTimeAccessPolicyRespons
 }
 
 func (o JustInTimeAccessPolicyResponsePtrOutput) Elem() JustInTimeAccessPolicyResponseOutput {
-	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) JustInTimeAccessPolicyResponse { return *v }).(JustInTimeAccessPolicyResponseOutput)
+	return o.ApplyT(func(v *JustInTimeAccessPolicyResponse) JustInTimeAccessPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JustInTimeAccessPolicyResponse
+		return ret
+	}).(JustInTimeAccessPolicyResponseOutput)
 }
 
 // The list of managedByTenant approvers for the eligible authorization.
@@ -1188,7 +1200,7 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
@@ -1228,7 +1240,13 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
 // Azure Marketplace plan name.
@@ -1379,7 +1397,7 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
@@ -1419,7 +1437,13 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
 // Azure Marketplace plan name.
@@ -1558,7 +1582,7 @@ func (o RegistrationAssignmentPropertiesOutput) ToRegistrationAssignmentProperti
 }
 
 func (o RegistrationAssignmentPropertiesOutput) ToRegistrationAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentProperties) *RegistrationAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentProperties) *RegistrationAssignmentProperties {
 		return &v
 	}).(RegistrationAssignmentPropertiesPtrOutput)
 }
@@ -1583,7 +1607,13 @@ func (o RegistrationAssignmentPropertiesPtrOutput) ToRegistrationAssignmentPrope
 }
 
 func (o RegistrationAssignmentPropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentProperties) RegistrationAssignmentProperties { return *v }).(RegistrationAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *RegistrationAssignmentProperties) RegistrationAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentProperties
+		return ret
+	}).(RegistrationAssignmentPropertiesOutput)
 }
 
 // The fully qualified path of the registration definition.
@@ -1700,7 +1730,7 @@ func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignment
 }
 
 func (o RegistrationAssignmentPropertiesResponseOutput) ToRegistrationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponse {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponsePtrOutput)
 }
@@ -1737,7 +1767,13 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) ToRegistrationAssignm
 }
 
 func (o RegistrationAssignmentPropertiesResponsePtrOutput) Elem() RegistrationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse { return *v }).(RegistrationAssignmentPropertiesResponseOutput)
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponse
+		return ret
+	}).(RegistrationAssignmentPropertiesResponseOutput)
 }
 
 // The current provisioning state of the registration assignment.
@@ -1898,7 +1934,7 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistration
 }
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistrationAssignmentPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
@@ -1970,7 +2006,11 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ToRegistrat
 
 func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesResponsePropertiesOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) RegistrationAssignmentPropertiesResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponseProperties
+		return ret
 	}).(RegistrationAssignmentPropertiesResponsePropertiesOutput)
 }
 
@@ -2176,7 +2216,7 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) To
 }
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		return &v
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
@@ -2224,7 +2264,11 @@ func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 
 func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Elem() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationAssignmentPropertiesResponseRegistrationDefinition
+		return ret
 	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
 }
 
@@ -2390,7 +2434,7 @@ func (o RegistrationDefinitionPropertiesOutput) ToRegistrationDefinitionProperti
 }
 
 func (o RegistrationDefinitionPropertiesOutput) ToRegistrationDefinitionPropertiesPtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionProperties) *RegistrationDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionProperties) *RegistrationDefinitionProperties {
 		return &v
 	}).(RegistrationDefinitionPropertiesPtrOutput)
 }
@@ -2435,7 +2479,13 @@ func (o RegistrationDefinitionPropertiesPtrOutput) ToRegistrationDefinitionPrope
 }
 
 func (o RegistrationDefinitionPropertiesPtrOutput) Elem() RegistrationDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionProperties) RegistrationDefinitionProperties { return *v }).(RegistrationDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *RegistrationDefinitionProperties) RegistrationDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationDefinitionProperties
+		return ret
+	}).(RegistrationDefinitionPropertiesOutput)
 }
 
 // The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
@@ -2608,7 +2658,7 @@ func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinition
 }
 
 func (o RegistrationDefinitionPropertiesResponseOutput) ToRegistrationDefinitionPropertiesResponsePtrOutputWithContext(ctx context.Context) RegistrationDefinitionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistrationDefinitionPropertiesResponse) *RegistrationDefinitionPropertiesResponse {
 		return &v
 	}).(RegistrationDefinitionPropertiesResponsePtrOutput)
 }
@@ -2665,7 +2715,13 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ToRegistrationDefinit
 }
 
 func (o RegistrationDefinitionPropertiesResponsePtrOutput) Elem() RegistrationDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse { return *v }).(RegistrationDefinitionPropertiesResponseOutput)
+	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) RegistrationDefinitionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RegistrationDefinitionPropertiesResponse
+		return ret
+	}).(RegistrationDefinitionPropertiesResponseOutput)
 }
 
 // The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.

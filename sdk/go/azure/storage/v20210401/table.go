@@ -94,21 +94,9 @@ func GetTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Table name under the specified account
-	TableName *string `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type TableState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Table name under the specified account
-	TableName pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (TableState) ElementType() reflect.Type {
@@ -157,9 +145,7 @@ func (i *Table) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableOutput)
 }
 
-type TableOutput struct {
-	*pulumi.OutputState
-}
+type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Table)(nil))

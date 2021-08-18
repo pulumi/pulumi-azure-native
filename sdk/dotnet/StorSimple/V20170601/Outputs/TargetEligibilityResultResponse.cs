@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20170601.Outputs
 {
 
+    /// <summary>
+    /// The eligibility result of device, as a failover target device.
+    /// </summary>
     [OutputType]
     public sealed class TargetEligibilityResultResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190701.Outputs
 {
 
+    /// <summary>
+    /// PrivateLinkConnection properties for the network interface.
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse
     {

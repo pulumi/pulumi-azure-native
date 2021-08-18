@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Elastic.V20200701.Outputs
 {
 
+    /// <summary>
+    /// Identity properties.
+    /// </summary>
     [OutputType]
     public sealed class IdentityPropertiesResponse
     {

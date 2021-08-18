@@ -33,7 +33,7 @@ type GetLogAnalyticExportRequestRateByIntervalArgs struct {
 	// Group query result by User Agent.
 	GroupByUserAgent *bool `pulumi:"groupByUserAgent"`
 	// Interval value in minutes used to create LogAnalytics call rate logs.
-	IntervalLength string `pulumi:"intervalLength"`
+	IntervalLength IntervalInMins `pulumi:"intervalLength"`
 	// The location upon which virtual-machine-sizes is queried.
 	Location string `pulumi:"location"`
 	// To time of the query

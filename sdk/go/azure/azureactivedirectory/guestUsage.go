@@ -72,29 +72,9 @@ func GetGuestUsage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GuestUsage resources.
 type guestUsageState struct {
-	// Location of the Guest Usages resource.
-	Location *string `pulumi:"location"`
-	// The name of the Guest Usages resource.
-	Name *string `pulumi:"name"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// An identifier for the tenant for which the resource is being created
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the Guest Usages resource.
-	Type *string `pulumi:"type"`
 }
 
 type GuestUsageState struct {
-	// Location of the Guest Usages resource.
-	Location pulumi.StringPtrInput
-	// The name of the Guest Usages resource.
-	Name pulumi.StringPtrInput
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput
-	// An identifier for the tenant for which the resource is being created
-	TenantId pulumi.StringPtrInput
-	// The type of the Guest Usages resource.
-	Type pulumi.StringPtrInput
 }
 
 func (GuestUsageState) ElementType() reflect.Type {
@@ -151,9 +131,7 @@ func (i *GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsa
 	return pulumi.ToOutputWithContext(ctx, i).(GuestUsageOutput)
 }
 
-type GuestUsageOutput struct {
-	*pulumi.OutputState
-}
+type GuestUsageOutput struct{ *pulumi.OutputState }
 
 func (GuestUsageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GuestUsage)(nil))

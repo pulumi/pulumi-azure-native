@@ -118,7 +118,7 @@ func (o DataPoolEncryptionOutput) ToDataPoolEncryptionPtrOutput() DataPoolEncryp
 }
 
 func (o DataPoolEncryptionOutput) ToDataPoolEncryptionPtrOutputWithContext(ctx context.Context) DataPoolEncryptionPtrOutput {
-	return o.ApplyT(func(v DataPoolEncryption) *DataPoolEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPoolEncryption) *DataPoolEncryption {
 		return &v
 	}).(DataPoolEncryptionPtrOutput)
 }
@@ -158,7 +158,13 @@ func (o DataPoolEncryptionPtrOutput) ToDataPoolEncryptionPtrOutputWithContext(ct
 }
 
 func (o DataPoolEncryptionPtrOutput) Elem() DataPoolEncryptionOutput {
-	return o.ApplyT(func(v *DataPoolEncryption) DataPoolEncryption { return *v }).(DataPoolEncryptionOutput)
+	return o.ApplyT(func(v *DataPoolEncryption) DataPoolEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret DataPoolEncryption
+		return ret
+	}).(DataPoolEncryptionOutput)
 }
 
 // The name of Key Vault key
@@ -309,7 +315,7 @@ func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponsePtrOutput(
 }
 
 func (o DataPoolEncryptionResponseOutput) ToDataPoolEncryptionResponsePtrOutputWithContext(ctx context.Context) DataPoolEncryptionResponsePtrOutput {
-	return o.ApplyT(func(v DataPoolEncryptionResponse) *DataPoolEncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataPoolEncryptionResponse) *DataPoolEncryptionResponse {
 		return &v
 	}).(DataPoolEncryptionResponsePtrOutput)
 }
@@ -349,7 +355,13 @@ func (o DataPoolEncryptionResponsePtrOutput) ToDataPoolEncryptionResponsePtrOutp
 }
 
 func (o DataPoolEncryptionResponsePtrOutput) Elem() DataPoolEncryptionResponseOutput {
-	return o.ApplyT(func(v *DataPoolEncryptionResponse) DataPoolEncryptionResponse { return *v }).(DataPoolEncryptionResponseOutput)
+	return o.ApplyT(func(v *DataPoolEncryptionResponse) DataPoolEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DataPoolEncryptionResponse
+		return ret
+	}).(DataPoolEncryptionResponseOutput)
 }
 
 // The name of Key Vault key
@@ -726,7 +738,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -776,7 +788,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

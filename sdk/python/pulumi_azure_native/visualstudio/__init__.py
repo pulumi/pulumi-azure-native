@@ -15,8 +15,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.visualstudio.v20140401preview as v20140401preview
-    import pulumi_azure_native.visualstudio.v20171101preview as v20171101preview
+    import pulumi_azure_native.visualstudio.v20140401preview as __v20140401preview
+    v20140401preview = __v20140401preview
+    import pulumi_azure_native.visualstudio.v20171101preview as __v20171101preview
+    v20171101preview = __v20171101preview
 else:
     v20140401preview = _utilities.lazy_import('pulumi_azure_native.visualstudio.v20140401preview')
     v20171101preview = _utilities.lazy_import('pulumi_azure_native.visualstudio.v20171101preview')

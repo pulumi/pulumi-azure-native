@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Source information for a deployment
+    /// </summary>
     [OutputType]
     public sealed class UserSourceInfoResponse
     {

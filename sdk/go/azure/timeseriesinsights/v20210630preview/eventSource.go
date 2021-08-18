@@ -103,29 +103,9 @@ func GetEventSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSource resources.
 type eventSourceState struct {
-	// The kind of the event source.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type EventSourceState struct {
-	// The kind of the event source.
-	Kind pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EventSourceState) ElementType() reflect.Type {
@@ -190,9 +170,7 @@ func (i *EventSource) ToEventSourceOutputWithContext(ctx context.Context) EventS
 	return pulumi.ToOutputWithContext(ctx, i).(EventSourceOutput)
 }
 
-type EventSourceOutput struct {
-	*pulumi.OutputState
-}
+type EventSourceOutput struct{ *pulumi.OutputState }
 
 func (EventSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventSource)(nil))

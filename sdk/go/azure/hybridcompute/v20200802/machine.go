@@ -174,103 +174,9 @@ func GetMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Machine resources.
 type machineState struct {
-	// Specifies the AD fully qualified display name.
-	AdFqdn *string `pulumi:"adFqdn"`
-	// The hybrid machine agent full version.
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey *string `pulumi:"clientPublicKey"`
-	// Specifies the hybrid machine display name.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the DNS fully qualified display name.
-	DnsFqdn *string `pulumi:"dnsFqdn"`
-	// Specifies the Windows domain name.
-	DomainName *string `pulumi:"domainName"`
-	// Details about the error state.
-	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
-	// Machine Extensions information
-	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
-	Identity   *MachineResponseIdentity               `pulumi:"identity"`
-	// The time of the last status change.
-	LastStatusChange *string `pulumi:"lastStatusChange"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData *LocationDataResponse `pulumi:"locationData"`
-	// Specifies the hybrid machine FQDN.
-	MachineFqdn *string `pulumi:"machineFqdn"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The Operating System running on the hybrid machine.
-	OsName *string `pulumi:"osName"`
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile *MachinePropertiesResponseOsProfile `pulumi:"osProfile"`
-	// Specifies the Operating System product SKU.
-	OsSku *string `pulumi:"osSku"`
-	// The version of Operating System running on the hybrid machine.
-	OsVersion *string `pulumi:"osVersion"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The status of the hybrid machine agent.
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Specifies the hybrid machine unique ID.
-	VmId *string `pulumi:"vmId"`
-	// Specifies the Arc Machine's unique SMBIOS ID
-	VmUuid *string `pulumi:"vmUuid"`
 }
 
 type MachineState struct {
-	// Specifies the AD fully qualified display name.
-	AdFqdn pulumi.StringPtrInput
-	// The hybrid machine agent full version.
-	AgentVersion pulumi.StringPtrInput
-	// Public Key that the client provides to be used during initial resource onboarding
-	ClientPublicKey pulumi.StringPtrInput
-	// Specifies the hybrid machine display name.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the DNS fully qualified display name.
-	DnsFqdn pulumi.StringPtrInput
-	// Specifies the Windows domain name.
-	DomainName pulumi.StringPtrInput
-	// Details about the error state.
-	ErrorDetails ErrorDetailResponseArrayInput
-	// Machine Extensions information
-	Extensions MachineExtensionInstanceViewResponseArrayInput
-	Identity   MachineResponseIdentityPtrInput
-	// The time of the last status change.
-	LastStatusChange pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Metadata pertaining to the geographic location of the resource.
-	LocationData LocationDataResponsePtrInput
-	// Specifies the hybrid machine FQDN.
-	MachineFqdn pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The Operating System running on the hybrid machine.
-	OsName pulumi.StringPtrInput
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile MachinePropertiesResponseOsProfilePtrInput
-	// Specifies the Operating System product SKU.
-	OsSku pulumi.StringPtrInput
-	// The version of Operating System running on the hybrid machine.
-	OsVersion pulumi.StringPtrInput
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// The status of the hybrid machine agent.
-	Status pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Specifies the hybrid machine unique ID.
-	VmId pulumi.StringPtrInput
-	// Specifies the Arc Machine's unique SMBIOS ID
-	VmUuid pulumi.StringPtrInput
 }
 
 func (MachineState) ElementType() reflect.Type {
@@ -337,9 +243,7 @@ func (i *Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MachineOutput)
 }
 
-type MachineOutput struct {
-	*pulumi.OutputState
-}
+type MachineOutput struct{ *pulumi.OutputState }
 
 func (MachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Machine)(nil))

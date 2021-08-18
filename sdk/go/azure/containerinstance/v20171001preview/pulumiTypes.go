@@ -118,7 +118,7 @@ func (o AzureFileVolumeOutput) ToAzureFileVolumePtrOutput() AzureFileVolumePtrOu
 }
 
 func (o AzureFileVolumeOutput) ToAzureFileVolumePtrOutputWithContext(ctx context.Context) AzureFileVolumePtrOutput {
-	return o.ApplyT(func(v AzureFileVolume) *AzureFileVolume {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileVolume) *AzureFileVolume {
 		return &v
 	}).(AzureFileVolumePtrOutput)
 }
@@ -158,7 +158,13 @@ func (o AzureFileVolumePtrOutput) ToAzureFileVolumePtrOutputWithContext(ctx cont
 }
 
 func (o AzureFileVolumePtrOutput) Elem() AzureFileVolumeOutput {
-	return o.ApplyT(func(v *AzureFileVolume) AzureFileVolume { return *v }).(AzureFileVolumeOutput)
+	return o.ApplyT(func(v *AzureFileVolume) AzureFileVolume {
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileVolume
+		return ret
+	}).(AzureFileVolumeOutput)
 }
 
 // The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -309,7 +315,7 @@ func (o AzureFileVolumeResponseOutput) ToAzureFileVolumeResponsePtrOutput() Azur
 }
 
 func (o AzureFileVolumeResponseOutput) ToAzureFileVolumeResponsePtrOutputWithContext(ctx context.Context) AzureFileVolumeResponsePtrOutput {
-	return o.ApplyT(func(v AzureFileVolumeResponse) *AzureFileVolumeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileVolumeResponse) *AzureFileVolumeResponse {
 		return &v
 	}).(AzureFileVolumeResponsePtrOutput)
 }
@@ -349,7 +355,13 @@ func (o AzureFileVolumeResponsePtrOutput) ToAzureFileVolumeResponsePtrOutputWith
 }
 
 func (o AzureFileVolumeResponsePtrOutput) Elem() AzureFileVolumeResponseOutput {
-	return o.ApplyT(func(v *AzureFileVolumeResponse) AzureFileVolumeResponse { return *v }).(AzureFileVolumeResponseOutput)
+	return o.ApplyT(func(v *AzureFileVolumeResponse) AzureFileVolumeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileVolumeResponse
+		return ret
+	}).(AzureFileVolumeResponseOutput)
 }
 
 // The flag indicating whether the Azure File shared mounted as a volume is read-only.
@@ -646,7 +658,7 @@ func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstan
 }
 
 func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
-	return o.ApplyT(func(v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
 		return &v
 	}).(ContainerGroupResponseInstanceViewPtrOutput)
 }
@@ -676,7 +688,13 @@ func (o ContainerGroupResponseInstanceViewPtrOutput) ToContainerGroupResponseIns
 }
 
 func (o ContainerGroupResponseInstanceViewPtrOutput) Elem() ContainerGroupResponseInstanceViewOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView { return *v }).(ContainerGroupResponseInstanceViewOutput)
+	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupResponseInstanceView
+		return ret
+	}).(ContainerGroupResponseInstanceViewOutput)
 }
 
 // The events of this container group.
@@ -1956,7 +1974,7 @@ func (o IpAddressOutput) ToIpAddressPtrOutput() IpAddressPtrOutput {
 }
 
 func (o IpAddressOutput) ToIpAddressPtrOutputWithContext(ctx context.Context) IpAddressPtrOutput {
-	return o.ApplyT(func(v IpAddress) *IpAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddress) *IpAddress {
 		return &v
 	}).(IpAddressPtrOutput)
 }
@@ -1991,7 +2009,13 @@ func (o IpAddressPtrOutput) ToIpAddressPtrOutputWithContext(ctx context.Context)
 }
 
 func (o IpAddressPtrOutput) Elem() IpAddressOutput {
-	return o.ApplyT(func(v *IpAddress) IpAddress { return *v }).(IpAddressOutput)
+	return o.ApplyT(func(v *IpAddress) IpAddress {
+		if v != nil {
+			return *v
+		}
+		var ret IpAddress
+		return ret
+	}).(IpAddressOutput)
 }
 
 // The IP exposed to the public internet.
@@ -2128,7 +2152,7 @@ func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutput() IpAddressRespons
 }
 
 func (o IpAddressResponseOutput) ToIpAddressResponsePtrOutputWithContext(ctx context.Context) IpAddressResponsePtrOutput {
-	return o.ApplyT(func(v IpAddressResponse) *IpAddressResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddressResponse) *IpAddressResponse {
 		return &v
 	}).(IpAddressResponsePtrOutput)
 }
@@ -2163,7 +2187,13 @@ func (o IpAddressResponsePtrOutput) ToIpAddressResponsePtrOutputWithContext(ctx 
 }
 
 func (o IpAddressResponsePtrOutput) Elem() IpAddressResponseOutput {
-	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse { return *v }).(IpAddressResponseOutput)
+	return o.ApplyT(func(v *IpAddressResponse) IpAddressResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IpAddressResponse
+		return ret
+	}).(IpAddressResponseOutput)
 }
 
 // The IP exposed to the public internet.
@@ -2514,7 +2544,7 @@ func (o ResourceLimitsOutput) ToResourceLimitsPtrOutput() ResourceLimitsPtrOutpu
 }
 
 func (o ResourceLimitsOutput) ToResourceLimitsPtrOutputWithContext(ctx context.Context) ResourceLimitsPtrOutput {
-	return o.ApplyT(func(v ResourceLimits) *ResourceLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimits) *ResourceLimits {
 		return &v
 	}).(ResourceLimitsPtrOutput)
 }
@@ -2544,7 +2574,13 @@ func (o ResourceLimitsPtrOutput) ToResourceLimitsPtrOutputWithContext(ctx contex
 }
 
 func (o ResourceLimitsPtrOutput) Elem() ResourceLimitsOutput {
-	return o.ApplyT(func(v *ResourceLimits) ResourceLimits { return *v }).(ResourceLimitsOutput)
+	return o.ApplyT(func(v *ResourceLimits) ResourceLimits {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLimits
+		return ret
+	}).(ResourceLimitsOutput)
 }
 
 // The CPU limit of this container instance.
@@ -2667,7 +2703,7 @@ func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutput() Resour
 }
 
 func (o ResourceLimitsResponseOutput) ToResourceLimitsResponsePtrOutputWithContext(ctx context.Context) ResourceLimitsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceLimitsResponse) *ResourceLimitsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLimitsResponse) *ResourceLimitsResponse {
 		return &v
 	}).(ResourceLimitsResponsePtrOutput)
 }
@@ -2697,7 +2733,13 @@ func (o ResourceLimitsResponsePtrOutput) ToResourceLimitsResponsePtrOutputWithCo
 }
 
 func (o ResourceLimitsResponsePtrOutput) Elem() ResourceLimitsResponseOutput {
-	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse { return *v }).(ResourceLimitsResponseOutput)
+	return o.ApplyT(func(v *ResourceLimitsResponse) ResourceLimitsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLimitsResponse
+		return ret
+	}).(ResourceLimitsResponseOutput)
 }
 
 // The CPU limit of this container instance.

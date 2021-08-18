@@ -106,7 +106,7 @@ func (o AgentPoolUpgradeSettingsOutput) ToAgentPoolUpgradeSettingsPtrOutput() Ag
 }
 
 func (o AgentPoolUpgradeSettingsOutput) ToAgentPoolUpgradeSettingsPtrOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsPtrOutput {
-	return o.ApplyT(func(v AgentPoolUpgradeSettings) *AgentPoolUpgradeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPoolUpgradeSettings) *AgentPoolUpgradeSettings {
 		return &v
 	}).(AgentPoolUpgradeSettingsPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o AgentPoolUpgradeSettingsPtrOutput) ToAgentPoolUpgradeSettingsPtrOutputWi
 }
 
 func (o AgentPoolUpgradeSettingsPtrOutput) Elem() AgentPoolUpgradeSettingsOutput {
-	return o.ApplyT(func(v *AgentPoolUpgradeSettings) AgentPoolUpgradeSettings { return *v }).(AgentPoolUpgradeSettingsOutput)
+	return o.ApplyT(func(v *AgentPoolUpgradeSettings) AgentPoolUpgradeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPoolUpgradeSettings
+		return ret
+	}).(AgentPoolUpgradeSettingsOutput)
 }
 
 // This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
@@ -240,7 +246,7 @@ func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsRespon
 }
 
 func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AgentPoolUpgradeSettingsResponse) *AgentPoolUpgradeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPoolUpgradeSettingsResponse) *AgentPoolUpgradeSettingsResponse {
 		return &v
 	}).(AgentPoolUpgradeSettingsResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o AgentPoolUpgradeSettingsResponsePtrOutput) ToAgentPoolUpgradeSettingsRes
 }
 
 func (o AgentPoolUpgradeSettingsResponsePtrOutput) Elem() AgentPoolUpgradeSettingsResponseOutput {
-	return o.ApplyT(func(v *AgentPoolUpgradeSettingsResponse) AgentPoolUpgradeSettingsResponse { return *v }).(AgentPoolUpgradeSettingsResponseOutput)
+	return o.ApplyT(func(v *AgentPoolUpgradeSettingsResponse) AgentPoolUpgradeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AgentPoolUpgradeSettingsResponse
+		return ret
+	}).(AgentPoolUpgradeSettingsResponseOutput)
 }
 
 // This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
@@ -378,7 +390,7 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
@@ -408,7 +420,13 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfile
+		return ret
+	}).(ContainerServiceLinuxProfileOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -531,7 +549,7 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
@@ -561,7 +579,13 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfileResponse
+		return ret
+	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -716,7 +740,7 @@ func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePt
 }
 
 func (o ContainerServiceNetworkProfileOutput) ToContainerServiceNetworkProfilePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfile) *ContainerServiceNetworkProfile {
 		return &v
 	}).(ContainerServiceNetworkProfilePtrOutput)
 }
@@ -788,7 +812,13 @@ func (o ContainerServiceNetworkProfilePtrOutput) ToContainerServiceNetworkProfil
 }
 
 func (o ContainerServiceNetworkProfilePtrOutput) Elem() ContainerServiceNetworkProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile { return *v }).(ContainerServiceNetworkProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfile) ContainerServiceNetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceNetworkProfile
+		return ret
+	}).(ContainerServiceNetworkProfileOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -1023,7 +1053,7 @@ func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkP
 }
 
 func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
 		return &v
 	}).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
@@ -1095,7 +1125,13 @@ func (o ContainerServiceNetworkProfileResponsePtrOutput) ToContainerServiceNetwo
 }
 
 func (o ContainerServiceNetworkProfileResponsePtrOutput) Elem() ContainerServiceNetworkProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse { return *v }).(ContainerServiceNetworkProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceNetworkProfileResponse) ContainerServiceNetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceNetworkProfileResponse
+		return ret
+	}).(ContainerServiceNetworkProfileResponseOutput)
 }
 
 // An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
@@ -1294,7 +1330,7 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
@@ -1319,7 +1355,13 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfiguration
+		return ret
+	}).(ContainerServiceSshConfigurationOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.
@@ -1428,7 +1470,7 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
@@ -1455,7 +1497,13 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfigurationResponse
+		return ret
+	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. A maximum of 1 key may be specified.
@@ -1877,7 +1925,7 @@ func (o ExtendedLocationOutput) ToExtendedLocationPtrOutput() ExtendedLocationPt
 }
 
 func (o ExtendedLocationOutput) ToExtendedLocationPtrOutputWithContext(ctx context.Context) ExtendedLocationPtrOutput {
-	return o.ApplyT(func(v ExtendedLocation) *ExtendedLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocation) *ExtendedLocation {
 		return &v
 	}).(ExtendedLocationPtrOutput)
 }
@@ -1907,7 +1955,13 @@ func (o ExtendedLocationPtrOutput) ToExtendedLocationPtrOutputWithContext(ctx co
 }
 
 func (o ExtendedLocationPtrOutput) Elem() ExtendedLocationOutput {
-	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation { return *v }).(ExtendedLocationOutput)
+	return o.ApplyT(func(v *ExtendedLocation) ExtendedLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocation
+		return ret
+	}).(ExtendedLocationOutput)
 }
 
 // The name of the extended location.
@@ -2030,7 +2084,7 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() Ex
 }
 
 func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return o.ApplyT(func(v ExtendedLocationResponse) *ExtendedLocationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocationResponse) *ExtendedLocationResponse {
 		return &v
 	}).(ExtendedLocationResponsePtrOutput)
 }
@@ -2060,7 +2114,13 @@ func (o ExtendedLocationResponsePtrOutput) ToExtendedLocationResponsePtrOutputWi
 }
 
 func (o ExtendedLocationResponsePtrOutput) Elem() ExtendedLocationResponseOutput {
-	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse { return *v }).(ExtendedLocationResponseOutput)
+	return o.ApplyT(func(v *ExtendedLocationResponse) ExtendedLocationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedLocationResponse
+		return ret
+	}).(ExtendedLocationResponseOutput)
 }
 
 // The name of the extended location.
@@ -2219,7 +2279,7 @@ func (o KubeletConfigOutput) ToKubeletConfigPtrOutput() KubeletConfigPtrOutput {
 }
 
 func (o KubeletConfigOutput) ToKubeletConfigPtrOutputWithContext(ctx context.Context) KubeletConfigPtrOutput {
-	return o.ApplyT(func(v KubeletConfig) *KubeletConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubeletConfig) *KubeletConfig {
 		return &v
 	}).(KubeletConfigPtrOutput)
 }
@@ -2294,7 +2354,13 @@ func (o KubeletConfigPtrOutput) ToKubeletConfigPtrOutputWithContext(ctx context.
 }
 
 func (o KubeletConfigPtrOutput) Elem() KubeletConfigOutput {
-	return o.ApplyT(func(v *KubeletConfig) KubeletConfig { return *v }).(KubeletConfigOutput)
+	return o.ApplyT(func(v *KubeletConfig) KubeletConfig {
+		if v != nil {
+			return *v
+		}
+		var ret KubeletConfig
+		return ret
+	}).(KubeletConfigOutput)
 }
 
 // Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
@@ -2543,7 +2609,7 @@ func (o KubeletConfigResponseOutput) ToKubeletConfigResponsePtrOutput() KubeletC
 }
 
 func (o KubeletConfigResponseOutput) ToKubeletConfigResponsePtrOutputWithContext(ctx context.Context) KubeletConfigResponsePtrOutput {
-	return o.ApplyT(func(v KubeletConfigResponse) *KubeletConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubeletConfigResponse) *KubeletConfigResponse {
 		return &v
 	}).(KubeletConfigResponsePtrOutput)
 }
@@ -2618,7 +2684,13 @@ func (o KubeletConfigResponsePtrOutput) ToKubeletConfigResponsePtrOutputWithCont
 }
 
 func (o KubeletConfigResponsePtrOutput) Elem() KubeletConfigResponseOutput {
-	return o.ApplyT(func(v *KubeletConfigResponse) KubeletConfigResponse { return *v }).(KubeletConfigResponseOutput)
+	return o.ApplyT(func(v *KubeletConfigResponse) KubeletConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KubeletConfigResponse
+		return ret
+	}).(KubeletConfigResponseOutput)
 }
 
 // Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
@@ -2839,7 +2911,7 @@ func (o LinuxOSConfigOutput) ToLinuxOSConfigPtrOutput() LinuxOSConfigPtrOutput {
 }
 
 func (o LinuxOSConfigOutput) ToLinuxOSConfigPtrOutputWithContext(ctx context.Context) LinuxOSConfigPtrOutput {
-	return o.ApplyT(func(v LinuxOSConfig) *LinuxOSConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOSConfig) *LinuxOSConfig {
 		return &v
 	}).(LinuxOSConfigPtrOutput)
 }
@@ -2879,7 +2951,13 @@ func (o LinuxOSConfigPtrOutput) ToLinuxOSConfigPtrOutputWithContext(ctx context.
 }
 
 func (o LinuxOSConfigPtrOutput) Elem() LinuxOSConfigOutput {
-	return o.ApplyT(func(v *LinuxOSConfig) LinuxOSConfig { return *v }).(LinuxOSConfigOutput)
+	return o.ApplyT(func(v *LinuxOSConfig) LinuxOSConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOSConfig
+		return ret
+	}).(LinuxOSConfigOutput)
 }
 
 // The size in MB of a swap file that will be created on each node.
@@ -3030,7 +3108,7 @@ func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponsePtrOutput() LinuxOSC
 }
 
 func (o LinuxOSConfigResponseOutput) ToLinuxOSConfigResponsePtrOutputWithContext(ctx context.Context) LinuxOSConfigResponsePtrOutput {
-	return o.ApplyT(func(v LinuxOSConfigResponse) *LinuxOSConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOSConfigResponse) *LinuxOSConfigResponse {
 		return &v
 	}).(LinuxOSConfigResponsePtrOutput)
 }
@@ -3070,7 +3148,13 @@ func (o LinuxOSConfigResponsePtrOutput) ToLinuxOSConfigResponsePtrOutputWithCont
 }
 
 func (o LinuxOSConfigResponsePtrOutput) Elem() LinuxOSConfigResponseOutput {
-	return o.ApplyT(func(v *LinuxOSConfigResponse) LinuxOSConfigResponse { return *v }).(LinuxOSConfigResponseOutput)
+	return o.ApplyT(func(v *LinuxOSConfigResponse) LinuxOSConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOSConfigResponse
+		return ret
+	}).(LinuxOSConfigResponseOutput)
 }
 
 // The size in MB of a swap file that will be created on each node.
@@ -3233,7 +3317,7 @@ func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutput() Ma
 }
 
 func (o ManagedClusterAADProfileOutput) ToManagedClusterAADProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAADProfile) *ManagedClusterAADProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfile) *ManagedClusterAADProfile {
 		return &v
 	}).(ManagedClusterAADProfilePtrOutput)
 }
@@ -3288,7 +3372,13 @@ func (o ManagedClusterAADProfilePtrOutput) ToManagedClusterAADProfilePtrOutputWi
 }
 
 func (o ManagedClusterAADProfilePtrOutput) Elem() ManagedClusterAADProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile { return *v }).(ManagedClusterAADProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfile) ManagedClusterAADProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAADProfile
+		return ret
+	}).(ManagedClusterAADProfileOutput)
 }
 
 // The list of AAD group object IDs that will have admin role of the cluster.
@@ -3481,7 +3571,7 @@ func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileRespon
 }
 
 func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
 		return &v
 	}).(ManagedClusterAADProfileResponsePtrOutput)
 }
@@ -3536,7 +3626,13 @@ func (o ManagedClusterAADProfileResponsePtrOutput) ToManagedClusterAADProfileRes
 }
 
 func (o ManagedClusterAADProfileResponsePtrOutput) Elem() ManagedClusterAADProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse { return *v }).(ManagedClusterAADProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterAADProfileResponse) ManagedClusterAADProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAADProfileResponse
+		return ret
+	}).(ManagedClusterAADProfileResponseOutput)
 }
 
 // The list of AAD group object IDs that will have admin role of the cluster.
@@ -3717,7 +3813,7 @@ func (o ManagedClusterAPIServerAccessProfileOutput) ToManagedClusterAPIServerAcc
 }
 
 func (o ManagedClusterAPIServerAccessProfileOutput) ToManagedClusterAPIServerAccessProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfile) *ManagedClusterAPIServerAccessProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAPIServerAccessProfile) *ManagedClusterAPIServerAccessProfile {
 		return &v
 	}).(ManagedClusterAPIServerAccessProfilePtrOutput)
 }
@@ -3757,7 +3853,13 @@ func (o ManagedClusterAPIServerAccessProfilePtrOutput) ToManagedClusterAPIServer
 }
 
 func (o ManagedClusterAPIServerAccessProfilePtrOutput) Elem() ManagedClusterAPIServerAccessProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) ManagedClusterAPIServerAccessProfile { return *v }).(ManagedClusterAPIServerAccessProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfile) ManagedClusterAPIServerAccessProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAPIServerAccessProfile
+		return ret
+	}).(ManagedClusterAPIServerAccessProfileOutput)
 }
 
 // IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
@@ -3908,7 +4010,7 @@ func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIS
 }
 
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAPIServerAccessProfileResponse) *ManagedClusterAPIServerAccessProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAPIServerAccessProfileResponse) *ManagedClusterAPIServerAccessProfileResponse {
 		return &v
 	}).(ManagedClusterAPIServerAccessProfileResponsePtrOutput)
 }
@@ -3949,7 +4051,11 @@ func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) ToManagedClusterA
 
 func (o ManagedClusterAPIServerAccessProfileResponsePtrOutput) Elem() ManagedClusterAPIServerAccessProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterAPIServerAccessProfileResponse) ManagedClusterAPIServerAccessProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAPIServerAccessProfileResponse
+		return ret
 	}).(ManagedClusterAPIServerAccessProfileResponseOutput)
 }
 
@@ -5214,7 +5320,7 @@ func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfi
 }
 
 func (o ManagedClusterAutoUpgradeProfileOutput) ToManagedClusterAutoUpgradeProfilePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfile) *ManagedClusterAutoUpgradeProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAutoUpgradeProfile) *ManagedClusterAutoUpgradeProfile {
 		return &v
 	}).(ManagedClusterAutoUpgradeProfilePtrOutput)
 }
@@ -5239,7 +5345,13 @@ func (o ManagedClusterAutoUpgradeProfilePtrOutput) ToManagedClusterAutoUpgradePr
 }
 
 func (o ManagedClusterAutoUpgradeProfilePtrOutput) Elem() ManagedClusterAutoUpgradeProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfile) ManagedClusterAutoUpgradeProfile { return *v }).(ManagedClusterAutoUpgradeProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfile) ManagedClusterAutoUpgradeProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAutoUpgradeProfile
+		return ret
+	}).(ManagedClusterAutoUpgradeProfileOutput)
 }
 
 // For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
@@ -5348,7 +5460,7 @@ func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgr
 }
 
 func (o ManagedClusterAutoUpgradeProfileResponseOutput) ToManagedClusterAutoUpgradeProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAutoUpgradeProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterAutoUpgradeProfileResponse) *ManagedClusterAutoUpgradeProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAutoUpgradeProfileResponse) *ManagedClusterAutoUpgradeProfileResponse {
 		return &v
 	}).(ManagedClusterAutoUpgradeProfileResponsePtrOutput)
 }
@@ -5373,7 +5485,13 @@ func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) ToManagedClusterAutoU
 }
 
 func (o ManagedClusterAutoUpgradeProfileResponsePtrOutput) Elem() ManagedClusterAutoUpgradeProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfileResponse) ManagedClusterAutoUpgradeProfileResponse { return *v }).(ManagedClusterAutoUpgradeProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterAutoUpgradeProfileResponse) ManagedClusterAutoUpgradeProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterAutoUpgradeProfileResponse
+		return ret
+	}).(ManagedClusterAutoUpgradeProfileResponseOutput)
 }
 
 // For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
@@ -5494,7 +5612,7 @@ func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigPtrO
 }
 
 func (o ManagedClusterHTTPProxyConfigOutput) ToManagedClusterHTTPProxyConfigPtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigPtrOutput {
-	return o.ApplyT(func(v ManagedClusterHTTPProxyConfig) *ManagedClusterHTTPProxyConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterHTTPProxyConfig) *ManagedClusterHTTPProxyConfig {
 		return &v
 	}).(ManagedClusterHTTPProxyConfigPtrOutput)
 }
@@ -5534,7 +5652,13 @@ func (o ManagedClusterHTTPProxyConfigPtrOutput) ToManagedClusterHTTPProxyConfigP
 }
 
 func (o ManagedClusterHTTPProxyConfigPtrOutput) Elem() ManagedClusterHTTPProxyConfigOutput {
-	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) ManagedClusterHTTPProxyConfig { return *v }).(ManagedClusterHTTPProxyConfigOutput)
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfig) ManagedClusterHTTPProxyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterHTTPProxyConfig
+		return ret
+	}).(ManagedClusterHTTPProxyConfigOutput)
 }
 
 // The HTTP proxy server endpoint to use.
@@ -5685,7 +5809,7 @@ func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyCo
 }
 
 func (o ManagedClusterHTTPProxyConfigResponseOutput) ToManagedClusterHTTPProxyConfigResponsePtrOutputWithContext(ctx context.Context) ManagedClusterHTTPProxyConfigResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterHTTPProxyConfigResponse) *ManagedClusterHTTPProxyConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterHTTPProxyConfigResponse) *ManagedClusterHTTPProxyConfigResponse {
 		return &v
 	}).(ManagedClusterHTTPProxyConfigResponsePtrOutput)
 }
@@ -5725,7 +5849,13 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) ToManagedClusterHTTPProx
 }
 
 func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) Elem() ManagedClusterHTTPProxyConfigResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) ManagedClusterHTTPProxyConfigResponse { return *v }).(ManagedClusterHTTPProxyConfigResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterHTTPProxyConfigResponse) ManagedClusterHTTPProxyConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterHTTPProxyConfigResponse
+		return ret
+	}).(ManagedClusterHTTPProxyConfigResponseOutput)
 }
 
 // The HTTP proxy server endpoint to use.
@@ -5771,7 +5901,7 @@ func (o ManagedClusterHTTPProxyConfigResponsePtrOutput) TrustedCa() pulumi.Strin
 // Identity for the managed cluster.
 type ManagedClusterIdentity struct {
 	// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -5790,7 +5920,7 @@ type ManagedClusterIdentityInput interface {
 // Identity for the managed cluster.
 type ManagedClusterIdentityArgs struct {
 	// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -5868,14 +5998,14 @@ func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutput() Manage
 }
 
 func (o ManagedClusterIdentityOutput) ToManagedClusterIdentityPtrOutputWithContext(ctx context.Context) ManagedClusterIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) *ManagedClusterIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentity) *ManagedClusterIdentity {
 		return &v
 	}).(ManagedClusterIdentityPtrOutput)
 }
 
 // For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
-func (o ManagedClusterIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedClusterIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ManagedClusterIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -5898,17 +6028,23 @@ func (o ManagedClusterIdentityPtrOutput) ToManagedClusterIdentityPtrOutputWithCo
 }
 
 func (o ManagedClusterIdentityPtrOutput) Elem() ManagedClusterIdentityOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) ManagedClusterIdentity { return *v }).(ManagedClusterIdentityOutput)
+	return o.ApplyT(func(v *ManagedClusterIdentity) ManagedClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterIdentity
+		return ret
+	}).(ManagedClusterIdentityOutput)
 }
 
 // For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
-func (o ManagedClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentity) *string {
+func (o ManagedClusterIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ManagedClusterIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -6029,7 +6165,7 @@ func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePt
 }
 
 func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
 		return &v
 	}).(ManagedClusterIdentityResponsePtrOutput)
 }
@@ -6071,7 +6207,13 @@ func (o ManagedClusterIdentityResponsePtrOutput) ToManagedClusterIdentityRespons
 }
 
 func (o ManagedClusterIdentityResponsePtrOutput) Elem() ManagedClusterIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterIdentityResponse) ManagedClusterIdentityResponse { return *v }).(ManagedClusterIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterIdentityResponse) ManagedClusterIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterIdentityResponse
+		return ret
+	}).(ManagedClusterIdentityResponseOutput)
 }
 
 // The principal id of the system assigned identity which is used by master components.
@@ -6336,7 +6478,7 @@ func (o ManagedClusterLoadBalancerProfileOutput) ToManagedClusterLoadBalancerPro
 }
 
 func (o ManagedClusterLoadBalancerProfileOutput) ToManagedClusterLoadBalancerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfile {
 		return &v
 	}).(ManagedClusterLoadBalancerProfilePtrOutput)
 }
@@ -6392,7 +6534,13 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) ToManagedClusterLoadBalancer
 }
 
 func (o ManagedClusterLoadBalancerProfilePtrOutput) Elem() ManagedClusterLoadBalancerProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) ManagedClusterLoadBalancerProfile { return *v }).(ManagedClusterLoadBalancerProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) ManagedClusterLoadBalancerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfile
+		return ret
+	}).(ManagedClusterLoadBalancerProfileOutput)
 }
 
 // The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
@@ -6551,7 +6699,7 @@ func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClus
 }
 
 func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileManagedOutboundIPs) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileManagedOutboundIPs) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
@@ -6577,7 +6725,11 @@ func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) ToManagedC
 
 func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileManagedOutboundIPs) ManagedClusterLoadBalancerProfileManagedOutboundIPs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileManagedOutboundIPs
+		return ret
 	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput)
 }
 
@@ -6687,7 +6839,7 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClus
 }
 
 func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
@@ -6715,7 +6867,11 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) ToManagedC
 
 func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) Elem() ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPPrefixes) ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileOutboundIPPrefixes
+		return ret
 	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput)
 }
 
@@ -6825,7 +6981,7 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoad
 }
 
 func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPs) *ManagedClusterLoadBalancerProfileOutboundIPs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileOutboundIPs) *ManagedClusterLoadBalancerProfileOutboundIPs {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
 }
@@ -6851,7 +7007,11 @@ func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) ToManagedClusterL
 
 func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileOutboundIPsOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPs) ManagedClusterLoadBalancerProfileOutboundIPs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileOutboundIPs
+		return ret
 	}).(ManagedClusterLoadBalancerProfileOutboundIPsOutput)
 }
 
@@ -6981,7 +7141,7 @@ func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBal
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponse {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
 }
@@ -7040,7 +7200,11 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) ToManagedClusterLoad
 
 func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) ManagedClusterLoadBalancerProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileResponse
+		return ret
 	}).(ManagedClusterLoadBalancerProfileResponseOutput)
 }
 
@@ -7200,7 +7364,7 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToMan
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
@@ -7226,7 +7390,11 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) To
 
 func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs
+		return ret
 	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput)
 }
 
@@ -7336,7 +7504,7 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToMan
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
@@ -7364,7 +7532,11 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) To
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes
+		return ret
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput)
 }
 
@@ -7474,7 +7646,7 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClu
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPs) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponseOutboundIPs) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
 		return &v
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
@@ -7502,7 +7674,11 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) ToManaged
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
 	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPs) ManagedClusterLoadBalancerProfileResponseOutboundIPs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterLoadBalancerProfileResponseOutboundIPs
+		return ret
 	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput)
 }
 
@@ -7987,7 +8163,7 @@ func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfi
 }
 
 func (o ManagedClusterPodIdentityProfileOutput) ToManagedClusterPodIdentityProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPodIdentityProfile) *ManagedClusterPodIdentityProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPodIdentityProfile) *ManagedClusterPodIdentityProfile {
 		return &v
 	}).(ManagedClusterPodIdentityProfilePtrOutput)
 }
@@ -8029,7 +8205,13 @@ func (o ManagedClusterPodIdentityProfilePtrOutput) ToManagedClusterPodIdentityPr
 }
 
 func (o ManagedClusterPodIdentityProfilePtrOutput) Elem() ManagedClusterPodIdentityProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) ManagedClusterPodIdentityProfile { return *v }).(ManagedClusterPodIdentityProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfile) ManagedClusterPodIdentityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterPodIdentityProfile
+		return ret
+	}).(ManagedClusterPodIdentityProfileOutput)
 }
 
 // Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
@@ -8180,7 +8362,7 @@ func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdent
 }
 
 func (o ManagedClusterPodIdentityProfileResponseOutput) ToManagedClusterPodIdentityProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPodIdentityProfileResponse) *ManagedClusterPodIdentityProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPodIdentityProfileResponse) *ManagedClusterPodIdentityProfileResponse {
 		return &v
 	}).(ManagedClusterPodIdentityProfileResponsePtrOutput)
 }
@@ -8224,7 +8406,13 @@ func (o ManagedClusterPodIdentityProfileResponsePtrOutput) ToManagedClusterPodId
 }
 
 func (o ManagedClusterPodIdentityProfileResponsePtrOutput) Elem() ManagedClusterPodIdentityProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) ManagedClusterPodIdentityProfileResponse { return *v }).(ManagedClusterPodIdentityProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterPodIdentityProfileResponse) ManagedClusterPodIdentityProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterPodIdentityProfileResponse
+		return ret
+	}).(ManagedClusterPodIdentityProfileResponseOutput)
 }
 
 // Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
@@ -8400,7 +8588,7 @@ func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ToManagedC
 }
 
 func (o ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput) ToManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorBodyResponse) *ManagedClusterPodIdentityProvisioningErrorBodyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPodIdentityProvisioningErrorBodyResponse) *ManagedClusterPodIdentityProvisioningErrorBodyResponse {
 		return &v
 	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput)
 }
@@ -8443,7 +8631,11 @@ func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) ToManag
 
 func (o ManagedClusterPodIdentityProvisioningErrorBodyResponsePtrOutput) Elem() ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorBodyResponse) ManagedClusterPodIdentityProvisioningErrorBodyResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterPodIdentityProvisioningErrorBodyResponse
+		return ret
 	}).(ManagedClusterPodIdentityProvisioningErrorBodyResponseOutput)
 }
 
@@ -8603,7 +8795,7 @@ func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) ToManagedClust
 }
 
 func (o ManagedClusterPodIdentityProvisioningErrorResponseOutput) ToManagedClusterPodIdentityProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPodIdentityProvisioningErrorResponse) *ManagedClusterPodIdentityProvisioningErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPodIdentityProvisioningErrorResponse) *ManagedClusterPodIdentityProvisioningErrorResponse {
 		return &v
 	}).(ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput)
 }
@@ -8631,7 +8823,11 @@ func (o ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) ToManagedCl
 
 func (o ManagedClusterPodIdentityProvisioningErrorResponsePtrOutput) Elem() ManagedClusterPodIdentityProvisioningErrorResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterPodIdentityProvisioningErrorResponse) ManagedClusterPodIdentityProvisioningErrorResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterPodIdentityProvisioningErrorResponse
+		return ret
 	}).(ManagedClusterPodIdentityProvisioningErrorResponseOutput)
 }
 
@@ -9003,7 +9199,7 @@ func (o ManagedClusterPropertiesAutoScalerProfileOutput) ToManagedClusterPropert
 }
 
 func (o ManagedClusterPropertiesAutoScalerProfileOutput) ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *ManagedClusterPropertiesAutoScalerProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPropertiesAutoScalerProfile) *ManagedClusterPropertiesAutoScalerProfile {
 		return &v
 	}).(ManagedClusterPropertiesAutoScalerProfilePtrOutput)
 }
@@ -9109,7 +9305,11 @@ func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ToManagedClusterProp
 
 func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) Elem() ManagedClusterPropertiesAutoScalerProfileOutput {
 	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) ManagedClusterPropertiesAutoScalerProfile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterPropertiesAutoScalerProfile
+		return ret
 	}).(ManagedClusterPropertiesAutoScalerProfileOutput)
 }
 
@@ -9558,7 +9758,7 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedCluste
 }
 
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *ManagedClusterPropertiesResponseAutoScalerProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPropertiesResponseAutoScalerProfile) *ManagedClusterPropertiesResponseAutoScalerProfile {
 		return &v
 	}).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
 }
@@ -9666,7 +9866,11 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ToManagedClu
 
 func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) Elem() ManagedClusterPropertiesResponseAutoScalerProfileOutput {
 	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) ManagedClusterPropertiesResponseAutoScalerProfile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterPropertiesResponseAutoScalerProfile
+		return ret
 	}).(ManagedClusterPropertiesResponseAutoScalerProfileOutput)
 }
 
@@ -10055,7 +10259,7 @@ func (o ManagedClusterSKUOutput) ToManagedClusterSKUPtrOutput() ManagedClusterSK
 }
 
 func (o ManagedClusterSKUOutput) ToManagedClusterSKUPtrOutputWithContext(ctx context.Context) ManagedClusterSKUPtrOutput {
-	return o.ApplyT(func(v ManagedClusterSKU) *ManagedClusterSKU {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterSKU) *ManagedClusterSKU {
 		return &v
 	}).(ManagedClusterSKUPtrOutput)
 }
@@ -10085,7 +10289,13 @@ func (o ManagedClusterSKUPtrOutput) ToManagedClusterSKUPtrOutputWithContext(ctx 
 }
 
 func (o ManagedClusterSKUPtrOutput) Elem() ManagedClusterSKUOutput {
-	return o.ApplyT(func(v *ManagedClusterSKU) ManagedClusterSKU { return *v }).(ManagedClusterSKUOutput)
+	return o.ApplyT(func(v *ManagedClusterSKU) ManagedClusterSKU {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterSKU
+		return ret
+	}).(ManagedClusterSKUOutput)
 }
 
 // The name of a managed cluster SKU.
@@ -10208,7 +10418,7 @@ func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponsePtrOutput() 
 }
 
 func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponsePtrOutputWithContext(ctx context.Context) ManagedClusterSKUResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterSKUResponse) *ManagedClusterSKUResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterSKUResponse) *ManagedClusterSKUResponse {
 		return &v
 	}).(ManagedClusterSKUResponsePtrOutput)
 }
@@ -10238,7 +10448,13 @@ func (o ManagedClusterSKUResponsePtrOutput) ToManagedClusterSKUResponsePtrOutput
 }
 
 func (o ManagedClusterSKUResponsePtrOutput) Elem() ManagedClusterSKUResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterSKUResponse) ManagedClusterSKUResponse { return *v }).(ManagedClusterSKUResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterSKUResponse) ManagedClusterSKUResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterSKUResponse
+		return ret
+	}).(ManagedClusterSKUResponseOutput)
 }
 
 // The name of a managed cluster SKU.
@@ -10361,7 +10577,7 @@ func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrin
 }
 
 func (o ManagedClusterServicePrincipalProfileOutput) ToManagedClusterServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfile) *ManagedClusterServicePrincipalProfile {
 		return &v
 	}).(ManagedClusterServicePrincipalProfilePtrOutput)
 }
@@ -10391,7 +10607,13 @@ func (o ManagedClusterServicePrincipalProfilePtrOutput) ToManagedClusterServiceP
 }
 
 func (o ManagedClusterServicePrincipalProfilePtrOutput) Elem() ManagedClusterServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile { return *v }).(ManagedClusterServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfile) ManagedClusterServicePrincipalProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterServicePrincipalProfile
+		return ret
+	}).(ManagedClusterServicePrincipalProfileOutput)
 }
 
 // The ID for the service principal.
@@ -10514,7 +10736,7 @@ func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterSer
 }
 
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
 		return &v
 	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
@@ -10545,7 +10767,11 @@ func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) ToManagedCluster
 
 func (o ManagedClusterServicePrincipalProfileResponsePtrOutput) Elem() ManagedClusterServicePrincipalProfileResponseOutput {
 	return o.ApplyT(func(v *ManagedClusterServicePrincipalProfileResponse) ManagedClusterServicePrincipalProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterServicePrincipalProfileResponse
+		return ret
 	}).(ManagedClusterServicePrincipalProfileResponseOutput)
 }
 
@@ -10677,7 +10903,7 @@ func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOut
 }
 
 func (o ManagedClusterWindowsProfileOutput) ToManagedClusterWindowsProfilePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfilePtrOutput {
-	return o.ApplyT(func(v ManagedClusterWindowsProfile) *ManagedClusterWindowsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfile) *ManagedClusterWindowsProfile {
 		return &v
 	}).(ManagedClusterWindowsProfilePtrOutput)
 }
@@ -10717,7 +10943,13 @@ func (o ManagedClusterWindowsProfilePtrOutput) ToManagedClusterWindowsProfilePtr
 }
 
 func (o ManagedClusterWindowsProfilePtrOutput) Elem() ManagedClusterWindowsProfileOutput {
-	return o.ApplyT(func(v *ManagedClusterWindowsProfile) ManagedClusterWindowsProfile { return *v }).(ManagedClusterWindowsProfileOutput)
+	return o.ApplyT(func(v *ManagedClusterWindowsProfile) ManagedClusterWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterWindowsProfile
+		return ret
+	}).(ManagedClusterWindowsProfileOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
@@ -10868,7 +11100,7 @@ func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfi
 }
 
 func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
 		return &v
 	}).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
@@ -10908,7 +11140,13 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) ToManagedClusterWindowsPr
 }
 
 func (o ManagedClusterWindowsProfileResponsePtrOutput) Elem() ManagedClusterWindowsProfileResponseOutput {
-	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) ManagedClusterWindowsProfileResponse { return *v }).(ManagedClusterWindowsProfileResponseOutput)
+	return o.ApplyT(func(v *ManagedClusterWindowsProfileResponse) ManagedClusterWindowsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedClusterWindowsProfileResponse
+		return ret
+	}).(ManagedClusterWindowsProfileResponseOutput)
 }
 
 // Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
@@ -11047,7 +11285,7 @@ func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutput() PowerStateResp
 }
 
 func (o PowerStateResponseOutput) ToPowerStateResponsePtrOutputWithContext(ctx context.Context) PowerStateResponsePtrOutput {
-	return o.ApplyT(func(v PowerStateResponse) *PowerStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerStateResponse) *PowerStateResponse {
 		return &v
 	}).(PowerStateResponsePtrOutput)
 }
@@ -11072,7 +11310,13 @@ func (o PowerStateResponsePtrOutput) ToPowerStateResponsePtrOutputWithContext(ct
 }
 
 func (o PowerStateResponsePtrOutput) Elem() PowerStateResponseOutput {
-	return o.ApplyT(func(v *PowerStateResponse) PowerStateResponse { return *v }).(PowerStateResponseOutput)
+	return o.ApplyT(func(v *PowerStateResponse) PowerStateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PowerStateResponse
+		return ret
+	}).(PowerStateResponseOutput)
 }
 
 // Tells whether the cluster is Running or Stopped
@@ -11181,7 +11425,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -11206,7 +11450,13 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
 }
 
 // The resource ID of the private endpoint
@@ -11315,7 +11565,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -11340,7 +11590,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The resource ID of the private endpoint
@@ -11734,7 +11990,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -11764,7 +12020,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // The private link service connection description.
@@ -11887,7 +12149,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -11918,7 +12180,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -12346,7 +12612,7 @@ func (o SysctlConfigOutput) ToSysctlConfigPtrOutput() SysctlConfigPtrOutput {
 }
 
 func (o SysctlConfigOutput) ToSysctlConfigPtrOutputWithContext(ctx context.Context) SysctlConfigPtrOutput {
-	return o.ApplyT(func(v SysctlConfig) *SysctlConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SysctlConfig) *SysctlConfig {
 		return &v
 	}).(SysctlConfigPtrOutput)
 }
@@ -12506,7 +12772,13 @@ func (o SysctlConfigPtrOutput) ToSysctlConfigPtrOutputWithContext(ctx context.Co
 }
 
 func (o SysctlConfigPtrOutput) Elem() SysctlConfigOutput {
-	return o.ApplyT(func(v *SysctlConfig) SysctlConfig { return *v }).(SysctlConfigOutput)
+	return o.ApplyT(func(v *SysctlConfig) SysctlConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SysctlConfig
+		return ret
+	}).(SysctlConfigOutput)
 }
 
 // Sysctl setting fs.aio-max-nr.
@@ -12993,7 +13265,7 @@ func (o SysctlConfigResponseOutput) ToSysctlConfigResponsePtrOutput() SysctlConf
 }
 
 func (o SysctlConfigResponseOutput) ToSysctlConfigResponsePtrOutputWithContext(ctx context.Context) SysctlConfigResponsePtrOutput {
-	return o.ApplyT(func(v SysctlConfigResponse) *SysctlConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SysctlConfigResponse) *SysctlConfigResponse {
 		return &v
 	}).(SysctlConfigResponsePtrOutput)
 }
@@ -13153,7 +13425,13 @@ func (o SysctlConfigResponsePtrOutput) ToSysctlConfigResponsePtrOutputWithContex
 }
 
 func (o SysctlConfigResponsePtrOutput) Elem() SysctlConfigResponseOutput {
-	return o.ApplyT(func(v *SysctlConfigResponse) SysctlConfigResponse { return *v }).(SysctlConfigResponseOutput)
+	return o.ApplyT(func(v *SysctlConfigResponse) SysctlConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SysctlConfigResponse
+		return ret
+	}).(SysctlConfigResponseOutput)
 }
 
 // Sysctl setting fs.aio-max-nr.
@@ -13552,7 +13830,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -13602,7 +13880,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The UTC timestamp of resource creation.

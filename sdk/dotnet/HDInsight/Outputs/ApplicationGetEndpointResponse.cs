@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// Gets the application SSH endpoint
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGetEndpointResponse
     {

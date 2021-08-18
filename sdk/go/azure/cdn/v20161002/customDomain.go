@@ -154,45 +154,9 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
-	// Provisioning state of Custom Https of the custom domain.
-	CustomHttpsProvisioningState *string `pulumi:"customHttpsProvisioningState"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName *string `pulumi:"hostName"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Provisioning status of the custom domain.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState *string `pulumi:"resourceState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-	ValidationData *string `pulumi:"validationData"`
 }
 
 type CustomDomainState struct {
-	// Provisioning state of Custom Https of the custom domain.
-	CustomHttpsProvisioningState pulumi.StringPtrInput
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Provisioning status of the custom domain.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource status of the custom domain.
-	ResourceState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-	ValidationData pulumi.StringPtrInput
 }
 
 func (CustomDomainState) ElementType() reflect.Type {
@@ -249,9 +213,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
 }
 
-type CustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Different types of filters supported and its values.
+    /// </summary>
     [OutputType]
     public sealed class FilterablePropertyResponse
     {

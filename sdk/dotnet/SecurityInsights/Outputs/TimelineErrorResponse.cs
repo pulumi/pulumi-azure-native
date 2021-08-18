@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Timeline Query Errors.
+    /// </summary>
     [OutputType]
     public sealed class TimelineErrorResponse
     {

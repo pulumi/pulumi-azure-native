@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Scheduling properties of a job.
+    /// </summary>
     [OutputType]
     public sealed class JobScheduleResponse
     {

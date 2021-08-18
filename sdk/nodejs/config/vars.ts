@@ -4,50 +4,135 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("azure-native");
+declare var exports: any;
+const __config = new pulumi.Config("azure-native");
 
-export let auxiliaryTenantIds: string[] | undefined = __config.getObject<string[]>("auxiliaryTenantIds");
+export declare const auxiliaryTenantIds: string[] | undefined;
+Object.defineProperty(exports, "auxiliaryTenantIds", {
+    get() {
+        return __config.getObject<string[]>("auxiliaryTenantIds");
+    },
+    enumerable: true,
+});
+
 /**
  * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
  */
-export let clientCertificatePassword: string | undefined = __config.get("clientCertificatePassword");
+export declare const clientCertificatePassword: string | undefined;
+Object.defineProperty(exports, "clientCertificatePassword", {
+    get() {
+        return __config.get("clientCertificatePassword");
+    },
+    enumerable: true,
+});
+
 /**
  * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
  */
-export let clientCertificatePath: string | undefined = __config.get("clientCertificatePath");
+export declare const clientCertificatePath: string | undefined;
+Object.defineProperty(exports, "clientCertificatePath", {
+    get() {
+        return __config.get("clientCertificatePath");
+    },
+    enumerable: true,
+});
+
 /**
  * The Client ID which should be used.
  */
-export let clientId: string | undefined = __config.get("clientId");
+export declare const clientId: string | undefined;
+Object.defineProperty(exports, "clientId", {
+    get() {
+        return __config.get("clientId");
+    },
+    enumerable: true,
+});
+
 /**
  * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
  */
-export let clientSecret: string | undefined = __config.get("clientSecret");
+export declare const clientSecret: string | undefined;
+Object.defineProperty(exports, "clientSecret", {
+    get() {
+        return __config.get("clientSecret");
+    },
+    enumerable: true,
+});
+
 /**
  * This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
  */
-export let disablePulumiPartnerId: boolean | undefined = __config.getObject<boolean>("disablePulumiPartnerId");
+export declare const disablePulumiPartnerId: boolean | undefined;
+Object.defineProperty(exports, "disablePulumiPartnerId", {
+    get() {
+        return __config.getObject<boolean>("disablePulumiPartnerId");
+    },
+    enumerable: true,
+});
+
 /**
  * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
  */
-export let environment: string | undefined = __config.get("environment");
+export declare const environment: string | undefined;
+Object.defineProperty(exports, "environment", {
+    get() {
+        return __config.get("environment");
+    },
+    enumerable: true,
+});
+
 /**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
  */
-export let msiEndpoint: string | undefined = __config.get("msiEndpoint");
+export declare const msiEndpoint: string | undefined;
+Object.defineProperty(exports, "msiEndpoint", {
+    get() {
+        return __config.get("msiEndpoint");
+    },
+    enumerable: true,
+});
+
 /**
  * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
  */
-export let partnerId: string | undefined = __config.get("partnerId");
+export declare const partnerId: string | undefined;
+Object.defineProperty(exports, "partnerId", {
+    get() {
+        return __config.get("partnerId");
+    },
+    enumerable: true,
+});
+
 /**
  * The Subscription ID which should be used.
  */
-export let subscriptionId: string | undefined = __config.get("subscriptionId");
+export declare const subscriptionId: string | undefined;
+Object.defineProperty(exports, "subscriptionId", {
+    get() {
+        return __config.get("subscriptionId");
+    },
+    enumerable: true,
+});
+
 /**
  * The Tenant ID which should be used.
  */
-export let tenantId: string | undefined = __config.get("tenantId");
+export declare const tenantId: string | undefined;
+Object.defineProperty(exports, "tenantId", {
+    get() {
+        return __config.get("tenantId");
+    },
+    enumerable: true,
+});
+
 /**
  * Allowed Managed Service Identity be used for Authentication.
  */
-export let useMsi: boolean | undefined = __config.getObject<boolean>("useMsi");
+export declare const useMsi: boolean | undefined;
+Object.defineProperty(exports, "useMsi", {
+    get() {
+        return __config.getObject<boolean>("useMsi");
+    },
+    enumerable: true,
+});
+

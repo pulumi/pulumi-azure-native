@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Eloqua server source.
+    /// </summary>
     [OutputType]
     public sealed class EloquaSourceResponse
     {

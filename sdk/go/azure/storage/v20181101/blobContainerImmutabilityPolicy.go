@@ -134,29 +134,9 @@ func GetBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobContainerImmutabilityPolicy resources.
 type blobContainerImmutabilityPolicyState struct {
-	// Resource Etag.
-	Etag *string `pulumi:"etag"`
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays *int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State *string `pulumi:"state"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type BlobContainerImmutabilityPolicyState struct {
-	// Resource Etag.
-	Etag pulumi.StringPtrInput
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
-	State pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (BlobContainerImmutabilityPolicyState) ElementType() reflect.Type {
@@ -213,9 +193,7 @@ func (i *BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerImmutabilityPolicyOutput)
 }
 
-type BlobContainerImmutabilityPolicyOutput struct {
-	*pulumi.OutputState
-}
+type BlobContainerImmutabilityPolicyOutput struct{ *pulumi.OutputState }
 
 func (BlobContainerImmutabilityPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil))

@@ -12,14 +12,14 @@ from ._enums import *
 __all__ = [
     'ARecordArgs',
     'AaaaRecordArgs',
-    'BackendArgs',
-    'BackendPoolArgs',
     'BackendPoolsSettingsArgs',
+    'BackendPoolArgs',
+    'BackendArgs',
     'CacheConfigurationArgs',
     'CnameRecordArgs',
     'ForwardingConfigurationArgs',
-    'FrontendEndpointArgs',
     'FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs',
+    'FrontendEndpointArgs',
     'HeaderActionArgs',
     'HealthProbeSettingsModelArgs',
     'LoadBalancingSettingsModelArgs',
@@ -82,6 +82,136 @@ class AaaaRecordArgs:
     @ipv6_address.setter
     def ipv6_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_address", value)
+
+
+@pulumi.input_type
+class BackendPoolsSettingsArgs:
+    def __init__(__self__, *,
+                 enforce_certificate_name_check: Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]] = None,
+                 send_recv_timeout_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Settings that apply to all backend pools.
+        :param pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']] enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
+        :param pulumi.Input[int] send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
+        """
+        if enforce_certificate_name_check is None:
+            enforce_certificate_name_check = 'Enabled'
+        if enforce_certificate_name_check is not None:
+            pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
+        if send_recv_timeout_seconds is not None:
+            pulumi.set(__self__, "send_recv_timeout_seconds", send_recv_timeout_seconds)
+
+    @property
+    @pulumi.getter(name="enforceCertificateNameCheck")
+    def enforce_certificate_name_check(self) -> Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]]:
+        """
+        Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
+        """
+        return pulumi.get(self, "enforce_certificate_name_check")
+
+    @enforce_certificate_name_check.setter
+    def enforce_certificate_name_check(self, value: Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]]):
+        pulumi.set(self, "enforce_certificate_name_check", value)
+
+    @property
+    @pulumi.getter(name="sendRecvTimeoutSeconds")
+    def send_recv_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
+        """
+        return pulumi.get(self, "send_recv_timeout_seconds")
+
+    @send_recv_timeout_seconds.setter
+    def send_recv_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "send_recv_timeout_seconds", value)
+
+
+@pulumi.input_type
+class BackendPoolArgs:
+    def __init__(__self__, *,
+                 backends: Optional[pulumi.Input[Sequence[pulumi.Input['BackendArgs']]]] = None,
+                 health_probe_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 load_balancing_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        A backend pool is a collection of backends that can be routed to.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendArgs']]] backends: The set of backends for this pool
+        :param pulumi.Input['SubResourceArgs'] health_probe_settings: L7 health probe settings for a backend pool
+        :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input['SubResourceArgs'] load_balancing_settings: Load balancing settings for a backend pool
+        :param pulumi.Input[str] name: Resource name.
+        """
+        if backends is not None:
+            pulumi.set(__self__, "backends", backends)
+        if health_probe_settings is not None:
+            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_balancing_settings is not None:
+            pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def backends(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendArgs']]]]:
+        """
+        The set of backends for this pool
+        """
+        return pulumi.get(self, "backends")
+
+    @backends.setter
+    def backends(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendArgs']]]]):
+        pulumi.set(self, "backends", value)
+
+    @property
+    @pulumi.getter(name="healthProbeSettings")
+    def health_probe_settings(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        L7 health probe settings for a backend pool
+        """
+        return pulumi.get(self, "health_probe_settings")
+
+    @health_probe_settings.setter
+    def health_probe_settings(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "health_probe_settings", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="loadBalancingSettings")
+    def load_balancing_settings(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Load balancing settings for a backend pool
+        """
+        return pulumi.get(self, "load_balancing_settings")
+
+    @load_balancing_settings.setter
+    def load_balancing_settings(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "load_balancing_settings", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -234,136 +364,6 @@ class BackendArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
-
-
-@pulumi.input_type
-class BackendPoolArgs:
-    def __init__(__self__, *,
-                 backends: Optional[pulumi.Input[Sequence[pulumi.Input['BackendArgs']]]] = None,
-                 health_probe_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 id: Optional[pulumi.Input[str]] = None,
-                 load_balancing_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        A backend pool is a collection of backends that can be routed to.
-        :param pulumi.Input[Sequence[pulumi.Input['BackendArgs']]] backends: The set of backends for this pool
-        :param pulumi.Input['SubResourceArgs'] health_probe_settings: L7 health probe settings for a backend pool
-        :param pulumi.Input[str] id: Resource ID.
-        :param pulumi.Input['SubResourceArgs'] load_balancing_settings: Load balancing settings for a backend pool
-        :param pulumi.Input[str] name: Resource name.
-        """
-        if backends is not None:
-            pulumi.set(__self__, "backends", backends)
-        if health_probe_settings is not None:
-            pulumi.set(__self__, "health_probe_settings", health_probe_settings)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if load_balancing_settings is not None:
-            pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def backends(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendArgs']]]]:
-        """
-        The set of backends for this pool
-        """
-        return pulumi.get(self, "backends")
-
-    @backends.setter
-    def backends(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendArgs']]]]):
-        pulumi.set(self, "backends", value)
-
-    @property
-    @pulumi.getter(name="healthProbeSettings")
-    def health_probe_settings(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        L7 health probe settings for a backend pool
-        """
-        return pulumi.get(self, "health_probe_settings")
-
-    @health_probe_settings.setter
-    def health_probe_settings(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "health_probe_settings", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter(name="loadBalancingSettings")
-    def load_balancing_settings(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        Load balancing settings for a backend pool
-        """
-        return pulumi.get(self, "load_balancing_settings")
-
-    @load_balancing_settings.setter
-    def load_balancing_settings(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "load_balancing_settings", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class BackendPoolsSettingsArgs:
-    def __init__(__self__, *,
-                 enforce_certificate_name_check: Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]] = None,
-                 send_recv_timeout_seconds: Optional[pulumi.Input[int]] = None):
-        """
-        Settings that apply to all backend pools.
-        :param pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']] enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
-        :param pulumi.Input[int] send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-        """
-        if enforce_certificate_name_check is None:
-            enforce_certificate_name_check = 'Enabled'
-        if enforce_certificate_name_check is not None:
-            pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
-        if send_recv_timeout_seconds is not None:
-            pulumi.set(__self__, "send_recv_timeout_seconds", send_recv_timeout_seconds)
-
-    @property
-    @pulumi.getter(name="enforceCertificateNameCheck")
-    def enforce_certificate_name_check(self) -> Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]]:
-        """
-        Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
-        """
-        return pulumi.get(self, "enforce_certificate_name_check")
-
-    @enforce_certificate_name_check.setter
-    def enforce_certificate_name_check(self, value: Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]]):
-        pulumi.set(self, "enforce_certificate_name_check", value)
-
-    @property
-    @pulumi.getter(name="sendRecvTimeoutSeconds")
-    def send_recv_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
-        """
-        return pulumi.get(self, "send_recv_timeout_seconds")
-
-    @send_recv_timeout_seconds.setter
-    def send_recv_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "send_recv_timeout_seconds", value)
 
 
 @pulumi.input_type
@@ -552,6 +552,30 @@ class ForwardingConfigurationArgs:
 
 
 @pulumi.input_type
+class FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Defines the Web Application Firewall policy for each host (if applicable)
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
 class FrontendEndpointArgs:
     def __init__(__self__, *,
                  host_name: Optional[pulumi.Input[str]] = None,
@@ -653,30 +677,6 @@ class FrontendEndpointArgs:
     @web_application_firewall_policy_link.setter
     def web_application_firewall_policy_link(self, value: Optional[pulumi.Input['FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs']]):
         pulumi.set(self, "web_application_firewall_policy_link", value)
-
-
-@pulumi.input_type
-class FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Defines the Web Application Firewall policy for each host (if applicable)
-        :param pulumi.Input[str] id: Resource ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

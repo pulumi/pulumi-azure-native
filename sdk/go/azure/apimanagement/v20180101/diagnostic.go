@@ -121,21 +121,9 @@ func GetDiagnostic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Diagnostic resources.
 type diagnosticState struct {
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled *bool `pulumi:"enabled"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type DiagnosticState struct {
-	// Indicates whether a diagnostic should receive data or not.
-	Enabled pulumi.BoolPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DiagnosticState) ElementType() reflect.Type {
@@ -188,9 +176,7 @@ func (i *Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) Diagnost
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticOutput)
 }
 
-type DiagnosticOutput struct {
-	*pulumi.OutputState
-}
+type DiagnosticOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Diagnostic)(nil))

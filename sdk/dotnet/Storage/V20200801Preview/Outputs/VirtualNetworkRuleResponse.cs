@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20200801Preview.Outputs
 {
 
+    /// <summary>
+    /// Virtual Network rule.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkRuleResponse
     {

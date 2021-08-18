@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210601.Outputs
 {
 
+    /// <summary>
+    /// NSX DHCP Server
+    /// </summary>
     [OutputType]
     public sealed class WorkloadNetworkDhcpServerResponse
     {

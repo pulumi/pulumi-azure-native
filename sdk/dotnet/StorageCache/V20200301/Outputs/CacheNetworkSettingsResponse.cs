@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Cache network settings.
+    /// </summary>
     [OutputType]
     public sealed class CacheNetworkSettingsResponse
     {

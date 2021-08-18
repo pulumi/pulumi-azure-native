@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Container for environment specification versions.
+    /// </summary>
     [OutputType]
     public sealed class EnvironmentContainerResponse
     {

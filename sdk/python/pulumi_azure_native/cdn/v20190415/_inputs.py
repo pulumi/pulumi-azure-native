@@ -14,7 +14,6 @@ __all__ = [
     'CacheKeyQueryStringActionParametersArgs',
     'CookiesMatchConditionParametersArgs',
     'DeepCreatedOriginArgs',
-    'DeliveryRuleArgs',
     'DeliveryRuleCacheExpirationActionArgs',
     'DeliveryRuleCacheKeyQueryStringActionArgs',
     'DeliveryRuleCookiesConditionArgs',
@@ -33,6 +32,7 @@ __all__ = [
     'DeliveryRuleUrlFileExtensionConditionArgs',
     'DeliveryRuleUrlFileNameConditionArgs',
     'DeliveryRuleUrlPathConditionArgs',
+    'DeliveryRuleArgs',
     'EndpointPropertiesUpdateParametersDeliveryPolicyArgs',
     'GeoFilterArgs',
     'HeaderActionParametersArgs',
@@ -50,10 +50,10 @@ __all__ = [
     'UrlFileExtensionMatchConditionParametersArgs',
     'UrlFileNameMatchConditionParametersArgs',
     'UrlPathMatchConditionParametersArgs',
-    'UrlRedirectActionArgs',
     'UrlRedirectActionParametersArgs',
-    'UrlRewriteActionArgs',
+    'UrlRedirectActionArgs',
     'UrlRewriteActionParametersArgs',
+    'UrlRewriteActionArgs',
 ]
 
 @pulumi.input_type
@@ -337,76 +337,6 @@ class DeepCreatedOriginArgs:
     @https_port.setter
     def https_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "https_port", value)
-
-
-@pulumi.input_type
-class DeliveryRuleArgs:
-    def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]],
-                 order: pulumi.Input[int],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        A rule that specifies a set of actions and conditions
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
-        :param pulumi.Input[str] name: Name of the rule
-        """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "order", order)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]]:
-        """
-        A list of actions that are executed when all the conditions of a rule are satisfied.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]]):
-        pulumi.set(self, "actions", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[int]:
-        """
-        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[int]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
-        """
-        A list of conditions that must be matched for the actions to be executed
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
-        pulumi.set(self, "conditions", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the rule
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -1127,6 +1057,76 @@ class DeliveryRuleUrlPathConditionArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input['UrlPathMatchConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class DeliveryRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]],
+                 order: pulumi.Input[int],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        A rule that specifies a set of actions and conditions
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
+        :param pulumi.Input[str] name: Name of the rule
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "order", order)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]]:
+        """
+        A list of actions that are executed when all the conditions of a rule are satisfied.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCacheExpirationActionArgs', 'DeliveryRuleCacheKeyQueryStringActionArgs', 'DeliveryRuleRequestHeaderActionArgs', 'DeliveryRuleResponseHeaderActionArgs', 'UrlRedirectActionArgs', 'UrlRewriteActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+        """
+        A list of conditions that must be matched for the actions to be executed
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleCookiesConditionArgs', 'DeliveryRuleHttpVersionConditionArgs', 'DeliveryRuleIsDeviceConditionArgs', 'DeliveryRulePostArgsConditionArgs', 'DeliveryRuleQueryStringConditionArgs', 'DeliveryRuleRemoteAddressConditionArgs', 'DeliveryRuleRequestBodyConditionArgs', 'DeliveryRuleRequestHeaderConditionArgs', 'DeliveryRuleRequestMethodConditionArgs', 'DeliveryRuleRequestSchemeConditionArgs', 'DeliveryRuleRequestUriConditionArgs', 'DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlFileNameConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -2361,46 +2361,6 @@ class UrlPathMatchConditionParametersArgs:
 
 
 @pulumi.input_type
-class UrlRedirectActionArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 parameters: pulumi.Input['UrlRedirectActionParametersArgs']):
-        """
-        Defines the url redirect action for the delivery rule.
-        :param pulumi.Input[str] name: The name of the action for the delivery rule.
-               Expected value is 'UrlRedirect'.
-        :param pulumi.Input['UrlRedirectActionParametersArgs'] parameters: Defines the parameters for the action.
-        """
-        pulumi.set(__self__, "name", 'UrlRedirect')
-        pulumi.set(__self__, "parameters", parameters)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the action for the delivery rule.
-        Expected value is 'UrlRedirect'.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def parameters(self) -> pulumi.Input['UrlRedirectActionParametersArgs']:
-        """
-        Defines the parameters for the action.
-        """
-        return pulumi.get(self, "parameters")
-
-    @parameters.setter
-    def parameters(self, value: pulumi.Input['UrlRedirectActionParametersArgs']):
-        pulumi.set(self, "parameters", value)
-
-
-@pulumi.input_type
 class UrlRedirectActionParametersArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
@@ -2515,17 +2475,17 @@ class UrlRedirectActionParametersArgs:
 
 
 @pulumi.input_type
-class UrlRewriteActionArgs:
+class UrlRedirectActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 parameters: pulumi.Input['UrlRewriteActionParametersArgs']):
+                 parameters: pulumi.Input['UrlRedirectActionParametersArgs']):
         """
-        Defines the url rewrite action for the delivery rule.
+        Defines the url redirect action for the delivery rule.
         :param pulumi.Input[str] name: The name of the action for the delivery rule.
-               Expected value is 'UrlRewrite'.
-        :param pulumi.Input['UrlRewriteActionParametersArgs'] parameters: Defines the parameters for the action.
+               Expected value is 'UrlRedirect'.
+        :param pulumi.Input['UrlRedirectActionParametersArgs'] parameters: Defines the parameters for the action.
         """
-        pulumi.set(__self__, "name", 'UrlRewrite')
+        pulumi.set(__self__, "name", 'UrlRedirect')
         pulumi.set(__self__, "parameters", parameters)
 
     @property
@@ -2533,7 +2493,7 @@ class UrlRewriteActionArgs:
     def name(self) -> pulumi.Input[str]:
         """
         The name of the action for the delivery rule.
-        Expected value is 'UrlRewrite'.
+        Expected value is 'UrlRedirect'.
         """
         return pulumi.get(self, "name")
 
@@ -2543,14 +2503,14 @@ class UrlRewriteActionArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input['UrlRewriteActionParametersArgs']:
+    def parameters(self) -> pulumi.Input['UrlRedirectActionParametersArgs']:
         """
         Defines the parameters for the action.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input['UrlRewriteActionParametersArgs']):
+    def parameters(self, value: pulumi.Input['UrlRedirectActionParametersArgs']):
         pulumi.set(self, "parameters", value)
 
 
@@ -2617,5 +2577,45 @@ class UrlRewriteActionParametersArgs:
     @preserve_unmatched_path.setter
     def preserve_unmatched_path(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preserve_unmatched_path", value)
+
+
+@pulumi.input_type
+class UrlRewriteActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parameters: pulumi.Input['UrlRewriteActionParametersArgs']):
+        """
+        Defines the url rewrite action for the delivery rule.
+        :param pulumi.Input[str] name: The name of the action for the delivery rule.
+               Expected value is 'UrlRewrite'.
+        :param pulumi.Input['UrlRewriteActionParametersArgs'] parameters: Defines the parameters for the action.
+        """
+        pulumi.set(__self__, "name", 'UrlRewrite')
+        pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the action for the delivery rule.
+        Expected value is 'UrlRewrite'.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input['UrlRewriteActionParametersArgs']:
+        """
+        Defines the parameters for the action.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input['UrlRewriteActionParametersArgs']):
+        pulumi.set(self, "parameters", value)
 
 

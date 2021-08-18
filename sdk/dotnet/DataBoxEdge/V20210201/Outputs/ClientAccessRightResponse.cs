@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201.Outputs
 {
 
+    /// <summary>
+    /// The mapping between a particular client IP and the type of access client has on the NFS share.
+    /// </summary>
     [OutputType]
     public sealed class ClientAccessRightResponse
     {

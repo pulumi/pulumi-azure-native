@@ -69,21 +69,9 @@ func GetSubscriptionAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubscriptionAlias resources.
 type subscriptionAliasState struct {
-	// Alias ID.
-	Name *string `pulumi:"name"`
-	// Put Alias response properties.
-	Properties *PutAliasResponsePropertiesResponse `pulumi:"properties"`
-	// Resource type, Microsoft.Subscription/aliases.
-	Type *string `pulumi:"type"`
 }
 
 type SubscriptionAliasState struct {
-	// Alias ID.
-	Name pulumi.StringPtrInput
-	// Put Alias response properties.
-	Properties PutAliasResponsePropertiesResponsePtrInput
-	// Resource type, Microsoft.Subscription/aliases.
-	Type pulumi.StringPtrInput
 }
 
 func (SubscriptionAliasState) ElementType() reflect.Type {
@@ -128,9 +116,7 @@ func (i *SubscriptionAlias) ToSubscriptionAliasOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionAliasOutput)
 }
 
-type SubscriptionAliasOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionAliasOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionAlias)(nil))

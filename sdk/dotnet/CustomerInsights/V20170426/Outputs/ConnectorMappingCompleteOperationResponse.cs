@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.V20170426.Outputs
 {
 
+    /// <summary>
+    /// The complete operation.
+    /// </summary>
     [OutputType]
     public sealed class ConnectorMappingCompleteOperationResponse
     {

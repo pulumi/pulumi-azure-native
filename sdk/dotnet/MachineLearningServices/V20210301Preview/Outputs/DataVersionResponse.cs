@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Data asset version details.
+    /// </summary>
     [OutputType]
     public sealed class DataVersionResponse
     {

@@ -209,7 +209,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190401
         /// The properties of a task step.
         /// </summary>
         [Input("step", required: true)]
-        public Input<object> Step { get; set; } = null!;
+        public object Step { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

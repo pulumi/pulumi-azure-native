@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180301.Outputs
 {
 
+    /// <summary>
+    /// Min and max value of a status code range.
+    /// </summary>
     [OutputType]
     public sealed class MonitorConfigResponseExpectedStatusCodeRanges
     {

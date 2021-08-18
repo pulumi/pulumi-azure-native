@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Optimization objective.
+    /// </summary>
     [OutputType]
     public sealed class ObjectiveResponse
     {

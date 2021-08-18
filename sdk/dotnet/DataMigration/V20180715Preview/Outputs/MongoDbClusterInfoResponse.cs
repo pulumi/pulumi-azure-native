@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a MongoDB data source
+    /// </summary>
     [OutputType]
     public sealed class MongoDbClusterInfoResponse
     {

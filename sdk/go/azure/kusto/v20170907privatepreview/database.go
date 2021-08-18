@@ -139,45 +139,9 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
-	// An ETag of the resource created.
-	Etag *string `pulumi:"etag"`
-	// The number of days of data that should be kept in cache for fast queries.
-	HotCachePeriodInDays *int `pulumi:"hotCachePeriodInDays"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The number of days data should be kept before it stops being accessible to queries.
-	SoftDeletePeriodInDays *int `pulumi:"softDeletePeriodInDays"`
-	// The statistics of the database.
-	Statistics *DatabaseStatisticsResponse `pulumi:"statistics"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DatabaseState struct {
-	// An ETag of the resource created.
-	Etag pulumi.StringPtrInput
-	// The number of days of data that should be kept in cache for fast queries.
-	HotCachePeriodInDays pulumi.IntPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The number of days data should be kept before it stops being accessible to queries.
-	SoftDeletePeriodInDays pulumi.IntPtrInput
-	// The statistics of the database.
-	Statistics DatabaseStatisticsResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -242,9 +206,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
 }
 
-type DatabaseOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Database)(nil))

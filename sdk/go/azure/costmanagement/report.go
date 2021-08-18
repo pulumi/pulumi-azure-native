@@ -79,37 +79,9 @@ func GetReport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Report resources.
 type reportState struct {
-	// Has definition for the report.
-	Definition *ReportDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the report.
-	DeliveryInfo *ReportDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Has schedule information for the report.
-	Schedule *ReportScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ReportState struct {
-	// Has definition for the report.
-	Definition ReportDefinitionResponsePtrInput
-	// Has delivery information for the report.
-	DeliveryInfo ReportDeliveryInfoResponsePtrInput
-	// The format of the report being delivered.
-	Format pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Has schedule information for the report.
-	Schedule ReportScheduleResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ReportState) ElementType() reflect.Type {
@@ -166,9 +138,7 @@ func (i *Report) ToReportOutputWithContext(ctx context.Context) ReportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportOutput)
 }
 
-type ReportOutput struct {
-	*pulumi.OutputState
-}
+type ReportOutput struct{ *pulumi.OutputState }
 
 func (ReportOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Report)(nil))

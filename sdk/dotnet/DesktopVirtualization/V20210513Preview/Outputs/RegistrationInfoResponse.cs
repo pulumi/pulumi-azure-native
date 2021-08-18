@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210513Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents a RegistrationInfo definition.
+    /// </summary>
     [OutputType]
     public sealed class RegistrationInfoResponse
     {

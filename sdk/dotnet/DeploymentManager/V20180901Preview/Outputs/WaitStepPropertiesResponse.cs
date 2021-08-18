@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the properties of a Wait step.
+    /// </summary>
     [OutputType]
     public sealed class WaitStepPropertiesResponse
     {

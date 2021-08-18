@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
+    /// <summary>
+    /// Additional information on the backed up item.
+    /// </summary>
     [OutputType]
     public sealed class MabFileFolderProtectedItemExtendedInfoResponse
     {

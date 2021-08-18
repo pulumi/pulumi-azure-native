@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180401.Outputs
 {
 
+    /// <summary>
+    /// List of properties of the device.
+    /// </summary>
     [OutputType]
     public sealed class DevicePropertiesResponse
     {

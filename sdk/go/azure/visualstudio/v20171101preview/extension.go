@@ -82,33 +82,9 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The extension plan that was purchased.
-	Plan *ExtensionResourcePlanResponse `pulumi:"plan"`
-	// Resource properties.
-	Properties map[string]string `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ExtensionState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The extension plan that was purchased.
-	Plan ExtensionResourcePlanResponsePtrInput
-	// Resource properties.
-	Properties pulumi.StringMapInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {
@@ -173,9 +149,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
-type ExtensionOutput struct {
-	*pulumi.OutputState
-}
+type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Extension)(nil))

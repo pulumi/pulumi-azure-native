@@ -83,45 +83,9 @@ func GetDicomService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DicomService resources.
 type dicomServiceState struct {
-	// Dicom Service authentication configuration.
-	AuthenticationConfiguration *DicomServiceAuthenticationConfigurationResponse `pulumi:"authenticationConfiguration"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The url of the Dicom Services.
-	ServiceUrl *string `pulumi:"serviceUrl"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DicomServiceState struct {
-	// Dicom Service authentication configuration.
-	AuthenticationConfiguration DicomServiceAuthenticationConfigurationResponsePtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// The url of the Dicom Services.
-	ServiceUrl pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DicomServiceState) ElementType() reflect.Type {
@@ -182,9 +146,7 @@ func (i *DicomService) ToDicomServiceOutputWithContext(ctx context.Context) Dico
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceOutput)
 }
 
-type DicomServiceOutput struct {
-	*pulumi.OutputState
-}
+type DicomServiceOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DicomService)(nil))

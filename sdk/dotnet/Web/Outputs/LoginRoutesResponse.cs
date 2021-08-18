@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The routes that specify the endpoints used for login and logout requests.
+    /// </summary>
     [OutputType]
     public sealed class LoginRoutesResponse
     {

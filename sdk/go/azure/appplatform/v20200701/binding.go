@@ -91,21 +91,9 @@ func GetBinding(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Binding resources.
 type bindingState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Properties of the Binding resource
-	Properties *BindingResourcePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type BindingState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Properties of the Binding resource
-	Properties BindingResourcePropertiesResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (BindingState) ElementType() reflect.Type {
@@ -162,9 +150,7 @@ func (i *Binding) ToBindingOutputWithContext(ctx context.Context) BindingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BindingOutput)
 }
 
-type BindingOutput struct {
-	*pulumi.OutputState
-}
+type BindingOutput struct{ *pulumi.OutputState }
 
 func (BindingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Binding)(nil))

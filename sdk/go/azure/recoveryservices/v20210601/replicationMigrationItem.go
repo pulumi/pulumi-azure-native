@@ -111,25 +111,9 @@ func GetReplicationMigrationItem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationMigrationItem resources.
 type replicationMigrationItemState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// The migration item properties.
-	Properties *MigrationItemPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationMigrationItemState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// The migration item properties.
-	Properties MigrationItemPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationMigrationItemState) ElementType() reflect.Type {
@@ -190,9 +174,7 @@ func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationMigrationItemOutput)
 }
 
-type ReplicationMigrationItemOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationMigrationItemOutput struct{ *pulumi.OutputState }
 
 func (ReplicationMigrationItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationMigrationItem)(nil))

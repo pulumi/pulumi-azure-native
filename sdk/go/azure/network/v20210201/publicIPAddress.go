@@ -325,105 +325,9 @@ func GetPublicIPAddress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicIPAddress resources.
 type publicIPAddressState struct {
-	// The DDoS protection custom policy associated with the public IP address.
-	DdosSettings *DdosSettingsResponse `pulumi:"ddosSettings"`
-	// Specify what happens to the public IP address when the VM using it is deleted
-	DeleteOption *string `pulumi:"deleteOption"`
-	// The FQDN of the DNS record associated with the public IP address.
-	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The extended location of the public ip address.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The idle timeout of the public IP address.
-	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// The IP address associated with the public IP address resource.
-	IpAddress *string `pulumi:"ipAddress"`
-	// The IP configuration associated with the public IP address.
-	IpConfiguration *IPConfigurationResponse `pulumi:"ipConfiguration"`
-	// The list of tags associated with the public IP address.
-	IpTags []IpTagResponse `pulumi:"ipTags"`
-	// The linked public IP address of the public IP address resource.
-	LinkedPublicIPAddress *PublicIPAddressResponse `pulumi:"linkedPublicIPAddress"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Migration phase of Public IP Address.
-	MigrationPhase *string `pulumi:"migrationPhase"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The NatGateway for the Public IP address.
-	NatGateway *NatGatewayResponse `pulumi:"natGateway"`
-	// The provisioning state of the public IP address resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The public IP address version.
-	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
-	// The public IP address allocation method.
-	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
-	// The Public IP Prefix this Public IP Address should be allocated from.
-	PublicIPPrefix *SubResourceResponse `pulumi:"publicIPPrefix"`
-	// The resource GUID property of the public IP address resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress *PublicIPAddressResponse `pulumi:"servicePublicIPAddress"`
-	// The public IP address SKU.
-	Sku *PublicIPAddressSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones []string `pulumi:"zones"`
 }
 
 type PublicIPAddressState struct {
-	// The DDoS protection custom policy associated with the public IP address.
-	DdosSettings DdosSettingsResponsePtrInput
-	// Specify what happens to the public IP address when the VM using it is deleted
-	DeleteOption pulumi.StringPtrInput
-	// The FQDN of the DNS record associated with the public IP address.
-	DnsSettings PublicIPAddressDnsSettingsResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The extended location of the public ip address.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// The idle timeout of the public IP address.
-	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// The IP address associated with the public IP address resource.
-	IpAddress pulumi.StringPtrInput
-	// The IP configuration associated with the public IP address.
-	IpConfiguration IPConfigurationResponsePtrInput
-	// The list of tags associated with the public IP address.
-	IpTags IpTagResponseArrayInput
-	// The linked public IP address of the public IP address resource.
-	LinkedPublicIPAddress PublicIPAddressResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Migration phase of Public IP Address.
-	MigrationPhase pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The NatGateway for the Public IP address.
-	NatGateway NatGatewayResponsePtrInput
-	// The provisioning state of the public IP address resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The public IP address version.
-	PublicIPAddressVersion pulumi.StringPtrInput
-	// The public IP address allocation method.
-	PublicIPAllocationMethod pulumi.StringPtrInput
-	// The Public IP Prefix this Public IP Address should be allocated from.
-	PublicIPPrefix SubResourceResponsePtrInput
-	// The resource GUID property of the public IP address resource.
-	ResourceGuid pulumi.StringPtrInput
-	// The service public IP address of the public IP address resource.
-	ServicePublicIPAddress PublicIPAddressResponsePtrInput
-	// The public IP address SKU.
-	Sku PublicIPAddressSkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// A list of availability zones denoting the IP allocated for the resource needs to come from.
-	Zones pulumi.StringArrayInput
 }
 
 func (PublicIPAddressState) ElementType() reflect.Type {
@@ -544,9 +448,7 @@ func (i *PublicIPAddress) ToPublicIPAddressOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PublicIPAddressOutput)
 }
 
-type PublicIPAddressOutput struct {
-	*pulumi.OutputState
-}
+type PublicIPAddressOutput struct{ *pulumi.OutputState }
 
 func (PublicIPAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicIPAddress)(nil))

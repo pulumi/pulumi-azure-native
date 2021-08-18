@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Rule condition of type nat.
+    /// </summary>
     [OutputType]
     public sealed class NatRuleConditionResponse
     {

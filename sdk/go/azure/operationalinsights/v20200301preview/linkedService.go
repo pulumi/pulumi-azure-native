@@ -94,33 +94,9 @@ func GetLinkedService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedService resources.
 type linkedServiceState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioning state of the linked service.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId *string `pulumi:"resourceId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-	WriteAccessResourceId *string `pulumi:"writeAccessResourceId"`
 }
 
 type LinkedServiceState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioning state of the linked service.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
-	ResourceId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
-	WriteAccessResourceId pulumi.StringPtrInput
 }
 
 func (LinkedServiceState) ElementType() reflect.Type {
@@ -185,9 +161,7 @@ func (i *LinkedService) ToLinkedServiceOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceOutput)
 }
 
-type LinkedServiceOutput struct {
-	*pulumi.OutputState
-}
+type LinkedServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkedService)(nil))

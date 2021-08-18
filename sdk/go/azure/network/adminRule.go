@@ -86,29 +86,9 @@ func GetAdminRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdminRule resources.
 type adminRuleState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Whether the rule is custom or default.
-	Kind *string `pulumi:"kind"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AdminRuleState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Whether the rule is custom or default.
-	Kind pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AdminRuleState) ElementType() reflect.Type {
@@ -169,9 +149,7 @@ func (i *AdminRule) ToAdminRuleOutputWithContext(ctx context.Context) AdminRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(AdminRuleOutput)
 }
 
-type AdminRuleOutput struct {
-	*pulumi.OutputState
-}
+type AdminRuleOutput struct{ *pulumi.OutputState }
 
 func (AdminRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdminRule)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210115.Outputs
 {
 
+    /// <summary>
+    /// Virtual application in an app.
+    /// </summary>
     [OutputType]
     public sealed class VirtualApplicationResponse
     {

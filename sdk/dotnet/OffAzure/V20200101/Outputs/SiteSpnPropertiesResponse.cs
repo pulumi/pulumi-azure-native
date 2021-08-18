@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OffAzure.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Class for site properties.
+    /// </summary>
     [OutputType]
     public sealed class SiteSpnPropertiesResponse
     {

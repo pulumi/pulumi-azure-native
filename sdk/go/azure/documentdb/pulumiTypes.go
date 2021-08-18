@@ -103,7 +103,7 @@ func (o ApiPropertiesOutput) ToApiPropertiesPtrOutput() ApiPropertiesPtrOutput {
 }
 
 func (o ApiPropertiesOutput) ToApiPropertiesPtrOutputWithContext(ctx context.Context) ApiPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiProperties) *ApiProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiProperties) *ApiProperties {
 		return &v
 	}).(ApiPropertiesPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o ApiPropertiesPtrOutput) ToApiPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o ApiPropertiesPtrOutput) Elem() ApiPropertiesOutput {
-	return o.ApplyT(func(v *ApiProperties) ApiProperties { return *v }).(ApiPropertiesOutput)
+	return o.ApplyT(func(v *ApiProperties) ApiProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApiProperties
+		return ret
+	}).(ApiPropertiesOutput)
 }
 
 // Describes the ServerVersion of an a MongoDB account.
@@ -234,7 +240,7 @@ func (o ApiPropertiesResponseOutput) ToApiPropertiesResponsePtrOutput() ApiPrope
 }
 
 func (o ApiPropertiesResponseOutput) ToApiPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApiPropertiesResponse) *ApiPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPropertiesResponse) *ApiPropertiesResponse {
 		return &v
 	}).(ApiPropertiesResponsePtrOutput)
 }
@@ -259,7 +265,13 @@ func (o ApiPropertiesResponsePtrOutput) ToApiPropertiesResponsePtrOutputWithCont
 }
 
 func (o ApiPropertiesResponsePtrOutput) Elem() ApiPropertiesResponseOutput {
-	return o.ApplyT(func(v *ApiPropertiesResponse) ApiPropertiesResponse { return *v }).(ApiPropertiesResponseOutput)
+	return o.ApplyT(func(v *ApiPropertiesResponse) ApiPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPropertiesResponse
+		return ret
+	}).(ApiPropertiesResponseOutput)
 }
 
 // Describes the ServerVersion of an a MongoDB account.
@@ -365,7 +377,7 @@ func (o AutoscaleSettingsOutput) ToAutoscaleSettingsPtrOutput() AutoscaleSetting
 }
 
 func (o AutoscaleSettingsOutput) ToAutoscaleSettingsPtrOutputWithContext(ctx context.Context) AutoscaleSettingsPtrOutput {
-	return o.ApplyT(func(v AutoscaleSettings) *AutoscaleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettings) *AutoscaleSettings {
 		return &v
 	}).(AutoscaleSettingsPtrOutput)
 }
@@ -390,7 +402,13 @@ func (o AutoscaleSettingsPtrOutput) ToAutoscaleSettingsPtrOutputWithContext(ctx 
 }
 
 func (o AutoscaleSettingsPtrOutput) Elem() AutoscaleSettingsOutput {
-	return o.ApplyT(func(v *AutoscaleSettings) AutoscaleSettings { return *v }).(AutoscaleSettingsOutput)
+	return o.ApplyT(func(v *AutoscaleSettings) AutoscaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettings
+		return ret
+	}).(AutoscaleSettingsOutput)
 }
 
 // Represents maximum throughput, the resource can scale up to.
@@ -496,7 +514,7 @@ func (o AutoscaleSettingsResponseOutput) ToAutoscaleSettingsResponsePtrOutput() 
 }
 
 func (o AutoscaleSettingsResponseOutput) ToAutoscaleSettingsResponsePtrOutputWithContext(ctx context.Context) AutoscaleSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AutoscaleSettingsResponse) *AutoscaleSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoscaleSettingsResponse) *AutoscaleSettingsResponse {
 		return &v
 	}).(AutoscaleSettingsResponsePtrOutput)
 }
@@ -521,7 +539,13 @@ func (o AutoscaleSettingsResponsePtrOutput) ToAutoscaleSettingsResponsePtrOutput
 }
 
 func (o AutoscaleSettingsResponsePtrOutput) Elem() AutoscaleSettingsResponseOutput {
-	return o.ApplyT(func(v *AutoscaleSettingsResponse) AutoscaleSettingsResponse { return *v }).(AutoscaleSettingsResponseOutput)
+	return o.ApplyT(func(v *AutoscaleSettingsResponse) AutoscaleSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoscaleSettingsResponse
+		return ret
+	}).(AutoscaleSettingsResponseOutput)
 }
 
 // Represents maximum throughput, the resource can scale up to.
@@ -831,7 +855,7 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspace
 }
 
 func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseOptions) *CassandraKeyspaceGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraKeyspaceGetPropertiesResponseOptions) *CassandraKeyspaceGetPropertiesResponseOptions {
 		return &v
 	}).(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput)
 }
@@ -864,7 +888,11 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) ToCassandraKeysp
 
 func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Elem() CassandraKeyspaceGetPropertiesResponseOptionsOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseOptions) CassandraKeyspaceGetPropertiesResponseOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CassandraKeyspaceGetPropertiesResponseOptions
+		return ret
 	}).(CassandraKeyspaceGetPropertiesResponseOptionsOutput)
 }
 
@@ -993,7 +1021,7 @@ func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspac
 }
 
 func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) *CassandraKeyspaceGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraKeyspaceGetPropertiesResponseResource) *CassandraKeyspaceGetPropertiesResponseResource {
 		return &v
 	}).(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput)
 }
@@ -1034,7 +1062,11 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) ToCassandraKeys
 
 func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Elem() CassandraKeyspaceGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) CassandraKeyspaceGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CassandraKeyspaceGetPropertiesResponseResource
+		return ret
 	}).(CassandraKeyspaceGetPropertiesResponseResourceOutput)
 }
 
@@ -1174,7 +1206,7 @@ func (o CassandraKeyspaceResourceOutput) ToCassandraKeyspaceResourcePtrOutput() 
 }
 
 func (o CassandraKeyspaceResourceOutput) ToCassandraKeyspaceResourcePtrOutputWithContext(ctx context.Context) CassandraKeyspaceResourcePtrOutput {
-	return o.ApplyT(func(v CassandraKeyspaceResource) *CassandraKeyspaceResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraKeyspaceResource) *CassandraKeyspaceResource {
 		return &v
 	}).(CassandraKeyspaceResourcePtrOutput)
 }
@@ -1199,7 +1231,13 @@ func (o CassandraKeyspaceResourcePtrOutput) ToCassandraKeyspaceResourcePtrOutput
 }
 
 func (o CassandraKeyspaceResourcePtrOutput) Elem() CassandraKeyspaceResourceOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceResource) CassandraKeyspaceResource { return *v }).(CassandraKeyspaceResourceOutput)
+	return o.ApplyT(func(v *CassandraKeyspaceResource) CassandraKeyspaceResource {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraKeyspaceResource
+		return ret
+	}).(CassandraKeyspaceResourceOutput)
 }
 
 // Name of the Cosmos DB Cassandra keyspace
@@ -1516,7 +1554,7 @@ func (o CassandraSchemaOutput) ToCassandraSchemaPtrOutput() CassandraSchemaPtrOu
 }
 
 func (o CassandraSchemaOutput) ToCassandraSchemaPtrOutputWithContext(ctx context.Context) CassandraSchemaPtrOutput {
-	return o.ApplyT(func(v CassandraSchema) *CassandraSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraSchema) *CassandraSchema {
 		return &v
 	}).(CassandraSchemaPtrOutput)
 }
@@ -1551,7 +1589,13 @@ func (o CassandraSchemaPtrOutput) ToCassandraSchemaPtrOutputWithContext(ctx cont
 }
 
 func (o CassandraSchemaPtrOutput) Elem() CassandraSchemaOutput {
-	return o.ApplyT(func(v *CassandraSchema) CassandraSchema { return *v }).(CassandraSchemaOutput)
+	return o.ApplyT(func(v *CassandraSchema) CassandraSchema {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraSchema
+		return ret
+	}).(CassandraSchemaOutput)
 }
 
 // List of cluster key.
@@ -1688,7 +1732,7 @@ func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponsePtrOutput() Cass
 }
 
 func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponsePtrOutputWithContext(ctx context.Context) CassandraSchemaResponsePtrOutput {
-	return o.ApplyT(func(v CassandraSchemaResponse) *CassandraSchemaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraSchemaResponse) *CassandraSchemaResponse {
 		return &v
 	}).(CassandraSchemaResponsePtrOutput)
 }
@@ -1723,7 +1767,13 @@ func (o CassandraSchemaResponsePtrOutput) ToCassandraSchemaResponsePtrOutputWith
 }
 
 func (o CassandraSchemaResponsePtrOutput) Elem() CassandraSchemaResponseOutput {
-	return o.ApplyT(func(v *CassandraSchemaResponse) CassandraSchemaResponse { return *v }).(CassandraSchemaResponseOutput)
+	return o.ApplyT(func(v *CassandraSchemaResponse) CassandraSchemaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraSchemaResponse
+		return ret
+	}).(CassandraSchemaResponseOutput)
 }
 
 // List of cluster key.
@@ -1853,7 +1903,7 @@ func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPro
 }
 
 func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseOptions) *CassandraTableGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTableGetPropertiesResponseOptions) *CassandraTableGetPropertiesResponseOptions {
 		return &v
 	}).(CassandraTableGetPropertiesResponseOptionsPtrOutput)
 }
@@ -1886,7 +1936,11 @@ func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) ToCassandraTableGet
 
 func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Elem() CassandraTableGetPropertiesResponseOptionsOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseOptions) CassandraTableGetPropertiesResponseOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CassandraTableGetPropertiesResponseOptions
+		return ret
 	}).(CassandraTableGetPropertiesResponseOptionsOutput)
 }
 
@@ -2027,7 +2081,7 @@ func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPr
 }
 
 func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *CassandraTableGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTableGetPropertiesResponseResource) *CassandraTableGetPropertiesResponseResource {
 		return &v
 	}).(CassandraTableGetPropertiesResponseResourcePtrOutput)
 }
@@ -2083,7 +2137,11 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) ToCassandraTableGe
 
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Elem() CassandraTableGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) CassandraTableGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CassandraTableGetPropertiesResponseResource
+		return ret
 	}).(CassandraTableGetPropertiesResponseResourceOutput)
 }
 
@@ -2265,7 +2323,7 @@ func (o CassandraTableResourceOutput) ToCassandraTableResourcePtrOutput() Cassan
 }
 
 func (o CassandraTableResourceOutput) ToCassandraTableResourcePtrOutputWithContext(ctx context.Context) CassandraTableResourcePtrOutput {
-	return o.ApplyT(func(v CassandraTableResource) *CassandraTableResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CassandraTableResource) *CassandraTableResource {
 		return &v
 	}).(CassandraTableResourcePtrOutput)
 }
@@ -2305,7 +2363,13 @@ func (o CassandraTableResourcePtrOutput) ToCassandraTableResourcePtrOutputWithCo
 }
 
 func (o CassandraTableResourcePtrOutput) Elem() CassandraTableResourceOutput {
-	return o.ApplyT(func(v *CassandraTableResource) CassandraTableResource { return *v }).(CassandraTableResourceOutput)
+	return o.ApplyT(func(v *CassandraTableResource) CassandraTableResource {
+		if v != nil {
+			return *v
+		}
+		var ret CassandraTableResource
+		return ret
+	}).(CassandraTableResourceOutput)
 }
 
 // Analytical TTL.
@@ -2904,7 +2968,7 @@ func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutput() 
 }
 
 func (o ClusterResourcePropertiesOutput) ToClusterResourcePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v ClusterResourceProperties) *ClusterResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourceProperties) *ClusterResourceProperties {
 		return &v
 	}).(ClusterResourcePropertiesPtrOutput)
 }
@@ -2989,7 +3053,13 @@ func (o ClusterResourcePropertiesPtrOutput) ToClusterResourcePropertiesPtrOutput
 }
 
 func (o ClusterResourcePropertiesPtrOutput) Elem() ClusterResourcePropertiesOutput {
-	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties { return *v }).(ClusterResourcePropertiesOutput)
+	return o.ApplyT(func(v *ClusterResourceProperties) ClusterResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterResourceProperties
+		return ret
+	}).(ClusterResourcePropertiesOutput)
 }
 
 // Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
@@ -3266,7 +3336,7 @@ func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponseProper
 }
 
 func (o ClusterResourceResponsePropertiesOutput) ToClusterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ClusterResourceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ClusterResourceResponseProperties) *ClusterResourceResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterResourceResponseProperties) *ClusterResourceResponseProperties {
 		return &v
 	}).(ClusterResourceResponsePropertiesPtrOutput)
 }
@@ -3351,7 +3421,13 @@ func (o ClusterResourceResponsePropertiesPtrOutput) ToClusterResourceResponsePro
 }
 
 func (o ClusterResourceResponsePropertiesPtrOutput) Elem() ClusterResourceResponsePropertiesOutput {
-	return o.ApplyT(func(v *ClusterResourceResponseProperties) ClusterResourceResponseProperties { return *v }).(ClusterResourceResponsePropertiesOutput)
+	return o.ApplyT(func(v *ClusterResourceResponseProperties) ClusterResourceResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterResourceResponseProperties
+		return ret
+	}).(ClusterResourceResponsePropertiesOutput)
 }
 
 // Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
@@ -4018,7 +4094,7 @@ func (o ConflictResolutionPolicyOutput) ToConflictResolutionPolicyPtrOutput() Co
 }
 
 func (o ConflictResolutionPolicyOutput) ToConflictResolutionPolicyPtrOutputWithContext(ctx context.Context) ConflictResolutionPolicyPtrOutput {
-	return o.ApplyT(func(v ConflictResolutionPolicy) *ConflictResolutionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConflictResolutionPolicy) *ConflictResolutionPolicy {
 		return &v
 	}).(ConflictResolutionPolicyPtrOutput)
 }
@@ -4053,7 +4129,13 @@ func (o ConflictResolutionPolicyPtrOutput) ToConflictResolutionPolicyPtrOutputWi
 }
 
 func (o ConflictResolutionPolicyPtrOutput) Elem() ConflictResolutionPolicyOutput {
-	return o.ApplyT(func(v *ConflictResolutionPolicy) ConflictResolutionPolicy { return *v }).(ConflictResolutionPolicyOutput)
+	return o.ApplyT(func(v *ConflictResolutionPolicy) ConflictResolutionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConflictResolutionPolicy
+		return ret
+	}).(ConflictResolutionPolicyOutput)
 }
 
 // The conflict resolution path in the case of LastWriterWins mode.
@@ -4190,7 +4272,7 @@ func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyRespon
 }
 
 func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyResponsePtrOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *ConflictResolutionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConflictResolutionPolicyResponse) *ConflictResolutionPolicyResponse {
 		return &v
 	}).(ConflictResolutionPolicyResponsePtrOutput)
 }
@@ -4225,7 +4307,13 @@ func (o ConflictResolutionPolicyResponsePtrOutput) ToConflictResolutionPolicyRes
 }
 
 func (o ConflictResolutionPolicyResponsePtrOutput) Elem() ConflictResolutionPolicyResponseOutput {
-	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) ConflictResolutionPolicyResponse { return *v }).(ConflictResolutionPolicyResponseOutput)
+	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) ConflictResolutionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConflictResolutionPolicyResponse
+		return ret
+	}).(ConflictResolutionPolicyResponseOutput)
 }
 
 // The conflict resolution path in the case of LastWriterWins mode.
@@ -4261,7 +4349,7 @@ func (o ConflictResolutionPolicyResponsePtrOutput) Mode() pulumi.StringPtrOutput
 // The consistency policy for the Cosmos DB database account.
 type ConsistencyPolicy struct {
 	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel string `pulumi:"defaultConsistencyLevel"`
+	DefaultConsistencyLevel DefaultConsistencyLevel `pulumi:"defaultConsistencyLevel"`
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -4282,7 +4370,7 @@ type ConsistencyPolicyInput interface {
 // The consistency policy for the Cosmos DB database account.
 type ConsistencyPolicyArgs struct {
 	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel DefaultConsistencyLevel `pulumi:"defaultConsistencyLevel"`
+	DefaultConsistencyLevel DefaultConsistencyLevelInput `pulumi:"defaultConsistencyLevel"`
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -4362,14 +4450,14 @@ func (o ConsistencyPolicyOutput) ToConsistencyPolicyPtrOutput() ConsistencyPolic
 }
 
 func (o ConsistencyPolicyOutput) ToConsistencyPolicyPtrOutputWithContext(ctx context.Context) ConsistencyPolicyPtrOutput {
-	return o.ApplyT(func(v ConsistencyPolicy) *ConsistencyPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsistencyPolicy) *ConsistencyPolicy {
 		return &v
 	}).(ConsistencyPolicyPtrOutput)
 }
 
 // The default consistency level and configuration settings of the Cosmos DB account.
-func (o ConsistencyPolicyOutput) DefaultConsistencyLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v ConsistencyPolicy) string { return v.DefaultConsistencyLevel }).(pulumi.StringOutput)
+func (o ConsistencyPolicyOutput) DefaultConsistencyLevel() DefaultConsistencyLevelOutput {
+	return o.ApplyT(func(v ConsistencyPolicy) DefaultConsistencyLevel { return v.DefaultConsistencyLevel }).(DefaultConsistencyLevelOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -4397,17 +4485,23 @@ func (o ConsistencyPolicyPtrOutput) ToConsistencyPolicyPtrOutputWithContext(ctx 
 }
 
 func (o ConsistencyPolicyPtrOutput) Elem() ConsistencyPolicyOutput {
-	return o.ApplyT(func(v *ConsistencyPolicy) ConsistencyPolicy { return *v }).(ConsistencyPolicyOutput)
+	return o.ApplyT(func(v *ConsistencyPolicy) ConsistencyPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConsistencyPolicy
+		return ret
+	}).(ConsistencyPolicyOutput)
 }
 
 // The default consistency level and configuration settings of the Cosmos DB account.
-func (o ConsistencyPolicyPtrOutput) DefaultConsistencyLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConsistencyPolicy) *string {
+func (o ConsistencyPolicyPtrOutput) DefaultConsistencyLevel() DefaultConsistencyLevelPtrOutput {
+	return o.ApplyT(func(v *ConsistencyPolicy) *DefaultConsistencyLevel {
 		if v == nil {
 			return nil
 		}
 		return &v.DefaultConsistencyLevel
-	}).(pulumi.StringPtrOutput)
+	}).(DefaultConsistencyLevelPtrOutput)
 }
 
 // When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -4534,7 +4628,7 @@ func (o ConsistencyPolicyResponseOutput) ToConsistencyPolicyResponsePtrOutput() 
 }
 
 func (o ConsistencyPolicyResponseOutput) ToConsistencyPolicyResponsePtrOutputWithContext(ctx context.Context) ConsistencyPolicyResponsePtrOutput {
-	return o.ApplyT(func(v ConsistencyPolicyResponse) *ConsistencyPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConsistencyPolicyResponse) *ConsistencyPolicyResponse {
 		return &v
 	}).(ConsistencyPolicyResponsePtrOutput)
 }
@@ -4569,7 +4663,13 @@ func (o ConsistencyPolicyResponsePtrOutput) ToConsistencyPolicyResponsePtrOutput
 }
 
 func (o ConsistencyPolicyResponsePtrOutput) Elem() ConsistencyPolicyResponseOutput {
-	return o.ApplyT(func(v *ConsistencyPolicyResponse) ConsistencyPolicyResponse { return *v }).(ConsistencyPolicyResponseOutput)
+	return o.ApplyT(func(v *ConsistencyPolicyResponse) ConsistencyPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConsistencyPolicyResponse
+		return ret
+	}).(ConsistencyPolicyResponseOutput)
 }
 
 // The default consistency level and configuration settings of the Cosmos DB account.
@@ -4706,7 +4806,7 @@ func (o ContainerPartitionKeyOutput) ToContainerPartitionKeyPtrOutput() Containe
 }
 
 func (o ContainerPartitionKeyOutput) ToContainerPartitionKeyPtrOutputWithContext(ctx context.Context) ContainerPartitionKeyPtrOutput {
-	return o.ApplyT(func(v ContainerPartitionKey) *ContainerPartitionKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPartitionKey) *ContainerPartitionKey {
 		return &v
 	}).(ContainerPartitionKeyPtrOutput)
 }
@@ -4741,7 +4841,13 @@ func (o ContainerPartitionKeyPtrOutput) ToContainerPartitionKeyPtrOutputWithCont
 }
 
 func (o ContainerPartitionKeyPtrOutput) Elem() ContainerPartitionKeyOutput {
-	return o.ApplyT(func(v *ContainerPartitionKey) ContainerPartitionKey { return *v }).(ContainerPartitionKeyOutput)
+	return o.ApplyT(func(v *ContainerPartitionKey) ContainerPartitionKey {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerPartitionKey
+		return ret
+	}).(ContainerPartitionKeyOutput)
 }
 
 // Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
@@ -4882,7 +4988,7 @@ func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponsePtrO
 }
 
 func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponsePtrOutputWithContext(ctx context.Context) ContainerPartitionKeyResponsePtrOutput {
-	return o.ApplyT(func(v ContainerPartitionKeyResponse) *ContainerPartitionKeyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPartitionKeyResponse) *ContainerPartitionKeyResponse {
 		return &v
 	}).(ContainerPartitionKeyResponsePtrOutput)
 }
@@ -4922,7 +5028,13 @@ func (o ContainerPartitionKeyResponsePtrOutput) ToContainerPartitionKeyResponseP
 }
 
 func (o ContainerPartitionKeyResponsePtrOutput) Elem() ContainerPartitionKeyResponseOutput {
-	return o.ApplyT(func(v *ContainerPartitionKeyResponse) ContainerPartitionKeyResponse { return *v }).(ContainerPartitionKeyResponseOutput)
+	return o.ApplyT(func(v *ContainerPartitionKeyResponse) ContainerPartitionKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerPartitionKeyResponse
+		return ret
+	}).(ContainerPartitionKeyResponseOutput)
 }
 
 // Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
@@ -5453,7 +5565,7 @@ func (o CreateUpdateOptionsOutput) ToCreateUpdateOptionsPtrOutput() CreateUpdate
 }
 
 func (o CreateUpdateOptionsOutput) ToCreateUpdateOptionsPtrOutputWithContext(ctx context.Context) CreateUpdateOptionsPtrOutput {
-	return o.ApplyT(func(v CreateUpdateOptions) *CreateUpdateOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateUpdateOptions) *CreateUpdateOptions {
 		return &v
 	}).(CreateUpdateOptionsPtrOutput)
 }
@@ -5483,7 +5595,13 @@ func (o CreateUpdateOptionsPtrOutput) ToCreateUpdateOptionsPtrOutputWithContext(
 }
 
 func (o CreateUpdateOptionsPtrOutput) Elem() CreateUpdateOptionsOutput {
-	return o.ApplyT(func(v *CreateUpdateOptions) CreateUpdateOptions { return *v }).(CreateUpdateOptionsOutput)
+	return o.ApplyT(func(v *CreateUpdateOptions) CreateUpdateOptions {
+		if v != nil {
+			return *v
+		}
+		var ret CreateUpdateOptions
+		return ret
+	}).(CreateUpdateOptionsOutput)
 }
 
 // Specifies the Autoscale settings.
@@ -5618,7 +5736,7 @@ func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesPtrOut
 }
 
 func (o DataCenterResourcePropertiesOutput) ToDataCenterResourcePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v DataCenterResourceProperties) *DataCenterResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCenterResourceProperties) *DataCenterResourceProperties {
 		return &v
 	}).(DataCenterResourcePropertiesPtrOutput)
 }
@@ -5663,7 +5781,13 @@ func (o DataCenterResourcePropertiesPtrOutput) ToDataCenterResourcePropertiesPtr
 }
 
 func (o DataCenterResourcePropertiesPtrOutput) Elem() DataCenterResourcePropertiesOutput {
-	return o.ApplyT(func(v *DataCenterResourceProperties) DataCenterResourceProperties { return *v }).(DataCenterResourcePropertiesOutput)
+	return o.ApplyT(func(v *DataCenterResourceProperties) DataCenterResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataCenterResourceProperties
+		return ret
+	}).(DataCenterResourcePropertiesOutput)
 }
 
 // A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
@@ -5832,7 +5956,7 @@ func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponse
 }
 
 func (o DataCenterResourceResponsePropertiesOutput) ToDataCenterResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) DataCenterResourceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v DataCenterResourceResponseProperties) *DataCenterResourceResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCenterResourceResponseProperties) *DataCenterResourceResponseProperties {
 		return &v
 	}).(DataCenterResourceResponsePropertiesPtrOutput)
 }
@@ -5882,7 +6006,13 @@ func (o DataCenterResourceResponsePropertiesPtrOutput) ToDataCenterResourceRespo
 }
 
 func (o DataCenterResourceResponsePropertiesPtrOutput) Elem() DataCenterResourceResponsePropertiesOutput {
-	return o.ApplyT(func(v *DataCenterResourceResponseProperties) DataCenterResourceResponseProperties { return *v }).(DataCenterResourceResponsePropertiesOutput)
+	return o.ApplyT(func(v *DataCenterResourceResponseProperties) DataCenterResourceResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DataCenterResourceResponseProperties
+		return ret
+	}).(DataCenterResourceResponsePropertiesOutput)
 }
 
 // A fragment of a cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this data center. The fragment should be Base64 encoded, and only a subset of keys are allowed.
@@ -6762,7 +6892,7 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetP
 }
 
 func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseOptions) *GremlinDatabaseGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinDatabaseGetPropertiesResponseOptions) *GremlinDatabaseGetPropertiesResponseOptions {
 		return &v
 	}).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
@@ -6795,7 +6925,11 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) ToGremlinDatabaseG
 
 func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() GremlinDatabaseGetPropertiesResponseOptionsOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseOptions) GremlinDatabaseGetPropertiesResponseOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GremlinDatabaseGetPropertiesResponseOptions
+		return ret
 	}).(GremlinDatabaseGetPropertiesResponseOptionsOutput)
 }
 
@@ -6924,7 +7058,7 @@ func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGet
 }
 
 func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) *GremlinDatabaseGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinDatabaseGetPropertiesResponseResource) *GremlinDatabaseGetPropertiesResponseResource {
 		return &v
 	}).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
 }
@@ -6965,7 +7099,11 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) ToGremlinDatabase
 
 func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Elem() GremlinDatabaseGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) GremlinDatabaseGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GremlinDatabaseGetPropertiesResponseResource
+		return ret
 	}).(GremlinDatabaseGetPropertiesResponseResourceOutput)
 }
 
@@ -7105,7 +7243,7 @@ func (o GremlinDatabaseResourceOutput) ToGremlinDatabaseResourcePtrOutput() Grem
 }
 
 func (o GremlinDatabaseResourceOutput) ToGremlinDatabaseResourcePtrOutputWithContext(ctx context.Context) GremlinDatabaseResourcePtrOutput {
-	return o.ApplyT(func(v GremlinDatabaseResource) *GremlinDatabaseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinDatabaseResource) *GremlinDatabaseResource {
 		return &v
 	}).(GremlinDatabaseResourcePtrOutput)
 }
@@ -7130,7 +7268,13 @@ func (o GremlinDatabaseResourcePtrOutput) ToGremlinDatabaseResourcePtrOutputWith
 }
 
 func (o GremlinDatabaseResourcePtrOutput) Elem() GremlinDatabaseResourceOutput {
-	return o.ApplyT(func(v *GremlinDatabaseResource) GremlinDatabaseResource { return *v }).(GremlinDatabaseResourceOutput)
+	return o.ApplyT(func(v *GremlinDatabaseResource) GremlinDatabaseResource {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinDatabaseResource
+		return ret
+	}).(GremlinDatabaseResourceOutput)
 }
 
 // Name of the Cosmos DB Gremlin database
@@ -7240,7 +7384,7 @@ func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropert
 }
 
 func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseOptions) *GremlinGraphGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraphGetPropertiesResponseOptions) *GremlinGraphGetPropertiesResponseOptions {
 		return &v
 	}).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
 }
@@ -7272,7 +7416,13 @@ func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) ToGremlinGraphGetProp
 }
 
 func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Elem() GremlinGraphGetPropertiesResponseOptionsOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseOptions) GremlinGraphGetPropertiesResponseOptions { return *v }).(GremlinGraphGetPropertiesResponseOptionsOutput)
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseOptions) GremlinGraphGetPropertiesResponseOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraphGetPropertiesResponseOptions
+		return ret
+	}).(GremlinGraphGetPropertiesResponseOptionsOutput)
 }
 
 // Specifies the Autoscale settings.
@@ -7420,7 +7570,7 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetProper
 }
 
 func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *GremlinGraphGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraphGetPropertiesResponseResource) *GremlinGraphGetPropertiesResponseResource {
 		return &v
 	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
 }
@@ -7490,7 +7640,11 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ToGremlinGraphGetPro
 
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Elem() GremlinGraphGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) GremlinGraphGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraphGetPropertiesResponseResource
+		return ret
 	}).(GremlinGraphGetPropertiesResponseResourceOutput)
 }
 
@@ -7700,7 +7854,7 @@ func (o GremlinGraphResourceOutput) ToGremlinGraphResourcePtrOutput() GremlinGra
 }
 
 func (o GremlinGraphResourceOutput) ToGremlinGraphResourcePtrOutputWithContext(ctx context.Context) GremlinGraphResourcePtrOutput {
-	return o.ApplyT(func(v GremlinGraphResource) *GremlinGraphResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GremlinGraphResource) *GremlinGraphResource {
 		return &v
 	}).(GremlinGraphResourcePtrOutput)
 }
@@ -7750,7 +7904,13 @@ func (o GremlinGraphResourcePtrOutput) ToGremlinGraphResourcePtrOutputWithContex
 }
 
 func (o GremlinGraphResourcePtrOutput) Elem() GremlinGraphResourceOutput {
-	return o.ApplyT(func(v *GremlinGraphResource) GremlinGraphResource { return *v }).(GremlinGraphResourceOutput)
+	return o.ApplyT(func(v *GremlinGraphResource) GremlinGraphResource {
+		if v != nil {
+			return *v
+		}
+		var ret GremlinGraphResource
+		return ret
+	}).(GremlinGraphResourceOutput)
 }
 
 // The conflict resolution policy for the graph.
@@ -8383,7 +8543,7 @@ func (o IndexingPolicyOutput) ToIndexingPolicyPtrOutput() IndexingPolicyPtrOutpu
 }
 
 func (o IndexingPolicyOutput) ToIndexingPolicyPtrOutputWithContext(ctx context.Context) IndexingPolicyPtrOutput {
-	return o.ApplyT(func(v IndexingPolicy) *IndexingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingPolicy) *IndexingPolicy {
 		return &v
 	}).(IndexingPolicyPtrOutput)
 }
@@ -8433,7 +8593,13 @@ func (o IndexingPolicyPtrOutput) ToIndexingPolicyPtrOutputWithContext(ctx contex
 }
 
 func (o IndexingPolicyPtrOutput) Elem() IndexingPolicyOutput {
-	return o.ApplyT(func(v *IndexingPolicy) IndexingPolicy { return *v }).(IndexingPolicyOutput)
+	return o.ApplyT(func(v *IndexingPolicy) IndexingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret IndexingPolicy
+		return ret
+	}).(IndexingPolicyOutput)
 }
 
 // Indicates if the indexing policy is automatic
@@ -8612,7 +8778,7 @@ func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponsePtrOutput() Indexi
 }
 
 func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponsePtrOutputWithContext(ctx context.Context) IndexingPolicyResponsePtrOutput {
-	return o.ApplyT(func(v IndexingPolicyResponse) *IndexingPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingPolicyResponse) *IndexingPolicyResponse {
 		return &v
 	}).(IndexingPolicyResponsePtrOutput)
 }
@@ -8662,7 +8828,13 @@ func (o IndexingPolicyResponsePtrOutput) ToIndexingPolicyResponsePtrOutputWithCo
 }
 
 func (o IndexingPolicyResponsePtrOutput) Elem() IndexingPolicyResponseOutput {
-	return o.ApplyT(func(v *IndexingPolicyResponse) IndexingPolicyResponse { return *v }).(IndexingPolicyResponseOutput)
+	return o.ApplyT(func(v *IndexingPolicyResponse) IndexingPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IndexingPolicyResponse
+		return ret
+	}).(IndexingPolicyResponseOutput)
 }
 
 // Indicates if the indexing policy is automatic
@@ -9191,7 +9363,7 @@ func (o LocationResponseArrayOutput) Index(i pulumi.IntInput) LocationResponseOu
 // Identity for the resource.
 type ManagedServiceIdentity struct {
 	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -9210,7 +9382,7 @@ type ManagedServiceIdentityInput interface {
 // Identity for the resource.
 type ManagedServiceIdentityArgs struct {
 	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -9288,14 +9460,14 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
 
 // The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ManagedServiceIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ManagedServiceIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ManagedServiceIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -9318,17 +9490,23 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
 // The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-func (o ManagedServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) *string {
+func (o ManagedServiceIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ManagedServiceIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -9449,7 +9627,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -9491,7 +9669,13 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
 // The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
@@ -9737,7 +9921,7 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollection
 }
 
 func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseOptions) *MongoDBCollectionGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDBCollectionGetPropertiesResponseOptions) *MongoDBCollectionGetPropertiesResponseOptions {
 		return &v
 	}).(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput)
 }
@@ -9770,7 +9954,11 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) ToMongoDBCollect
 
 func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Elem() MongoDBCollectionGetPropertiesResponseOptionsOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseOptions) MongoDBCollectionGetPropertiesResponseOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MongoDBCollectionGetPropertiesResponseOptions
+		return ret
 	}).(MongoDBCollectionGetPropertiesResponseOptionsOutput)
 }
 
@@ -9911,7 +10099,7 @@ func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectio
 }
 
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) *MongoDBCollectionGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDBCollectionGetPropertiesResponseResource) *MongoDBCollectionGetPropertiesResponseResource {
 		return &v
 	}).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
 }
@@ -9967,7 +10155,11 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ToMongoDBCollec
 
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Elem() MongoDBCollectionGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) MongoDBCollectionGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MongoDBCollectionGetPropertiesResponseResource
+		return ret
 	}).(MongoDBCollectionGetPropertiesResponseResourceOutput)
 }
 
@@ -10149,7 +10341,7 @@ func (o MongoDBCollectionResourceOutput) ToMongoDBCollectionResourcePtrOutput() 
 }
 
 func (o MongoDBCollectionResourceOutput) ToMongoDBCollectionResourcePtrOutputWithContext(ctx context.Context) MongoDBCollectionResourcePtrOutput {
-	return o.ApplyT(func(v MongoDBCollectionResource) *MongoDBCollectionResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDBCollectionResource) *MongoDBCollectionResource {
 		return &v
 	}).(MongoDBCollectionResourcePtrOutput)
 }
@@ -10189,7 +10381,13 @@ func (o MongoDBCollectionResourcePtrOutput) ToMongoDBCollectionResourcePtrOutput
 }
 
 func (o MongoDBCollectionResourcePtrOutput) Elem() MongoDBCollectionResourceOutput {
-	return o.ApplyT(func(v *MongoDBCollectionResource) MongoDBCollectionResource { return *v }).(MongoDBCollectionResourceOutput)
+	return o.ApplyT(func(v *MongoDBCollectionResource) MongoDBCollectionResource {
+		if v != nil {
+			return *v
+		}
+		var ret MongoDBCollectionResource
+		return ret
+	}).(MongoDBCollectionResourceOutput)
 }
 
 // Analytical TTL.
@@ -10329,7 +10527,7 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetP
 }
 
 func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseOptions) *MongoDBDatabaseGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDBDatabaseGetPropertiesResponseOptions) *MongoDBDatabaseGetPropertiesResponseOptions {
 		return &v
 	}).(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
@@ -10362,7 +10560,11 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) ToMongoDBDatabaseG
 
 func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() MongoDBDatabaseGetPropertiesResponseOptionsOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseOptions) MongoDBDatabaseGetPropertiesResponseOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MongoDBDatabaseGetPropertiesResponseOptions
+		return ret
 	}).(MongoDBDatabaseGetPropertiesResponseOptionsOutput)
 }
 
@@ -10491,7 +10693,7 @@ func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGet
 }
 
 func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) *MongoDBDatabaseGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDBDatabaseGetPropertiesResponseResource) *MongoDBDatabaseGetPropertiesResponseResource {
 		return &v
 	}).(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput)
 }
@@ -10532,7 +10734,11 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) ToMongoDBDatabase
 
 func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Elem() MongoDBDatabaseGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) MongoDBDatabaseGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MongoDBDatabaseGetPropertiesResponseResource
+		return ret
 	}).(MongoDBDatabaseGetPropertiesResponseResourceOutput)
 }
 
@@ -10672,7 +10878,7 @@ func (o MongoDBDatabaseResourceOutput) ToMongoDBDatabaseResourcePtrOutput() Mong
 }
 
 func (o MongoDBDatabaseResourceOutput) ToMongoDBDatabaseResourcePtrOutputWithContext(ctx context.Context) MongoDBDatabaseResourcePtrOutput {
-	return o.ApplyT(func(v MongoDBDatabaseResource) *MongoDBDatabaseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoDBDatabaseResource) *MongoDBDatabaseResource {
 		return &v
 	}).(MongoDBDatabaseResourcePtrOutput)
 }
@@ -10697,7 +10903,13 @@ func (o MongoDBDatabaseResourcePtrOutput) ToMongoDBDatabaseResourcePtrOutputWith
 }
 
 func (o MongoDBDatabaseResourcePtrOutput) Elem() MongoDBDatabaseResourceOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseResource) MongoDBDatabaseResource { return *v }).(MongoDBDatabaseResourceOutput)
+	return o.ApplyT(func(v *MongoDBDatabaseResource) MongoDBDatabaseResource {
+		if v != nil {
+			return *v
+		}
+		var ret MongoDBDatabaseResource
+		return ret
+	}).(MongoDBDatabaseResourceOutput)
 }
 
 // Name of the Cosmos DB MongoDB database
@@ -10915,7 +11127,7 @@ func (o MongoIndexKeysOutput) ToMongoIndexKeysPtrOutput() MongoIndexKeysPtrOutpu
 }
 
 func (o MongoIndexKeysOutput) ToMongoIndexKeysPtrOutputWithContext(ctx context.Context) MongoIndexKeysPtrOutput {
-	return o.ApplyT(func(v MongoIndexKeys) *MongoIndexKeys {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoIndexKeys) *MongoIndexKeys {
 		return &v
 	}).(MongoIndexKeysPtrOutput)
 }
@@ -10940,7 +11152,13 @@ func (o MongoIndexKeysPtrOutput) ToMongoIndexKeysPtrOutputWithContext(ctx contex
 }
 
 func (o MongoIndexKeysPtrOutput) Elem() MongoIndexKeysOutput {
-	return o.ApplyT(func(v *MongoIndexKeys) MongoIndexKeys { return *v }).(MongoIndexKeysOutput)
+	return o.ApplyT(func(v *MongoIndexKeys) MongoIndexKeys {
+		if v != nil {
+			return *v
+		}
+		var ret MongoIndexKeys
+		return ret
+	}).(MongoIndexKeysOutput)
 }
 
 // List of keys for each MongoDB collection in the Azure Cosmos DB service
@@ -11049,7 +11267,7 @@ func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponsePtrOutput() MongoI
 }
 
 func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysResponsePtrOutput {
-	return o.ApplyT(func(v MongoIndexKeysResponse) *MongoIndexKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoIndexKeysResponse) *MongoIndexKeysResponse {
 		return &v
 	}).(MongoIndexKeysResponsePtrOutput)
 }
@@ -11074,7 +11292,13 @@ func (o MongoIndexKeysResponsePtrOutput) ToMongoIndexKeysResponsePtrOutputWithCo
 }
 
 func (o MongoIndexKeysResponsePtrOutput) Elem() MongoIndexKeysResponseOutput {
-	return o.ApplyT(func(v *MongoIndexKeysResponse) MongoIndexKeysResponse { return *v }).(MongoIndexKeysResponseOutput)
+	return o.ApplyT(func(v *MongoIndexKeysResponse) MongoIndexKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MongoIndexKeysResponse
+		return ret
+	}).(MongoIndexKeysResponseOutput)
 }
 
 // List of keys for each MongoDB collection in the Azure Cosmos DB service
@@ -11187,7 +11411,7 @@ func (o MongoIndexOptionsOutput) ToMongoIndexOptionsPtrOutput() MongoIndexOption
 }
 
 func (o MongoIndexOptionsOutput) ToMongoIndexOptionsPtrOutputWithContext(ctx context.Context) MongoIndexOptionsPtrOutput {
-	return o.ApplyT(func(v MongoIndexOptions) *MongoIndexOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoIndexOptions) *MongoIndexOptions {
 		return &v
 	}).(MongoIndexOptionsPtrOutput)
 }
@@ -11217,7 +11441,13 @@ func (o MongoIndexOptionsPtrOutput) ToMongoIndexOptionsPtrOutputWithContext(ctx 
 }
 
 func (o MongoIndexOptionsPtrOutput) Elem() MongoIndexOptionsOutput {
-	return o.ApplyT(func(v *MongoIndexOptions) MongoIndexOptions { return *v }).(MongoIndexOptionsOutput)
+	return o.ApplyT(func(v *MongoIndexOptions) MongoIndexOptions {
+		if v != nil {
+			return *v
+		}
+		var ret MongoIndexOptions
+		return ret
+	}).(MongoIndexOptionsOutput)
 }
 
 // Expire after seconds
@@ -11340,7 +11570,7 @@ func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponsePtrOutput() 
 }
 
 func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsResponsePtrOutput {
-	return o.ApplyT(func(v MongoIndexOptionsResponse) *MongoIndexOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoIndexOptionsResponse) *MongoIndexOptionsResponse {
 		return &v
 	}).(MongoIndexOptionsResponsePtrOutput)
 }
@@ -11370,7 +11600,13 @@ func (o MongoIndexOptionsResponsePtrOutput) ToMongoIndexOptionsResponsePtrOutput
 }
 
 func (o MongoIndexOptionsResponsePtrOutput) Elem() MongoIndexOptionsResponseOutput {
-	return o.ApplyT(func(v *MongoIndexOptionsResponse) MongoIndexOptionsResponse { return *v }).(MongoIndexOptionsResponseOutput)
+	return o.ApplyT(func(v *MongoIndexOptionsResponse) MongoIndexOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MongoIndexOptionsResponse
+		return ret
+	}).(MongoIndexOptionsResponseOutput)
 }
 
 // Expire after seconds
@@ -11738,7 +11974,7 @@ func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutput() Period
 }
 
 func (o PeriodicModePropertiesOutput) ToPeriodicModePropertiesPtrOutputWithContext(ctx context.Context) PeriodicModePropertiesPtrOutput {
-	return o.ApplyT(func(v PeriodicModeProperties) *PeriodicModeProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeriodicModeProperties) *PeriodicModeProperties {
 		return &v
 	}).(PeriodicModePropertiesPtrOutput)
 }
@@ -11768,7 +12004,13 @@ func (o PeriodicModePropertiesPtrOutput) ToPeriodicModePropertiesPtrOutputWithCo
 }
 
 func (o PeriodicModePropertiesPtrOutput) Elem() PeriodicModePropertiesOutput {
-	return o.ApplyT(func(v *PeriodicModeProperties) PeriodicModeProperties { return *v }).(PeriodicModePropertiesOutput)
+	return o.ApplyT(func(v *PeriodicModeProperties) PeriodicModeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PeriodicModeProperties
+		return ret
+	}).(PeriodicModePropertiesOutput)
 }
 
 // An integer representing the interval in minutes between two backups
@@ -11891,7 +12133,7 @@ func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePt
 }
 
 func (o PeriodicModePropertiesResponseOutput) ToPeriodicModePropertiesResponsePtrOutputWithContext(ctx context.Context) PeriodicModePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PeriodicModePropertiesResponse) *PeriodicModePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeriodicModePropertiesResponse) *PeriodicModePropertiesResponse {
 		return &v
 	}).(PeriodicModePropertiesResponsePtrOutput)
 }
@@ -11921,7 +12163,13 @@ func (o PeriodicModePropertiesResponsePtrOutput) ToPeriodicModePropertiesRespons
 }
 
 func (o PeriodicModePropertiesResponsePtrOutput) Elem() PeriodicModePropertiesResponseOutput {
-	return o.ApplyT(func(v *PeriodicModePropertiesResponse) PeriodicModePropertiesResponse { return *v }).(PeriodicModePropertiesResponseOutput)
+	return o.ApplyT(func(v *PeriodicModePropertiesResponse) PeriodicModePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PeriodicModePropertiesResponse
+		return ret
+	}).(PeriodicModePropertiesResponseOutput)
 }
 
 // An integer representing the interval in minutes between two backups
@@ -12414,7 +12662,7 @@ func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutput() Priv
 }
 
 func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointProperty) *PrivateEndpointProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointProperty) *PrivateEndpointProperty {
 		return &v
 	}).(PrivateEndpointPropertyPtrOutput)
 }
@@ -12439,7 +12687,13 @@ func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutputWith
 }
 
 func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
-	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty { return *v }).(PrivateEndpointPropertyOutput)
+	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointProperty
+		return ret
+	}).(PrivateEndpointPropertyOutput)
 }
 
 // Resource id of the private endpoint.
@@ -12548,7 +12802,7 @@ func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponse
 }
 
 func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
 		return &v
 	}).(PrivateEndpointPropertyResponsePtrOutput)
 }
@@ -12573,7 +12827,13 @@ func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyRespo
 }
 
 func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse { return *v }).(PrivateEndpointPropertyResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointPropertyResponse
+		return ret
+	}).(PrivateEndpointPropertyResponseOutput)
 }
 
 // Resource id of the private endpoint.
@@ -12686,7 +12946,7 @@ func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
 }
@@ -12717,7 +12977,11 @@ func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) PrivateLinkServiceConnectionStateProperty {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateProperty
+		return ret
 	}).(PrivateLinkServiceConnectionStatePropertyOutput)
 }
 
@@ -12845,7 +13109,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkSe
 }
 
 func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
 }
@@ -12881,7 +13145,11 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLin
 
 func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) PrivateLinkServiceConnectionStatePropertyResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStatePropertyResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
 }
 
@@ -13033,7 +13301,7 @@ func (o SeedNodeOutput) ToSeedNodePtrOutput() SeedNodePtrOutput {
 }
 
 func (o SeedNodeOutput) ToSeedNodePtrOutputWithContext(ctx context.Context) SeedNodePtrOutput {
-	return o.ApplyT(func(v SeedNode) *SeedNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SeedNode) *SeedNode {
 		return &v
 	}).(SeedNodePtrOutput)
 }
@@ -13058,7 +13326,13 @@ func (o SeedNodePtrOutput) ToSeedNodePtrOutputWithContext(ctx context.Context) S
 }
 
 func (o SeedNodePtrOutput) Elem() SeedNodeOutput {
-	return o.ApplyT(func(v *SeedNode) SeedNode { return *v }).(SeedNodeOutput)
+	return o.ApplyT(func(v *SeedNode) SeedNode {
+		if v != nil {
+			return *v
+		}
+		var ret SeedNode
+		return ret
+	}).(SeedNodeOutput)
 }
 
 // IP address of this seed node.
@@ -13209,7 +13483,7 @@ func (o SeedNodeResponseOutput) ToSeedNodeResponsePtrOutput() SeedNodeResponsePt
 }
 
 func (o SeedNodeResponseOutput) ToSeedNodeResponsePtrOutputWithContext(ctx context.Context) SeedNodeResponsePtrOutput {
-	return o.ApplyT(func(v SeedNodeResponse) *SeedNodeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SeedNodeResponse) *SeedNodeResponse {
 		return &v
 	}).(SeedNodeResponsePtrOutput)
 }
@@ -13234,7 +13508,13 @@ func (o SeedNodeResponsePtrOutput) ToSeedNodeResponsePtrOutputWithContext(ctx co
 }
 
 func (o SeedNodeResponsePtrOutput) Elem() SeedNodeResponseOutput {
-	return o.ApplyT(func(v *SeedNodeResponse) SeedNodeResponse { return *v }).(SeedNodeResponseOutput)
+	return o.ApplyT(func(v *SeedNodeResponse) SeedNodeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SeedNodeResponse
+		return ret
+	}).(SeedNodeResponseOutput)
 }
 
 // IP address of this seed node.
@@ -13576,7 +13856,7 @@ func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropert
 }
 
 func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseOptions) *SqlContainerGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainerGetPropertiesResponseOptions) *SqlContainerGetPropertiesResponseOptions {
 		return &v
 	}).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
 }
@@ -13608,7 +13888,13 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) ToSqlContainerGetProp
 }
 
 func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Elem() SqlContainerGetPropertiesResponseOptionsOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseOptions) SqlContainerGetPropertiesResponseOptions { return *v }).(SqlContainerGetPropertiesResponseOptionsOutput)
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseOptions) SqlContainerGetPropertiesResponseOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainerGetPropertiesResponseOptions
+		return ret
+	}).(SqlContainerGetPropertiesResponseOptionsOutput)
 }
 
 // Specifies the Autoscale settings.
@@ -13760,7 +14046,7 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetProper
 }
 
 func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *SqlContainerGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainerGetPropertiesResponseResource) *SqlContainerGetPropertiesResponseResource {
 		return &v
 	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
 }
@@ -13835,7 +14121,11 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ToSqlContainerGetPro
 
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) SqlContainerGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainerGetPropertiesResponseResource
+		return ret
 	}).(SqlContainerGetPropertiesResponseResourceOutput)
 }
 
@@ -14059,7 +14349,7 @@ func (o SqlContainerResourceOutput) ToSqlContainerResourcePtrOutput() SqlContain
 }
 
 func (o SqlContainerResourceOutput) ToSqlContainerResourcePtrOutputWithContext(ctx context.Context) SqlContainerResourcePtrOutput {
-	return o.ApplyT(func(v SqlContainerResource) *SqlContainerResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlContainerResource) *SqlContainerResource {
 		return &v
 	}).(SqlContainerResourcePtrOutput)
 }
@@ -14114,7 +14404,13 @@ func (o SqlContainerResourcePtrOutput) ToSqlContainerResourcePtrOutputWithContex
 }
 
 func (o SqlContainerResourcePtrOutput) Elem() SqlContainerResourceOutput {
-	return o.ApplyT(func(v *SqlContainerResource) SqlContainerResource { return *v }).(SqlContainerResourceOutput)
+	return o.ApplyT(func(v *SqlContainerResource) SqlContainerResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlContainerResource
+		return ret
+	}).(SqlContainerResourceOutput)
 }
 
 // Analytical TTL.
@@ -14284,7 +14580,7 @@ func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertie
 }
 
 func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseOptions) *SqlDatabaseGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseGetPropertiesResponseOptions) *SqlDatabaseGetPropertiesResponseOptions {
 		return &v
 	}).(SqlDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
@@ -14314,7 +14610,13 @@ func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) ToSqlDatabaseGetProper
 }
 
 func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() SqlDatabaseGetPropertiesResponseOptionsOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseOptions) SqlDatabaseGetPropertiesResponseOptions { return *v }).(SqlDatabaseGetPropertiesResponseOptionsOutput)
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseOptions) SqlDatabaseGetPropertiesResponseOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SqlDatabaseGetPropertiesResponseOptions
+		return ret
+	}).(SqlDatabaseGetPropertiesResponseOptionsOutput)
 }
 
 // Specifies the Autoscale settings.
@@ -14450,7 +14752,7 @@ func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetProperti
 }
 
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *SqlDatabaseGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseGetPropertiesResponseResource) *SqlDatabaseGetPropertiesResponseResource {
 		return &v
 	}).(SqlDatabaseGetPropertiesResponseResourcePtrOutput)
 }
@@ -14500,7 +14802,13 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) ToSqlDatabaseGetPrope
 }
 
 func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Elem() SqlDatabaseGetPropertiesResponseResourceOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) SqlDatabaseGetPropertiesResponseResource { return *v }).(SqlDatabaseGetPropertiesResponseResourceOutput)
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) SqlDatabaseGetPropertiesResponseResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlDatabaseGetPropertiesResponseResource
+		return ret
+	}).(SqlDatabaseGetPropertiesResponseResourceOutput)
 }
 
 // A system generated property that specified the addressable path of the collections resource.
@@ -14659,7 +14967,7 @@ func (o SqlDatabaseResourceOutput) ToSqlDatabaseResourcePtrOutput() SqlDatabaseR
 }
 
 func (o SqlDatabaseResourceOutput) ToSqlDatabaseResourcePtrOutputWithContext(ctx context.Context) SqlDatabaseResourcePtrOutput {
-	return o.ApplyT(func(v SqlDatabaseResource) *SqlDatabaseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseResource) *SqlDatabaseResource {
 		return &v
 	}).(SqlDatabaseResourcePtrOutput)
 }
@@ -14684,7 +14992,13 @@ func (o SqlDatabaseResourcePtrOutput) ToSqlDatabaseResourcePtrOutputWithContext(
 }
 
 func (o SqlDatabaseResourcePtrOutput) Elem() SqlDatabaseResourceOutput {
-	return o.ApplyT(func(v *SqlDatabaseResource) SqlDatabaseResource { return *v }).(SqlDatabaseResourceOutput)
+	return o.ApplyT(func(v *SqlDatabaseResource) SqlDatabaseResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlDatabaseResource
+		return ret
+	}).(SqlDatabaseResourceOutput)
 }
 
 // Name of the Cosmos DB SQL database
@@ -15136,7 +15450,7 @@ func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProced
 }
 
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) *SqlStoredProcedureGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlStoredProcedureGetPropertiesResponseResource) *SqlStoredProcedureGetPropertiesResponseResource {
 		return &v
 	}).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
 }
@@ -15182,7 +15496,11 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) ToSqlStoredPro
 
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Elem() SqlStoredProcedureGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) SqlStoredProcedureGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SqlStoredProcedureGetPropertiesResponseResource
+		return ret
 	}).(SqlStoredProcedureGetPropertiesResponseResourceOutput)
 }
 
@@ -15336,7 +15654,7 @@ func (o SqlStoredProcedureResourceOutput) ToSqlStoredProcedureResourcePtrOutput(
 }
 
 func (o SqlStoredProcedureResourceOutput) ToSqlStoredProcedureResourcePtrOutputWithContext(ctx context.Context) SqlStoredProcedureResourcePtrOutput {
-	return o.ApplyT(func(v SqlStoredProcedureResource) *SqlStoredProcedureResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlStoredProcedureResource) *SqlStoredProcedureResource {
 		return &v
 	}).(SqlStoredProcedureResourcePtrOutput)
 }
@@ -15366,7 +15684,13 @@ func (o SqlStoredProcedureResourcePtrOutput) ToSqlStoredProcedureResourcePtrOutp
 }
 
 func (o SqlStoredProcedureResourcePtrOutput) Elem() SqlStoredProcedureResourceOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureResource) SqlStoredProcedureResource { return *v }).(SqlStoredProcedureResourceOutput)
+	return o.ApplyT(func(v *SqlStoredProcedureResource) SqlStoredProcedureResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlStoredProcedureResource
+		return ret
+	}).(SqlStoredProcedureResourceOutput)
 }
 
 // Body of the Stored Procedure
@@ -15506,7 +15830,7 @@ func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetProperties
 }
 
 func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *SqlTriggerGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlTriggerGetPropertiesResponseResource) *SqlTriggerGetPropertiesResponseResource {
 		return &v
 	}).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
 }
@@ -15561,7 +15885,13 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) ToSqlTriggerGetPropert
 }
 
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Elem() SqlTriggerGetPropertiesResponseResourceOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) SqlTriggerGetPropertiesResponseResource { return *v }).(SqlTriggerGetPropertiesResponseResourceOutput)
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) SqlTriggerGetPropertiesResponseResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlTriggerGetPropertiesResponseResource
+		return ret
+	}).(SqlTriggerGetPropertiesResponseResourceOutput)
 }
 
 // Body of the Trigger
@@ -15742,7 +16072,7 @@ func (o SqlTriggerResourceOutput) ToSqlTriggerResourcePtrOutput() SqlTriggerReso
 }
 
 func (o SqlTriggerResourceOutput) ToSqlTriggerResourcePtrOutputWithContext(ctx context.Context) SqlTriggerResourcePtrOutput {
-	return o.ApplyT(func(v SqlTriggerResource) *SqlTriggerResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlTriggerResource) *SqlTriggerResource {
 		return &v
 	}).(SqlTriggerResourcePtrOutput)
 }
@@ -15782,7 +16112,13 @@ func (o SqlTriggerResourcePtrOutput) ToSqlTriggerResourcePtrOutputWithContext(ct
 }
 
 func (o SqlTriggerResourcePtrOutput) Elem() SqlTriggerResourceOutput {
-	return o.ApplyT(func(v *SqlTriggerResource) SqlTriggerResource { return *v }).(SqlTriggerResourceOutput)
+	return o.ApplyT(func(v *SqlTriggerResource) SqlTriggerResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlTriggerResource
+		return ret
+	}).(SqlTriggerResourceOutput)
 }
 
 // Body of the Trigger
@@ -15934,7 +16270,7 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefi
 }
 
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) *SqlUserDefinedFunctionGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlUserDefinedFunctionGetPropertiesResponseResource) *SqlUserDefinedFunctionGetPropertiesResponseResource {
 		return &v
 	}).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
 }
@@ -15980,7 +16316,11 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) ToSqlUserD
 
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Elem() SqlUserDefinedFunctionGetPropertiesResponseResourceOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) SqlUserDefinedFunctionGetPropertiesResponseResource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SqlUserDefinedFunctionGetPropertiesResponseResource
+		return ret
 	}).(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput)
 }
 
@@ -16134,7 +16474,7 @@ func (o SqlUserDefinedFunctionResourceOutput) ToSqlUserDefinedFunctionResourcePt
 }
 
 func (o SqlUserDefinedFunctionResourceOutput) ToSqlUserDefinedFunctionResourcePtrOutputWithContext(ctx context.Context) SqlUserDefinedFunctionResourcePtrOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionResource) *SqlUserDefinedFunctionResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlUserDefinedFunctionResource) *SqlUserDefinedFunctionResource {
 		return &v
 	}).(SqlUserDefinedFunctionResourcePtrOutput)
 }
@@ -16164,7 +16504,13 @@ func (o SqlUserDefinedFunctionResourcePtrOutput) ToSqlUserDefinedFunctionResourc
 }
 
 func (o SqlUserDefinedFunctionResourcePtrOutput) Elem() SqlUserDefinedFunctionResourceOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionResource) SqlUserDefinedFunctionResource { return *v }).(SqlUserDefinedFunctionResourceOutput)
+	return o.ApplyT(func(v *SqlUserDefinedFunctionResource) SqlUserDefinedFunctionResource {
+		if v != nil {
+			return *v
+		}
+		var ret SqlUserDefinedFunctionResource
+		return ret
+	}).(SqlUserDefinedFunctionResourceOutput)
 }
 
 // Body of the User Defined Function
@@ -16284,7 +16630,7 @@ func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOpt
 }
 
 func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsPtrOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseOptions) *TableGetPropertiesResponseOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGetPropertiesResponseOptions) *TableGetPropertiesResponseOptions {
 		return &v
 	}).(TableGetPropertiesResponseOptionsPtrOutput)
 }
@@ -16314,7 +16660,13 @@ func (o TableGetPropertiesResponseOptionsPtrOutput) ToTableGetPropertiesResponse
 }
 
 func (o TableGetPropertiesResponseOptionsPtrOutput) Elem() TableGetPropertiesResponseOptionsOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponseOptions) TableGetPropertiesResponseOptions { return *v }).(TableGetPropertiesResponseOptionsOutput)
+	return o.ApplyT(func(v *TableGetPropertiesResponseOptions) TableGetPropertiesResponseOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TableGetPropertiesResponseOptions
+		return ret
+	}).(TableGetPropertiesResponseOptionsOutput)
 }
 
 // Specifies the Autoscale settings.
@@ -16442,7 +16794,7 @@ func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseRe
 }
 
 func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourcePtrOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseResource) *TableGetPropertiesResponseResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableGetPropertiesResponseResource) *TableGetPropertiesResponseResource {
 		return &v
 	}).(TableGetPropertiesResponseResourcePtrOutput)
 }
@@ -16482,7 +16834,13 @@ func (o TableGetPropertiesResponseResourcePtrOutput) ToTableGetPropertiesRespons
 }
 
 func (o TableGetPropertiesResponseResourcePtrOutput) Elem() TableGetPropertiesResponseResourceOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponseResource) TableGetPropertiesResponseResource { return *v }).(TableGetPropertiesResponseResourceOutput)
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) TableGetPropertiesResponseResource {
+		if v != nil {
+			return *v
+		}
+		var ret TableGetPropertiesResponseResource
+		return ret
+	}).(TableGetPropertiesResponseResourceOutput)
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
@@ -16621,7 +16979,7 @@ func (o TableResourceOutput) ToTableResourcePtrOutput() TableResourcePtrOutput {
 }
 
 func (o TableResourceOutput) ToTableResourcePtrOutputWithContext(ctx context.Context) TableResourcePtrOutput {
-	return o.ApplyT(func(v TableResource) *TableResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableResource) *TableResource {
 		return &v
 	}).(TableResourcePtrOutput)
 }
@@ -16646,7 +17004,13 @@ func (o TableResourcePtrOutput) ToTableResourcePtrOutputWithContext(ctx context.
 }
 
 func (o TableResourcePtrOutput) Elem() TableResourceOutput {
-	return o.ApplyT(func(v *TableResource) TableResource { return *v }).(TableResourceOutput)
+	return o.ApplyT(func(v *TableResource) TableResource {
+		if v != nil {
+			return *v
+		}
+		var ret TableResource
+		return ret
+	}).(TableResourceOutput)
 }
 
 // Name of the Cosmos DB table
@@ -16855,7 +17219,7 @@ func (o UniqueKeyPolicyOutput) ToUniqueKeyPolicyPtrOutput() UniqueKeyPolicyPtrOu
 }
 
 func (o UniqueKeyPolicyOutput) ToUniqueKeyPolicyPtrOutputWithContext(ctx context.Context) UniqueKeyPolicyPtrOutput {
-	return o.ApplyT(func(v UniqueKeyPolicy) *UniqueKeyPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UniqueKeyPolicy) *UniqueKeyPolicy {
 		return &v
 	}).(UniqueKeyPolicyPtrOutput)
 }
@@ -16880,7 +17244,13 @@ func (o UniqueKeyPolicyPtrOutput) ToUniqueKeyPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o UniqueKeyPolicyPtrOutput) Elem() UniqueKeyPolicyOutput {
-	return o.ApplyT(func(v *UniqueKeyPolicy) UniqueKeyPolicy { return *v }).(UniqueKeyPolicyOutput)
+	return o.ApplyT(func(v *UniqueKeyPolicy) UniqueKeyPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UniqueKeyPolicy
+		return ret
+	}).(UniqueKeyPolicyOutput)
 }
 
 // List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
@@ -16989,7 +17359,7 @@ func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponsePtrOutput() Uniq
 }
 
 func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponsePtrOutputWithContext(ctx context.Context) UniqueKeyPolicyResponsePtrOutput {
-	return o.ApplyT(func(v UniqueKeyPolicyResponse) *UniqueKeyPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UniqueKeyPolicyResponse) *UniqueKeyPolicyResponse {
 		return &v
 	}).(UniqueKeyPolicyResponsePtrOutput)
 }
@@ -17014,7 +17384,13 @@ func (o UniqueKeyPolicyResponsePtrOutput) ToUniqueKeyPolicyResponsePtrOutputWith
 }
 
 func (o UniqueKeyPolicyResponsePtrOutput) Elem() UniqueKeyPolicyResponseOutput {
-	return o.ApplyT(func(v *UniqueKeyPolicyResponse) UniqueKeyPolicyResponse { return *v }).(UniqueKeyPolicyResponseOutput)
+	return o.ApplyT(func(v *UniqueKeyPolicyResponse) UniqueKeyPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UniqueKeyPolicyResponse
+		return ret
+	}).(UniqueKeyPolicyResponseOutput)
 }
 
 // List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
@@ -17345,51 +17721,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 	}).(VirtualNetworkRuleResponseOutput)
 }
 
-type CompositePathArrayArray []CompositePathArrayInput
-
-func (CompositePathArrayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathArray)(nil)).Elem()
-}
-
-func (i CompositePathArrayArray) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
-	return i.ToCompositePathArrayArrayOutputWithContext(context.Background())
-}
-
-func (i CompositePathArrayArray) ToCompositePathArrayArrayOutputWithContext(ctx context.Context) CompositePathArrayArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompositePathArrayArrayOutput)
-}
-
-type CompositePathArrayArrayOutput struct{ *pulumi.OutputState }
-
-func (CompositePathArrayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathArray)(nil)).Elem()
-}
-
-func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
-	return o
-}
-
-func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutputWithContext(ctx context.Context) CompositePathArrayArrayOutput {
-	return o
-}
-
-func (o CompositePathArrayArrayOutput) Index(i pulumi.IntInput) CompositePathArrayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathArray {
-		return vs[0].([]CompositePathArray)[vs[1].(int)]
-	}).(CompositePathArrayOutput)
-}
-
-// CompositePathArrayArrayInput is an input type that accepts CompositePathArrayArray and CompositePathArrayArrayOutput values.
-// You can construct a concrete instance of `CompositePathArrayArrayInput` via:
-//
-//          CompositePathArrayArray{ CompositePathArray{ CompositePathArgs{...} } }
-type CompositePathArrayArrayInput interface {
-	pulumi.Input
-
-	ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput
-	ToCompositePathArrayArrayOutputWithContext(context.Context) CompositePathArrayArrayOutput
-}
-
 type CompositePathResponseArrayArray []CompositePathResponseArrayInput
 
 func (CompositePathResponseArrayArray) ElementType() reflect.Type {
@@ -17407,7 +17738,7 @@ func (i CompositePathResponseArrayArray) ToCompositePathResponseArrayArrayOutput
 type CompositePathResponseArrayArrayOutput struct{ *pulumi.OutputState }
 
 func (CompositePathResponseArrayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*[]CompositePathResponseArray)(nil)).Elem()
 }
 
 func (o CompositePathResponseArrayArrayOutput) ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput {
@@ -17433,6 +17764,51 @@ type CompositePathResponseArrayArrayInput interface {
 
 	ToCompositePathResponseArrayArrayOutput() CompositePathResponseArrayArrayOutput
 	ToCompositePathResponseArrayArrayOutputWithContext(context.Context) CompositePathResponseArrayArrayOutput
+}
+
+type CompositePathArrayArray []CompositePathArrayInput
+
+func (CompositePathArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathArray)(nil)).Elem()
+}
+
+func (i CompositePathArrayArray) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
+	return i.ToCompositePathArrayArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathArrayArray) ToCompositePathArrayArrayOutputWithContext(ctx context.Context) CompositePathArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathArrayArrayOutput)
+}
+
+type CompositePathArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompositePathArray)(nil)).Elem()
+}
+
+func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArrayArrayOutput) ToCompositePathArrayArrayOutputWithContext(ctx context.Context) CompositePathArrayArrayOutput {
+	return o
+}
+
+func (o CompositePathArrayArrayOutput) Index(i pulumi.IntInput) CompositePathArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathArray {
+		return vs[0].([]CompositePathArray)[vs[1].(int)]
+	}).(CompositePathArrayOutput)
+}
+
+// CompositePathArrayArrayInput is an input type that accepts CompositePathArrayArray and CompositePathArrayArrayOutput values.
+// You can construct a concrete instance of `CompositePathArrayArrayInput` via:
+//
+//          CompositePathArrayArray{ CompositePathArray{ CompositePathArgs{...} } }
+type CompositePathArrayArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathArrayArrayOutput() CompositePathArrayArrayOutput
+	ToCompositePathArrayArrayOutputWithContext(context.Context) CompositePathArrayArrayOutput
 }
 
 func init() {
@@ -17663,4 +18039,5 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(CompositePathResponseArrayArrayOutput{})
+	pulumi.RegisterOutputType(CompositePathArrayArrayOutput{})
 }

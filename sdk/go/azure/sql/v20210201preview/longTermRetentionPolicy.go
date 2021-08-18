@@ -103,33 +103,9 @@ func GetLongTermRetentionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LongTermRetentionPolicy resources.
 type longTermRetentionPolicyState struct {
-	// The monthly retention policy for an LTR backup in an ISO 8601 format.
-	MonthlyRetention *string `pulumi:"monthlyRetention"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The week of year to take the yearly backup in an ISO 8601 format.
-	WeekOfYear *int `pulumi:"weekOfYear"`
-	// The weekly retention policy for an LTR backup in an ISO 8601 format.
-	WeeklyRetention *string `pulumi:"weeklyRetention"`
-	// The yearly retention policy for an LTR backup in an ISO 8601 format.
-	YearlyRetention *string `pulumi:"yearlyRetention"`
 }
 
 type LongTermRetentionPolicyState struct {
-	// The monthly retention policy for an LTR backup in an ISO 8601 format.
-	MonthlyRetention pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The week of year to take the yearly backup in an ISO 8601 format.
-	WeekOfYear pulumi.IntPtrInput
-	// The weekly retention policy for an LTR backup in an ISO 8601 format.
-	WeeklyRetention pulumi.StringPtrInput
-	// The yearly retention policy for an LTR backup in an ISO 8601 format.
-	YearlyRetention pulumi.StringPtrInput
 }
 
 func (LongTermRetentionPolicyState) ElementType() reflect.Type {
@@ -198,9 +174,7 @@ func (i *LongTermRetentionPolicy) ToLongTermRetentionPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LongTermRetentionPolicyOutput)
 }
 
-type LongTermRetentionPolicyOutput struct {
-	*pulumi.OutputState
-}
+type LongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (LongTermRetentionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LongTermRetentionPolicy)(nil))

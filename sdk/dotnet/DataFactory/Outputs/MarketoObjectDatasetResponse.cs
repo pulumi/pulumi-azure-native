@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Marketo server dataset.
+    /// </summary>
     [OutputType]
     public sealed class MarketoObjectDatasetResponse
     {

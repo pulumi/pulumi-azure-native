@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20191201.Outputs
 {
 
+    /// <summary>
+    /// Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionImagesResponse
     {

@@ -94,37 +94,9 @@ func GetIntegrationAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccount resources.
 type integrationAccountState struct {
-	// The integration service environment.
-	IntegrationServiceEnvironment *IntegrationServiceEnvironmentResponse `pulumi:"integrationServiceEnvironment"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The sku.
-	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
-	// The workflow state.
-	State *string `pulumi:"state"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountState struct {
-	// The integration service environment.
-	IntegrationServiceEnvironment IntegrationServiceEnvironmentResponsePtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The sku.
-	Sku IntegrationAccountSkuResponsePtrInput
-	// The workflow state.
-	State pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountState) ElementType() reflect.Type {
@@ -189,9 +161,7 @@ func (i *IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountOutput)
 }
 
-type IntegrationAccountOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccount)(nil))

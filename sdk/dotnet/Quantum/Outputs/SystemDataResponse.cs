@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Quantum.Outputs
 {
 
+    /// <summary>
+    /// Metadata pertaining to creation and last modification of the resource.
+    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

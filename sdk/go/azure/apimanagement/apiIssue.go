@@ -141,41 +141,9 @@ func GetApiIssue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIssue resources.
 type apiIssueState struct {
-	// A resource identifier for the API the issue was created for.
-	ApiId *string `pulumi:"apiId"`
-	// Date and time when the issue was created.
-	CreatedDate *string `pulumi:"createdDate"`
-	// Text describing the issue.
-	Description *string `pulumi:"description"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Status of the issue.
-	State *string `pulumi:"state"`
-	// The issue title.
-	Title *string `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// A resource identifier for the user created the issue.
-	UserId *string `pulumi:"userId"`
 }
 
 type ApiIssueState struct {
-	// A resource identifier for the API the issue was created for.
-	ApiId pulumi.StringPtrInput
-	// Date and time when the issue was created.
-	CreatedDate pulumi.StringPtrInput
-	// Text describing the issue.
-	Description pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Status of the issue.
-	State pulumi.StringPtrInput
-	// The issue title.
-	Title pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// A resource identifier for the user created the issue.
-	UserId pulumi.StringPtrInput
 }
 
 func (ApiIssueState) ElementType() reflect.Type {
@@ -248,9 +216,7 @@ func (i *ApiIssue) ToApiIssueOutputWithContext(ctx context.Context) ApiIssueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueOutput)
 }
 
-type ApiIssueOutput struct {
-	*pulumi.OutputState
-}
+type ApiIssueOutput struct{ *pulumi.OutputState }
 
 func (ApiIssueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIssue)(nil))

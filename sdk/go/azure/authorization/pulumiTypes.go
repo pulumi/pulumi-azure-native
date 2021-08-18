@@ -476,7 +476,7 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 // Identity for the resource.
 type Identity struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -493,7 +493,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -569,14 +569,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type. This is the only required field when adding a system assigned identity to a resource.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -594,17 +594,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type. This is the only required field when adding a system assigned identity to a resource.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the resource.
@@ -711,7 +717,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -746,7 +752,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of the resource identity.
@@ -1432,7 +1444,7 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 }
 
 func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
 		return &v
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
@@ -1472,7 +1484,13 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) ToParameterDefinitionsValueM
 }
 
 func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsValueMetadataOutput {
-	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterDefinitionsValueMetadata
+		return ret
+	}).(ParameterDefinitionsValueMetadataOutput)
 }
 
 // Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
@@ -1752,7 +1770,7 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 }
 
 func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
 		return &v
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
@@ -1793,7 +1811,11 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) ToParameterDefinitio
 
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefinitionsValueResponseMetadataOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) ParameterDefinitionsValueResponseMetadata {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ParameterDefinitionsValueResponseMetadata
+		return ret
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
@@ -2392,7 +2414,7 @@ func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesRe
 }
 
 func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponse {
 		return &v
 	}).(PolicyAssignmentPropertiesResponsePtrOutput)
 }
@@ -2429,7 +2451,13 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) ToPolicyAssignmentPropertie
 }
 
 func (o PolicyAssignmentPropertiesResponsePtrOutput) Elem() PolicyAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) PolicyAssignmentPropertiesResponse { return *v }).(PolicyAssignmentPropertiesResponseOutput)
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) PolicyAssignmentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponse
+		return ret
+	}).(PolicyAssignmentPropertiesResponseOutput)
 }
 
 // Details of the policy
@@ -2566,7 +2594,7 @@ func (o PolicyAssignmentPropertiesResponsePolicyOutput) ToPolicyAssignmentProper
 }
 
 func (o PolicyAssignmentPropertiesResponsePolicyOutput) ToPolicyAssignmentPropertiesResponsePolicyPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePolicyPtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponsePolicy) *PolicyAssignmentPropertiesResponsePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponsePolicy) *PolicyAssignmentPropertiesResponsePolicy {
 		return &v
 	}).(PolicyAssignmentPropertiesResponsePolicyPtrOutput)
 }
@@ -2601,7 +2629,13 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) ToPolicyAssignmentPro
 }
 
 func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) Elem() PolicyAssignmentPropertiesResponsePolicyOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) PolicyAssignmentPropertiesResponsePolicy { return *v }).(PolicyAssignmentPropertiesResponsePolicyOutput)
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) PolicyAssignmentPropertiesResponsePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponsePolicy
+		return ret
+	}).(PolicyAssignmentPropertiesResponsePolicyOutput)
 }
 
 // Id of the policy
@@ -2738,7 +2772,7 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) ToPolicyAssignme
 }
 
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) ToPolicyAssignmentPropertiesResponseRoleDefinitionPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseRoleDefinition) *PolicyAssignmentPropertiesResponseRoleDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponseRoleDefinition) *PolicyAssignmentPropertiesResponseRoleDefinition {
 		return &v
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput)
 }
@@ -2774,7 +2808,11 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) ToPolicyAssig
 
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Elem() PolicyAssignmentPropertiesResponseRoleDefinitionOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseRoleDefinition) PolicyAssignmentPropertiesResponseRoleDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponseRoleDefinition
+		return ret
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionOutput)
 }
 
@@ -2912,7 +2950,7 @@ func (o PolicyAssignmentPropertiesResponseScopeOutput) ToPolicyAssignmentPropert
 }
 
 func (o PolicyAssignmentPropertiesResponseScopeOutput) ToPolicyAssignmentPropertiesResponseScopePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponseScopePtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseScope) *PolicyAssignmentPropertiesResponseScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponseScope) *PolicyAssignmentPropertiesResponseScope {
 		return &v
 	}).(PolicyAssignmentPropertiesResponseScopePtrOutput)
 }
@@ -2947,7 +2985,13 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) ToPolicyAssignmentProp
 }
 
 func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Elem() PolicyAssignmentPropertiesResponseScopeOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) PolicyAssignmentPropertiesResponseScope { return *v }).(PolicyAssignmentPropertiesResponseScopeOutput)
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) PolicyAssignmentPropertiesResponseScope {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponseScope
+		return ret
+	}).(PolicyAssignmentPropertiesResponseScopeOutput)
 }
 
 // Display name of the resource
@@ -3614,7 +3658,7 @@ func (o PrincipalResponseOutput) ToPrincipalResponsePtrOutput() PrincipalRespons
 }
 
 func (o PrincipalResponseOutput) ToPrincipalResponsePtrOutputWithContext(ctx context.Context) PrincipalResponsePtrOutput {
-	return o.ApplyT(func(v PrincipalResponse) *PrincipalResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalResponse) *PrincipalResponse {
 		return &v
 	}).(PrincipalResponsePtrOutput)
 }
@@ -3654,7 +3698,13 @@ func (o PrincipalResponsePtrOutput) ToPrincipalResponsePtrOutputWithContext(ctx 
 }
 
 func (o PrincipalResponsePtrOutput) Elem() PrincipalResponseOutput {
-	return o.ApplyT(func(v *PrincipalResponse) PrincipalResponse { return *v }).(PrincipalResponseOutput)
+	return o.ApplyT(func(v *PrincipalResponse) PrincipalResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalResponse
+		return ret
+	}).(PrincipalResponseOutput)
 }
 
 // The name of the principal made changes
@@ -3790,7 +3840,7 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResour
 }
 
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponseOutput) ToResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutputWithContext(ctx context.Context) ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceManagementPrivateLinkEndpointConnectionsResponse) *ResourceManagementPrivateLinkEndpointConnectionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceManagementPrivateLinkEndpointConnectionsResponse) *ResourceManagementPrivateLinkEndpointConnectionsResponse {
 		return &v
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput)
 }
@@ -3818,7 +3868,11 @@ func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) ToRes
 
 func (o ResourceManagementPrivateLinkEndpointConnectionsResponsePtrOutput) Elem() ResourceManagementPrivateLinkEndpointConnectionsResponseOutput {
 	return o.ApplyT(func(v *ResourceManagementPrivateLinkEndpointConnectionsResponse) ResourceManagementPrivateLinkEndpointConnectionsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ResourceManagementPrivateLinkEndpointConnectionsResponse
+		return ret
 	}).(ResourceManagementPrivateLinkEndpointConnectionsResponseOutput)
 }
 
@@ -3948,7 +4002,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -3998,7 +4052,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

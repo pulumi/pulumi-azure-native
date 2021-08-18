@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Purview.Outputs
 {
 
+    /// <summary>
+    /// Gets the resource identifiers of the managed resources.
+    /// </summary>
     [OutputType]
     public sealed class AccountPropertiesResponseManagedResources
     {

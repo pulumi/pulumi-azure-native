@@ -25,36 +25,66 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.containerservice.v20151101preview as v20151101preview
-    import pulumi_azure_native.containerservice.v20160330 as v20160330
-    import pulumi_azure_native.containerservice.v20160930 as v20160930
-    import pulumi_azure_native.containerservice.v20170131 as v20170131
-    import pulumi_azure_native.containerservice.v20170831 as v20170831
-    import pulumi_azure_native.containerservice.v20180331 as v20180331
-    import pulumi_azure_native.containerservice.v20180801preview as v20180801preview
-    import pulumi_azure_native.containerservice.v20180930preview as v20180930preview
-    import pulumi_azure_native.containerservice.v20190201 as v20190201
-    import pulumi_azure_native.containerservice.v20190401 as v20190401
-    import pulumi_azure_native.containerservice.v20190430 as v20190430
-    import pulumi_azure_native.containerservice.v20190601 as v20190601
-    import pulumi_azure_native.containerservice.v20190801 as v20190801
-    import pulumi_azure_native.containerservice.v20190930preview as v20190930preview
-    import pulumi_azure_native.containerservice.v20191001 as v20191001
-    import pulumi_azure_native.containerservice.v20191027preview as v20191027preview
-    import pulumi_azure_native.containerservice.v20191101 as v20191101
-    import pulumi_azure_native.containerservice.v20200101 as v20200101
-    import pulumi_azure_native.containerservice.v20200201 as v20200201
-    import pulumi_azure_native.containerservice.v20200301 as v20200301
-    import pulumi_azure_native.containerservice.v20200401 as v20200401
-    import pulumi_azure_native.containerservice.v20200601 as v20200601
-    import pulumi_azure_native.containerservice.v20200701 as v20200701
-    import pulumi_azure_native.containerservice.v20200901 as v20200901
-    import pulumi_azure_native.containerservice.v20201101 as v20201101
-    import pulumi_azure_native.containerservice.v20201201 as v20201201
-    import pulumi_azure_native.containerservice.v20210201 as v20210201
-    import pulumi_azure_native.containerservice.v20210301 as v20210301
-    import pulumi_azure_native.containerservice.v20210501 as v20210501
-    import pulumi_azure_native.containerservice.v20210701 as v20210701
+    import pulumi_azure_native.containerservice.v20151101preview as __v20151101preview
+    v20151101preview = __v20151101preview
+    import pulumi_azure_native.containerservice.v20160330 as __v20160330
+    v20160330 = __v20160330
+    import pulumi_azure_native.containerservice.v20160930 as __v20160930
+    v20160930 = __v20160930
+    import pulumi_azure_native.containerservice.v20170131 as __v20170131
+    v20170131 = __v20170131
+    import pulumi_azure_native.containerservice.v20170831 as __v20170831
+    v20170831 = __v20170831
+    import pulumi_azure_native.containerservice.v20180331 as __v20180331
+    v20180331 = __v20180331
+    import pulumi_azure_native.containerservice.v20180801preview as __v20180801preview
+    v20180801preview = __v20180801preview
+    import pulumi_azure_native.containerservice.v20180930preview as __v20180930preview
+    v20180930preview = __v20180930preview
+    import pulumi_azure_native.containerservice.v20190201 as __v20190201
+    v20190201 = __v20190201
+    import pulumi_azure_native.containerservice.v20190401 as __v20190401
+    v20190401 = __v20190401
+    import pulumi_azure_native.containerservice.v20190430 as __v20190430
+    v20190430 = __v20190430
+    import pulumi_azure_native.containerservice.v20190601 as __v20190601
+    v20190601 = __v20190601
+    import pulumi_azure_native.containerservice.v20190801 as __v20190801
+    v20190801 = __v20190801
+    import pulumi_azure_native.containerservice.v20190930preview as __v20190930preview
+    v20190930preview = __v20190930preview
+    import pulumi_azure_native.containerservice.v20191001 as __v20191001
+    v20191001 = __v20191001
+    import pulumi_azure_native.containerservice.v20191027preview as __v20191027preview
+    v20191027preview = __v20191027preview
+    import pulumi_azure_native.containerservice.v20191101 as __v20191101
+    v20191101 = __v20191101
+    import pulumi_azure_native.containerservice.v20200101 as __v20200101
+    v20200101 = __v20200101
+    import pulumi_azure_native.containerservice.v20200201 as __v20200201
+    v20200201 = __v20200201
+    import pulumi_azure_native.containerservice.v20200301 as __v20200301
+    v20200301 = __v20200301
+    import pulumi_azure_native.containerservice.v20200401 as __v20200401
+    v20200401 = __v20200401
+    import pulumi_azure_native.containerservice.v20200601 as __v20200601
+    v20200601 = __v20200601
+    import pulumi_azure_native.containerservice.v20200701 as __v20200701
+    v20200701 = __v20200701
+    import pulumi_azure_native.containerservice.v20200901 as __v20200901
+    v20200901 = __v20200901
+    import pulumi_azure_native.containerservice.v20201101 as __v20201101
+    v20201101 = __v20201101
+    import pulumi_azure_native.containerservice.v20201201 as __v20201201
+    v20201201 = __v20201201
+    import pulumi_azure_native.containerservice.v20210201 as __v20210201
+    v20210201 = __v20210201
+    import pulumi_azure_native.containerservice.v20210301 as __v20210301
+    v20210301 = __v20210301
+    import pulumi_azure_native.containerservice.v20210501 as __v20210501
+    v20210501 = __v20210501
+    import pulumi_azure_native.containerservice.v20210701 as __v20210701
+    v20210701 = __v20210701
 else:
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20151101preview')
     v20160330 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20160330')

@@ -1799,7 +1799,7 @@ func (o ProtectionModeOutput) ToProtectionModePtrOutput() ProtectionModePtrOutpu
 }
 
 func (o ProtectionModeOutput) ToProtectionModePtrOutputWithContext(ctx context.Context) ProtectionModePtrOutput {
-	return o.ApplyT(func(v ProtectionMode) *ProtectionMode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionMode) *ProtectionMode {
 		return &v
 	}).(ProtectionModePtrOutput)
 }
@@ -1839,7 +1839,13 @@ func (o ProtectionModePtrOutput) ToProtectionModePtrOutputWithContext(ctx contex
 }
 
 func (o ProtectionModePtrOutput) Elem() ProtectionModeOutput {
-	return o.ApplyT(func(v *ProtectionMode) ProtectionMode { return *v }).(ProtectionModeOutput)
+	return o.ApplyT(func(v *ProtectionMode) ProtectionMode {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionMode
+		return ret
+	}).(ProtectionModeOutput)
 }
 
 // The application control policy enforcement/protection mode of the VM/server group
@@ -1990,7 +1996,7 @@ func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutput() Protec
 }
 
 func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return o.ApplyT(func(v ProtectionModeResponse) *ProtectionModeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionModeResponse) *ProtectionModeResponse {
 		return &v
 	}).(ProtectionModeResponsePtrOutput)
 }
@@ -2030,7 +2036,13 @@ func (o ProtectionModeResponsePtrOutput) ToProtectionModeResponsePtrOutputWithCo
 }
 
 func (o ProtectionModeResponsePtrOutput) Elem() ProtectionModeResponseOutput {
-	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse { return *v }).(ProtectionModeResponseOutput)
+	return o.ApplyT(func(v *ProtectionModeResponse) ProtectionModeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionModeResponse
+		return ret
+	}).(ProtectionModeResponseOutput)
 }
 
 // The application control policy enforcement/protection mode of the VM/server group
@@ -2181,7 +2193,7 @@ func (o PublisherInfoOutput) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
 }
 
 func (o PublisherInfoOutput) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
-	return o.ApplyT(func(v PublisherInfo) *PublisherInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfo) *PublisherInfo {
 		return &v
 	}).(PublisherInfoPtrOutput)
 }
@@ -2221,7 +2233,13 @@ func (o PublisherInfoPtrOutput) ToPublisherInfoPtrOutputWithContext(ctx context.
 }
 
 func (o PublisherInfoPtrOutput) Elem() PublisherInfoOutput {
-	return o.ApplyT(func(v *PublisherInfo) PublisherInfo { return *v }).(PublisherInfoOutput)
+	return o.ApplyT(func(v *PublisherInfo) PublisherInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfo
+		return ret
+	}).(PublisherInfoOutput)
 }
 
 // The "OriginalName" field taken from the file's version resource
@@ -2372,7 +2390,7 @@ func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutput() Publishe
 }
 
 func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return o.ApplyT(func(v PublisherInfoResponse) *PublisherInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfoResponse) *PublisherInfoResponse {
 		return &v
 	}).(PublisherInfoResponsePtrOutput)
 }
@@ -2412,7 +2430,13 @@ func (o PublisherInfoResponsePtrOutput) ToPublisherInfoResponsePtrOutputWithCont
 }
 
 func (o PublisherInfoResponsePtrOutput) Elem() PublisherInfoResponseOutput {
-	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse { return *v }).(PublisherInfoResponseOutput)
+	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PublisherInfoResponse
+		return ret
+	}).(PublisherInfoResponseOutput)
 }
 
 // The "OriginalName" field taken from the file's version resource

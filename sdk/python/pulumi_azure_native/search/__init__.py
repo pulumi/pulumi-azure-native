@@ -19,13 +19,20 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.search.v20150228 as v20150228
-    import pulumi_azure_native.search.v20150819 as v20150819
-    import pulumi_azure_native.search.v20191001preview as v20191001preview
-    import pulumi_azure_native.search.v20200313 as v20200313
-    import pulumi_azure_native.search.v20200801 as v20200801
-    import pulumi_azure_native.search.v20200801preview as v20200801preview
-    import pulumi_azure_native.search.v20210401preview as v20210401preview
+    import pulumi_azure_native.search.v20150228 as __v20150228
+    v20150228 = __v20150228
+    import pulumi_azure_native.search.v20150819 as __v20150819
+    v20150819 = __v20150819
+    import pulumi_azure_native.search.v20191001preview as __v20191001preview
+    v20191001preview = __v20191001preview
+    import pulumi_azure_native.search.v20200313 as __v20200313
+    v20200313 = __v20200313
+    import pulumi_azure_native.search.v20200801 as __v20200801
+    v20200801 = __v20200801
+    import pulumi_azure_native.search.v20200801preview as __v20200801preview
+    v20200801preview = __v20200801preview
+    import pulumi_azure_native.search.v20210401preview as __v20210401preview
+    v20210401preview = __v20210401preview
 else:
     v20150228 = _utilities.lazy_import('pulumi_azure_native.search.v20150228')
     v20150819 = _utilities.lazy_import('pulumi_azure_native.search.v20150819')

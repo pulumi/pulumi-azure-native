@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Outputs
 {
 
+    /// <summary>
+    /// Azure Managed Disk to attach to the Disk pool.
+    /// </summary>
     [OutputType]
     public sealed class DiskResponse
     {

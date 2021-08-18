@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Open Database Connectivity (ODBC) linked service.
+    /// </summary>
     [OutputType]
     public sealed class OdbcLinkedServiceResponse
     {

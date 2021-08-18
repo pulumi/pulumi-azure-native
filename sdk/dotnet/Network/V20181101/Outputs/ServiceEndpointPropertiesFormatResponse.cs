@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181101.Outputs
 {
 
+    /// <summary>
+    /// The service endpoint properties.
+    /// </summary>
     [OutputType]
     public sealed class ServiceEndpointPropertiesFormatResponse
     {

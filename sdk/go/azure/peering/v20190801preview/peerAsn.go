@@ -105,33 +105,9 @@ func GetPeerAsn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeerAsn resources.
 type peerAsnState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The Autonomous System Number (ASN) of the peer.
-	PeerAsn *int `pulumi:"peerAsn"`
-	// The contact information of the peer.
-	PeerContactInfo *ContactInfoResponse `pulumi:"peerContactInfo"`
-	// The name of the peer.
-	PeerName *string `pulumi:"peerName"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The validation state of the ASN associated with the peer.
-	ValidationState *string `pulumi:"validationState"`
 }
 
 type PeerAsnState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The Autonomous System Number (ASN) of the peer.
-	PeerAsn pulumi.IntPtrInput
-	// The contact information of the peer.
-	PeerContactInfo ContactInfoResponsePtrInput
-	// The name of the peer.
-	PeerName pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The validation state of the ASN associated with the peer.
-	ValidationState pulumi.StringPtrInput
 }
 
 func (PeerAsnState) ElementType() reflect.Type {
@@ -188,9 +164,7 @@ func (i *PeerAsn) ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(PeerAsnOutput)
 }
 
-type PeerAsnOutput struct {
-	*pulumi.OutputState
-}
+type PeerAsnOutput struct{ *pulumi.OutputState }
 
 func (PeerAsnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeerAsn)(nil))

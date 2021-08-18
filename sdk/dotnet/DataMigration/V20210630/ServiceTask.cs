@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.DataMigration.V20210630
         /// Custom task properties
         /// </summary>
         [Input("properties")]
-        public Input<object>? Properties { get; set; }
+        public object? Properties { get; set; }
 
         /// <summary>
         /// Name of the service

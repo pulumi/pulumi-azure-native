@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Details for upgrading vault.
+    /// </summary>
     [OutputType]
     public sealed class UpgradeDetailsResponse
     {

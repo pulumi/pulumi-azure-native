@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Intrusion detection bypass traffic specification.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsResponse
     {

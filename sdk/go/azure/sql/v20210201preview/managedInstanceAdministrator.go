@@ -109,33 +109,9 @@ func GetManagedInstanceAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstanceAdministrator resources.
 type managedInstanceAdministratorState struct {
-	// Type of the managed instance administrator.
-	AdministratorType *string `pulumi:"administratorType"`
-	// Login name of the managed instance administrator.
-	Login *string `pulumi:"login"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// SID (object ID) of the managed instance administrator.
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the managed instance administrator.
-	TenantId *string `pulumi:"tenantId"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedInstanceAdministratorState struct {
-	// Type of the managed instance administrator.
-	AdministratorType pulumi.StringPtrInput
-	// Login name of the managed instance administrator.
-	Login pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// SID (object ID) of the managed instance administrator.
-	Sid pulumi.StringPtrInput
-	// Tenant ID of the managed instance administrator.
-	TenantId pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedInstanceAdministratorState) ElementType() reflect.Type {
@@ -198,9 +174,7 @@ func (i *ManagedInstanceAdministrator) ToManagedInstanceAdministratorOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAdministratorOutput)
 }
 
-type ManagedInstanceAdministratorOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAdministratorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceAdministrator)(nil))

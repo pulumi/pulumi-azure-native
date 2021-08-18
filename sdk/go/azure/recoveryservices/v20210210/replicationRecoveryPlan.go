@@ -111,25 +111,9 @@ func GetReplicationRecoveryPlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationRecoveryPlan resources.
 type replicationRecoveryPlanState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// The custom details.
-	Properties *RecoveryPlanPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationRecoveryPlanState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// The custom details.
-	Properties RecoveryPlanPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationRecoveryPlanState) ElementType() reflect.Type {
@@ -182,9 +166,7 @@ func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanOutput)
 }
 
-type ReplicationRecoveryPlanOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationRecoveryPlanOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))

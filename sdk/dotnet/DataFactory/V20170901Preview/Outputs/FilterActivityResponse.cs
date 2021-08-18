@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Filter and return results from input array based on the conditions.
+    /// </summary>
     [OutputType]
     public sealed class FilterActivityResponse
     {

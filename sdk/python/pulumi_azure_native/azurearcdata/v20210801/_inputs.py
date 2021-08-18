@@ -14,8 +14,8 @@ __all__ = [
     'DataControllerPropertiesArgs',
     'ExtendedLocationArgs',
     'K8sResourceRequirementsArgs',
-    'K8sSchedulingArgs',
     'K8sSchedulingOptionsArgs',
+    'K8sSchedulingArgs',
     'LogAnalyticsWorkspaceConfigArgs',
     'OnPremisePropertyArgs',
     'SqlManagedInstanceK8sRawArgs',
@@ -318,30 +318,6 @@ class K8sResourceRequirementsArgs:
 
 
 @pulumi.input_type
-class K8sSchedulingArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input['K8sSchedulingOptionsArgs']] = None):
-        """
-        The kubernetes scheduling information.
-        :param pulumi.Input['K8sSchedulingOptionsArgs'] default: The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
-        """
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input['K8sSchedulingOptionsArgs']]:
-        """
-        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
-        """
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input['K8sSchedulingOptionsArgs']]):
-        pulumi.set(self, "default", value)
-
-
-@pulumi.input_type
 class K8sSchedulingOptionsArgs:
     def __init__(__self__, *,
                  resources: Optional[pulumi.Input['K8sResourceRequirementsArgs']] = None):
@@ -363,6 +339,30 @@ class K8sSchedulingOptionsArgs:
     @resources.setter
     def resources(self, value: Optional[pulumi.Input['K8sResourceRequirementsArgs']]):
         pulumi.set(self, "resources", value)
+
+
+@pulumi.input_type
+class K8sSchedulingArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input['K8sSchedulingOptionsArgs']] = None):
+        """
+        The kubernetes scheduling information.
+        :param pulumi.Input['K8sSchedulingOptionsArgs'] default: The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input['K8sSchedulingOptionsArgs']]:
+        """
+        The kubernetes scheduling options. It describes restrictions used to help Kubernetes select appropriate nodes to host the database service
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input['K8sSchedulingOptionsArgs']]):
+        pulumi.set(self, "default", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// The object attributes managed by the Azure Key Vault service.
+    /// </summary>
     [OutputType]
     public sealed class KeyAttributesResponse
     {

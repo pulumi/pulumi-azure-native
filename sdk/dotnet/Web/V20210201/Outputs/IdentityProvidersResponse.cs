@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210201.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
+    /// </summary>
     [OutputType]
     public sealed class IdentityProvidersResponse
     {

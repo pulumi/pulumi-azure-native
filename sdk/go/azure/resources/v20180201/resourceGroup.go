@@ -169,29 +169,9 @@ func GetResourceGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceGroup resources.
 type resourceGroupState struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location *string `pulumi:"location"`
-	// The ID of the resource that manages this resource group.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The name of the resource group.
-	Name *string `pulumi:"name"`
-	// The resource group properties.
-	Properties *ResourceGroupPropertiesResponse `pulumi:"properties"`
-	// The tags attached to the resource group.
-	Tags map[string]string `pulumi:"tags"`
 }
 
 type ResourceGroupState struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location pulumi.StringPtrInput
-	// The ID of the resource that manages this resource group.
-	ManagedBy pulumi.StringPtrInput
-	// The name of the resource group.
-	Name pulumi.StringPtrInput
-	// The resource group properties.
-	Properties ResourceGroupPropertiesResponsePtrInput
-	// The tags attached to the resource group.
-	Tags pulumi.StringMapInput
 }
 
 func (ResourceGroupState) ElementType() reflect.Type {
@@ -248,9 +228,7 @@ func (i *ResourceGroup) ToResourceGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupOutput)
 }
 
-type ResourceGroupOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroup)(nil))

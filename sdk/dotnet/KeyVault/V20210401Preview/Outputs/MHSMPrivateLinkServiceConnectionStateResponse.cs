@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// An object that represents the approval state of the private link connection.
+    /// </summary>
     [OutputType]
     public sealed class MHSMPrivateLinkServiceConnectionStateResponse
     {

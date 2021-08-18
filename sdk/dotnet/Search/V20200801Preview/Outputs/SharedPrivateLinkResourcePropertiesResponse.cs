@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20200801Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
+    /// </summary>
     [OutputType]
     public sealed class SharedPrivateLinkResourcePropertiesResponse
     {

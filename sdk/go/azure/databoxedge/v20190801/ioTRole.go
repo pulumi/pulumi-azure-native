@@ -145,43 +145,9 @@ func GetIoTRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IoTRole resources.
 type ioTRoleState struct {
-	// Host OS supported by the IoT role.
-	HostPlatform *string `pulumi:"hostPlatform"`
-	// IoT device metadata to which data box edge device needs to be connected.
-	IoTDeviceDetails *IoTDeviceInfoResponse `pulumi:"ioTDeviceDetails"`
-	// IoT edge device to which the IoT role needs to be configured.
-	IoTEdgeDeviceDetails *IoTDeviceInfoResponse `pulumi:"ioTEdgeDeviceDetails"`
-	// Role type.
-	// Expected value is 'IOT'.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Role status.
-	RoleStatus *string `pulumi:"roleStatus"`
-	// Mount points of shares in role(s).
-	ShareMappings []MountPointMapResponse `pulumi:"shareMappings"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type IoTRoleState struct {
-	// Host OS supported by the IoT role.
-	HostPlatform pulumi.StringPtrInput
-	// IoT device metadata to which data box edge device needs to be connected.
-	IoTDeviceDetails IoTDeviceInfoResponsePtrInput
-	// IoT edge device to which the IoT role needs to be configured.
-	IoTEdgeDeviceDetails IoTDeviceInfoResponsePtrInput
-	// Role type.
-	// Expected value is 'IOT'.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Role status.
-	RoleStatus pulumi.StringPtrInput
-	// Mount points of shares in role(s).
-	ShareMappings MountPointMapResponseArrayInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (IoTRoleState) ElementType() reflect.Type {
@@ -256,9 +222,7 @@ func (i *IoTRole) ToIoTRoleOutputWithContext(ctx context.Context) IoTRoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IoTRoleOutput)
 }
 
-type IoTRoleOutput struct {
-	*pulumi.OutputState
-}
+type IoTRoleOutput struct{ *pulumi.OutputState }
 
 func (IoTRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IoTRole)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200501.Outputs
 {
 
+    /// <summary>
+    /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionSetIdentityResponse
     {

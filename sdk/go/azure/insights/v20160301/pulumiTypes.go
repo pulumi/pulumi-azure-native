@@ -183,7 +183,7 @@ func (o LocationThresholdRuleConditionResponseOutput) WindowSize() pulumi.String
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationCondition struct {
 	// the condition operator.
-	Operator *string `pulumi:"operator"`
+	Operator *ConditionOperator `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold *float64 `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -204,7 +204,7 @@ type ManagementEventAggregationConditionInput interface {
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionArgs struct {
 	// the condition operator.
-	Operator *ConditionOperator `pulumi:"operator"`
+	Operator ConditionOperatorPtrInput `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -284,14 +284,14 @@ func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationC
 }
 
 func (o ManagementEventAggregationConditionOutput) ToManagementEventAggregationConditionPtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *ManagementEventAggregationCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementEventAggregationCondition) *ManagementEventAggregationCondition {
 		return &v
 	}).(ManagementEventAggregationConditionPtrOutput)
 }
 
 // the condition operator.
-func (o ManagementEventAggregationConditionOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+func (o ManagementEventAggregationConditionOutput) Operator() ConditionOperatorPtrOutput {
+	return o.ApplyT(func(v ManagementEventAggregationCondition) *ConditionOperator { return v.Operator }).(ConditionOperatorPtrOutput)
 }
 
 // The threshold value that activates the alert.
@@ -319,17 +319,23 @@ func (o ManagementEventAggregationConditionPtrOutput) ToManagementEventAggregati
 }
 
 func (o ManagementEventAggregationConditionPtrOutput) Elem() ManagementEventAggregationConditionOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) ManagementEventAggregationCondition { return *v }).(ManagementEventAggregationConditionOutput)
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) ManagementEventAggregationCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementEventAggregationCondition
+		return ret
+	}).(ManagementEventAggregationConditionOutput)
 }
 
 // the condition operator.
-func (o ManagementEventAggregationConditionPtrOutput) Operator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagementEventAggregationCondition) *string {
+func (o ManagementEventAggregationConditionPtrOutput) Operator() ConditionOperatorPtrOutput {
+	return o.ApplyT(func(v *ManagementEventAggregationCondition) *ConditionOperator {
 		if v == nil {
 			return nil
 		}
 		return v.Operator
-	}).(pulumi.StringPtrOutput)
+	}).(ConditionOperatorPtrOutput)
 }
 
 // The threshold value that activates the alert.
@@ -456,7 +462,7 @@ func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggr
 }
 
 func (o ManagementEventAggregationConditionResponseOutput) ToManagementEventAggregationConditionResponsePtrOutputWithContext(ctx context.Context) ManagementEventAggregationConditionResponsePtrOutput {
-	return o.ApplyT(func(v ManagementEventAggregationConditionResponse) *ManagementEventAggregationConditionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementEventAggregationConditionResponse) *ManagementEventAggregationConditionResponse {
 		return &v
 	}).(ManagementEventAggregationConditionResponsePtrOutput)
 }
@@ -492,7 +498,11 @@ func (o ManagementEventAggregationConditionResponsePtrOutput) ToManagementEventA
 
 func (o ManagementEventAggregationConditionResponsePtrOutput) Elem() ManagementEventAggregationConditionResponseOutput {
 	return o.ApplyT(func(v *ManagementEventAggregationConditionResponse) ManagementEventAggregationConditionResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ManagementEventAggregationConditionResponse
+		return ret
 	}).(ManagementEventAggregationConditionResponseOutput)
 }
 
@@ -780,7 +790,7 @@ func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutput() RetentionPolicyPtrOu
 }
 
 func (o RetentionPolicyOutput) ToRetentionPolicyPtrOutputWithContext(ctx context.Context) RetentionPolicyPtrOutput {
-	return o.ApplyT(func(v RetentionPolicy) *RetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicy) *RetentionPolicy {
 		return &v
 	}).(RetentionPolicyPtrOutput)
 }
@@ -810,7 +820,13 @@ func (o RetentionPolicyPtrOutput) ToRetentionPolicyPtrOutputWithContext(ctx cont
 }
 
 func (o RetentionPolicyPtrOutput) Elem() RetentionPolicyOutput {
-	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy { return *v }).(RetentionPolicyOutput)
+	return o.ApplyT(func(v *RetentionPolicy) RetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicy
+		return ret
+	}).(RetentionPolicyOutput)
 }
 
 // the number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -933,7 +949,7 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() Rete
 }
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetentionPolicyResponse) *RetentionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
 		return &v
 	}).(RetentionPolicyResponsePtrOutput)
 }
@@ -963,7 +979,13 @@ func (o RetentionPolicyResponsePtrOutput) ToRetentionPolicyResponsePtrOutputWith
 }
 
 func (o RetentionPolicyResponsePtrOutput) Elem() RetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse { return *v }).(RetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *RetentionPolicyResponse) RetentionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionPolicyResponse
+		return ret
+	}).(RetentionPolicyResponseOutput)
 }
 
 // the number of days for the retention in days. A value of 0 will retain the events indefinitely.
@@ -1234,7 +1256,7 @@ func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDa
 }
 
 func (o RuleManagementEventClaimsDataSourceOutput) ToRuleManagementEventClaimsDataSourcePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourcePtrOutput {
-	return o.ApplyT(func(v RuleManagementEventClaimsDataSource) *RuleManagementEventClaimsDataSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleManagementEventClaimsDataSource) *RuleManagementEventClaimsDataSource {
 		return &v
 	}).(RuleManagementEventClaimsDataSourcePtrOutput)
 }
@@ -1259,7 +1281,13 @@ func (o RuleManagementEventClaimsDataSourcePtrOutput) ToRuleManagementEventClaim
 }
 
 func (o RuleManagementEventClaimsDataSourcePtrOutput) Elem() RuleManagementEventClaimsDataSourceOutput {
-	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) RuleManagementEventClaimsDataSource { return *v }).(RuleManagementEventClaimsDataSourceOutput)
+	return o.ApplyT(func(v *RuleManagementEventClaimsDataSource) RuleManagementEventClaimsDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret RuleManagementEventClaimsDataSource
+		return ret
+	}).(RuleManagementEventClaimsDataSourceOutput)
 }
 
 // the email address.
@@ -1368,7 +1396,7 @@ func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEvent
 }
 
 func (o RuleManagementEventClaimsDataSourceResponseOutput) ToRuleManagementEventClaimsDataSourceResponsePtrOutputWithContext(ctx context.Context) RuleManagementEventClaimsDataSourceResponsePtrOutput {
-	return o.ApplyT(func(v RuleManagementEventClaimsDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleManagementEventClaimsDataSourceResponse) *RuleManagementEventClaimsDataSourceResponse {
 		return &v
 	}).(RuleManagementEventClaimsDataSourceResponsePtrOutput)
 }
@@ -1394,7 +1422,11 @@ func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) ToRuleManagementEv
 
 func (o RuleManagementEventClaimsDataSourceResponsePtrOutput) Elem() RuleManagementEventClaimsDataSourceResponseOutput {
 	return o.ApplyT(func(v *RuleManagementEventClaimsDataSourceResponse) RuleManagementEventClaimsDataSourceResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RuleManagementEventClaimsDataSourceResponse
+		return ret
 	}).(RuleManagementEventClaimsDataSourceResponseOutput)
 }
 
@@ -2126,11 +2158,11 @@ type ThresholdRuleCondition struct {
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType string `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator string `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold float64 `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation *string `pulumi:"timeAggregation"`
+	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize *string `pulumi:"windowSize"`
 }
@@ -2154,11 +2186,11 @@ type ThresholdRuleConditionArgs struct {
 	// Expected value is 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition'.
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator ConditionOperator `pulumi:"operator"`
+	Operator ConditionOperatorInput `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation *TimeAggregationOperator `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationOperatorPtrInput `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
 }
@@ -2202,8 +2234,8 @@ func (o ThresholdRuleConditionOutput) OdataType() pulumi.StringOutput {
 }
 
 // the operator used to compare the data and the threshold.
-func (o ThresholdRuleConditionOutput) Operator() pulumi.StringOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) string { return v.Operator }).(pulumi.StringOutput)
+func (o ThresholdRuleConditionOutput) Operator() ConditionOperatorOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) ConditionOperator { return v.Operator }).(ConditionOperatorOutput)
 }
 
 // the threshold value that activates the alert.
@@ -2212,8 +2244,8 @@ func (o ThresholdRuleConditionOutput) Threshold() pulumi.Float64Output {
 }
 
 // the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-func (o ThresholdRuleConditionOutput) TimeAggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ThresholdRuleCondition) *string { return v.TimeAggregation }).(pulumi.StringPtrOutput)
+func (o ThresholdRuleConditionOutput) TimeAggregation() TimeAggregationOperatorPtrOutput {
+	return o.ApplyT(func(v ThresholdRuleCondition) *TimeAggregationOperator { return v.TimeAggregation }).(TimeAggregationOperatorPtrOutput)
 }
 
 // the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.

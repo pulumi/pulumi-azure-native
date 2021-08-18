@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// Kubernetes cluster specific properties
+    /// </summary>
     [OutputType]
     public sealed class KubernetesClusterPropertiesResponse
     {

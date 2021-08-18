@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.Outputs
 {
 
+    /// <summary>
+    /// Properties specific to the Backend Type.
+    /// </summary>
     [OutputType]
     public sealed class BackendPropertiesResponse
     {

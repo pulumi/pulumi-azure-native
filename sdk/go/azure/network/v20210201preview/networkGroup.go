@@ -84,49 +84,9 @@ func GetNetworkGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkGroup resources.
 type networkGroupState struct {
-	// Network group conditional filter.
-	ConditionalMembership *string `pulumi:"conditionalMembership"`
-	// A description of the network group.
-	Description *string `pulumi:"description"`
-	// A friendly name for the network group.
-	DisplayName *string `pulumi:"displayName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Group members of network group.
-	GroupMembers []GroupMembersItemResponse `pulumi:"groupMembers"`
-	// Group member type.
-	MemberType *string `pulumi:"memberType"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system metadata related to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type NetworkGroupState struct {
-	// Network group conditional filter.
-	ConditionalMembership pulumi.StringPtrInput
-	// A description of the network group.
-	Description pulumi.StringPtrInput
-	// A friendly name for the network group.
-	DisplayName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Group members of network group.
-	GroupMembers GroupMembersItemResponseArrayInput
-	// Group member type.
-	MemberType pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the scope assignment resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The system metadata related to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (NetworkGroupState) ElementType() reflect.Type {
@@ -195,9 +155,7 @@ func (i *NetworkGroup) ToNetworkGroupOutputWithContext(ctx context.Context) Netw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkGroupOutput)
 }
 
-type NetworkGroupOutput struct {
-	*pulumi.OutputState
-}
+type NetworkGroupOutput struct{ *pulumi.OutputState }
 
 func (NetworkGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkGroup)(nil))

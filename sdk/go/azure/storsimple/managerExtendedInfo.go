@@ -97,49 +97,9 @@ func GetManagerExtendedInfo(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagerExtendedInfo resources.
 type managerExtendedInfoState struct {
-	// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
-	Algorithm *string `pulumi:"algorithm"`
-	// Represents the CEK of the resource.
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// Represents the Cert thumbprint that was used to encrypt the CEK.
-	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// The etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// Represents the CIK of the resource.
-	IntegrityKey *string `pulumi:"integrityKey"`
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
-	// The name of the object.
-	Name *string `pulumi:"name"`
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-	PortalCertificateThumbprint *string `pulumi:"portalCertificateThumbprint"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
-	// The version of the extended info being persisted.
-	Version *string `pulumi:"version"`
 }
 
 type ManagerExtendedInfoState struct {
-	// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
-	Algorithm pulumi.StringPtrInput
-	// Represents the CEK of the resource.
-	EncryptionKey pulumi.StringPtrInput
-	// Represents the Cert thumbprint that was used to encrypt the CEK.
-	EncryptionKeyThumbprint pulumi.StringPtrInput
-	// The etag of the resource.
-	Etag pulumi.StringPtrInput
-	// Represents the CIK of the resource.
-	IntegrityKey pulumi.StringPtrInput
-	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
-	// The name of the object.
-	Name pulumi.StringPtrInput
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-	PortalCertificateThumbprint pulumi.StringPtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
-	// The version of the extended info being persisted.
-	Version pulumi.StringPtrInput
 }
 
 func (ManagerExtendedInfoState) ElementType() reflect.Type {
@@ -158,7 +118,7 @@ type managerExtendedInfoArgs struct {
 	// Represents the CIK of the resource.
 	IntegrityKey string `pulumi:"integrityKey"`
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *string `pulumi:"kind"`
+	Kind *Kind `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
@@ -182,7 +142,7 @@ type ManagerExtendedInfoArgs struct {
 	// Represents the CIK of the resource.
 	IntegrityKey pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind *Kind
+	Kind KindPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
@@ -216,9 +176,7 @@ func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
 }
 
-type ManagerExtendedInfoOutput struct {
-	*pulumi.OutputState
-}
+type ManagerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagerExtendedInfo)(nil))

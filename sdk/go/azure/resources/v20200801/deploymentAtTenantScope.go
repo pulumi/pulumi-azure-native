@@ -113,29 +113,9 @@ func GetDeploymentAtTenantScope(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DeploymentAtTenantScope resources.
 type deploymentAtTenantScopeState struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name *string `pulumi:"name"`
-	// Deployment properties.
-	Properties *DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type *string `pulumi:"type"`
 }
 
 type DeploymentAtTenantScopeState struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput
-	// The name of the deployment.
-	Name pulumi.StringPtrInput
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponsePtrInput
-	// Deployment tags
-	Tags pulumi.StringMapInput
-	// The type of the deployment.
-	Type pulumi.StringPtrInput
 }
 
 func (DeploymentAtTenantScopeState) ElementType() reflect.Type {
@@ -188,9 +168,7 @@ func (i *DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtTenantScopeOutput)
 }
 
-type DeploymentAtTenantScopeOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentAtTenantScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtTenantScopeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentAtTenantScope)(nil))

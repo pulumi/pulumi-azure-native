@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// A video analyzer preset that extracts insights (rich metadata) from both audio and video, and outputs a JSON format file.
+    /// </summary>
     [OutputType]
     public sealed class VideoAnalyzerPresetResponse
     {

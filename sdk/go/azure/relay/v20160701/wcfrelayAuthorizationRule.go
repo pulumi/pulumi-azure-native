@@ -82,21 +82,9 @@ func GetWCFRelayAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WCFRelayAuthorizationRule resources.
 type wcfrelayAuthorizationRuleState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type WCFRelayAuthorizationRuleState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (WCFRelayAuthorizationRuleState) ElementType() reflect.Type {
@@ -153,9 +141,7 @@ func (i *WCFRelayAuthorizationRule) ToWCFRelayAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WCFRelayAuthorizationRuleOutput)
 }
 
-type WCFRelayAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type WCFRelayAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (WCFRelayAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WCFRelayAuthorizationRule)(nil))

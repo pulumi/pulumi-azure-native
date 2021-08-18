@@ -98,65 +98,9 @@ func GetEnvironmentSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EnvironmentSetting resources.
 type environmentSettingState struct {
-	// Describes the user's progress in configuring their environment setting
-	ConfigurationState *string `pulumi:"configurationState"`
-	// Describes the environment and its resource settings
-	Description *string `pulumi:"description"`
-	// Time when the template VM was last changed.
-	LastChanged *string `pulumi:"lastChanged"`
-	// Time when the template VM was last sent for publishing.
-	LastPublished *string `pulumi:"lastPublished"`
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Describes the readiness of this environment setting
-	PublishingState *string `pulumi:"publishingState"`
-	// The resource specific settings
-	ResourceSettings *ResourceSettingsResponse `pulumi:"resourceSettings"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Brief title describing the environment and its resource settings
-	Title *string `pulumi:"title"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type EnvironmentSettingState struct {
-	// Describes the user's progress in configuring their environment setting
-	ConfigurationState pulumi.StringPtrInput
-	// Describes the environment and its resource settings
-	Description pulumi.StringPtrInput
-	// Time when the template VM was last changed.
-	LastChanged pulumi.StringPtrInput
-	// Time when the template VM was last sent for publishing.
-	LastPublished pulumi.StringPtrInput
-	// The details of the latest operation. ex: status, error
-	LatestOperationResult LatestOperationResultResponsePtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Describes the readiness of this environment setting
-	PublishingState pulumi.StringPtrInput
-	// The resource specific settings
-	ResourceSettings ResourceSettingsResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// Brief title describing the environment and its resource settings
-	Title pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (EnvironmentSettingState) ElementType() reflect.Type {
@@ -241,9 +185,7 @@ func (i *EnvironmentSetting) ToEnvironmentSettingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingOutput)
 }
 
-type EnvironmentSettingOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EnvironmentSetting)(nil))

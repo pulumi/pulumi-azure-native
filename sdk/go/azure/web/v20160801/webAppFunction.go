@@ -148,57 +148,9 @@ func GetWebAppFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppFunction resources.
 type webAppFunctionState struct {
-	// Config information.
-	Config interface{} `pulumi:"config"`
-	// Config URI.
-	ConfigHref *string `pulumi:"configHref"`
-	// File list.
-	Files map[string]string `pulumi:"files"`
-	// Function App ID.
-	FunctionAppId *string `pulumi:"functionAppId"`
-	// Function URI.
-	Href *string `pulumi:"href"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Script URI.
-	ScriptHref *string `pulumi:"scriptHref"`
-	// Script root path URI.
-	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
-	// Secrets file URI.
-	SecretsFileHref *string `pulumi:"secretsFileHref"`
-	// Test data used when testing via the Azure Portal.
-	TestData *string `pulumi:"testData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppFunctionState struct {
-	// Config information.
-	Config pulumi.Input
-	// Config URI.
-	ConfigHref pulumi.StringPtrInput
-	// File list.
-	Files pulumi.StringMapInput
-	// Function App ID.
-	FunctionAppId pulumi.StringPtrInput
-	// Function URI.
-	Href pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Script URI.
-	ScriptHref pulumi.StringPtrInput
-	// Script root path URI.
-	ScriptRootPathHref pulumi.StringPtrInput
-	// Secrets file URI.
-	SecretsFileHref pulumi.StringPtrInput
-	// Test data used when testing via the Azure Portal.
-	TestData pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppFunctionState) ElementType() reflect.Type {
@@ -283,9 +235,7 @@ func (i *WebAppFunction) ToWebAppFunctionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppFunctionOutput)
 }
 
-type WebAppFunctionOutput struct {
-	*pulumi.OutputState
-}
+type WebAppFunctionOutput struct{ *pulumi.OutputState }
 
 func (WebAppFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppFunction)(nil))

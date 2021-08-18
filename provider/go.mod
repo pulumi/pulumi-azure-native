@@ -27,3 +27,8 @@ require (
 	google.golang.org/grpc v1.37.0
 	modernc.org/sqlite v1.10.0
 )
+
+replace (
+	github.com/pulumi/pulumi/sdk/v3 => ../../pulumi/sdk
+	github.com/pulumi/pulumi/pkg/v3 => ../../pulumi/pkg
+)

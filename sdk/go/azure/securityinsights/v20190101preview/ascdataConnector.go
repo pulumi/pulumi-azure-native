@@ -95,33 +95,9 @@ func GetASCDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ASCDataConnector resources.
 type ascdataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'AzureSecurityCenter'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The subscription id to connect to, and get the data from.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ASCDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes AlertsDataTypeOfDataConnectorResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'AzureSecurityCenter'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The subscription id to connect to, and get the data from.
-	SubscriptionId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ASCDataConnectorState) ElementType() reflect.Type {
@@ -190,9 +166,7 @@ func (i *ASCDataConnector) ToASCDataConnectorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ASCDataConnectorOutput)
 }
 
-type ASCDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type ASCDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (ASCDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ASCDataConnector)(nil))

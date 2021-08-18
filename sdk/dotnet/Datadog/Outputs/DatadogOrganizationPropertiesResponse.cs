@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Datadog.Outputs
 {
 
+    /// <summary>
+    /// Datadog organization properties
+    /// </summary>
     [OutputType]
     public sealed class DatadogOrganizationPropertiesResponse
     {

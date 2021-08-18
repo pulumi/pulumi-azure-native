@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
+    /// <summary>
+    /// Sms channel definition
+    /// </summary>
     [OutputType]
     public sealed class SmsChannelResponse
     {

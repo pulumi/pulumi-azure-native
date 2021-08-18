@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// AzureStorage backup policy.
+    /// </summary>
     [OutputType]
     public sealed class AzureFileShareProtectionPolicyResponse
     {

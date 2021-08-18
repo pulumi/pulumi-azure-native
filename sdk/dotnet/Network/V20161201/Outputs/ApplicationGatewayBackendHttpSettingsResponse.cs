@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20161201.Outputs
 {
 
+    /// <summary>
+    /// Backend address pool settings of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayBackendHttpSettingsResponse
     {

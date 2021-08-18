@@ -132,109 +132,9 @@ func GetWebPubSub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebPubSub resources.
 type webPubSubState struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration *DiagnosticConfigurationResponse `pulumi:"diagnosticConfiguration"`
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth *bool `pulumi:"disableAadAuth"`
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth *bool `pulumi:"disableLocalAuth"`
-	// The settings for event handler in webpubsub service.
-	EventHandler *EventHandlerSettingsResponse `pulumi:"eventHandler"`
-	// The publicly accessible IP of the resource.
-	ExternalIP *string `pulumi:"externalIP"`
-	// FQDN of the service instance.
-	HostName *string `pulumi:"hostName"`
-	// The managed identity response
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Network ACLs
-	NetworkACLs *WebPubSubNetworkACLsResponse `pulumi:"networkACLs"`
-	// Private endpoint connections to the resource.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The publicly accessible port of the resource which is designed for browser/client side usage.
-	PublicPort *int `pulumi:"publicPort"`
-	// The publicly accessible port of the resource which is designed for customer server side usage.
-	ServerPort *int `pulumi:"serverPort"`
-	// The list of shared private link resources.
-	SharedPrivateLinkResources []SharedPrivateLinkResourceResponse `pulumi:"sharedPrivateLinkResources"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// TLS settings.
-	Tls *WebPubSubTlsSettingsResponse `pulumi:"tls"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type *string `pulumi:"type"`
-	// Version of the resource. Probably you need the same or higher version of client SDKs.
-	Version *string `pulumi:"version"`
 }
 
 type WebPubSubState struct {
-	// Diagnostic configuration of a Microsoft.SignalRService resource. Used together with Azure monitor DiagnosticSettings.
-	DiagnosticConfiguration DiagnosticConfigurationResponsePtrInput
-	// DisableLocalAuth
-	// Enable or disable aad auth
-	// When set as true, connection with AuthType=aad won't work.
-	DisableAadAuth pulumi.BoolPtrInput
-	// DisableLocalAuth
-	// Enable or disable local auth with AccessKey
-	// When set as true, connection with AccessKey=xxx won't work.
-	DisableLocalAuth pulumi.BoolPtrInput
-	// The settings for event handler in webpubsub service.
-	EventHandler EventHandlerSettingsResponsePtrInput
-	// The publicly accessible IP of the resource.
-	ExternalIP pulumi.StringPtrInput
-	// FQDN of the service instance.
-	HostName pulumi.StringPtrInput
-	// The managed identity response
-	Identity ManagedIdentityResponsePtrInput
-	// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Network ACLs
-	NetworkACLs WebPubSubNetworkACLsResponsePtrInput
-	// Private endpoint connections to the resource.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Enable or disable public network access. Default to "Enabled".
-	// When it's Enabled, network ACLs still apply.
-	// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The publicly accessible port of the resource which is designed for browser/client side usage.
-	PublicPort pulumi.IntPtrInput
-	// The publicly accessible port of the resource which is designed for customer server side usage.
-	ServerPort pulumi.IntPtrInput
-	// The list of shared private link resources.
-	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayInput
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput
-	// TLS settings.
-	Tls WebPubSubTlsSettingsResponsePtrInput
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringPtrInput
-	// Version of the resource. Probably you need the same or higher version of client SDKs.
-	Version pulumi.StringPtrInput
 }
 
 func (WebPubSubState) ElementType() reflect.Type {
@@ -335,9 +235,7 @@ func (i *WebPubSub) ToWebPubSubOutputWithContext(ctx context.Context) WebPubSubO
 	return pulumi.ToOutputWithContext(ctx, i).(WebPubSubOutput)
 }
 
-type WebPubSubOutput struct {
-	*pulumi.OutputState
-}
+type WebPubSubOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebPubSub)(nil))

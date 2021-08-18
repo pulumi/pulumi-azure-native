@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20190601.Outputs
 {
 
+    /// <summary>
+    /// The URIs that are used to perform a retrieval of a public blob, file, web or dfs object via a internet routing endpoint.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountInternetEndpointsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Set of rules for sending logs for the Monitor resource.
+    /// </summary>
     [OutputType]
     public sealed class LogRulesResponse
     {

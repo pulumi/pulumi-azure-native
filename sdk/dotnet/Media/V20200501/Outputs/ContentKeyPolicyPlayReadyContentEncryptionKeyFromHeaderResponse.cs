@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Specifies that the content key ID is in the PlayReady header.
+    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderResponse
     {

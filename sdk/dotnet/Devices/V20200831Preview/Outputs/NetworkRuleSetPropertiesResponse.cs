@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200831Preview.Outputs
 {
 
+    /// <summary>
+    /// Network Rule Set Properties of IotHub
+    /// </summary>
     [OutputType]
     public sealed class NetworkRuleSetPropertiesResponse
     {

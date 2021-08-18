@@ -134,63 +134,9 @@ func GetBlobDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobDataSetMapping resources.
 type blobDataSetMappingState struct {
-	// Container that has the file path.
-	ContainerName *string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// File path within the source data set
-	FilePath *string `pulumi:"filePath"`
-	// Kind of data set mapping.
-	// Expected value is 'Blob'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// File output type
-	OutputType *string `pulumi:"outputType"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type BlobDataSetMappingState struct {
-	// Container that has the file path.
-	ContainerName pulumi.StringPtrInput
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// File path within the source data set
-	FilePath pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'Blob'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// File output type
-	OutputType pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource group of storage account.
-	ResourceGroup pulumi.StringPtrInput
-	// Storage account name of the source data set.
-	StorageAccountName pulumi.StringPtrInput
-	// Subscription id of storage account.
-	SubscriptionId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (BlobDataSetMappingState) ElementType() reflect.Type {
@@ -277,9 +223,7 @@ func (i *BlobDataSetMapping) ToBlobDataSetMappingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BlobDataSetMappingOutput)
 }
 
-type BlobDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type BlobDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobDataSetMapping)(nil))

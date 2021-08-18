@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure Function activity.
+    /// </summary>
     [OutputType]
     public sealed class AzureFunctionActivityResponse
     {

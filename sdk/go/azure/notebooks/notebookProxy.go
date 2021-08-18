@@ -78,41 +78,9 @@ func GetNotebookProxy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotebookProxy resources.
 type notebookProxyState struct {
-	// The friendly string identifier of the creator of the NotebookProxy resource.
-	Hostname *string `pulumi:"hostname"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The public DNS name
-	PublicDns *string `pulumi:"publicDns"`
-	// The region of the NotebookProxy resource.
-	Region *string `pulumi:"region"`
-	// The unique identifier (a GUID) generated for every resource.
-	ResourceId *string `pulumi:"resourceId"`
-	// The alternate application ID used for auth token request in the data plane
-	SecondaryAppId *string `pulumi:"secondaryAppId"`
-	// System data for notebook resource
-	SystemData *NotebookResourceSystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
-	Type *string `pulumi:"type"`
 }
 
 type NotebookProxyState struct {
-	// The friendly string identifier of the creator of the NotebookProxy resource.
-	Hostname pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The public DNS name
-	PublicDns pulumi.StringPtrInput
-	// The region of the NotebookProxy resource.
-	Region pulumi.StringPtrInput
-	// The unique identifier (a GUID) generated for every resource.
-	ResourceId pulumi.StringPtrInput
-	// The alternate application ID used for auth token request in the data plane
-	SecondaryAppId pulumi.StringPtrInput
-	// System data for notebook resource
-	SystemData NotebookResourceSystemDataResponsePtrInput
-	// The type of the resource. Ex- Microsoft.Storage/storageAccounts or Microsoft.Notebooks/notebookProxies.
-	Type pulumi.StringPtrInput
 }
 
 func (NotebookProxyState) ElementType() reflect.Type {
@@ -177,9 +145,7 @@ func (i *NotebookProxy) ToNotebookProxyOutputWithContext(ctx context.Context) No
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookProxyOutput)
 }
 
-type NotebookProxyOutput struct {
-	*pulumi.OutputState
-}
+type NotebookProxyOutput struct{ *pulumi.OutputState }
 
 func (NotebookProxyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotebookProxy)(nil))

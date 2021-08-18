@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160430Preview.Outputs
 {
 
+    /// <summary>
+    /// The instance view of the disk.
+    /// </summary>
     [OutputType]
     public sealed class DiskInstanceViewResponse
     {

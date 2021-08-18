@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// VMwareCbt provider specific container mapping details.
+    /// </summary>
     [OutputType]
     public sealed class VMwareCbtProtectionContainerMappingDetailsResponse
     {

@@ -114,7 +114,7 @@ func (o BudgetComparisonExpressionOutput) ToBudgetComparisonExpressionPtrOutput(
 }
 
 func (o BudgetComparisonExpressionOutput) ToBudgetComparisonExpressionPtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionPtrOutput {
-	return o.ApplyT(func(v BudgetComparisonExpression) *BudgetComparisonExpression {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetComparisonExpression) *BudgetComparisonExpression {
 		return &v
 	}).(BudgetComparisonExpressionPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o BudgetComparisonExpressionPtrOutput) ToBudgetComparisonExpressionPtrOutp
 }
 
 func (o BudgetComparisonExpressionPtrOutput) Elem() BudgetComparisonExpressionOutput {
-	return o.ApplyT(func(v *BudgetComparisonExpression) BudgetComparisonExpression { return *v }).(BudgetComparisonExpressionOutput)
+	return o.ApplyT(func(v *BudgetComparisonExpression) BudgetComparisonExpression {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetComparisonExpression
+		return ret
+	}).(BudgetComparisonExpressionOutput)
 }
 
 // The name of the column to use in comparison.
@@ -286,7 +292,7 @@ func (o BudgetComparisonExpressionResponseOutput) ToBudgetComparisonExpressionRe
 }
 
 func (o BudgetComparisonExpressionResponseOutput) ToBudgetComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) BudgetComparisonExpressionResponsePtrOutput {
-	return o.ApplyT(func(v BudgetComparisonExpressionResponse) *BudgetComparisonExpressionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetComparisonExpressionResponse) *BudgetComparisonExpressionResponse {
 		return &v
 	}).(BudgetComparisonExpressionResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o BudgetComparisonExpressionResponsePtrOutput) ToBudgetComparisonExpressio
 }
 
 func (o BudgetComparisonExpressionResponsePtrOutput) Elem() BudgetComparisonExpressionResponseOutput {
-	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) BudgetComparisonExpressionResponse { return *v }).(BudgetComparisonExpressionResponseOutput)
+	return o.ApplyT(func(v *BudgetComparisonExpressionResponse) BudgetComparisonExpressionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetComparisonExpressionResponse
+		return ret
+	}).(BudgetComparisonExpressionResponseOutput)
 }
 
 // The name of the column to use in comparison.
@@ -462,7 +474,7 @@ func (o BudgetFilterOutput) ToBudgetFilterPtrOutput() BudgetFilterPtrOutput {
 }
 
 func (o BudgetFilterOutput) ToBudgetFilterPtrOutputWithContext(ctx context.Context) BudgetFilterPtrOutput {
-	return o.ApplyT(func(v BudgetFilter) *BudgetFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilter) *BudgetFilter {
 		return &v
 	}).(BudgetFilterPtrOutput)
 }
@@ -502,7 +514,13 @@ func (o BudgetFilterPtrOutput) ToBudgetFilterPtrOutputWithContext(ctx context.Co
 }
 
 func (o BudgetFilterPtrOutput) Elem() BudgetFilterOutput {
-	return o.ApplyT(func(v *BudgetFilter) BudgetFilter { return *v }).(BudgetFilterOutput)
+	return o.ApplyT(func(v *BudgetFilter) BudgetFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilter
+		return ret
+	}).(BudgetFilterOutput)
 }
 
 // The logical "AND" expression. Must have at least 2 items.
@@ -670,7 +688,7 @@ func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesPtrOutput() Budget
 }
 
 func (o BudgetFilterPropertiesOutput) ToBudgetFilterPropertiesPtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesPtrOutput {
-	return o.ApplyT(func(v BudgetFilterProperties) *BudgetFilterProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterProperties) *BudgetFilterProperties {
 		return &v
 	}).(BudgetFilterPropertiesPtrOutput)
 }
@@ -700,7 +718,13 @@ func (o BudgetFilterPropertiesPtrOutput) ToBudgetFilterPropertiesPtrOutputWithCo
 }
 
 func (o BudgetFilterPropertiesPtrOutput) Elem() BudgetFilterPropertiesOutput {
-	return o.ApplyT(func(v *BudgetFilterProperties) BudgetFilterProperties { return *v }).(BudgetFilterPropertiesOutput)
+	return o.ApplyT(func(v *BudgetFilterProperties) BudgetFilterProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterProperties
+		return ret
+	}).(BudgetFilterPropertiesOutput)
 }
 
 // Has comparison expression for a dimension
@@ -868,7 +892,7 @@ func (o BudgetFilterPropertiesResponseOutput) ToBudgetFilterPropertiesResponsePt
 }
 
 func (o BudgetFilterPropertiesResponseOutput) ToBudgetFilterPropertiesResponsePtrOutputWithContext(ctx context.Context) BudgetFilterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BudgetFilterPropertiesResponse) *BudgetFilterPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterPropertiesResponse) *BudgetFilterPropertiesResponse {
 		return &v
 	}).(BudgetFilterPropertiesResponsePtrOutput)
 }
@@ -898,7 +922,13 @@ func (o BudgetFilterPropertiesResponsePtrOutput) ToBudgetFilterPropertiesRespons
 }
 
 func (o BudgetFilterPropertiesResponsePtrOutput) Elem() BudgetFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) BudgetFilterPropertiesResponse { return *v }).(BudgetFilterPropertiesResponseOutput)
+	return o.ApplyT(func(v *BudgetFilterPropertiesResponse) BudgetFilterPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterPropertiesResponse
+		return ret
+	}).(BudgetFilterPropertiesResponseOutput)
 }
 
 // Has comparison expression for a dimension
@@ -1049,7 +1079,7 @@ func (o BudgetFilterResponseOutput) ToBudgetFilterResponsePtrOutput() BudgetFilt
 }
 
 func (o BudgetFilterResponseOutput) ToBudgetFilterResponsePtrOutputWithContext(ctx context.Context) BudgetFilterResponsePtrOutput {
-	return o.ApplyT(func(v BudgetFilterResponse) *BudgetFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterResponse) *BudgetFilterResponse {
 		return &v
 	}).(BudgetFilterResponsePtrOutput)
 }
@@ -1089,7 +1119,13 @@ func (o BudgetFilterResponsePtrOutput) ToBudgetFilterResponsePtrOutputWithContex
 }
 
 func (o BudgetFilterResponsePtrOutput) Elem() BudgetFilterResponseOutput {
-	return o.ApplyT(func(v *BudgetFilterResponse) BudgetFilterResponse { return *v }).(BudgetFilterResponseOutput)
+	return o.ApplyT(func(v *BudgetFilterResponse) BudgetFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterResponse
+		return ret
+	}).(BudgetFilterResponseOutput)
 }
 
 // The logical "AND" expression. Must have at least 2 items.
@@ -1232,7 +1268,7 @@ func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPt
 }
 
 func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return o.ApplyT(func(v BudgetTimePeriod) *BudgetTimePeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriod) *BudgetTimePeriod {
 		return &v
 	}).(BudgetTimePeriodPtrOutput)
 }
@@ -1262,7 +1298,13 @@ func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx co
 }
 
 func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod { return *v }).(BudgetTimePeriodOutput)
+	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTimePeriod
+		return ret
+	}).(BudgetTimePeriodOutput)
 }
 
 // The end date for the budget. If not provided, we default this to 10 years from the start date.
@@ -1385,7 +1427,7 @@ func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutput() Bu
 }
 
 func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
 		return &v
 	}).(BudgetTimePeriodResponsePtrOutput)
 }
@@ -1415,7 +1457,13 @@ func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutputWi
 }
 
 func (o BudgetTimePeriodResponsePtrOutput) Elem() BudgetTimePeriodResponseOutput {
-	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse { return *v }).(BudgetTimePeriodResponseOutput)
+	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetTimePeriodResponse
+		return ret
+	}).(BudgetTimePeriodResponseOutput)
 }
 
 // The end date for the budget. If not provided, we default this to 10 years from the start date.
@@ -1538,7 +1586,7 @@ func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutput() CurrentSpe
 }
 
 func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return o.ApplyT(func(v CurrentSpendResponse) *CurrentSpendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentSpendResponse) *CurrentSpendResponse {
 		return &v
 	}).(CurrentSpendResponsePtrOutput)
 }
@@ -1568,7 +1616,13 @@ func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutputWithContex
 }
 
 func (o CurrentSpendResponsePtrOutput) Elem() CurrentSpendResponseOutput {
-	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse { return *v }).(CurrentSpendResponseOutput)
+	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CurrentSpendResponse
+		return ret
+	}).(CurrentSpendResponseOutput)
 }
 
 // The total amount of cost which is being tracked by the budget.
@@ -1691,7 +1745,7 @@ func (o ForecastSpendResponseOutput) ToForecastSpendResponsePtrOutput() Forecast
 }
 
 func (o ForecastSpendResponseOutput) ToForecastSpendResponsePtrOutputWithContext(ctx context.Context) ForecastSpendResponsePtrOutput {
-	return o.ApplyT(func(v ForecastSpendResponse) *ForecastSpendResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ForecastSpendResponse) *ForecastSpendResponse {
 		return &v
 	}).(ForecastSpendResponsePtrOutput)
 }
@@ -1721,7 +1775,13 @@ func (o ForecastSpendResponsePtrOutput) ToForecastSpendResponsePtrOutputWithCont
 }
 
 func (o ForecastSpendResponsePtrOutput) Elem() ForecastSpendResponseOutput {
-	return o.ApplyT(func(v *ForecastSpendResponse) ForecastSpendResponse { return *v }).(ForecastSpendResponseOutput)
+	return o.ApplyT(func(v *ForecastSpendResponse) ForecastSpendResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ForecastSpendResponse
+		return ret
+	}).(ForecastSpendResponseOutput)
 }
 
 // The forecasted cost for the total time period which is being tracked by the budget. This value is only provided if the budget contains a forecast alert type.

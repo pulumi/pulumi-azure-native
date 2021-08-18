@@ -129,45 +129,9 @@ func GetPolicyDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyDefinition resources.
 type policyDefinitionState struct {
-	// The policy definition description.
-	Description *string `pulumi:"description"`
-	// The display name of the policy definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The policy definition metadata.
-	Metadata interface{} `pulumi:"metadata"`
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode *string `pulumi:"mode"`
-	// The name of the policy definition.
-	Name *string `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The policy rule.
-	PolicyRule interface{} `pulumi:"policyRule"`
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType *string `pulumi:"policyType"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type *string `pulumi:"type"`
 }
 
 type PolicyDefinitionState struct {
-	// The policy definition description.
-	Description pulumi.StringPtrInput
-	// The display name of the policy definition.
-	DisplayName pulumi.StringPtrInput
-	// The policy definition metadata.
-	Metadata pulumi.Input
-	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-	Mode pulumi.StringPtrInput
-	// The name of the policy definition.
-	Name pulumi.StringPtrInput
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input
-	// The policy rule.
-	PolicyRule pulumi.Input
-	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
-	PolicyType pulumi.StringPtrInput
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionState) ElementType() reflect.Type {
@@ -236,9 +200,7 @@ func (i *PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionOutput)
 }
 
-type PolicyDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type PolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyDefinition)(nil))

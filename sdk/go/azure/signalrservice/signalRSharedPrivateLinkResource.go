@@ -93,41 +93,9 @@ func GetSignalRSharedPrivateLinkResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SignalRSharedPrivateLinkResource resources.
 type signalRSharedPrivateLinkResourceState struct {
-	// The group id from the provider of resource the shared private link resource is for
-	GroupId *string `pulumi:"groupId"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The resource id of the resource the shared private link resource is for
-	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
-	// Provisioning state of the shared private link resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The request message for requesting approval of the shared private link resource
-	RequestMessage *string `pulumi:"requestMessage"`
-	// Status of the shared private link resource
-	Status *string `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type *string `pulumi:"type"`
 }
 
 type SignalRSharedPrivateLinkResourceState struct {
-	// The group id from the provider of resource the shared private link resource is for
-	GroupId pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The resource id of the resource the shared private link resource is for
-	PrivateLinkResourceId pulumi.StringPtrInput
-	// Provisioning state of the shared private link resource
-	ProvisioningState pulumi.StringPtrInput
-	// The request message for requesting approval of the shared private link resource
-	RequestMessage pulumi.StringPtrInput
-	// Status of the shared private link resource
-	Status pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringPtrInput
 }
 
 func (SignalRSharedPrivateLinkResourceState) ElementType() reflect.Type {
@@ -188,9 +156,7 @@ func (i *SignalRSharedPrivateLinkResource) ToSignalRSharedPrivateLinkResourceOut
 	return pulumi.ToOutputWithContext(ctx, i).(SignalRSharedPrivateLinkResourceOutput)
 }
 
-type SignalRSharedPrivateLinkResourceOutput struct {
-	*pulumi.OutputState
-}
+type SignalRSharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (SignalRSharedPrivateLinkResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SignalRSharedPrivateLinkResource)(nil))

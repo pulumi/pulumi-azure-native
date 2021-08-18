@@ -13,8 +13,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.confidentialledger.v20201201preview as v20201201preview
-    import pulumi_azure_native.confidentialledger.v20210513preview as v20210513preview
+    import pulumi_azure_native.confidentialledger.v20201201preview as __v20201201preview
+    v20201201preview = __v20201201preview
+    import pulumi_azure_native.confidentialledger.v20210513preview as __v20210513preview
+    v20210513preview = __v20210513preview
 else:
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20201201preview')
     v20210513preview = _utilities.lazy_import('pulumi_azure_native.confidentialledger.v20210513preview')

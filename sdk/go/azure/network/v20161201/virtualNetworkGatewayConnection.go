@@ -317,89 +317,9 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkGatewayConnection resources.
 type virtualNetworkGatewayConnectionState struct {
-	// The authorizationKey.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-	ConnectionType *string `pulumi:"connectionType"`
-	// The egress bytes transferred in this connection.
-	EgressBytesTransferred *float64 `pulumi:"egressBytesTransferred"`
-	// EnableBgp flag
-	EnableBgp *bool `pulumi:"enableBgp"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred *float64 `pulumi:"ingressBytesTransferred"`
-	// A common class for general resource information
-	LocalNetworkGateway2 *LocalNetworkGatewayResponse `pulumi:"localNetworkGateway2"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The reference to peerings resource.
-	Peer *SubResourceResponse `pulumi:"peer"`
-	// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource GUID property of the VirtualNetworkGatewayConnection resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// The routing weight.
-	RoutingWeight *int `pulumi:"routingWeight"`
-	// The IPSec shared key.
-	SharedKey *string `pulumi:"sharedKey"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Collection of all tunnels' connection health status.
-	TunnelConnectionStatus []TunnelConnectionHealthResponse `pulumi:"tunnelConnectionStatus"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// A common class for general resource information
-	VirtualNetworkGateway1 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway1"`
-	// A common class for general resource information
-	VirtualNetworkGateway2 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway2"`
 }
 
 type VirtualNetworkGatewayConnectionState struct {
-	// The authorizationKey.
-	AuthorizationKey pulumi.StringPtrInput
-	// Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
-	ConnectionStatus pulumi.StringPtrInput
-	// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
-	ConnectionType pulumi.StringPtrInput
-	// The egress bytes transferred in this connection.
-	EgressBytesTransferred pulumi.Float64PtrInput
-	// EnableBgp flag
-	EnableBgp pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// The ingress bytes transferred in this connection.
-	IngressBytesTransferred pulumi.Float64PtrInput
-	// A common class for general resource information
-	LocalNetworkGateway2 LocalNetworkGatewayResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The reference to peerings resource.
-	Peer SubResourceResponsePtrInput
-	// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource GUID property of the VirtualNetworkGatewayConnection resource.
-	ResourceGuid pulumi.StringPtrInput
-	// The routing weight.
-	RoutingWeight pulumi.IntPtrInput
-	// The IPSec shared key.
-	SharedKey pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Collection of all tunnels' connection health status.
-	TunnelConnectionStatus TunnelConnectionHealthResponseArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// A common class for general resource information
-	VirtualNetworkGateway1 VirtualNetworkGatewayResponsePtrInput
-	// A common class for general resource information
-	VirtualNetworkGateway2 VirtualNetworkGatewayResponsePtrInput
 }
 
 func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
@@ -500,9 +420,7 @@ func (i *VirtualNetworkGatewayConnection) ToVirtualNetworkGatewayConnectionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkGatewayConnectionOutput)
 }
 
-type VirtualNetworkGatewayConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkGatewayConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkGatewayConnection)(nil))

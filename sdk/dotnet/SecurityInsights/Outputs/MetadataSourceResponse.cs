@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// The original source of the content item, where it comes from.
+    /// </summary>
     [OutputType]
     public sealed class MetadataSourceResponse
     {

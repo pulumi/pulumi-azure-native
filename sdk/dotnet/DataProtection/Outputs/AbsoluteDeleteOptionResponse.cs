@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Delete option with duration
+    /// </summary>
     [OutputType]
     public sealed class AbsoluteDeleteOptionResponse
     {

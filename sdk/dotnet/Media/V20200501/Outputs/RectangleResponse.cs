@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of a rectangular window applied to the input media before processing it.
+    /// </summary>
     [OutputType]
     public sealed class RectangleResponse
     {

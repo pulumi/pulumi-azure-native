@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// Access information for the storage account.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountCredentialsResponse
     {

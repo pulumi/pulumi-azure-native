@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Trigger that creates pipeline runs periodically, on schedule.
+    /// </summary>
     [OutputType]
     public sealed class ScheduleTriggerResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Outputs
 {
 
+    /// <summary>
+    /// Setting indicating whether the service has a managed identity associated with it.
+    /// </summary>
     [OutputType]
     public sealed class ServicesResourceResponseIdentity
     {

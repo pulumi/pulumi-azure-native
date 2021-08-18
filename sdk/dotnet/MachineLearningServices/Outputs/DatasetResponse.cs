@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Machine Learning dataset object.
+    /// </summary>
     [OutputType]
     public sealed class DatasetResponse
     {

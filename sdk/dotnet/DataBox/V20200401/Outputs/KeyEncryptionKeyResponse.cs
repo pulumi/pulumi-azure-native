@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20200401.Outputs
 {
 
+    /// <summary>
+    /// Encryption key containing details about key to encrypt different keys.
+    /// </summary>
     [OutputType]
     public sealed class KeyEncryptionKeyResponse
     {

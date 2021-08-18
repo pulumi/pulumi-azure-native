@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Define match conditions
+    /// </summary>
     [OutputType]
     public sealed class MatchConditionResponse
     {

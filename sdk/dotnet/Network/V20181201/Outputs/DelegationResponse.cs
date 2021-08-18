@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20181201.Outputs
 {
 
+    /// <summary>
+    /// Details the service to which the subnet is delegated.
+    /// </summary>
     [OutputType]
     public sealed class DelegationResponse
     {

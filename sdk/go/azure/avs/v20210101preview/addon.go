@@ -86,29 +86,9 @@ func GetAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
-	// The type of private cloud addon
-	AddonType *string `pulumi:"addonType"`
-	// The SRM license
-	LicenseKey *string `pulumi:"licenseKey"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the addon provisioning
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AddonState struct {
-	// The type of private cloud addon
-	AddonType pulumi.StringPtrInput
-	// The SRM license
-	LicenseKey pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the addon provisioning
-	ProvisioningState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AddonState) ElementType() reflect.Type {
@@ -165,9 +145,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
-type AddonOutput struct {
-	*pulumi.OutputState
-}
+type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Addon)(nil))

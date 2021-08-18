@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The details of the latest move operation performed on the Azure Resource
+    /// </summary>
     [OutputType]
     public sealed class VaultPropertiesResponseMoveDetails
     {

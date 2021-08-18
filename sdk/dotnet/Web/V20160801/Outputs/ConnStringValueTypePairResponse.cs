@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160801.Outputs
 {
 
+    /// <summary>
+    /// Database connection string value to type pair.
+    /// </summary>
     [OutputType]
     public sealed class ConnStringValueTypePairResponse
     {

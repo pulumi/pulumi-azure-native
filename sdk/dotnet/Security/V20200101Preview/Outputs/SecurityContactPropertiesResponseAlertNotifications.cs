@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines whether to send email notifications about new security alerts
+    /// </summary>
     [OutputType]
     public sealed class SecurityContactPropertiesResponseAlertNotifications
     {

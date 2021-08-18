@@ -145,25 +145,9 @@ func GetNotebookWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotebookWorkspace resources.
 type notebookWorkspaceState struct {
-	// The name of the database account.
-	Name *string `pulumi:"name"`
-	// Specifies the endpoint of Notebook server.
-	NotebookServerEndpoint *string `pulumi:"notebookServerEndpoint"`
-	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
-	Status *string `pulumi:"status"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type NotebookWorkspaceState struct {
-	// The name of the database account.
-	Name pulumi.StringPtrInput
-	// Specifies the endpoint of Notebook server.
-	NotebookServerEndpoint pulumi.StringPtrInput
-	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
-	Status pulumi.StringPtrInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (NotebookWorkspaceState) ElementType() reflect.Type {
@@ -212,9 +196,7 @@ func (i *NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceOutput)
 }
 
-type NotebookWorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type NotebookWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (NotebookWorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotebookWorkspace)(nil))

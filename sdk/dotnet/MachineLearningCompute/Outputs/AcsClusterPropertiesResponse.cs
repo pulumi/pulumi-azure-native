@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// Information about the container service backing the cluster
+    /// </summary>
     [OutputType]
     public sealed class AcsClusterPropertiesResponse
     {

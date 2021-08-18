@@ -98,33 +98,9 @@ func GetStaticSiteUserProvidedFunctionAppForStaticSiteBuild(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StaticSiteUserProvidedFunctionAppForStaticSiteBuild resources.
 type staticSiteUserProvidedFunctionAppForStaticSiteBuildState struct {
-	// The date and time on which the function app was registered with the static site.
-	CreatedOn *string `pulumi:"createdOn"`
-	// The region of the function app registered with the static site
-	FunctionAppRegion *string `pulumi:"functionAppRegion"`
-	// The resource id of the function app registered with the static site
-	FunctionAppResourceId *string `pulumi:"functionAppResourceId"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type StaticSiteUserProvidedFunctionAppForStaticSiteBuildState struct {
-	// The date and time on which the function app was registered with the static site.
-	CreatedOn pulumi.StringPtrInput
-	// The region of the function app registered with the static site
-	FunctionAppRegion pulumi.StringPtrInput
-	// The resource id of the function app registered with the static site
-	FunctionAppResourceId pulumi.StringPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (StaticSiteUserProvidedFunctionAppForStaticSiteBuildState) ElementType() reflect.Type {
@@ -193,9 +169,7 @@ func (i *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) ToStaticSiteUserPr
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput)
 }
 
-type StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput struct {
-	*pulumi.OutputState
-}
+type StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppForStaticSiteBuild)(nil))

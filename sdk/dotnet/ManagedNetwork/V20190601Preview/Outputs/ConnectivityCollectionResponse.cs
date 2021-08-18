@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// The collection of Connectivity related groups and policies within the Managed Network
+    /// </summary>
     [OutputType]
     public sealed class ConnectivityCollectionResponse
     {

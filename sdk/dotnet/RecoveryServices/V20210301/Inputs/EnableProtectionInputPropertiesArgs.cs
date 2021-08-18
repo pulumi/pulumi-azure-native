@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210301.Inputs
         /// The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.
         /// </summary>
         [Input("providerSpecificDetails")]
-        public Input<object>? ProviderSpecificDetails { get; set; }
+        public object? ProviderSpecificDetails { get; set; }
 
         public EnableProtectionInputPropertiesArgs()
         {

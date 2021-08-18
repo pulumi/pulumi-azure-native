@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// This is the OS disk image.
+    /// </summary>
     [OutputType]
     public sealed class GalleryOSDiskImageResponse
     {

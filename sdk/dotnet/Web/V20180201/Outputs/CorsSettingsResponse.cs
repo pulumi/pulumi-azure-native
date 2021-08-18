@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20180201.Outputs
 {
 
+    /// <summary>
+    /// Cross-Origin Resource Sharing (CORS) settings for the app.
+    /// </summary>
     [OutputType]
     public sealed class CorsSettingsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200801.Outputs
 {
 
+    /// <summary>
+    /// Public IP addresses associated with azure firewall.
+    /// </summary>
     [OutputType]
     public sealed class HubPublicIPAddressesResponse
     {

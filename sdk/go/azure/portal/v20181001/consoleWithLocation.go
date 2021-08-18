@@ -63,13 +63,9 @@ func GetConsoleWithLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConsoleWithLocation resources.
 type consoleWithLocationState struct {
-	// Cloud shell console properties.
-	Properties *ConsolePropertiesResponse `pulumi:"properties"`
 }
 
 type ConsoleWithLocationState struct {
-	// Cloud shell console properties.
-	Properties ConsolePropertiesResponsePtrInput
 }
 
 func (ConsoleWithLocationState) ElementType() reflect.Type {
@@ -114,9 +110,7 @@ func (i *ConsoleWithLocation) ToConsoleWithLocationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleWithLocationOutput)
 }
 
-type ConsoleWithLocationOutput struct {
-	*pulumi.OutputState
-}
+type ConsoleWithLocationOutput struct{ *pulumi.OutputState }
 
 func (ConsoleWithLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConsoleWithLocation)(nil))

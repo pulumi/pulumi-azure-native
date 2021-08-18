@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.Outputs
 {
 
+    /// <summary>
+    /// Private endpoint
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {

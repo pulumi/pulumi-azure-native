@@ -311,65 +311,9 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetwork resources.
 type virtualNetworkState struct {
-	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
-	// The DDoS protection plan associated with the virtual network.
-	DdosProtectionPlan *SubResourceResponse `pulumi:"ddosProtectionPlan"`
-	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions *DhcpOptionsResponse `pulumi:"dhcpOptions"`
-	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
-	// Indicates if VM protection is enabled for all the subnets in the virtual network.
-	EnableVmProtection *bool `pulumi:"enableVmProtection"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resourceGuid property of the Virtual Network resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// A list of subnets in a Virtual Network.
-	Subnets []SubnetResponse `pulumi:"subnets"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// A list of peerings in a Virtual Network.
-	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
 }
 
 type VirtualNetworkState struct {
-	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
-	AddressSpace AddressSpaceResponsePtrInput
-	// The DDoS protection plan associated with the virtual network.
-	DdosProtectionPlan SubResourceResponsePtrInput
-	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
-	DhcpOptions DhcpOptionsResponsePtrInput
-	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
-	EnableDdosProtection pulumi.BoolPtrInput
-	// Indicates if VM protection is enabled for all the subnets in the virtual network.
-	EnableVmProtection pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-	ProvisioningState pulumi.StringPtrInput
-	// The resourceGuid property of the Virtual Network resource.
-	ResourceGuid pulumi.StringPtrInput
-	// A list of subnets in a Virtual Network.
-	Subnets SubnetResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// A list of peerings in a Virtual Network.
-	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayInput
 }
 
 func (VirtualNetworkState) ElementType() reflect.Type {
@@ -466,9 +410,7 @@ func (i *VirtualNetwork) ToVirtualNetworkOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkOutput)
 }
 
-type VirtualNetworkOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetwork)(nil))

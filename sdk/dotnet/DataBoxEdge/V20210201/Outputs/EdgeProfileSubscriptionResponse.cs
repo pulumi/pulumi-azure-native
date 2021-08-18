@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Subscription details for the Edge Profile
+    /// </summary>
     [OutputType]
     public sealed class EdgeProfileSubscriptionResponse
     {

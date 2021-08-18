@@ -21,18 +21,30 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hybridcompute.v20190318preview as v20190318preview
-    import pulumi_azure_native.hybridcompute.v20190802preview as v20190802preview
-    import pulumi_azure_native.hybridcompute.v20191212 as v20191212
-    import pulumi_azure_native.hybridcompute.v20200730preview as v20200730preview
-    import pulumi_azure_native.hybridcompute.v20200802 as v20200802
-    import pulumi_azure_native.hybridcompute.v20200815preview as v20200815preview
-    import pulumi_azure_native.hybridcompute.v20210128preview as v20210128preview
-    import pulumi_azure_native.hybridcompute.v20210325preview as v20210325preview
-    import pulumi_azure_native.hybridcompute.v20210422preview as v20210422preview
-    import pulumi_azure_native.hybridcompute.v20210517preview as v20210517preview
-    import pulumi_azure_native.hybridcompute.v20210520 as v20210520
-    import pulumi_azure_native.hybridcompute.v20210610preview as v20210610preview
+    import pulumi_azure_native.hybridcompute.v20190318preview as __v20190318preview
+    v20190318preview = __v20190318preview
+    import pulumi_azure_native.hybridcompute.v20190802preview as __v20190802preview
+    v20190802preview = __v20190802preview
+    import pulumi_azure_native.hybridcompute.v20191212 as __v20191212
+    v20191212 = __v20191212
+    import pulumi_azure_native.hybridcompute.v20200730preview as __v20200730preview
+    v20200730preview = __v20200730preview
+    import pulumi_azure_native.hybridcompute.v20200802 as __v20200802
+    v20200802 = __v20200802
+    import pulumi_azure_native.hybridcompute.v20200815preview as __v20200815preview
+    v20200815preview = __v20200815preview
+    import pulumi_azure_native.hybridcompute.v20210128preview as __v20210128preview
+    v20210128preview = __v20210128preview
+    import pulumi_azure_native.hybridcompute.v20210325preview as __v20210325preview
+    v20210325preview = __v20210325preview
+    import pulumi_azure_native.hybridcompute.v20210422preview as __v20210422preview
+    v20210422preview = __v20210422preview
+    import pulumi_azure_native.hybridcompute.v20210517preview as __v20210517preview
+    v20210517preview = __v20210517preview
+    import pulumi_azure_native.hybridcompute.v20210520 as __v20210520
+    v20210520 = __v20210520
+    import pulumi_azure_native.hybridcompute.v20210610preview as __v20210610preview
+    v20210610preview = __v20210610preview
 else:
     v20190318preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20190318preview')
     v20190802preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20190802preview')

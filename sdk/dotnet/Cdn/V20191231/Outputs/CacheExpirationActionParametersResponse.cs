@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20191231.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for the cache expiration action.
+    /// </summary>
     [OutputType]
     public sealed class CacheExpirationActionParametersResponse
     {

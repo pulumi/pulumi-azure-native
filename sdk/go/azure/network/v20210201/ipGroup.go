@@ -139,45 +139,9 @@ func GetIpGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpGroup resources.
 type ipGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// List of references to Firewall Policies resources that this IpGroups is associated with.
-	FirewallPolicies []SubResourceResponse `pulumi:"firewallPolicies"`
-	// List of references to Firewall resources that this IpGroups is associated with.
-	Firewalls []SubResourceResponse `pulumi:"firewalls"`
-	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
-	IpAddresses []string `pulumi:"ipAddresses"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the IpGroups resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IpGroupState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// List of references to Firewall Policies resources that this IpGroups is associated with.
-	FirewallPolicies SubResourceResponseArrayInput
-	// List of references to Firewall resources that this IpGroups is associated with.
-	Firewalls SubResourceResponseArrayInput
-	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
-	IpAddresses pulumi.StringArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the IpGroups resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IpGroupState) ElementType() reflect.Type {
@@ -238,9 +202,7 @@ func (i *IpGroup) ToIpGroupOutputWithContext(ctx context.Context) IpGroupOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(IpGroupOutput)
 }
 
-type IpGroupOutput struct {
-	*pulumi.OutputState
-}
+type IpGroupOutput struct{ *pulumi.OutputState }
 
 func (IpGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpGroup)(nil))

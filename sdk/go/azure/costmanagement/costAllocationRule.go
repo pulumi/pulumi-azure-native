@@ -68,21 +68,9 @@ func GetCostAllocationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CostAllocationRule resources.
 type costAllocationRuleState struct {
-	// Name of the rule. This is a read only value.
-	Name *string `pulumi:"name"`
-	// Cost allocation rule properties
-	Properties *CostAllocationRulePropertiesResponse `pulumi:"properties"`
-	// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
-	Type *string `pulumi:"type"`
 }
 
 type CostAllocationRuleState struct {
-	// Name of the rule. This is a read only value.
-	Name pulumi.StringPtrInput
-	// Cost allocation rule properties
-	Properties CostAllocationRulePropertiesResponsePtrInput
-	// Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
-	Type pulumi.StringPtrInput
 }
 
 func (CostAllocationRuleState) ElementType() reflect.Type {
@@ -131,9 +119,7 @@ func (i *CostAllocationRule) ToCostAllocationRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleOutput)
 }
 
-type CostAllocationRuleOutput struct {
-	*pulumi.OutputState
-}
+type CostAllocationRuleOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CostAllocationRule)(nil))

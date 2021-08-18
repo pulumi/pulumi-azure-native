@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Defines the Resource ID for a Frontend Endpoint.
+    /// </summary>
     [OutputType]
     public sealed class FrontendEndpointLinkResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
+    /// <summary>
+    /// Represents the dedicated host unutilized capacity in terms of a specific VM size.
+    /// </summary>
     [OutputType]
     public sealed class DedicatedHostAllocatableVMResponse
     {

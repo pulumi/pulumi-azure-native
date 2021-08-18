@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Set of export policy rules
+    /// </summary>
     [OutputType]
     public sealed class VolumePropertiesResponseExportPolicy
     {

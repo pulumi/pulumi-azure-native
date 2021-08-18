@@ -18,8 +18,8 @@ __all__ = [
     'KeyVaultPropertiesArgs',
     'NWRuleSetIpRulesArgs',
     'NWRuleSetVirtualNetworkRulesArgs',
-    'PrivateEndpointArgs',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointArgs',
     'SBSkuArgs',
     'SqlFilterArgs',
     'SubnetArgs',
@@ -543,30 +543,6 @@ class NWRuleSetVirtualNetworkRulesArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        PrivateEndpoint information.
-        :param pulumi.Input[str] id: The ARM identifier for Private Endpoint.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The ARM identifier for Private Endpoint.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
@@ -620,6 +596,30 @@ class PrivateEndpointConnectionArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        PrivateEndpoint information.
+        :param pulumi.Input[str] id: The ARM identifier for Private Endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM identifier for Private Endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20170901.Outputs
 {
 
+    /// <summary>
+    /// Describes the storage location for a packet capture session.
+    /// </summary>
     [OutputType]
     public sealed class PacketCaptureStorageLocationResponse
     {

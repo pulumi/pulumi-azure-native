@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
+    /// <summary>
+    /// Defines the properties to access the artifacts using an Azure Storage SAS URI.
+    /// </summary>
     [OutputType]
     public sealed class SasAuthenticationResponse
     {

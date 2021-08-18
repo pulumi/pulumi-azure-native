@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Parquet write settings.
+    /// </summary>
     [OutputType]
     public sealed class ParquetWriteSettingsResponse
     {

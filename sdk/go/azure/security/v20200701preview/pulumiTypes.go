@@ -106,7 +106,7 @@ func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrO
 }
 
 func (o RuleResultsPropertiesResponseOutput) ToRuleResultsPropertiesResponsePtrOutputWithContext(ctx context.Context) RuleResultsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleResultsPropertiesResponse) *RuleResultsPropertiesResponse {
 		return &v
 	}).(RuleResultsPropertiesResponsePtrOutput)
 }
@@ -131,7 +131,13 @@ func (o RuleResultsPropertiesResponsePtrOutput) ToRuleResultsPropertiesResponseP
 }
 
 func (o RuleResultsPropertiesResponsePtrOutput) Elem() RuleResultsPropertiesResponseOutput {
-	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse { return *v }).(RuleResultsPropertiesResponseOutput)
+	return o.ApplyT(func(v *RuleResultsPropertiesResponse) RuleResultsPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RuleResultsPropertiesResponse
+		return ret
+	}).(RuleResultsPropertiesResponseOutput)
 }
 
 // Expected results in the baseline.

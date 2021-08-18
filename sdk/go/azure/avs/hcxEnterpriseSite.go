@@ -91,25 +91,9 @@ func GetHcxEnterpriseSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HcxEnterpriseSite resources.
 type hcxEnterpriseSiteState struct {
-	// The activation key
-	ActivationKey *string `pulumi:"activationKey"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The status of the HCX Enterprise Site
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type HcxEnterpriseSiteState struct {
-	// The activation key
-	ActivationKey pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The status of the HCX Enterprise Site
-	Status pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (HcxEnterpriseSiteState) ElementType() reflect.Type {
@@ -158,9 +142,7 @@ func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(HcxEnterpriseSiteOutput)
 }
 
-type HcxEnterpriseSiteOutput struct {
-	*pulumi.OutputState
-}
+type HcxEnterpriseSiteOutput struct{ *pulumi.OutputState }
 
 func (HcxEnterpriseSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HcxEnterpriseSite)(nil))

@@ -66,19 +66,9 @@ func GetSubscriptionFeatureRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubscriptionFeatureRegistration resources.
 type subscriptionFeatureRegistrationState struct {
-	// Azure resource name.
-	Name       *string                                            `pulumi:"name"`
-	Properties *SubscriptionFeatureRegistrationResponseProperties `pulumi:"properties"`
-	// Azure resource type.
-	Type *string `pulumi:"type"`
 }
 
 type SubscriptionFeatureRegistrationState struct {
-	// Azure resource name.
-	Name       pulumi.StringPtrInput
-	Properties SubscriptionFeatureRegistrationResponsePropertiesPtrInput
-	// Azure resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (SubscriptionFeatureRegistrationState) ElementType() reflect.Type {
@@ -125,9 +115,7 @@ func (i *SubscriptionFeatureRegistration) ToSubscriptionFeatureRegistrationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFeatureRegistrationOutput)
 }
 
-type SubscriptionFeatureRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type SubscriptionFeatureRegistrationOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionFeatureRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubscriptionFeatureRegistration)(nil))

@@ -92,21 +92,9 @@ func GetManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstanceAzureADOnlyAuthentication resources.
 type managedInstanceAzureADOnlyAuthenticationState struct {
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication *bool `pulumi:"azureADOnlyAuthentication"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedInstanceAzureADOnlyAuthenticationState struct {
-	// Azure Active Directory only Authentication enabled.
-	AzureADOnlyAuthentication pulumi.BoolPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedInstanceAzureADOnlyAuthenticationState) ElementType() reflect.Type {
@@ -159,9 +147,7 @@ func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyA
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceAzureADOnlyAuthenticationOutput)
 }
 
-type ManagedInstanceAzureADOnlyAuthenticationOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceAzureADOnlyAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))

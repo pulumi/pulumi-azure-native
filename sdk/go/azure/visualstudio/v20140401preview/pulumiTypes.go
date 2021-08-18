@@ -122,7 +122,7 @@ func (o ExtensionResourcePlanOutput) ToExtensionResourcePlanPtrOutput() Extensio
 }
 
 func (o ExtensionResourcePlanOutput) ToExtensionResourcePlanPtrOutputWithContext(ctx context.Context) ExtensionResourcePlanPtrOutput {
-	return o.ApplyT(func(v ExtensionResourcePlan) *ExtensionResourcePlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionResourcePlan) *ExtensionResourcePlan {
 		return &v
 	}).(ExtensionResourcePlanPtrOutput)
 }
@@ -167,7 +167,13 @@ func (o ExtensionResourcePlanPtrOutput) ToExtensionResourcePlanPtrOutputWithCont
 }
 
 func (o ExtensionResourcePlanPtrOutput) Elem() ExtensionResourcePlanOutput {
-	return o.ApplyT(func(v *ExtensionResourcePlan) ExtensionResourcePlan { return *v }).(ExtensionResourcePlanOutput)
+	return o.ApplyT(func(v *ExtensionResourcePlan) ExtensionResourcePlan {
+		if v != nil {
+			return *v
+		}
+		var ret ExtensionResourcePlan
+		return ret
+	}).(ExtensionResourcePlanOutput)
 }
 
 // Name of the plan.
@@ -332,7 +338,7 @@ func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponsePtrO
 }
 
 func (o ExtensionResourcePlanResponseOutput) ToExtensionResourcePlanResponsePtrOutputWithContext(ctx context.Context) ExtensionResourcePlanResponsePtrOutput {
-	return o.ApplyT(func(v ExtensionResourcePlanResponse) *ExtensionResourcePlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtensionResourcePlanResponse) *ExtensionResourcePlanResponse {
 		return &v
 	}).(ExtensionResourcePlanResponsePtrOutput)
 }
@@ -377,7 +383,13 @@ func (o ExtensionResourcePlanResponsePtrOutput) ToExtensionResourcePlanResponseP
 }
 
 func (o ExtensionResourcePlanResponsePtrOutput) Elem() ExtensionResourcePlanResponseOutput {
-	return o.ApplyT(func(v *ExtensionResourcePlanResponse) ExtensionResourcePlanResponse { return *v }).(ExtensionResourcePlanResponseOutput)
+	return o.ApplyT(func(v *ExtensionResourcePlanResponse) ExtensionResourcePlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtensionResourcePlanResponse
+		return ret
+	}).(ExtensionResourcePlanResponseOutput)
 }
 
 // Name of the plan.

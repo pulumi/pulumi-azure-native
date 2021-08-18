@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties for plan on a custom image.
+    /// </summary>
     [OutputType]
     public sealed class CustomImagePropertiesFromPlanResponse
     {

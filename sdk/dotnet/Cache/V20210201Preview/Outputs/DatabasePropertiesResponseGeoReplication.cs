@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Optional set of properties to configure geo replication for this database.
+    /// </summary>
     [OutputType]
     public sealed class DatabasePropertiesResponseGeoReplication
     {

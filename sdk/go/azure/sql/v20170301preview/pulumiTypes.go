@@ -221,7 +221,7 @@ type JobSchedule struct {
 	// Schedule start time.
 	StartTime *string `pulumi:"startTime"`
 	// Schedule interval type
-	Type *string `pulumi:"type"`
+	Type *JobScheduleType `pulumi:"type"`
 }
 
 // JobScheduleInput is an input type that accepts JobScheduleArgs and JobScheduleOutput values.
@@ -246,7 +246,7 @@ type JobScheduleArgs struct {
 	// Schedule start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Schedule interval type
-	Type *JobScheduleType `pulumi:"type"`
+	Type JobScheduleTypePtrInput `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -322,7 +322,7 @@ func (o JobScheduleOutput) ToJobSchedulePtrOutput() JobSchedulePtrOutput {
 }
 
 func (o JobScheduleOutput) ToJobSchedulePtrOutputWithContext(ctx context.Context) JobSchedulePtrOutput {
-	return o.ApplyT(func(v JobSchedule) *JobSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobSchedule) *JobSchedule {
 		return &v
 	}).(JobSchedulePtrOutput)
 }
@@ -348,8 +348,8 @@ func (o JobScheduleOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule interval type
-func (o JobScheduleOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobSchedule) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o JobScheduleOutput) Type() JobScheduleTypePtrOutput {
+	return o.ApplyT(func(v JobSchedule) *JobScheduleType { return v.Type }).(JobScheduleTypePtrOutput)
 }
 
 type JobSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -367,7 +367,13 @@ func (o JobSchedulePtrOutput) ToJobSchedulePtrOutputWithContext(ctx context.Cont
 }
 
 func (o JobSchedulePtrOutput) Elem() JobScheduleOutput {
-	return o.ApplyT(func(v *JobSchedule) JobSchedule { return *v }).(JobScheduleOutput)
+	return o.ApplyT(func(v *JobSchedule) JobSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret JobSchedule
+		return ret
+	}).(JobScheduleOutput)
 }
 
 // Whether or not the schedule is enabled.
@@ -411,13 +417,13 @@ func (o JobSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Schedule interval type
-func (o JobSchedulePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobSchedule) *string {
+func (o JobSchedulePtrOutput) Type() JobScheduleTypePtrOutput {
+	return o.ApplyT(func(v *JobSchedule) *JobScheduleType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(JobScheduleTypePtrOutput)
 }
 
 // Scheduling properties of a job.
@@ -532,7 +538,7 @@ func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutput() JobScheduleR
 }
 
 func (o JobScheduleResponseOutput) ToJobScheduleResponsePtrOutputWithContext(ctx context.Context) JobScheduleResponsePtrOutput {
-	return o.ApplyT(func(v JobScheduleResponse) *JobScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobScheduleResponse) *JobScheduleResponse {
 		return &v
 	}).(JobScheduleResponsePtrOutput)
 }
@@ -577,7 +583,13 @@ func (o JobScheduleResponsePtrOutput) ToJobScheduleResponsePtrOutputWithContext(
 }
 
 func (o JobScheduleResponsePtrOutput) Elem() JobScheduleResponseOutput {
-	return o.ApplyT(func(v *JobScheduleResponse) JobScheduleResponse { return *v }).(JobScheduleResponseOutput)
+	return o.ApplyT(func(v *JobScheduleResponse) JobScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobScheduleResponse
+		return ret
+	}).(JobScheduleResponseOutput)
 }
 
 // Whether or not the schedule is enabled.
@@ -734,7 +746,7 @@ func (o JobStepActionOutput) ToJobStepActionPtrOutput() JobStepActionPtrOutput {
 }
 
 func (o JobStepActionOutput) ToJobStepActionPtrOutputWithContext(ctx context.Context) JobStepActionPtrOutput {
-	return o.ApplyT(func(v JobStepAction) *JobStepAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepAction) *JobStepAction {
 		return &v
 	}).(JobStepActionPtrOutput)
 }
@@ -769,7 +781,13 @@ func (o JobStepActionPtrOutput) ToJobStepActionPtrOutputWithContext(ctx context.
 }
 
 func (o JobStepActionPtrOutput) Elem() JobStepActionOutput {
-	return o.ApplyT(func(v *JobStepAction) JobStepAction { return *v }).(JobStepActionOutput)
+	return o.ApplyT(func(v *JobStepAction) JobStepAction {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepAction
+		return ret
+	}).(JobStepActionOutput)
 }
 
 // The source of the action to execute.
@@ -906,7 +924,7 @@ func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutput() JobStepA
 }
 
 func (o JobStepActionResponseOutput) ToJobStepActionResponsePtrOutputWithContext(ctx context.Context) JobStepActionResponsePtrOutput {
-	return o.ApplyT(func(v JobStepActionResponse) *JobStepActionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepActionResponse) *JobStepActionResponse {
 		return &v
 	}).(JobStepActionResponsePtrOutput)
 }
@@ -941,7 +959,13 @@ func (o JobStepActionResponsePtrOutput) ToJobStepActionResponsePtrOutputWithCont
 }
 
 func (o JobStepActionResponsePtrOutput) Elem() JobStepActionResponseOutput {
-	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse { return *v }).(JobStepActionResponseOutput)
+	return o.ApplyT(func(v *JobStepActionResponse) JobStepActionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepActionResponse
+		return ret
+	}).(JobStepActionResponseOutput)
 }
 
 // The source of the action to execute.
@@ -1086,7 +1110,7 @@ func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutput() JobS
 }
 
 func (o JobStepExecutionOptionsOutput) ToJobStepExecutionOptionsPtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsPtrOutput {
-	return o.ApplyT(func(v JobStepExecutionOptions) *JobStepExecutionOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptions) *JobStepExecutionOptions {
 		return &v
 	}).(JobStepExecutionOptionsPtrOutput)
 }
@@ -1131,7 +1155,13 @@ func (o JobStepExecutionOptionsPtrOutput) ToJobStepExecutionOptionsPtrOutputWith
 }
 
 func (o JobStepExecutionOptionsPtrOutput) Elem() JobStepExecutionOptionsOutput {
-	return o.ApplyT(func(v *JobStepExecutionOptions) JobStepExecutionOptions { return *v }).(JobStepExecutionOptionsOutput)
+	return o.ApplyT(func(v *JobStepExecutionOptions) JobStepExecutionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepExecutionOptions
+		return ret
+	}).(JobStepExecutionOptionsOutput)
 }
 
 // Initial delay between retries for job step execution.
@@ -1296,7 +1326,7 @@ func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponse
 }
 
 func (o JobStepExecutionOptionsResponseOutput) ToJobStepExecutionOptionsResponsePtrOutputWithContext(ctx context.Context) JobStepExecutionOptionsResponsePtrOutput {
-	return o.ApplyT(func(v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepExecutionOptionsResponse) *JobStepExecutionOptionsResponse {
 		return &v
 	}).(JobStepExecutionOptionsResponsePtrOutput)
 }
@@ -1341,7 +1371,13 @@ func (o JobStepExecutionOptionsResponsePtrOutput) ToJobStepExecutionOptionsRespo
 }
 
 func (o JobStepExecutionOptionsResponsePtrOutput) Elem() JobStepExecutionOptionsResponseOutput {
-	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) JobStepExecutionOptionsResponse { return *v }).(JobStepExecutionOptionsResponseOutput)
+	return o.ApplyT(func(v *JobStepExecutionOptionsResponse) JobStepExecutionOptionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepExecutionOptionsResponse
+		return ret
+	}).(JobStepExecutionOptionsResponseOutput)
 }
 
 // Initial delay between retries for job step execution.
@@ -1518,7 +1554,7 @@ func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutput() JobStepOutputTyp
 }
 
 func (o JobStepOutputTypeOutput) ToJobStepOutputTypePtrOutputWithContext(ctx context.Context) JobStepOutputTypePtrOutput {
-	return o.ApplyT(func(v JobStepOutputType) *JobStepOutputType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputType) *JobStepOutputType {
 		return &v
 	}).(JobStepOutputTypePtrOutput)
 }
@@ -1578,7 +1614,13 @@ func (o JobStepOutputTypePtrOutput) ToJobStepOutputTypePtrOutputWithContext(ctx 
 }
 
 func (o JobStepOutputTypePtrOutput) Elem() JobStepOutputTypeOutput {
-	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType { return *v }).(JobStepOutputTypeOutput)
+	return o.ApplyT(func(v *JobStepOutputType) JobStepOutputType {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepOutputType
+		return ret
+	}).(JobStepOutputTypeOutput)
 }
 
 // The resource ID of the credential to use to connect to the output destination.
@@ -1785,7 +1827,7 @@ func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutput() JobStepO
 }
 
 func (o JobStepOutputResponseOutput) ToJobStepOutputResponsePtrOutputWithContext(ctx context.Context) JobStepOutputResponsePtrOutput {
-	return o.ApplyT(func(v JobStepOutputResponse) *JobStepOutputResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStepOutputResponse) *JobStepOutputResponse {
 		return &v
 	}).(JobStepOutputResponsePtrOutput)
 }
@@ -1845,7 +1887,13 @@ func (o JobStepOutputResponsePtrOutput) ToJobStepOutputResponsePtrOutputWithCont
 }
 
 func (o JobStepOutputResponsePtrOutput) Elem() JobStepOutputResponseOutput {
-	return o.ApplyT(func(v *JobStepOutputResponse) JobStepOutputResponse { return *v }).(JobStepOutputResponseOutput)
+	return o.ApplyT(func(v *JobStepOutputResponse) JobStepOutputResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStepOutputResponse
+		return ret
+	}).(JobStepOutputResponseOutput)
 }
 
 // The resource ID of the credential to use to connect to the output destination.
@@ -1935,7 +1983,7 @@ type JobTarget struct {
 	// The target elastic pool name.
 	ElasticPoolName *string `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType *string `pulumi:"membershipType"`
+	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential *string `pulumi:"refreshCredential"`
 	// The target server name.
@@ -1964,7 +2012,7 @@ type JobTargetArgs struct {
 	// The target elastic pool name.
 	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType *JobTargetGroupMembershipType `pulumi:"membershipType"`
+	MembershipType JobTargetGroupMembershipTypePtrInput `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
 	// The target server name.
@@ -2038,8 +2086,8 @@ func (o JobTargetOutput) ElasticPoolName() pulumi.StringPtrOutput {
 }
 
 // Whether the target is included or excluded from the group.
-func (o JobTargetOutput) MembershipType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobTarget) *string { return v.MembershipType }).(pulumi.StringPtrOutput)
+func (o JobTargetOutput) MembershipType() JobTargetGroupMembershipTypePtrOutput {
+	return o.ApplyT(func(v JobTarget) *JobTargetGroupMembershipType { return v.MembershipType }).(JobTargetGroupMembershipTypePtrOutput)
 }
 
 // The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
@@ -2348,7 +2396,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -2393,7 +2441,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Capacity of the particular SKU.
@@ -2558,7 +2612,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -2603,7 +2657,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Capacity of the particular SKU.
@@ -2760,7 +2820,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAs
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesOutput) ToVulnerabilityAssessmentRecurringScansPropertiesPtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesPtrOutput {
-	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansProperties) *VulnerabilityAssessmentRecurringScansProperties {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesPtrOutput)
 }
@@ -2796,7 +2856,11 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) ToVulnerabilit
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesPtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansProperties) VulnerabilityAssessmentRecurringScansProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VulnerabilityAssessmentRecurringScansProperties
+		return ret
 	}).(VulnerabilityAssessmentRecurringScansPropertiesOutput)
 }
 
@@ -2934,7 +2998,7 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnera
 }
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponseOutput) ToVulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutputWithContext(ctx context.Context) VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VulnerabilityAssessmentRecurringScansPropertiesResponse) *VulnerabilityAssessmentRecurringScansPropertiesResponse {
 		return &v
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput)
 }
@@ -2972,7 +3036,11 @@ func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) ToVuln
 
 func (o VulnerabilityAssessmentRecurringScansPropertiesResponsePtrOutput) Elem() VulnerabilityAssessmentRecurringScansPropertiesResponseOutput {
 	return o.ApplyT(func(v *VulnerabilityAssessmentRecurringScansPropertiesResponse) VulnerabilityAssessmentRecurringScansPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VulnerabilityAssessmentRecurringScansPropertiesResponse
+		return ret
 	}).(VulnerabilityAssessmentRecurringScansPropertiesResponseOutput)
 }
 

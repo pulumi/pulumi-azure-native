@@ -104,29 +104,9 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
-	// User-defined description of the job.
-	Description *string `pulumi:"description"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Schedule properties of the job.
-	Schedule *JobScheduleResponse `pulumi:"schedule"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The job version number.
-	Version *int `pulumi:"version"`
 }
 
 type JobState struct {
-	// User-defined description of the job.
-	Description pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Schedule properties of the job.
-	Schedule JobScheduleResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The job version number.
-	Version pulumi.IntPtrInput
 }
 
 func (JobState) ElementType() reflect.Type {
@@ -187,9 +167,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-type JobOutput struct {
-	*pulumi.OutputState
-}
+type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Job)(nil))

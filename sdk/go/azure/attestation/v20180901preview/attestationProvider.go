@@ -90,37 +90,9 @@ func GetAttestationProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AttestationProvider resources.
 type attestationProviderState struct {
-	// Gets the uri of attestation service
-	AttestUri *string `pulumi:"attestUri"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Status of attestation service.
-	Status *string `pulumi:"status"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Trust model for the attestation service instance.
-	TrustModel *string `pulumi:"trustModel"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type AttestationProviderState struct {
-	// Gets the uri of attestation service
-	AttestUri pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Status of attestation service.
-	Status pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Trust model for the attestation service instance.
-	TrustModel pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (AttestationProviderState) ElementType() reflect.Type {
@@ -177,9 +149,7 @@ func (i *AttestationProvider) ToAttestationProviderOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationProviderOutput)
 }
 
-type AttestationProviderOutput struct {
-	*pulumi.OutputState
-}
+type AttestationProviderOutput struct{ *pulumi.OutputState }
 
 func (AttestationProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AttestationProvider)(nil))

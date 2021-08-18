@@ -85,47 +85,9 @@ func GetAdaptiveApplicationControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdaptiveApplicationControl resources.
 type adaptiveApplicationControlState struct {
-	// The configuration status of the machines group or machine or rule
-	ConfigurationStatus *string `pulumi:"configurationStatus"`
-	// The application control policy enforcement/protection mode of the machine group
-	EnforcementMode *string                                          `pulumi:"enforcementMode"`
-	Issues          []AdaptiveApplicationControlIssueSummaryResponse `pulumi:"issues"`
-	// Location where the resource is stored
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name                *string                      `pulumi:"name"`
-	PathRecommendations []PathRecommendationResponse `pulumi:"pathRecommendations"`
-	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
-	// The initial recommendation status of the machine group or machine
-	RecommendationStatus *string `pulumi:"recommendationStatus"`
-	// The source type of the machine group
-	SourceSystem *string `pulumi:"sourceSystem"`
-	// Resource type
-	Type              *string                    `pulumi:"type"`
-	VmRecommendations []VmRecommendationResponse `pulumi:"vmRecommendations"`
 }
 
 type AdaptiveApplicationControlState struct {
-	// The configuration status of the machines group or machine or rule
-	ConfigurationStatus pulumi.StringPtrInput
-	// The application control policy enforcement/protection mode of the machine group
-	EnforcementMode pulumi.StringPtrInput
-	Issues          AdaptiveApplicationControlIssueSummaryResponseArrayInput
-	// Location where the resource is stored
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name                pulumi.StringPtrInput
-	PathRecommendations PathRecommendationResponseArrayInput
-	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-	ProtectionMode ProtectionModeResponsePtrInput
-	// The initial recommendation status of the machine group or machine
-	RecommendationStatus pulumi.StringPtrInput
-	// The source type of the machine group
-	SourceSystem pulumi.StringPtrInput
-	// Resource type
-	Type              pulumi.StringPtrInput
-	VmRecommendations VmRecommendationResponseArrayInput
 }
 
 func (AdaptiveApplicationControlState) ElementType() reflect.Type {
@@ -182,9 +144,7 @@ func (i *AdaptiveApplicationControl) ToAdaptiveApplicationControlOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlOutput)
 }
 
-type AdaptiveApplicationControlOutput struct {
-	*pulumi.OutputState
-}
+type AdaptiveApplicationControlOutput struct{ *pulumi.OutputState }
 
 func (AdaptiveApplicationControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdaptiveApplicationControl)(nil))

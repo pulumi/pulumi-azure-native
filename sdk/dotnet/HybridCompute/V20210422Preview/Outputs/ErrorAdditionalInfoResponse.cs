@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210422Preview.Outputs
 {
 
+    /// <summary>
+    /// The resource management error additional info.
+    /// </summary>
     [OutputType]
     public sealed class ErrorAdditionalInfoResponse
     {

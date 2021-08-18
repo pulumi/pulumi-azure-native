@@ -93,61 +93,9 @@ func GetWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Webhook resources.
 type webhookState struct {
-	// Gets or sets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets or sets the expiry time.
-	ExpiryTime *string `pulumi:"expiryTime"`
-	// Gets or sets the value of the enabled flag of the webhook.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// Gets or sets the last invoked time.
-	LastInvokedTime *string `pulumi:"lastInvokedTime"`
-	// Details of the user who last modified the Webhook
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-	Parameters map[string]string `pulumi:"parameters"`
-	// Gets or sets the name of the hybrid worker group the webhook job will run on.
-	RunOn *string `pulumi:"runOn"`
-	// Gets or sets the runbook the webhook is associated with.
-	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// Gets or sets the webhook uri.
-	Uri *string `pulumi:"uri"`
 }
 
 type WebhookState struct {
-	// Gets or sets the creation time.
-	CreationTime pulumi.StringPtrInput
-	// Gets or sets the description.
-	Description pulumi.StringPtrInput
-	// Gets or sets the expiry time.
-	ExpiryTime pulumi.StringPtrInput
-	// Gets or sets the value of the enabled flag of the webhook.
-	IsEnabled pulumi.BoolPtrInput
-	// Gets or sets the last invoked time.
-	LastInvokedTime pulumi.StringPtrInput
-	// Details of the user who last modified the Webhook
-	LastModifiedBy pulumi.StringPtrInput
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
-	Parameters pulumi.StringMapInput
-	// Gets or sets the name of the hybrid worker group the webhook job will run on.
-	RunOn pulumi.StringPtrInput
-	// Gets or sets the runbook the webhook is associated with.
-	Runbook RunbookAssociationPropertyResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// Gets or sets the webhook uri.
-	Uri pulumi.StringPtrInput
 }
 
 func (WebhookState) ElementType() reflect.Type {
@@ -224,9 +172,7 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
 }
 
-type WebhookOutput struct {
-	*pulumi.OutputState
-}
+type WebhookOutput struct{ *pulumi.OutputState }
 
 func (WebhookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Webhook)(nil))

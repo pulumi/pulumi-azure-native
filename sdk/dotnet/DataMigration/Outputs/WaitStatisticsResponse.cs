@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Wait statistics gathered during query batch execution
+    /// </summary>
     [OutputType]
     public sealed class WaitStatisticsResponse
     {

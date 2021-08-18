@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20180201.Outputs
 {
 
+    /// <summary>
+    /// Specification for using a Virtual Network.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkProfileResponse
     {

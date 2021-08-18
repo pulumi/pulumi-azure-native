@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Settings for hybrid compute management
+    /// </summary>
     [OutputType]
     public sealed class HybridComputeSettingsPropertiesResponse
     {

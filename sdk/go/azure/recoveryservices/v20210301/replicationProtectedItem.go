@@ -114,25 +114,9 @@ func GetReplicationProtectedItem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationProtectedItem resources.
 type replicationProtectedItemState struct {
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// The custom data.
-	Properties *ReplicationProtectedItemPropertiesResponse `pulumi:"properties"`
-	// Resource Type
-	Type *string `pulumi:"type"`
 }
 
 type ReplicationProtectedItemState struct {
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// The custom data.
-	Properties ReplicationProtectedItemPropertiesResponsePtrInput
-	// Resource Type
-	Type pulumi.StringPtrInput
 }
 
 func (ReplicationProtectedItemState) ElementType() reflect.Type {
@@ -193,9 +177,7 @@ func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationProtectedItemOutput)
 }
 
-type ReplicationProtectedItemOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationProtectedItem)(nil))

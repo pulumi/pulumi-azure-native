@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'ReferenceVmArgs',
-    'ResourceSetArgs',
     'ResourceSettingsArgs',
+    'ResourceSetArgs',
 ]
 
 @pulumi.input_type
@@ -52,46 +52,6 @@ class ReferenceVmArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-
-@pulumi.input_type
-class ResourceSetArgs:
-    def __init__(__self__, *,
-                 resource_setting_id: Optional[pulumi.Input[str]] = None,
-                 vm_resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        Represents a VM and the setting Id it was created for.
-        :param pulumi.Input[str] resource_setting_id: resourceSettingId for the environment
-        :param pulumi.Input[str] vm_resource_id: VM resource Id for the environment
-        """
-        if resource_setting_id is not None:
-            pulumi.set(__self__, "resource_setting_id", resource_setting_id)
-        if vm_resource_id is not None:
-            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
-
-    @property
-    @pulumi.getter(name="resourceSettingId")
-    def resource_setting_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        resourceSettingId for the environment
-        """
-        return pulumi.get(self, "resource_setting_id")
-
-    @resource_setting_id.setter
-    def resource_setting_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_setting_id", value)
-
-    @property
-    @pulumi.getter(name="vmResourceId")
-    def vm_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        VM resource Id for the environment
-        """
-        return pulumi.get(self, "vm_resource_id")
-
-    @vm_resource_id.setter
-    def vm_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vm_resource_id", value)
 
 
 @pulumi.input_type
@@ -147,5 +107,45 @@ class ResourceSettingsArgs:
     @size.setter
     def size(self, value: Optional[pulumi.Input[Union[str, 'ManagedLabVmSize']]]):
         pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
+class ResourceSetArgs:
+    def __init__(__self__, *,
+                 resource_setting_id: Optional[pulumi.Input[str]] = None,
+                 vm_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Represents a VM and the setting Id it was created for.
+        :param pulumi.Input[str] resource_setting_id: resourceSettingId for the environment
+        :param pulumi.Input[str] vm_resource_id: VM resource Id for the environment
+        """
+        if resource_setting_id is not None:
+            pulumi.set(__self__, "resource_setting_id", resource_setting_id)
+        if vm_resource_id is not None:
+            pulumi.set(__self__, "vm_resource_id", vm_resource_id)
+
+    @property
+    @pulumi.getter(name="resourceSettingId")
+    def resource_setting_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        resourceSettingId for the environment
+        """
+        return pulumi.get(self, "resource_setting_id")
+
+    @resource_setting_id.setter
+    def resource_setting_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_setting_id", value)
+
+    @property
+    @pulumi.getter(name="vmResourceId")
+    def vm_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        VM resource Id for the environment
+        """
+        return pulumi.get(self, "vm_resource_id")
+
+    @vm_resource_id.setter
+    def vm_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_resource_id", value)
 
 

@@ -309,73 +309,9 @@ func GetExpressRouteCircuit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuit resources.
 type expressRouteCircuitState struct {
-	// allow classic operations
-	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
-	// Gets or sets list of authorizations
-	Authorizations []ExpressRouteCircuitAuthorizationResponse `pulumi:"authorizations"`
-	// Gets or sets CircuitProvisioningState state of the resource
-	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets the GatewayManager Etag
-	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets or sets list of peerings
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets ServiceKey
-	ServiceKey *string `pulumi:"serviceKey"`
-	// Gets or sets ServiceProviderNotes
-	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
-	// Gets or sets ServiceProviderProperties
-	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
-	// Gets or sets ServiceProviderProvisioningState state of the resource
-	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
-	// Gets or sets sku
-	Sku *ExpressRouteCircuitSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ExpressRouteCircuitState struct {
-	// allow classic operations
-	AllowClassicOperations pulumi.BoolPtrInput
-	// Gets or sets list of authorizations
-	Authorizations ExpressRouteCircuitAuthorizationResponseArrayInput
-	// Gets or sets CircuitProvisioningState state of the resource
-	CircuitProvisioningState pulumi.StringPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Gets or sets the GatewayManager Etag
-	GatewayManagerEtag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets or sets list of peerings
-	Peerings ExpressRouteCircuitPeeringResponseArrayInput
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets ServiceKey
-	ServiceKey pulumi.StringPtrInput
-	// Gets or sets ServiceProviderNotes
-	ServiceProviderNotes pulumi.StringPtrInput
-	// Gets or sets ServiceProviderProperties
-	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesResponsePtrInput
-	// Gets or sets ServiceProviderProvisioningState state of the resource
-	ServiceProviderProvisioningState pulumi.StringPtrInput
-	// Gets or sets sku
-	Sku ExpressRouteCircuitSkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ExpressRouteCircuitState) ElementType() reflect.Type {
@@ -480,9 +416,7 @@ func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
 }
 
-type ExpressRouteCircuitOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuit)(nil))

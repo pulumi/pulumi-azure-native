@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// DatabricksSparkPython activity.
+    /// </summary>
     [OutputType]
     public sealed class DatabricksSparkPythonActivityResponse
     {

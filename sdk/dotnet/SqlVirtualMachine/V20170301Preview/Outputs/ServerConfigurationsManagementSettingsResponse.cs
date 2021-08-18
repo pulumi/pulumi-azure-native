@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 {
 
+    /// <summary>
+    /// Set the connectivity, storage and workload settings.
+    /// </summary>
     [OutputType]
     public sealed class ServerConfigurationsManagementSettingsResponse
     {

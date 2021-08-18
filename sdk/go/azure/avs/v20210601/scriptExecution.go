@@ -101,77 +101,9 @@ func GetScriptExecution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ScriptExecution resources.
 type scriptExecutionState struct {
-	// Standard error output stream from the powershell execution
-	Errors []string `pulumi:"errors"`
-	// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-	FailureReason *string `pulumi:"failureReason"`
-	// Time the script execution was finished
-	FinishedAt *string `pulumi:"finishedAt"`
-	// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
-	HiddenParameters []interface{} `pulumi:"hiddenParameters"`
-	// Standard information out stream from the powershell execution
-	Information []string `pulumi:"information"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// User-defined dictionary.
-	NamedOutputs map[string]interface{} `pulumi:"namedOutputs"`
-	// Standard output stream from the powershell execution
-	Output []string `pulumi:"output"`
-	// Parameters the script will accept
-	Parameters []interface{} `pulumi:"parameters"`
-	// The state of the script execution resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Time to live for the resource. If not provided, will be available for 60 days
-	Retention *string `pulumi:"retention"`
-	// A reference to the script cmdlet resource if user is running a AVS script
-	ScriptCmdletId *string `pulumi:"scriptCmdletId"`
-	// Time the script execution was started
-	StartedAt *string `pulumi:"startedAt"`
-	// Time the script execution was submitted
-	SubmittedAt *string `pulumi:"submittedAt"`
-	// Time limit for execution
-	Timeout *string `pulumi:"timeout"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Standard warning out stream from the powershell execution
-	Warnings []string `pulumi:"warnings"`
 }
 
 type ScriptExecutionState struct {
-	// Standard error output stream from the powershell execution
-	Errors pulumi.StringArrayInput
-	// Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
-	FailureReason pulumi.StringPtrInput
-	// Time the script execution was finished
-	FinishedAt pulumi.StringPtrInput
-	// Parameters that will be hidden/not visible to ARM, such as passwords and credentials
-	HiddenParameters pulumi.ArrayInput
-	// Standard information out stream from the powershell execution
-	Information pulumi.StringArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// User-defined dictionary.
-	NamedOutputs pulumi.MapInput
-	// Standard output stream from the powershell execution
-	Output pulumi.StringArrayInput
-	// Parameters the script will accept
-	Parameters pulumi.ArrayInput
-	// The state of the script execution resource
-	ProvisioningState pulumi.StringPtrInput
-	// Time to live for the resource. If not provided, will be available for 60 days
-	Retention pulumi.StringPtrInput
-	// A reference to the script cmdlet resource if user is running a AVS script
-	ScriptCmdletId pulumi.StringPtrInput
-	// Time the script execution was started
-	StartedAt pulumi.StringPtrInput
-	// Time the script execution was submitted
-	SubmittedAt pulumi.StringPtrInput
-	// Time limit for execution
-	Timeout pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Standard warning out stream from the powershell execution
-	Warnings pulumi.StringArrayInput
 }
 
 func (ScriptExecutionState) ElementType() reflect.Type {
@@ -252,9 +184,7 @@ func (i *ScriptExecution) ToScriptExecutionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptExecutionOutput)
 }
 
-type ScriptExecutionOutput struct {
-	*pulumi.OutputState
-}
+type ScriptExecutionOutput struct{ *pulumi.OutputState }
 
 func (ScriptExecutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScriptExecution)(nil))

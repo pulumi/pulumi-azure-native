@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
+    /// <summary>
+    /// SQL pool SKU
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20191027Preview.Outputs
 {
 
+    /// <summary>
+    /// OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftManagedClusterMasterPoolProfileResponse
     {

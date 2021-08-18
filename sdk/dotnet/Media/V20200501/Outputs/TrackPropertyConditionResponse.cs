@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Class to specify one track property condition
+    /// </summary>
     [OutputType]
     public sealed class TrackPropertyConditionResponse
     {

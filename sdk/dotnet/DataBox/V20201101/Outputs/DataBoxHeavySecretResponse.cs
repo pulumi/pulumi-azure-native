@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20201101.Outputs
 {
 
+    /// <summary>
+    /// The secrets related to a databox heavy.
+    /// </summary>
     [OutputType]
     public sealed class DataBoxHeavySecretResponse
     {

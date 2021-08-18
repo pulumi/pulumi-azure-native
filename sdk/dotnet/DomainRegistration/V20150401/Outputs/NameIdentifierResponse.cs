@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DomainRegistration.V20150401.Outputs
 {
 
+    /// <summary>
+    /// Identifies an object.
+    /// </summary>
     [OutputType]
     public sealed class NameIdentifierResponse
     {

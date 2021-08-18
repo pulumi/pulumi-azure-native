@@ -88,61 +88,9 @@ func GetOpenShiftCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenShiftCluster resources.
 type openShiftClusterState struct {
-	// The cluster API server profile.
-	ApiserverProfile *APIServerProfileResponse `pulumi:"apiserverProfile"`
-	// The cluster profile.
-	ClusterProfile *ClusterProfileResponse `pulumi:"clusterProfile"`
-	// The console profile.
-	ConsoleProfile *ConsoleProfileResponse `pulumi:"consoleProfile"`
-	// The cluster ingress profiles.
-	IngressProfiles []IngressProfileResponse `pulumi:"ingressProfiles"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The cluster master profile.
-	MasterProfile *MasterProfileResponse `pulumi:"masterProfile"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The cluster network profile.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// The cluster provisioning state (immutable).
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The cluster service principal profile.
-	ServicePrincipalProfile *ServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The cluster worker profiles.
-	WorkerProfiles []WorkerProfileResponse `pulumi:"workerProfiles"`
 }
 
 type OpenShiftClusterState struct {
-	// The cluster API server profile.
-	ApiserverProfile APIServerProfileResponsePtrInput
-	// The cluster profile.
-	ClusterProfile ClusterProfileResponsePtrInput
-	// The console profile.
-	ConsoleProfile ConsoleProfileResponsePtrInput
-	// The cluster ingress profiles.
-	IngressProfiles IngressProfileResponseArrayInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The cluster master profile.
-	MasterProfile MasterProfileResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The cluster network profile.
-	NetworkProfile NetworkProfileResponsePtrInput
-	// The cluster provisioning state (immutable).
-	ProvisioningState pulumi.StringPtrInput
-	// The cluster service principal profile.
-	ServicePrincipalProfile ServicePrincipalProfileResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The cluster worker profiles.
-	WorkerProfiles WorkerProfileResponseArrayInput
 }
 
 func (OpenShiftClusterState) ElementType() reflect.Type {
@@ -231,9 +179,7 @@ func (i *OpenShiftCluster) ToOpenShiftClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftClusterOutput)
 }
 
-type OpenShiftClusterOutput struct {
-	*pulumi.OutputState
-}
+type OpenShiftClusterOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OpenShiftCluster)(nil))

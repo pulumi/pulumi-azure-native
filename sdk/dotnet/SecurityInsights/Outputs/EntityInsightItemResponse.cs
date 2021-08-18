@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Entity insight Item.
+    /// </summary>
     [OutputType]
     public sealed class EntityInsightItemResponse
     {

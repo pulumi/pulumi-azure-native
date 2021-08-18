@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// An SMS receiver.
+    /// </summary>
     [OutputType]
     public sealed class SmsReceiverResponse
     {

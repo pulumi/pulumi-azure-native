@@ -140,29 +140,9 @@ func GetWebAppApplicationSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppApplicationSettings resources.
 type webAppApplicationSettingsState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Settings.
-	Properties map[string]string `pulumi:"properties"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppApplicationSettingsState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Settings.
-	Properties pulumi.StringMapInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppApplicationSettingsState) ElementType() reflect.Type {
@@ -215,9 +195,7 @@ func (i *WebAppApplicationSettings) ToWebAppApplicationSettingsOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppApplicationSettingsOutput)
 }
 
-type WebAppApplicationSettingsOutput struct {
-	*pulumi.OutputState
-}
+type WebAppApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppApplicationSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppApplicationSettings)(nil))

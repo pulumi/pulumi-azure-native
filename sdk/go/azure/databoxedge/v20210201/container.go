@@ -120,37 +120,9 @@ func GetContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Container resources.
 type containerState struct {
-	// Current status of the container.
-	ContainerStatus *string `pulumi:"containerStatus"`
-	// The UTC time when container got created.
-	CreatedDateTime *string `pulumi:"createdDateTime"`
-	// DataFormat for Container
-	DataFormat *string `pulumi:"dataFormat"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Details of the refresh job on this container.
-	RefreshDetails *RefreshDetailsResponse `pulumi:"refreshDetails"`
-	// Container in DataBoxEdge Resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type ContainerState struct {
-	// Current status of the container.
-	ContainerStatus pulumi.StringPtrInput
-	// The UTC time when container got created.
-	CreatedDateTime pulumi.StringPtrInput
-	// DataFormat for Container
-	DataFormat pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Details of the refresh job on this container.
-	RefreshDetails RefreshDetailsResponsePtrInput
-	// Container in DataBoxEdge Resource
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (ContainerState) ElementType() reflect.Type {
@@ -207,9 +179,7 @@ func (i *Container) ToContainerOutputWithContext(ctx context.Context) ContainerO
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerOutput)
 }
 
-type ContainerOutput struct {
-	*pulumi.OutputState
-}
+type ContainerOutput struct{ *pulumi.OutputState }
 
 func (ContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Container)(nil))

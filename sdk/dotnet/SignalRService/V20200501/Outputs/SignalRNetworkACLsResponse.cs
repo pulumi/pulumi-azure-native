@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Network ACLs for SignalR
+    /// </summary>
     [OutputType]
     public sealed class SignalRNetworkACLsResponse
     {

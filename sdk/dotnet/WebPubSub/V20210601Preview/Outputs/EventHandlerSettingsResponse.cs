@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// The settings for event handler in webpubsub service
+    /// </summary>
     [OutputType]
     public sealed class EventHandlerSettingsResponse
     {

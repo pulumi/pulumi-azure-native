@@ -78,25 +78,9 @@ func GetVendorSkuPreview(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VendorSkuPreview resources.
 type vendorSkuPreviewState struct {
-	// The preview subscription ID.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the PreviewSubscription resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type VendorSkuPreviewState struct {
-	// The preview subscription ID.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the PreviewSubscription resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (VendorSkuPreviewState) ElementType() reflect.Type {
@@ -145,9 +129,7 @@ func (i *VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(VendorSkuPreviewOutput)
 }
 
-type VendorSkuPreviewOutput struct {
-	*pulumi.OutputState
-}
+type VendorSkuPreviewOutput struct{ *pulumi.OutputState }
 
 func (VendorSkuPreviewOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VendorSkuPreview)(nil))

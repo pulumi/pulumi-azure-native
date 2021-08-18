@@ -92,65 +92,9 @@ func GetFhirService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FhirService resources.
 type fhirServiceState struct {
-	// Fhir Service access policies.
-	AccessPolicies []FhirServiceAccessPolicyEntryResponse `pulumi:"accessPolicies"`
-	// Fhir Service Azure container registry configuration.
-	AcrConfiguration *FhirServiceAcrConfigurationResponse `pulumi:"acrConfiguration"`
-	// Fhir Service authentication configuration.
-	AuthenticationConfiguration *FhirServiceAuthenticationConfigurationResponse `pulumi:"authenticationConfiguration"`
-	// Fhir Service Cors configuration.
-	CorsConfiguration *FhirServiceCorsConfigurationResponse `pulumi:"corsConfiguration"`
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Fhir Service export configuration.
-	ExportConfiguration *FhirServiceExportConfigurationResponse `pulumi:"exportConfiguration"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServiceManagedIdentityResponseIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind *string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type FhirServiceState struct {
-	// Fhir Service access policies.
-	AccessPolicies FhirServiceAccessPolicyEntryResponseArrayInput
-	// Fhir Service Azure container registry configuration.
-	AcrConfiguration FhirServiceAcrConfigurationResponsePtrInput
-	// Fhir Service authentication configuration.
-	AuthenticationConfiguration FhirServiceAuthenticationConfigurationResponsePtrInput
-	// Fhir Service Cors configuration.
-	CorsConfiguration FhirServiceCorsConfigurationResponsePtrInput
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Fhir Service export configuration.
-	ExportConfiguration FhirServiceExportConfigurationResponsePtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServiceManagedIdentityResponseIdentityPtrInput
-	// The kind of the service.
-	Kind pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (FhirServiceState) ElementType() reflect.Type {
@@ -239,9 +183,7 @@ func (i *FhirService) ToFhirServiceOutputWithContext(ctx context.Context) FhirSe
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOutput)
 }
 
-type FhirServiceOutput struct {
-	*pulumi.OutputState
-}
+type FhirServiceOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FhirService)(nil))

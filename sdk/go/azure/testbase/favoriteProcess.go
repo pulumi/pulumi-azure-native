@@ -79,25 +79,9 @@ func GetFavoriteProcess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FavoriteProcess resources.
 type favoriteProcessState struct {
-	// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
-	ActualProcessName *string `pulumi:"actualProcessName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type FavoriteProcessState struct {
-	// The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
-	ActualProcessName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (FavoriteProcessState) ElementType() reflect.Type {
@@ -154,9 +138,7 @@ func (i *FavoriteProcess) ToFavoriteProcessOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FavoriteProcessOutput)
 }
 
-type FavoriteProcessOutput struct {
-	*pulumi.OutputState
-}
+type FavoriteProcessOutput struct{ *pulumi.OutputState }
 
 func (FavoriteProcessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FavoriteProcess)(nil))

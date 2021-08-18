@@ -220,63 +220,9 @@ func GetVirtualWan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualWan resources.
 type virtualWanState struct {
-	// True if branch to branch traffic is allowed.
-	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
-	// True if Vnet to Vnet traffic is allowed.
-	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The office local breakout category.
-	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
-	// list of all P2SVpnServerConfigurations associated with the virtual wan.
-	P2SVpnServerConfigurations []P2SVpnServerConfigurationResponse `pulumi:"p2SVpnServerConfigurations"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The Security Provider name.
-	SecurityProviderName *string `pulumi:"securityProviderName"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
-	VpnSites    []SubResourceResponse `pulumi:"vpnSites"`
 }
 
 type VirtualWanState struct {
-	// True if branch to branch traffic is allowed.
-	AllowBranchToBranchTraffic pulumi.BoolPtrInput
-	// True if Vnet to Vnet traffic is allowed.
-	AllowVnetToVnetTraffic pulumi.BoolPtrInput
-	// Vpn encryption to be disabled or not.
-	DisableVpnEncryption pulumi.BoolPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The office local breakout category.
-	Office365LocalBreakoutCategory pulumi.StringPtrInput
-	// list of all P2SVpnServerConfigurations associated with the virtual wan.
-	P2SVpnServerConfigurations P2SVpnServerConfigurationResponseArrayInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The Security Provider name.
-	SecurityProviderName pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// List of VirtualHubs in the VirtualWAN.
-	VirtualHubs SubResourceResponseArrayInput
-	VpnSites    SubResourceResponseArrayInput
 }
 
 func (VirtualWanState) ElementType() reflect.Type {
@@ -353,9 +299,7 @@ func (i *VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualW
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualWanOutput)
 }
 
-type VirtualWanOutput struct {
-	*pulumi.OutputState
-}
+type VirtualWanOutput struct{ *pulumi.OutputState }
 
 func (VirtualWanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualWan)(nil))

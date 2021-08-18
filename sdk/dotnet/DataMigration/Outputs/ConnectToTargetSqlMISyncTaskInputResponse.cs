@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Input for the task that validates connection to Azure SQL Database Managed Instance online scenario.
+    /// </summary>
     [OutputType]
     public sealed class ConnectToTargetSqlMISyncTaskInputResponse
     {

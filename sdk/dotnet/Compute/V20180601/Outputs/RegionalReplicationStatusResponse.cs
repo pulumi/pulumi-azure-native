@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20180601.Outputs
 {
 
+    /// <summary>
+    /// This is the regional replication status.
+    /// </summary>
     [OutputType]
     public sealed class RegionalReplicationStatusResponse
     {

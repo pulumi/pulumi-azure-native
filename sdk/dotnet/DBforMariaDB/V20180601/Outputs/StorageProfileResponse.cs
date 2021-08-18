@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMariaDB.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Storage Profile properties of a server
+    /// </summary>
     [OutputType]
     public sealed class StorageProfileResponse
     {

@@ -65,25 +65,9 @@ func GetConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connector resources.
 type connectorState struct {
-	// Settings for authentication management, these settings are relevant only for the cloud connector.
-	AuthenticationDetails interface{} `pulumi:"authenticationDetails"`
-	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
-	HybridComputeSettings *HybridComputeSettingsPropertiesResponse `pulumi:"hybridComputeSettings"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ConnectorState struct {
-	// Settings for authentication management, these settings are relevant only for the cloud connector.
-	AuthenticationDetails pulumi.Input
-	// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
-	HybridComputeSettings HybridComputeSettingsPropertiesResponsePtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectorState) ElementType() reflect.Type {
@@ -132,9 +116,7 @@ func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
 }
 
-type ConnectorOutput struct {
-	*pulumi.OutputState
-}
+type ConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connector)(nil))

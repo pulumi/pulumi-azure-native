@@ -167,89 +167,9 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Raw bytes of .cer file
-	CerBlob *string `pulumi:"cerBlob"`
-	// Certificate expiration date
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// Friendly name of the certificate
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Host names the certificate applies to
-	HostNames []string `pulumi:"hostNames"`
-	// Specification for the hosting environment (App Service Environment) to use for the certificate
-	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
-	// Certificate issue Date
-	IssueDate *string `pulumi:"issueDate"`
-	// Certificate issuer
-	Issuer *string `pulumi:"issuer"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Certificate password
-	Password *string `pulumi:"password"`
-	// Pfx blob
-	PfxBlob *string `pulumi:"pfxBlob"`
-	// Public key hash
-	PublicKeyHash *string `pulumi:"publicKeyHash"`
-	// Self link
-	SelfLink *string `pulumi:"selfLink"`
-	// App name
-	SiteName *string `pulumi:"siteName"`
-	// Subject name of the certificate
-	SubjectName *string `pulumi:"subjectName"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Certificate thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Is the certificate valid?
-	Valid *bool `pulumi:"valid"`
 }
 
 type CertificateState struct {
-	// Raw bytes of .cer file
-	CerBlob pulumi.StringPtrInput
-	// Certificate expiration date
-	ExpirationDate pulumi.StringPtrInput
-	// Friendly name of the certificate
-	FriendlyName pulumi.StringPtrInput
-	// Host names the certificate applies to
-	HostNames pulumi.StringArrayInput
-	// Specification for the hosting environment (App Service Environment) to use for the certificate
-	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrInput
-	// Certificate issue Date
-	IssueDate pulumi.StringPtrInput
-	// Certificate issuer
-	Issuer pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Certificate password
-	Password pulumi.StringPtrInput
-	// Pfx blob
-	PfxBlob pulumi.StringPtrInput
-	// Public key hash
-	PublicKeyHash pulumi.StringPtrInput
-	// Self link
-	SelfLink pulumi.StringPtrInput
-	// App name
-	SiteName pulumi.StringPtrInput
-	// Subject name of the certificate
-	SubjectName pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Certificate thumbprint
-	Thumbprint pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Is the certificate valid?
-	Valid pulumi.BoolPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -374,9 +294,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

@@ -98,45 +98,9 @@ func GetImportPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ImportPipeline resources.
 type importPipelineState struct {
-	// The identity of the import pipeline.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The location of the import pipeline.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The list of all options configured for the pipeline.
-	Options []string `pulumi:"options"`
-	// The provisioning state of the pipeline at the time the operation was called.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The source properties of the import pipeline.
-	Source *ImportPipelineSourcePropertiesResponse `pulumi:"source"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The properties that describe the trigger of the import pipeline.
-	Trigger *PipelineTriggerPropertiesResponse `pulumi:"trigger"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ImportPipelineState struct {
-	// The identity of the import pipeline.
-	Identity IdentityPropertiesResponsePtrInput
-	// The location of the import pipeline.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The list of all options configured for the pipeline.
-	Options pulumi.StringArrayInput
-	// The provisioning state of the pipeline at the time the operation was called.
-	ProvisioningState pulumi.StringPtrInput
-	// The source properties of the import pipeline.
-	Source ImportPipelineSourcePropertiesResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The properties that describe the trigger of the import pipeline.
-	Trigger PipelineTriggerPropertiesResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ImportPipelineState) ElementType() reflect.Type {
@@ -205,9 +169,7 @@ func (i *ImportPipeline) ToImportPipelineOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ImportPipelineOutput)
 }
 
-type ImportPipelineOutput struct {
-	*pulumi.OutputState
-}
+type ImportPipelineOutput struct{ *pulumi.OutputState }
 
 func (ImportPipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImportPipeline)(nil))

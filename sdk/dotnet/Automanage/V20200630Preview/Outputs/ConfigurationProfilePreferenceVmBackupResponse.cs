@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automanage.V20200630Preview.Outputs
 {
 
+    /// <summary>
+    /// Automanage configuration profile VM Backup preferences.
+    /// </summary>
     [OutputType]
     public sealed class ConfigurationProfilePreferenceVmBackupResponse
     {

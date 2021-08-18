@@ -114,25 +114,9 @@ func GetFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type firewallRuleState struct {
-	// highest IP address included in the range
-	EndIP *string `pulumi:"endIP"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// lowest IP address included in the range
-	StartIP *string `pulumi:"startIP"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
-	// highest IP address included in the range
-	EndIP pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// lowest IP address included in the range
-	StartIP pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (FirewallRuleState) ElementType() reflect.Type {
@@ -189,9 +173,7 @@ func (i *FirewallRule) ToFirewallRuleOutputWithContext(ctx context.Context) Fire
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleOutput)
 }
 
-type FirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FirewallRule)(nil))

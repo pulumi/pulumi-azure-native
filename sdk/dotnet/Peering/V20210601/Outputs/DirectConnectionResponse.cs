@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The properties that define a direct connection.
+    /// </summary>
     [OutputType]
     public sealed class DirectConnectionResponse
     {

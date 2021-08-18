@@ -506,7 +506,7 @@ func (o CnameRecordOutput) ToCnameRecordPtrOutput() CnameRecordPtrOutput {
 }
 
 func (o CnameRecordOutput) ToCnameRecordPtrOutputWithContext(ctx context.Context) CnameRecordPtrOutput {
-	return o.ApplyT(func(v CnameRecord) *CnameRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecord) *CnameRecord {
 		return &v
 	}).(CnameRecordPtrOutput)
 }
@@ -531,7 +531,13 @@ func (o CnameRecordPtrOutput) ToCnameRecordPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CnameRecordPtrOutput) Elem() CnameRecordOutput {
-	return o.ApplyT(func(v *CnameRecord) CnameRecord { return *v }).(CnameRecordOutput)
+	return o.ApplyT(func(v *CnameRecord) CnameRecord {
+		if v != nil {
+			return *v
+		}
+		var ret CnameRecord
+		return ret
+	}).(CnameRecordOutput)
 }
 
 // Gets or sets the canonical name for this record without a terminating dot.
@@ -640,7 +646,7 @@ func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutput() CnameRecordR
 }
 
 func (o CnameRecordResponseOutput) ToCnameRecordResponsePtrOutputWithContext(ctx context.Context) CnameRecordResponsePtrOutput {
-	return o.ApplyT(func(v CnameRecordResponse) *CnameRecordResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CnameRecordResponse) *CnameRecordResponse {
 		return &v
 	}).(CnameRecordResponsePtrOutput)
 }
@@ -665,7 +671,13 @@ func (o CnameRecordResponsePtrOutput) ToCnameRecordResponsePtrOutputWithContext(
 }
 
 func (o CnameRecordResponsePtrOutput) Elem() CnameRecordResponseOutput {
-	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse { return *v }).(CnameRecordResponseOutput)
+	return o.ApplyT(func(v *CnameRecordResponse) CnameRecordResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CnameRecordResponse
+		return ret
+	}).(CnameRecordResponseOutput)
 }
 
 // Gets or sets the canonical name for this record without a terminating dot.
@@ -1416,7 +1428,7 @@ func (o SoaRecordOutput) ToSoaRecordPtrOutput() SoaRecordPtrOutput {
 }
 
 func (o SoaRecordOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context) SoaRecordPtrOutput {
-	return o.ApplyT(func(v SoaRecord) *SoaRecord {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecord) *SoaRecord {
 		return &v
 	}).(SoaRecordPtrOutput)
 }
@@ -1471,7 +1483,13 @@ func (o SoaRecordPtrOutput) ToSoaRecordPtrOutputWithContext(ctx context.Context)
 }
 
 func (o SoaRecordPtrOutput) Elem() SoaRecordOutput {
-	return o.ApplyT(func(v *SoaRecord) SoaRecord { return *v }).(SoaRecordOutput)
+	return o.ApplyT(func(v *SoaRecord) SoaRecord {
+		if v != nil {
+			return *v
+		}
+		var ret SoaRecord
+		return ret
+	}).(SoaRecordOutput)
 }
 
 // Gets or sets the email for this record.
@@ -1664,7 +1682,7 @@ func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutput() SoaRecordRespons
 }
 
 func (o SoaRecordResponseOutput) ToSoaRecordResponsePtrOutputWithContext(ctx context.Context) SoaRecordResponsePtrOutput {
-	return o.ApplyT(func(v SoaRecordResponse) *SoaRecordResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoaRecordResponse) *SoaRecordResponse {
 		return &v
 	}).(SoaRecordResponsePtrOutput)
 }
@@ -1719,7 +1737,13 @@ func (o SoaRecordResponsePtrOutput) ToSoaRecordResponsePtrOutputWithContext(ctx 
 }
 
 func (o SoaRecordResponsePtrOutput) Elem() SoaRecordResponseOutput {
-	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse { return *v }).(SoaRecordResponseOutput)
+	return o.ApplyT(func(v *SoaRecordResponse) SoaRecordResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SoaRecordResponse
+		return ret
+	}).(SoaRecordResponseOutput)
 }
 
 // Gets or sets the email for this record.
@@ -2346,7 +2370,7 @@ func (o ZonePropertiesOutput) ToZonePropertiesPtrOutput() ZonePropertiesPtrOutpu
 }
 
 func (o ZonePropertiesOutput) ToZonePropertiesPtrOutputWithContext(ctx context.Context) ZonePropertiesPtrOutput {
-	return o.ApplyT(func(v ZoneProperties) *ZoneProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZoneProperties) *ZoneProperties {
 		return &v
 	}).(ZonePropertiesPtrOutput)
 }
@@ -2376,7 +2400,13 @@ func (o ZonePropertiesPtrOutput) ToZonePropertiesPtrOutputWithContext(ctx contex
 }
 
 func (o ZonePropertiesPtrOutput) Elem() ZonePropertiesOutput {
-	return o.ApplyT(func(v *ZoneProperties) ZoneProperties { return *v }).(ZonePropertiesOutput)
+	return o.ApplyT(func(v *ZoneProperties) ZoneProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ZoneProperties
+		return ret
+	}).(ZonePropertiesOutput)
 }
 
 // Gets or sets the maximum number of record sets that can be created in this zone.
@@ -2503,7 +2533,7 @@ func (o ZonePropertiesResponseOutput) ToZonePropertiesResponsePtrOutput() ZonePr
 }
 
 func (o ZonePropertiesResponseOutput) ToZonePropertiesResponsePtrOutputWithContext(ctx context.Context) ZonePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ZonePropertiesResponse) *ZonePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZonePropertiesResponse) *ZonePropertiesResponse {
 		return &v
 	}).(ZonePropertiesResponsePtrOutput)
 }
@@ -2538,7 +2568,13 @@ func (o ZonePropertiesResponsePtrOutput) ToZonePropertiesResponsePtrOutputWithCo
 }
 
 func (o ZonePropertiesResponsePtrOutput) Elem() ZonePropertiesResponseOutput {
-	return o.ApplyT(func(v *ZonePropertiesResponse) ZonePropertiesResponse { return *v }).(ZonePropertiesResponseOutput)
+	return o.ApplyT(func(v *ZonePropertiesResponse) ZonePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ZonePropertiesResponse
+		return ret
+	}).(ZonePropertiesResponseOutput)
 }
 
 // Gets or sets the maximum number of record sets that can be created in this zone.

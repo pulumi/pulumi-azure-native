@@ -937,7 +937,7 @@ func (o ReplicationObjectOutput) ToReplicationObjectPtrOutput() ReplicationObjec
 }
 
 func (o ReplicationObjectOutput) ToReplicationObjectPtrOutputWithContext(ctx context.Context) ReplicationObjectPtrOutput {
-	return o.ApplyT(func(v ReplicationObject) *ReplicationObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObject) *ReplicationObject {
 		return &v
 	}).(ReplicationObjectPtrOutput)
 }
@@ -982,7 +982,13 @@ func (o ReplicationObjectPtrOutput) ToReplicationObjectPtrOutputWithContext(ctx 
 }
 
 func (o ReplicationObjectPtrOutput) Elem() ReplicationObjectOutput {
-	return o.ApplyT(func(v *ReplicationObject) ReplicationObject { return *v }).(ReplicationObjectOutput)
+	return o.ApplyT(func(v *ReplicationObject) ReplicationObject {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationObject
+		return ret
+	}).(ReplicationObjectOutput)
 }
 
 // Indicates whether the local volume is the source or destination for the Volume Replication
@@ -1147,7 +1153,7 @@ func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutput() 
 }
 
 func (o ReplicationObjectResponseOutput) ToReplicationObjectResponsePtrOutputWithContext(ctx context.Context) ReplicationObjectResponsePtrOutput {
-	return o.ApplyT(func(v ReplicationObjectResponse) *ReplicationObjectResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationObjectResponse) *ReplicationObjectResponse {
 		return &v
 	}).(ReplicationObjectResponsePtrOutput)
 }
@@ -1192,7 +1198,13 @@ func (o ReplicationObjectResponsePtrOutput) ToReplicationObjectResponsePtrOutput
 }
 
 func (o ReplicationObjectResponsePtrOutput) Elem() ReplicationObjectResponseOutput {
-	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse { return *v }).(ReplicationObjectResponseOutput)
+	return o.ApplyT(func(v *ReplicationObjectResponse) ReplicationObjectResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationObjectResponse
+		return ret
+	}).(ReplicationObjectResponseOutput)
 }
 
 // Indicates whether the local volume is the source or destination for the Volume Replication
@@ -1341,7 +1353,7 @@ func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPt
 }
 
 func (o VolumePropertiesDataProtectionOutput) ToVolumePropertiesDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesDataProtectionPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesDataProtection) *VolumePropertiesDataProtection {
 		return &v
 	}).(VolumePropertiesDataProtectionPtrOutput)
 }
@@ -1366,7 +1378,13 @@ func (o VolumePropertiesDataProtectionPtrOutput) ToVolumePropertiesDataProtectio
 }
 
 func (o VolumePropertiesDataProtectionPtrOutput) Elem() VolumePropertiesDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection { return *v }).(VolumePropertiesDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesDataProtection) VolumePropertiesDataProtection {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesDataProtection
+		return ret
+	}).(VolumePropertiesDataProtectionOutput)
 }
 
 // Replication properties
@@ -1475,7 +1493,7 @@ func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOut
 }
 
 func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
 	}).(VolumePropertiesExportPolicyPtrOutput)
 }
@@ -1500,7 +1518,13 @@ func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtr
 }
 
 func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesExportPolicy
+		return ret
+	}).(VolumePropertiesExportPolicyOutput)
 }
 
 // Export policy rule
@@ -1609,7 +1633,7 @@ func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponse
 }
 
 func (o VolumePropertiesResponseDataProtectionOutput) ToVolumePropertiesResponseDataProtectionPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseDataProtectionPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseDataProtection) *VolumePropertiesResponseDataProtection {
 		return &v
 	}).(VolumePropertiesResponseDataProtectionPtrOutput)
 }
@@ -1634,7 +1658,13 @@ func (o VolumePropertiesResponseDataProtectionPtrOutput) ToVolumePropertiesRespo
 }
 
 func (o VolumePropertiesResponseDataProtectionPtrOutput) Elem() VolumePropertiesResponseDataProtectionOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection { return *v }).(VolumePropertiesResponseDataProtectionOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseDataProtection) VolumePropertiesResponseDataProtection {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseDataProtection
+		return ret
+	}).(VolumePropertiesResponseDataProtectionOutput)
 }
 
 // Replication properties
@@ -1743,7 +1773,7 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 }
 
 func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
 	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
@@ -1768,7 +1798,13 @@ func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesRespons
 }
 
 func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumePropertiesResponseExportPolicy
+		return ret
+	}).(VolumePropertiesResponseExportPolicyOutput)
 }
 
 // Export policy rule

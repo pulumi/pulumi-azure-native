@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20210115.Outputs
 {
 
+    /// <summary>
+    /// Describes the capabilities/features allowed for a specific SKU.
+    /// </summary>
     [OutputType]
     public sealed class CapabilityResponse
     {

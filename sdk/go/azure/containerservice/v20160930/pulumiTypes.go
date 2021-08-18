@@ -369,7 +369,7 @@ func (o ContainerServiceCustomProfileOutput) ToContainerServiceCustomProfilePtrO
 }
 
 func (o ContainerServiceCustomProfileOutput) ToContainerServiceCustomProfilePtrOutputWithContext(ctx context.Context) ContainerServiceCustomProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceCustomProfile) *ContainerServiceCustomProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceCustomProfile) *ContainerServiceCustomProfile {
 		return &v
 	}).(ContainerServiceCustomProfilePtrOutput)
 }
@@ -394,7 +394,13 @@ func (o ContainerServiceCustomProfilePtrOutput) ToContainerServiceCustomProfileP
 }
 
 func (o ContainerServiceCustomProfilePtrOutput) Elem() ContainerServiceCustomProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceCustomProfile) ContainerServiceCustomProfile { return *v }).(ContainerServiceCustomProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceCustomProfile) ContainerServiceCustomProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceCustomProfile
+		return ret
+	}).(ContainerServiceCustomProfileOutput)
 }
 
 // The name of the custom orchestrator to use.
@@ -503,7 +509,7 @@ func (o ContainerServiceCustomProfileResponseOutput) ToContainerServiceCustomPro
 }
 
 func (o ContainerServiceCustomProfileResponseOutput) ToContainerServiceCustomProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCustomProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceCustomProfileResponse) *ContainerServiceCustomProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceCustomProfileResponse) *ContainerServiceCustomProfileResponse {
 		return &v
 	}).(ContainerServiceCustomProfileResponsePtrOutput)
 }
@@ -528,7 +534,13 @@ func (o ContainerServiceCustomProfileResponsePtrOutput) ToContainerServiceCustom
 }
 
 func (o ContainerServiceCustomProfileResponsePtrOutput) Elem() ContainerServiceCustomProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceCustomProfileResponse) ContainerServiceCustomProfileResponse { return *v }).(ContainerServiceCustomProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceCustomProfileResponse) ContainerServiceCustomProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceCustomProfileResponse
+		return ret
+	}).(ContainerServiceCustomProfileResponseOutput)
 }
 
 // The name of the custom orchestrator to use.
@@ -634,7 +646,7 @@ func (o ContainerServiceDiagnosticsProfileOutput) ToContainerServiceDiagnosticsP
 }
 
 func (o ContainerServiceDiagnosticsProfileOutput) ToContainerServiceDiagnosticsProfilePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceDiagnosticsProfile) *ContainerServiceDiagnosticsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDiagnosticsProfile) *ContainerServiceDiagnosticsProfile {
 		return &v
 	}).(ContainerServiceDiagnosticsProfilePtrOutput)
 }
@@ -659,7 +671,13 @@ func (o ContainerServiceDiagnosticsProfilePtrOutput) ToContainerServiceDiagnosti
 }
 
 func (o ContainerServiceDiagnosticsProfilePtrOutput) Elem() ContainerServiceDiagnosticsProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) ContainerServiceDiagnosticsProfile { return *v }).(ContainerServiceDiagnosticsProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfile) ContainerServiceDiagnosticsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDiagnosticsProfile
+		return ret
+	}).(ContainerServiceDiagnosticsProfileOutput)
 }
 
 // Profile for the container service VM diagnostic agent.
@@ -765,7 +783,7 @@ func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiag
 }
 
 func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceDiagnosticsProfileResponse) *ContainerServiceDiagnosticsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDiagnosticsProfileResponse) *ContainerServiceDiagnosticsProfileResponse {
 		return &v
 	}).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
 }
@@ -793,7 +811,11 @@ func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) ToContainerServiceD
 
 func (o ContainerServiceDiagnosticsProfileResponsePtrOutput) Elem() ContainerServiceDiagnosticsProfileResponseOutput {
 	return o.ApplyT(func(v *ContainerServiceDiagnosticsProfileResponse) ContainerServiceDiagnosticsProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDiagnosticsProfileResponse
+		return ret
 	}).(ContainerServiceDiagnosticsProfileResponseOutput)
 }
 
@@ -907,7 +929,7 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
@@ -937,7 +959,13 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfile
+		return ret
+	}).(ContainerServiceLinuxProfileOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -1060,7 +1088,7 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
@@ -1090,7 +1118,13 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfileResponse
+		return ret
+	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -1213,7 +1247,7 @@ func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfilePtrO
 }
 
 func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfilePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfile) *ContainerServiceMasterProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceMasterProfile) *ContainerServiceMasterProfile {
 		return &v
 	}).(ContainerServiceMasterProfilePtrOutput)
 }
@@ -1243,7 +1277,13 @@ func (o ContainerServiceMasterProfilePtrOutput) ToContainerServiceMasterProfileP
 }
 
 func (o ContainerServiceMasterProfilePtrOutput) Elem() ContainerServiceMasterProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) ContainerServiceMasterProfile { return *v }).(ContainerServiceMasterProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceMasterProfile) ContainerServiceMasterProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceMasterProfile
+		return ret
+	}).(ContainerServiceMasterProfileOutput)
 }
 
 // Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
@@ -1370,7 +1410,7 @@ func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterPro
 }
 
 func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *ContainerServiceMasterProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceMasterProfileResponse) *ContainerServiceMasterProfileResponse {
 		return &v
 	}).(ContainerServiceMasterProfileResponsePtrOutput)
 }
@@ -1405,7 +1445,13 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) ToContainerServiceMaster
 }
 
 func (o ContainerServiceMasterProfileResponsePtrOutput) Elem() ContainerServiceMasterProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) ContainerServiceMasterProfileResponse { return *v }).(ContainerServiceMasterProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) ContainerServiceMasterProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceMasterProfileResponse
+		return ret
+	}).(ContainerServiceMasterProfileResponseOutput)
 }
 
 // Number of masters (VMs) in the container service cluster. Allowed values are 1, 3, and 5. The default value is 1.
@@ -1441,7 +1487,7 @@ func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrO
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfile struct {
 	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType string `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
 }
 
 // ContainerServiceOrchestratorProfileInput is an input type that accepts ContainerServiceOrchestratorProfileArgs and ContainerServiceOrchestratorProfileOutput values.
@@ -1458,7 +1504,7 @@ type ContainerServiceOrchestratorProfileInput interface {
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileArgs struct {
 	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypesInput `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {
@@ -1534,14 +1580,16 @@ func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestrato
 }
 
 func (o ContainerServiceOrchestratorProfileOutput) ToContainerServiceOrchestratorProfilePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) *ContainerServiceOrchestratorProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceOrchestratorProfile) *ContainerServiceOrchestratorProfile {
 		return &v
 	}).(ContainerServiceOrchestratorProfilePtrOutput)
 }
 
 // The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) string { return v.OrchestratorType }).(pulumi.StringOutput)
+func (o ContainerServiceOrchestratorProfileOutput) OrchestratorType() ContainerServiceOchestratorTypesOutput {
+	return o.ApplyT(func(v ContainerServiceOrchestratorProfile) ContainerServiceOchestratorTypes {
+		return v.OrchestratorType
+	}).(ContainerServiceOchestratorTypesOutput)
 }
 
 type ContainerServiceOrchestratorProfilePtrOutput struct{ *pulumi.OutputState }
@@ -1559,17 +1607,23 @@ func (o ContainerServiceOrchestratorProfilePtrOutput) ToContainerServiceOrchestr
 }
 
 func (o ContainerServiceOrchestratorProfilePtrOutput) Elem() ContainerServiceOrchestratorProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) ContainerServiceOrchestratorProfile { return *v }).(ContainerServiceOrchestratorProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) ContainerServiceOrchestratorProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceOrchestratorProfile
+		return ret
+	}).(ContainerServiceOrchestratorProfileOutput)
 }
 
 // The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *string {
+func (o ContainerServiceOrchestratorProfilePtrOutput) OrchestratorType() ContainerServiceOchestratorTypesPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceOrchestratorProfile) *ContainerServiceOchestratorTypes {
 		if v == nil {
 			return nil
 		}
 		return &v.OrchestratorType
-	}).(pulumi.StringPtrOutput)
+	}).(ContainerServiceOchestratorTypesPtrOutput)
 }
 
 // Profile for the container service orchestrator.
@@ -1668,7 +1722,7 @@ func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrc
 }
 
 func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceOrchestratorProfileResponse) *ContainerServiceOrchestratorProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceOrchestratorProfileResponse) *ContainerServiceOrchestratorProfileResponse {
 		return &v
 	}).(ContainerServiceOrchestratorProfileResponsePtrOutput)
 }
@@ -1694,7 +1748,11 @@ func (o ContainerServiceOrchestratorProfileResponsePtrOutput) ToContainerService
 
 func (o ContainerServiceOrchestratorProfileResponsePtrOutput) Elem() ContainerServiceOrchestratorProfileResponseOutput {
 	return o.ApplyT(func(v *ContainerServiceOrchestratorProfileResponse) ContainerServiceOrchestratorProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceOrchestratorProfileResponse
+		return ret
 	}).(ContainerServiceOrchestratorProfileResponseOutput)
 }
 
@@ -1808,7 +1866,7 @@ func (o ContainerServiceServicePrincipalProfileOutput) ToContainerServiceService
 }
 
 func (o ContainerServiceServicePrincipalProfileOutput) ToContainerServiceServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ContainerServiceServicePrincipalProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfile) *ContainerServiceServicePrincipalProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceServicePrincipalProfile) *ContainerServiceServicePrincipalProfile {
 		return &v
 	}).(ContainerServiceServicePrincipalProfilePtrOutput)
 }
@@ -1838,7 +1896,13 @@ func (o ContainerServiceServicePrincipalProfilePtrOutput) ToContainerServiceServ
 }
 
 func (o ContainerServiceServicePrincipalProfilePtrOutput) Elem() ContainerServiceServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfile) ContainerServiceServicePrincipalProfile { return *v }).(ContainerServiceServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfile) ContainerServiceServicePrincipalProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceServicePrincipalProfile
+		return ret
+	}).(ContainerServiceServicePrincipalProfileOutput)
 }
 
 // The ID for the service principal.
@@ -1961,7 +2025,7 @@ func (o ContainerServiceServicePrincipalProfileResponseOutput) ToContainerServic
 }
 
 func (o ContainerServiceServicePrincipalProfileResponseOutput) ToContainerServiceServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileResponse) *ContainerServiceServicePrincipalProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceServicePrincipalProfileResponse) *ContainerServiceServicePrincipalProfileResponse {
 		return &v
 	}).(ContainerServiceServicePrincipalProfileResponsePtrOutput)
 }
@@ -1992,7 +2056,11 @@ func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) ToContainerSer
 
 func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) Elem() ContainerServiceServicePrincipalProfileResponseOutput {
 	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfileResponse) ContainerServiceServicePrincipalProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceServicePrincipalProfileResponse
+		return ret
 	}).(ContainerServiceServicePrincipalProfileResponseOutput)
 }
 
@@ -2112,7 +2180,7 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
@@ -2137,7 +2205,13 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfiguration
+		return ret
+	}).(ContainerServiceSshConfigurationOutput)
 }
 
 // the list of SSH public keys used to authenticate with Linux-based VMs.
@@ -2246,7 +2320,7 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
@@ -2273,7 +2347,13 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfigurationResponse
+		return ret
+	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
 // the list of SSH public keys used to authenticate with Linux-based VMs.
@@ -2582,7 +2662,7 @@ func (o ContainerServiceVMDiagnosticsOutput) ToContainerServiceVMDiagnosticsPtrO
 }
 
 func (o ContainerServiceVMDiagnosticsOutput) ToContainerServiceVMDiagnosticsPtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsPtrOutput {
-	return o.ApplyT(func(v ContainerServiceVMDiagnostics) *ContainerServiceVMDiagnostics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMDiagnostics) *ContainerServiceVMDiagnostics {
 		return &v
 	}).(ContainerServiceVMDiagnosticsPtrOutput)
 }
@@ -2607,7 +2687,13 @@ func (o ContainerServiceVMDiagnosticsPtrOutput) ToContainerServiceVMDiagnosticsP
 }
 
 func (o ContainerServiceVMDiagnosticsPtrOutput) Elem() ContainerServiceVMDiagnosticsOutput {
-	return o.ApplyT(func(v *ContainerServiceVMDiagnostics) ContainerServiceVMDiagnostics { return *v }).(ContainerServiceVMDiagnosticsOutput)
+	return o.ApplyT(func(v *ContainerServiceVMDiagnostics) ContainerServiceVMDiagnostics {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceVMDiagnostics
+		return ret
+	}).(ContainerServiceVMDiagnosticsOutput)
 }
 
 // Whether the VM diagnostic agent is provisioned on the VM.
@@ -2720,7 +2806,7 @@ func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnos
 }
 
 func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceVMDiagnosticsResponse) *ContainerServiceVMDiagnosticsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMDiagnosticsResponse) *ContainerServiceVMDiagnosticsResponse {
 		return &v
 	}).(ContainerServiceVMDiagnosticsResponsePtrOutput)
 }
@@ -2750,7 +2836,13 @@ func (o ContainerServiceVMDiagnosticsResponsePtrOutput) ToContainerServiceVMDiag
 }
 
 func (o ContainerServiceVMDiagnosticsResponsePtrOutput) Elem() ContainerServiceVMDiagnosticsResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceVMDiagnosticsResponse) ContainerServiceVMDiagnosticsResponse { return *v }).(ContainerServiceVMDiagnosticsResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceVMDiagnosticsResponse) ContainerServiceVMDiagnosticsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceVMDiagnosticsResponse
+		return ret
+	}).(ContainerServiceVMDiagnosticsResponseOutput)
 }
 
 // Whether the VM diagnostic agent is provisioned on the VM.
@@ -2873,7 +2965,7 @@ func (o ContainerServiceWindowsProfileOutput) ToContainerServiceWindowsProfilePt
 }
 
 func (o ContainerServiceWindowsProfileOutput) ToContainerServiceWindowsProfilePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceWindowsProfile) *ContainerServiceWindowsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceWindowsProfile) *ContainerServiceWindowsProfile {
 		return &v
 	}).(ContainerServiceWindowsProfilePtrOutput)
 }
@@ -2903,7 +2995,13 @@ func (o ContainerServiceWindowsProfilePtrOutput) ToContainerServiceWindowsProfil
 }
 
 func (o ContainerServiceWindowsProfilePtrOutput) Elem() ContainerServiceWindowsProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceWindowsProfile) ContainerServiceWindowsProfile { return *v }).(ContainerServiceWindowsProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceWindowsProfile) ContainerServiceWindowsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceWindowsProfile
+		return ret
+	}).(ContainerServiceWindowsProfileOutput)
 }
 
 // The administrator password to use for Windows VMs.
@@ -3026,7 +3124,7 @@ func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsP
 }
 
 func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceWindowsProfileResponse) *ContainerServiceWindowsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceWindowsProfileResponse) *ContainerServiceWindowsProfileResponse {
 		return &v
 	}).(ContainerServiceWindowsProfileResponsePtrOutput)
 }
@@ -3056,7 +3154,13 @@ func (o ContainerServiceWindowsProfileResponsePtrOutput) ToContainerServiceWindo
 }
 
 func (o ContainerServiceWindowsProfileResponsePtrOutput) Elem() ContainerServiceWindowsProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceWindowsProfileResponse) ContainerServiceWindowsProfileResponse { return *v }).(ContainerServiceWindowsProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceWindowsProfileResponse) ContainerServiceWindowsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceWindowsProfileResponse
+		return ret
+	}).(ContainerServiceWindowsProfileResponseOutput)
 }
 
 // The administrator password to use for Windows VMs.

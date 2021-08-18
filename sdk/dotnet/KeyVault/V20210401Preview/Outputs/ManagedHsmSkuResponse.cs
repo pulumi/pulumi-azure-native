@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// SKU details
+    /// </summary>
     [OutputType]
     public sealed class ManagedHsmSkuResponse
     {

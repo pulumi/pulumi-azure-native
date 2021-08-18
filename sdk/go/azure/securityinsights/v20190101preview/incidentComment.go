@@ -99,37 +99,9 @@ func GetIncidentComment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IncidentComment resources.
 type incidentCommentState struct {
-	// Describes the client that created the comment
-	Author *ClientInfoResponse `pulumi:"author"`
-	// The time the comment was created
-	CreatedTimeUtc *string `pulumi:"createdTimeUtc"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The time the comment was updated
-	LastModifiedTimeUtc *string `pulumi:"lastModifiedTimeUtc"`
-	// The comment message
-	Message *string `pulumi:"message"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type IncidentCommentState struct {
-	// Describes the client that created the comment
-	Author ClientInfoResponsePtrInput
-	// The time the comment was created
-	CreatedTimeUtc pulumi.StringPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The time the comment was updated
-	LastModifiedTimeUtc pulumi.StringPtrInput
-	// The comment message
-	Message pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (IncidentCommentState) ElementType() reflect.Type {
@@ -194,9 +166,7 @@ func (i *IncidentComment) ToIncidentCommentOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(IncidentCommentOutput)
 }
 
-type IncidentCommentOutput struct {
-	*pulumi.OutputState
-}
+type IncidentCommentOutput struct{ *pulumi.OutputState }
 
 func (IncidentCommentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IncidentComment)(nil))

@@ -10,33 +10,33 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'AKSArgs',
     'AKSPropertiesArgs',
+    'AKSArgs',
     'AksNetworkingConfigurationArgs',
-    'AmlComputeArgs',
     'AmlComputePropertiesArgs',
+    'AmlComputeArgs',
     'AssignedUserArgs',
     'AutoPausePropertiesArgs',
     'AutoScalePropertiesArgs',
-    'ComputeInstanceArgs',
     'ComputeInstancePropertiesArgs',
     'ComputeInstanceSshSettingsArgs',
+    'ComputeInstanceArgs',
     'CosmosDbSettingsArgs',
     'DataFactoryArgs',
-    'DataLakeAnalyticsArgs',
     'DataLakeAnalyticsPropertiesArgs',
-    'DatabricksArgs',
+    'DataLakeAnalyticsArgs',
     'DatabricksPropertiesArgs',
+    'DatabricksArgs',
     'EncryptionPropertyArgs',
-    'HDInsightArgs',
     'HDInsightPropertiesArgs',
-    'IdentityArgs',
+    'HDInsightArgs',
     'IdentityForCmkArgs',
-    'InstanceTypeSchemaArgs',
+    'IdentityArgs',
     'InstanceTypeSchemaResourcesArgs',
+    'InstanceTypeSchemaArgs',
     'KeyVaultPropertiesArgs',
-    'KubernetesArgs',
     'KubernetesPropertiesArgs',
+    'KubernetesArgs',
     'PersonalComputeInstanceSettingsArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'ResourceIdArgs',
@@ -48,119 +48,14 @@ __all__ = [
     'SharedPrivateLinkResourceArgs',
     'SkuArgs',
     'SslConfigurationArgs',
-    'SynapseSparkArgs',
     'SynapseSparkPropertiesArgs',
+    'SynapseSparkArgs',
     'UserAccountCredentialsArgs',
-    'VirtualMachineArgs',
     'VirtualMachineImageArgs',
     'VirtualMachinePropertiesArgs',
     'VirtualMachineSshCredentialsArgs',
+    'VirtualMachineArgs',
 ]
-
-@pulumi.input_type
-class AKSArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input['AKSPropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A Machine Learning compute based on AKS.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'AKS'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'AKS')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'AKS'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AKSPropertiesArgs']]:
-        """
-        AKS properties
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AKSPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
 
 @pulumi.input_type
 class AKSPropertiesArgs:
@@ -303,6 +198,111 @@ class AKSPropertiesArgs:
 
 
 @pulumi.input_type
+class AKSArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input['AKSPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on AKS.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AKS'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        :param pulumi.Input['AKSPropertiesArgs'] properties: AKS properties
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'AKS')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'AKS'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AKSPropertiesArgs']]:
+        """
+        AKS properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AKSPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class AksNetworkingConfigurationArgs:
     def __init__(__self__, *,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
@@ -372,111 +372,6 @@ class AksNetworkingConfigurationArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
-
-
-@pulumi.input_type
-class AmlComputeArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input['AmlComputePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        An Azure Machine Learning compute.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'AmlCompute'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        :param pulumi.Input['AmlComputePropertiesArgs'] properties: Properties of AmlCompute
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'AmlCompute')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'AmlCompute'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['AmlComputePropertiesArgs']]:
-        """
-        Properties of AmlCompute
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['AmlComputePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -654,6 +549,111 @@ class AmlComputePropertiesArgs:
 
 
 @pulumi.input_type
+class AmlComputeArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input['AmlComputePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure Machine Learning compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'AmlCompute'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        :param pulumi.Input['AmlComputePropertiesArgs'] properties: Properties of AmlCompute
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'AmlCompute')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'AmlCompute'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['AmlComputePropertiesArgs']]:
+        """
+        Properties of AmlCompute
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['AmlComputePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class AssignedUserArgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[str],
@@ -765,111 +765,6 @@ class AutoScalePropertiesArgs:
     @min_node_count.setter
     def min_node_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min_node_count", value)
-
-
-@pulumi.input_type
-class ComputeInstanceArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input['ComputeInstancePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        An Azure Machine Learning compute instance.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'ComputeInstance'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        :param pulumi.Input['ComputeInstancePropertiesArgs'] properties: Properties of ComputeInstance
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'ComputeInstance')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'ComputeInstance'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ComputeInstancePropertiesArgs']]:
-        """
-        Properties of ComputeInstance
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ComputeInstancePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -1039,6 +934,111 @@ class ComputeInstanceSshSettingsArgs:
 
 
 @pulumi.input_type
+class ComputeInstanceArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input['ComputeInstancePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Azure Machine Learning compute instance.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'ComputeInstance'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        :param pulumi.Input['ComputeInstancePropertiesArgs'] properties: Properties of ComputeInstance
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'ComputeInstance')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'ComputeInstance'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['ComputeInstancePropertiesArgs']]:
+        """
+        Properties of ComputeInstance
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['ComputeInstancePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class CosmosDbSettingsArgs:
     def __init__(__self__, *,
                  collections_throughput: Optional[pulumi.Input[int]] = None):
@@ -1151,6 +1151,29 @@ class DataFactoryArgs:
 
 
 @pulumi.input_type
+class DataLakeAnalyticsPropertiesArgs:
+    def __init__(__self__, *,
+                 data_lake_store_account_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] data_lake_store_account_name: DataLake Store Account Name
+        """
+        if data_lake_store_account_name is not None:
+            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+
+    @property
+    @pulumi.getter(name="dataLakeStoreAccountName")
+    def data_lake_store_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        DataLake Store Account Name
+        """
+        return pulumi.get(self, "data_lake_store_account_name")
+
+    @data_lake_store_account_name.setter
+    def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_store_account_name", value)
+
+
+@pulumi.input_type
 class DataLakeAnalyticsArgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[str],
@@ -1252,26 +1275,43 @@ class DataLakeAnalyticsArgs:
 
 
 @pulumi.input_type
-class DataLakeAnalyticsPropertiesArgs:
+class DatabricksPropertiesArgs:
     def __init__(__self__, *,
-                 data_lake_store_account_name: Optional[pulumi.Input[str]] = None):
+                 databricks_access_token: Optional[pulumi.Input[str]] = None,
+                 workspace_url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] data_lake_store_account_name: DataLake Store Account Name
+        Properties of Databricks
+        :param pulumi.Input[str] databricks_access_token: Databricks access token
+        :param pulumi.Input[str] workspace_url: Workspace Url
         """
-        if data_lake_store_account_name is not None:
-            pulumi.set(__self__, "data_lake_store_account_name", data_lake_store_account_name)
+        if databricks_access_token is not None:
+            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
+        if workspace_url is not None:
+            pulumi.set(__self__, "workspace_url", workspace_url)
 
     @property
-    @pulumi.getter(name="dataLakeStoreAccountName")
-    def data_lake_store_account_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="databricksAccessToken")
+    def databricks_access_token(self) -> Optional[pulumi.Input[str]]:
         """
-        DataLake Store Account Name
+        Databricks access token
         """
-        return pulumi.get(self, "data_lake_store_account_name")
+        return pulumi.get(self, "databricks_access_token")
 
-    @data_lake_store_account_name.setter
-    def data_lake_store_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_lake_store_account_name", value)
+    @databricks_access_token.setter
+    def databricks_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "databricks_access_token", value)
+
+    @property
+    @pulumi.getter(name="workspaceUrl")
+    def workspace_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workspace Url
+        """
+        return pulumi.get(self, "workspace_url")
+
+    @workspace_url.setter
+    def workspace_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workspace_url", value)
 
 
 @pulumi.input_type
@@ -1380,46 +1420,6 @@ class DatabricksArgs:
 
 
 @pulumi.input_type
-class DatabricksPropertiesArgs:
-    def __init__(__self__, *,
-                 databricks_access_token: Optional[pulumi.Input[str]] = None,
-                 workspace_url: Optional[pulumi.Input[str]] = None):
-        """
-        Properties of Databricks
-        :param pulumi.Input[str] databricks_access_token: Databricks access token
-        :param pulumi.Input[str] workspace_url: Workspace Url
-        """
-        if databricks_access_token is not None:
-            pulumi.set(__self__, "databricks_access_token", databricks_access_token)
-        if workspace_url is not None:
-            pulumi.set(__self__, "workspace_url", workspace_url)
-
-    @property
-    @pulumi.getter(name="databricksAccessToken")
-    def databricks_access_token(self) -> Optional[pulumi.Input[str]]:
-        """
-        Databricks access token
-        """
-        return pulumi.get(self, "databricks_access_token")
-
-    @databricks_access_token.setter
-    def databricks_access_token(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "databricks_access_token", value)
-
-    @property
-    @pulumi.getter(name="workspaceUrl")
-    def workspace_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Workspace Url
-        """
-        return pulumi.get(self, "workspace_url")
-
-    @workspace_url.setter
-    def workspace_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "workspace_url", value)
-
-
-@pulumi.input_type
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
                  key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
@@ -1470,6 +1470,62 @@ class EncryptionPropertyArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['IdentityForCmkArgs']]):
         pulumi.set(self, "identity", value)
+
+
+@pulumi.input_type
+class HDInsightPropertiesArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
+                 ssh_port: Optional[pulumi.Input[int]] = None):
+        """
+        HDInsight compute properties
+        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
+        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
+        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if administrator_account is not None:
+            pulumi.set(__self__, "administrator_account", administrator_account)
+        if ssh_port is not None:
+            pulumi.set(__self__, "ssh_port", ssh_port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public IP address of the master node of the cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="administratorAccount")
+    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
+        """
+        Admin credentials for master node of the cluster
+        """
+        return pulumi.get(self, "administrator_account")
+
+    @administrator_account.setter
+    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
+        pulumi.set(self, "administrator_account", value)
+
+    @property
+    @pulumi.getter(name="sshPort")
+    def ssh_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Port open for ssh connections on the master node of the cluster.
+        """
+        return pulumi.get(self, "ssh_port")
+
+    @ssh_port.setter
+    def ssh_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ssh_port", value)
 
 
 @pulumi.input_type
@@ -1578,59 +1634,27 @@ class HDInsightArgs:
 
 
 @pulumi.input_type
-class HDInsightPropertiesArgs:
+class IdentityForCmkArgs:
     def __init__(__self__, *,
-                 address: Optional[pulumi.Input[str]] = None,
-                 administrator_account: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']] = None,
-                 ssh_port: Optional[pulumi.Input[int]] = None):
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
-        HDInsight compute properties
-        :param pulumi.Input[str] address: Public IP address of the master node of the cluster.
-        :param pulumi.Input['VirtualMachineSshCredentialsArgs'] administrator_account: Admin credentials for master node of the cluster
-        :param pulumi.Input[int] ssh_port: Port open for ssh connections on the master node of the cluster.
+        Identity that will be used to access key vault for encryption at rest
+        :param pulumi.Input[str] user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
         """
-        if address is not None:
-            pulumi.set(__self__, "address", address)
-        if administrator_account is not None:
-            pulumi.set(__self__, "administrator_account", administrator_account)
-        if ssh_port is not None:
-            pulumi.set(__self__, "ssh_port", ssh_port)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
 
     @property
-    @pulumi.getter
-    def address(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
         """
-        Public IP address of the master node of the cluster.
+        The ArmId of the user assigned identity that will be used to access the customer managed key vault
         """
-        return pulumi.get(self, "address")
+        return pulumi.get(self, "user_assigned_identity")
 
-    @address.setter
-    def address(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "address", value)
-
-    @property
-    @pulumi.getter(name="administratorAccount")
-    def administrator_account(self) -> Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]:
-        """
-        Admin credentials for master node of the cluster
-        """
-        return pulumi.get(self, "administrator_account")
-
-    @administrator_account.setter
-    def administrator_account(self, value: Optional[pulumi.Input['VirtualMachineSshCredentialsArgs']]):
-        pulumi.set(self, "administrator_account", value)
-
-    @property
-    @pulumi.getter(name="sshPort")
-    def ssh_port(self) -> Optional[pulumi.Input[int]]:
-        """
-        Port open for ssh connections on the master node of the cluster.
-        """
-        return pulumi.get(self, "ssh_port")
-
-    @ssh_port.setter
-    def ssh_port(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "ssh_port", value)
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -1674,27 +1698,43 @@ class IdentityArgs:
 
 
 @pulumi.input_type
-class IdentityForCmkArgs:
+class InstanceTypeSchemaResourcesArgs:
     def __init__(__self__, *,
-                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+                 limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 requests: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        Identity that will be used to access key vault for encryption at rest
-        :param pulumi.Input[str] user_assigned_identity: The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        Resource requests/limits for this instance type
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] limits: Resource limits for this instance type
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] requests: Resource requests for this instance type
         """
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+        if limits is not None:
+            pulumi.set(__self__, "limits", limits)
+        if requests is not None:
+            pulumi.set(__self__, "requests", requests)
 
     @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def limits(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The ArmId of the user assigned identity that will be used to access the customer managed key vault
+        Resource limits for this instance type
         """
-        return pulumi.get(self, "user_assigned_identity")
+        return pulumi.get(self, "limits")
 
-    @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_assigned_identity", value)
+    @limits.setter
+    def limits(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "limits", value)
+
+    @property
+    @pulumi.getter
+    def requests(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource requests for this instance type
+        """
+        return pulumi.get(self, "requests")
+
+    @requests.setter
+    def requests(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "requests", value)
 
 
 @pulumi.input_type
@@ -1735,46 +1775,6 @@ class InstanceTypeSchemaArgs:
     @resources.setter
     def resources(self, value: Optional[pulumi.Input['InstanceTypeSchemaResourcesArgs']]):
         pulumi.set(self, "resources", value)
-
-
-@pulumi.input_type
-class InstanceTypeSchemaResourcesArgs:
-    def __init__(__self__, *,
-                 limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 requests: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        Resource requests/limits for this instance type
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] limits: Resource limits for this instance type
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] requests: Resource requests for this instance type
-        """
-        if limits is not None:
-            pulumi.set(__self__, "limits", limits)
-        if requests is not None:
-            pulumi.set(__self__, "requests", requests)
-
-    @property
-    @pulumi.getter
-    def limits(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource limits for this instance type
-        """
-        return pulumi.get(self, "limits")
-
-    @limits.setter
-    def limits(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "limits", value)
-
-    @property
-    @pulumi.getter
-    def requests(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource requests for this instance type
-        """
-        return pulumi.get(self, "requests")
-
-    @requests.setter
-    def requests(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "requests", value)
 
 
 @pulumi.input_type
@@ -1828,111 +1828,6 @@ class KeyVaultPropertiesArgs:
     @identity_client_id.setter
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
-
-
-@pulumi.input_type
-class KubernetesArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input['KubernetesPropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A Machine Learning compute based on Kubernetes Compute.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'Kubernetes'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        :param pulumi.Input['KubernetesPropertiesArgs'] properties: Properties of Kubernetes
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'Kubernetes')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'Kubernetes'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['KubernetesPropertiesArgs']]:
-        """
-        Properties of Kubernetes
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['KubernetesPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -2071,6 +1966,111 @@ class KubernetesPropertiesArgs:
     @vc_name.setter
     def vc_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vc_name", value)
+
+
+@pulumi.input_type
+class KubernetesArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input['KubernetesPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on Kubernetes Compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'Kubernetes'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        :param pulumi.Input['KubernetesPropertiesArgs'] properties: Properties of Kubernetes
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'Kubernetes')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'Kubernetes'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['KubernetesPropertiesArgs']]:
+        """
+        Properties of Kubernetes
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['KubernetesPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -2624,107 +2624,6 @@ class SslConfigurationArgs:
 
 
 @pulumi.input_type
-class SynapseSparkArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input['SynapseSparkPropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A SynapseSpark compute.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'SynapseSpark'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'SynapseSpark')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'SynapseSpark'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SynapseSparkPropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SynapseSparkPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
 class SynapseSparkPropertiesArgs:
     def __init__(__self__, *,
                  auto_pause_properties: Optional[pulumi.Input['AutoPausePropertiesArgs']] = None,
@@ -2892,6 +2791,107 @@ class SynapseSparkPropertiesArgs:
 
 
 @pulumi.input_type
+class SynapseSparkArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input['SynapseSparkPropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A SynapseSpark compute.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'SynapseSpark'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'SynapseSpark')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'SynapseSpark'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['SynapseSparkPropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['SynapseSparkPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+@pulumi.input_type
 class UserAccountCredentialsArgs:
     def __init__(__self__, *,
                  admin_user_name: pulumi.Input[str],
@@ -2944,107 +2944,6 @@ class UserAccountCredentialsArgs:
     @admin_user_ssh_public_key.setter
     def admin_user_ssh_public_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "admin_user_ssh_public_key", value)
-
-
-@pulumi.input_type
-class VirtualMachineArgs:
-    def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
-                 compute_location: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
-                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        A Machine Learning compute based on Azure Virtual Machines.
-        :param pulumi.Input[str] compute_type: The type of compute
-               Expected value is 'VirtualMachine'.
-        :param pulumi.Input[str] compute_location: Location for the underlying compute
-        :param pulumi.Input[str] description: The description of the Machine Learning compute.
-        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
-        """
-        pulumi.set(__self__, "compute_type", 'VirtualMachine')
-        if compute_location is not None:
-            pulumi.set(__self__, "compute_location", compute_location)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if disable_local_auth is not None:
-            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        """
-        The type of compute
-        Expected value is 'VirtualMachine'.
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="computeLocation")
-    def compute_location(self) -> Optional[pulumi.Input[str]]:
-        """
-        Location for the underlying compute
-        """
-        return pulumi.get(self, "compute_location")
-
-    @compute_location.setter
-    def compute_location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "compute_location", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The description of the Machine Learning compute.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="disableLocalAuth")
-    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
-        """
-        return pulumi.get(self, "disable_local_auth")
-
-    @disable_local_auth.setter
-    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "disable_local_auth", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ARM resource id of the underlying compute
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type
@@ -3227,5 +3126,106 @@ class VirtualMachineSshCredentialsArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class VirtualMachineArgs:
+    def __init__(__self__, *,
+                 compute_type: pulumi.Input[str],
+                 compute_location: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input['VirtualMachinePropertiesArgs']] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        A Machine Learning compute based on Azure Virtual Machines.
+        :param pulumi.Input[str] compute_type: The type of compute
+               Expected value is 'VirtualMachine'.
+        :param pulumi.Input[str] compute_location: Location for the underlying compute
+        :param pulumi.Input[str] description: The description of the Machine Learning compute.
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        :param pulumi.Input[str] resource_id: ARM resource id of the underlying compute
+        """
+        pulumi.set(__self__, "compute_type", 'VirtualMachine')
+        if compute_location is not None:
+            pulumi.set(__self__, "compute_location", compute_location)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[str]:
+        """
+        The type of compute
+        Expected value is 'VirtualMachine'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="computeLocation")
+    def compute_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location for the underlying compute
+        """
+        return pulumi.get(self, "compute_location")
+
+    @compute_location.setter
+    def compute_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_location", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Machine Learning compute.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['VirtualMachinePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['VirtualMachinePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource id of the underlying compute
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 

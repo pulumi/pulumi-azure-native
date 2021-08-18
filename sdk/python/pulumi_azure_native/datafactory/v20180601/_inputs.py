@@ -130,8 +130,8 @@ __all__ = [
     'ConcurObjectDatasetArgs',
     'ConcurSourceArgs',
     'ControlActivityArgs',
-    'CopyActivityArgs',
     'CopyActivityLogSettingsArgs',
+    'CopyActivityArgs',
     'CosmosDbLinkedServiceArgs',
     'CosmosDbMongoDbApiCollectionDatasetArgs',
     'CosmosDbMongoDbApiLinkedServiceArgs',
@@ -144,8 +144,8 @@ __all__ = [
     'CouchbaseSourceArgs',
     'CouchbaseTableDatasetArgs',
     'CredentialReferenceArgs',
-    'CustomActivityArgs',
     'CustomActivityReferenceObjectArgs',
+    'CustomActivityArgs',
     'CustomDataSourceLinkedServiceArgs',
     'CustomDatasetArgs',
     'CustomEventsTriggerArgs',
@@ -203,8 +203,8 @@ __all__ = [
     'EnvironmentVariableSetupArgs',
     'ExcelDatasetArgs',
     'ExcelSourceArgs',
-    'ExecuteDataFlowActivityArgs',
     'ExecuteDataFlowActivityTypePropertiesComputeArgs',
+    'ExecuteDataFlowActivityArgs',
     'ExecutePipelineActivityArgs',
     'ExecuteSSISPackageActivityArgs',
     'ExecuteWranglingDataflowActivityArgs',
@@ -226,8 +226,8 @@ __all__ = [
     'FtpServerLinkedServiceArgs',
     'FtpServerLocationArgs',
     'GetMetadataActivityArgs',
-    'GitHubClientSecretArgs',
     'GitHubClientSecret',
+    'GitHubClientSecretArgs',
     'GlobalParameterSpecificationArgs',
     'GoogleAdWordsLinkedServiceArgs',
     'GoogleAdWordsObjectDatasetArgs',
@@ -393,8 +393,8 @@ __all__ = [
     'QuickBooksLinkedServiceArgs',
     'QuickBooksObjectDatasetArgs',
     'QuickBooksSourceArgs',
-    'RecurrenceScheduleArgs',
     'RecurrenceScheduleOccurrenceArgs',
+    'RecurrenceScheduleArgs',
     'RedirectIncompatibleRowSettingsArgs',
     'RedshiftUnloadSettingsArgs',
     'RelationalSourceArgs',
@@ -447,8 +447,8 @@ __all__ = [
     'SapTablePartitionSettingsArgs',
     'SapTableResourceDatasetArgs',
     'SapTableSourceArgs',
-    'ScheduleTriggerArgs',
     'ScheduleTriggerRecurrenceArgs',
+    'ScheduleTriggerArgs',
     'ScriptActionArgs',
     'SecureStringArgs',
     'SelfDependencyTumblingWindowTriggerReferenceArgs',
@@ -514,8 +514,8 @@ __all__ = [
     'TriggerDependencyReferenceArgs',
     'TriggerPipelineReferenceArgs',
     'TriggerReferenceArgs',
-    'TumblingWindowTriggerArgs',
     'TumblingWindowTriggerDependencyReferenceArgs',
+    'TumblingWindowTriggerArgs',
     'UntilActivityArgs',
     'UserPropertyArgs',
     'ValidationActivityArgs',
@@ -524,8 +524,8 @@ __all__ = [
     'VerticaSourceArgs',
     'VerticaTableDatasetArgs',
     'WaitActivityArgs',
-    'WebActivityArgs',
     'WebActivityAuthenticationArgs',
+    'WebActivityArgs',
     'WebAnonymousAuthenticationArgs',
     'WebBasicAuthenticationArgs',
     'WebClientCertificateAuthenticationArgs',
@@ -19028,6 +19028,46 @@ class ControlActivityArgs:
 
 
 @pulumi.input_type
+class CopyActivityLogSettingsArgs:
+    def __init__(__self__, *,
+                 enable_reliable_logging: Optional[Any] = None,
+                 log_level: Optional[Any] = None):
+        """
+        Settings for copy activity log.
+        :param Any enable_reliable_logging: Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
+        :param Any log_level: Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
+        """
+        if enable_reliable_logging is not None:
+            pulumi.set(__self__, "enable_reliable_logging", enable_reliable_logging)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
+
+    @property
+    @pulumi.getter(name="enableReliableLogging")
+    def enable_reliable_logging(self) -> Optional[Any]:
+        """
+        Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "enable_reliable_logging")
+
+    @enable_reliable_logging.setter
+    def enable_reliable_logging(self, value: Optional[Any]):
+        pulumi.set(self, "enable_reliable_logging", value)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[Any]:
+        """
+        Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: Optional[Any]):
+        pulumi.set(self, "log_level", value)
+
+
+@pulumi.input_type
 class CopyActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -19415,46 +19455,6 @@ class CopyActivityArgs:
     @validate_data_consistency.setter
     def validate_data_consistency(self, value: Optional[Any]):
         pulumi.set(self, "validate_data_consistency", value)
-
-
-@pulumi.input_type
-class CopyActivityLogSettingsArgs:
-    def __init__(__self__, *,
-                 enable_reliable_logging: Optional[Any] = None,
-                 log_level: Optional[Any] = None):
-        """
-        Settings for copy activity log.
-        :param Any enable_reliable_logging: Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
-        :param Any log_level: Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
-        """
-        if enable_reliable_logging is not None:
-            pulumi.set(__self__, "enable_reliable_logging", enable_reliable_logging)
-        if log_level is not None:
-            pulumi.set(__self__, "log_level", log_level)
-
-    @property
-    @pulumi.getter(name="enableReliableLogging")
-    def enable_reliable_logging(self) -> Optional[Any]:
-        """
-        Specifies whether to enable reliable logging. Type: boolean (or Expression with resultType boolean).
-        """
-        return pulumi.get(self, "enable_reliable_logging")
-
-    @enable_reliable_logging.setter
-    def enable_reliable_logging(self, value: Optional[Any]):
-        pulumi.set(self, "enable_reliable_logging", value)
-
-    @property
-    @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[Any]:
-        """
-        Gets or sets the log level, support: Info, Warning. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "log_level")
-
-    @log_level.setter
-    def log_level(self, value: Optional[Any]):
-        pulumi.set(self, "log_level", value)
 
 
 @pulumi.input_type
@@ -21236,6 +21236,46 @@ class CredentialReferenceArgs:
 
 
 @pulumi.input_type
+class CustomActivityReferenceObjectArgs:
+    def __init__(__self__, *,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
+                 linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
+        """
+        Reference objects for custom activity
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: Dataset references.
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: Linked service references.
+        """
+        if datasets is not None:
+            pulumi.set(__self__, "datasets", datasets)
+        if linked_services is not None:
+            pulumi.set(__self__, "linked_services", linked_services)
+
+    @property
+    @pulumi.getter
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
+        """
+        Dataset references.
+        """
+        return pulumi.get(self, "datasets")
+
+    @datasets.setter
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
+        pulumi.set(self, "datasets", value)
+
+    @property
+    @pulumi.getter(name="linkedServices")
+    def linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
+        """
+        Linked service references.
+        """
+        return pulumi.get(self, "linked_services")
+
+    @linked_services.setter
+    def linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
+        pulumi.set(self, "linked_services", value)
+
+
+@pulumi.input_type
 class CustomActivityArgs:
     def __init__(__self__, *,
                  command: Any,
@@ -21464,46 +21504,6 @@ class CustomActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
-
-
-@pulumi.input_type
-class CustomActivityReferenceObjectArgs:
-    def __init__(__self__, *,
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]] = None,
-                 linked_services: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]] = None):
-        """
-        Reference objects for custom activity
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]] datasets: Dataset references.
-        :param pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]] linked_services: Linked service references.
-        """
-        if datasets is not None:
-            pulumi.set(__self__, "datasets", datasets)
-        if linked_services is not None:
-            pulumi.set(__self__, "linked_services", linked_services)
-
-    @property
-    @pulumi.getter
-    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]:
-        """
-        Dataset references.
-        """
-        return pulumi.get(self, "datasets")
-
-    @datasets.setter
-    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetReferenceArgs']]]]):
-        pulumi.set(self, "datasets", value)
-
-    @property
-    @pulumi.getter(name="linkedServices")
-    def linked_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]:
-        """
-        Linked service references.
-        """
-        return pulumi.get(self, "linked_services")
-
-    @linked_services.setter
-    def linked_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedServiceReferenceArgs']]]]):
-        pulumi.set(self, "linked_services", value)
 
 
 @pulumi.input_type
@@ -28643,6 +28643,46 @@ class ExcelSourceArgs:
 
 
 @pulumi.input_type
+class ExecuteDataFlowActivityTypePropertiesComputeArgs:
+    def __init__(__self__, *,
+                 compute_type: Optional[Any] = None,
+                 core_count: Optional[Any] = None):
+        """
+        Compute properties for data flow activity.
+        :param Any compute_type: Compute type of the cluster which will execute data flow job. Possible values include: 'General', 'MemoryOptimized', 'ComputeOptimized'. Type: string (or Expression with resultType string)
+        :param Any core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272. Type: integer (or Expression with resultType integer)
+        """
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if core_count is not None:
+            pulumi.set(__self__, "core_count", core_count)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[Any]:
+        """
+        Compute type of the cluster which will execute data flow job. Possible values include: 'General', 'MemoryOptimized', 'ComputeOptimized'. Type: string (or Expression with resultType string)
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: Optional[Any]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="coreCount")
+    def core_count(self) -> Optional[Any]:
+        """
+        Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "core_count")
+
+    @core_count.setter
+    def core_count(self, value: Optional[Any]):
+        pulumi.set(self, "core_count", value)
+
+
+@pulumi.input_type
 class ExecuteDataFlowActivityArgs:
     def __init__(__self__, *,
                  data_flow: pulumi.Input['DataFlowReferenceArgs'],
@@ -28871,46 +28911,6 @@ class ExecuteDataFlowActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
-
-
-@pulumi.input_type
-class ExecuteDataFlowActivityTypePropertiesComputeArgs:
-    def __init__(__self__, *,
-                 compute_type: Optional[Any] = None,
-                 core_count: Optional[Any] = None):
-        """
-        Compute properties for data flow activity.
-        :param Any compute_type: Compute type of the cluster which will execute data flow job. Possible values include: 'General', 'MemoryOptimized', 'ComputeOptimized'. Type: string (or Expression with resultType string)
-        :param Any core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272. Type: integer (or Expression with resultType integer)
-        """
-        if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
-        if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[Any]:
-        """
-        Compute type of the cluster which will execute data flow job. Possible values include: 'General', 'MemoryOptimized', 'ComputeOptimized'. Type: string (or Expression with resultType string)
-        """
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: Optional[Any]):
-        pulumi.set(self, "compute_type", value)
-
-    @property
-    @pulumi.getter(name="coreCount")
-    def core_count(self) -> Optional[Any]:
-        """
-        Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272. Type: integer (or Expression with resultType integer)
-        """
-        return pulumi.get(self, "core_count")
-
-    @core_count.setter
-    def core_count(self, value: Optional[Any]):
-        pulumi.set(self, "core_count", value)
 
 
 @pulumi.input_type
@@ -31982,46 +31982,6 @@ class GetMetadataActivityArgs:
 
 
 @pulumi.input_type
-class GitHubClientSecretArgs:
-    def __init__(__self__, *,
-                 byoa_secret_akv_url: Optional[pulumi.Input[str]] = None,
-                 byoa_secret_name: Optional[pulumi.Input[str]] = None):
-        """
-        Client secret information for factory's bring your own app repository configuration.
-        :param pulumi.Input[str] byoa_secret_akv_url: Bring your own app client secret AKV URL.
-        :param pulumi.Input[str] byoa_secret_name: Bring your own app client secret name in AKV.
-        """
-        if byoa_secret_akv_url is not None:
-            pulumi.set(__self__, "byoa_secret_akv_url", byoa_secret_akv_url)
-        if byoa_secret_name is not None:
-            pulumi.set(__self__, "byoa_secret_name", byoa_secret_name)
-
-    @property
-    @pulumi.getter(name="byoaSecretAkvUrl")
-    def byoa_secret_akv_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        Bring your own app client secret AKV URL.
-        """
-        return pulumi.get(self, "byoa_secret_akv_url")
-
-    @byoa_secret_akv_url.setter
-    def byoa_secret_akv_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "byoa_secret_akv_url", value)
-
-    @property
-    @pulumi.getter(name="byoaSecretName")
-    def byoa_secret_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Bring your own app client secret name in AKV.
-        """
-        return pulumi.get(self, "byoa_secret_name")
-
-    @byoa_secret_name.setter
-    def byoa_secret_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "byoa_secret_name", value)
-
-
-@pulumi.input_type
 class GitHubClientSecret:
     def __init__(__self__, *,
                  byoa_secret_akv_url: Optional[str] = None,
@@ -32058,6 +32018,46 @@ class GitHubClientSecret:
 
     @byoa_secret_name.setter
     def byoa_secret_name(self, value: Optional[str]):
+        pulumi.set(self, "byoa_secret_name", value)
+
+
+@pulumi.input_type
+class GitHubClientSecretArgs:
+    def __init__(__self__, *,
+                 byoa_secret_akv_url: Optional[pulumi.Input[str]] = None,
+                 byoa_secret_name: Optional[pulumi.Input[str]] = None):
+        """
+        Client secret information for factory's bring your own app repository configuration.
+        :param pulumi.Input[str] byoa_secret_akv_url: Bring your own app client secret AKV URL.
+        :param pulumi.Input[str] byoa_secret_name: Bring your own app client secret name in AKV.
+        """
+        if byoa_secret_akv_url is not None:
+            pulumi.set(__self__, "byoa_secret_akv_url", byoa_secret_akv_url)
+        if byoa_secret_name is not None:
+            pulumi.set(__self__, "byoa_secret_name", byoa_secret_name)
+
+    @property
+    @pulumi.getter(name="byoaSecretAkvUrl")
+    def byoa_secret_akv_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bring your own app client secret AKV URL.
+        """
+        return pulumi.get(self, "byoa_secret_akv_url")
+
+    @byoa_secret_akv_url.setter
+    def byoa_secret_akv_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "byoa_secret_akv_url", value)
+
+    @property
+    @pulumi.getter(name="byoaSecretName")
+    def byoa_secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bring your own app client secret name in AKV.
+        """
+        return pulumi.get(self, "byoa_secret_name")
+
+    @byoa_secret_name.setter
+    def byoa_secret_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "byoa_secret_name", value)
 
 
@@ -55725,6 +55725,46 @@ class QuickBooksSourceArgs:
 
 
 @pulumi.input_type
+class RecurrenceScheduleOccurrenceArgs:
+    def __init__(__self__, *,
+                 day: Optional[pulumi.Input['DayOfWeek']] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
+        """
+        The recurrence schedule occurrence.
+        :param pulumi.Input['DayOfWeek'] day: The day of the week.
+        :param pulumi.Input[int] occurrence: The occurrence.
+        """
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
+        """
+        The day of the week.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
+        """
+        The occurrence.
+        """
+        return pulumi.get(self, "occurrence")
+
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
+
+
+@pulumi.input_type
 class RecurrenceScheduleArgs:
     def __init__(__self__, *,
                  hours: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
@@ -55810,46 +55850,6 @@ class RecurrenceScheduleArgs:
     @week_days.setter
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
         pulumi.set(self, "week_days", value)
-
-
-@pulumi.input_type
-class RecurrenceScheduleOccurrenceArgs:
-    def __init__(__self__, *,
-                 day: Optional[pulumi.Input['DayOfWeek']] = None,
-                 occurrence: Optional[pulumi.Input[int]] = None):
-        """
-        The recurrence schedule occurrence.
-        :param pulumi.Input['DayOfWeek'] day: The day of the week.
-        :param pulumi.Input[int] occurrence: The occurrence.
-        """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
-
-    @property
-    @pulumi.getter
-    def day(self) -> Optional[pulumi.Input['DayOfWeek']]:
-        """
-        The day of the week.
-        """
-        return pulumi.get(self, "day")
-
-    @day.setter
-    def day(self, value: Optional[pulumi.Input['DayOfWeek']]):
-        pulumi.set(self, "day", value)
-
-    @property
-    @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[int]]:
-        """
-        The occurrence.
-        """
-        return pulumi.get(self, "occurrence")
-
-    @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type
@@ -63577,94 +63577,6 @@ class SapTableSourceArgs:
 
 
 @pulumi.input_type
-class ScheduleTriggerArgs:
-    def __init__(__self__, *,
-                 recurrence: pulumi.Input['ScheduleTriggerRecurrenceArgs'],
-                 type: pulumi.Input[str],
-                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
-        """
-        Trigger that creates pipeline runs periodically, on schedule.
-        :param pulumi.Input['ScheduleTriggerRecurrenceArgs'] recurrence: Recurrence schedule configuration.
-        :param pulumi.Input[str] type: Trigger type.
-               Expected value is 'ScheduleTrigger'.
-        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
-        :param pulumi.Input[str] description: Trigger description.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
-        """
-        pulumi.set(__self__, "recurrence", recurrence)
-        pulumi.set(__self__, "type", 'ScheduleTrigger')
-        if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
-
-    @property
-    @pulumi.getter
-    def recurrence(self) -> pulumi.Input['ScheduleTriggerRecurrenceArgs']:
-        """
-        Recurrence schedule configuration.
-        """
-        return pulumi.get(self, "recurrence")
-
-    @recurrence.setter
-    def recurrence(self, value: pulumi.Input['ScheduleTriggerRecurrenceArgs']):
-        pulumi.set(self, "recurrence", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Trigger type.
-        Expected value is 'ScheduleTrigger'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        List of tags that can be used for describing the trigger.
-        """
-        return pulumi.get(self, "annotations")
-
-    @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "annotations", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Trigger description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
-        """
-        Pipelines that need to be started.
-        """
-        return pulumi.get(self, "pipelines")
-
-    @pipelines.setter
-    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
-        pulumi.set(self, "pipelines", value)
-
-
-@pulumi.input_type
 class ScheduleTriggerRecurrenceArgs:
     def __init__(__self__, *,
                  end_time: Optional[pulumi.Input[str]] = None,
@@ -63766,6 +63678,94 @@ class ScheduleTriggerRecurrenceArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class ScheduleTriggerArgs:
+    def __init__(__self__, *,
+                 recurrence: pulumi.Input['ScheduleTriggerRecurrenceArgs'],
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]] = None):
+        """
+        Trigger that creates pipeline runs periodically, on schedule.
+        :param pulumi.Input['ScheduleTriggerRecurrenceArgs'] recurrence: Recurrence schedule configuration.
+        :param pulumi.Input[str] type: Trigger type.
+               Expected value is 'ScheduleTrigger'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the trigger.
+        :param pulumi.Input[str] description: Trigger description.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]] pipelines: Pipelines that need to be started.
+        """
+        pulumi.set(__self__, "recurrence", recurrence)
+        pulumi.set(__self__, "type", 'ScheduleTrigger')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if pipelines is not None:
+            pulumi.set(__self__, "pipelines", pipelines)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> pulumi.Input['ScheduleTriggerRecurrenceArgs']:
+        """
+        Recurrence schedule configuration.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: pulumi.Input['ScheduleTriggerRecurrenceArgs']):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Trigger type.
+        Expected value is 'ScheduleTrigger'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the trigger.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Trigger description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]:
+        """
+        Pipelines that need to be started.
+        """
+        return pulumi.get(self, "pipelines")
+
+    @pipelines.setter
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerPipelineReferenceArgs']]]]):
+        pulumi.set(self, "pipelines", value)
 
 
 @pulumi.input_type
@@ -72540,6 +72540,78 @@ class TriggerReferenceArgs:
 
 
 @pulumi.input_type
+class TumblingWindowTriggerDependencyReferenceArgs:
+    def __init__(__self__, *,
+                 reference_trigger: pulumi.Input['TriggerReferenceArgs'],
+                 type: pulumi.Input[str],
+                 offset: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None):
+        """
+        Referenced tumbling window trigger dependency.
+        :param pulumi.Input['TriggerReferenceArgs'] reference_trigger: Referenced trigger.
+        :param pulumi.Input[str] type: The type of dependency reference.
+               Expected value is 'TumblingWindowTriggerDependencyReference'.
+        :param pulumi.Input[str] offset: Timespan applied to the start time of a tumbling window when evaluating dependency.
+        :param pulumi.Input[str] size: The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
+        """
+        pulumi.set(__self__, "reference_trigger", reference_trigger)
+        pulumi.set(__self__, "type", 'TumblingWindowTriggerDependencyReference')
+        if offset is not None:
+            pulumi.set(__self__, "offset", offset)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @property
+    @pulumi.getter(name="referenceTrigger")
+    def reference_trigger(self) -> pulumi.Input['TriggerReferenceArgs']:
+        """
+        Referenced trigger.
+        """
+        return pulumi.get(self, "reference_trigger")
+
+    @reference_trigger.setter
+    def reference_trigger(self, value: pulumi.Input['TriggerReferenceArgs']):
+        pulumi.set(self, "reference_trigger", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of dependency reference.
+        Expected value is 'TumblingWindowTriggerDependencyReference'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def offset(self) -> Optional[pulumi.Input[str]]:
+        """
+        Timespan applied to the start time of a tumbling window when evaluating dependency.
+        """
+        return pulumi.get(self, "offset")
+
+    @offset.setter
+    def offset(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offset", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+
+@pulumi.input_type
 class TumblingWindowTriggerArgs:
     def __init__(__self__, *,
                  frequency: pulumi.Input[Union[str, 'TumblingWindowFrequency']],
@@ -72733,78 +72805,6 @@ class TumblingWindowTriggerArgs:
     @retry_policy.setter
     def retry_policy(self, value: Optional[pulumi.Input['RetryPolicyArgs']]):
         pulumi.set(self, "retry_policy", value)
-
-
-@pulumi.input_type
-class TumblingWindowTriggerDependencyReferenceArgs:
-    def __init__(__self__, *,
-                 reference_trigger: pulumi.Input['TriggerReferenceArgs'],
-                 type: pulumi.Input[str],
-                 offset: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None):
-        """
-        Referenced tumbling window trigger dependency.
-        :param pulumi.Input['TriggerReferenceArgs'] reference_trigger: Referenced trigger.
-        :param pulumi.Input[str] type: The type of dependency reference.
-               Expected value is 'TumblingWindowTriggerDependencyReference'.
-        :param pulumi.Input[str] offset: Timespan applied to the start time of a tumbling window when evaluating dependency.
-        :param pulumi.Input[str] size: The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
-        """
-        pulumi.set(__self__, "reference_trigger", reference_trigger)
-        pulumi.set(__self__, "type", 'TumblingWindowTriggerDependencyReference')
-        if offset is not None:
-            pulumi.set(__self__, "offset", offset)
-        if size is not None:
-            pulumi.set(__self__, "size", size)
-
-    @property
-    @pulumi.getter(name="referenceTrigger")
-    def reference_trigger(self) -> pulumi.Input['TriggerReferenceArgs']:
-        """
-        Referenced trigger.
-        """
-        return pulumi.get(self, "reference_trigger")
-
-    @reference_trigger.setter
-    def reference_trigger(self, value: pulumi.Input['TriggerReferenceArgs']):
-        pulumi.set(self, "reference_trigger", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        The type of dependency reference.
-        Expected value is 'TumblingWindowTriggerDependencyReference'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[str]]:
-        """
-        Timespan applied to the start time of a tumbling window when evaluating dependency.
-        """
-        return pulumi.get(self, "offset")
-
-    @offset.setter
-    def offset(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "offset", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
-        """
-        The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.
-        """
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "size", value)
 
 
 @pulumi.input_type
@@ -73731,6 +73731,126 @@ class WaitActivityArgs:
 
 
 @pulumi.input_type
+class WebActivityAuthenticationArgs:
+    def __init__(__self__, *,
+                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
+                 password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 pfx: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 resource: Optional[Any] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_tenant: Optional[Any] = None,
+                 username: Optional[Any] = None):
+        """
+        Web activity authentication properties.
+        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
+        :param Any resource: Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
+        :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
+        :param Any username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
+        """
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if pfx is not None:
+            pulumi.set(__self__, "pfx", pfx)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_tenant is not None:
+            pulumi.set(__self__, "user_tenant", user_tenant)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
+
+    @credential.setter
+    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
+        pulumi.set(self, "credential", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def pfx(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
+        """
+        return pulumi.get(self, "pfx")
+
+    @pfx.setter
+    def pfx(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "pfx", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[Any]:
+        """
+        Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[Any]):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userTenant")
+    def user_tenant(self) -> Optional[Any]:
+        """
+        TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_tenant")
+
+    @user_tenant.setter
+    def user_tenant(self, value: Optional[Any]):
+        pulumi.set(self, "user_tenant", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[Any]:
+        """
+        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[Any]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
 class WebActivityArgs:
     def __init__(__self__, *,
                  method: pulumi.Input[Union[str, 'WebActivityMethod']],
@@ -73974,126 +74094,6 @@ class WebActivityArgs:
     @user_properties.setter
     def user_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]]):
         pulumi.set(self, "user_properties", value)
-
-
-@pulumi.input_type
-class WebActivityAuthenticationArgs:
-    def __init__(__self__, *,
-                 credential: Optional[pulumi.Input['CredentialReferenceArgs']] = None,
-                 password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 pfx: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 resource: Optional[Any] = None,
-                 type: Optional[pulumi.Input[str]] = None,
-                 user_tenant: Optional[Any] = None,
-                 username: Optional[Any] = None):
-        """
-        Web activity authentication properties.
-        :param pulumi.Input['CredentialReferenceArgs'] credential: The credential reference containing authentication information.
-        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
-        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
-        :param Any resource: Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
-        :param pulumi.Input[str] type: Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
-        :param Any user_tenant: TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
-        :param Any username: Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
-        """
-        if credential is not None:
-            pulumi.set(__self__, "credential", credential)
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if pfx is not None:
-            pulumi.set(__self__, "pfx", pfx)
-        if resource is not None:
-            pulumi.set(__self__, "resource", resource)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if user_tenant is not None:
-            pulumi.set(__self__, "user_tenant", user_tenant)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def credential(self) -> Optional[pulumi.Input['CredentialReferenceArgs']]:
-        """
-        The credential reference containing authentication information.
-        """
-        return pulumi.get(self, "credential")
-
-    @credential.setter
-    def credential(self, value: Optional[pulumi.Input['CredentialReferenceArgs']]):
-        pulumi.set(self, "credential", value)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
-        """
-        Password for the PFX file or basic authentication / Secret when used for ServicePrincipal
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def pfx(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
-        """
-        Base64-encoded contents of a PFX file or Certificate when used for ServicePrincipal
-        """
-        return pulumi.get(self, "pfx")
-
-    @pfx.setter
-    def pfx(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
-        pulumi.set(self, "pfx", value)
-
-    @property
-    @pulumi.getter
-    def resource(self) -> Optional[Any]:
-        """
-        Resource for which Azure Auth token will be requested when using MSI Authentication. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "resource")
-
-    @resource.setter
-    def resource(self, value: Optional[Any]):
-        pulumi.set(self, "resource", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Web activity authentication (Basic/ClientCertificate/MSI/ServicePrincipal)
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userTenant")
-    def user_tenant(self) -> Optional[Any]:
-        """
-        TenantId for which Azure Auth token will be requested when using ServicePrincipal Authentication. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "user_tenant")
-
-    @user_tenant.setter
-    def user_tenant(self, value: Optional[Any]):
-        pulumi.set(self, "user_tenant", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[Any]:
-        """
-        Web activity authentication user name for basic authentication or ClientID when used for ServicePrincipal. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[Any]):
-        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20190701.Outputs
 {
 
+    /// <summary>
+    /// Authentication mechanism for IoT devices.
+    /// </summary>
     [OutputType]
     public sealed class AuthenticationResponse
     {

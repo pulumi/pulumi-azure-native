@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
+    /// <summary>
+    /// Information to be stored in Vault properties as an element of privateEndpointConnections List.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionVaultPropertiesResponse
     {

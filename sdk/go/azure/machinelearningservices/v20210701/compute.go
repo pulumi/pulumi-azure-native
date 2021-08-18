@@ -182,41 +182,9 @@ func GetCompute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Compute resources.
 type computeState struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Compute properties
-	Properties interface{} `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// System data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ComputeState struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Compute properties
-	Properties pulumi.Input
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput
-	// System data
-	SystemData SystemDataResponsePtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ComputeState) ElementType() reflect.Type {
@@ -285,9 +253,7 @@ func (i *Compute) ToComputeOutputWithContext(ctx context.Context) ComputeOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ComputeOutput)
 }
 
-type ComputeOutput struct {
-	*pulumi.OutputState
-}
+type ComputeOutput struct{ *pulumi.OutputState }
 
 func (ComputeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Compute)(nil))

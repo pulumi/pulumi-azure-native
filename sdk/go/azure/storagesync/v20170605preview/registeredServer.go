@@ -146,65 +146,9 @@ func GetRegisteredServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegisteredServer resources.
 type registeredServerState struct {
-	// Registered Server Agent Version
-	AgentVersion *string `pulumi:"agentVersion"`
-	// Registered Server clusterId
-	ClusterId *string `pulumi:"clusterId"`
-	// Registered Server clusterName
-	ClusterName *string `pulumi:"clusterName"`
-	// Registered Server last heart beat
-	LastHeartBeat *string `pulumi:"lastHeartBeat"`
-	// Registered Server lastWorkflowId
-	LastWorkflowId *string `pulumi:"lastWorkflowId"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Registered Server Provisioning State
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Registered Server Certificate
-	ServerCertificate *string `pulumi:"serverCertificate"`
-	// Registered Server serverId
-	ServerId *string `pulumi:"serverId"`
-	// Registered Server Management Error Code
-	ServerManagementtErrorCode *int `pulumi:"serverManagementtErrorCode"`
-	// Registered Server OS Version
-	ServerOSVersion *string `pulumi:"serverOSVersion"`
-	// Registered Server serverRole
-	ServerRole *string `pulumi:"serverRole"`
-	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type RegisteredServerState struct {
-	// Registered Server Agent Version
-	AgentVersion pulumi.StringPtrInput
-	// Registered Server clusterId
-	ClusterId pulumi.StringPtrInput
-	// Registered Server clusterName
-	ClusterName pulumi.StringPtrInput
-	// Registered Server last heart beat
-	LastHeartBeat pulumi.StringPtrInput
-	// Registered Server lastWorkflowId
-	LastWorkflowId pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Registered Server Provisioning State
-	ProvisioningState pulumi.StringPtrInput
-	// Registered Server Certificate
-	ServerCertificate pulumi.StringPtrInput
-	// Registered Server serverId
-	ServerId pulumi.StringPtrInput
-	// Registered Server Management Error Code
-	ServerManagementtErrorCode pulumi.IntPtrInput
-	// Registered Server OS Version
-	ServerOSVersion pulumi.StringPtrInput
-	// Registered Server serverRole
-	ServerRole pulumi.StringPtrInput
-	// Registered Server storageSyncServiceUid
-	StorageSyncServiceUid pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (RegisteredServerState) ElementType() reflect.Type {
@@ -297,9 +241,7 @@ func (i *RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredServerOutput)
 }
 
-type RegisteredServerOutput struct {
-	*pulumi.OutputState
-}
+type RegisteredServerOutput struct{ *pulumi.OutputState }
 
 func (RegisteredServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegisteredServer)(nil))

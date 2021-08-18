@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Default value.
+    /// </summary>
     [OutputType]
     public sealed class DWCopyCommandDefaultValueResponse
     {

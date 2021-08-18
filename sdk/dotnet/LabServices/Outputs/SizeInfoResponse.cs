@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
+    /// <summary>
+    /// Contains detailed information about a size
+    /// </summary>
     [OutputType]
     public sealed class SizeInfoResponse
     {

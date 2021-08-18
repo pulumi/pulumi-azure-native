@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// SSIS property override.
+    /// </summary>
     [OutputType]
     public sealed class SSISPropertyOverrideResponse
     {

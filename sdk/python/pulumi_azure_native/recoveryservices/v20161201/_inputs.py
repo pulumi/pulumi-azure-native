@@ -17,20 +17,20 @@ __all__ = [
     'AzureSqlContainerArgs',
     'AzureStorageContainerArgs',
     'AzureVMAppContainerProtectionContainerArgs',
-    'AzureWorkloadContainerArgs',
     'AzureWorkloadContainerExtendedInfoArgs',
+    'AzureWorkloadContainerArgs',
     'ContainerIdentityInfoArgs',
     'DPMContainerExtendedInfoArgs',
     'DistributedNodesInfoArgs',
     'DpmContainerArgs',
-    'GenericContainerArgs',
     'GenericContainerExtendedInfoArgs',
+    'GenericContainerArgs',
     'IaaSVMContainerArgs',
     'InquiryInfoArgs',
     'InquiryValidationArgs',
     'MABContainerHealthDetailsArgs',
-    'MabContainerArgs',
     'MabContainerExtendedInfoArgs',
+    'MabContainerArgs',
     'WorkloadInquiryDetailsArgs',
 ]
 
@@ -1155,6 +1155,62 @@ class AzureVMAppContainerProtectionContainerArgs:
 
 
 @pulumi.input_type
+class AzureWorkloadContainerExtendedInfoArgs:
+    def __init__(__self__, *,
+                 host_server_name: Optional[pulumi.Input[str]] = None,
+                 inquiry_info: Optional[pulumi.Input['InquiryInfoArgs']] = None,
+                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
+        """
+        Extended information of the container.
+        :param pulumi.Input[str] host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+        :param pulumi.Input['InquiryInfoArgs'] inquiry_info: Inquiry Status for the container.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
+        """
+        if host_server_name is not None:
+            pulumi.set(__self__, "host_server_name", host_server_name)
+        if inquiry_info is not None:
+            pulumi.set(__self__, "inquiry_info", inquiry_info)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
+
+    @property
+    @pulumi.getter(name="hostServerName")
+    def host_server_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
+        """
+        return pulumi.get(self, "host_server_name")
+
+    @host_server_name.setter
+    def host_server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_server_name", value)
+
+    @property
+    @pulumi.getter(name="inquiryInfo")
+    def inquiry_info(self) -> Optional[pulumi.Input['InquiryInfoArgs']]:
+        """
+        Inquiry Status for the container.
+        """
+        return pulumi.get(self, "inquiry_info")
+
+    @inquiry_info.setter
+    def inquiry_info(self, value: Optional[pulumi.Input['InquiryInfoArgs']]):
+        pulumi.set(self, "inquiry_info", value)
+
+    @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @nodes_list.setter
+    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
+        pulumi.set(self, "nodes_list", value)
+
+
+@pulumi.input_type
 class AzureWorkloadContainerArgs:
     def __init__(__self__, *,
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
@@ -1328,62 +1384,6 @@ class AzureWorkloadContainerArgs:
     @workload_type.setter
     def workload_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
         pulumi.set(self, "workload_type", value)
-
-
-@pulumi.input_type
-class AzureWorkloadContainerExtendedInfoArgs:
-    def __init__(__self__, *,
-                 host_server_name: Optional[pulumi.Input[str]] = None,
-                 inquiry_info: Optional[pulumi.Input['InquiryInfoArgs']] = None,
-                 nodes_list: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]] = None):
-        """
-        Extended information of the container.
-        :param pulumi.Input[str] host_server_name: Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        :param pulumi.Input['InquiryInfoArgs'] inquiry_info: Inquiry Status for the container.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]] nodes_list: List of the nodes in case of distributed container.
-        """
-        if host_server_name is not None:
-            pulumi.set(__self__, "host_server_name", host_server_name)
-        if inquiry_info is not None:
-            pulumi.set(__self__, "inquiry_info", inquiry_info)
-        if nodes_list is not None:
-            pulumi.set(__self__, "nodes_list", nodes_list)
-
-    @property
-    @pulumi.getter(name="hostServerName")
-    def host_server_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Host Os Name in case of Stand Alone and Cluster Name in case of distributed container.
-        """
-        return pulumi.get(self, "host_server_name")
-
-    @host_server_name.setter
-    def host_server_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "host_server_name", value)
-
-    @property
-    @pulumi.getter(name="inquiryInfo")
-    def inquiry_info(self) -> Optional[pulumi.Input['InquiryInfoArgs']]:
-        """
-        Inquiry Status for the container.
-        """
-        return pulumi.get(self, "inquiry_info")
-
-    @inquiry_info.setter
-    def inquiry_info(self, value: Optional[pulumi.Input['InquiryInfoArgs']]):
-        pulumi.set(self, "inquiry_info", value)
-
-    @property
-    @pulumi.getter(name="nodesList")
-    def nodes_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]:
-        """
-        List of the nodes in case of distributed container.
-        """
-        return pulumi.get(self, "nodes_list")
-
-    @nodes_list.setter
-    def nodes_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributedNodesInfoArgs']]]]):
-        pulumi.set(self, "nodes_list", value)
 
 
 @pulumi.input_type
@@ -1749,6 +1749,62 @@ class DpmContainerArgs:
 
 
 @pulumi.input_type
+class GenericContainerExtendedInfoArgs:
+    def __init__(__self__, *,
+                 container_identity_info: Optional[pulumi.Input['ContainerIdentityInfoArgs']] = None,
+                 raw_cert_data: Optional[pulumi.Input[str]] = None,
+                 service_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Container extended information
+        :param pulumi.Input['ContainerIdentityInfoArgs'] container_identity_info: Container identity information
+        :param pulumi.Input[str] raw_cert_data: Public key of container cert
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] service_endpoints: Azure Backup Service Endpoints for the container
+        """
+        if container_identity_info is not None:
+            pulumi.set(__self__, "container_identity_info", container_identity_info)
+        if raw_cert_data is not None:
+            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
+
+    @property
+    @pulumi.getter(name="containerIdentityInfo")
+    def container_identity_info(self) -> Optional[pulumi.Input['ContainerIdentityInfoArgs']]:
+        """
+        Container identity information
+        """
+        return pulumi.get(self, "container_identity_info")
+
+    @container_identity_info.setter
+    def container_identity_info(self, value: Optional[pulumi.Input['ContainerIdentityInfoArgs']]):
+        pulumi.set(self, "container_identity_info", value)
+
+    @property
+    @pulumi.getter(name="rawCertData")
+    def raw_cert_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Public key of container cert
+        """
+        return pulumi.get(self, "raw_cert_data")
+
+    @raw_cert_data.setter
+    def raw_cert_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "raw_cert_data", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Azure Backup Service Endpoints for the container
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @service_endpoints.setter
+    def service_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "service_endpoints", value)
+
+
+@pulumi.input_type
 class GenericContainerArgs:
     def __init__(__self__, *,
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
@@ -1874,62 +1930,6 @@ class GenericContainerArgs:
     @registration_status.setter
     def registration_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registration_status", value)
-
-
-@pulumi.input_type
-class GenericContainerExtendedInfoArgs:
-    def __init__(__self__, *,
-                 container_identity_info: Optional[pulumi.Input['ContainerIdentityInfoArgs']] = None,
-                 raw_cert_data: Optional[pulumi.Input[str]] = None,
-                 service_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
-        """
-        Container extended information
-        :param pulumi.Input['ContainerIdentityInfoArgs'] container_identity_info: Container identity information
-        :param pulumi.Input[str] raw_cert_data: Public key of container cert
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] service_endpoints: Azure Backup Service Endpoints for the container
-        """
-        if container_identity_info is not None:
-            pulumi.set(__self__, "container_identity_info", container_identity_info)
-        if raw_cert_data is not None:
-            pulumi.set(__self__, "raw_cert_data", raw_cert_data)
-        if service_endpoints is not None:
-            pulumi.set(__self__, "service_endpoints", service_endpoints)
-
-    @property
-    @pulumi.getter(name="containerIdentityInfo")
-    def container_identity_info(self) -> Optional[pulumi.Input['ContainerIdentityInfoArgs']]:
-        """
-        Container identity information
-        """
-        return pulumi.get(self, "container_identity_info")
-
-    @container_identity_info.setter
-    def container_identity_info(self, value: Optional[pulumi.Input['ContainerIdentityInfoArgs']]):
-        pulumi.set(self, "container_identity_info", value)
-
-    @property
-    @pulumi.getter(name="rawCertData")
-    def raw_cert_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        Public key of container cert
-        """
-        return pulumi.get(self, "raw_cert_data")
-
-    @raw_cert_data.setter
-    def raw_cert_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "raw_cert_data", value)
-
-    @property
-    @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Azure Backup Service Endpoints for the container
-        """
-        return pulumi.get(self, "service_endpoints")
-
-    @service_endpoints.setter
-    def service_endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "service_endpoints", value)
 
 
 @pulumi.input_type
@@ -2217,6 +2217,94 @@ class MABContainerHealthDetailsArgs:
 
 
 @pulumi.input_type
+class MabContainerExtendedInfoArgs:
+    def __init__(__self__, *,
+                 backup_item_type: Optional[pulumi.Input[Union[str, 'BackupItemType']]] = None,
+                 backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 last_backup_status: Optional[pulumi.Input[str]] = None,
+                 last_refreshed_at: Optional[pulumi.Input[str]] = None,
+                 policy_name: Optional[pulumi.Input[str]] = None):
+        """
+        Additional information of the container.
+        :param pulumi.Input[Union[str, 'BackupItemType']] backup_item_type: Type of backup items associated with this container.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
+        :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
+        :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
+        :param pulumi.Input[str] policy_name: Backup policy associated with this container.
+        """
+        if backup_item_type is not None:
+            pulumi.set(__self__, "backup_item_type", backup_item_type)
+        if backup_items is not None:
+            pulumi.set(__self__, "backup_items", backup_items)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_refreshed_at is not None:
+            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+
+    @property
+    @pulumi.getter(name="backupItemType")
+    def backup_item_type(self) -> Optional[pulumi.Input[Union[str, 'BackupItemType']]]:
+        """
+        Type of backup items associated with this container.
+        """
+        return pulumi.get(self, "backup_item_type")
+
+    @backup_item_type.setter
+    def backup_item_type(self, value: Optional[pulumi.Input[Union[str, 'BackupItemType']]]):
+        pulumi.set(self, "backup_item_type", value)
+
+    @property
+    @pulumi.getter(name="backupItems")
+    def backup_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of backup items associated with this container.
+        """
+        return pulumi.get(self, "backup_items")
+
+    @backup_items.setter
+    def backup_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "backup_items", value)
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Latest backup status of this container.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @last_backup_status.setter
+    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_backup_status", value)
+
+    @property
+    @pulumi.getter(name="lastRefreshedAt")
+    def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time stamp when this container was refreshed.
+        """
+        return pulumi.get(self, "last_refreshed_at")
+
+    @last_refreshed_at.setter
+    def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_refreshed_at", value)
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Backup policy associated with this container.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_name", value)
+
+
+@pulumi.input_type
 class MabContainerArgs:
     def __init__(__self__, *,
                  agent_version: Optional[pulumi.Input[str]] = None,
@@ -2422,94 +2510,6 @@ class MabContainerArgs:
     @registration_status.setter
     def registration_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registration_status", value)
-
-
-@pulumi.input_type
-class MabContainerExtendedInfoArgs:
-    def __init__(__self__, *,
-                 backup_item_type: Optional[pulumi.Input[Union[str, 'BackupItemType']]] = None,
-                 backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 last_backup_status: Optional[pulumi.Input[str]] = None,
-                 last_refreshed_at: Optional[pulumi.Input[str]] = None,
-                 policy_name: Optional[pulumi.Input[str]] = None):
-        """
-        Additional information of the container.
-        :param pulumi.Input[Union[str, 'BackupItemType']] backup_item_type: Type of backup items associated with this container.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
-        :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
-        :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
-        :param pulumi.Input[str] policy_name: Backup policy associated with this container.
-        """
-        if backup_item_type is not None:
-            pulumi.set(__self__, "backup_item_type", backup_item_type)
-        if backup_items is not None:
-            pulumi.set(__self__, "backup_items", backup_items)
-        if last_backup_status is not None:
-            pulumi.set(__self__, "last_backup_status", last_backup_status)
-        if last_refreshed_at is not None:
-            pulumi.set(__self__, "last_refreshed_at", last_refreshed_at)
-        if policy_name is not None:
-            pulumi.set(__self__, "policy_name", policy_name)
-
-    @property
-    @pulumi.getter(name="backupItemType")
-    def backup_item_type(self) -> Optional[pulumi.Input[Union[str, 'BackupItemType']]]:
-        """
-        Type of backup items associated with this container.
-        """
-        return pulumi.get(self, "backup_item_type")
-
-    @backup_item_type.setter
-    def backup_item_type(self, value: Optional[pulumi.Input[Union[str, 'BackupItemType']]]):
-        pulumi.set(self, "backup_item_type", value)
-
-    @property
-    @pulumi.getter(name="backupItems")
-    def backup_items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of backup items associated with this container.
-        """
-        return pulumi.get(self, "backup_items")
-
-    @backup_items.setter
-    def backup_items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "backup_items", value)
-
-    @property
-    @pulumi.getter(name="lastBackupStatus")
-    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Latest backup status of this container.
-        """
-        return pulumi.get(self, "last_backup_status")
-
-    @last_backup_status.setter
-    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_backup_status", value)
-
-    @property
-    @pulumi.getter(name="lastRefreshedAt")
-    def last_refreshed_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        Time stamp when this container was refreshed.
-        """
-        return pulumi.get(self, "last_refreshed_at")
-
-    @last_refreshed_at.setter
-    def last_refreshed_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_refreshed_at", value)
-
-    @property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Backup policy associated with this container.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_name", value)
 
 
 @pulumi.input_type

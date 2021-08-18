@@ -52,6 +52,12 @@ func NewProject(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.SourcePlatform == nil {
+		return nil, errors.New("invalid value for required argument 'SourcePlatform'")
+	}
+	if args.TargetPlatform == nil {
+		return nil, errors.New("invalid value for required argument 'TargetPlatform'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Project"),
@@ -116,53 +122,9 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// UTC Date and time when project was created
-	CreationTime *string `pulumi:"creationTime"`
-	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfoResponse `pulumi:"databasesInfo"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The project's provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Information for connecting to source
-	SourceConnectionInfo *SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform *string `pulumi:"sourcePlatform"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Information for connecting to target
-	TargetConnectionInfo *SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform *string `pulumi:"targetPlatform"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ProjectState struct {
-	// UTC Date and time when project was created
-	CreationTime pulumi.StringPtrInput
-	// List of DatabaseInfo
-	DatabasesInfo DatabaseInfoResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The project's provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// Information for connecting to source
-	SourceConnectionInfo SqlConnectionInfoResponsePtrInput
-	// Source platform for the project
-	SourcePlatform pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Information for connecting to target
-	TargetConnectionInfo SqlConnectionInfoResponsePtrInput
-	// Target platform for the project
-	TargetPlatform pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -183,13 +145,13 @@ type projectArgs struct {
 	// Information for connecting to source
 	SourceConnectionInfo *SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	// Source platform for the project
-	SourcePlatform string `pulumi:"sourcePlatform"`
+	SourcePlatform ProjectSourcePlatform `pulumi:"sourcePlatform"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Information for connecting to target
 	TargetConnectionInfo *SqlConnectionInfo `pulumi:"targetConnectionInfo"`
 	// Target platform for the project
-	TargetPlatform string `pulumi:"targetPlatform"`
+	TargetPlatform ProjectTargetPlatform `pulumi:"targetPlatform"`
 }
 
 // The set of arguments for constructing a Project resource.
@@ -207,13 +169,13 @@ type ProjectArgs struct {
 	// Information for connecting to source
 	SourceConnectionInfo SqlConnectionInfoPtrInput
 	// Source platform for the project
-	SourcePlatform ProjectSourcePlatform
+	SourcePlatform ProjectSourcePlatformInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Information for connecting to target
 	TargetConnectionInfo SqlConnectionInfoPtrInput
 	// Target platform for the project
-	TargetPlatform ProjectTargetPlatform
+	TargetPlatform ProjectTargetPlatformInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {
@@ -239,9 +201,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

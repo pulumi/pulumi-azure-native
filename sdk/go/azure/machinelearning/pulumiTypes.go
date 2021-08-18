@@ -436,7 +436,7 @@ func (o BlobLocationOutput) ToBlobLocationPtrOutput() BlobLocationPtrOutput {
 }
 
 func (o BlobLocationOutput) ToBlobLocationPtrOutputWithContext(ctx context.Context) BlobLocationPtrOutput {
-	return o.ApplyT(func(v BlobLocation) *BlobLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobLocation) *BlobLocation {
 		return &v
 	}).(BlobLocationPtrOutput)
 }
@@ -466,7 +466,13 @@ func (o BlobLocationPtrOutput) ToBlobLocationPtrOutputWithContext(ctx context.Co
 }
 
 func (o BlobLocationPtrOutput) Elem() BlobLocationOutput {
-	return o.ApplyT(func(v *BlobLocation) BlobLocation { return *v }).(BlobLocationOutput)
+	return o.ApplyT(func(v *BlobLocation) BlobLocation {
+		if v != nil {
+			return *v
+		}
+		var ret BlobLocation
+		return ret
+	}).(BlobLocationOutput)
 }
 
 // Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
@@ -589,7 +595,7 @@ func (o BlobLocationResponseOutput) ToBlobLocationResponsePtrOutput() BlobLocati
 }
 
 func (o BlobLocationResponseOutput) ToBlobLocationResponsePtrOutputWithContext(ctx context.Context) BlobLocationResponsePtrOutput {
-	return o.ApplyT(func(v BlobLocationResponse) *BlobLocationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobLocationResponse) *BlobLocationResponse {
 		return &v
 	}).(BlobLocationResponsePtrOutput)
 }
@@ -619,7 +625,13 @@ func (o BlobLocationResponsePtrOutput) ToBlobLocationResponsePtrOutputWithContex
 }
 
 func (o BlobLocationResponsePtrOutput) Elem() BlobLocationResponseOutput {
-	return o.ApplyT(func(v *BlobLocationResponse) BlobLocationResponse { return *v }).(BlobLocationResponseOutput)
+	return o.ApplyT(func(v *BlobLocationResponse) BlobLocationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlobLocationResponse
+		return ret
+	}).(BlobLocationResponseOutput)
 }
 
 // Access credentials for the blob, if applicable (e.g. blob specified by storage account connection string + blob URI)
@@ -1010,7 +1022,7 @@ func (o CommitmentPlanTypeOutput) ToCommitmentPlanTypePtrOutput() CommitmentPlan
 }
 
 func (o CommitmentPlanTypeOutput) ToCommitmentPlanTypePtrOutputWithContext(ctx context.Context) CommitmentPlanTypePtrOutput {
-	return o.ApplyT(func(v CommitmentPlanType) *CommitmentPlanType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanType) *CommitmentPlanType {
 		return &v
 	}).(CommitmentPlanTypePtrOutput)
 }
@@ -1035,7 +1047,13 @@ func (o CommitmentPlanTypePtrOutput) ToCommitmentPlanTypePtrOutputWithContext(ct
 }
 
 func (o CommitmentPlanTypePtrOutput) Elem() CommitmentPlanTypeOutput {
-	return o.ApplyT(func(v *CommitmentPlanType) CommitmentPlanType { return *v }).(CommitmentPlanTypeOutput)
+	return o.ApplyT(func(v *CommitmentPlanType) CommitmentPlanType {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlanType
+		return ret
+	}).(CommitmentPlanTypeOutput)
 }
 
 // Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
@@ -1180,7 +1198,7 @@ func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesRespon
 }
 
 func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) *CommitmentPlanPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanPropertiesResponse) *CommitmentPlanPropertiesResponse {
 		return &v
 	}).(CommitmentPlanPropertiesResponsePtrOutput)
 }
@@ -1250,7 +1268,13 @@ func (o CommitmentPlanPropertiesResponsePtrOutput) ToCommitmentPlanPropertiesRes
 }
 
 func (o CommitmentPlanPropertiesResponsePtrOutput) Elem() CommitmentPlanPropertiesResponseOutput {
-	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) CommitmentPlanPropertiesResponse { return *v }).(CommitmentPlanPropertiesResponseOutput)
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) CommitmentPlanPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlanPropertiesResponse
+		return ret
+	}).(CommitmentPlanPropertiesResponseOutput)
 }
 
 // Indicates whether usage beyond the commitment plan's included quantities will be charged.
@@ -1449,7 +1473,7 @@ func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponsePtrOutput() Commit
 }
 
 func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanResponsePtrOutput {
-	return o.ApplyT(func(v CommitmentPlanResponse) *CommitmentPlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanResponse) *CommitmentPlanResponse {
 		return &v
 	}).(CommitmentPlanResponsePtrOutput)
 }
@@ -1474,7 +1498,13 @@ func (o CommitmentPlanResponsePtrOutput) ToCommitmentPlanResponsePtrOutputWithCo
 }
 
 func (o CommitmentPlanResponsePtrOutput) Elem() CommitmentPlanResponseOutput {
-	return o.ApplyT(func(v *CommitmentPlanResponse) CommitmentPlanResponse { return *v }).(CommitmentPlanResponseOutput)
+	return o.ApplyT(func(v *CommitmentPlanResponse) CommitmentPlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlanResponse
+		return ret
+	}).(CommitmentPlanResponseOutput)
 }
 
 // Specifies the Azure Resource Manager ID of the commitment plan associated with the web service.
@@ -1587,7 +1617,7 @@ func (o DiagnosticsConfigurationOutput) ToDiagnosticsConfigurationPtrOutput() Di
 }
 
 func (o DiagnosticsConfigurationOutput) ToDiagnosticsConfigurationPtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationPtrOutput {
-	return o.ApplyT(func(v DiagnosticsConfiguration) *DiagnosticsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsConfiguration) *DiagnosticsConfiguration {
 		return &v
 	}).(DiagnosticsConfigurationPtrOutput)
 }
@@ -1617,7 +1647,13 @@ func (o DiagnosticsConfigurationPtrOutput) ToDiagnosticsConfigurationPtrOutputWi
 }
 
 func (o DiagnosticsConfigurationPtrOutput) Elem() DiagnosticsConfigurationOutput {
-	return o.ApplyT(func(v *DiagnosticsConfiguration) DiagnosticsConfiguration { return *v }).(DiagnosticsConfigurationOutput)
+	return o.ApplyT(func(v *DiagnosticsConfiguration) DiagnosticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsConfiguration
+		return ret
+	}).(DiagnosticsConfigurationOutput)
 }
 
 // Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
@@ -1740,7 +1776,7 @@ func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationRespon
 }
 
 func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v DiagnosticsConfigurationResponse) *DiagnosticsConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsConfigurationResponse) *DiagnosticsConfigurationResponse {
 		return &v
 	}).(DiagnosticsConfigurationResponsePtrOutput)
 }
@@ -1770,7 +1806,13 @@ func (o DiagnosticsConfigurationResponsePtrOutput) ToDiagnosticsConfigurationRes
 }
 
 func (o DiagnosticsConfigurationResponsePtrOutput) Elem() DiagnosticsConfigurationResponseOutput {
-	return o.ApplyT(func(v *DiagnosticsConfigurationResponse) DiagnosticsConfigurationResponse { return *v }).(DiagnosticsConfigurationResponseOutput)
+	return o.ApplyT(func(v *DiagnosticsConfigurationResponse) DiagnosticsConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiagnosticsConfigurationResponse
+		return ret
+	}).(DiagnosticsConfigurationResponseOutput)
 }
 
 // Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
@@ -1893,7 +1935,7 @@ func (o ExampleRequestOutput) ToExampleRequestPtrOutput() ExampleRequestPtrOutpu
 }
 
 func (o ExampleRequestOutput) ToExampleRequestPtrOutputWithContext(ctx context.Context) ExampleRequestPtrOutput {
-	return o.ApplyT(func(v ExampleRequest) *ExampleRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExampleRequest) *ExampleRequest {
 		return &v
 	}).(ExampleRequestPtrOutput)
 }
@@ -1923,7 +1965,13 @@ func (o ExampleRequestPtrOutput) ToExampleRequestPtrOutputWithContext(ctx contex
 }
 
 func (o ExampleRequestPtrOutput) Elem() ExampleRequestOutput {
-	return o.ApplyT(func(v *ExampleRequest) ExampleRequest { return *v }).(ExampleRequestOutput)
+	return o.ApplyT(func(v *ExampleRequest) ExampleRequest {
+		if v != nil {
+			return *v
+		}
+		var ret ExampleRequest
+		return ret
+	}).(ExampleRequestOutput)
 }
 
 // Sample input data for the web service's global parameters
@@ -2046,7 +2094,7 @@ func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutput() Exampl
 }
 
 func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutputWithContext(ctx context.Context) ExampleRequestResponsePtrOutput {
-	return o.ApplyT(func(v ExampleRequestResponse) *ExampleRequestResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExampleRequestResponse) *ExampleRequestResponse {
 		return &v
 	}).(ExampleRequestResponsePtrOutput)
 }
@@ -2076,7 +2124,13 @@ func (o ExampleRequestResponsePtrOutput) ToExampleRequestResponsePtrOutputWithCo
 }
 
 func (o ExampleRequestResponsePtrOutput) Elem() ExampleRequestResponseOutput {
-	return o.ApplyT(func(v *ExampleRequestResponse) ExampleRequestResponse { return *v }).(ExampleRequestResponseOutput)
+	return o.ApplyT(func(v *ExampleRequestResponse) ExampleRequestResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExampleRequestResponse
+		return ret
+	}).(ExampleRequestResponseOutput)
 }
 
 // Sample input data for the web service's global parameters
@@ -2711,7 +2765,7 @@ func (o GraphPackageOutput) ToGraphPackagePtrOutput() GraphPackagePtrOutput {
 }
 
 func (o GraphPackageOutput) ToGraphPackagePtrOutputWithContext(ctx context.Context) GraphPackagePtrOutput {
-	return o.ApplyT(func(v GraphPackage) *GraphPackage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphPackage) *GraphPackage {
 		return &v
 	}).(GraphPackagePtrOutput)
 }
@@ -2746,7 +2800,13 @@ func (o GraphPackagePtrOutput) ToGraphPackagePtrOutputWithContext(ctx context.Co
 }
 
 func (o GraphPackagePtrOutput) Elem() GraphPackageOutput {
-	return o.ApplyT(func(v *GraphPackage) GraphPackage { return *v }).(GraphPackageOutput)
+	return o.ApplyT(func(v *GraphPackage) GraphPackage {
+		if v != nil {
+			return *v
+		}
+		var ret GraphPackage
+		return ret
+	}).(GraphPackageOutput)
 }
 
 // The list of edges making up the graph.
@@ -2883,7 +2943,7 @@ func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutput() GraphPacka
 }
 
 func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
-	return o.ApplyT(func(v GraphPackageResponse) *GraphPackageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphPackageResponse) *GraphPackageResponse {
 		return &v
 	}).(GraphPackageResponsePtrOutput)
 }
@@ -2918,7 +2978,13 @@ func (o GraphPackageResponsePtrOutput) ToGraphPackageResponsePtrOutputWithContex
 }
 
 func (o GraphPackageResponsePtrOutput) Elem() GraphPackageResponseOutput {
-	return o.ApplyT(func(v *GraphPackageResponse) GraphPackageResponse { return *v }).(GraphPackageResponseOutput)
+	return o.ApplyT(func(v *GraphPackageResponse) GraphPackageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GraphPackageResponse
+		return ret
+	}).(GraphPackageResponseOutput)
 }
 
 // The list of edges making up the graph.
@@ -3701,7 +3767,7 @@ func (o MachineLearningWorkspaceOutput) ToMachineLearningWorkspacePtrOutput() Ma
 }
 
 func (o MachineLearningWorkspaceOutput) ToMachineLearningWorkspacePtrOutputWithContext(ctx context.Context) MachineLearningWorkspacePtrOutput {
-	return o.ApplyT(func(v MachineLearningWorkspace) *MachineLearningWorkspace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineLearningWorkspace) *MachineLearningWorkspace {
 		return &v
 	}).(MachineLearningWorkspacePtrOutput)
 }
@@ -3726,7 +3792,13 @@ func (o MachineLearningWorkspacePtrOutput) ToMachineLearningWorkspacePtrOutputWi
 }
 
 func (o MachineLearningWorkspacePtrOutput) Elem() MachineLearningWorkspaceOutput {
-	return o.ApplyT(func(v *MachineLearningWorkspace) MachineLearningWorkspace { return *v }).(MachineLearningWorkspaceOutput)
+	return o.ApplyT(func(v *MachineLearningWorkspace) MachineLearningWorkspace {
+		if v != nil {
+			return *v
+		}
+		var ret MachineLearningWorkspace
+		return ret
+	}).(MachineLearningWorkspaceOutput)
 }
 
 // Specifies the workspace ID of the machine learning workspace associated with the web service
@@ -3835,7 +3907,7 @@ func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceRespon
 }
 
 func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponsePtrOutput {
-	return o.ApplyT(func(v MachineLearningWorkspaceResponse) *MachineLearningWorkspaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineLearningWorkspaceResponse) *MachineLearningWorkspaceResponse {
 		return &v
 	}).(MachineLearningWorkspaceResponsePtrOutput)
 }
@@ -3860,7 +3932,13 @@ func (o MachineLearningWorkspaceResponsePtrOutput) ToMachineLearningWorkspaceRes
 }
 
 func (o MachineLearningWorkspaceResponsePtrOutput) Elem() MachineLearningWorkspaceResponseOutput {
-	return o.ApplyT(func(v *MachineLearningWorkspaceResponse) MachineLearningWorkspaceResponse { return *v }).(MachineLearningWorkspaceResponseOutput)
+	return o.ApplyT(func(v *MachineLearningWorkspaceResponse) MachineLearningWorkspaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MachineLearningWorkspaceResponse
+		return ret
+	}).(MachineLearningWorkspaceResponseOutput)
 }
 
 // Specifies the workspace ID of the machine learning workspace associated with the web service
@@ -4750,7 +4828,7 @@ func (o RealtimeConfigurationOutput) ToRealtimeConfigurationPtrOutput() Realtime
 }
 
 func (o RealtimeConfigurationOutput) ToRealtimeConfigurationPtrOutputWithContext(ctx context.Context) RealtimeConfigurationPtrOutput {
-	return o.ApplyT(func(v RealtimeConfiguration) *RealtimeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeConfiguration) *RealtimeConfiguration {
 		return &v
 	}).(RealtimeConfigurationPtrOutput)
 }
@@ -4775,7 +4853,13 @@ func (o RealtimeConfigurationPtrOutput) ToRealtimeConfigurationPtrOutputWithCont
 }
 
 func (o RealtimeConfigurationPtrOutput) Elem() RealtimeConfigurationOutput {
-	return o.ApplyT(func(v *RealtimeConfiguration) RealtimeConfiguration { return *v }).(RealtimeConfigurationOutput)
+	return o.ApplyT(func(v *RealtimeConfiguration) RealtimeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeConfiguration
+		return ret
+	}).(RealtimeConfigurationOutput)
 }
 
 // Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
@@ -4884,7 +4968,7 @@ func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponsePtrO
 }
 
 func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v RealtimeConfigurationResponse) *RealtimeConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeConfigurationResponse) *RealtimeConfigurationResponse {
 		return &v
 	}).(RealtimeConfigurationResponsePtrOutput)
 }
@@ -4909,7 +4993,13 @@ func (o RealtimeConfigurationResponsePtrOutput) ToRealtimeConfigurationResponseP
 }
 
 func (o RealtimeConfigurationResponsePtrOutput) Elem() RealtimeConfigurationResponseOutput {
-	return o.ApplyT(func(v *RealtimeConfigurationResponse) RealtimeConfigurationResponse { return *v }).(RealtimeConfigurationResponseOutput)
+	return o.ApplyT(func(v *RealtimeConfigurationResponse) RealtimeConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeConfigurationResponse
+		return ret
+	}).(RealtimeConfigurationResponseOutput)
 }
 
 // Specifies the maximum concurrent calls that can be made to the web service. Minimum value: 4, Maximum value: 200.
@@ -5026,7 +5116,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -5061,7 +5151,13 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
 // The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
@@ -5198,7 +5294,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -5233,7 +5329,13 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
 // The scale-out capacity of the resource. 1 is 1x, 2 is 2x, etc. This impacts the quantities and cost of any commitment plan resource.
@@ -5374,7 +5476,7 @@ func (o ServiceInputOutputSpecificationOutput) ToServiceInputOutputSpecification
 }
 
 func (o ServiceInputOutputSpecificationOutput) ToServiceInputOutputSpecificationPtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v ServiceInputOutputSpecification) *ServiceInputOutputSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInputOutputSpecification) *ServiceInputOutputSpecification {
 		return &v
 	}).(ServiceInputOutputSpecificationPtrOutput)
 }
@@ -5414,7 +5516,13 @@ func (o ServiceInputOutputSpecificationPtrOutput) ToServiceInputOutputSpecificat
 }
 
 func (o ServiceInputOutputSpecificationPtrOutput) Elem() ServiceInputOutputSpecificationOutput {
-	return o.ApplyT(func(v *ServiceInputOutputSpecification) ServiceInputOutputSpecification { return *v }).(ServiceInputOutputSpecificationOutput)
+	return o.ApplyT(func(v *ServiceInputOutputSpecification) ServiceInputOutputSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceInputOutputSpecification
+		return ret
+	}).(ServiceInputOutputSpecificationOutput)
 }
 
 // The description of the Swagger schema.
@@ -5565,7 +5673,7 @@ func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpeci
 }
 
 func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpecificationResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v ServiceInputOutputSpecificationResponse) *ServiceInputOutputSpecificationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInputOutputSpecificationResponse) *ServiceInputOutputSpecificationResponse {
 		return &v
 	}).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
@@ -5607,7 +5715,13 @@ func (o ServiceInputOutputSpecificationResponsePtrOutput) ToServiceInputOutputSp
 }
 
 func (o ServiceInputOutputSpecificationResponsePtrOutput) Elem() ServiceInputOutputSpecificationResponseOutput {
-	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) ServiceInputOutputSpecificationResponse { return *v }).(ServiceInputOutputSpecificationResponseOutput)
+	return o.ApplyT(func(v *ServiceInputOutputSpecificationResponse) ServiceInputOutputSpecificationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceInputOutputSpecificationResponse
+		return ret
+	}).(ServiceInputOutputSpecificationResponseOutput)
 }
 
 // The description of the Swagger schema.
@@ -5750,7 +5864,7 @@ func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutpu
 }
 
 func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o.ApplyT(func(v StorageAccount) *StorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
 		return &v
 	}).(StorageAccountPtrOutput)
 }
@@ -5780,7 +5894,13 @@ func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx contex
 }
 
 func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
-	return o.ApplyT(func(v *StorageAccount) StorageAccount { return *v }).(StorageAccountOutput)
+	return o.ApplyT(func(v *StorageAccount) StorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccount
+		return ret
+	}).(StorageAccountOutput)
 }
 
 // Specifies the key used to access the storage account.
@@ -5903,7 +6023,7 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() Storag
 }
 
 func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountResponse) *StorageAccountResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
 		return &v
 	}).(StorageAccountResponsePtrOutput)
 }
@@ -5933,7 +6053,13 @@ func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutputWithCo
 }
 
 func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
-	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse { return *v }).(StorageAccountResponseOutput)
+	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountResponse
+		return ret
+	}).(StorageAccountResponseOutput)
 }
 
 // Specifies the key used to access the storage account.
@@ -6328,7 +6454,7 @@ func (o WebServiceKeysOutput) ToWebServiceKeysPtrOutput() WebServiceKeysPtrOutpu
 }
 
 func (o WebServiceKeysOutput) ToWebServiceKeysPtrOutputWithContext(ctx context.Context) WebServiceKeysPtrOutput {
-	return o.ApplyT(func(v WebServiceKeys) *WebServiceKeys {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServiceKeys) *WebServiceKeys {
 		return &v
 	}).(WebServiceKeysPtrOutput)
 }
@@ -6358,7 +6484,13 @@ func (o WebServiceKeysPtrOutput) ToWebServiceKeysPtrOutputWithContext(ctx contex
 }
 
 func (o WebServiceKeysPtrOutput) Elem() WebServiceKeysOutput {
-	return o.ApplyT(func(v *WebServiceKeys) WebServiceKeys { return *v }).(WebServiceKeysOutput)
+	return o.ApplyT(func(v *WebServiceKeys) WebServiceKeys {
+		if v != nil {
+			return *v
+		}
+		var ret WebServiceKeys
+		return ret
+	}).(WebServiceKeysOutput)
 }
 
 // The primary access key.
@@ -6481,7 +6613,7 @@ func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponsePtrOutput() WebSer
 }
 
 func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysResponsePtrOutput {
-	return o.ApplyT(func(v WebServiceKeysResponse) *WebServiceKeysResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServiceKeysResponse) *WebServiceKeysResponse {
 		return &v
 	}).(WebServiceKeysResponsePtrOutput)
 }
@@ -6511,7 +6643,13 @@ func (o WebServiceKeysResponsePtrOutput) ToWebServiceKeysResponsePtrOutputWithCo
 }
 
 func (o WebServiceKeysResponsePtrOutput) Elem() WebServiceKeysResponseOutput {
-	return o.ApplyT(func(v *WebServiceKeysResponse) WebServiceKeysResponse { return *v }).(WebServiceKeysResponseOutput)
+	return o.ApplyT(func(v *WebServiceKeysResponse) WebServiceKeysResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebServiceKeysResponse
+		return ret
+	}).(WebServiceKeysResponseOutput)
 }
 
 // The primary access key.
@@ -6922,7 +7060,7 @@ func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOut
 }
 
 func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesForGraph) *WebServicePropertiesForGraph {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServicePropertiesForGraph) *WebServicePropertiesForGraph {
 		return &v
 	}).(WebServicePropertiesForGraphPtrOutput)
 }
@@ -7038,7 +7176,13 @@ func (o WebServicePropertiesForGraphPtrOutput) ToWebServicePropertiesForGraphPtr
 }
 
 func (o WebServicePropertiesForGraphPtrOutput) Elem() WebServicePropertiesForGraphOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) WebServicePropertiesForGraph { return *v }).(WebServicePropertiesForGraphOutput)
+	return o.ApplyT(func(v *WebServicePropertiesForGraph) WebServicePropertiesForGraph {
+		if v != nil {
+			return *v
+		}
+		var ret WebServicePropertiesForGraph
+		return ret
+	}).(WebServicePropertiesForGraphOutput)
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.
@@ -7418,7 +7562,7 @@ func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGra
 }
 
 func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
-	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *WebServicePropertiesForGraphResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServicePropertiesForGraphResponse) *WebServicePropertiesForGraphResponse {
 		return &v
 	}).(WebServicePropertiesForGraphResponsePtrOutput)
 }
@@ -7560,7 +7704,13 @@ func (o WebServicePropertiesForGraphResponsePtrOutput) ToWebServicePropertiesFor
 }
 
 func (o WebServicePropertiesForGraphResponsePtrOutput) Elem() WebServicePropertiesForGraphResponseOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) WebServicePropertiesForGraphResponse { return *v }).(WebServicePropertiesForGraphResponseOutput)
+	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) WebServicePropertiesForGraphResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebServicePropertiesForGraphResponse
+		return ret
+	}).(WebServicePropertiesForGraphResponseOutput)
 }
 
 // Contains user defined properties describing web service assets. Properties are expressed as Key/Value pairs.

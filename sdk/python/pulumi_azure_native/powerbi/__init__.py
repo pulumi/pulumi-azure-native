@@ -14,7 +14,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.powerbi.v20160129 as v20160129
+    import pulumi_azure_native.powerbi.v20160129 as __v20160129
+    v20160129 = __v20160129
 else:
     v20160129 = _utilities.lazy_import('pulumi_azure_native.powerbi.v20160129')
 

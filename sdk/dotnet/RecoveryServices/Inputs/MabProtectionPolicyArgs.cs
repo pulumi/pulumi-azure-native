@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// Backup schedule of backup policy.
         /// </summary>
         [Input("schedulePolicy")]
-        public Input<object>? SchedulePolicy { get; set; }
+        public object? SchedulePolicy { get; set; }
 
         public MabProtectionPolicyArgs()
         {

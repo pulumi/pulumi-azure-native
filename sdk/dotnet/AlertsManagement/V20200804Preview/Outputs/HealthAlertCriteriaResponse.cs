@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20200804Preview.Outputs
 {
 
+    /// <summary>
+    /// Specifies the resource health alert criteria for a single resource that has multiple metric criteria.
+    /// </summary>
     [OutputType]
     public sealed class HealthAlertCriteriaResponse
     {

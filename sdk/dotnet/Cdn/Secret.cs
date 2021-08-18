@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Cdn
         /// object which contains secret parameters
         /// </summary>
         [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        public object? Parameters { get; set; }
 
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.

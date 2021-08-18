@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.GuestConfiguration.V20210125.Outputs
 {
 
+    /// <summary>
+    /// The guest configuration assignment resource.
+    /// </summary>
     [OutputType]
     public sealed class AssignmentReportResourceResponse
     {

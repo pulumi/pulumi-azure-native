@@ -630,7 +630,7 @@ func (o MediaGraphUserCredentialsOutput) ToMediaGraphUserCredentialsPtrOutput() 
 }
 
 func (o MediaGraphUserCredentialsOutput) ToMediaGraphUserCredentialsPtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsPtrOutput {
-	return o.ApplyT(func(v MediaGraphUserCredentials) *MediaGraphUserCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUserCredentials) *MediaGraphUserCredentials {
 		return &v
 	}).(MediaGraphUserCredentialsPtrOutput)
 }
@@ -660,7 +660,13 @@ func (o MediaGraphUserCredentialsPtrOutput) ToMediaGraphUserCredentialsPtrOutput
 }
 
 func (o MediaGraphUserCredentialsPtrOutput) Elem() MediaGraphUserCredentialsOutput {
-	return o.ApplyT(func(v *MediaGraphUserCredentials) MediaGraphUserCredentials { return *v }).(MediaGraphUserCredentialsOutput)
+	return o.ApplyT(func(v *MediaGraphUserCredentials) MediaGraphUserCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUserCredentials
+		return ret
+	}).(MediaGraphUserCredentialsOutput)
 }
 
 // Password credential
@@ -783,7 +789,7 @@ func (o MediaGraphUserCredentialsResponseOutput) ToMediaGraphUserCredentialsResp
 }
 
 func (o MediaGraphUserCredentialsResponseOutput) ToMediaGraphUserCredentialsResponsePtrOutputWithContext(ctx context.Context) MediaGraphUserCredentialsResponsePtrOutput {
-	return o.ApplyT(func(v MediaGraphUserCredentialsResponse) *MediaGraphUserCredentialsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaGraphUserCredentialsResponse) *MediaGraphUserCredentialsResponse {
 		return &v
 	}).(MediaGraphUserCredentialsResponsePtrOutput)
 }
@@ -813,7 +819,13 @@ func (o MediaGraphUserCredentialsResponsePtrOutput) ToMediaGraphUserCredentialsR
 }
 
 func (o MediaGraphUserCredentialsResponsePtrOutput) Elem() MediaGraphUserCredentialsResponseOutput {
-	return o.ApplyT(func(v *MediaGraphUserCredentialsResponse) MediaGraphUserCredentialsResponse { return *v }).(MediaGraphUserCredentialsResponseOutput)
+	return o.ApplyT(func(v *MediaGraphUserCredentialsResponse) MediaGraphUserCredentialsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaGraphUserCredentialsResponse
+		return ret
+	}).(MediaGraphUserCredentialsResponseOutput)
 }
 
 // Password credential

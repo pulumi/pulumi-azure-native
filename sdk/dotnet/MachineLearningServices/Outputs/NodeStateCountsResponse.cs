@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Counts of various compute node states on the amlCompute.
+    /// </summary>
     [OutputType]
     public sealed class NodeStateCountsResponse
     {

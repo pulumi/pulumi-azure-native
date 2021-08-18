@@ -139,33 +139,9 @@ func GetGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn *bool `pulumi:"builtIn"`
-	// Group description. Can contain HTML formatting tags.
-	Description *string `pulumi:"description"`
-	// Group name.
-	DisplayName *string `pulumi:"displayName"`
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId *string `pulumi:"externalId"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type GroupState struct {
-	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-	BuiltIn pulumi.BoolPtrInput
-	// Group description. Can contain HTML formatting tags.
-	Description pulumi.StringPtrInput
-	// Group name.
-	DisplayName pulumi.StringPtrInput
-	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-	ExternalId pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -186,7 +162,7 @@ type groupArgs struct {
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 	// Group type.
-	Type *string `pulumi:"type"`
+	Type *GroupType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -204,7 +180,7 @@ type GroupArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Group type.
-	Type *GroupType
+	Type GroupTypePtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -230,9 +206,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
-type GroupOutput struct {
-	*pulumi.OutputState
-}
+type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Group)(nil))

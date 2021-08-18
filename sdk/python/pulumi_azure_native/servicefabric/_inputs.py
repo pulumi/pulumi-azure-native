@@ -21,9 +21,9 @@ __all__ = [
     'ArmServiceTypeHealthPolicyArgs',
     'AzureActiveDirectoryArgs',
     'CertificateDescriptionArgs',
-    'ClientCertificateArgs',
     'ClientCertificateCommonNameArgs',
     'ClientCertificateThumbprintArgs',
+    'ClientCertificateArgs',
     'ClusterHealthPolicyArgs',
     'ClusterUpgradeDeltaHealthPolicyArgs',
     'ClusterUpgradePolicyArgs',
@@ -33,8 +33,8 @@ __all__ = [
     'ManagedIdentityArgs',
     'NamedPartitionSchemeDescriptionArgs',
     'NodeTypeDescriptionArgs',
-    'ServerCertificateCommonNameArgs',
     'ServerCertificateCommonNamesArgs',
+    'ServerCertificateCommonNameArgs',
     'ServiceCorrelationDescriptionArgs',
     'ServiceLoadMetricDescriptionArgs',
     'ServicePlacementPolicyDescriptionArgs',
@@ -751,77 +751,6 @@ class CertificateDescriptionArgs:
 
 
 @pulumi.input_type
-class ClientCertificateArgs:
-    def __init__(__self__, *,
-                 is_admin: pulumi.Input[bool],
-                 common_name: Optional[pulumi.Input[str]] = None,
-                 issuer_thumbprint: Optional[pulumi.Input[str]] = None,
-                 thumbprint: Optional[pulumi.Input[str]] = None):
-        """
-        Client Certificate definition.
-        :param pulumi.Input[bool] is_admin: Whether the certificate is admin or not.
-        :param pulumi.Input[str] common_name: Certificate Common name.
-        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
-        :param pulumi.Input[str] thumbprint: Certificate Thumbprint.
-        """
-        pulumi.set(__self__, "is_admin", is_admin)
-        if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
-        if issuer_thumbprint is not None:
-            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
-        if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
-
-    @property
-    @pulumi.getter(name="isAdmin")
-    def is_admin(self) -> pulumi.Input[bool]:
-        """
-        Whether the certificate is admin or not.
-        """
-        return pulumi.get(self, "is_admin")
-
-    @is_admin.setter
-    def is_admin(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "is_admin", value)
-
-    @property
-    @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate Common name.
-        """
-        return pulumi.get(self, "common_name")
-
-    @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "common_name", value)
-
-    @property
-    @pulumi.getter(name="issuerThumbprint")
-    def issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Issuer thumbprint for the certificate. Only used together with CommonName.
-        """
-        return pulumi.get(self, "issuer_thumbprint")
-
-    @issuer_thumbprint.setter
-    def issuer_thumbprint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "issuer_thumbprint", value)
-
-    @property
-    @pulumi.getter
-    def thumbprint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Certificate Thumbprint.
-        """
-        return pulumi.get(self, "thumbprint")
-
-    @thumbprint.setter
-    def thumbprint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "thumbprint", value)
-
-
-@pulumi.input_type
 class ClientCertificateCommonNameArgs:
     def __init__(__self__, *,
                  certificate_common_name: pulumi.Input[str],
@@ -910,6 +839,77 @@ class ClientCertificateThumbprintArgs:
     @is_admin.setter
     def is_admin(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_admin", value)
+
+
+@pulumi.input_type
+class ClientCertificateArgs:
+    def __init__(__self__, *,
+                 is_admin: pulumi.Input[bool],
+                 common_name: Optional[pulumi.Input[str]] = None,
+                 issuer_thumbprint: Optional[pulumi.Input[str]] = None,
+                 thumbprint: Optional[pulumi.Input[str]] = None):
+        """
+        Client Certificate definition.
+        :param pulumi.Input[bool] is_admin: Whether the certificate is admin or not.
+        :param pulumi.Input[str] common_name: Certificate Common name.
+        :param pulumi.Input[str] issuer_thumbprint: Issuer thumbprint for the certificate. Only used together with CommonName.
+        :param pulumi.Input[str] thumbprint: Certificate Thumbprint.
+        """
+        pulumi.set(__self__, "is_admin", is_admin)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
+        if issuer_thumbprint is not None:
+            pulumi.set(__self__, "issuer_thumbprint", issuer_thumbprint)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter(name="isAdmin")
+    def is_admin(self) -> pulumi.Input[bool]:
+        """
+        Whether the certificate is admin or not.
+        """
+        return pulumi.get(self, "is_admin")
+
+    @is_admin.setter
+    def is_admin(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_admin", value)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate Common name.
+        """
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "common_name", value)
+
+    @property
+    @pulumi.getter(name="issuerThumbprint")
+    def issuer_thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Issuer thumbprint for the certificate. Only used together with CommonName.
+        """
+        return pulumi.get(self, "issuer_thumbprint")
+
+    @issuer_thumbprint.setter
+    def issuer_thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_thumbprint", value)
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate Thumbprint.
+        """
+        return pulumi.get(self, "thumbprint")
+
+    @thumbprint.setter
+    def thumbprint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thumbprint", value)
 
 
 @pulumi.input_type
@@ -1729,44 +1729,6 @@ class NodeTypeDescriptionArgs:
 
 
 @pulumi.input_type
-class ServerCertificateCommonNameArgs:
-    def __init__(__self__, *,
-                 certificate_common_name: pulumi.Input[str],
-                 certificate_issuer_thumbprint: pulumi.Input[str]):
-        """
-        Describes the server certificate details using common name.
-        :param pulumi.Input[str] certificate_common_name: The common name of the server certificate.
-        :param pulumi.Input[str] certificate_issuer_thumbprint: The issuer thumbprint of the server certificate.
-        """
-        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
-        pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
-
-    @property
-    @pulumi.getter(name="certificateCommonName")
-    def certificate_common_name(self) -> pulumi.Input[str]:
-        """
-        The common name of the server certificate.
-        """
-        return pulumi.get(self, "certificate_common_name")
-
-    @certificate_common_name.setter
-    def certificate_common_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_common_name", value)
-
-    @property
-    @pulumi.getter(name="certificateIssuerThumbprint")
-    def certificate_issuer_thumbprint(self) -> pulumi.Input[str]:
-        """
-        The issuer thumbprint of the server certificate.
-        """
-        return pulumi.get(self, "certificate_issuer_thumbprint")
-
-    @certificate_issuer_thumbprint.setter
-    def certificate_issuer_thumbprint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "certificate_issuer_thumbprint", value)
-
-
-@pulumi.input_type
 class ServerCertificateCommonNamesArgs:
     def __init__(__self__, *,
                  common_names: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]] = None,
@@ -1804,6 +1766,44 @@ class ServerCertificateCommonNamesArgs:
     @x509_store_name.setter
     def x509_store_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "x509_store_name", value)
+
+
+@pulumi.input_type
+class ServerCertificateCommonNameArgs:
+    def __init__(__self__, *,
+                 certificate_common_name: pulumi.Input[str],
+                 certificate_issuer_thumbprint: pulumi.Input[str]):
+        """
+        Describes the server certificate details using common name.
+        :param pulumi.Input[str] certificate_common_name: The common name of the server certificate.
+        :param pulumi.Input[str] certificate_issuer_thumbprint: The issuer thumbprint of the server certificate.
+        """
+        pulumi.set(__self__, "certificate_common_name", certificate_common_name)
+        pulumi.set(__self__, "certificate_issuer_thumbprint", certificate_issuer_thumbprint)
+
+    @property
+    @pulumi.getter(name="certificateCommonName")
+    def certificate_common_name(self) -> pulumi.Input[str]:
+        """
+        The common name of the server certificate.
+        """
+        return pulumi.get(self, "certificate_common_name")
+
+    @certificate_common_name.setter
+    def certificate_common_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_common_name", value)
+
+    @property
+    @pulumi.getter(name="certificateIssuerThumbprint")
+    def certificate_issuer_thumbprint(self) -> pulumi.Input[str]:
+        """
+        The issuer thumbprint of the server certificate.
+        """
+        return pulumi.get(self, "certificate_issuer_thumbprint")
+
+    @certificate_issuer_thumbprint.setter
+    def certificate_issuer_thumbprint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_issuer_thumbprint", value)
 
 
 @pulumi.input_type

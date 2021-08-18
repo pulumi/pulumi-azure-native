@@ -97,57 +97,9 @@ func GetLabResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LabResource resources.
 type labResourceState struct {
-	// The artifact storage account of the lab.
-	ArtifactsStorageAccount *string `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The lab's default storage account.
-	DefaultStorageAccount *string `pulumi:"defaultStorageAccount"`
-	// The default virtual network identifier of the lab.
-	DefaultVirtualNetworkId *string `pulumi:"defaultVirtualNetworkId"`
-	// The type of the lab storage.
-	LabStorageType *string `pulumi:"labStorageType"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The storage accounts of the lab.
-	StorageAccounts []string `pulumi:"storageAccounts"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The name of the key vault of the lab.
-	VaultName *string `pulumi:"vaultName"`
 }
 
 type LabResourceState struct {
-	// The artifact storage account of the lab.
-	ArtifactsStorageAccount pulumi.StringPtrInput
-	// The creation date of the lab.
-	CreatedDate pulumi.StringPtrInput
-	// The lab's default storage account.
-	DefaultStorageAccount pulumi.StringPtrInput
-	// The default virtual network identifier of the lab.
-	DefaultVirtualNetworkId pulumi.StringPtrInput
-	// The type of the lab storage.
-	LabStorageType pulumi.StringPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The storage accounts of the lab.
-	StorageAccounts pulumi.StringArrayInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The name of the key vault of the lab.
-	VaultName pulumi.StringPtrInput
 }
 
 func (LabResourceState) ElementType() reflect.Type {
@@ -240,9 +192,7 @@ func (i *LabResource) ToLabResourceOutputWithContext(ctx context.Context) LabRes
 	return pulumi.ToOutputWithContext(ctx, i).(LabResourceOutput)
 }
 
-type LabResourceOutput struct {
-	*pulumi.OutputState
-}
+type LabResourceOutput struct{ *pulumi.OutputState }
 
 func (LabResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LabResource)(nil))

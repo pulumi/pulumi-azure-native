@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
+    /// <summary>
+    /// The swagger 2.0 schema describing the service's inputs or outputs. See Swagger specification: http://swagger.io/specification/
+    /// </summary>
     [OutputType]
     public sealed class ServiceInputOutputSpecificationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+    /// </summary>
     [OutputType]
     public sealed class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse
     {

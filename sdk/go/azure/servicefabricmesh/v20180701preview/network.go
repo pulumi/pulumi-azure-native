@@ -86,41 +86,9 @@ func GetNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
-	// the address prefix for this network.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// User readable description of the network.
-	Description *string `pulumi:"description"`
-	// Configuration for public connectivity for this network.
-	IngressConfig *IngressConfigResponse `pulumi:"ingressConfig"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// State of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type NetworkState struct {
-	// the address prefix for this network.
-	AddressPrefix pulumi.StringPtrInput
-	// User readable description of the network.
-	Description pulumi.StringPtrInput
-	// Configuration for public connectivity for this network.
-	IngressConfig IngressConfigResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// State of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (NetworkState) ElementType() reflect.Type {
@@ -185,9 +153,7 @@ func (i *Network) ToNetworkOutputWithContext(ctx context.Context) NetworkOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkOutput)
 }
 
-type NetworkOutput struct {
-	*pulumi.OutputState
-}
+type NetworkOutput struct{ *pulumi.OutputState }
 
 func (NetworkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Network)(nil))

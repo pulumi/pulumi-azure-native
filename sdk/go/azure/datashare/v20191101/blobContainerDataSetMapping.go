@@ -125,51 +125,9 @@ func GetBlobContainerDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobContainerDataSetMapping resources.
 type blobContainerDataSetMappingState struct {
-	// BLOB Container name.
-	ContainerName *string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// Kind of data set mapping.
-	// Expected value is 'Container'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource group of storage account.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set.
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Subscription id of storage account.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type BlobContainerDataSetMappingState struct {
-	// BLOB Container name.
-	ContainerName pulumi.StringPtrInput
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'Container'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource group of storage account.
-	ResourceGroup pulumi.StringPtrInput
-	// Storage account name of the source data set.
-	StorageAccountName pulumi.StringPtrInput
-	// Subscription id of storage account.
-	SubscriptionId pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (BlobContainerDataSetMappingState) ElementType() reflect.Type {
@@ -248,9 +206,7 @@ func (i *BlobContainerDataSetMapping) ToBlobContainerDataSetMappingOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BlobContainerDataSetMappingOutput)
 }
 
-type BlobContainerDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type BlobContainerDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (BlobContainerDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobContainerDataSetMapping)(nil))

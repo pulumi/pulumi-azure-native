@@ -118,49 +118,9 @@ func GetPeeringService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringService resources.
 type peeringServiceState struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The location (state/province) of the customer.
-	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The name of the service provider.
-	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
-	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderBackupPeeringLocation *string `pulumi:"providerBackupPeeringLocation"`
-	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderPrimaryPeeringLocation *string `pulumi:"providerPrimaryPeeringLocation"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU that defines the type of the peering service.
-	Sku *PeeringServiceSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PeeringServiceState struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The location (state/province) of the customer.
-	PeeringServiceLocation pulumi.StringPtrInput
-	// The name of the service provider.
-	PeeringServiceProvider pulumi.StringPtrInput
-	// The backup peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderBackupPeeringLocation pulumi.StringPtrInput
-	// The primary peering (Microsoft/service provider) location to be used for customer traffic.
-	ProviderPrimaryPeeringLocation pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU that defines the type of the peering service.
-	Sku PeeringServiceSkuResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PeeringServiceState) ElementType() reflect.Type {
@@ -233,9 +193,7 @@ func (i *PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceOutput)
 }
 
-type PeeringServiceOutput struct {
-	*pulumi.OutputState
-}
+type PeeringServiceOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringService)(nil))

@@ -64,7 +64,9 @@ class DomainJoinType(str, Enum):
     The type of domain join done by the virtual machine.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
+    """Using microsoft active directory."""
     AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+    """Using microsoft azure active directory."""
 
 
 class HostPoolType(str, Enum):
@@ -72,8 +74,11 @@ class HostPoolType(str, Enum):
     HostPool type for desktop.
     """
     PERSONAL = "Personal"
+    """Users will be assigned a SessionHost either by administrators (PersonalDesktopAssignmentType = Direct) or upon connecting to the pool (PersonalDesktopAssignmentType = Automatic). They will always be redirected to their assigned SessionHost."""
     POOLED = "Pooled"
+    """Users get a new (random) SessionHost every time it connects to the HostPool."""
     BYO_DESKTOP = "BYODesktop"
+    """Users assign their own machines, load balancing logic remains the same as Personal. PersonalDesktopAssignmentType must be Direct."""
 
 
 class ImageType(str, Enum):
@@ -81,8 +86,11 @@ class ImageType(str, Enum):
     The type of image session hosts use in the hostpool.
     """
     GALLERY = "Gallery"
+    """Using default gallery images offered by Azure Marketplace."""
     STORAGE_BLOB = "StorageBlob"
+    """Using a VHD stored in a storage blob."""
     CUSTOM_IMAGE = "CustomImage"
+    """Using custom image or custom shared image."""
 
 
 class LoadBalancerType(str, Enum):
@@ -99,10 +107,15 @@ class Operation(str, Enum):
     The type of operation for migration.
     """
     START = "Start"
+    """Start the migration."""
     REVOKE = "Revoke"
+    """Revoke the migration."""
     COMPLETE = "Complete"
+    """Complete the migration."""
     HIDE = "Hide"
+    """Hide the hostpool."""
     UNHIDE = "Unhide"
+    """Unhide the hostpool."""
 
 
 class PersonalDesktopAssignmentType(str, Enum):
@@ -178,7 +191,9 @@ class SessionHostComponentUpdateType(str, Enum):
     The type of maintenance for session host components.
     """
     DEFAULT = "Default"
+    """Agent and other agent side components are delivery schedule is controlled by WVD Infra."""
     TENANT_ADMIN_CONTROLLED = "TenantAdminControlled"
+    """TenantAdmin have opted in for Scheduled Component Update feature."""
 
 
 class SessionHostLoadBalancingAlgorithm(str, Enum):
@@ -212,6 +227,10 @@ class VirtualMachineDiskType(str, Enum):
     The disk type used by virtual machine in hostpool session host.
     """
     STANDARD_LRS = "Standard_LRS"
+    """Standard HDD locally redundant storage. Best for backup, non-critical, and infrequent access."""
     PREMIUM_LRS = "Premium_LRS"
+    """Premium SSD locally redundant storage. Best for production and performance sensitive workloads."""
     STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    """Standard SSD locally redundant storage. Best for web servers, lightly used enterprise applications and dev/test."""
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    """Ultra SSD locally redundant storage. Best for IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads."""

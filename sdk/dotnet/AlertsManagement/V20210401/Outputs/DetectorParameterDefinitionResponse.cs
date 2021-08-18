@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The detector parameter definition.
+    /// </summary>
     [OutputType]
     public sealed class DetectorParameterDefinitionResponse
     {

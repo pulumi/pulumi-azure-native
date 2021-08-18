@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes Windows Remote Management configuration of the VM
+    /// </summary>
     [OutputType]
     public sealed class WinRMConfigurationResponse
     {

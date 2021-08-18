@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity source for Db2 databases.
+    /// </summary>
     [OutputType]
     public sealed class Db2SourceResponse
     {

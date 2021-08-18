@@ -118,7 +118,7 @@ func (o CircuitResponseOutput) ToCircuitResponsePtrOutput() CircuitResponsePtrOu
 }
 
 func (o CircuitResponseOutput) ToCircuitResponsePtrOutputWithContext(ctx context.Context) CircuitResponsePtrOutput {
-	return o.ApplyT(func(v CircuitResponse) *CircuitResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CircuitResponse) *CircuitResponse {
 		return &v
 	}).(CircuitResponsePtrOutput)
 }
@@ -158,7 +158,13 @@ func (o CircuitResponsePtrOutput) ToCircuitResponsePtrOutputWithContext(ctx cont
 }
 
 func (o CircuitResponsePtrOutput) Elem() CircuitResponseOutput {
-	return o.ApplyT(func(v *CircuitResponse) CircuitResponse { return *v }).(CircuitResponseOutput)
+	return o.ApplyT(func(v *CircuitResponse) CircuitResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CircuitResponse
+		return ret
+	}).(CircuitResponseOutput)
 }
 
 // Identifier of the ExpressRoute Circuit (Microsoft Colo only)
@@ -305,7 +311,7 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
@@ -340,7 +346,13 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointsResponse
+		return ret
+	}).(EndpointsResponseOutput)
 }
 
 // Endpoint for the HCX Cloud Manager
@@ -831,7 +843,7 @@ func (o ManagementClusterOutput) ToManagementClusterPtrOutput() ManagementCluste
 }
 
 func (o ManagementClusterOutput) ToManagementClusterPtrOutputWithContext(ctx context.Context) ManagementClusterPtrOutput {
-	return o.ApplyT(func(v ManagementCluster) *ManagementCluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementCluster) *ManagementCluster {
 		return &v
 	}).(ManagementClusterPtrOutput)
 }
@@ -856,7 +868,13 @@ func (o ManagementClusterPtrOutput) ToManagementClusterPtrOutputWithContext(ctx 
 }
 
 func (o ManagementClusterPtrOutput) Elem() ManagementClusterOutput {
-	return o.ApplyT(func(v *ManagementCluster) ManagementCluster { return *v }).(ManagementClusterOutput)
+	return o.ApplyT(func(v *ManagementCluster) ManagementCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementCluster
+		return ret
+	}).(ManagementClusterOutput)
 }
 
 // The cluster size
@@ -977,7 +995,7 @@ func (o ManagementClusterResponseOutput) ToManagementClusterResponsePtrOutput() 
 }
 
 func (o ManagementClusterResponseOutput) ToManagementClusterResponsePtrOutputWithContext(ctx context.Context) ManagementClusterResponsePtrOutput {
-	return o.ApplyT(func(v ManagementClusterResponse) *ManagementClusterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementClusterResponse) *ManagementClusterResponse {
 		return &v
 	}).(ManagementClusterResponsePtrOutput)
 }
@@ -1017,7 +1035,13 @@ func (o ManagementClusterResponsePtrOutput) ToManagementClusterResponsePtrOutput
 }
 
 func (o ManagementClusterResponsePtrOutput) Elem() ManagementClusterResponseOutput {
-	return o.ApplyT(func(v *ManagementClusterResponse) ManagementClusterResponse { return *v }).(ManagementClusterResponseOutput)
+	return o.ApplyT(func(v *ManagementClusterResponse) ManagementClusterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementClusterResponse
+		return ret
+	}).(ManagementClusterResponseOutput)
 }
 
 // The identity
@@ -1156,7 +1180,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1181,7 +1205,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The name of the SKU.
@@ -1290,7 +1320,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1315,7 +1345,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The name of the SKU.
@@ -1528,7 +1564,7 @@ func (o WorkloadNetworkSegmentSubnetOutput) ToWorkloadNetworkSegmentSubnetPtrOut
 }
 
 func (o WorkloadNetworkSegmentSubnetOutput) ToWorkloadNetworkSegmentSubnetPtrOutputWithContext(ctx context.Context) WorkloadNetworkSegmentSubnetPtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkSegmentSubnet) *WorkloadNetworkSegmentSubnet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadNetworkSegmentSubnet) *WorkloadNetworkSegmentSubnet {
 		return &v
 	}).(WorkloadNetworkSegmentSubnetPtrOutput)
 }
@@ -1558,7 +1594,13 @@ func (o WorkloadNetworkSegmentSubnetPtrOutput) ToWorkloadNetworkSegmentSubnetPtr
 }
 
 func (o WorkloadNetworkSegmentSubnetPtrOutput) Elem() WorkloadNetworkSegmentSubnetOutput {
-	return o.ApplyT(func(v *WorkloadNetworkSegmentSubnet) WorkloadNetworkSegmentSubnet { return *v }).(WorkloadNetworkSegmentSubnetOutput)
+	return o.ApplyT(func(v *WorkloadNetworkSegmentSubnet) WorkloadNetworkSegmentSubnet {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadNetworkSegmentSubnet
+		return ret
+	}).(WorkloadNetworkSegmentSubnetOutput)
 }
 
 // DHCP Range assigned for subnet.
@@ -1681,7 +1723,7 @@ func (o WorkloadNetworkSegmentSubnetResponseOutput) ToWorkloadNetworkSegmentSubn
 }
 
 func (o WorkloadNetworkSegmentSubnetResponseOutput) ToWorkloadNetworkSegmentSubnetResponsePtrOutputWithContext(ctx context.Context) WorkloadNetworkSegmentSubnetResponsePtrOutput {
-	return o.ApplyT(func(v WorkloadNetworkSegmentSubnetResponse) *WorkloadNetworkSegmentSubnetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkloadNetworkSegmentSubnetResponse) *WorkloadNetworkSegmentSubnetResponse {
 		return &v
 	}).(WorkloadNetworkSegmentSubnetResponsePtrOutput)
 }
@@ -1711,7 +1753,13 @@ func (o WorkloadNetworkSegmentSubnetResponsePtrOutput) ToWorkloadNetworkSegmentS
 }
 
 func (o WorkloadNetworkSegmentSubnetResponsePtrOutput) Elem() WorkloadNetworkSegmentSubnetResponseOutput {
-	return o.ApplyT(func(v *WorkloadNetworkSegmentSubnetResponse) WorkloadNetworkSegmentSubnetResponse { return *v }).(WorkloadNetworkSegmentSubnetResponseOutput)
+	return o.ApplyT(func(v *WorkloadNetworkSegmentSubnetResponse) WorkloadNetworkSegmentSubnetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkloadNetworkSegmentSubnetResponse
+		return ret
+	}).(WorkloadNetworkSegmentSubnetResponseOutput)
 }
 
 // DHCP Range assigned for subnet.

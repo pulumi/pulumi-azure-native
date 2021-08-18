@@ -98,81 +98,9 @@ func GetSqlVirtualMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlVirtualMachine resources.
 type sqlVirtualMachineState struct {
-	// Auto backup settings for SQL Server.
-	AutoBackupSettings *AutoBackupSettingsResponse `pulumi:"autoBackupSettings"`
-	// Auto patching settings for applying critical security updates to SQL virtual machine.
-	AutoPatchingSettings *AutoPatchingSettingsResponse `pulumi:"autoPatchingSettings"`
-	// Azure Active Directory identity of the server.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// Key vault credential settings.
-	KeyVaultCredentialSettings *KeyVaultCredentialSettingsResponse `pulumi:"keyVaultCredentialSettings"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Provisioning state to track the async operation status.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// SQL Server configuration management settings.
-	ServerConfigurationsManagementSettings *ServerConfigurationsManagementSettingsResponse `pulumi:"serverConfigurationsManagementSettings"`
-	// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer *string `pulumi:"sqlImageOffer"`
-	// SQL Server edition type.
-	SqlImageSku *string `pulumi:"sqlImageSku"`
-	// SQL Server Management type.
-	SqlManagement *string `pulumi:"sqlManagement"`
-	// SQL Server license type.
-	SqlServerLicenseType *string `pulumi:"sqlServerLicenseType"`
-	// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
-	SqlVirtualMachineGroupResourceId *string `pulumi:"sqlVirtualMachineGroupResourceId"`
-	// Storage Configuration Settings.
-	StorageConfigurationSettings *StorageConfigurationSettingsResponse `pulumi:"storageConfigurationSettings"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// ARM Resource id of underlying virtual machine created from SQL marketplace image.
-	VirtualMachineResourceId *string `pulumi:"virtualMachineResourceId"`
-	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
-	WsfcDomainCredentials *WsfcDomainCredentialsResponse `pulumi:"wsfcDomainCredentials"`
 }
 
 type SqlVirtualMachineState struct {
-	// Auto backup settings for SQL Server.
-	AutoBackupSettings AutoBackupSettingsResponsePtrInput
-	// Auto patching settings for applying critical security updates to SQL virtual machine.
-	AutoPatchingSettings AutoPatchingSettingsResponsePtrInput
-	// Azure Active Directory identity of the server.
-	Identity ResourceIdentityResponsePtrInput
-	// Key vault credential settings.
-	KeyVaultCredentialSettings KeyVaultCredentialSettingsResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Provisioning state to track the async operation status.
-	ProvisioningState pulumi.StringPtrInput
-	// SQL Server configuration management settings.
-	ServerConfigurationsManagementSettings ServerConfigurationsManagementSettingsResponsePtrInput
-	// SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
-	SqlImageOffer pulumi.StringPtrInput
-	// SQL Server edition type.
-	SqlImageSku pulumi.StringPtrInput
-	// SQL Server Management type.
-	SqlManagement pulumi.StringPtrInput
-	// SQL Server license type.
-	SqlServerLicenseType pulumi.StringPtrInput
-	// ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
-	SqlVirtualMachineGroupResourceId pulumi.StringPtrInput
-	// Storage Configuration Settings.
-	StorageConfigurationSettings StorageConfigurationSettingsResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// ARM Resource id of underlying virtual machine created from SQL marketplace image.
-	VirtualMachineResourceId pulumi.StringPtrInput
-	// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
-	WsfcDomainCredentials WsfcDomainCredentialsResponsePtrInput
 }
 
 func (SqlVirtualMachineState) ElementType() reflect.Type {
@@ -277,9 +205,7 @@ func (i *SqlVirtualMachine) ToSqlVirtualMachineOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlVirtualMachineOutput)
 }
 
-type SqlVirtualMachineOutput struct {
-	*pulumi.OutputState
-}
+type SqlVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (SqlVirtualMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlVirtualMachine)(nil))

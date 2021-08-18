@@ -92,41 +92,9 @@ func GetOutput(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Output resources.
 type outputState struct {
-	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource interface{} `pulumi:"datasource"`
-	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-	Diagnostics *DiagnosticsResponse `pulumi:"diagnostics"`
-	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag *string `pulumi:"etag"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization interface{} `pulumi:"serialization"`
-	// The size window to constrain a Stream Analytics output to.
-	SizeWindow *float64 `pulumi:"sizeWindow"`
-	// The time frame for filtering Stream Analytics job outputs.
-	TimeWindow *string `pulumi:"timeWindow"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type OutputState struct {
-	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource pulumi.Input
-	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-	Diagnostics DiagnosticsResponsePtrInput
-	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization pulumi.Input
-	// The size window to constrain a Stream Analytics output to.
-	SizeWindow pulumi.Float64PtrInput
-	// The time frame for filtering Stream Analytics job outputs.
-	TimeWindow pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (OutputState) ElementType() reflect.Type {
@@ -195,9 +163,7 @@ func (i *Output) ToOutputOutputWithContext(ctx context.Context) OutputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputOutput)
 }
 
-type OutputOutput struct {
-	*pulumi.OutputState
-}
+type OutputOutput struct{ *pulumi.OutputState }
 
 func (OutputOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Output)(nil))

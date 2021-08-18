@@ -73,21 +73,9 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The resource identifier for the subnet.
-	SubnetId *string `pulumi:"subnetId"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type VirtualNetworkRuleState struct {
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The resource identifier for the subnet.
-	SubnetId pulumi.StringPtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (VirtualNetworkRuleState) ElementType() reflect.Type {
@@ -140,9 +128,7 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleOutput)
 }
 
-type VirtualNetworkRuleOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNetworkRule)(nil))

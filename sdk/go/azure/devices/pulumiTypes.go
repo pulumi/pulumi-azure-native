@@ -106,7 +106,7 @@ func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutput() Certific
 }
 
 func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *CertificateProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateProperties) *CertificateProperties {
 		return &v
 	}).(CertificatePropertiesPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutputWithCont
 }
 
 func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateProperties) CertificateProperties { return *v }).(CertificatePropertiesOutput)
+	return o.ApplyT(func(v *CertificateProperties) CertificateProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateProperties
+		return ret
+	}).(CertificatePropertiesOutput)
 }
 
 // The certificate content
@@ -264,7 +270,7 @@ func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrO
 }
 
 func (o CertificatePropertiesResponseOutput) ToCertificatePropertiesResponsePtrOutputWithContext(ctx context.Context) CertificatePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CertificatePropertiesResponse) *CertificatePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificatePropertiesResponse) *CertificatePropertiesResponse {
 		return &v
 	}).(CertificatePropertiesResponsePtrOutput)
 }
@@ -319,7 +325,13 @@ func (o CertificatePropertiesResponsePtrOutput) ToCertificatePropertiesResponseP
 }
 
 func (o CertificatePropertiesResponsePtrOutput) Elem() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse { return *v }).(CertificatePropertiesResponseOutput)
+	return o.ApplyT(func(v *CertificatePropertiesResponse) CertificatePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificatePropertiesResponse
+		return ret
+	}).(CertificatePropertiesResponseOutput)
 }
 
 // base-64 representation of X509 certificate .cer file or just .pem file content.
@@ -496,7 +508,7 @@ func (o CloudToDevicePropertiesOutput) ToCloudToDevicePropertiesPtrOutput() Clou
 }
 
 func (o CloudToDevicePropertiesOutput) ToCloudToDevicePropertiesPtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesPtrOutput {
-	return o.ApplyT(func(v CloudToDeviceProperties) *CloudToDeviceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudToDeviceProperties) *CloudToDeviceProperties {
 		return &v
 	}).(CloudToDevicePropertiesPtrOutput)
 }
@@ -531,7 +543,13 @@ func (o CloudToDevicePropertiesPtrOutput) ToCloudToDevicePropertiesPtrOutputWith
 }
 
 func (o CloudToDevicePropertiesPtrOutput) Elem() CloudToDevicePropertiesOutput {
-	return o.ApplyT(func(v *CloudToDeviceProperties) CloudToDeviceProperties { return *v }).(CloudToDevicePropertiesOutput)
+	return o.ApplyT(func(v *CloudToDeviceProperties) CloudToDeviceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CloudToDeviceProperties
+		return ret
+	}).(CloudToDevicePropertiesOutput)
 }
 
 // The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -668,7 +686,7 @@ func (o CloudToDevicePropertiesResponseOutput) ToCloudToDevicePropertiesResponse
 }
 
 func (o CloudToDevicePropertiesResponseOutput) ToCloudToDevicePropertiesResponsePtrOutputWithContext(ctx context.Context) CloudToDevicePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CloudToDevicePropertiesResponse) *CloudToDevicePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudToDevicePropertiesResponse) *CloudToDevicePropertiesResponse {
 		return &v
 	}).(CloudToDevicePropertiesResponsePtrOutput)
 }
@@ -703,7 +721,13 @@ func (o CloudToDevicePropertiesResponsePtrOutput) ToCloudToDevicePropertiesRespo
 }
 
 func (o CloudToDevicePropertiesResponsePtrOutput) Elem() CloudToDevicePropertiesResponseOutput {
-	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) CloudToDevicePropertiesResponse { return *v }).(CloudToDevicePropertiesResponseOutput)
+	return o.ApplyT(func(v *CloudToDevicePropertiesResponse) CloudToDevicePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CloudToDevicePropertiesResponse
+		return ret
+	}).(CloudToDevicePropertiesResponseOutput)
 }
 
 // The default time to live for cloud-to-device messages in the device queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -1068,7 +1092,7 @@ func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutput() 
 }
 
 func (o EventHubConsumerGroupNameOutput) ToEventHubConsumerGroupNamePtrOutputWithContext(ctx context.Context) EventHubConsumerGroupNamePtrOutput {
-	return o.ApplyT(func(v EventHubConsumerGroupName) *EventHubConsumerGroupName {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubConsumerGroupName) *EventHubConsumerGroupName {
 		return &v
 	}).(EventHubConsumerGroupNamePtrOutput)
 }
@@ -1093,7 +1117,13 @@ func (o EventHubConsumerGroupNamePtrOutput) ToEventHubConsumerGroupNamePtrOutput
 }
 
 func (o EventHubConsumerGroupNamePtrOutput) Elem() EventHubConsumerGroupNameOutput {
-	return o.ApplyT(func(v *EventHubConsumerGroupName) EventHubConsumerGroupName { return *v }).(EventHubConsumerGroupNameOutput)
+	return o.ApplyT(func(v *EventHubConsumerGroupName) EventHubConsumerGroupName {
+		if v != nil {
+			return *v
+		}
+		var ret EventHubConsumerGroupName
+		return ret
+	}).(EventHubConsumerGroupNameOutput)
 }
 
 // EventHub consumer group name
@@ -1463,7 +1493,7 @@ func (o FallbackRoutePropertiesOutput) ToFallbackRoutePropertiesPtrOutput() Fall
 }
 
 func (o FallbackRoutePropertiesOutput) ToFallbackRoutePropertiesPtrOutputWithContext(ctx context.Context) FallbackRoutePropertiesPtrOutput {
-	return o.ApplyT(func(v FallbackRouteProperties) *FallbackRouteProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FallbackRouteProperties) *FallbackRouteProperties {
 		return &v
 	}).(FallbackRoutePropertiesPtrOutput)
 }
@@ -1508,7 +1538,13 @@ func (o FallbackRoutePropertiesPtrOutput) ToFallbackRoutePropertiesPtrOutputWith
 }
 
 func (o FallbackRoutePropertiesPtrOutput) Elem() FallbackRoutePropertiesOutput {
-	return o.ApplyT(func(v *FallbackRouteProperties) FallbackRouteProperties { return *v }).(FallbackRoutePropertiesOutput)
+	return o.ApplyT(func(v *FallbackRouteProperties) FallbackRouteProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FallbackRouteProperties
+		return ret
+	}).(FallbackRoutePropertiesOutput)
 }
 
 // The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -1673,7 +1709,7 @@ func (o FallbackRoutePropertiesResponseOutput) ToFallbackRoutePropertiesResponse
 }
 
 func (o FallbackRoutePropertiesResponseOutput) ToFallbackRoutePropertiesResponsePtrOutputWithContext(ctx context.Context) FallbackRoutePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FallbackRoutePropertiesResponse) *FallbackRoutePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FallbackRoutePropertiesResponse) *FallbackRoutePropertiesResponse {
 		return &v
 	}).(FallbackRoutePropertiesResponsePtrOutput)
 }
@@ -1718,7 +1754,13 @@ func (o FallbackRoutePropertiesResponsePtrOutput) ToFallbackRoutePropertiesRespo
 }
 
 func (o FallbackRoutePropertiesResponsePtrOutput) Elem() FallbackRoutePropertiesResponseOutput {
-	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) FallbackRoutePropertiesResponse { return *v }).(FallbackRoutePropertiesResponseOutput)
+	return o.ApplyT(func(v *FallbackRoutePropertiesResponse) FallbackRoutePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FallbackRoutePropertiesResponse
+		return ret
+	}).(FallbackRoutePropertiesResponseOutput)
 }
 
 // The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
@@ -1875,7 +1917,7 @@ func (o FeedbackPropertiesOutput) ToFeedbackPropertiesPtrOutput() FeedbackProper
 }
 
 func (o FeedbackPropertiesOutput) ToFeedbackPropertiesPtrOutputWithContext(ctx context.Context) FeedbackPropertiesPtrOutput {
-	return o.ApplyT(func(v FeedbackProperties) *FeedbackProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedbackProperties) *FeedbackProperties {
 		return &v
 	}).(FeedbackPropertiesPtrOutput)
 }
@@ -1910,7 +1952,13 @@ func (o FeedbackPropertiesPtrOutput) ToFeedbackPropertiesPtrOutputWithContext(ct
 }
 
 func (o FeedbackPropertiesPtrOutput) Elem() FeedbackPropertiesOutput {
-	return o.ApplyT(func(v *FeedbackProperties) FeedbackProperties { return *v }).(FeedbackPropertiesOutput)
+	return o.ApplyT(func(v *FeedbackProperties) FeedbackProperties {
+		if v != nil {
+			return *v
+		}
+		var ret FeedbackProperties
+		return ret
+	}).(FeedbackPropertiesOutput)
 }
 
 // The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -2047,7 +2095,7 @@ func (o FeedbackPropertiesResponseOutput) ToFeedbackPropertiesResponsePtrOutput(
 }
 
 func (o FeedbackPropertiesResponseOutput) ToFeedbackPropertiesResponsePtrOutputWithContext(ctx context.Context) FeedbackPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FeedbackPropertiesResponse) *FeedbackPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedbackPropertiesResponse) *FeedbackPropertiesResponse {
 		return &v
 	}).(FeedbackPropertiesResponsePtrOutput)
 }
@@ -2082,7 +2130,13 @@ func (o FeedbackPropertiesResponsePtrOutput) ToFeedbackPropertiesResponsePtrOutp
 }
 
 func (o FeedbackPropertiesResponsePtrOutput) Elem() FeedbackPropertiesResponseOutput {
-	return o.ApplyT(func(v *FeedbackPropertiesResponse) FeedbackPropertiesResponse { return *v }).(FeedbackPropertiesResponseOutput)
+	return o.ApplyT(func(v *FeedbackPropertiesResponse) FeedbackPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FeedbackPropertiesResponse
+		return ret
+	}).(FeedbackPropertiesResponseOutput)
 }
 
 // The lock duration for the feedback queue. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging#cloud-to-device-messages.
@@ -2239,7 +2293,7 @@ func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutpu
 }
 
 func (o IotDpsPropertiesDescriptionOutput) ToIotDpsPropertiesDescriptionPtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionPtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescription) *IotDpsPropertiesDescription {
 		return &v
 	}).(IotDpsPropertiesDescriptionPtrOutput)
 }
@@ -2303,7 +2357,13 @@ func (o IotDpsPropertiesDescriptionPtrOutput) ToIotDpsPropertiesDescriptionPtrOu
 }
 
 func (o IotDpsPropertiesDescriptionPtrOutput) Elem() IotDpsPropertiesDescriptionOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription { return *v }).(IotDpsPropertiesDescriptionOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescription) IotDpsPropertiesDescription {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescription
+		return ret
+	}).(IotDpsPropertiesDescriptionOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -2522,7 +2582,7 @@ func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescription
 }
 
 func (o IotDpsPropertiesDescriptionResponseOutput) ToIotDpsPropertiesDescriptionResponsePtrOutputWithContext(ctx context.Context) IotDpsPropertiesDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsPropertiesDescriptionResponse) *IotDpsPropertiesDescriptionResponse {
 		return &v
 	}).(IotDpsPropertiesDescriptionResponsePtrOutput)
 }
@@ -2601,7 +2661,13 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) ToIotDpsPropertiesDescript
 }
 
 func (o IotDpsPropertiesDescriptionResponsePtrOutput) Elem() IotDpsPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse { return *v }).(IotDpsPropertiesDescriptionResponseOutput)
+	return o.ApplyT(func(v *IotDpsPropertiesDescriptionResponse) IotDpsPropertiesDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsPropertiesDescriptionResponse
+		return ret
+	}).(IotDpsPropertiesDescriptionResponseOutput)
 }
 
 // Allocation policy to be used by this provisioning service.
@@ -2814,7 +2880,7 @@ func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutput() IotDpsSkuInfoPtrOutput {
 }
 
 func (o IotDpsSkuInfoOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.Context) IotDpsSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfo) *IotDpsSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfo) *IotDpsSkuInfo {
 		return &v
 	}).(IotDpsSkuInfoPtrOutput)
 }
@@ -2844,7 +2910,13 @@ func (o IotDpsSkuInfoPtrOutput) ToIotDpsSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotDpsSkuInfoPtrOutput) Elem() IotDpsSkuInfoOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo { return *v }).(IotDpsSkuInfoOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfo) IotDpsSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfo
+		return ret
+	}).(IotDpsSkuInfoOutput)
 }
 
 // The number of units to provision
@@ -2971,7 +3043,7 @@ func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutput() IotDpsSk
 }
 
 func (o IotDpsSkuInfoResponseOutput) ToIotDpsSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotDpsSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotDpsSkuInfoResponse) *IotDpsSkuInfoResponse {
 		return &v
 	}).(IotDpsSkuInfoResponsePtrOutput)
 }
@@ -3006,7 +3078,13 @@ func (o IotDpsSkuInfoResponsePtrOutput) ToIotDpsSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotDpsSkuInfoResponsePtrOutput) Elem() IotDpsSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse { return *v }).(IotDpsSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotDpsSkuInfoResponse) IotDpsSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotDpsSkuInfoResponse
+		return ret
+	}).(IotDpsSkuInfoResponseOutput)
 }
 
 // The number of units to provision
@@ -3559,7 +3637,7 @@ func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutput() IotHubPropertiesPt
 }
 
 func (o IotHubPropertiesOutput) ToIotHubPropertiesPtrOutputWithContext(ctx context.Context) IotHubPropertiesPtrOutput {
-	return o.ApplyT(func(v IotHubProperties) *IotHubProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubProperties) *IotHubProperties {
 		return &v
 	}).(IotHubPropertiesPtrOutput)
 }
@@ -3649,7 +3727,13 @@ func (o IotHubPropertiesPtrOutput) ToIotHubPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o IotHubPropertiesPtrOutput) Elem() IotHubPropertiesOutput {
-	return o.ApplyT(func(v *IotHubProperties) IotHubProperties { return *v }).(IotHubPropertiesOutput)
+	return o.ApplyT(func(v *IotHubProperties) IotHubProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubProperties
+		return ret
+	}).(IotHubPropertiesOutput)
 }
 
 // The shared access policies you can use to secure a connection to the IoT hub.
@@ -3956,7 +4040,7 @@ func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponsePtrOutput() Io
 }
 
 func (o IotHubPropertiesResponseOutput) ToIotHubPropertiesResponsePtrOutputWithContext(ctx context.Context) IotHubPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IotHubPropertiesResponse) *IotHubPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubPropertiesResponse) *IotHubPropertiesResponse {
 		return &v
 	}).(IotHubPropertiesResponsePtrOutput)
 }
@@ -4074,7 +4158,13 @@ func (o IotHubPropertiesResponsePtrOutput) ToIotHubPropertiesResponsePtrOutputWi
 }
 
 func (o IotHubPropertiesResponsePtrOutput) Elem() IotHubPropertiesResponseOutput {
-	return o.ApplyT(func(v *IotHubPropertiesResponse) IotHubPropertiesResponse { return *v }).(IotHubPropertiesResponseOutput)
+	return o.ApplyT(func(v *IotHubPropertiesResponse) IotHubPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubPropertiesResponse
+		return ret
+	}).(IotHubPropertiesResponseOutput)
 }
 
 // The shared access policies you can use to secure a connection to the IoT hub.
@@ -4357,7 +4447,7 @@ func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutput() IotHubSkuInfoPtrOutput {
 }
 
 func (o IotHubSkuInfoOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.Context) IotHubSkuInfoPtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfo) *IotHubSkuInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubSkuInfo) *IotHubSkuInfo {
 		return &v
 	}).(IotHubSkuInfoPtrOutput)
 }
@@ -4387,7 +4477,13 @@ func (o IotHubSkuInfoPtrOutput) ToIotHubSkuInfoPtrOutputWithContext(ctx context.
 }
 
 func (o IotHubSkuInfoPtrOutput) Elem() IotHubSkuInfoOutput {
-	return o.ApplyT(func(v *IotHubSkuInfo) IotHubSkuInfo { return *v }).(IotHubSkuInfoOutput)
+	return o.ApplyT(func(v *IotHubSkuInfo) IotHubSkuInfo {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubSkuInfo
+		return ret
+	}).(IotHubSkuInfoOutput)
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -4514,7 +4610,7 @@ func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutput() IotHubSk
 }
 
 func (o IotHubSkuInfoResponseOutput) ToIotHubSkuInfoResponsePtrOutputWithContext(ctx context.Context) IotHubSkuInfoResponsePtrOutput {
-	return o.ApplyT(func(v IotHubSkuInfoResponse) *IotHubSkuInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubSkuInfoResponse) *IotHubSkuInfoResponse {
 		return &v
 	}).(IotHubSkuInfoResponsePtrOutput)
 }
@@ -4549,7 +4645,13 @@ func (o IotHubSkuInfoResponsePtrOutput) ToIotHubSkuInfoResponsePtrOutputWithCont
 }
 
 func (o IotHubSkuInfoResponsePtrOutput) Elem() IotHubSkuInfoResponseOutput {
-	return o.ApplyT(func(v *IotHubSkuInfoResponse) IotHubSkuInfoResponse { return *v }).(IotHubSkuInfoResponseOutput)
+	return o.ApplyT(func(v *IotHubSkuInfoResponse) IotHubSkuInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubSkuInfoResponse
+		return ret
+	}).(IotHubSkuInfoResponseOutput)
 }
 
 // The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -4585,7 +4687,7 @@ func (o IotHubSkuInfoResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 // The IP filter rules for the IoT hub.
 type IpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -4606,7 +4708,7 @@ type IpFilterRuleInput interface {
 // The IP filter rules for the IoT hub.
 type IpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action IpFilterActionTypeInput `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -4666,8 +4768,8 @@ func (o IpFilterRuleOutput) ToIpFilterRuleOutputWithContext(ctx context.Context)
 }
 
 // The desired action for requests captured by this rule.
-func (o IpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v IpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o IpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v IpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
 // The name of the IP filter rule.
@@ -5394,7 +5496,7 @@ func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesPtrOutput() Ne
 }
 
 func (o NetworkRuleSetPropertiesOutput) ToNetworkRuleSetPropertiesPtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetProperties) *NetworkRuleSetProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetProperties) *NetworkRuleSetProperties {
 		return &v
 	}).(NetworkRuleSetPropertiesPtrOutput)
 }
@@ -5429,7 +5531,13 @@ func (o NetworkRuleSetPropertiesPtrOutput) ToNetworkRuleSetPropertiesPtrOutputWi
 }
 
 func (o NetworkRuleSetPropertiesPtrOutput) Elem() NetworkRuleSetPropertiesOutput {
-	return o.ApplyT(func(v *NetworkRuleSetProperties) NetworkRuleSetProperties { return *v }).(NetworkRuleSetPropertiesOutput)
+	return o.ApplyT(func(v *NetworkRuleSetProperties) NetworkRuleSetProperties {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetProperties
+		return ret
+	}).(NetworkRuleSetPropertiesOutput)
 }
 
 // If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
@@ -5566,7 +5674,7 @@ func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesRespon
 }
 
 func (o NetworkRuleSetPropertiesResponseOutput) ToNetworkRuleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetPropertiesResponse) *NetworkRuleSetPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetPropertiesResponse) *NetworkRuleSetPropertiesResponse {
 		return &v
 	}).(NetworkRuleSetPropertiesResponsePtrOutput)
 }
@@ -5601,7 +5709,13 @@ func (o NetworkRuleSetPropertiesResponsePtrOutput) ToNetworkRuleSetPropertiesRes
 }
 
 func (o NetworkRuleSetPropertiesResponsePtrOutput) Elem() NetworkRuleSetPropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) NetworkRuleSetPropertiesResponse { return *v }).(NetworkRuleSetPropertiesResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetPropertiesResponse) NetworkRuleSetPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetPropertiesResponse
+		return ret
+	}).(NetworkRuleSetPropertiesResponseOutput)
 }
 
 // If True, then Network Rule Set is also applied to BuiltIn EventHub EndPoint of IotHub
@@ -5830,7 +5944,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -5857,7 +5971,13 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // The current state of a private endpoint connection
@@ -5970,7 +6090,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -6003,7 +6123,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -6252,7 +6376,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -6277,7 +6401,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The resource identifier.
@@ -6394,7 +6524,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -6429,7 +6559,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // Actions required for a private endpoint connection
@@ -6566,7 +6702,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -6602,7 +6738,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -7016,7 +7156,7 @@ func (o RoutingEndpointsOutput) ToRoutingEndpointsPtrOutput() RoutingEndpointsPt
 }
 
 func (o RoutingEndpointsOutput) ToRoutingEndpointsPtrOutputWithContext(ctx context.Context) RoutingEndpointsPtrOutput {
-	return o.ApplyT(func(v RoutingEndpoints) *RoutingEndpoints {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingEndpoints) *RoutingEndpoints {
 		return &v
 	}).(RoutingEndpointsPtrOutput)
 }
@@ -7056,7 +7196,13 @@ func (o RoutingEndpointsPtrOutput) ToRoutingEndpointsPtrOutputWithContext(ctx co
 }
 
 func (o RoutingEndpointsPtrOutput) Elem() RoutingEndpointsOutput {
-	return o.ApplyT(func(v *RoutingEndpoints) RoutingEndpoints { return *v }).(RoutingEndpointsOutput)
+	return o.ApplyT(func(v *RoutingEndpoints) RoutingEndpoints {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingEndpoints
+		return ret
+	}).(RoutingEndpointsOutput)
 }
 
 // The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
@@ -7207,7 +7353,7 @@ func (o RoutingEndpointsResponseOutput) ToRoutingEndpointsResponsePtrOutput() Ro
 }
 
 func (o RoutingEndpointsResponseOutput) ToRoutingEndpointsResponsePtrOutputWithContext(ctx context.Context) RoutingEndpointsResponsePtrOutput {
-	return o.ApplyT(func(v RoutingEndpointsResponse) *RoutingEndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingEndpointsResponse) *RoutingEndpointsResponse {
 		return &v
 	}).(RoutingEndpointsResponsePtrOutput)
 }
@@ -7253,7 +7399,13 @@ func (o RoutingEndpointsResponsePtrOutput) ToRoutingEndpointsResponsePtrOutputWi
 }
 
 func (o RoutingEndpointsResponsePtrOutput) Elem() RoutingEndpointsResponseOutput {
-	return o.ApplyT(func(v *RoutingEndpointsResponse) RoutingEndpointsResponse { return *v }).(RoutingEndpointsResponseOutput)
+	return o.ApplyT(func(v *RoutingEndpointsResponse) RoutingEndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingEndpointsResponse
+		return ret
+	}).(RoutingEndpointsResponseOutput)
 }
 
 // The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
@@ -7730,7 +7882,7 @@ func (o RoutingPropertiesOutput) ToRoutingPropertiesPtrOutput() RoutingPropertie
 }
 
 func (o RoutingPropertiesOutput) ToRoutingPropertiesPtrOutputWithContext(ctx context.Context) RoutingPropertiesPtrOutput {
-	return o.ApplyT(func(v RoutingProperties) *RoutingProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingProperties) *RoutingProperties {
 		return &v
 	}).(RoutingPropertiesPtrOutput)
 }
@@ -7770,7 +7922,13 @@ func (o RoutingPropertiesPtrOutput) ToRoutingPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o RoutingPropertiesPtrOutput) Elem() RoutingPropertiesOutput {
-	return o.ApplyT(func(v *RoutingProperties) RoutingProperties { return *v }).(RoutingPropertiesOutput)
+	return o.ApplyT(func(v *RoutingProperties) RoutingProperties {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingProperties
+		return ret
+	}).(RoutingPropertiesOutput)
 }
 
 // The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
@@ -7921,7 +8079,7 @@ func (o RoutingPropertiesResponseOutput) ToRoutingPropertiesResponsePtrOutput() 
 }
 
 func (o RoutingPropertiesResponseOutput) ToRoutingPropertiesResponsePtrOutputWithContext(ctx context.Context) RoutingPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v RoutingPropertiesResponse) *RoutingPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingPropertiesResponse) *RoutingPropertiesResponse {
 		return &v
 	}).(RoutingPropertiesResponsePtrOutput)
 }
@@ -7961,7 +8119,13 @@ func (o RoutingPropertiesResponsePtrOutput) ToRoutingPropertiesResponsePtrOutput
 }
 
 func (o RoutingPropertiesResponsePtrOutput) Elem() RoutingPropertiesResponseOutput {
-	return o.ApplyT(func(v *RoutingPropertiesResponse) RoutingPropertiesResponse { return *v }).(RoutingPropertiesResponseOutput)
+	return o.ApplyT(func(v *RoutingPropertiesResponse) RoutingPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingPropertiesResponse
+		return ret
+	}).(RoutingPropertiesResponseOutput)
 }
 
 // The properties related to the custom endpoints to which your IoT hub routes messages based on the routing rules. A maximum of 10 custom endpoints are allowed across all endpoint types for paid hubs and only 1 custom endpoint is allowed across all endpoint types for free hubs.
@@ -9061,7 +9225,7 @@ type SharedAccessSignatureAuthorizationRule struct {
 	// The primary key.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights string `pulumi:"rights"`
+	Rights AccessRights `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
@@ -9084,7 +9248,7 @@ type SharedAccessSignatureAuthorizationRuleArgs struct {
 	// The primary key.
 	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights AccessRights `pulumi:"rights"`
+	Rights AccessRightsInput `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }
@@ -9152,8 +9316,8 @@ func (o SharedAccessSignatureAuthorizationRuleOutput) PrimaryKey() pulumi.String
 }
 
 // The permissions assigned to the shared access policy.
-func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() pulumi.StringOutput {
-	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) string { return v.Rights }).(pulumi.StringOutput)
+func (o SharedAccessSignatureAuthorizationRuleOutput) Rights() AccessRightsOutput {
+	return o.ApplyT(func(v SharedAccessSignatureAuthorizationRule) AccessRights { return v.Rights }).(AccessRightsOutput)
 }
 
 // The secondary key.
@@ -9823,13 +9987,13 @@ func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInpu
 // The IP filter rules for a provisioning Service.
 type TargetIpFilterRule struct {
 	// The desired action for requests captured by this rule.
-	Action string `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName string `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask string `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *string `pulumi:"target"`
+	Target *IpFilterTargetType `pulumi:"target"`
 }
 
 // TargetIpFilterRuleInput is an input type that accepts TargetIpFilterRuleArgs and TargetIpFilterRuleOutput values.
@@ -9846,13 +10010,13 @@ type TargetIpFilterRuleInput interface {
 // The IP filter rules for a provisioning Service.
 type TargetIpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action IpFilterActionType `pulumi:"action"`
+	Action IpFilterActionTypeInput `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target *IpFilterTargetType `pulumi:"target"`
+	Target IpFilterTargetTypePtrInput `pulumi:"target"`
 }
 
 func (TargetIpFilterRuleArgs) ElementType() reflect.Type {
@@ -9908,8 +10072,8 @@ func (o TargetIpFilterRuleOutput) ToTargetIpFilterRuleOutputWithContext(ctx cont
 }
 
 // The desired action for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) string { return v.Action }).(pulumi.StringOutput)
+func (o TargetIpFilterRuleOutput) Action() IpFilterActionTypeOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) IpFilterActionType { return v.Action }).(IpFilterActionTypeOutput)
 }
 
 // The name of the IP filter rule.
@@ -9923,8 +10087,8 @@ func (o TargetIpFilterRuleOutput) IpMask() pulumi.StringOutput {
 }
 
 // Target for requests captured by this rule.
-func (o TargetIpFilterRuleOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TargetIpFilterRule) *string { return v.Target }).(pulumi.StringPtrOutput)
+func (o TargetIpFilterRuleOutput) Target() IpFilterTargetTypePtrOutput {
+	return o.ApplyT(func(v TargetIpFilterRule) *IpFilterTargetType { return v.Target }).(IpFilterTargetTypePtrOutput)
 }
 
 type TargetIpFilterRuleArrayOutput struct{ *pulumi.OutputState }

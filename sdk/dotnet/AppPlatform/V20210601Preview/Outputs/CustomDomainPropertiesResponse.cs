@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Custom domain of app resource payload.
+    /// </summary>
     [OutputType]
     public sealed class CustomDomainPropertiesResponse
     {

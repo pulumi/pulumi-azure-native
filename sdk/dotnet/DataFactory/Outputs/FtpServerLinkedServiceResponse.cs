@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A FTP server Linked Service.
+    /// </summary>
     [OutputType]
     public sealed class FtpServerLinkedServiceResponse
     {

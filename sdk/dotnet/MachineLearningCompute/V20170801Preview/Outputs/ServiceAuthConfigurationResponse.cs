@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview.Outputs
 {
 
+    /// <summary>
+    /// Global service auth configuration properties. These are the data-plane authorization keys and are used if a service doesn't define it's own.
+    /// </summary>
     [OutputType]
     public sealed class ServiceAuthConfigurationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Amazon Marketplace Web Service linked service.
+    /// </summary>
     [OutputType]
     public sealed class AmazonMWSLinkedServiceResponse
     {

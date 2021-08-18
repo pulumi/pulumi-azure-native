@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 {
 
+    /// <summary>
+    /// The network properties.
+    /// </summary>
     [OutputType]
     public sealed class NetworkPropertiesResponse
     {

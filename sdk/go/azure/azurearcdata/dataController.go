@@ -91,37 +91,9 @@ func GetDataController(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataController resources.
 type dataControllerState struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The data controller's properties
-	Properties *DataControllerPropertiesResponse `pulumi:"properties"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type *string `pulumi:"type"`
 }
 
 type DataControllerState struct {
-	// The extendedLocation of the resource.
-	ExtendedLocation ExtendedLocationResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The data controller's properties
-	Properties DataControllerPropertiesResponsePtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringPtrInput
 }
 
 func (DataControllerState) ElementType() reflect.Type {
@@ -180,9 +152,7 @@ func (i *DataController) ToDataControllerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerOutput)
 }
 
-type DataControllerOutput struct {
-	*pulumi.OutputState
-}
+type DataControllerOutput struct{ *pulumi.OutputState }
 
 func (DataControllerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataController)(nil))

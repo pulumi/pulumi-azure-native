@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for the request header action.
+    /// </summary>
     [OutputType]
     public sealed class HeaderActionParametersResponse
     {

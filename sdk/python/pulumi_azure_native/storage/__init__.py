@@ -46,23 +46,40 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storage.v20150501preview as v20150501preview
-    import pulumi_azure_native.storage.v20150615 as v20150615
-    import pulumi_azure_native.storage.v20160101 as v20160101
-    import pulumi_azure_native.storage.v20160501 as v20160501
-    import pulumi_azure_native.storage.v20161201 as v20161201
-    import pulumi_azure_native.storage.v20170601 as v20170601
-    import pulumi_azure_native.storage.v20171001 as v20171001
-    import pulumi_azure_native.storage.v20180201 as v20180201
-    import pulumi_azure_native.storage.v20180301preview as v20180301preview
-    import pulumi_azure_native.storage.v20180701 as v20180701
-    import pulumi_azure_native.storage.v20181101 as v20181101
-    import pulumi_azure_native.storage.v20190401 as v20190401
-    import pulumi_azure_native.storage.v20190601 as v20190601
-    import pulumi_azure_native.storage.v20200801preview as v20200801preview
-    import pulumi_azure_native.storage.v20210101 as v20210101
-    import pulumi_azure_native.storage.v20210201 as v20210201
-    import pulumi_azure_native.storage.v20210401 as v20210401
+    import pulumi_azure_native.storage.v20150501preview as __v20150501preview
+    v20150501preview = __v20150501preview
+    import pulumi_azure_native.storage.v20150615 as __v20150615
+    v20150615 = __v20150615
+    import pulumi_azure_native.storage.v20160101 as __v20160101
+    v20160101 = __v20160101
+    import pulumi_azure_native.storage.v20160501 as __v20160501
+    v20160501 = __v20160501
+    import pulumi_azure_native.storage.v20161201 as __v20161201
+    v20161201 = __v20161201
+    import pulumi_azure_native.storage.v20170601 as __v20170601
+    v20170601 = __v20170601
+    import pulumi_azure_native.storage.v20171001 as __v20171001
+    v20171001 = __v20171001
+    import pulumi_azure_native.storage.v20180201 as __v20180201
+    v20180201 = __v20180201
+    import pulumi_azure_native.storage.v20180301preview as __v20180301preview
+    v20180301preview = __v20180301preview
+    import pulumi_azure_native.storage.v20180701 as __v20180701
+    v20180701 = __v20180701
+    import pulumi_azure_native.storage.v20181101 as __v20181101
+    v20181101 = __v20181101
+    import pulumi_azure_native.storage.v20190401 as __v20190401
+    v20190401 = __v20190401
+    import pulumi_azure_native.storage.v20190601 as __v20190601
+    v20190601 = __v20190601
+    import pulumi_azure_native.storage.v20200801preview as __v20200801preview
+    v20200801preview = __v20200801preview
+    import pulumi_azure_native.storage.v20210101 as __v20210101
+    v20210101 = __v20210101
+    import pulumi_azure_native.storage.v20210201 as __v20210201
+    v20210201 = __v20210201
+    import pulumi_azure_native.storage.v20210401 as __v20210401
+    v20210401 = __v20210401
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.storage.v20150501preview')
     v20150615 = _utilities.lazy_import('pulumi_azure_native.storage.v20150615')

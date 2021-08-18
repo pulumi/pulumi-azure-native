@@ -102,37 +102,9 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The identity
-	ClusterId *int `pulumi:"clusterId"`
-	// The cluster size
-	ClusterSize *int `pulumi:"clusterSize"`
-	// The hosts
-	Hosts []string `pulumi:"hosts"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the cluster provisioning
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The cluster SKU
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ClusterState struct {
-	// The identity
-	ClusterId pulumi.IntPtrInput
-	// The cluster size
-	ClusterSize pulumi.IntPtrInput
-	// The hosts
-	Hosts pulumi.StringArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the cluster provisioning
-	ProvisioningState pulumi.StringPtrInput
-	// The cluster SKU
-	Sku SkuResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -189,9 +161,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
+    /// <summary>
+    /// Information about the machine learning workspace containing the experiment that is source for the web service.
+    /// </summary>
     [OutputType]
     public sealed class MachineLearningWorkspaceResponse
     {

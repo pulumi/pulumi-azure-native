@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of the credentials that can be used for authenticating the token.
+    /// </summary>
     [OutputType]
     public sealed class TokenCredentialsPropertiesResponse
     {

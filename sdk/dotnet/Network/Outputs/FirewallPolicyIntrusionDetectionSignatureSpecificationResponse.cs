@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Intrusion detection signatures specification states.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyIntrusionDetectionSignatureSpecificationResponse
     {

@@ -107,7 +107,7 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
 // Gets or sets the algorithm.
@@ -257,7 +263,7 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutput() ContentHashR
 }
 
 func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx context.Context) ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentHashResponse) *ContentHashResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHashResponse) *ContentHashResponse {
 		return &v
 	}).(ContentHashResponsePtrOutput)
 }
@@ -287,7 +293,13 @@ func (o ContentHashResponsePtrOutput) ToContentHashResponsePtrOutputWithContext(
 }
 
 func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
-	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse { return *v }).(ContentHashResponseOutput)
+	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHashResponse
+		return ret
+	}).(ContentHashResponseOutput)
 }
 
 // Gets or sets the algorithm.
@@ -419,7 +431,7 @@ func (o ContentLinkOutput) ToContentLinkPtrOutput() ContentLinkPtrOutput {
 }
 
 func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context) ContentLinkPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLink) *ContentLink {
 		return &v
 	}).(ContentLinkPtrOutput)
 }
@@ -464,7 +476,13 @@ func (o ContentLinkPtrOutput) ToContentLinkPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
-	return o.ApplyT(func(v *ContentLink) ContentLink { return *v }).(ContentLinkOutput)
+	return o.ApplyT(func(v *ContentLink) ContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLink
+		return ret
+	}).(ContentLinkOutput)
 }
 
 // Gets or sets the content hash.
@@ -626,7 +644,7 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutput() ContentLinkR
 }
 
 func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx context.Context) ContentLinkResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLinkResponse) *ContentLinkResponse {
 		return &v
 	}).(ContentLinkResponsePtrOutput)
 }
@@ -671,7 +689,13 @@ func (o ContentLinkResponsePtrOutput) ToContentLinkResponsePtrOutputWithContext(
 }
 
 func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse { return *v }).(ContentLinkResponseOutput)
+	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLinkResponse
+		return ret
+	}).(ContentLinkResponseOutput)
 }
 
 // Gets or sets the content hash.
@@ -817,7 +841,7 @@ func (o ResourceReferenceOutput) ToResourceReferencePtrOutput() ResourceReferenc
 }
 
 func (o ResourceReferenceOutput) ToResourceReferencePtrOutputWithContext(ctx context.Context) ResourceReferencePtrOutput {
-	return o.ApplyT(func(v ResourceReference) *ResourceReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReference) *ResourceReference {
 		return &v
 	}).(ResourceReferencePtrOutput)
 }
@@ -842,7 +866,13 @@ func (o ResourceReferencePtrOutput) ToResourceReferencePtrOutputWithContext(ctx 
 }
 
 func (o ResourceReferencePtrOutput) Elem() ResourceReferenceOutput {
-	return o.ApplyT(func(v *ResourceReference) ResourceReference { return *v }).(ResourceReferenceOutput)
+	return o.ApplyT(func(v *ResourceReference) ResourceReference {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReference
+		return ret
+	}).(ResourceReferenceOutput)
 }
 
 // Gets or sets the resource id.
@@ -956,7 +986,7 @@ func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutput() 
 }
 
 func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ResourceReferenceResponse) *ResourceReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReferenceResponse) *ResourceReferenceResponse {
 		return &v
 	}).(ResourceReferenceResponsePtrOutput)
 }
@@ -991,7 +1021,13 @@ func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutput
 }
 
 func (o ResourceReferenceResponsePtrOutput) Elem() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse { return *v }).(ResourceReferenceResponseOutput)
+	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReferenceResponse
+		return ret
+	}).(ResourceReferenceResponseOutput)
 }
 
 // Gets or sets the resource id.
@@ -1026,7 +1062,7 @@ func (o ResourceReferenceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 type Sku struct {
 	// Gets or sets the name.
-	Name *string `pulumi:"name"`
+	Name *SkuName `pulumi:"name"`
 	// Gets or sets the reference to plan.
 	Plan *ResourceReference `pulumi:"plan"`
 }
@@ -1044,7 +1080,7 @@ type SkuInput interface {
 
 type SkuArgs struct {
 	// Gets or sets the name.
-	Name *SkuName `pulumi:"name"`
+	Name SkuNamePtrInput `pulumi:"name"`
 	// Gets or sets the reference to plan.
 	Plan ResourceReferencePtrInput `pulumi:"plan"`
 }
@@ -1121,14 +1157,14 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
 // Gets or sets the name.
-func (o SkuOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Sku) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o SkuOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v Sku) *SkuName { return v.Name }).(SkuNamePtrOutput)
 }
 
 // Gets or sets the reference to plan.
@@ -1151,17 +1187,23 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Gets or sets the name.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // Gets or sets the reference to plan.
@@ -1271,7 +1313,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1301,7 +1343,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Gets or sets the name.
@@ -1328,7 +1376,7 @@ type WorkflowParameter struct {
 	// Gets or sets the metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// Gets or sets the type.
-	Type *string `pulumi:"type"`
+	Type *ParameterType `pulumi:"type"`
 	// Gets or sets the value.
 	Value interface{} `pulumi:"value"`
 }
@@ -1348,7 +1396,7 @@ type WorkflowParameterArgs struct {
 	// Gets or sets the metadata.
 	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the type.
-	Type *ParameterType `pulumi:"type"`
+	Type ParameterTypePtrInput `pulumi:"type"`
 	// Gets or sets the value.
 	Value pulumi.Input `pulumi:"value"`
 }
@@ -1410,8 +1458,8 @@ func (o WorkflowParameterOutput) Metadata() pulumi.AnyOutput {
 }
 
 // Gets or sets the type.
-func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o WorkflowParameterOutput) Type() ParameterTypePtrOutput {
+	return o.ApplyT(func(v WorkflowParameter) *ParameterType { return v.Type }).(ParameterTypePtrOutput)
 }
 
 // Gets or sets the value.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// The encryption properties.
+    /// </summary>
     [OutputType]
     public sealed class ACIServiceResponseResponseEncryptionProperties
     {

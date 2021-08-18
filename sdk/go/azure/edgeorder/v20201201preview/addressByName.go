@@ -78,37 +78,9 @@ func GetAddressByName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AddressByName resources.
 type addressByNameState struct {
-	// Contact details for the address
-	ContactDetails *ContactDetailsResponse `pulumi:"contactDetails"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Shipping details for the address
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
-	// Represents resource creation and update time
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type AddressByNameState struct {
-	// Contact details for the address
-	ContactDetails ContactDetailsResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Shipping details for the address
-	ShippingAddress ShippingAddressResponsePtrInput
-	// Represents resource creation and update time
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (AddressByNameState) ElementType() reflect.Type {
@@ -169,9 +141,7 @@ func (i *AddressByName) ToAddressByNameOutputWithContext(ctx context.Context) Ad
 	return pulumi.ToOutputWithContext(ctx, i).(AddressByNameOutput)
 }
 
-type AddressByNameOutput struct {
-	*pulumi.OutputState
-}
+type AddressByNameOutput struct{ *pulumi.OutputState }
 
 func (AddressByNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AddressByName)(nil))

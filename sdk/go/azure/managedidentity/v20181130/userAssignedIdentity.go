@@ -81,37 +81,9 @@ func GetUserAssignedIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAssignedIdentity resources.
 type userAssignedIdentityState struct {
-	// The id of the app associated with the identity. This is a random generated UUID by MSI.
-	ClientId *string `pulumi:"clientId"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The id of the service principal object associated with the created identity.
-	PrincipalId *string `pulumi:"principalId"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The id of the tenant which the identity belongs to.
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type UserAssignedIdentityState struct {
-	// The id of the app associated with the identity. This is a random generated UUID by MSI.
-	ClientId pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The id of the service principal object associated with the created identity.
-	PrincipalId pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The id of the tenant which the identity belongs to.
-	TenantId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (UserAssignedIdentityState) ElementType() reflect.Type {
@@ -164,9 +136,7 @@ func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
 }
 
-type UserAssignedIdentityOutput struct {
-	*pulumi.OutputState
-}
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserAssignedIdentity)(nil))

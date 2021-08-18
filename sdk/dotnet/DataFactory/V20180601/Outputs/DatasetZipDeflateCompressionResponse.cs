@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The ZipDeflate compression method used on a dataset.
+    /// </summary>
     [OutputType]
     public sealed class DatasetZipDeflateCompressionResponse
     {

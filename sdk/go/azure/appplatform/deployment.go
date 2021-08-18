@@ -94,25 +94,9 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Properties of the Deployment resource
-	Properties *DeploymentResourcePropertiesResponse `pulumi:"properties"`
-	// Sku of the Deployment resource
-	Sku *SkuResponse `pulumi:"sku"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type DeploymentState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Properties of the Deployment resource
-	Properties DeploymentResourcePropertiesResponsePtrInput
-	// Sku of the Deployment resource
-	Sku SkuResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (DeploymentState) ElementType() reflect.Type {
@@ -173,9 +157,7 @@ func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) Deployme
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentOutput)
 }
 
-type DeploymentOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentOutput struct{ *pulumi.OutputState }
 
 func (DeploymentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Deployment)(nil))

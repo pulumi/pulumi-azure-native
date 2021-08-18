@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// IP configuration for virtual network gateway.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkGatewayIPConfigurationResponse
     {

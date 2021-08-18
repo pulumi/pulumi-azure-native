@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Kubernetes node info
+    /// </summary>
     [OutputType]
     public sealed class NodeInfoResponse
     {

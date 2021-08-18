@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20200901.Outputs
 {
 
+    /// <summary>
+    /// A message that describes why a resource is non-compliant with the policy. This is shown in 'deny' error messages and on resource's non-compliant compliance results.
+    /// </summary>
     [OutputType]
     public sealed class NonComplianceMessageResponse
     {

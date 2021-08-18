@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20160301.Outputs
 {
 
+    /// <summary>
+    /// Specifies the action to post to service when the rule condition is evaluated. The discriminator is always RuleWebhookAction in this case.
+    /// </summary>
     [OutputType]
     public sealed class RuleWebhookActionResponse
     {

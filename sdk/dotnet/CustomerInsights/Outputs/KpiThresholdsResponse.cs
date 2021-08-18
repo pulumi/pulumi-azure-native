@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// Defines the KPI Threshold limits.
+    /// </summary>
     [OutputType]
     public sealed class KpiThresholdsResponse
     {

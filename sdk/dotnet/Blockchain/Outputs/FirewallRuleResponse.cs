@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blockchain.Outputs
 {
 
+    /// <summary>
+    /// Ip range for firewall rules
+    /// </summary>
     [OutputType]
     public sealed class FirewallRuleResponse
     {

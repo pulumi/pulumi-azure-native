@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20160515.Outputs
 {
 
+    /// <summary>
+    /// Configuration for public IP address sharing.
+    /// </summary>
     [OutputType]
     public sealed class SubnetSharedPublicIpAddressConfigurationResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Describes how data from an input is serialized or how data is serialized when written to an output in Avro format.
+    /// </summary>
     [OutputType]
     public sealed class AvroSerializationResponse
     {

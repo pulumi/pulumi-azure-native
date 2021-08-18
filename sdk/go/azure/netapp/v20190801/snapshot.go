@@ -194,41 +194,9 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
-	// The creation date of the snapshot
-	Created *string `pulumi:"created"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Azure lifecycle management
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId *string `pulumi:"snapshotId"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SnapshotState struct {
-	// The creation date of the snapshot
-	Created pulumi.StringPtrInput
-	// UUID v4 used to identify the FileSystem
-	FileSystemId pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringPtrInput
-	// UUID v4 used to identify the Snapshot
-	SnapshotId pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SnapshotState) ElementType() reflect.Type {
@@ -297,9 +265,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotOutput)
 }
 
-type SnapshotOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snapshot)(nil))

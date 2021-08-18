@@ -352,7 +352,7 @@ func (o AzureFileshareProtectedItemExtendedInfoOutput) ToAzureFileshareProtected
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoOutput) ToAzureFileshareProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfo) *AzureFileshareProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileshareProtectedItemExtendedInfo) *AzureFileshareProtectedItemExtendedInfo {
 		return &v
 	}).(AzureFileshareProtectedItemExtendedInfoPtrOutput)
 }
@@ -387,7 +387,13 @@ func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) ToAzureFileshareProtec
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoPtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) AzureFileshareProtectedItemExtendedInfo { return *v }).(AzureFileshareProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfo) AzureFileshareProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileshareProtectedItemExtendedInfo
+		return ret
+	}).(AzureFileshareProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this item in the service.
@@ -532,7 +538,7 @@ func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ToAzureFileshareP
 }
 
 func (o AzureFileshareProtectedItemExtendedInfoResponseOutput) ToAzureFileshareProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureFileshareProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureFileshareProtectedItemExtendedInfoResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureFileshareProtectedItemExtendedInfoResponse) *AzureFileshareProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureFileshareProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -578,7 +584,11 @@ func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) ToAzureFilesha
 
 func (o AzureFileshareProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureFileshareProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureFileshareProtectedItemExtendedInfoResponse) AzureFileshareProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureFileshareProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureFileshareProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -2515,7 +2525,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemEx
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoOutput) ToAzureIaaSVMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfo) *AzureIaaSVMProtectedItemExtendedInfo {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoPtrOutput)
 }
@@ -2550,7 +2560,13 @@ func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) ToAzureIaaSVMProtectedIte
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoPtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo { return *v }).(AzureIaaSVMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfo) AzureIaaSVMProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureIaaSVMProtectedItemExtendedInfo
+		return ret
+	}).(AzureIaaSVMProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this backup item.
@@ -2687,7 +2703,7 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ToAzureIaaSVMProtect
 }
 
 func (o AzureIaaSVMProtectedItemExtendedInfoResponseOutput) ToAzureIaaSVMProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureIaaSVMProtectedItemExtendedInfoResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureIaaSVMProtectedItemExtendedInfoResponse) *AzureIaaSVMProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -2723,7 +2739,11 @@ func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) ToAzureIaaSVMProt
 
 func (o AzureIaaSVMProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureIaaSVMProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureIaaSVMProtectedItemExtendedInfoResponse) AzureIaaSVMProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureIaaSVMProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureIaaSVMProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -3350,7 +3370,7 @@ func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtended
 }
 
 func (o AzureSqlProtectedItemExtendedInfoOutput) ToAzureSqlProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfo) *AzureSqlProtectedItemExtendedInfo {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
@@ -3385,7 +3405,13 @@ func (o AzureSqlProtectedItemExtendedInfoPtrOutput) ToAzureSqlProtectedItemExten
 }
 
 func (o AzureSqlProtectedItemExtendedInfoPtrOutput) Elem() AzureSqlProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo { return *v }).(AzureSqlProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfo) AzureSqlProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSqlProtectedItemExtendedInfo
+		return ret
+	}).(AzureSqlProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this item in the service.
@@ -3522,7 +3548,7 @@ func (o AzureSqlProtectedItemExtendedInfoResponseOutput) ToAzureSqlProtectedItem
 }
 
 func (o AzureSqlProtectedItemExtendedInfoResponseOutput) ToAzureSqlProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureSqlProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureSqlProtectedItemExtendedInfoResponse) *AzureSqlProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSqlProtectedItemExtendedInfoResponse) *AzureSqlProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -3558,7 +3584,11 @@ func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) ToAzureSqlProtectedI
 
 func (o AzureSqlProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureSqlProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureSqlProtectedItemExtendedInfoResponse) AzureSqlProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureSqlProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureSqlProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -4183,7 +4213,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) ToAzureVmWorkloadProtect
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) ToAzureVmWorkloadProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *AzureVmWorkloadProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureVmWorkloadProtectedItemExtendedInfo) *AzureVmWorkloadProtectedItemExtendedInfo {
 		return &v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoPtrOutput)
 }
@@ -4218,7 +4248,13 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) ToAzureVmWorkloadProt
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) AzureVmWorkloadProtectedItemExtendedInfo { return *v }).(AzureVmWorkloadProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) AzureVmWorkloadProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AzureVmWorkloadProtectedItemExtendedInfo
+		return ret
+	}).(AzureVmWorkloadProtectedItemExtendedInfoOutput)
 }
 
 // The oldest backup copy available for this backup item.
@@ -4355,7 +4391,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ToAzureVmWorkloa
 }
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) ToAzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureVmWorkloadProtectedItemExtendedInfoResponse) *AzureVmWorkloadProtectedItemExtendedInfoResponse {
 		return &v
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -4391,7 +4427,11 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) ToAzureVmWork
 
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) Elem() AzureVmWorkloadProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) AzureVmWorkloadProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureVmWorkloadProtectedItemExtendedInfoResponse
+		return ret
 	}).(AzureVmWorkloadProtectedItemExtendedInfoResponseOutput)
 }
 
@@ -6853,7 +6893,7 @@ func (o DPMProtectedItemExtendedInfoOutput) ToDPMProtectedItemExtendedInfoPtrOut
 }
 
 func (o DPMProtectedItemExtendedInfoOutput) ToDPMProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v DPMProtectedItemExtendedInfo) *DPMProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMProtectedItemExtendedInfo) *DPMProtectedItemExtendedInfo {
 		return &v
 	}).(DPMProtectedItemExtendedInfoPtrOutput)
 }
@@ -6943,7 +6983,13 @@ func (o DPMProtectedItemExtendedInfoPtrOutput) ToDPMProtectedItemExtendedInfoPtr
 }
 
 func (o DPMProtectedItemExtendedInfoPtrOutput) Elem() DPMProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) DPMProtectedItemExtendedInfo { return *v }).(DPMProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfo) DPMProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret DPMProtectedItemExtendedInfo
+		return ret
+	}).(DPMProtectedItemExtendedInfoOutput)
 }
 
 // Used Disk storage in bytes.
@@ -7234,7 +7280,7 @@ func (o DPMProtectedItemExtendedInfoResponseOutput) ToDPMProtectedItemExtendedIn
 }
 
 func (o DPMProtectedItemExtendedInfoResponseOutput) ToDPMProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) DPMProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v DPMProtectedItemExtendedInfoResponse) *DPMProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DPMProtectedItemExtendedInfoResponse) *DPMProtectedItemExtendedInfoResponse {
 		return &v
 	}).(DPMProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -7324,7 +7370,13 @@ func (o DPMProtectedItemExtendedInfoResponsePtrOutput) ToDPMProtectedItemExtende
 }
 
 func (o DPMProtectedItemExtendedInfoResponsePtrOutput) Elem() DPMProtectedItemExtendedInfoResponseOutput {
-	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) DPMProtectedItemExtendedInfoResponse { return *v }).(DPMProtectedItemExtendedInfoResponseOutput)
+	return o.ApplyT(func(v *DPMProtectedItemExtendedInfoResponse) DPMProtectedItemExtendedInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DPMProtectedItemExtendedInfoResponse
+		return ret
+	}).(DPMProtectedItemExtendedInfoResponseOutput)
 }
 
 // Used Disk storage in bytes.
@@ -7775,7 +7827,7 @@ func (o DiskExclusionPropertiesOutput) ToDiskExclusionPropertiesPtrOutput() Disk
 }
 
 func (o DiskExclusionPropertiesOutput) ToDiskExclusionPropertiesPtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesPtrOutput {
-	return o.ApplyT(func(v DiskExclusionProperties) *DiskExclusionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskExclusionProperties) *DiskExclusionProperties {
 		return &v
 	}).(DiskExclusionPropertiesPtrOutput)
 }
@@ -7805,7 +7857,13 @@ func (o DiskExclusionPropertiesPtrOutput) ToDiskExclusionPropertiesPtrOutputWith
 }
 
 func (o DiskExclusionPropertiesPtrOutput) Elem() DiskExclusionPropertiesOutput {
-	return o.ApplyT(func(v *DiskExclusionProperties) DiskExclusionProperties { return *v }).(DiskExclusionPropertiesOutput)
+	return o.ApplyT(func(v *DiskExclusionProperties) DiskExclusionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DiskExclusionProperties
+		return ret
+	}).(DiskExclusionPropertiesOutput)
 }
 
 // List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
@@ -7925,7 +7983,7 @@ func (o DiskExclusionPropertiesResponseOutput) ToDiskExclusionPropertiesResponse
 }
 
 func (o DiskExclusionPropertiesResponseOutput) ToDiskExclusionPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskExclusionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DiskExclusionPropertiesResponse) *DiskExclusionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskExclusionPropertiesResponse) *DiskExclusionPropertiesResponse {
 		return &v
 	}).(DiskExclusionPropertiesResponsePtrOutput)
 }
@@ -7955,7 +8013,13 @@ func (o DiskExclusionPropertiesResponsePtrOutput) ToDiskExclusionPropertiesRespo
 }
 
 func (o DiskExclusionPropertiesResponsePtrOutput) Elem() DiskExclusionPropertiesResponseOutput {
-	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) DiskExclusionPropertiesResponse { return *v }).(DiskExclusionPropertiesResponseOutput)
+	return o.ApplyT(func(v *DiskExclusionPropertiesResponse) DiskExclusionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiskExclusionPropertiesResponse
+		return ret
+	}).(DiskExclusionPropertiesResponseOutput)
 }
 
 // List of Disks' Logical Unit Numbers (LUN) to be used for VM Protection.
@@ -8082,7 +8146,7 @@ func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutput() ErrorDetailR
 }
 
 func (o ErrorDetailResponseOutput) ToErrorDetailResponsePtrOutputWithContext(ctx context.Context) ErrorDetailResponsePtrOutput {
-	return o.ApplyT(func(v ErrorDetailResponse) *ErrorDetailResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailResponse) *ErrorDetailResponse {
 		return &v
 	}).(ErrorDetailResponsePtrOutput)
 }
@@ -8117,7 +8181,13 @@ func (o ErrorDetailResponsePtrOutput) ToErrorDetailResponsePtrOutputWithContext(
 }
 
 func (o ErrorDetailResponsePtrOutput) Elem() ErrorDetailResponseOutput {
-	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse { return *v }).(ErrorDetailResponseOutput)
+	return o.ApplyT(func(v *ErrorDetailResponse) ErrorDetailResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorDetailResponse
+		return ret
+	}).(ErrorDetailResponseOutput)
 }
 
 // Error code.
@@ -8246,7 +8316,7 @@ func (o ExtendedPropertiesOutput) ToExtendedPropertiesPtrOutput() ExtendedProper
 }
 
 func (o ExtendedPropertiesOutput) ToExtendedPropertiesPtrOutputWithContext(ctx context.Context) ExtendedPropertiesPtrOutput {
-	return o.ApplyT(func(v ExtendedProperties) *ExtendedProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedProperties) *ExtendedProperties {
 		return &v
 	}).(ExtendedPropertiesPtrOutput)
 }
@@ -8271,7 +8341,13 @@ func (o ExtendedPropertiesPtrOutput) ToExtendedPropertiesPtrOutputWithContext(ct
 }
 
 func (o ExtendedPropertiesPtrOutput) Elem() ExtendedPropertiesOutput {
-	return o.ApplyT(func(v *ExtendedProperties) ExtendedProperties { return *v }).(ExtendedPropertiesOutput)
+	return o.ApplyT(func(v *ExtendedProperties) ExtendedProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedProperties
+		return ret
+	}).(ExtendedPropertiesOutput)
 }
 
 // Extended Properties for Disk Exclusion.
@@ -8380,7 +8456,7 @@ func (o ExtendedPropertiesResponseOutput) ToExtendedPropertiesResponsePtrOutput(
 }
 
 func (o ExtendedPropertiesResponseOutput) ToExtendedPropertiesResponsePtrOutputWithContext(ctx context.Context) ExtendedPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ExtendedPropertiesResponse) *ExtendedPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedPropertiesResponse) *ExtendedPropertiesResponse {
 		return &v
 	}).(ExtendedPropertiesResponsePtrOutput)
 }
@@ -8405,7 +8481,13 @@ func (o ExtendedPropertiesResponsePtrOutput) ToExtendedPropertiesResponsePtrOutp
 }
 
 func (o ExtendedPropertiesResponsePtrOutput) Elem() ExtendedPropertiesResponseOutput {
-	return o.ApplyT(func(v *ExtendedPropertiesResponse) ExtendedPropertiesResponse { return *v }).(ExtendedPropertiesResponseOutput)
+	return o.ApplyT(func(v *ExtendedPropertiesResponse) ExtendedPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExtendedPropertiesResponse
+		return ret
+	}).(ExtendedPropertiesResponseOutput)
 }
 
 // Extended Properties for Disk Exclusion.
@@ -9429,7 +9511,7 @@ func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedIt
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoOutput) ToMabFileFolderProtectedItemExtendedInfoPtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoPtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfo) *MabFileFolderProtectedItemExtendedInfo {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoPtrOutput)
 }
@@ -9464,7 +9546,13 @@ func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) ToMabFileFolderProtecte
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoPtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoOutput {
-	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo { return *v }).(MabFileFolderProtectedItemExtendedInfoOutput)
+	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfo) MabFileFolderProtectedItemExtendedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret MabFileFolderProtectedItemExtendedInfo
+		return ret
+	}).(MabFileFolderProtectedItemExtendedInfoOutput)
 }
 
 // Last time when the agent data synced to service.
@@ -9601,7 +9689,7 @@ func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) ToMabFileFolderPro
 }
 
 func (o MabFileFolderProtectedItemExtendedInfoResponseOutput) ToMabFileFolderProtectedItemExtendedInfoResponsePtrOutputWithContext(ctx context.Context) MabFileFolderProtectedItemExtendedInfoResponsePtrOutput {
-	return o.ApplyT(func(v MabFileFolderProtectedItemExtendedInfoResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MabFileFolderProtectedItemExtendedInfoResponse) *MabFileFolderProtectedItemExtendedInfoResponse {
 		return &v
 	}).(MabFileFolderProtectedItemExtendedInfoResponsePtrOutput)
 }
@@ -9637,7 +9725,11 @@ func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) ToMabFileFolder
 
 func (o MabFileFolderProtectedItemExtendedInfoResponsePtrOutput) Elem() MabFileFolderProtectedItemExtendedInfoResponseOutput {
 	return o.ApplyT(func(v *MabFileFolderProtectedItemExtendedInfoResponse) MabFileFolderProtectedItemExtendedInfoResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MabFileFolderProtectedItemExtendedInfoResponse
+		return ret
 	}).(MabFileFolderProtectedItemExtendedInfoResponseOutput)
 }
 

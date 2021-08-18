@@ -62,17 +62,9 @@ func GetIngestionSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IngestionSetting resources.
 type ingestionSettingState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type IngestionSettingState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (IngestionSettingState) ElementType() reflect.Type {
@@ -113,9 +105,7 @@ func (i *IngestionSetting) ToIngestionSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IngestionSettingOutput)
 }
 
-type IngestionSettingOutput struct {
-	*pulumi.OutputState
-}
+type IngestionSettingOutput struct{ *pulumi.OutputState }
 
 func (IngestionSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IngestionSetting)(nil))

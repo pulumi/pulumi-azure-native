@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// Reference to the model asset for the endpoint deployment.
         /// </summary>
         [Input("model")]
-        public Input<object>? Model { get; set; }
+        public object? Model { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;

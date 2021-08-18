@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Billing.V20191001Preview.Outputs
 {
 
+    /// <summary>
+    /// Details of the Azure plan.
+    /// </summary>
     [OutputType]
     public sealed class AzurePlanResponse
     {

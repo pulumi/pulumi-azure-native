@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180416.Outputs
 {
 
+    /// <summary>
+    /// The condition that results in the Log Search rule.
+    /// </summary>
     [OutputType]
     public sealed class TriggerConditionResponse
     {

@@ -99,37 +99,9 @@ func GetGetbot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Getbot resources.
 type getbotState struct {
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The set of properties specific to healthcare bot resource.
-	Properties *HealthBotPropertiesResponse `pulumi:"properties"`
-	// SKU of the HealthBot.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type GetbotState struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The set of properties specific to healthcare bot resource.
-	Properties HealthBotPropertiesResponsePtrInput
-	// SKU of the HealthBot.
-	Sku SkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (GetbotState) ElementType() reflect.Type {
@@ -186,9 +158,7 @@ func (i *Getbot) ToGetbotOutputWithContext(ctx context.Context) GetbotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetbotOutput)
 }
 
-type GetbotOutput struct {
-	*pulumi.OutputState
-}
+type GetbotOutput struct{ *pulumi.OutputState }
 
 func (GetbotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Getbot)(nil))

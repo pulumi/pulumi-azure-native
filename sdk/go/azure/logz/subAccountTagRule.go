@@ -82,25 +82,9 @@ func GetSubAccountTagRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SubAccountTagRule resources.
 type subAccountTagRuleState struct {
-	// Name of the rule set.
-	Name *string `pulumi:"name"`
-	// Definition of the properties for a TagRules resource.
-	Properties *MonitoringTagRulesPropertiesResponse `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the rule set.
-	Type *string `pulumi:"type"`
 }
 
 type SubAccountTagRuleState struct {
-	// Name of the rule set.
-	Name pulumi.StringPtrInput
-	// Definition of the properties for a TagRules resource.
-	Properties MonitoringTagRulesPropertiesResponsePtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// The type of the rule set.
-	Type pulumi.StringPtrInput
 }
 
 func (SubAccountTagRuleState) ElementType() reflect.Type {
@@ -155,9 +139,7 @@ func (i *SubAccountTagRule) ToSubAccountTagRuleOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SubAccountTagRuleOutput)
 }
 
-type SubAccountTagRuleOutput struct {
-	*pulumi.OutputState
-}
+type SubAccountTagRuleOutput struct{ *pulumi.OutputState }
 
 func (SubAccountTagRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SubAccountTagRule)(nil))

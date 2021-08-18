@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// The delegated subnet arguments for a server group.
+    /// </summary>
     [OutputType]
     public sealed class ServerGroupPropertiesResponseDelegatedSubnetArguments
     {

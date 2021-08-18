@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Class to specify properties of default content key for each encryption scheme
+    /// </summary>
     [OutputType]
     public sealed class DefaultKeyResponse
     {

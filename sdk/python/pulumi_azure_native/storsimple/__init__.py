@@ -34,8 +34,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storsimple.v20161001 as v20161001
-    import pulumi_azure_native.storsimple.v20170601 as v20170601
+    import pulumi_azure_native.storsimple.v20161001 as __v20161001
+    v20161001 = __v20161001
+    import pulumi_azure_native.storsimple.v20170601 as __v20170601
+    v20170601 = __v20170601
 else:
     v20161001 = _utilities.lazy_import('pulumi_azure_native.storsimple.v20161001')
     v20170601 = _utilities.lazy_import('pulumi_azure_native.storsimple.v20170601')

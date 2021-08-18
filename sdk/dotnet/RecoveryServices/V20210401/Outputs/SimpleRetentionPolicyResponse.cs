@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Simple policy retention.
+    /// </summary>
     [OutputType]
     public sealed class SimpleRetentionPolicyResponse
     {

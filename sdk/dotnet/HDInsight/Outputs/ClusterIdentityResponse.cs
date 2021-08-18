@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// Identity for the cluster.
+    /// </summary>
     [OutputType]
     public sealed class ClusterIdentityResponse
     {

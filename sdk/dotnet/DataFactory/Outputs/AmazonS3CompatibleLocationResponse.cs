@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The location of Amazon S3 Compatible dataset.
+    /// </summary>
     [OutputType]
     public sealed class AmazonS3CompatibleLocationResponse
     {

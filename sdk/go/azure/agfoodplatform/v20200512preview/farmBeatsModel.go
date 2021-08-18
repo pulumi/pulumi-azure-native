@@ -75,37 +75,9 @@ func GetFarmBeatsModel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FarmBeatsModel resources.
 type farmBeatsModelState struct {
-	// Uri of the FarmBeats instance.
-	InstanceUri *string `pulumi:"instanceUri"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// FarmBeats instance provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type FarmBeatsModelState struct {
-	// Uri of the FarmBeats instance.
-	InstanceUri pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// FarmBeats instance provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (FarmBeatsModelState) ElementType() reflect.Type {
@@ -158,9 +130,7 @@ func (i *FarmBeatsModel) ToFarmBeatsModelOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FarmBeatsModelOutput)
 }
 
-type FarmBeatsModelOutput struct {
-	*pulumi.OutputState
-}
+type FarmBeatsModelOutput struct{ *pulumi.OutputState }
 
 func (FarmBeatsModelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FarmBeatsModel)(nil))

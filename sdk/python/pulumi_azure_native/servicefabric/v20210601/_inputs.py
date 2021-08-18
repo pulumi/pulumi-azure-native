@@ -31,10 +31,10 @@ __all__ = [
     'ManagedIdentityArgs',
     'NamedPartitionSchemeDescriptionArgs',
     'NodeTypeDescriptionArgs',
-    'NotificationArgs',
     'NotificationTargetArgs',
-    'ServerCertificateCommonNameArgs',
+    'NotificationArgs',
     'ServerCertificateCommonNamesArgs',
+    'ServerCertificateCommonNameArgs',
     'ServiceCorrelationDescriptionArgs',
     'ServiceLoadMetricDescriptionArgs',
     'ServicePlacementPolicyDescriptionArgs',
@@ -1601,6 +1601,44 @@ class NodeTypeDescriptionArgs:
 
 
 @pulumi.input_type
+class NotificationTargetArgs:
+    def __init__(__self__, *,
+                 notification_channel: pulumi.Input[Union[str, 'NotificationChannel']],
+                 receivers: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Describes the notification target properties.
+        :param pulumi.Input[Union[str, 'NotificationChannel']] notification_channel: The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] receivers: List of targets that subscribe to the notification.
+        """
+        pulumi.set(__self__, "notification_channel", notification_channel)
+        pulumi.set(__self__, "receivers", receivers)
+
+    @property
+    @pulumi.getter(name="notificationChannel")
+    def notification_channel(self) -> pulumi.Input[Union[str, 'NotificationChannel']]:
+        """
+        The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
+        """
+        return pulumi.get(self, "notification_channel")
+
+    @notification_channel.setter
+    def notification_channel(self, value: pulumi.Input[Union[str, 'NotificationChannel']]):
+        pulumi.set(self, "notification_channel", value)
+
+    @property
+    @pulumi.getter
+    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of targets that subscribe to the notification.
+        """
+        return pulumi.get(self, "receivers")
+
+    @receivers.setter
+    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "receivers", value)
+
+
+@pulumi.input_type
 class NotificationArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
@@ -1669,41 +1707,43 @@ class NotificationArgs:
 
 
 @pulumi.input_type
-class NotificationTargetArgs:
+class ServerCertificateCommonNamesArgs:
     def __init__(__self__, *,
-                 notification_channel: pulumi.Input[Union[str, 'NotificationChannel']],
-                 receivers: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 common_names: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]] = None,
+                 x509_store_name: Optional[pulumi.Input[str]] = None):
         """
-        Describes the notification target properties.
-        :param pulumi.Input[Union[str, 'NotificationChannel']] notification_channel: The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] receivers: List of targets that subscribe to the notification.
+        Describes a list of server certificates referenced by common name that are used to secure the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
+        :param pulumi.Input[str] x509_store_name: The local certificate store location.
         """
-        pulumi.set(__self__, "notification_channel", notification_channel)
-        pulumi.set(__self__, "receivers", receivers)
+        if common_names is not None:
+            pulumi.set(__self__, "common_names", common_names)
+        if x509_store_name is not None:
+            pulumi.set(__self__, "x509_store_name", x509_store_name)
 
     @property
-    @pulumi.getter(name="notificationChannel")
-    def notification_channel(self) -> pulumi.Input[Union[str, 'NotificationChannel']]:
+    @pulumi.getter(name="commonNames")
+    def common_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]]:
         """
-        The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
+        The list of server certificates referenced by common name that are used to secure the cluster.
         """
-        return pulumi.get(self, "notification_channel")
+        return pulumi.get(self, "common_names")
 
-    @notification_channel.setter
-    def notification_channel(self, value: pulumi.Input[Union[str, 'NotificationChannel']]):
-        pulumi.set(self, "notification_channel", value)
+    @common_names.setter
+    def common_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]]):
+        pulumi.set(self, "common_names", value)
 
     @property
-    @pulumi.getter
-    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    @pulumi.getter(name="x509StoreName")
+    def x509_store_name(self) -> Optional[pulumi.Input[str]]:
         """
-        List of targets that subscribe to the notification.
+        The local certificate store location.
         """
-        return pulumi.get(self, "receivers")
+        return pulumi.get(self, "x509_store_name")
 
-    @receivers.setter
-    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "receivers", value)
+    @x509_store_name.setter
+    def x509_store_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "x509_store_name", value)
 
 
 @pulumi.input_type
@@ -1742,46 +1782,6 @@ class ServerCertificateCommonNameArgs:
     @certificate_issuer_thumbprint.setter
     def certificate_issuer_thumbprint(self, value: pulumi.Input[str]):
         pulumi.set(self, "certificate_issuer_thumbprint", value)
-
-
-@pulumi.input_type
-class ServerCertificateCommonNamesArgs:
-    def __init__(__self__, *,
-                 common_names: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]] = None,
-                 x509_store_name: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a list of server certificates referenced by common name that are used to secure the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]] common_names: The list of server certificates referenced by common name that are used to secure the cluster.
-        :param pulumi.Input[str] x509_store_name: The local certificate store location.
-        """
-        if common_names is not None:
-            pulumi.set(__self__, "common_names", common_names)
-        if x509_store_name is not None:
-            pulumi.set(__self__, "x509_store_name", x509_store_name)
-
-    @property
-    @pulumi.getter(name="commonNames")
-    def common_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]]:
-        """
-        The list of server certificates referenced by common name that are used to secure the cluster.
-        """
-        return pulumi.get(self, "common_names")
-
-    @common_names.setter
-    def common_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerCertificateCommonNameArgs']]]]):
-        pulumi.set(self, "common_names", value)
-
-    @property
-    @pulumi.getter(name="x509StoreName")
-    def x509_store_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The local certificate store location.
-        """
-        return pulumi.get(self, "x509_store_name")
-
-    @x509_store_name.setter
-    def x509_store_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "x509_store_name", value)
 
 
 @pulumi.input_type

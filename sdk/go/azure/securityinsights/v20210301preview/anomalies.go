@@ -90,35 +90,9 @@ func GetAnomalies(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Anomalies resources.
 type anomaliesState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// The kind of the setting
-	// Expected value is 'Anomalies'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type AnomaliesState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Determines whether the setting is enable or disabled.
-	IsEnabled pulumi.BoolPtrInput
-	// The kind of the setting
-	// Expected value is 'Anomalies'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (AnomaliesState) ElementType() reflect.Type {
@@ -181,9 +155,7 @@ func (i *Anomalies) ToAnomaliesOutputWithContext(ctx context.Context) AnomaliesO
 	return pulumi.ToOutputWithContext(ctx, i).(AnomaliesOutput)
 }
 
-type AnomaliesOutput struct {
-	*pulumi.OutputState
-}
+type AnomaliesOutput struct{ *pulumi.OutputState }
 
 func (AnomaliesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Anomalies)(nil))

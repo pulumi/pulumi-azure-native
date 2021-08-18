@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20190801.Outputs
 {
 
+    /// <summary>
+    /// The status of the last successful slot swap operation.
+    /// </summary>
     [OutputType]
     public sealed class SlotSwapStatusResponse
     {

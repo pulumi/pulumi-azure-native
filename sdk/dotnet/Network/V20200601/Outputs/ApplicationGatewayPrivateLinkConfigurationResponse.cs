@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Private Link Configuration on an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayPrivateLinkConfigurationResponse
     {

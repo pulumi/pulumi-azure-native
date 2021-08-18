@@ -111,7 +111,7 @@ func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesRe
 }
 
 func (o PolicyAssignmentPropertiesResponseOutput) ToPolicyAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponse) *PolicyAssignmentPropertiesResponse {
 		return &v
 	}).(PolicyAssignmentPropertiesResponsePtrOutput)
 }
@@ -148,7 +148,13 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) ToPolicyAssignmentPropertie
 }
 
 func (o PolicyAssignmentPropertiesResponsePtrOutput) Elem() PolicyAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) PolicyAssignmentPropertiesResponse { return *v }).(PolicyAssignmentPropertiesResponseOutput)
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponse) PolicyAssignmentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponse
+		return ret
+	}).(PolicyAssignmentPropertiesResponseOutput)
 }
 
 // Details of the policy
@@ -285,7 +291,7 @@ func (o PolicyAssignmentPropertiesResponsePolicyOutput) ToPolicyAssignmentProper
 }
 
 func (o PolicyAssignmentPropertiesResponsePolicyOutput) ToPolicyAssignmentPropertiesResponsePolicyPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponsePolicyPtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponsePolicy) *PolicyAssignmentPropertiesResponsePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponsePolicy) *PolicyAssignmentPropertiesResponsePolicy {
 		return &v
 	}).(PolicyAssignmentPropertiesResponsePolicyPtrOutput)
 }
@@ -320,7 +326,13 @@ func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) ToPolicyAssignmentPro
 }
 
 func (o PolicyAssignmentPropertiesResponsePolicyPtrOutput) Elem() PolicyAssignmentPropertiesResponsePolicyOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) PolicyAssignmentPropertiesResponsePolicy { return *v }).(PolicyAssignmentPropertiesResponsePolicyOutput)
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponsePolicy) PolicyAssignmentPropertiesResponsePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponsePolicy
+		return ret
+	}).(PolicyAssignmentPropertiesResponsePolicyOutput)
 }
 
 // Id of the policy
@@ -457,7 +469,7 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) ToPolicyAssignme
 }
 
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionOutput) ToPolicyAssignmentPropertiesResponseRoleDefinitionPtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseRoleDefinition) *PolicyAssignmentPropertiesResponseRoleDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponseRoleDefinition) *PolicyAssignmentPropertiesResponseRoleDefinition {
 		return &v
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput)
 }
@@ -493,7 +505,11 @@ func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) ToPolicyAssig
 
 func (o PolicyAssignmentPropertiesResponseRoleDefinitionPtrOutput) Elem() PolicyAssignmentPropertiesResponseRoleDefinitionOutput {
 	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseRoleDefinition) PolicyAssignmentPropertiesResponseRoleDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponseRoleDefinition
+		return ret
 	}).(PolicyAssignmentPropertiesResponseRoleDefinitionOutput)
 }
 
@@ -631,7 +647,7 @@ func (o PolicyAssignmentPropertiesResponseScopeOutput) ToPolicyAssignmentPropert
 }
 
 func (o PolicyAssignmentPropertiesResponseScopeOutput) ToPolicyAssignmentPropertiesResponseScopePtrOutputWithContext(ctx context.Context) PolicyAssignmentPropertiesResponseScopePtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentPropertiesResponseScope) *PolicyAssignmentPropertiesResponseScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAssignmentPropertiesResponseScope) *PolicyAssignmentPropertiesResponseScope {
 		return &v
 	}).(PolicyAssignmentPropertiesResponseScopePtrOutput)
 }
@@ -666,7 +682,13 @@ func (o PolicyAssignmentPropertiesResponseScopePtrOutput) ToPolicyAssignmentProp
 }
 
 func (o PolicyAssignmentPropertiesResponseScopePtrOutput) Elem() PolicyAssignmentPropertiesResponseScopeOutput {
-	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) PolicyAssignmentPropertiesResponseScope { return *v }).(PolicyAssignmentPropertiesResponseScopeOutput)
+	return o.ApplyT(func(v *PolicyAssignmentPropertiesResponseScope) PolicyAssignmentPropertiesResponseScope {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAssignmentPropertiesResponseScope
+		return ret
+	}).(PolicyAssignmentPropertiesResponseScopeOutput)
 }
 
 // Display name of the resource
@@ -807,7 +829,7 @@ func (o PrincipalResponseOutput) ToPrincipalResponsePtrOutput() PrincipalRespons
 }
 
 func (o PrincipalResponseOutput) ToPrincipalResponsePtrOutputWithContext(ctx context.Context) PrincipalResponsePtrOutput {
-	return o.ApplyT(func(v PrincipalResponse) *PrincipalResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalResponse) *PrincipalResponse {
 		return &v
 	}).(PrincipalResponsePtrOutput)
 }
@@ -847,7 +869,13 @@ func (o PrincipalResponsePtrOutput) ToPrincipalResponsePtrOutputWithContext(ctx 
 }
 
 func (o PrincipalResponsePtrOutput) Elem() PrincipalResponseOutput {
-	return o.ApplyT(func(v *PrincipalResponse) PrincipalResponse { return *v }).(PrincipalResponseOutput)
+	return o.ApplyT(func(v *PrincipalResponse) PrincipalResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalResponse
+		return ret
+	}).(PrincipalResponseOutput)
 }
 
 // The name of the principal made changes

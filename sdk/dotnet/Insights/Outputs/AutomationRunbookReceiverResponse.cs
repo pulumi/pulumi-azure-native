@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// The Azure Automation Runbook notification receiver.
+    /// </summary>
     [OutputType]
     public sealed class AutomationRunbookReceiverResponse
     {

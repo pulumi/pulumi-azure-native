@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Parameter definition for a module asset.
+    /// </summary>
     [OutputType]
     public sealed class ModuleAssetParameterResponse
     {

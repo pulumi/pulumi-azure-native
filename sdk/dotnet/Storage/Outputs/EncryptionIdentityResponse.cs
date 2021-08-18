@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
+    /// <summary>
+    /// Encryption identity for the storage account.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionIdentityResponse
     {

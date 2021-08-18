@@ -106,7 +106,7 @@ func (o CustomProfileOutput) ToCustomProfilePtrOutput() CustomProfilePtrOutput {
 }
 
 func (o CustomProfileOutput) ToCustomProfilePtrOutputWithContext(ctx context.Context) CustomProfilePtrOutput {
-	return o.ApplyT(func(v CustomProfile) *CustomProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomProfile) *CustomProfile {
 		return &v
 	}).(CustomProfilePtrOutput)
 }
@@ -131,7 +131,13 @@ func (o CustomProfilePtrOutput) ToCustomProfilePtrOutputWithContext(ctx context.
 }
 
 func (o CustomProfilePtrOutput) Elem() CustomProfileOutput {
-	return o.ApplyT(func(v *CustomProfile) CustomProfile { return *v }).(CustomProfileOutput)
+	return o.ApplyT(func(v *CustomProfile) CustomProfile {
+		if v != nil {
+			return *v
+		}
+		var ret CustomProfile
+		return ret
+	}).(CustomProfileOutput)
 }
 
 // Path for metadata configuration.
@@ -240,7 +246,7 @@ func (o CustomProfileResponseOutput) ToCustomProfileResponsePtrOutput() CustomPr
 }
 
 func (o CustomProfileResponseOutput) ToCustomProfileResponsePtrOutputWithContext(ctx context.Context) CustomProfileResponsePtrOutput {
-	return o.ApplyT(func(v CustomProfileResponse) *CustomProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomProfileResponse) *CustomProfileResponse {
 		return &v
 	}).(CustomProfileResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o CustomProfileResponsePtrOutput) ToCustomProfileResponsePtrOutputWithCont
 }
 
 func (o CustomProfileResponsePtrOutput) Elem() CustomProfileResponseOutput {
-	return o.ApplyT(func(v *CustomProfileResponse) CustomProfileResponse { return *v }).(CustomProfileResponseOutput)
+	return o.ApplyT(func(v *CustomProfileResponse) CustomProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomProfileResponse
+		return ret
+	}).(CustomProfileResponseOutput)
 }
 
 // Path for metadata configuration.
@@ -626,7 +638,7 @@ func (o ImageReferenceOutput) ToImageReferencePtrOutput() ImageReferencePtrOutpu
 }
 
 func (o ImageReferenceOutput) ToImageReferencePtrOutputWithContext(ctx context.Context) ImageReferencePtrOutput {
-	return o.ApplyT(func(v ImageReference) *ImageReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageReference) *ImageReference {
 		return &v
 	}).(ImageReferencePtrOutput)
 }
@@ -671,7 +683,13 @@ func (o ImageReferencePtrOutput) ToImageReferencePtrOutputWithContext(ctx contex
 }
 
 func (o ImageReferencePtrOutput) Elem() ImageReferenceOutput {
-	return o.ApplyT(func(v *ImageReference) ImageReference { return *v }).(ImageReferenceOutput)
+	return o.ApplyT(func(v *ImageReference) ImageReference {
+		if v != nil {
+			return *v
+		}
+		var ret ImageReference
+		return ret
+	}).(ImageReferenceOutput)
 }
 
 // Specifies in decimal numbers, the exact version of image used to create the virtual machine.
@@ -836,7 +854,7 @@ func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutput() ImageR
 }
 
 func (o ImageReferenceResponseOutput) ToImageReferenceResponsePtrOutputWithContext(ctx context.Context) ImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ImageReferenceResponse) *ImageReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageReferenceResponse) *ImageReferenceResponse {
 		return &v
 	}).(ImageReferenceResponsePtrOutput)
 }
@@ -881,7 +899,13 @@ func (o ImageReferenceResponsePtrOutput) ToImageReferenceResponsePtrOutputWithCo
 }
 
 func (o ImageReferenceResponsePtrOutput) Elem() ImageReferenceResponseOutput {
-	return o.ApplyT(func(v *ImageReferenceResponse) ImageReferenceResponse { return *v }).(ImageReferenceResponseOutput)
+	return o.ApplyT(func(v *ImageReferenceResponse) ImageReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageReferenceResponse
+		return ret
+	}).(ImageReferenceResponseOutput)
 }
 
 // Specifies in decimal numbers, the exact version of image used to create the virtual machine.
@@ -1030,7 +1054,7 @@ func (o LinuxConfigurationOutput) ToLinuxConfigurationPtrOutput() LinuxConfigura
 }
 
 func (o LinuxConfigurationOutput) ToLinuxConfigurationPtrOutputWithContext(ctx context.Context) LinuxConfigurationPtrOutput {
-	return o.ApplyT(func(v LinuxConfiguration) *LinuxConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxConfiguration) *LinuxConfiguration {
 		return &v
 	}).(LinuxConfigurationPtrOutput)
 }
@@ -1055,7 +1079,13 @@ func (o LinuxConfigurationPtrOutput) ToLinuxConfigurationPtrOutputWithContext(ct
 }
 
 func (o LinuxConfigurationPtrOutput) Elem() LinuxConfigurationOutput {
-	return o.ApplyT(func(v *LinuxConfiguration) LinuxConfiguration { return *v }).(LinuxConfigurationOutput)
+	return o.ApplyT(func(v *LinuxConfiguration) LinuxConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxConfiguration
+		return ret
+	}).(LinuxConfigurationOutput)
 }
 
 // Specifies the ssh key configuration for a Linux OS.
@@ -1164,7 +1194,7 @@ func (o LinuxConfigurationResponseOutput) ToLinuxConfigurationResponsePtrOutput(
 }
 
 func (o LinuxConfigurationResponseOutput) ToLinuxConfigurationResponsePtrOutputWithContext(ctx context.Context) LinuxConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v LinuxConfigurationResponse) *LinuxConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxConfigurationResponse) *LinuxConfigurationResponse {
 		return &v
 	}).(LinuxConfigurationResponsePtrOutput)
 }
@@ -1189,7 +1219,13 @@ func (o LinuxConfigurationResponsePtrOutput) ToLinuxConfigurationResponsePtrOutp
 }
 
 func (o LinuxConfigurationResponsePtrOutput) Elem() LinuxConfigurationResponseOutput {
-	return o.ApplyT(func(v *LinuxConfigurationResponse) LinuxConfigurationResponse { return *v }).(LinuxConfigurationResponseOutput)
+	return o.ApplyT(func(v *LinuxConfigurationResponse) LinuxConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxConfigurationResponse
+		return ret
+	}).(LinuxConfigurationResponseOutput)
 }
 
 // Specifies the ssh key configuration for a Linux OS.
@@ -1644,7 +1680,7 @@ func (o NetworkFunctionTemplateOutput) ToNetworkFunctionTemplatePtrOutput() Netw
 }
 
 func (o NetworkFunctionTemplateOutput) ToNetworkFunctionTemplatePtrOutputWithContext(ctx context.Context) NetworkFunctionTemplatePtrOutput {
-	return o.ApplyT(func(v NetworkFunctionTemplate) *NetworkFunctionTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkFunctionTemplate) *NetworkFunctionTemplate {
 		return &v
 	}).(NetworkFunctionTemplatePtrOutput)
 }
@@ -1671,7 +1707,13 @@ func (o NetworkFunctionTemplatePtrOutput) ToNetworkFunctionTemplatePtrOutputWith
 }
 
 func (o NetworkFunctionTemplatePtrOutput) Elem() NetworkFunctionTemplateOutput {
-	return o.ApplyT(func(v *NetworkFunctionTemplate) NetworkFunctionTemplate { return *v }).(NetworkFunctionTemplateOutput)
+	return o.ApplyT(func(v *NetworkFunctionTemplate) NetworkFunctionTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkFunctionTemplate
+		return ret
+	}).(NetworkFunctionTemplateOutput)
 }
 
 // An array of network function role definitions.
@@ -1780,7 +1822,7 @@ func (o NetworkFunctionTemplateResponseOutput) ToNetworkFunctionTemplateResponse
 }
 
 func (o NetworkFunctionTemplateResponseOutput) ToNetworkFunctionTemplateResponsePtrOutputWithContext(ctx context.Context) NetworkFunctionTemplateResponsePtrOutput {
-	return o.ApplyT(func(v NetworkFunctionTemplateResponse) *NetworkFunctionTemplateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkFunctionTemplateResponse) *NetworkFunctionTemplateResponse {
 		return &v
 	}).(NetworkFunctionTemplateResponsePtrOutput)
 }
@@ -1807,7 +1849,13 @@ func (o NetworkFunctionTemplateResponsePtrOutput) ToNetworkFunctionTemplateRespo
 }
 
 func (o NetworkFunctionTemplateResponsePtrOutput) Elem() NetworkFunctionTemplateResponseOutput {
-	return o.ApplyT(func(v *NetworkFunctionTemplateResponse) NetworkFunctionTemplateResponse { return *v }).(NetworkFunctionTemplateResponseOutput)
+	return o.ApplyT(func(v *NetworkFunctionTemplateResponse) NetworkFunctionTemplateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkFunctionTemplateResponse
+		return ret
+	}).(NetworkFunctionTemplateResponseOutput)
 }
 
 // An array of network function role definitions.
@@ -2045,7 +2093,7 @@ func (o NetworkFunctionUserConfigurationOsProfileOutput) ToNetworkFunctionUserCo
 }
 
 func (o NetworkFunctionUserConfigurationOsProfileOutput) ToNetworkFunctionUserConfigurationOsProfilePtrOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationOsProfilePtrOutput {
-	return o.ApplyT(func(v NetworkFunctionUserConfigurationOsProfile) *NetworkFunctionUserConfigurationOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkFunctionUserConfigurationOsProfile) *NetworkFunctionUserConfigurationOsProfile {
 		return &v
 	}).(NetworkFunctionUserConfigurationOsProfilePtrOutput)
 }
@@ -2071,7 +2119,11 @@ func (o NetworkFunctionUserConfigurationOsProfilePtrOutput) ToNetworkFunctionUse
 
 func (o NetworkFunctionUserConfigurationOsProfilePtrOutput) Elem() NetworkFunctionUserConfigurationOsProfileOutput {
 	return o.ApplyT(func(v *NetworkFunctionUserConfigurationOsProfile) NetworkFunctionUserConfigurationOsProfile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret NetworkFunctionUserConfigurationOsProfile
+		return ret
 	}).(NetworkFunctionUserConfigurationOsProfileOutput)
 }
 
@@ -2312,7 +2364,7 @@ func (o NetworkFunctionUserConfigurationResponseOsProfileOutput) ToNetworkFuncti
 }
 
 func (o NetworkFunctionUserConfigurationResponseOsProfileOutput) ToNetworkFunctionUserConfigurationResponseOsProfilePtrOutputWithContext(ctx context.Context) NetworkFunctionUserConfigurationResponseOsProfilePtrOutput {
-	return o.ApplyT(func(v NetworkFunctionUserConfigurationResponseOsProfile) *NetworkFunctionUserConfigurationResponseOsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkFunctionUserConfigurationResponseOsProfile) *NetworkFunctionUserConfigurationResponseOsProfile {
 		return &v
 	}).(NetworkFunctionUserConfigurationResponseOsProfilePtrOutput)
 }
@@ -2338,7 +2390,11 @@ func (o NetworkFunctionUserConfigurationResponseOsProfilePtrOutput) ToNetworkFun
 
 func (o NetworkFunctionUserConfigurationResponseOsProfilePtrOutput) Elem() NetworkFunctionUserConfigurationResponseOsProfileOutput {
 	return o.ApplyT(func(v *NetworkFunctionUserConfigurationResponseOsProfile) NetworkFunctionUserConfigurationResponseOsProfile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret NetworkFunctionUserConfigurationResponseOsProfile
+		return ret
 	}).(NetworkFunctionUserConfigurationResponseOsProfileOutput)
 }
 
@@ -3004,7 +3060,7 @@ func (o OsDiskOutput) ToOsDiskPtrOutput() OsDiskPtrOutput {
 }
 
 func (o OsDiskOutput) ToOsDiskPtrOutputWithContext(ctx context.Context) OsDiskPtrOutput {
-	return o.ApplyT(func(v OsDisk) *OsDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OsDisk) *OsDisk {
 		return &v
 	}).(OsDiskPtrOutput)
 }
@@ -3044,7 +3100,13 @@ func (o OsDiskPtrOutput) ToOsDiskPtrOutputWithContext(ctx context.Context) OsDis
 }
 
 func (o OsDiskPtrOutput) Elem() OsDiskOutput {
-	return o.ApplyT(func(v *OsDisk) OsDisk { return *v }).(OsDiskOutput)
+	return o.ApplyT(func(v *OsDisk) OsDisk {
+		if v != nil {
+			return *v
+		}
+		var ret OsDisk
+		return ret
+	}).(OsDiskOutput)
 }
 
 // Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
@@ -3191,7 +3253,7 @@ func (o OsDiskResponseOutput) ToOsDiskResponsePtrOutput() OsDiskResponsePtrOutpu
 }
 
 func (o OsDiskResponseOutput) ToOsDiskResponsePtrOutputWithContext(ctx context.Context) OsDiskResponsePtrOutput {
-	return o.ApplyT(func(v OsDiskResponse) *OsDiskResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OsDiskResponse) *OsDiskResponse {
 		return &v
 	}).(OsDiskResponsePtrOutput)
 }
@@ -3226,7 +3288,13 @@ func (o OsDiskResponsePtrOutput) ToOsDiskResponsePtrOutputWithContext(ctx contex
 }
 
 func (o OsDiskResponsePtrOutput) Elem() OsDiskResponseOutput {
-	return o.ApplyT(func(v *OsDiskResponse) OsDiskResponse { return *v }).(OsDiskResponseOutput)
+	return o.ApplyT(func(v *OsDiskResponse) OsDiskResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OsDiskResponse
+		return ret
+	}).(OsDiskResponseOutput)
 }
 
 // Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
@@ -3367,7 +3435,7 @@ func (o OsProfileOutput) ToOsProfilePtrOutput() OsProfilePtrOutput {
 }
 
 func (o OsProfileOutput) ToOsProfilePtrOutputWithContext(ctx context.Context) OsProfilePtrOutput {
-	return o.ApplyT(func(v OsProfile) *OsProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OsProfile) *OsProfile {
 		return &v
 	}).(OsProfilePtrOutput)
 }
@@ -3407,7 +3475,13 @@ func (o OsProfilePtrOutput) ToOsProfilePtrOutputWithContext(ctx context.Context)
 }
 
 func (o OsProfilePtrOutput) Elem() OsProfileOutput {
-	return o.ApplyT(func(v *OsProfile) OsProfile { return *v }).(OsProfileOutput)
+	return o.ApplyT(func(v *OsProfile) OsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OsProfile
+		return ret
+	}).(OsProfileOutput)
 }
 
 // Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -3558,7 +3632,7 @@ func (o OsProfileResponseOutput) ToOsProfileResponsePtrOutput() OsProfileRespons
 }
 
 func (o OsProfileResponseOutput) ToOsProfileResponsePtrOutputWithContext(ctx context.Context) OsProfileResponsePtrOutput {
-	return o.ApplyT(func(v OsProfileResponse) *OsProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OsProfileResponse) *OsProfileResponse {
 		return &v
 	}).(OsProfileResponsePtrOutput)
 }
@@ -3598,7 +3672,13 @@ func (o OsProfileResponsePtrOutput) ToOsProfileResponsePtrOutputWithContext(ctx 
 }
 
 func (o OsProfileResponsePtrOutput) Elem() OsProfileResponseOutput {
-	return o.ApplyT(func(v *OsProfileResponse) OsProfileResponse { return *v }).(OsProfileResponseOutput)
+	return o.ApplyT(func(v *OsProfileResponse) OsProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OsProfileResponse
+		return ret
+	}).(OsProfileResponseOutput)
 }
 
 // Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -3737,7 +3817,7 @@ func (o SshConfigurationOutput) ToSshConfigurationPtrOutput() SshConfigurationPt
 }
 
 func (o SshConfigurationOutput) ToSshConfigurationPtrOutputWithContext(ctx context.Context) SshConfigurationPtrOutput {
-	return o.ApplyT(func(v SshConfiguration) *SshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshConfiguration) *SshConfiguration {
 		return &v
 	}).(SshConfigurationPtrOutput)
 }
@@ -3762,7 +3842,13 @@ func (o SshConfigurationPtrOutput) ToSshConfigurationPtrOutputWithContext(ctx co
 }
 
 func (o SshConfigurationPtrOutput) Elem() SshConfigurationOutput {
-	return o.ApplyT(func(v *SshConfiguration) SshConfiguration { return *v }).(SshConfigurationOutput)
+	return o.ApplyT(func(v *SshConfiguration) SshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SshConfiguration
+		return ret
+	}).(SshConfigurationOutput)
 }
 
 // The list of SSH public keys used to authenticate with linux based VMs.
@@ -3871,7 +3957,7 @@ func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutput() Ss
 }
 
 func (o SshConfigurationResponseOutput) ToSshConfigurationResponsePtrOutputWithContext(ctx context.Context) SshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v SshConfigurationResponse) *SshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshConfigurationResponse) *SshConfigurationResponse {
 		return &v
 	}).(SshConfigurationResponsePtrOutput)
 }
@@ -3896,7 +3982,13 @@ func (o SshConfigurationResponsePtrOutput) ToSshConfigurationResponsePtrOutputWi
 }
 
 func (o SshConfigurationResponsePtrOutput) Elem() SshConfigurationResponseOutput {
-	return o.ApplyT(func(v *SshConfigurationResponse) SshConfigurationResponse { return *v }).(SshConfigurationResponseOutput)
+	return o.ApplyT(func(v *SshConfigurationResponse) SshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SshConfigurationResponse
+		return ret
+	}).(SshConfigurationResponseOutput)
 }
 
 // The list of SSH public keys used to authenticate with linux based VMs.
@@ -4231,7 +4323,7 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyT(func(v StorageProfile) *StorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
@@ -4266,7 +4358,13 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfile
+		return ret
+	}).(StorageProfileOutput)
 }
 
 // Specifies the parameters that are used to add a data disk to a virtual machine.
@@ -4403,7 +4501,7 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
@@ -4438,7 +4536,13 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfileResponse
+		return ret
+	}).(StorageProfileResponseOutput)
 }
 
 // Specifies the parameters that are used to add a data disk to a virtual machine.
@@ -4567,7 +4671,7 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyT(func(v SubResource) *SubResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
@@ -4592,7 +4696,13 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource {
+		if v != nil {
+			return *v
+		}
+		var ret SubResource
+		return ret
+	}).(SubResourceOutput)
 }
 
 // Resource ID.
@@ -4726,7 +4836,7 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
@@ -4751,7 +4861,13 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubResourceResponse
+		return ret
+	}).(SubResourceResponseOutput)
 }
 
 // Resource ID.
@@ -4900,7 +5016,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -4950,7 +5066,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -5109,7 +5231,7 @@ func (o VirtualHardDiskOutput) ToVirtualHardDiskPtrOutput() VirtualHardDiskPtrOu
 }
 
 func (o VirtualHardDiskOutput) ToVirtualHardDiskPtrOutputWithContext(ctx context.Context) VirtualHardDiskPtrOutput {
-	return o.ApplyT(func(v VirtualHardDisk) *VirtualHardDisk {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualHardDisk) *VirtualHardDisk {
 		return &v
 	}).(VirtualHardDiskPtrOutput)
 }
@@ -5134,7 +5256,13 @@ func (o VirtualHardDiskPtrOutput) ToVirtualHardDiskPtrOutputWithContext(ctx cont
 }
 
 func (o VirtualHardDiskPtrOutput) Elem() VirtualHardDiskOutput {
-	return o.ApplyT(func(v *VirtualHardDisk) VirtualHardDisk { return *v }).(VirtualHardDiskOutput)
+	return o.ApplyT(func(v *VirtualHardDisk) VirtualHardDisk {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualHardDisk
+		return ret
+	}).(VirtualHardDiskOutput)
 }
 
 // Specifies the virtual hard disk's uri.

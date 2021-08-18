@@ -294,37 +294,9 @@ func GetSubnet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subnet resources.
 type subnetState struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable *RouteTableResponse `pulumi:"routeTable"`
 }
 
 type SubnetState struct {
-	// Gets or sets Address prefix for the subnet.
-	AddressPrefix pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Gets array of references to the network interface IP configurations using subnet
-	IpConfigurations IPConfigurationResponseArrayInput
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets the reference of the NetworkSecurityGroup resource
-	NetworkSecurityGroup NetworkSecurityGroupResponsePtrInput
-	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets the reference of the RouteTable resource
-	RouteTable RouteTableResponsePtrInput
 }
 
 func (SubnetState) ElementType() reflect.Type {
@@ -405,9 +377,7 @@ func (i *Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
 }
 
-type SubnetOutput struct {
-	*pulumi.OutputState
-}
+type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Subnet)(nil))

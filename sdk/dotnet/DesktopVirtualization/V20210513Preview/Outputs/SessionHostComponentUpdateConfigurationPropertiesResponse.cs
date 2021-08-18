@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210513Preview.Outputs
 {
 
+    /// <summary>
+    /// The session host configuration for updating agent, monitoring agent, and stack component.
+    /// </summary>
     [OutputType]
     public sealed class SessionHostComponentUpdateConfigurationPropertiesResponse
     {

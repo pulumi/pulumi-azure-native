@@ -107,41 +107,9 @@ func GetDiskEncryptionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskEncryptionSet resources.
 type diskEncryptionSetState struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyVaultAndKeyReferenceResponse `pulumi:"activeKey"`
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys []KeyVaultAndKeyReferenceResponse `pulumi:"previousKeys"`
-	// The disk encryption set provisioning state.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type DiskEncryptionSetState struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferenceResponsePtrInput
-	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
-	Identity EncryptionSetIdentityResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.
-	PreviousKeys KeyVaultAndKeyReferenceResponseArrayInput
-	// The disk encryption set provisioning state.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (DiskEncryptionSetState) ElementType() reflect.Type {
@@ -202,9 +170,7 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
 }
 
-type DiskEncryptionSetOutput struct {
-	*pulumi.OutputState
-}
+type DiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskEncryptionSet)(nil))

@@ -133,10 +133,11 @@ func (o ApiConnectionDefinitionPropertiesOutput) ToApiConnectionDefinitionProper
 }
 
 func (o ApiConnectionDefinitionPropertiesOutput) ToApiConnectionDefinitionPropertiesPtrOutputWithContext(ctx context.Context) ApiConnectionDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *ApiConnectionDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiConnectionDefinitionProperties) *ApiConnectionDefinitionProperties {
 		return &v
 	}).(ApiConnectionDefinitionPropertiesPtrOutput)
 }
+
 func (o ApiConnectionDefinitionPropertiesOutput) Api() ApiReferencePtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionProperties) *ApiReference { return v.Api }).(ApiReferencePtrOutput)
 }
@@ -196,7 +197,13 @@ func (o ApiConnectionDefinitionPropertiesPtrOutput) ToApiConnectionDefinitionPro
 }
 
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Elem() ApiConnectionDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) ApiConnectionDefinitionProperties { return *v }).(ApiConnectionDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *ApiConnectionDefinitionProperties) ApiConnectionDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApiConnectionDefinitionProperties
+		return ret
+	}).(ApiConnectionDefinitionPropertiesOutput)
 }
 
 func (o ApiConnectionDefinitionPropertiesPtrOutput) Api() ApiReferencePtrOutput {
@@ -411,10 +418,11 @@ func (o ApiConnectionDefinitionResponsePropertiesOutput) ToApiConnectionDefiniti
 }
 
 func (o ApiConnectionDefinitionResponsePropertiesOutput) ToApiConnectionDefinitionResponsePropertiesPtrOutputWithContext(ctx context.Context) ApiConnectionDefinitionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *ApiConnectionDefinitionResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiConnectionDefinitionResponseProperties) *ApiConnectionDefinitionResponseProperties {
 		return &v
 	}).(ApiConnectionDefinitionResponsePropertiesPtrOutput)
 }
+
 func (o ApiConnectionDefinitionResponsePropertiesOutput) Api() ApiReferenceResponsePtrOutput {
 	return o.ApplyT(func(v ApiConnectionDefinitionResponseProperties) *ApiReferenceResponse { return v.Api }).(ApiReferenceResponsePtrOutput)
 }
@@ -477,7 +485,11 @@ func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) ToApiConnectionDefin
 
 func (o ApiConnectionDefinitionResponsePropertiesPtrOutput) Elem() ApiConnectionDefinitionResponsePropertiesOutput {
 	return o.ApplyT(func(v *ApiConnectionDefinitionResponseProperties) ApiConnectionDefinitionResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApiConnectionDefinitionResponseProperties
+		return ret
 	}).(ApiConnectionDefinitionResponsePropertiesOutput)
 }
 
@@ -908,7 +920,7 @@ func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPt
 }
 
 func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettings) *ApiOAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettings) *ApiOAuthSettings {
 		return &v
 	}).(ApiOAuthSettingsPtrOutput)
 }
@@ -963,7 +975,13 @@ func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx co
 }
 
 func (o ApiOAuthSettingsPtrOutput) Elem() ApiOAuthSettingsOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings { return *v }).(ApiOAuthSettingsOutput)
+	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettings
+		return ret
+	}).(ApiOAuthSettingsOutput)
 }
 
 // Resource provider client id
@@ -1392,7 +1410,7 @@ func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() Ap
 }
 
 func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
 		return &v
 	}).(ApiOAuthSettingsResponsePtrOutput)
 }
@@ -1449,7 +1467,13 @@ func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutputWi
 }
 
 func (o ApiOAuthSettingsResponsePtrOutput) Elem() ApiOAuthSettingsResponseOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse { return *v }).(ApiOAuthSettingsResponseOutput)
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettingsResponse
+		return ret
+	}).(ApiOAuthSettingsResponseOutput)
 }
 
 // Resource provider client id
@@ -1643,7 +1667,7 @@ func (o ApiReferenceOutput) ToApiReferencePtrOutput() ApiReferencePtrOutput {
 }
 
 func (o ApiReferenceOutput) ToApiReferencePtrOutputWithContext(ctx context.Context) ApiReferencePtrOutput {
-	return o.ApplyT(func(v ApiReference) *ApiReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiReference) *ApiReference {
 		return &v
 	}).(ApiReferencePtrOutput)
 }
@@ -1703,7 +1727,13 @@ func (o ApiReferencePtrOutput) ToApiReferencePtrOutputWithContext(ctx context.Co
 }
 
 func (o ApiReferencePtrOutput) Elem() ApiReferenceOutput {
-	return o.ApplyT(func(v *ApiReference) ApiReference { return *v }).(ApiReferenceOutput)
+	return o.ApplyT(func(v *ApiReference) ApiReference {
+		if v != nil {
+			return *v
+		}
+		var ret ApiReference
+		return ret
+	}).(ApiReferenceOutput)
 }
 
 // Brand color
@@ -1907,7 +1937,7 @@ func (o ApiReferenceResponseOutput) ToApiReferenceResponsePtrOutput() ApiReferen
 }
 
 func (o ApiReferenceResponseOutput) ToApiReferenceResponsePtrOutputWithContext(ctx context.Context) ApiReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ApiReferenceResponse) *ApiReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiReferenceResponse) *ApiReferenceResponse {
 		return &v
 	}).(ApiReferenceResponsePtrOutput)
 }
@@ -1967,7 +1997,13 @@ func (o ApiReferenceResponsePtrOutput) ToApiReferenceResponsePtrOutputWithContex
 }
 
 func (o ApiReferenceResponsePtrOutput) Elem() ApiReferenceResponseOutput {
-	return o.ApplyT(func(v *ApiReferenceResponse) ApiReferenceResponse { return *v }).(ApiReferenceResponseOutput)
+	return o.ApplyT(func(v *ApiReferenceResponse) ApiReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiReferenceResponse
+		return ret
+	}).(ApiReferenceResponseOutput)
 }
 
 // Brand color
@@ -2146,7 +2182,7 @@ func (o ApiResourceBackendServiceOutput) ToApiResourceBackendServicePtrOutput() 
 }
 
 func (o ApiResourceBackendServiceOutput) ToApiResourceBackendServicePtrOutputWithContext(ctx context.Context) ApiResourceBackendServicePtrOutput {
-	return o.ApplyT(func(v ApiResourceBackendService) *ApiResourceBackendService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceBackendService) *ApiResourceBackendService {
 		return &v
 	}).(ApiResourceBackendServicePtrOutput)
 }
@@ -2171,7 +2207,13 @@ func (o ApiResourceBackendServicePtrOutput) ToApiResourceBackendServicePtrOutput
 }
 
 func (o ApiResourceBackendServicePtrOutput) Elem() ApiResourceBackendServiceOutput {
-	return o.ApplyT(func(v *ApiResourceBackendService) ApiResourceBackendService { return *v }).(ApiResourceBackendServiceOutput)
+	return o.ApplyT(func(v *ApiResourceBackendService) ApiResourceBackendService {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceBackendService
+		return ret
+	}).(ApiResourceBackendServiceOutput)
 }
 
 // The service URL
@@ -2280,7 +2322,7 @@ func (o ApiResourceBackendServiceResponseOutput) ToApiResourceBackendServiceResp
 }
 
 func (o ApiResourceBackendServiceResponseOutput) ToApiResourceBackendServiceResponsePtrOutputWithContext(ctx context.Context) ApiResourceBackendServiceResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourceBackendServiceResponse) *ApiResourceBackendServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceBackendServiceResponse) *ApiResourceBackendServiceResponse {
 		return &v
 	}).(ApiResourceBackendServiceResponsePtrOutput)
 }
@@ -2305,7 +2347,13 @@ func (o ApiResourceBackendServiceResponsePtrOutput) ToApiResourceBackendServiceR
 }
 
 func (o ApiResourceBackendServiceResponsePtrOutput) Elem() ApiResourceBackendServiceResponseOutput {
-	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) ApiResourceBackendServiceResponse { return *v }).(ApiResourceBackendServiceResponseOutput)
+	return o.ApplyT(func(v *ApiResourceBackendServiceResponse) ApiResourceBackendServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceBackendServiceResponse
+		return ret
+	}).(ApiResourceBackendServiceResponseOutput)
 }
 
 // The service URL
@@ -2418,7 +2466,7 @@ func (o ApiResourceDefinitionsOutput) ToApiResourceDefinitionsPtrOutput() ApiRes
 }
 
 func (o ApiResourceDefinitionsOutput) ToApiResourceDefinitionsPtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsPtrOutput {
-	return o.ApplyT(func(v ApiResourceDefinitions) *ApiResourceDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceDefinitions) *ApiResourceDefinitions {
 		return &v
 	}).(ApiResourceDefinitionsPtrOutput)
 }
@@ -2448,7 +2496,13 @@ func (o ApiResourceDefinitionsPtrOutput) ToApiResourceDefinitionsPtrOutputWithCo
 }
 
 func (o ApiResourceDefinitionsPtrOutput) Elem() ApiResourceDefinitionsOutput {
-	return o.ApplyT(func(v *ApiResourceDefinitions) ApiResourceDefinitions { return *v }).(ApiResourceDefinitionsOutput)
+	return o.ApplyT(func(v *ApiResourceDefinitions) ApiResourceDefinitions {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceDefinitions
+		return ret
+	}).(ApiResourceDefinitionsOutput)
 }
 
 // The modified swagger URL
@@ -2571,7 +2625,7 @@ func (o ApiResourceDefinitionsResponseOutput) ToApiResourceDefinitionsResponsePt
 }
 
 func (o ApiResourceDefinitionsResponseOutput) ToApiResourceDefinitionsResponsePtrOutputWithContext(ctx context.Context) ApiResourceDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v ApiResourceDefinitionsResponse) *ApiResourceDefinitionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiResourceDefinitionsResponse) *ApiResourceDefinitionsResponse {
 		return &v
 	}).(ApiResourceDefinitionsResponsePtrOutput)
 }
@@ -2601,7 +2655,13 @@ func (o ApiResourceDefinitionsResponsePtrOutput) ToApiResourceDefinitionsRespons
 }
 
 func (o ApiResourceDefinitionsResponsePtrOutput) Elem() ApiResourceDefinitionsResponseOutput {
-	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) ApiResourceDefinitionsResponse { return *v }).(ApiResourceDefinitionsResponseOutput)
+	return o.ApplyT(func(v *ApiResourceDefinitionsResponse) ApiResourceDefinitionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiResourceDefinitionsResponse
+		return ret
+	}).(ApiResourceDefinitionsResponseOutput)
 }
 
 // The modified swagger URL
@@ -2736,7 +2796,7 @@ func (o ConnectionErrorOutput) ToConnectionErrorPtrOutput() ConnectionErrorPtrOu
 }
 
 func (o ConnectionErrorOutput) ToConnectionErrorPtrOutputWithContext(ctx context.Context) ConnectionErrorPtrOutput {
-	return o.ApplyT(func(v ConnectionError) *ConnectionError {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionError) *ConnectionError {
 		return &v
 	}).(ConnectionErrorPtrOutput)
 }
@@ -2781,7 +2841,13 @@ func (o ConnectionErrorPtrOutput) ToConnectionErrorPtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionErrorPtrOutput) Elem() ConnectionErrorOutput {
-	return o.ApplyT(func(v *ConnectionError) ConnectionError { return *v }).(ConnectionErrorOutput)
+	return o.ApplyT(func(v *ConnectionError) ConnectionError {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionError
+		return ret
+	}).(ConnectionErrorOutput)
 }
 
 // Code of the status
@@ -2958,7 +3024,7 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutput() Conn
 }
 
 func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponse) *ConnectionErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionErrorResponse) *ConnectionErrorResponse {
 		return &v
 	}).(ConnectionErrorResponsePtrOutput)
 }
@@ -3018,7 +3084,13 @@ func (o ConnectionErrorResponsePtrOutput) ToConnectionErrorResponsePtrOutputWith
 }
 
 func (o ConnectionErrorResponsePtrOutput) Elem() ConnectionErrorResponseOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse { return *v }).(ConnectionErrorResponseOutput)
+	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionErrorResponse
+		return ret
+	}).(ConnectionErrorResponseOutput)
 }
 
 // Code of the status
@@ -3218,7 +3290,7 @@ func (o ConnectionGatewayDefinitionPropertiesOutput) ToConnectionGatewayDefiniti
 }
 
 func (o ConnectionGatewayDefinitionPropertiesOutput) ToConnectionGatewayDefinitionPropertiesPtrOutputWithContext(ctx context.Context) ConnectionGatewayDefinitionPropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionProperties) *ConnectionGatewayDefinitionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayDefinitionProperties) *ConnectionGatewayDefinitionProperties {
 		return &v
 	}).(ConnectionGatewayDefinitionPropertiesPtrOutput)
 }
@@ -3275,7 +3347,13 @@ func (o ConnectionGatewayDefinitionPropertiesPtrOutput) ToConnectionGatewayDefin
 }
 
 func (o ConnectionGatewayDefinitionPropertiesPtrOutput) Elem() ConnectionGatewayDefinitionPropertiesOutput {
-	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) ConnectionGatewayDefinitionProperties { return *v }).(ConnectionGatewayDefinitionPropertiesOutput)
+	return o.ApplyT(func(v *ConnectionGatewayDefinitionProperties) ConnectionGatewayDefinitionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayDefinitionProperties
+		return ret
+	}).(ConnectionGatewayDefinitionPropertiesOutput)
 }
 
 // The URI of the backend
@@ -3465,7 +3543,7 @@ func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ToConnectionGateway
 }
 
 func (o ConnectionGatewayDefinitionResponsePropertiesOutput) ToConnectionGatewayDefinitionResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionGatewayDefinitionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayDefinitionResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayDefinitionResponseProperties) *ConnectionGatewayDefinitionResponseProperties {
 		return &v
 	}).(ConnectionGatewayDefinitionResponsePropertiesPtrOutput)
 }
@@ -3523,7 +3601,11 @@ func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) ToConnectionGate
 
 func (o ConnectionGatewayDefinitionResponsePropertiesPtrOutput) Elem() ConnectionGatewayDefinitionResponsePropertiesOutput {
 	return o.ApplyT(func(v *ConnectionGatewayDefinitionResponseProperties) ConnectionGatewayDefinitionResponseProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayDefinitionResponseProperties
+		return ret
 	}).(ConnectionGatewayDefinitionResponsePropertiesOutput)
 }
 
@@ -3705,7 +3787,7 @@ func (o ConnectionGatewayReferenceOutput) ToConnectionGatewayReferencePtrOutput(
 }
 
 func (o ConnectionGatewayReferenceOutput) ToConnectionGatewayReferencePtrOutputWithContext(ctx context.Context) ConnectionGatewayReferencePtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayReference) *ConnectionGatewayReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayReference) *ConnectionGatewayReference {
 		return &v
 	}).(ConnectionGatewayReferencePtrOutput)
 }
@@ -3745,7 +3827,13 @@ func (o ConnectionGatewayReferencePtrOutput) ToConnectionGatewayReferencePtrOutp
 }
 
 func (o ConnectionGatewayReferencePtrOutput) Elem() ConnectionGatewayReferenceOutput {
-	return o.ApplyT(func(v *ConnectionGatewayReference) ConnectionGatewayReference { return *v }).(ConnectionGatewayReferenceOutput)
+	return o.ApplyT(func(v *ConnectionGatewayReference) ConnectionGatewayReference {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayReference
+		return ret
+	}).(ConnectionGatewayReferenceOutput)
 }
 
 // Resource reference id
@@ -3896,7 +3984,7 @@ func (o ConnectionGatewayReferenceResponseOutput) ToConnectionGatewayReferenceRe
 }
 
 func (o ConnectionGatewayReferenceResponseOutput) ToConnectionGatewayReferenceResponsePtrOutputWithContext(ctx context.Context) ConnectionGatewayReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayReferenceResponse) *ConnectionGatewayReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionGatewayReferenceResponse) *ConnectionGatewayReferenceResponse {
 		return &v
 	}).(ConnectionGatewayReferenceResponsePtrOutput)
 }
@@ -3936,7 +4024,13 @@ func (o ConnectionGatewayReferenceResponsePtrOutput) ToConnectionGatewayReferenc
 }
 
 func (o ConnectionGatewayReferenceResponsePtrOutput) Elem() ConnectionGatewayReferenceResponseOutput {
-	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) ConnectionGatewayReferenceResponse { return *v }).(ConnectionGatewayReferenceResponseOutput)
+	return o.ApplyT(func(v *ConnectionGatewayReferenceResponse) ConnectionGatewayReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionGatewayReferenceResponse
+		return ret
+	}).(ConnectionGatewayReferenceResponseOutput)
 }
 
 // Resource reference id
@@ -3984,7 +4078,7 @@ type ConnectionParameter struct {
 	// OAuth settings for the connection provider
 	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *string `pulumi:"type"`
+	Type *ConnectionParameterType `pulumi:"type"`
 }
 
 // ConnectionParameterInput is an input type that accepts ConnectionParameterArgs and ConnectionParameterOutput values.
@@ -4003,7 +4097,7 @@ type ConnectionParameterArgs struct {
 	// OAuth settings for the connection provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
+	Type ConnectionParameterTypePtrInput `pulumi:"type"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -4064,8 +4158,8 @@ func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 }
 
 // Type of the parameter
-func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
 }
 
 type ConnectionParameterMapOutput struct{ *pulumi.OutputState }
@@ -4827,7 +4921,7 @@ func (o CustomApiPropertiesDefinitionOutput) ToCustomApiPropertiesDefinitionPtrO
 }
 
 func (o CustomApiPropertiesDefinitionOutput) ToCustomApiPropertiesDefinitionPtrOutputWithContext(ctx context.Context) CustomApiPropertiesDefinitionPtrOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinition) *CustomApiPropertiesDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomApiPropertiesDefinition) *CustomApiPropertiesDefinition {
 		return &v
 	}).(CustomApiPropertiesDefinitionPtrOutput)
 }
@@ -4907,7 +5001,13 @@ func (o CustomApiPropertiesDefinitionPtrOutput) ToCustomApiPropertiesDefinitionP
 }
 
 func (o CustomApiPropertiesDefinitionPtrOutput) Elem() CustomApiPropertiesDefinitionOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinition) CustomApiPropertiesDefinition { return *v }).(CustomApiPropertiesDefinitionOutput)
+	return o.ApplyT(func(v *CustomApiPropertiesDefinition) CustomApiPropertiesDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret CustomApiPropertiesDefinition
+		return ret
+	}).(CustomApiPropertiesDefinitionOutput)
 }
 
 // API Definitions
@@ -5170,7 +5270,7 @@ func (o CustomApiPropertiesDefinitionResponseOutput) ToCustomApiPropertiesDefini
 }
 
 func (o CustomApiPropertiesDefinitionResponseOutput) ToCustomApiPropertiesDefinitionResponsePtrOutputWithContext(ctx context.Context) CustomApiPropertiesDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v CustomApiPropertiesDefinitionResponse) *CustomApiPropertiesDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomApiPropertiesDefinitionResponse) *CustomApiPropertiesDefinitionResponse {
 		return &v
 	}).(CustomApiPropertiesDefinitionResponsePtrOutput)
 }
@@ -5254,7 +5354,13 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) ToCustomApiPropertiesDef
 }
 
 func (o CustomApiPropertiesDefinitionResponsePtrOutput) Elem() CustomApiPropertiesDefinitionResponseOutput {
-	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) CustomApiPropertiesDefinitionResponse { return *v }).(CustomApiPropertiesDefinitionResponseOutput)
+	return o.ApplyT(func(v *CustomApiPropertiesDefinitionResponse) CustomApiPropertiesDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomApiPropertiesDefinitionResponse
+		return ret
+	}).(CustomApiPropertiesDefinitionResponseOutput)
 }
 
 // API Definitions
@@ -5485,7 +5591,7 @@ func (o WsdlDefinitionOutput) ToWsdlDefinitionPtrOutput() WsdlDefinitionPtrOutpu
 }
 
 func (o WsdlDefinitionOutput) ToWsdlDefinitionPtrOutputWithContext(ctx context.Context) WsdlDefinitionPtrOutput {
-	return o.ApplyT(func(v WsdlDefinition) *WsdlDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlDefinition) *WsdlDefinition {
 		return &v
 	}).(WsdlDefinitionPtrOutput)
 }
@@ -5525,7 +5631,13 @@ func (o WsdlDefinitionPtrOutput) ToWsdlDefinitionPtrOutputWithContext(ctx contex
 }
 
 func (o WsdlDefinitionPtrOutput) Elem() WsdlDefinitionOutput {
-	return o.ApplyT(func(v *WsdlDefinition) WsdlDefinition { return *v }).(WsdlDefinitionOutput)
+	return o.ApplyT(func(v *WsdlDefinition) WsdlDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlDefinition
+		return ret
+	}).(WsdlDefinitionOutput)
 }
 
 // The WSDL content
@@ -5676,7 +5788,7 @@ func (o WsdlDefinitionResponseOutput) ToWsdlDefinitionResponsePtrOutput() WsdlDe
 }
 
 func (o WsdlDefinitionResponseOutput) ToWsdlDefinitionResponsePtrOutputWithContext(ctx context.Context) WsdlDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v WsdlDefinitionResponse) *WsdlDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlDefinitionResponse) *WsdlDefinitionResponse {
 		return &v
 	}).(WsdlDefinitionResponsePtrOutput)
 }
@@ -5716,7 +5828,13 @@ func (o WsdlDefinitionResponsePtrOutput) ToWsdlDefinitionResponsePtrOutputWithCo
 }
 
 func (o WsdlDefinitionResponsePtrOutput) Elem() WsdlDefinitionResponseOutput {
-	return o.ApplyT(func(v *WsdlDefinitionResponse) WsdlDefinitionResponse { return *v }).(WsdlDefinitionResponseOutput)
+	return o.ApplyT(func(v *WsdlDefinitionResponse) WsdlDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlDefinitionResponse
+		return ret
+	}).(WsdlDefinitionResponseOutput)
 }
 
 // The WSDL content
@@ -5859,7 +5977,7 @@ func (o WsdlServiceOutput) ToWsdlServicePtrOutput() WsdlServicePtrOutput {
 }
 
 func (o WsdlServiceOutput) ToWsdlServicePtrOutputWithContext(ctx context.Context) WsdlServicePtrOutput {
-	return o.ApplyT(func(v WsdlService) *WsdlService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlService) *WsdlService {
 		return &v
 	}).(WsdlServicePtrOutput)
 }
@@ -5889,7 +6007,13 @@ func (o WsdlServicePtrOutput) ToWsdlServicePtrOutputWithContext(ctx context.Cont
 }
 
 func (o WsdlServicePtrOutput) Elem() WsdlServiceOutput {
-	return o.ApplyT(func(v *WsdlService) WsdlService { return *v }).(WsdlServiceOutput)
+	return o.ApplyT(func(v *WsdlService) WsdlService {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlService
+		return ret
+	}).(WsdlServiceOutput)
 }
 
 // List of the endpoints' qualified names
@@ -6037,7 +6161,7 @@ func (o WsdlServiceResponseOutput) ToWsdlServiceResponsePtrOutput() WsdlServiceR
 }
 
 func (o WsdlServiceResponseOutput) ToWsdlServiceResponsePtrOutputWithContext(ctx context.Context) WsdlServiceResponsePtrOutput {
-	return o.ApplyT(func(v WsdlServiceResponse) *WsdlServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlServiceResponse) *WsdlServiceResponse {
 		return &v
 	}).(WsdlServiceResponsePtrOutput)
 }
@@ -6067,7 +6191,13 @@ func (o WsdlServiceResponsePtrOutput) ToWsdlServiceResponsePtrOutputWithContext(
 }
 
 func (o WsdlServiceResponsePtrOutput) Elem() WsdlServiceResponseOutput {
-	return o.ApplyT(func(v *WsdlServiceResponse) WsdlServiceResponse { return *v }).(WsdlServiceResponseOutput)
+	return o.ApplyT(func(v *WsdlServiceResponse) WsdlServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlServiceResponse
+		return ret
+	}).(WsdlServiceResponseOutput)
 }
 
 // List of the endpoints' qualified names

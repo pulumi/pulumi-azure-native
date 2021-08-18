@@ -110,7 +110,7 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
 // Gets or sets the content hash algorithm used to hash the content.
@@ -263,7 +269,7 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutput() ContentHashR
 }
 
 func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx context.Context) ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentHashResponse) *ContentHashResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHashResponse) *ContentHashResponse {
 		return &v
 	}).(ContentHashResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o ContentHashResponsePtrOutput) ToContentHashResponsePtrOutputWithContext(
 }
 
 func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
-	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse { return *v }).(ContentHashResponseOutput)
+	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHashResponse
+		return ret
+	}).(ContentHashResponseOutput)
 }
 
 // Gets or sets the content hash algorithm used to hash the content.
@@ -420,7 +432,7 @@ func (o ContentLinkOutput) ToContentLinkPtrOutput() ContentLinkPtrOutput {
 }
 
 func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context) ContentLinkPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLink) *ContentLink {
 		return &v
 	}).(ContentLinkPtrOutput)
 }
@@ -455,7 +467,13 @@ func (o ContentLinkPtrOutput) ToContentLinkPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
-	return o.ApplyT(func(v *ContentLink) ContentLink { return *v }).(ContentLinkOutput)
+	return o.ApplyT(func(v *ContentLink) ContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLink
+		return ret
+	}).(ContentLinkOutput)
 }
 
 // Gets or sets the hash.
@@ -592,7 +610,7 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutput() ContentLinkR
 }
 
 func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx context.Context) ContentLinkResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLinkResponse) *ContentLinkResponse {
 		return &v
 	}).(ContentLinkResponsePtrOutput)
 }
@@ -627,7 +645,13 @@ func (o ContentLinkResponsePtrOutput) ToContentLinkResponsePtrOutputWithContext(
 }
 
 func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse { return *v }).(ContentLinkResponseOutput)
+	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLinkResponse
+		return ret
+	}).(ContentLinkResponseOutput)
 }
 
 // Gets or sets the hash.
@@ -760,7 +784,7 @@ func (o ModuleErrorInfoResponseOutput) ToModuleErrorInfoResponsePtrOutput() Modu
 }
 
 func (o ModuleErrorInfoResponseOutput) ToModuleErrorInfoResponsePtrOutputWithContext(ctx context.Context) ModuleErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v ModuleErrorInfoResponse) *ModuleErrorInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModuleErrorInfoResponse) *ModuleErrorInfoResponse {
 		return &v
 	}).(ModuleErrorInfoResponsePtrOutput)
 }
@@ -790,7 +814,13 @@ func (o ModuleErrorInfoResponsePtrOutput) ToModuleErrorInfoResponsePtrOutputWith
 }
 
 func (o ModuleErrorInfoResponsePtrOutput) Elem() ModuleErrorInfoResponseOutput {
-	return o.ApplyT(func(v *ModuleErrorInfoResponse) ModuleErrorInfoResponse { return *v }).(ModuleErrorInfoResponseOutput)
+	return o.ApplyT(func(v *ModuleErrorInfoResponse) ModuleErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ModuleErrorInfoResponse
+		return ret
+	}).(ModuleErrorInfoResponseOutput)
 }
 
 // Gets or sets the error code.
@@ -926,7 +956,7 @@ func (o RunbookDraftOutput) ToRunbookDraftPtrOutput() RunbookDraftPtrOutput {
 }
 
 func (o RunbookDraftOutput) ToRunbookDraftPtrOutputWithContext(ctx context.Context) RunbookDraftPtrOutput {
-	return o.ApplyT(func(v RunbookDraft) *RunbookDraft {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunbookDraft) *RunbookDraft {
 		return &v
 	}).(RunbookDraftPtrOutput)
 }
@@ -976,7 +1006,13 @@ func (o RunbookDraftPtrOutput) ToRunbookDraftPtrOutputWithContext(ctx context.Co
 }
 
 func (o RunbookDraftPtrOutput) Elem() RunbookDraftOutput {
-	return o.ApplyT(func(v *RunbookDraft) RunbookDraft { return *v }).(RunbookDraftOutput)
+	return o.ApplyT(func(v *RunbookDraft) RunbookDraft {
+		if v != nil {
+			return *v
+		}
+		var ret RunbookDraft
+		return ret
+	}).(RunbookDraftOutput)
 }
 
 // Gets or sets the creation time of the runbook draft.
@@ -1152,7 +1188,7 @@ func (o RunbookDraftResponseOutput) ToRunbookDraftResponsePtrOutput() RunbookDra
 }
 
 func (o RunbookDraftResponseOutput) ToRunbookDraftResponsePtrOutputWithContext(ctx context.Context) RunbookDraftResponsePtrOutput {
-	return o.ApplyT(func(v RunbookDraftResponse) *RunbookDraftResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunbookDraftResponse) *RunbookDraftResponse {
 		return &v
 	}).(RunbookDraftResponsePtrOutput)
 }
@@ -1202,7 +1238,13 @@ func (o RunbookDraftResponsePtrOutput) ToRunbookDraftResponsePtrOutputWithContex
 }
 
 func (o RunbookDraftResponsePtrOutput) Elem() RunbookDraftResponseOutput {
-	return o.ApplyT(func(v *RunbookDraftResponse) RunbookDraftResponse { return *v }).(RunbookDraftResponseOutput)
+	return o.ApplyT(func(v *RunbookDraftResponse) RunbookDraftResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RunbookDraftResponse
+		return ret
+	}).(RunbookDraftResponseOutput)
 }
 
 // Gets or sets the creation time of the runbook draft.

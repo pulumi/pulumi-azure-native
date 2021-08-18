@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// The trigger that results in a scaling action.
+    /// </summary>
     [OutputType]
     public sealed class MetricTriggerResponse
     {

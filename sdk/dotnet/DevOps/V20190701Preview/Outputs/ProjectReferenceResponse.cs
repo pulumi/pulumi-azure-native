@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevOps.V20190701Preview.Outputs
 {
 
+    /// <summary>
+    /// Reference to an Azure DevOps Project.
+    /// </summary>
     [OutputType]
     public sealed class ProjectReferenceResponse
     {

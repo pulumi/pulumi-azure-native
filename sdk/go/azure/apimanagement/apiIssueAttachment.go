@@ -138,29 +138,9 @@ func GetApiIssueAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIssueAttachment resources.
 type apiIssueAttachmentState struct {
-	// An HTTP link or Base64-encoded binary data.
-	Content *string `pulumi:"content"`
-	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
-	ContentFormat *string `pulumi:"contentFormat"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Filename by which the binary data will be saved.
-	Title *string `pulumi:"title"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type ApiIssueAttachmentState struct {
-	// An HTTP link or Base64-encoded binary data.
-	Content pulumi.StringPtrInput
-	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
-	ContentFormat pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Filename by which the binary data will be saved.
-	Title pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ApiIssueAttachmentState) ElementType() reflect.Type {
@@ -229,9 +209,7 @@ func (i *ApiIssueAttachment) ToApiIssueAttachmentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApiIssueAttachmentOutput)
 }
 
-type ApiIssueAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type ApiIssueAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ApiIssueAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiIssueAttachment)(nil))

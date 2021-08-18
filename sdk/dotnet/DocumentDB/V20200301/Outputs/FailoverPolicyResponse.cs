@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200301.Outputs
 {
 
+    /// <summary>
+    /// The failover policy for a given region of a database account.
+    /// </summary>
     [OutputType]
     public sealed class FailoverPolicyResponse
     {

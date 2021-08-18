@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// The error code compose of code and message.
+    /// </summary>
     [OutputType]
     public sealed class ErrorResponse
     {

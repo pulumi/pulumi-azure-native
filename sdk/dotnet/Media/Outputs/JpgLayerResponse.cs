@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Describes the settings to produce a JPEG image from the input video.
+    /// </summary>
     [OutputType]
     public sealed class JpgLayerResponse
     {

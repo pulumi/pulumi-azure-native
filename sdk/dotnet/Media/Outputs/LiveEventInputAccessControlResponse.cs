@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// The IP access control for live event input.
+    /// </summary>
     [OutputType]
     public sealed class LiveEventInputAccessControlResponse
     {

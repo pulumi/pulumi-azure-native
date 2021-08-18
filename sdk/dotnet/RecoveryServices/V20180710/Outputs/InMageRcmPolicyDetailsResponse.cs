@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180710.Outputs
 {
 
+    /// <summary>
+    /// InMageRcm specific policy details.
+    /// </summary>
     [OutputType]
     public sealed class InMageRcmPolicyDetailsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001.Outputs
 {
 
+    /// <summary>
+    /// Properties of an assessment.
+    /// </summary>
     [OutputType]
     public sealed class AssessmentPropertiesResponse
     {

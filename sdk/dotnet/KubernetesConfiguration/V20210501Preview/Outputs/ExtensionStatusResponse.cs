@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20210501Preview.Outputs
 {
 
+    /// <summary>
+    /// Status from the extension.
+    /// </summary>
     [OutputType]
     public sealed class ExtensionStatusResponse
     {

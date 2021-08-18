@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.V20181001.Outputs
 {
 
+    /// <summary>
+    /// The cloud shell user settings properties.
+    /// </summary>
     [OutputType]
     public sealed class UserPropertiesResponse
     {

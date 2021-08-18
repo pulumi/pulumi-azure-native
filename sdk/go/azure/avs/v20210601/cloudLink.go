@@ -72,25 +72,9 @@ func GetCloudLink(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudLink resources.
 type cloudLinkState struct {
-	// Identifier of the other private cloud participating in the link.
-	LinkedCloud *string `pulumi:"linkedCloud"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the cloud link.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type CloudLinkState struct {
-	// Identifier of the other private cloud participating in the link.
-	LinkedCloud pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the cloud link.
-	Status pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (CloudLinkState) ElementType() reflect.Type {
@@ -143,9 +127,7 @@ func (i *CloudLink) ToCloudLinkOutputWithContext(ctx context.Context) CloudLinkO
 	return pulumi.ToOutputWithContext(ctx, i).(CloudLinkOutput)
 }
 
-type CloudLinkOutput struct {
-	*pulumi.OutputState
-}
+type CloudLinkOutput struct{ *pulumi.OutputState }
 
 func (CloudLinkOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudLink)(nil))

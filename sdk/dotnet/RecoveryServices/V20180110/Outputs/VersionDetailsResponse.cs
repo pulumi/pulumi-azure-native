@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180110.Outputs
 {
 
+    /// <summary>
+    /// Version related details.
+    /// </summary>
     [OutputType]
     public sealed class VersionDetailsResponse
     {

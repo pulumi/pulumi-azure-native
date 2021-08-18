@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Parameters for Operational-Tier DataStore
+    /// </summary>
     [OutputType]
     public sealed class AzureOperationalStoreParametersResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Copy on Expiry Option
+    /// </summary>
     [OutputType]
     public sealed class CopyOnExpiryOptionResponse
     {

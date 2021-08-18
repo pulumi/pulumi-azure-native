@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20161201.Outputs
 {
 
+    /// <summary>
+    /// Additional information of the container.
+    /// </summary>
     [OutputType]
     public sealed class MabContainerExtendedInfoResponse
     {

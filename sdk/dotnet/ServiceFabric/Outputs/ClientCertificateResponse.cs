@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
+    /// <summary>
+    /// Client Certificate definition.
+    /// </summary>
     [OutputType]
     public sealed class ClientCertificateResponse
     {

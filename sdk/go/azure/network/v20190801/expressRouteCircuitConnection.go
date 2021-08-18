@@ -223,45 +223,9 @@ func GetExpressRouteCircuitConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuitConnection resources.
 type expressRouteCircuitConnectionState struct {
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// The authorization key.
-	AuthorizationKey *string `pulumi:"authorizationKey"`
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering *SubResourceResponse `pulumi:"expressRouteCircuitPeering"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-	PeerExpressRouteCircuitPeering *SubResourceResponse `pulumi:"peerExpressRouteCircuitPeering"`
-	// The provisioning state of the express route circuit connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ExpressRouteCircuitConnectionState struct {
-	// /29 IP address space to carve out Customer addresses for tunnels.
-	AddressPrefix pulumi.StringPtrInput
-	// The authorization key.
-	AuthorizationKey pulumi.StringPtrInput
-	// Express Route Circuit connection state.
-	CircuitConnectionStatus pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
-	ExpressRouteCircuitPeering SubResourceResponsePtrInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
-	PeerExpressRouteCircuitPeering SubResourceResponsePtrInput
-	// The provisioning state of the express route circuit connection resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ExpressRouteCircuitConnectionState) ElementType() reflect.Type {
@@ -338,9 +302,7 @@ func (i *ExpressRouteCircuitConnection) ToExpressRouteCircuitConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitConnectionOutput)
 }
 
-type ExpressRouteCircuitConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitConnection)(nil))

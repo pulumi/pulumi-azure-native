@@ -117,109 +117,9 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// availability Zone information of the server.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement *string `pulumi:"byokEnforcement"`
-	// Delegated subnet arguments.
-	DelegatedSubnetArguments *DelegatedSubnetArgumentsResponse `pulumi:"delegatedSubnetArguments"`
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
-	// Enable HA or not for a server.
-	HaEnabled *string `pulumi:"haEnabled"`
-	// The state of a HA server.
-	HaState *string `pulumi:"haState"`
-	// The Azure Active Directory identity of the server.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Maintenance window of a server.
-	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// private dns zone arguments.
-	PrivateDnsZoneArguments *PrivateDnsZoneArgumentsResponse `pulumi:"privateDnsZoneArguments"`
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity *int `pulumi:"replicaCapacity"`
-	// The replication role.
-	ReplicationRole *string `pulumi:"replicationRole"`
-	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The source MySQL server id.
-	SourceServerId *string `pulumi:"sourceServerId"`
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement *string `pulumi:"sslEnforcement"`
-	// availability Zone information of the server.
-	StandbyAvailabilityZone *string `pulumi:"standbyAvailabilityZone"`
-	// The state of a server.
-	State *string `pulumi:"state"`
-	// Storage profile of a server.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Server version.
-	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrInput
-	// availability Zone information of the server.
-	AvailabilityZone pulumi.StringPtrInput
-	// Status showing whether the data encryption is enabled with customer-managed keys.
-	ByokEnforcement pulumi.StringPtrInput
-	// Delegated subnet arguments.
-	DelegatedSubnetArguments DelegatedSubnetArgumentsResponsePtrInput
-	// Earliest restore point creation time (ISO8601 format)
-	EarliestRestoreDate pulumi.StringPtrInput
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName pulumi.StringPtrInput
-	// Enable HA or not for a server.
-	HaEnabled pulumi.StringPtrInput
-	// The state of a HA server.
-	HaState pulumi.StringPtrInput
-	// The Azure Active Directory identity of the server.
-	Identity IdentityResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Maintenance window of a server.
-	MaintenanceWindow MaintenanceWindowResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// private dns zone arguments.
-	PrivateDnsZoneArguments PrivateDnsZoneArgumentsResponsePtrInput
-	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The maximum number of replicas that a primary server can have.
-	ReplicaCapacity pulumi.IntPtrInput
-	// The replication role.
-	ReplicationRole pulumi.StringPtrInput
-	// The SKU (pricing tier) of the server.
-	Sku SkuResponsePtrInput
-	// The source MySQL server id.
-	SourceServerId pulumi.StringPtrInput
-	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrInput
-	// availability Zone information of the server.
-	StandbyAvailabilityZone pulumi.StringPtrInput
-	// The state of a server.
-	State pulumi.StringPtrInput
-	// Storage profile of a server.
-	StorageProfile StorageProfileResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Server version.
-	Version pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -340,9 +240,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-type ServerOutput struct {
-	*pulumi.OutputState
-}
+type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))

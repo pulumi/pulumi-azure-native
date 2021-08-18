@@ -107,41 +107,9 @@ func GetReferenceDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReferenceDataSet resources.
 type referenceDataSetState struct {
-	// The time the resource was created.
-	CreationTime *string `pulumi:"creationTime"`
-	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
-	// The list of key properties for the reference data set.
-	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ReferenceDataSetState struct {
-	// The time the resource was created.
-	CreationTime pulumi.StringPtrInput
-	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior pulumi.StringPtrInput
-	// The list of key properties for the reference data set.
-	KeyProperties ReferenceDataSetKeyPropertyResponseArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ReferenceDataSetState) ElementType() reflect.Type {
@@ -150,7 +118,7 @@ func (ReferenceDataSetState) ElementType() reflect.Type {
 
 type referenceDataSetArgs struct {
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
+	DataStringComparisonBehavior *DataStringComparisonBehavior `pulumi:"dataStringComparisonBehavior"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
 	// The list of key properties for the reference data set.
@@ -168,7 +136,7 @@ type referenceDataSetArgs struct {
 // The set of arguments for constructing a ReferenceDataSet resource.
 type ReferenceDataSetArgs struct {
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior *DataStringComparisonBehavior
+	DataStringComparisonBehavior DataStringComparisonBehaviorPtrInput
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// The list of key properties for the reference data set.
@@ -206,9 +174,7 @@ func (i *ReferenceDataSet) ToReferenceDataSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetOutput)
 }
 
-type ReferenceDataSetOutput struct {
-	*pulumi.OutputState
-}
+type ReferenceDataSetOutput struct{ *pulumi.OutputState }
 
 func (ReferenceDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReferenceDataSet)(nil))

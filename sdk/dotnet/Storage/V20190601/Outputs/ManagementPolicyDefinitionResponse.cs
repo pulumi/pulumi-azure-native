@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20190601.Outputs
 {
 
+    /// <summary>
+    /// An object that defines the Lifecycle rule. Each definition is made up with a filters set and an actions set.
+    /// </summary>
     [OutputType]
     public sealed class ManagementPolicyDefinitionResponse
     {

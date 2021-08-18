@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.Outputs
 {
 
+    /// <summary>
+    /// Generic object modeling results of script execution.
+    /// </summary>
     [OutputType]
     public sealed class ScriptStatusResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Contains information about the auto-storage account associated with a Batch account.
+    /// </summary>
     [OutputType]
     public sealed class AutoStoragePropertiesResponse
     {

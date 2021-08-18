@@ -64,13 +64,9 @@ func GetConsole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Console resources.
 type consoleState struct {
-	// Cloud shell console properties.
-	Properties *ConsolePropertiesResponse `pulumi:"properties"`
 }
 
 type ConsoleState struct {
-	// Cloud shell console properties.
-	Properties ConsolePropertiesResponsePtrInput
 }
 
 func (ConsoleState) ElementType() reflect.Type {
@@ -115,9 +111,7 @@ func (i *Console) ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ConsoleOutput)
 }
 
-type ConsoleOutput struct {
-	*pulumi.OutputState
-}
+type ConsoleOutput struct{ *pulumi.OutputState }
 
 func (ConsoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Console)(nil))

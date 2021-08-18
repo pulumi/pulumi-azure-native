@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Resource Access Rule.
+    /// </summary>
     [OutputType]
     public sealed class ResourceAccessRuleResponse
     {

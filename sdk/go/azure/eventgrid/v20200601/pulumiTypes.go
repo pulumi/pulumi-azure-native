@@ -436,7 +436,7 @@ func (o ConnectionStateOutput) ToConnectionStatePtrOutput() ConnectionStatePtrOu
 }
 
 func (o ConnectionStateOutput) ToConnectionStatePtrOutputWithContext(ctx context.Context) ConnectionStatePtrOutput {
-	return o.ApplyT(func(v ConnectionState) *ConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionState) *ConnectionState {
 		return &v
 	}).(ConnectionStatePtrOutput)
 }
@@ -471,7 +471,13 @@ func (o ConnectionStatePtrOutput) ToConnectionStatePtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionStatePtrOutput) Elem() ConnectionStateOutput {
-	return o.ApplyT(func(v *ConnectionState) ConnectionState { return *v }).(ConnectionStateOutput)
+	return o.ApplyT(func(v *ConnectionState) ConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionState
+		return ret
+	}).(ConnectionStateOutput)
 }
 
 // Actions required (if any).
@@ -608,7 +614,7 @@ func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutput() Conn
 }
 
 func (o ConnectionStateResponseOutput) ToConnectionStateResponsePtrOutputWithContext(ctx context.Context) ConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionStateResponse) *ConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionStateResponse) *ConnectionStateResponse {
 		return &v
 	}).(ConnectionStateResponsePtrOutput)
 }
@@ -643,7 +649,13 @@ func (o ConnectionStateResponsePtrOutput) ToConnectionStateResponsePtrOutputWith
 }
 
 func (o ConnectionStateResponsePtrOutput) Elem() ConnectionStateResponseOutput {
-	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse { return *v }).(ConnectionStateResponseOutput)
+	return o.ApplyT(func(v *ConnectionStateResponse) ConnectionStateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionStateResponse
+		return ret
+	}).(ConnectionStateResponseOutput)
 }
 
 // Actions required (if any).
@@ -930,7 +942,7 @@ func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutput() Even
 }
 
 func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilter) *EventSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilter) *EventSubscriptionFilter {
 		return &v
 	}).(EventSubscriptionFilterPtrOutput)
 }
@@ -979,7 +991,13 @@ func (o EventSubscriptionFilterPtrOutput) ToEventSubscriptionFilterPtrOutputWith
 }
 
 func (o EventSubscriptionFilterPtrOutput) Elem() EventSubscriptionFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter { return *v }).(EventSubscriptionFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilter
+		return ret
+	}).(EventSubscriptionFilterOutput)
 }
 
 // An array of advanced filters that are used for filtering event subscriptions.
@@ -1156,7 +1174,7 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 }
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
 		return &v
 	}).(EventSubscriptionFilterResponsePtrOutput)
 }
@@ -1205,7 +1223,13 @@ func (o EventSubscriptionFilterResponsePtrOutput) ToEventSubscriptionFilterRespo
 }
 
 func (o EventSubscriptionFilterResponsePtrOutput) Elem() EventSubscriptionFilterResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse { return *v }).(EventSubscriptionFilterResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilterResponse
+		return ret
+	}).(EventSubscriptionFilterResponseOutput)
 }
 
 // An array of advanced filters that are used for filtering event subscriptions.
@@ -1704,7 +1728,7 @@ func (o JsonFieldOutput) ToJsonFieldPtrOutput() JsonFieldPtrOutput {
 }
 
 func (o JsonFieldOutput) ToJsonFieldPtrOutputWithContext(ctx context.Context) JsonFieldPtrOutput {
-	return o.ApplyT(func(v JsonField) *JsonField {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonField) *JsonField {
 		return &v
 	}).(JsonFieldPtrOutput)
 }
@@ -1729,7 +1753,13 @@ func (o JsonFieldPtrOutput) ToJsonFieldPtrOutputWithContext(ctx context.Context)
 }
 
 func (o JsonFieldPtrOutput) Elem() JsonFieldOutput {
-	return o.ApplyT(func(v *JsonField) JsonField { return *v }).(JsonFieldOutput)
+	return o.ApplyT(func(v *JsonField) JsonField {
+		if v != nil {
+			return *v
+		}
+		var ret JsonField
+		return ret
+	}).(JsonFieldOutput)
 }
 
 // Name of a field in the input event schema that's to be used as the source of a mapping.
@@ -1838,7 +1868,7 @@ func (o JsonFieldResponseOutput) ToJsonFieldResponsePtrOutput() JsonFieldRespons
 }
 
 func (o JsonFieldResponseOutput) ToJsonFieldResponsePtrOutputWithContext(ctx context.Context) JsonFieldResponsePtrOutput {
-	return o.ApplyT(func(v JsonFieldResponse) *JsonFieldResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldResponse) *JsonFieldResponse {
 		return &v
 	}).(JsonFieldResponsePtrOutput)
 }
@@ -1863,7 +1893,13 @@ func (o JsonFieldResponsePtrOutput) ToJsonFieldResponsePtrOutputWithContext(ctx 
 }
 
 func (o JsonFieldResponsePtrOutput) Elem() JsonFieldResponseOutput {
-	return o.ApplyT(func(v *JsonFieldResponse) JsonFieldResponse { return *v }).(JsonFieldResponseOutput)
+	return o.ApplyT(func(v *JsonFieldResponse) JsonFieldResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JsonFieldResponse
+		return ret
+	}).(JsonFieldResponseOutput)
 }
 
 // Name of a field in the input event schema that's to be used as the source of a mapping.
@@ -1985,7 +2021,7 @@ func (o JsonFieldWithDefaultOutput) ToJsonFieldWithDefaultPtrOutput() JsonFieldW
 }
 
 func (o JsonFieldWithDefaultOutput) ToJsonFieldWithDefaultPtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultPtrOutput {
-	return o.ApplyT(func(v JsonFieldWithDefault) *JsonFieldWithDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldWithDefault) *JsonFieldWithDefault {
 		return &v
 	}).(JsonFieldWithDefaultPtrOutput)
 }
@@ -2015,7 +2051,13 @@ func (o JsonFieldWithDefaultPtrOutput) ToJsonFieldWithDefaultPtrOutputWithContex
 }
 
 func (o JsonFieldWithDefaultPtrOutput) Elem() JsonFieldWithDefaultOutput {
-	return o.ApplyT(func(v *JsonFieldWithDefault) JsonFieldWithDefault { return *v }).(JsonFieldWithDefaultOutput)
+	return o.ApplyT(func(v *JsonFieldWithDefault) JsonFieldWithDefault {
+		if v != nil {
+			return *v
+		}
+		var ret JsonFieldWithDefault
+		return ret
+	}).(JsonFieldWithDefaultOutput)
 }
 
 // The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
@@ -2147,7 +2189,7 @@ func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponsePtrOut
 }
 
 func (o JsonFieldWithDefaultResponseOutput) ToJsonFieldWithDefaultResponsePtrOutputWithContext(ctx context.Context) JsonFieldWithDefaultResponsePtrOutput {
-	return o.ApplyT(func(v JsonFieldWithDefaultResponse) *JsonFieldWithDefaultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonFieldWithDefaultResponse) *JsonFieldWithDefaultResponse {
 		return &v
 	}).(JsonFieldWithDefaultResponsePtrOutput)
 }
@@ -2177,7 +2219,13 @@ func (o JsonFieldWithDefaultResponsePtrOutput) ToJsonFieldWithDefaultResponsePtr
 }
 
 func (o JsonFieldWithDefaultResponsePtrOutput) Elem() JsonFieldWithDefaultResponseOutput {
-	return o.ApplyT(func(v *JsonFieldWithDefaultResponse) JsonFieldWithDefaultResponse { return *v }).(JsonFieldWithDefaultResponseOutput)
+	return o.ApplyT(func(v *JsonFieldWithDefaultResponse) JsonFieldWithDefaultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JsonFieldWithDefaultResponse
+		return ret
+	}).(JsonFieldWithDefaultResponseOutput)
 }
 
 // The default value to be used for mapping when a SourceField is not provided or if there's no property with the specified name in the published JSON event payload.
@@ -2322,7 +2370,7 @@ func (o JsonInputSchemaMappingOutput) ToJsonInputSchemaMappingPtrOutput() JsonIn
 }
 
 func (o JsonInputSchemaMappingOutput) ToJsonInputSchemaMappingPtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingPtrOutput {
-	return o.ApplyT(func(v JsonInputSchemaMapping) *JsonInputSchemaMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonInputSchemaMapping) *JsonInputSchemaMapping {
 		return &v
 	}).(JsonInputSchemaMappingPtrOutput)
 }
@@ -2378,7 +2426,13 @@ func (o JsonInputSchemaMappingPtrOutput) ToJsonInputSchemaMappingPtrOutputWithCo
 }
 
 func (o JsonInputSchemaMappingPtrOutput) Elem() JsonInputSchemaMappingOutput {
-	return o.ApplyT(func(v *JsonInputSchemaMapping) JsonInputSchemaMapping { return *v }).(JsonInputSchemaMappingOutput)
+	return o.ApplyT(func(v *JsonInputSchemaMapping) JsonInputSchemaMapping {
+		if v != nil {
+			return *v
+		}
+		var ret JsonInputSchemaMapping
+		return ret
+	}).(JsonInputSchemaMappingOutput)
 }
 
 // The mapping information for the DataVersion property of the Event Grid Event.
@@ -2574,7 +2628,7 @@ func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponsePt
 }
 
 func (o JsonInputSchemaMappingResponseOutput) ToJsonInputSchemaMappingResponsePtrOutputWithContext(ctx context.Context) JsonInputSchemaMappingResponsePtrOutput {
-	return o.ApplyT(func(v JsonInputSchemaMappingResponse) *JsonInputSchemaMappingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JsonInputSchemaMappingResponse) *JsonInputSchemaMappingResponse {
 		return &v
 	}).(JsonInputSchemaMappingResponsePtrOutput)
 }
@@ -2630,7 +2684,13 @@ func (o JsonInputSchemaMappingResponsePtrOutput) ToJsonInputSchemaMappingRespons
 }
 
 func (o JsonInputSchemaMappingResponsePtrOutput) Elem() JsonInputSchemaMappingResponseOutput {
-	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) JsonInputSchemaMappingResponse { return *v }).(JsonInputSchemaMappingResponseOutput)
+	return o.ApplyT(func(v *JsonInputSchemaMappingResponse) JsonInputSchemaMappingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JsonInputSchemaMappingResponse
+		return ret
+	}).(JsonInputSchemaMappingResponseOutput)
 }
 
 // The mapping information for the DataVersion property of the Event Grid Event.
@@ -3712,7 +3772,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -3737,7 +3797,13 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
 }
 
 // The ARM identifier for Private Endpoint.
@@ -3999,7 +4065,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -4024,7 +4090,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint.
@@ -4137,7 +4209,7 @@ func (o RetryPolicyOutput) ToRetryPolicyPtrOutput() RetryPolicyPtrOutput {
 }
 
 func (o RetryPolicyOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Context) RetryPolicyPtrOutput {
-	return o.ApplyT(func(v RetryPolicy) *RetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicy) *RetryPolicy {
 		return &v
 	}).(RetryPolicyPtrOutput)
 }
@@ -4167,7 +4239,13 @@ func (o RetryPolicyPtrOutput) ToRetryPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func (o RetryPolicyPtrOutput) Elem() RetryPolicyOutput {
-	return o.ApplyT(func(v *RetryPolicy) RetryPolicy { return *v }).(RetryPolicyOutput)
+	return o.ApplyT(func(v *RetryPolicy) RetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RetryPolicy
+		return ret
+	}).(RetryPolicyOutput)
 }
 
 // Time To Live (in minutes) for events.
@@ -4290,7 +4368,7 @@ func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutput() RetryPolicyR
 }
 
 func (o RetryPolicyResponseOutput) ToRetryPolicyResponsePtrOutputWithContext(ctx context.Context) RetryPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RetryPolicyResponse) *RetryPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetryPolicyResponse) *RetryPolicyResponse {
 		return &v
 	}).(RetryPolicyResponsePtrOutput)
 }
@@ -4320,7 +4398,13 @@ func (o RetryPolicyResponsePtrOutput) ToRetryPolicyResponsePtrOutputWithContext(
 }
 
 func (o RetryPolicyResponsePtrOutput) Elem() RetryPolicyResponseOutput {
-	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse { return *v }).(RetryPolicyResponseOutput)
+	return o.ApplyT(func(v *RetryPolicyResponse) RetryPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetryPolicyResponse
+		return ret
+	}).(RetryPolicyResponseOutput)
 }
 
 // Time To Live (in minutes) for events.
@@ -4717,7 +4801,7 @@ func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinati
 }
 
 func (o StorageBlobDeadLetterDestinationOutput) ToStorageBlobDeadLetterDestinationPtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationPtrOutput {
-	return o.ApplyT(func(v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestination) *StorageBlobDeadLetterDestination {
 		return &v
 	}).(StorageBlobDeadLetterDestinationPtrOutput)
 }
@@ -4753,7 +4837,13 @@ func (o StorageBlobDeadLetterDestinationPtrOutput) ToStorageBlobDeadLetterDestin
 }
 
 func (o StorageBlobDeadLetterDestinationPtrOutput) Elem() StorageBlobDeadLetterDestinationOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination { return *v }).(StorageBlobDeadLetterDestinationOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestination) StorageBlobDeadLetterDestination {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBlobDeadLetterDestination
+		return ret
+	}).(StorageBlobDeadLetterDestinationOutput)
 }
 
 // The name of the Storage blob container that is the destination of the deadletter events
@@ -4893,7 +4983,7 @@ func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterD
 }
 
 func (o StorageBlobDeadLetterDestinationResponseOutput) ToStorageBlobDeadLetterDestinationResponsePtrOutputWithContext(ctx context.Context) StorageBlobDeadLetterDestinationResponsePtrOutput {
-	return o.ApplyT(func(v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageBlobDeadLetterDestinationResponse) *StorageBlobDeadLetterDestinationResponse {
 		return &v
 	}).(StorageBlobDeadLetterDestinationResponsePtrOutput)
 }
@@ -4929,7 +5019,13 @@ func (o StorageBlobDeadLetterDestinationResponsePtrOutput) ToStorageBlobDeadLett
 }
 
 func (o StorageBlobDeadLetterDestinationResponsePtrOutput) Elem() StorageBlobDeadLetterDestinationResponseOutput {
-	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse { return *v }).(StorageBlobDeadLetterDestinationResponseOutput)
+	return o.ApplyT(func(v *StorageBlobDeadLetterDestinationResponse) StorageBlobDeadLetterDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageBlobDeadLetterDestinationResponse
+		return ret
+	}).(StorageBlobDeadLetterDestinationResponseOutput)
 }
 
 // The name of the Storage blob container that is the destination of the deadletter events
@@ -5991,7 +6087,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -6041,7 +6137,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

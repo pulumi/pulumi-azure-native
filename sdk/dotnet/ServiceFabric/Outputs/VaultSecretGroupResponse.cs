@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
+    /// <summary>
+    /// Specifies set of certificates that should be installed onto the virtual machines.
+    /// </summary>
     [OutputType]
     public sealed class VaultSecretGroupResponse
     {
