@@ -3,7 +3,14 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `powerbi.PowerBIResource`
+- `powerbi.PrivateEndpointConnection`
+
+#### New functions:
+
+- `powerbi.getPrivateEndpointConnection`
 
 ---
 

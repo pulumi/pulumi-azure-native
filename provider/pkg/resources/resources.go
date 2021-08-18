@@ -190,7 +190,7 @@ func resourceProvider(path, defaultValue string) string {
 	return defaultValue
 }
 
-var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "List", "", "list", "", "CheckEntityExists", "")
+var verbReplacer = strings.NewReplacer("GetProperties", "", "Get", "", "getByName", "", "get", "", "ListByResourceName", "", "List", "", "list", "", "CheckEntityExists", "")
 var wellKnownNames = map[string]string{
 	"AssessmentsMetadata": "AssessmentMetadata",
 	"Caches":              "Cache",

@@ -68613,7 +68613,12 @@
     ]
   },
   {
-    "authorizations": [],
+    "authorizations": [
+      {
+        "applicationId": "dba650ed-9577-4bc0-9b5f-ef73e2d5bdfc",
+        "roleDefinitionId": "09b4df5b-7d96-4f1a-98c9-315718a70c92"
+      }
+    ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Dynatrace.Observability",
     "namespace": "Dynatrace.Observability",
     "providerAuthorizationConsentState": null,
@@ -68674,36 +68679,6 @@
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-06-01-preview"
-        ],
-        "capabilities": "SupportsTags, SupportsLocation",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2"
-        ],
-        "properties": null,
-        "resourceType": "monitors"
-      },
-      {
-        "aliases": null,
-        "apiProfiles": null,
-        "apiVersions": [
-          "2021-06-01-preview"
-        ],
-        "capabilities": "None",
-        "defaultApiVersion": null,
-        "locationMappings": null,
-        "locations": [
-          "West US 2"
-        ],
-        "properties": null,
-        "resourceType": "monitors/tagRules"
       }
     ]
   },
