@@ -12,7 +12,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hardwaresecuritymodules.v20181031preview as v20181031preview
+    import pulumi_azure_native.hardwaresecuritymodules.v20181031preview as __v20181031preview
+    v20181031preview = __v20181031preview
 else:
     v20181031preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20181031preview')
 

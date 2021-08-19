@@ -25,19 +25,19 @@ __all__ = [
     'ManagedClusterAutoUpgradeProfileArgs',
     'ManagedClusterHTTPProxyConfigArgs',
     'ManagedClusterIdentityArgs',
-    'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
     'ManagedClusterLoadBalancerProfileOutboundIPsArgs',
+    'ManagedClusterLoadBalancerProfileArgs',
     'ManagedClusterManagedOutboundIPProfileArgs',
     'ManagedClusterNATGatewayProfileArgs',
-    'ManagedClusterPodIdentityArgs',
     'ManagedClusterPodIdentityExceptionArgs',
     'ManagedClusterPodIdentityProfileArgs',
+    'ManagedClusterPodIdentityArgs',
     'ManagedClusterPropertiesAutoScalerProfileArgs',
     'ManagedClusterSKUArgs',
-    'ManagedClusterSecurityProfileArgs',
     'ManagedClusterSecurityProfileAzureDefenderArgs',
+    'ManagedClusterSecurityProfileArgs',
     'ManagedClusterServicePrincipalProfileArgs',
     'ManagedClusterWindowsProfileArgs',
     'PrivateEndpointArgs',
@@ -1585,6 +1585,80 @@ class ManagedClusterIdentityArgs:
 
 
 @pulumi.input_type
+class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None):
+        """
+        Desired managed outbound IPs for the cluster load balancer.
+        :param pulumi.Input[int] count: The desired number of outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        if count is None:
+            count = 1
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The desired number of outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
+    def __init__(__self__, *,
+                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+        """
+        Desired outbound IP Prefix resources for the cluster load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
+        """
+        if public_ip_prefixes is not None:
+            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
+
+    @property
+    @pulumi.getter(name="publicIPPrefixes")
+    def public_ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        A list of public IP prefix resources.
+        """
+        return pulumi.get(self, "public_ip_prefixes")
+
+    @public_ip_prefixes.setter
+    def public_ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "public_ip_prefixes", value)
+
+
+@pulumi.input_type
+class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
+    def __init__(__self__, *,
+                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
+        """
+        Desired outbound IP resources for the cluster load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
+        """
+        if public_ips is not None:
+            pulumi.set(__self__, "public_ips", public_ips)
+
+    @property
+    @pulumi.getter(name="publicIPs")
+    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        A list of public IP resources.
+        """
+        return pulumi.get(self, "public_ips")
+
+    @public_ips.setter
+    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "public_ips", value)
+
+
+@pulumi.input_type
 class ManagedClusterLoadBalancerProfileArgs:
     def __init__(__self__, *,
                  allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
@@ -1693,80 +1767,6 @@ class ManagedClusterLoadBalancerProfileArgs:
 
 
 @pulumi.input_type
-class ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs:
-    def __init__(__self__, *,
-                 count: Optional[pulumi.Input[int]] = None):
-        """
-        Desired managed outbound IPs for the cluster load balancer.
-        :param pulumi.Input[int] count: The desired number of outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        """
-        if count is None:
-            count = 1
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The desired number of outbound IPs created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
-
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs:
-    def __init__(__self__, *,
-                 public_ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
-        """
-        Desired outbound IP Prefix resources for the cluster load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ip_prefixes: A list of public IP prefix resources.
-        """
-        if public_ip_prefixes is not None:
-            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
-
-    @property
-    @pulumi.getter(name="publicIPPrefixes")
-    def public_ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        A list of public IP prefix resources.
-        """
-        return pulumi.get(self, "public_ip_prefixes")
-
-    @public_ip_prefixes.setter
-    def public_ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "public_ip_prefixes", value)
-
-
-@pulumi.input_type
-class ManagedClusterLoadBalancerProfileOutboundIPsArgs:
-    def __init__(__self__, *,
-                 public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
-        """
-        Desired outbound IP resources for the cluster load balancer.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] public_ips: A list of public IP resources.
-        """
-        if public_ips is not None:
-            pulumi.set(__self__, "public_ips", public_ips)
-
-    @property
-    @pulumi.getter(name="publicIPs")
-    def public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
-        """
-        A list of public IP resources.
-        """
-        return pulumi.get(self, "public_ips")
-
-    @public_ips.setter
-    def public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
-        pulumi.set(self, "public_ips", value)
-
-
-@pulumi.input_type
 class ManagedClusterManagedOutboundIPProfileArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None):
@@ -1848,75 +1848,6 @@ class ManagedClusterNATGatewayProfileArgs:
     @managed_outbound_ip_profile.setter
     def managed_outbound_ip_profile(self, value: Optional[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgs']]):
         pulumi.set(self, "managed_outbound_ip_profile", value)
-
-
-@pulumi.input_type
-class ManagedClusterPodIdentityArgs:
-    def __init__(__self__, *,
-                 identity: pulumi.Input['UserAssignedIdentityArgs'],
-                 name: pulumi.Input[str],
-                 namespace: pulumi.Input[str],
-                 binding_selector: Optional[pulumi.Input[str]] = None):
-        """
-        Details about the pod identity assigned to the Managed Cluster.
-        :param pulumi.Input['UserAssignedIdentityArgs'] identity: The user assigned identity details.
-        :param pulumi.Input[str] name: The name of the pod identity.
-        :param pulumi.Input[str] namespace: The namespace of the pod identity.
-        :param pulumi.Input[str] binding_selector: The binding selector to use for the AzureIdentityBinding resource.
-        """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "namespace", namespace)
-        if binding_selector is not None:
-            pulumi.set(__self__, "binding_selector", binding_selector)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Input['UserAssignedIdentityArgs']:
-        """
-        The user assigned identity details.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: pulumi.Input['UserAssignedIdentityArgs']):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the pod identity.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def namespace(self) -> pulumi.Input[str]:
-        """
-        The namespace of the pod identity.
-        """
-        return pulumi.get(self, "namespace")
-
-    @namespace.setter
-    def namespace(self, value: pulumi.Input[str]):
-        pulumi.set(self, "namespace", value)
-
-    @property
-    @pulumi.getter(name="bindingSelector")
-    def binding_selector(self) -> Optional[pulumi.Input[str]]:
-        """
-        The binding selector to use for the AzureIdentityBinding resource.
-        """
-        return pulumi.get(self, "binding_selector")
-
-    @binding_selector.setter
-    def binding_selector(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "binding_selector", value)
 
 
 @pulumi.input_type
@@ -2042,6 +1973,75 @@ class ManagedClusterPodIdentityProfileArgs:
     @user_assigned_identity_exceptions.setter
     def user_assigned_identity_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterPodIdentityExceptionArgs']]]]):
         pulumi.set(self, "user_assigned_identity_exceptions", value)
+
+
+@pulumi.input_type
+class ManagedClusterPodIdentityArgs:
+    def __init__(__self__, *,
+                 identity: pulumi.Input['UserAssignedIdentityArgs'],
+                 name: pulumi.Input[str],
+                 namespace: pulumi.Input[str],
+                 binding_selector: Optional[pulumi.Input[str]] = None):
+        """
+        Details about the pod identity assigned to the Managed Cluster.
+        :param pulumi.Input['UserAssignedIdentityArgs'] identity: The user assigned identity details.
+        :param pulumi.Input[str] name: The name of the pod identity.
+        :param pulumi.Input[str] namespace: The namespace of the pod identity.
+        :param pulumi.Input[str] binding_selector: The binding selector to use for the AzureIdentityBinding resource.
+        """
+        pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "namespace", namespace)
+        if binding_selector is not None:
+            pulumi.set(__self__, "binding_selector", binding_selector)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['UserAssignedIdentityArgs']:
+        """
+        The user assigned identity details.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['UserAssignedIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the pod identity.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the pod identity.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter(name="bindingSelector")
+    def binding_selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        The binding selector to use for the AzureIdentityBinding resource.
+        """
+        return pulumi.get(self, "binding_selector")
+
+    @binding_selector.setter
+    def binding_selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "binding_selector", value)
 
 
 @pulumi.input_type
@@ -2365,30 +2365,6 @@ class ManagedClusterSKUArgs:
 
 
 @pulumi.input_type
-class ManagedClusterSecurityProfileArgs:
-    def __init__(__self__, *,
-                 azure_defender: Optional[pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs']] = None):
-        """
-        Security profile for the container service cluster.
-        :param pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs'] azure_defender: Azure Defender settings for the security profile.
-        """
-        if azure_defender is not None:
-            pulumi.set(__self__, "azure_defender", azure_defender)
-
-    @property
-    @pulumi.getter(name="azureDefender")
-    def azure_defender(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs']]:
-        """
-        Azure Defender settings for the security profile.
-        """
-        return pulumi.get(self, "azure_defender")
-
-    @azure_defender.setter
-    def azure_defender(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs']]):
-        pulumi.set(self, "azure_defender", value)
-
-
-@pulumi.input_type
 class ManagedClusterSecurityProfileAzureDefenderArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -2426,6 +2402,30 @@ class ManagedClusterSecurityProfileAzureDefenderArgs:
     @log_analytics_workspace_resource_id.setter
     def log_analytics_workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_analytics_workspace_resource_id", value)
+
+
+@pulumi.input_type
+class ManagedClusterSecurityProfileArgs:
+    def __init__(__self__, *,
+                 azure_defender: Optional[pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs']] = None):
+        """
+        Security profile for the container service cluster.
+        :param pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs'] azure_defender: Azure Defender settings for the security profile.
+        """
+        if azure_defender is not None:
+            pulumi.set(__self__, "azure_defender", azure_defender)
+
+    @property
+    @pulumi.getter(name="azureDefender")
+    def azure_defender(self) -> Optional[pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs']]:
+        """
+        Azure Defender settings for the security profile.
+        """
+        return pulumi.get(self, "azure_defender")
+
+    @azure_defender.setter
+    def azure_defender(self, value: Optional[pulumi.Input['ManagedClusterSecurityProfileAzureDefenderArgs']]):
+        pulumi.set(self, "azure_defender", value)
 
 
 @pulumi.input_type

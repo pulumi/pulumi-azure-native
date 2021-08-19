@@ -14,11 +14,11 @@ __all__ = [
     'HealthCheckStepPropertiesArgs',
     'IdentityArgs',
     'PrePostStepArgs',
-    'RestHealthCheckArgs',
     'RestHealthCheckStepAttributesArgs',
+    'RestHealthCheckArgs',
     'RestRequestArgs',
-    'RestResponseArgs',
     'RestResponseRegexArgs',
+    'RestResponseArgs',
     'RolloutIdentityAuthenticationArgs',
     'SasAuthenticationArgs',
     'ServiceUnitArtifactsArgs',
@@ -199,60 +199,6 @@ class PrePostStepArgs:
 
 
 @pulumi.input_type
-class RestHealthCheckArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 request: pulumi.Input['RestRequestArgs'],
-                 response: Optional[pulumi.Input['RestResponseArgs']] = None):
-        """
-        A REST based health check
-        :param pulumi.Input[str] name: A unique name for this check.
-        :param pulumi.Input['RestRequestArgs'] request: The request to the health provider.
-        :param pulumi.Input['RestResponseArgs'] response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "request", request)
-        if response is not None:
-            pulumi.set(__self__, "response", response)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        A unique name for this check.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def request(self) -> pulumi.Input['RestRequestArgs']:
-        """
-        The request to the health provider.
-        """
-        return pulumi.get(self, "request")
-
-    @request.setter
-    def request(self, value: pulumi.Input['RestRequestArgs']):
-        pulumi.set(self, "request", value)
-
-    @property
-    @pulumi.getter
-    def response(self) -> Optional[pulumi.Input['RestResponseArgs']]:
-        """
-        The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
-        """
-        return pulumi.get(self, "response")
-
-    @response.setter
-    def response(self, value: Optional[pulumi.Input['RestResponseArgs']]):
-        pulumi.set(self, "response", value)
-
-
-@pulumi.input_type
 class RestHealthCheckStepAttributesArgs:
     def __init__(__self__, *,
                  health_checks: pulumi.Input[Sequence[pulumi.Input['RestHealthCheckArgs']]],
@@ -340,6 +286,60 @@ class RestHealthCheckStepAttributesArgs:
 
 
 @pulumi.input_type
+class RestHealthCheckArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 request: pulumi.Input['RestRequestArgs'],
+                 response: Optional[pulumi.Input['RestResponseArgs']] = None):
+        """
+        A REST based health check
+        :param pulumi.Input[str] name: A unique name for this check.
+        :param pulumi.Input['RestRequestArgs'] request: The request to the health provider.
+        :param pulumi.Input['RestResponseArgs'] response: The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "request", request)
+        if response is not None:
+            pulumi.set(__self__, "response", response)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A unique name for this check.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> pulumi.Input['RestRequestArgs']:
+        """
+        The request to the health provider.
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: pulumi.Input['RestRequestArgs']):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter
+    def response(self) -> Optional[pulumi.Input['RestResponseArgs']]:
+        """
+        The expected response from the health provider. If no expected response is provided, the default is to expect the received response to have an HTTP status code of 200 OK.
+        """
+        return pulumi.get(self, "response")
+
+    @response.setter
+    def response(self, value: Optional[pulumi.Input['RestResponseArgs']]):
+        pulumi.set(self, "response", value)
+
+
+@pulumi.input_type
 class RestRequestArgs:
     def __init__(__self__, *,
                  authentication: pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']],
@@ -393,46 +393,6 @@ class RestRequestArgs:
 
 
 @pulumi.input_type
-class RestResponseArgs:
-    def __init__(__self__, *,
-                 regex: Optional[pulumi.Input['RestResponseRegexArgs']] = None,
-                 success_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The properties that make up the expected REST response
-        :param pulumi.Input['RestResponseRegexArgs'] regex: The regular expressions to match the response content with.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
-        """
-        if regex is not None:
-            pulumi.set(__self__, "regex", regex)
-        if success_status_codes is not None:
-            pulumi.set(__self__, "success_status_codes", success_status_codes)
-
-    @property
-    @pulumi.getter
-    def regex(self) -> Optional[pulumi.Input['RestResponseRegexArgs']]:
-        """
-        The regular expressions to match the response content with.
-        """
-        return pulumi.get(self, "regex")
-
-    @regex.setter
-    def regex(self, value: Optional[pulumi.Input['RestResponseRegexArgs']]):
-        pulumi.set(self, "regex", value)
-
-    @property
-    @pulumi.getter(name="successStatusCodes")
-    def success_status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
-        """
-        return pulumi.get(self, "success_status_codes")
-
-    @success_status_codes.setter
-    def success_status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "success_status_codes", value)
-
-
-@pulumi.input_type
 class RestResponseRegexArgs:
     def __init__(__self__, *,
                  match_quantifier: Optional[pulumi.Input['RestMatchQuantifier']] = None,
@@ -470,6 +430,46 @@ class RestResponseRegexArgs:
     @matches.setter
     def matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "matches", value)
+
+
+@pulumi.input_type
+class RestResponseArgs:
+    def __init__(__self__, *,
+                 regex: Optional[pulumi.Input['RestResponseRegexArgs']] = None,
+                 success_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The properties that make up the expected REST response
+        :param pulumi.Input['RestResponseRegexArgs'] regex: The regular expressions to match the response content with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] success_status_codes: The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        if regex is not None:
+            pulumi.set(__self__, "regex", regex)
+        if success_status_codes is not None:
+            pulumi.set(__self__, "success_status_codes", success_status_codes)
+
+    @property
+    @pulumi.getter
+    def regex(self) -> Optional[pulumi.Input['RestResponseRegexArgs']]:
+        """
+        The regular expressions to match the response content with.
+        """
+        return pulumi.get(self, "regex")
+
+    @regex.setter
+    def regex(self, value: Optional[pulumi.Input['RestResponseRegexArgs']]):
+        pulumi.set(self, "regex", value)
+
+    @property
+    @pulumi.getter(name="successStatusCodes")
+    def success_status_codes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The HTTP status codes expected in a successful health check response. The response is expected to match one of the given status codes. If no expected status codes are provided, default expected status code is 200 OK.
+        """
+        return pulumi.get(self, "success_status_codes")
+
+    @success_status_codes.setter
+    def success_status_codes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "success_status_codes", value)
 
 
 @pulumi.input_type

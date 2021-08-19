@@ -13,20 +13,34 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.consumption.v20171230preview as v20171230preview
-    import pulumi_azure_native.consumption.v20180131 as v20180131
-    import pulumi_azure_native.consumption.v20180331 as v20180331
-    import pulumi_azure_native.consumption.v20180630 as v20180630
-    import pulumi_azure_native.consumption.v20180831 as v20180831
-    import pulumi_azure_native.consumption.v20181001 as v20181001
-    import pulumi_azure_native.consumption.v20190101 as v20190101
-    import pulumi_azure_native.consumption.v20190401preview as v20190401preview
-    import pulumi_azure_native.consumption.v20190501 as v20190501
-    import pulumi_azure_native.consumption.v20190501preview as v20190501preview
-    import pulumi_azure_native.consumption.v20190601 as v20190601
-    import pulumi_azure_native.consumption.v20191001 as v20191001
-    import pulumi_azure_native.consumption.v20191101 as v20191101
-    import pulumi_azure_native.consumption.v20210501 as v20210501
+    import pulumi_azure_native.consumption.v20171230preview as __v20171230preview
+    v20171230preview = __v20171230preview
+    import pulumi_azure_native.consumption.v20180131 as __v20180131
+    v20180131 = __v20180131
+    import pulumi_azure_native.consumption.v20180331 as __v20180331
+    v20180331 = __v20180331
+    import pulumi_azure_native.consumption.v20180630 as __v20180630
+    v20180630 = __v20180630
+    import pulumi_azure_native.consumption.v20180831 as __v20180831
+    v20180831 = __v20180831
+    import pulumi_azure_native.consumption.v20181001 as __v20181001
+    v20181001 = __v20181001
+    import pulumi_azure_native.consumption.v20190101 as __v20190101
+    v20190101 = __v20190101
+    import pulumi_azure_native.consumption.v20190401preview as __v20190401preview
+    v20190401preview = __v20190401preview
+    import pulumi_azure_native.consumption.v20190501 as __v20190501
+    v20190501 = __v20190501
+    import pulumi_azure_native.consumption.v20190501preview as __v20190501preview
+    v20190501preview = __v20190501preview
+    import pulumi_azure_native.consumption.v20190601 as __v20190601
+    v20190601 = __v20190601
+    import pulumi_azure_native.consumption.v20191001 as __v20191001
+    v20191001 = __v20191001
+    import pulumi_azure_native.consumption.v20191101 as __v20191101
+    v20191101 = __v20191101
+    import pulumi_azure_native.consumption.v20210501 as __v20210501
+    v20210501 = __v20210501
 else:
     v20171230preview = _utilities.lazy_import('pulumi_azure_native.consumption.v20171230preview')
     v20180131 = _utilities.lazy_import('pulumi_azure_native.consumption.v20180131')

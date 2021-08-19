@@ -15,8 +15,8 @@ __all__ = [
     'ThreatIntelligenceExternalReferenceArgs',
     'ThreatIntelligenceGranularMarkingModelArgs',
     'ThreatIntelligenceKillChainPhaseArgs',
-    'ThreatIntelligenceParsedPatternArgs',
     'ThreatIntelligenceParsedPatternTypeValueArgs',
+    'ThreatIntelligenceParsedPatternArgs',
     'WatchlistUserInfoArgs',
 ]
 
@@ -300,46 +300,6 @@ class ThreatIntelligenceKillChainPhaseArgs:
 
 
 @pulumi.input_type
-class ThreatIntelligenceParsedPatternArgs:
-    def __init__(__self__, *,
-                 pattern_type_key: Optional[pulumi.Input[str]] = None,
-                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]] = None):
-        """
-        Describes parsed pattern entity
-        :param pulumi.Input[str] pattern_type_key: Pattern type key
-        :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]] pattern_type_values: Pattern type keys
-        """
-        if pattern_type_key is not None:
-            pulumi.set(__self__, "pattern_type_key", pattern_type_key)
-        if pattern_type_values is not None:
-            pulumi.set(__self__, "pattern_type_values", pattern_type_values)
-
-    @property
-    @pulumi.getter(name="patternTypeKey")
-    def pattern_type_key(self) -> Optional[pulumi.Input[str]]:
-        """
-        Pattern type key
-        """
-        return pulumi.get(self, "pattern_type_key")
-
-    @pattern_type_key.setter
-    def pattern_type_key(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "pattern_type_key", value)
-
-    @property
-    @pulumi.getter(name="patternTypeValues")
-    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]:
-        """
-        Pattern type keys
-        """
-        return pulumi.get(self, "pattern_type_values")
-
-    @pattern_type_values.setter
-    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]):
-        pulumi.set(self, "pattern_type_values", value)
-
-
-@pulumi.input_type
 class ThreatIntelligenceParsedPatternTypeValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None,
@@ -377,6 +337,46 @@ class ThreatIntelligenceParsedPatternTypeValueArgs:
     @value_type.setter
     def value_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value_type", value)
+
+
+@pulumi.input_type
+class ThreatIntelligenceParsedPatternArgs:
+    def __init__(__self__, *,
+                 pattern_type_key: Optional[pulumi.Input[str]] = None,
+                 pattern_type_values: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]] = None):
+        """
+        Describes parsed pattern entity
+        :param pulumi.Input[str] pattern_type_key: Pattern type key
+        :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]] pattern_type_values: Pattern type keys
+        """
+        if pattern_type_key is not None:
+            pulumi.set(__self__, "pattern_type_key", pattern_type_key)
+        if pattern_type_values is not None:
+            pulumi.set(__self__, "pattern_type_values", pattern_type_values)
+
+    @property
+    @pulumi.getter(name="patternTypeKey")
+    def pattern_type_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pattern type key
+        """
+        return pulumi.get(self, "pattern_type_key")
+
+    @pattern_type_key.setter
+    def pattern_type_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern_type_key", value)
+
+    @property
+    @pulumi.getter(name="patternTypeValues")
+    def pattern_type_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]:
+        """
+        Pattern type keys
+        """
+        return pulumi.get(self, "pattern_type_values")
+
+    @pattern_type_values.setter
+    def pattern_type_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceParsedPatternTypeValueArgs']]]]):
+        pulumi.set(self, "pattern_type_values", value)
 
 
 @pulumi.input_type

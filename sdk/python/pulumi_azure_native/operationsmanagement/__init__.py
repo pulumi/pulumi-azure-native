@@ -16,7 +16,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.operationsmanagement.v20151101preview as v20151101preview
+    import pulumi_azure_native.operationsmanagement.v20151101preview as __v20151101preview
+    v20151101preview = __v20151101preview
 else:
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.operationsmanagement.v20151101preview')
 

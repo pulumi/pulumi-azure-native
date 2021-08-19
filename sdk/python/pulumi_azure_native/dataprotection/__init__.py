@@ -17,9 +17,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.dataprotection.v20210101 as v20210101
-    import pulumi_azure_native.dataprotection.v20210201preview as v20210201preview
-    import pulumi_azure_native.dataprotection.v20210601preview as v20210601preview
+    import pulumi_azure_native.dataprotection.v20210101 as __v20210101
+    v20210101 = __v20210101
+    import pulumi_azure_native.dataprotection.v20210201preview as __v20210201preview
+    v20210201preview = __v20210201preview
+    import pulumi_azure_native.dataprotection.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
 else:
     v20210101 = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210101')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.dataprotection.v20210201preview')

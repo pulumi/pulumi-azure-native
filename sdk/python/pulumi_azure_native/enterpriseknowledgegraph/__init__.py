@@ -13,7 +13,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.enterpriseknowledgegraph.v20181203 as v20181203
+    import pulumi_azure_native.enterpriseknowledgegraph.v20181203 as __v20181203
+    v20181203 = __v20181203
 else:
     v20181203 = _utilities.lazy_import('pulumi_azure_native.enterpriseknowledgegraph.v20181203')
 

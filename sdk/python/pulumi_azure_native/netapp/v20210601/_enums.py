@@ -21,7 +21,9 @@ class AvsDataStore(str, Enum):
     Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
     """
     ENABLED = "Enabled"
+    """avsDataStore is enabled"""
     DISABLED = "Disabled"
+    """avsDataStore is disabled"""
 
 
 class ChownMode(str, Enum):
@@ -37,7 +39,9 @@ class EncryptionType(str, Enum):
     Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
     """
     SINGLE = "Single"
+    """EncryptionType Single, volumes will use single encryption at rest"""
     DOUBLE = "Double"
+    """EncryptionType Double, volumes will use double encryption at rest"""
 
 
 class EndpointType(str, Enum):
@@ -53,7 +57,9 @@ class QosType(str, Enum):
     The qos type of the pool
     """
     AUTO = "Auto"
+    """qos type Auto"""
     MANUAL = "Manual"
+    """qos type Manual"""
 
 
 class ReplicationSchedule(str, Enum):
@@ -78,6 +84,10 @@ class ServiceLevel(str, Enum):
     The service level of the file system
     """
     STANDARD = "Standard"
+    """Standard service level"""
     PREMIUM = "Premium"
+    """Premium service level"""
     ULTRA = "Ultra"
+    """Ultra service level"""
     STANDARD_ZRS = "StandardZRS"
+    """Zone redundant storage service level"""

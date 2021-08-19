@@ -11,11 +11,11 @@ from ._enums import *
 
 __all__ = [
     'DnsConfigArgs',
-    'EndpointArgs',
     'EndpointPropertiesCustomHeadersArgs',
-    'MonitorConfigArgs',
+    'EndpointArgs',
     'MonitorConfigCustomHeadersArgs',
     'MonitorConfigExpectedStatusCodeRangesArgs',
+    'MonitorConfigArgs',
 ]
 
 @pulumi.input_type
@@ -56,6 +56,46 @@ class DnsConfigArgs:
     @ttl.setter
     def ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "ttl", value)
+
+
+@pulumi.input_type
+class EndpointPropertiesCustomHeadersArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Custom header name and value.
+        :param pulumi.Input[str] name: Header name.
+        :param pulumi.Input[str] value: Header value.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Header name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Header value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -275,7 +315,7 @@ class EndpointArgs:
 
 
 @pulumi.input_type
-class EndpointPropertiesCustomHeadersArgs:
+class MonitorConfigCustomHeadersArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -312,6 +352,46 @@ class EndpointPropertiesCustomHeadersArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MonitorConfigExpectedStatusCodeRangesArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        Min and max value of a status code range.
+        :param pulumi.Input[int] max: Max status code.
+        :param pulumi.Input[int] min: Min status code.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Max status code.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Min status code.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type
@@ -464,85 +544,5 @@ class MonitorConfigArgs:
     @tolerated_number_of_failures.setter
     def tolerated_number_of_failures(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "tolerated_number_of_failures", value)
-
-
-@pulumi.input_type
-class MonitorConfigCustomHeadersArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        Custom header name and value.
-        :param pulumi.Input[str] name: Header name.
-        :param pulumi.Input[str] value: Header value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        Header value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class MonitorConfigExpectedStatusCodeRangesArgs:
-    def __init__(__self__, *,
-                 max: Optional[pulumi.Input[int]] = None,
-                 min: Optional[pulumi.Input[int]] = None):
-        """
-        Min and max value of a status code range.
-        :param pulumi.Input[int] max: Max status code.
-        :param pulumi.Input[int] min: Min status code.
-        """
-        if max is not None:
-            pulumi.set(__self__, "max", max)
-        if min is not None:
-            pulumi.set(__self__, "min", min)
-
-    @property
-    @pulumi.getter
-    def max(self) -> Optional[pulumi.Input[int]]:
-        """
-        Max status code.
-        """
-        return pulumi.get(self, "max")
-
-    @max.setter
-    def max(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "max", value)
-
-    @property
-    @pulumi.getter
-    def min(self) -> Optional[pulumi.Input[int]]:
-        """
-        Min status code.
-        """
-        return pulumi.get(self, "min")
-
-    @min.setter
-    def min(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "min", value)
 
 

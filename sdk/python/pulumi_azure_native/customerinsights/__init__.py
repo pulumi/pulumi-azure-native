@@ -37,8 +37,10 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.customerinsights.v20170101 as v20170101
-    import pulumi_azure_native.customerinsights.v20170426 as v20170426
+    import pulumi_azure_native.customerinsights.v20170101 as __v20170101
+    v20170101 = __v20170101
+    import pulumi_azure_native.customerinsights.v20170426 as __v20170426
+    v20170426 = __v20170426
 else:
     v20170101 = _utilities.lazy_import('pulumi_azure_native.customerinsights.v20170101')
     v20170426 = _utilities.lazy_import('pulumi_azure_native.customerinsights.v20170426')

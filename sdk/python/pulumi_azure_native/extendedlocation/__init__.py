@@ -13,7 +13,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.extendedlocation.v20210315preview as v20210315preview
+    import pulumi_azure_native.extendedlocation.v20210315preview as __v20210315preview
+    v20210315preview = __v20210315preview
 else:
     v20210315preview = _utilities.lazy_import('pulumi_azure_native.extendedlocation.v20210315preview')
 

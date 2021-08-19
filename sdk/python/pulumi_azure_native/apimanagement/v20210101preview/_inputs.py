@@ -28,8 +28,8 @@ __all__ = [
     'BodyDiagnosticSettingsArgs',
     'CertificateConfigurationArgs',
     'CertificateInformationArgs',
-    'DataMaskingArgs',
     'DataMaskingEntityArgs',
+    'DataMaskingArgs',
     'EmailTemplateParametersContractPropertiesArgs',
     'HostnameConfigurationArgs',
     'HttpMessageDiagnosticArgs',
@@ -1044,45 +1044,6 @@ class CertificateInformationArgs:
 
 
 @pulumi.input_type
-class DataMaskingArgs:
-    def __init__(__self__, *,
-                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None,
-                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] headers: Masking settings for headers
-        :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] query_params: Masking settings for Url query parameters
-        """
-        if headers is not None:
-            pulumi.set(__self__, "headers", headers)
-        if query_params is not None:
-            pulumi.set(__self__, "query_params", query_params)
-
-    @property
-    @pulumi.getter
-    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
-        """
-        Masking settings for headers
-        """
-        return pulumi.get(self, "headers")
-
-    @headers.setter
-    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
-        pulumi.set(self, "headers", value)
-
-    @property
-    @pulumi.getter(name="queryParams")
-    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
-        """
-        Masking settings for Url query parameters
-        """
-        return pulumi.get(self, "query_params")
-
-    @query_params.setter
-    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
-        pulumi.set(self, "query_params", value)
-
-
-@pulumi.input_type
 class DataMaskingEntityArgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]] = None,
@@ -1119,6 +1080,45 @@ class DataMaskingEntityArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DataMaskingArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None,
+                 query_params: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] headers: Masking settings for headers
+        :param pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]] query_params: Masking settings for Url query parameters
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_params is not None:
+            pulumi.set(__self__, "query_params", query_params)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
+        """
+        Masking settings for headers
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="queryParams")
+    def query_params(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]:
+        """
+        Masking settings for Url query parameters
+        """
+        return pulumi.get(self, "query_params")
+
+    @query_params.setter
+    def query_params(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataMaskingEntityArgs']]]]):
+        pulumi.set(self, "query_params", value)
 
 
 @pulumi.input_type

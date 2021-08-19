@@ -12,10 +12,10 @@ from ._enums import *
 __all__ = [
     'CacheExpirationActionParametersArgs',
     'DeepCreatedOriginArgs',
-    'DeliveryRuleArgs',
     'DeliveryRuleCacheExpirationActionArgs',
     'DeliveryRuleUrlFileExtensionConditionArgs',
     'DeliveryRuleUrlPathConditionArgs',
+    'DeliveryRuleArgs',
     'EndpointPropertiesUpdateParametersDeliveryPolicyArgs',
     'GeoFilterArgs',
     'SkuArgs',
@@ -159,60 +159,6 @@ class DeepCreatedOriginArgs:
 
 
 @pulumi.input_type
-class DeliveryRuleArgs:
-    def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]],
-                 order: pulumi.Input[int],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None):
-        """
-        A rule that specifies a set of actions and conditions
-        :param pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
-        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
-        """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "order", order)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]:
-        """
-        A list of actions that are executed when all the conditions of a rule are satisfied.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]):
-        pulumi.set(self, "actions", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> pulumi.Input[int]:
-        """
-        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: pulumi.Input[int]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
-        """
-        A list of conditions that must be matched for the actions to be executed
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
-        pulumi.set(self, "conditions", value)
-
-
-@pulumi.input_type
 class DeliveryRuleCacheExpirationActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -330,6 +276,60 @@ class DeliveryRuleUrlPathConditionArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input['UrlPathConditionParametersArgs']):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class DeliveryRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]],
+                 order: pulumi.Input[int],
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]] = None):
+        """
+        A rule that specifies a set of actions and conditions
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
+        :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]] conditions: A list of conditions that must be matched for the actions to be executed
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "order", order)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]:
+        """
+        A list of actions that are executed when all the conditions of a rule are satisfied.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['DeliveryRuleCacheExpirationActionArgs']]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]:
+        """
+        A list of conditions that must be matched for the actions to be executed
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryRuleUrlFileExtensionConditionArgs', 'DeliveryRuleUrlPathConditionArgs']]]]]):
+        pulumi.set(self, "conditions", value)
 
 
 @pulumi.input_type

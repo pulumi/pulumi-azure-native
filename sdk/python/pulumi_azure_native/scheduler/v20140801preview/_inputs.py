@@ -18,9 +18,9 @@ __all__ = [
     'JobErrorActionArgs',
     'JobMaxRecurrenceArgs',
     'JobPropertiesArgs',
-    'JobRecurrenceArgs',
-    'JobRecurrenceScheduleArgs',
     'JobRecurrenceScheduleMonthlyOccurrenceArgs',
+    'JobRecurrenceScheduleArgs',
+    'JobRecurrenceArgs',
     'RetryPolicyArgs',
     'ServiceBusAuthenticationArgs',
     'ServiceBusBrokeredMessagePropertiesArgs',
@@ -583,86 +583,42 @@ class JobPropertiesArgs:
 
 
 @pulumi.input_type
-class JobRecurrenceArgs:
+class JobRecurrenceScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
-                 count: Optional[pulumi.Input[int]] = None,
-                 end_time: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
-                 interval: Optional[pulumi.Input[int]] = None,
-                 schedule: Optional[pulumi.Input['JobRecurrenceScheduleArgs']] = None):
+                 day: Optional[pulumi.Input['JobScheduleDay']] = None,
+                 occurrence: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] count: Gets or sets the maximum number of times that the job should run.
-        :param pulumi.Input[str] end_time: Gets or sets the time at which the job will complete.
-        :param pulumi.Input['RecurrenceFrequency'] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
-        :param pulumi.Input[int] interval: Gets or sets the interval between retries.
+        :param pulumi.Input['JobScheduleDay'] day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        :param pulumi.Input[int] occurrence: Gets or sets the occurrence. Must be between -5 and 5.
         """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
-        if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
-        if interval is not None:
-            pulumi.set(__self__, "interval", interval)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if occurrence is not None:
+            pulumi.set(__self__, "occurrence", occurrence)
 
     @property
     @pulumi.getter
-    def count(self) -> Optional[pulumi.Input[int]]:
+    def day(self) -> Optional[pulumi.Input['JobScheduleDay']]:
         """
-        Gets or sets the maximum number of times that the job should run.
+        Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         """
-        return pulumi.get(self, "count")
+        return pulumi.get(self, "day")
 
-    @count.setter
-    def count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the time at which the job will complete.
-        """
-        return pulumi.get(self, "end_time")
-
-    @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "end_time", value)
+    @day.setter
+    def day(self, value: Optional[pulumi.Input['JobScheduleDay']]):
+        pulumi.set(self, "day", value)
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input['RecurrenceFrequency']]:
+    def occurrence(self) -> Optional[pulumi.Input[int]]:
         """
-        Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        Gets or sets the occurrence. Must be between -5 and 5.
         """
-        return pulumi.get(self, "frequency")
+        return pulumi.get(self, "occurrence")
 
-    @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input['RecurrenceFrequency']]):
-        pulumi.set(self, "frequency", value)
-
-    @property
-    @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[int]]:
-        """
-        Gets or sets the interval between retries.
-        """
-        return pulumi.get(self, "interval")
-
-    @interval.setter
-    def interval(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "interval", value)
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['JobRecurrenceScheduleArgs']]:
-        return pulumi.get(self, "schedule")
-
-    @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['JobRecurrenceScheduleArgs']]):
-        pulumi.set(self, "schedule", value)
+    @occurrence.setter
+    def occurrence(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "occurrence", value)
 
 
 @pulumi.input_type
@@ -753,42 +709,86 @@ class JobRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
-class JobRecurrenceScheduleMonthlyOccurrenceArgs:
+class JobRecurrenceArgs:
     def __init__(__self__, *,
-                 day: Optional[pulumi.Input['JobScheduleDay']] = None,
-                 occurrence: Optional[pulumi.Input[int]] = None):
+                 count: Optional[pulumi.Input[int]] = None,
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 schedule: Optional[pulumi.Input['JobRecurrenceScheduleArgs']] = None):
         """
-        :param pulumi.Input['JobScheduleDay'] day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-        :param pulumi.Input[int] occurrence: Gets or sets the occurrence. Must be between -5 and 5.
+        :param pulumi.Input[int] count: Gets or sets the maximum number of times that the job should run.
+        :param pulumi.Input[str] end_time: Gets or sets the time at which the job will complete.
+        :param pulumi.Input['RecurrenceFrequency'] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
-        if day is not None:
-            pulumi.set(__self__, "day", day)
-        if occurrence is not None:
-            pulumi.set(__self__, "occurrence", occurrence)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
 
     @property
     @pulumi.getter
-    def day(self) -> Optional[pulumi.Input['JobScheduleDay']]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
-        Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        Gets or sets the maximum number of times that the job should run.
         """
-        return pulumi.get(self, "day")
+        return pulumi.get(self, "count")
 
-    @day.setter
-    def day(self, value: Optional[pulumi.Input['JobScheduleDay']]):
-        pulumi.set(self, "day", value)
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the time at which the job will complete.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
 
     @property
     @pulumi.getter
-    def occurrence(self) -> Optional[pulumi.Input[int]]:
+    def frequency(self) -> Optional[pulumi.Input['RecurrenceFrequency']]:
         """
-        Gets or sets the occurrence. Must be between -5 and 5.
+        Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         """
-        return pulumi.get(self, "occurrence")
+        return pulumi.get(self, "frequency")
 
-    @occurrence.setter
-    def occurrence(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "occurrence", value)
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input['RecurrenceFrequency']]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets the interval between retries.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional[pulumi.Input['JobRecurrenceScheduleArgs']]:
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: Optional[pulumi.Input['JobRecurrenceScheduleArgs']]):
+        pulumi.set(self, "schedule", value)
 
 
 @pulumi.input_type

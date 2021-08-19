@@ -17,8 +17,11 @@ class AccessPolicyEccAlgo(str, Enum):
     Elliptical curve algorithm to be used: ES256, ES384 or ES512.
     """
     ES256 = "ES256"
+    """ES265"""
     ES384 = "ES384"
+    """ES384"""
     ES512 = "ES512"
+    """ES512"""
 
 
 class AccessPolicyRole(str, Enum):
@@ -26,6 +29,7 @@ class AccessPolicyRole(str, Enum):
     Defines the access level granted by this policy.
     """
     READER = "Reader"
+    """Reader role allows for read-only operations to be performed through the client APIs."""
 
 
 class AccessPolicyRsaAlgo(str, Enum):
@@ -33,8 +37,11 @@ class AccessPolicyRsaAlgo(str, Enum):
     RSA algorithm to be used: RS256, RS384 or RS512.
     """
     RS256 = "RS256"
+    """RS256"""
     RS384 = "RS384"
+    """RS384"""
     RS512 = "RS512"
+    """RS512"""
 
 
 class AccountEncryptionKeyType(str, Enum):
@@ -42,4 +49,6 @@ class AccountEncryptionKeyType(str, Enum):
     The type of key used to encrypt the Account Key.
     """
     SYSTEM_KEY = "SystemKey"
+    """The Account Key is encrypted with a System Key."""
     CUSTOMER_KEY = "CustomerKey"
+    """The Account Key is encrypted with a Customer Key."""

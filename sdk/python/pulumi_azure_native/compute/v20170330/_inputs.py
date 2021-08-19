@@ -51,18 +51,18 @@ __all__ = [
     'VirtualMachineExtensionInstanceViewArgs',
     'VirtualMachineIdentityArgs',
     'VirtualMachineScaleSetDataDiskArgs',
-    'VirtualMachineScaleSetExtensionArgs',
     'VirtualMachineScaleSetExtensionProfileArgs',
+    'VirtualMachineScaleSetExtensionArgs',
     'VirtualMachineScaleSetIPConfigurationArgs',
     'VirtualMachineScaleSetIdentityArgs',
     'VirtualMachineScaleSetManagedDiskParametersArgs',
-    'VirtualMachineScaleSetNetworkConfigurationArgs',
     'VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs',
+    'VirtualMachineScaleSetNetworkConfigurationArgs',
     'VirtualMachineScaleSetNetworkProfileArgs',
     'VirtualMachineScaleSetOSDiskArgs',
     'VirtualMachineScaleSetOSProfileArgs',
-    'VirtualMachineScaleSetPublicIPAddressConfigurationArgs',
     'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs',
+    'VirtualMachineScaleSetPublicIPAddressConfigurationArgs',
     'VirtualMachineScaleSetStorageProfileArgs',
     'VirtualMachineScaleSetVMProfileArgs',
     'WinRMConfigurationArgs',
@@ -2427,6 +2427,30 @@ class VirtualMachineScaleSetDataDiskArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetExtensionProfileArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None):
+        """
+        Describes a virtual machine scale set extension profile.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
+        """
+        The virtual machine scale set child extension resources.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+
+@pulumi.input_type
 class VirtualMachineScaleSetExtensionArgs:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
@@ -2560,30 +2584,6 @@ class VirtualMachineScaleSetExtensionArgs:
     @type_handler_version.setter
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
-
-
-@pulumi.input_type
-class VirtualMachineScaleSetExtensionProfileArgs:
-    def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None):
-        """
-        Describes a virtual machine scale set extension profile.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
-        """
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
-        """
-        The virtual machine scale set child extension resources.
-        """
-        return pulumi.get(self, "extensions")
-
-    @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
-        pulumi.set(self, "extensions", value)
 
 
 @pulumi.input_type
@@ -2786,6 +2786,30 @@ class VirtualMachineScaleSetManagedDiskParametersArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DNS servers IP addresses
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+
+@pulumi.input_type
 class VirtualMachineScaleSetNetworkConfigurationArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]],
@@ -2901,30 +2925,6 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     @primary.setter
     def primary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "primary", value)
-
-
-@pulumi.input_type
-class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
-    def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Describes a virtual machines scale sets network configuration's DNS settings.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
-        """
-        if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of DNS servers IP addresses
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dns_servers", value)
 
 
 @pulumi.input_type
@@ -3207,6 +3207,29 @@ class VirtualMachineScaleSetOSProfileArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
+    def __init__(__self__, *,
+                 domain_name_label: pulumi.Input[str]):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        :param pulumi.Input[str] domain_name_label: The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+        pulumi.set(__self__, "domain_name_label", domain_name_label)
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> pulumi.Input[str]:
+        """
+        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @domain_name_label.setter
+    def domain_name_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name_label", value)
+
+
+@pulumi.input_type
 class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -3259,29 +3282,6 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     @idle_timeout_in_minutes.setter
     def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_in_minutes", value)
-
-
-@pulumi.input_type
-class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
-    def __init__(__self__, *,
-                 domain_name_label: pulumi.Input[str]):
-        """
-        Describes a virtual machines scale sets network configuration's DNS settings.
-        :param pulumi.Input[str] domain_name_label: The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-        """
-        pulumi.set(__self__, "domain_name_label", domain_name_label)
-
-    @property
-    @pulumi.getter(name="domainNameLabel")
-    def domain_name_label(self) -> pulumi.Input[str]:
-        """
-        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-        """
-        return pulumi.get(self, "domain_name_label")
-
-    @domain_name_label.setter
-    def domain_name_label(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name_label", value)
 
 
 @pulumi.input_type

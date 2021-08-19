@@ -26,8 +26,8 @@ __all__ = [
     'KubernetesRoleResourcesArgs',
     'KubernetesRoleStorageArgs',
     'MetricConfigurationArgs',
-    'MetricCounterArgs',
     'MetricCounterSetArgs',
+    'MetricCounterArgs',
     'MetricDimensionArgs',
     'MountPointMapArgs',
     'PeriodicTimerSourceInfoArgs',
@@ -814,6 +814,29 @@ class MetricConfigurationArgs:
 
 
 @pulumi.input_type
+class MetricCounterSetArgs:
+    def __init__(__self__, *,
+                 counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
+        """
+        The metric counter set
+        :param pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]] counters: The counters that should be collected in this set.
+        """
+        pulumi.set(__self__, "counters", counters)
+
+    @property
+    @pulumi.getter
+    def counters(self) -> pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]:
+        """
+        The counters that should be collected in this set.
+        """
+        return pulumi.get(self, "counters")
+
+    @counters.setter
+    def counters(self, value: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
+        pulumi.set(self, "counters", value)
+
+
+@pulumi.input_type
 class MetricCounterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -882,29 +905,6 @@ class MetricCounterArgs:
     @instance.setter
     def instance(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance", value)
-
-
-@pulumi.input_type
-class MetricCounterSetArgs:
-    def __init__(__self__, *,
-                 counters: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
-        """
-        The metric counter set
-        :param pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]] counters: The counters that should be collected in this set.
-        """
-        pulumi.set(__self__, "counters", counters)
-
-    @property
-    @pulumi.getter
-    def counters(self) -> pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]:
-        """
-        The counters that should be collected in this set.
-        """
-        return pulumi.get(self, "counters")
-
-    @counters.setter
-    def counters(self, value: pulumi.Input[Sequence[pulumi.Input['MetricCounterArgs']]]):
-        pulumi.set(self, "counters", value)
 
 
 @pulumi.input_type

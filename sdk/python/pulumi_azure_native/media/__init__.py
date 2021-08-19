@@ -47,16 +47,26 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.media.v20151001 as v20151001
-    import pulumi_azure_native.media.v20180330preview as v20180330preview
-    import pulumi_azure_native.media.v20180601preview as v20180601preview
-    import pulumi_azure_native.media.v20180701 as v20180701
-    import pulumi_azure_native.media.v20190501preview as v20190501preview
-    import pulumi_azure_native.media.v20190901preview as v20190901preview
-    import pulumi_azure_native.media.v20200201preview as v20200201preview
-    import pulumi_azure_native.media.v20200501 as v20200501
-    import pulumi_azure_native.media.v20210501 as v20210501
-    import pulumi_azure_native.media.v20210601 as v20210601
+    import pulumi_azure_native.media.v20151001 as __v20151001
+    v20151001 = __v20151001
+    import pulumi_azure_native.media.v20180330preview as __v20180330preview
+    v20180330preview = __v20180330preview
+    import pulumi_azure_native.media.v20180601preview as __v20180601preview
+    v20180601preview = __v20180601preview
+    import pulumi_azure_native.media.v20180701 as __v20180701
+    v20180701 = __v20180701
+    import pulumi_azure_native.media.v20190501preview as __v20190501preview
+    v20190501preview = __v20190501preview
+    import pulumi_azure_native.media.v20190901preview as __v20190901preview
+    v20190901preview = __v20190901preview
+    import pulumi_azure_native.media.v20200201preview as __v20200201preview
+    v20200201preview = __v20200201preview
+    import pulumi_azure_native.media.v20200501 as __v20200501
+    v20200501 = __v20200501
+    import pulumi_azure_native.media.v20210501 as __v20210501
+    v20210501 = __v20210501
+    import pulumi_azure_native.media.v20210601 as __v20210601
+    v20210601 = __v20210601
 else:
     v20151001 = _utilities.lazy_import('pulumi_azure_native.media.v20151001')
     v20180330preview = _utilities.lazy_import('pulumi_azure_native.media.v20180330preview')
