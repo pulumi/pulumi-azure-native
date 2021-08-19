@@ -104,41 +104,9 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag *string `pulumi:"etag"`
-	// Azure location of the key vault resource.
-	Location *string `pulumi:"location"`
-	// Name of the key vault resource.
-	Name *string `pulumi:"name"`
-	// Properties of the private endpoint object.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Tags assigned to the key vault resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type of the key vault resource.
-	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
-	// Modified whenever there is a change in the state of private endpoint connection.
-	Etag pulumi.StringPtrInput
-	// Azure location of the key vault resource.
-	Location pulumi.StringPtrInput
-	// Name of the key vault resource.
-	Name pulumi.StringPtrInput
-	// Properties of the private endpoint object.
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// Approval state of the private link connection.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// Provisioning state of the private endpoint connection.
-	ProvisioningState pulumi.StringPtrInput
-	// Tags assigned to the key vault resource.
-	Tags pulumi.StringMapInput
-	// Resource type of the key vault resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionState) ElementType() reflect.Type {
@@ -195,9 +163,7 @@ func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
 }
 
-type PrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateEndpointConnection)(nil))

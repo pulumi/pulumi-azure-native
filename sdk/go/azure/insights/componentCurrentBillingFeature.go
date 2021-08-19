@@ -69,17 +69,9 @@ func GetComponentCurrentBillingFeature(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ComponentCurrentBillingFeature resources.
 type componentCurrentBillingFeatureState struct {
-	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
-	CurrentBillingFeatures []string `pulumi:"currentBillingFeatures"`
-	// An Application Insights component daily data volume cap
-	DataVolumeCap *ApplicationInsightsComponentDataVolumeCapResponse `pulumi:"dataVolumeCap"`
 }
 
 type ComponentCurrentBillingFeatureState struct {
-	// Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
-	CurrentBillingFeatures pulumi.StringArrayInput
-	// An Application Insights component daily data volume cap
-	DataVolumeCap ApplicationInsightsComponentDataVolumeCapResponsePtrInput
 }
 
 func (ComponentCurrentBillingFeatureState) ElementType() reflect.Type {
@@ -132,9 +124,7 @@ func (i *ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentCurrentBillingFeatureOutput)
 }
 
-type ComponentCurrentBillingFeatureOutput struct {
-	*pulumi.OutputState
-}
+type ComponentCurrentBillingFeatureOutput struct{ *pulumi.OutputState }
 
 func (ComponentCurrentBillingFeatureOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil))

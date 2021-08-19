@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Linked service for Windows Azure Search Service.
+    /// </summary>
     [OutputType]
     public sealed class AzureSearchLinkedServiceResponse
     {

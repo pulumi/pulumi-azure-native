@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties for the task that migrates data between MongoDB data sources
+    /// </summary>
     [OutputType]
     public sealed class MigrateMongoDbTaskPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// HTTP Live Streaming (HLS) packing setting for the live output.
+    /// </summary>
     [OutputType]
     public sealed class HlsResponse
     {

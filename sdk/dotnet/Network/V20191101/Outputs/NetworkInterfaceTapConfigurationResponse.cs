@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191101.Outputs
 {
 
+    /// <summary>
+    /// Tap configuration in a Network Interface.
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceTapConfigurationResponse
     {

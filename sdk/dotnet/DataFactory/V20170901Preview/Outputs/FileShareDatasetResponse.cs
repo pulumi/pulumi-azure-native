@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// An on-premises file system dataset.
+    /// </summary>
     [OutputType]
     public sealed class FileShareDatasetResponse
     {

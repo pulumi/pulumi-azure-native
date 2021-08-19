@@ -302,7 +302,7 @@ func (o AliasPatternResponseOutput) ToAliasPatternResponsePtrOutput() AliasPatte
 }
 
 func (o AliasPatternResponseOutput) ToAliasPatternResponsePtrOutputWithContext(ctx context.Context) AliasPatternResponsePtrOutput {
-	return o.ApplyT(func(v AliasPatternResponse) *AliasPatternResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasPatternResponse) *AliasPatternResponse {
 		return &v
 	}).(AliasPatternResponsePtrOutput)
 }
@@ -337,7 +337,13 @@ func (o AliasPatternResponsePtrOutput) ToAliasPatternResponsePtrOutputWithContex
 }
 
 func (o AliasPatternResponsePtrOutput) Elem() AliasPatternResponseOutput {
-	return o.ApplyT(func(v *AliasPatternResponse) AliasPatternResponse { return *v }).(AliasPatternResponseOutput)
+	return o.ApplyT(func(v *AliasPatternResponse) AliasPatternResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AliasPatternResponse
+		return ret
+	}).(AliasPatternResponseOutput)
 }
 
 // The alias pattern phrase.
@@ -835,7 +841,7 @@ func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutput() Contai
 }
 
 func (o ContainerConfigurationOutput) ToContainerConfigurationPtrOutputWithContext(ctx context.Context) ContainerConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerConfiguration) *ContainerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfiguration) *ContainerConfiguration {
 		return &v
 	}).(ContainerConfigurationPtrOutput)
 }
@@ -860,7 +866,13 @@ func (o ContainerConfigurationPtrOutput) ToContainerConfigurationPtrOutputWithCo
 }
 
 func (o ContainerConfigurationPtrOutput) Elem() ContainerConfigurationOutput {
-	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration { return *v }).(ContainerConfigurationOutput)
+	return o.ApplyT(func(v *ContainerConfiguration) ContainerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerConfiguration
+		return ret
+	}).(ContainerConfigurationOutput)
 }
 
 // Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
@@ -969,7 +981,7 @@ func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePt
 }
 
 func (o ContainerConfigurationResponseOutput) ToContainerConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerConfigurationResponse) *ContainerConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerConfigurationResponse) *ContainerConfigurationResponse {
 		return &v
 	}).(ContainerConfigurationResponsePtrOutput)
 }
@@ -994,7 +1006,13 @@ func (o ContainerConfigurationResponsePtrOutput) ToContainerConfigurationRespons
 }
 
 func (o ContainerConfigurationResponsePtrOutput) Elem() ContainerConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse { return *v }).(ContainerConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerConfigurationResponse) ContainerConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerConfigurationResponse
+		return ret
+	}).(ContainerConfigurationResponseOutput)
 }
 
 // Container group name, if not specified then the name will get auto-generated. Not specifying a 'containerGroupName' indicates the system to generate a unique name which might end up flagging an Azure Policy as non-compliant. Use 'containerGroupName' when you have an Azure Policy that expects a specific naming convention or when you want to fully control the name. 'containerGroupName' property must be between 1 and 63 characters long, must contain only lowercase letters, numbers, and dashes and it cannot start or end with a dash and consecutive dashes are not allowed. To specify a 'containerGroupName', add the following object to properties: { "containerSettings": { "containerGroupName": "contoso-container" } }. If you do not want to specify a 'containerGroupName' then do not add 'containerSettings' property.
@@ -1103,7 +1121,7 @@ func (o DebugSettingOutput) ToDebugSettingPtrOutput() DebugSettingPtrOutput {
 }
 
 func (o DebugSettingOutput) ToDebugSettingPtrOutputWithContext(ctx context.Context) DebugSettingPtrOutput {
-	return o.ApplyT(func(v DebugSetting) *DebugSetting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DebugSetting) *DebugSetting {
 		return &v
 	}).(DebugSettingPtrOutput)
 }
@@ -1128,7 +1146,13 @@ func (o DebugSettingPtrOutput) ToDebugSettingPtrOutputWithContext(ctx context.Co
 }
 
 func (o DebugSettingPtrOutput) Elem() DebugSettingOutput {
-	return o.ApplyT(func(v *DebugSetting) DebugSetting { return *v }).(DebugSettingOutput)
+	return o.ApplyT(func(v *DebugSetting) DebugSetting {
+		if v != nil {
+			return *v
+		}
+		var ret DebugSetting
+		return ret
+	}).(DebugSettingOutput)
 }
 
 // Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
@@ -1237,7 +1261,7 @@ func (o DebugSettingResponseOutput) ToDebugSettingResponsePtrOutput() DebugSetti
 }
 
 func (o DebugSettingResponseOutput) ToDebugSettingResponsePtrOutputWithContext(ctx context.Context) DebugSettingResponsePtrOutput {
-	return o.ApplyT(func(v DebugSettingResponse) *DebugSettingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DebugSettingResponse) *DebugSettingResponse {
 		return &v
 	}).(DebugSettingResponsePtrOutput)
 }
@@ -1262,7 +1286,13 @@ func (o DebugSettingResponsePtrOutput) ToDebugSettingResponsePtrOutputWithContex
 }
 
 func (o DebugSettingResponsePtrOutput) Elem() DebugSettingResponseOutput {
-	return o.ApplyT(func(v *DebugSettingResponse) DebugSettingResponse { return *v }).(DebugSettingResponseOutput)
+	return o.ApplyT(func(v *DebugSettingResponse) DebugSettingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DebugSettingResponse
+		return ret
+	}).(DebugSettingResponseOutput)
 }
 
 // Specifies the type of information to log for debugging. The permitted values are none, requestContent, responseContent, or both requestContent and responseContent separated by a comma. The default is none. When setting this value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations.
@@ -1409,7 +1439,7 @@ type DeploymentProperties struct {
 	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
 	ExpressionEvaluationOptions *ExpressionEvaluationOptions `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode string `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// The deployment on error behavior.
 	OnErrorDeployment *OnErrorDeployment `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -1440,7 +1470,7 @@ type DeploymentPropertiesArgs struct {
 	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
 	ExpressionEvaluationOptions ExpressionEvaluationOptionsPtrInput `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode DeploymentMode `pulumi:"mode"`
+	Mode DeploymentModeInput `pulumi:"mode"`
 	// The deployment on error behavior.
 	OnErrorDeployment OnErrorDeploymentPtrInput `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -1526,7 +1556,7 @@ func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutput() Deployment
 }
 
 func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *DeploymentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentProperties) *DeploymentProperties {
 		return &v
 	}).(DeploymentPropertiesPtrOutput)
 }
@@ -1542,8 +1572,8 @@ func (o DeploymentPropertiesOutput) ExpressionEvaluationOptions() ExpressionEval
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-func (o DeploymentPropertiesOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentProperties) string { return v.Mode }).(pulumi.StringOutput)
+func (o DeploymentPropertiesOutput) Mode() DeploymentModeOutput {
+	return o.ApplyT(func(v DeploymentProperties) DeploymentMode { return v.Mode }).(DeploymentModeOutput)
 }
 
 // The deployment on error behavior.
@@ -1586,7 +1616,13 @@ func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutputWithContex
 }
 
 func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
-	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties { return *v }).(DeploymentPropertiesOutput)
+	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentProperties
+		return ret
+	}).(DeploymentPropertiesOutput)
 }
 
 // The debug setting of the deployment.
@@ -1610,13 +1646,13 @@ func (o DeploymentPropertiesPtrOutput) ExpressionEvaluationOptions() ExpressionE
 }
 
 // The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-func (o DeploymentPropertiesPtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
+func (o DeploymentPropertiesPtrOutput) Mode() DeploymentModePtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *DeploymentMode {
 		if v == nil {
 			return nil
 		}
 		return &v.Mode
-	}).(pulumi.StringPtrOutput)
+	}).(DeploymentModePtrOutput)
 }
 
 // The deployment on error behavior.
@@ -1829,7 +1865,7 @@ func (o DeploymentPropertiesExtendedResponseOutput) ToDeploymentPropertiesExtend
 }
 
 func (o DeploymentPropertiesExtendedResponseOutput) ToDeploymentPropertiesExtendedResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesExtendedResponsePtrOutput {
-	return o.ApplyT(func(v DeploymentPropertiesExtendedResponse) *DeploymentPropertiesExtendedResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPropertiesExtendedResponse) *DeploymentPropertiesExtendedResponse {
 		return &v
 	}).(DeploymentPropertiesExtendedResponsePtrOutput)
 }
@@ -1936,7 +1972,13 @@ func (o DeploymentPropertiesExtendedResponsePtrOutput) ToDeploymentPropertiesExt
 }
 
 func (o DeploymentPropertiesExtendedResponsePtrOutput) Elem() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) DeploymentPropertiesExtendedResponse { return *v }).(DeploymentPropertiesExtendedResponseOutput)
+	return o.ApplyT(func(v *DeploymentPropertiesExtendedResponse) DeploymentPropertiesExtendedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentPropertiesExtendedResponse
+		return ret
+	}).(DeploymentPropertiesExtendedResponseOutput)
 }
 
 // The correlation ID of the deployment.
@@ -2591,7 +2633,7 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorRes
 }
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyT(func(v ErrorResponseResponse) *ErrorResponseResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
 		return &v
 	}).(ErrorResponseResponsePtrOutput)
 }
@@ -2636,7 +2678,13 @@ func (o ErrorResponseResponsePtrOutput) ToErrorResponseResponsePtrOutputWithCont
 }
 
 func (o ErrorResponseResponsePtrOutput) Elem() ErrorResponseResponseOutput {
-	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse { return *v }).(ErrorResponseResponseOutput)
+	return o.ApplyT(func(v *ErrorResponseResponse) ErrorResponseResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorResponseResponse
+		return ret
+	}).(ErrorResponseResponseOutput)
 }
 
 // The error additional info.
@@ -2805,7 +2853,7 @@ func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsPtrOutpu
 }
 
 func (o ExpressionEvaluationOptionsOutput) ToExpressionEvaluationOptionsPtrOutputWithContext(ctx context.Context) ExpressionEvaluationOptionsPtrOutput {
-	return o.ApplyT(func(v ExpressionEvaluationOptions) *ExpressionEvaluationOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpressionEvaluationOptions) *ExpressionEvaluationOptions {
 		return &v
 	}).(ExpressionEvaluationOptionsPtrOutput)
 }
@@ -2830,7 +2878,13 @@ func (o ExpressionEvaluationOptionsPtrOutput) ToExpressionEvaluationOptionsPtrOu
 }
 
 func (o ExpressionEvaluationOptionsPtrOutput) Elem() ExpressionEvaluationOptionsOutput {
-	return o.ApplyT(func(v *ExpressionEvaluationOptions) ExpressionEvaluationOptions { return *v }).(ExpressionEvaluationOptionsOutput)
+	return o.ApplyT(func(v *ExpressionEvaluationOptions) ExpressionEvaluationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ExpressionEvaluationOptions
+		return ret
+	}).(ExpressionEvaluationOptionsOutput)
 }
 
 // The scope to be used for evaluation of parameters, variables and functions in a nested template.
@@ -2846,7 +2900,7 @@ func (o ExpressionEvaluationOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -2865,7 +2919,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -2943,14 +2997,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -2973,17 +3027,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -3104,7 +3164,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -3146,7 +3206,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -3395,7 +3461,7 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
@@ -3425,7 +3491,13 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
 // Type of the managed identity.
@@ -3552,7 +3624,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -3589,7 +3661,13 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
 // ID of the Azure Active Directory.
@@ -3627,7 +3705,7 @@ type OnErrorDeployment struct {
 	// The deployment to be used on error case.
 	DeploymentName *string `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type *string `pulumi:"type"`
+	Type *OnErrorDeploymentType `pulumi:"type"`
 }
 
 // OnErrorDeploymentInput is an input type that accepts OnErrorDeploymentArgs and OnErrorDeploymentOutput values.
@@ -3646,7 +3724,7 @@ type OnErrorDeploymentArgs struct {
 	// The deployment to be used on error case.
 	DeploymentName pulumi.StringPtrInput `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type *OnErrorDeploymentType `pulumi:"type"`
+	Type OnErrorDeploymentTypePtrInput `pulumi:"type"`
 }
 
 func (OnErrorDeploymentArgs) ElementType() reflect.Type {
@@ -3722,7 +3800,7 @@ func (o OnErrorDeploymentOutput) ToOnErrorDeploymentPtrOutput() OnErrorDeploymen
 }
 
 func (o OnErrorDeploymentOutput) ToOnErrorDeploymentPtrOutputWithContext(ctx context.Context) OnErrorDeploymentPtrOutput {
-	return o.ApplyT(func(v OnErrorDeployment) *OnErrorDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnErrorDeployment) *OnErrorDeployment {
 		return &v
 	}).(OnErrorDeploymentPtrOutput)
 }
@@ -3733,8 +3811,8 @@ func (o OnErrorDeploymentOutput) DeploymentName() pulumi.StringPtrOutput {
 }
 
 // The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-func (o OnErrorDeploymentOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OnErrorDeployment) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o OnErrorDeploymentOutput) Type() OnErrorDeploymentTypePtrOutput {
+	return o.ApplyT(func(v OnErrorDeployment) *OnErrorDeploymentType { return v.Type }).(OnErrorDeploymentTypePtrOutput)
 }
 
 type OnErrorDeploymentPtrOutput struct{ *pulumi.OutputState }
@@ -3752,7 +3830,13 @@ func (o OnErrorDeploymentPtrOutput) ToOnErrorDeploymentPtrOutputWithContext(ctx 
 }
 
 func (o OnErrorDeploymentPtrOutput) Elem() OnErrorDeploymentOutput {
-	return o.ApplyT(func(v *OnErrorDeployment) OnErrorDeployment { return *v }).(OnErrorDeploymentOutput)
+	return o.ApplyT(func(v *OnErrorDeployment) OnErrorDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret OnErrorDeployment
+		return ret
+	}).(OnErrorDeploymentOutput)
 }
 
 // The deployment to be used on error case.
@@ -3766,13 +3850,13 @@ func (o OnErrorDeploymentPtrOutput) DeploymentName() pulumi.StringPtrOutput {
 }
 
 // The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-func (o OnErrorDeploymentPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OnErrorDeployment) *string {
+func (o OnErrorDeploymentPtrOutput) Type() OnErrorDeploymentTypePtrOutput {
+	return o.ApplyT(func(v *OnErrorDeployment) *OnErrorDeploymentType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(OnErrorDeploymentTypePtrOutput)
 }
 
 // Deployment on error behavior with additional details.
@@ -3879,7 +3963,7 @@ func (o OnErrorDeploymentExtendedResponseOutput) ToOnErrorDeploymentExtendedResp
 }
 
 func (o OnErrorDeploymentExtendedResponseOutput) ToOnErrorDeploymentExtendedResponsePtrOutputWithContext(ctx context.Context) OnErrorDeploymentExtendedResponsePtrOutput {
-	return o.ApplyT(func(v OnErrorDeploymentExtendedResponse) *OnErrorDeploymentExtendedResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnErrorDeploymentExtendedResponse) *OnErrorDeploymentExtendedResponse {
 		return &v
 	}).(OnErrorDeploymentExtendedResponsePtrOutput)
 }
@@ -3914,7 +3998,13 @@ func (o OnErrorDeploymentExtendedResponsePtrOutput) ToOnErrorDeploymentExtendedR
 }
 
 func (o OnErrorDeploymentExtendedResponsePtrOutput) Elem() OnErrorDeploymentExtendedResponseOutput {
-	return o.ApplyT(func(v *OnErrorDeploymentExtendedResponse) OnErrorDeploymentExtendedResponse { return *v }).(OnErrorDeploymentExtendedResponseOutput)
+	return o.ApplyT(func(v *OnErrorDeploymentExtendedResponse) OnErrorDeploymentExtendedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OnErrorDeploymentExtendedResponse
+		return ret
+	}).(OnErrorDeploymentExtendedResponseOutput)
 }
 
 // The deployment to be used on error case.
@@ -4047,7 +4137,7 @@ func (o ParametersLinkOutput) ToParametersLinkPtrOutput() ParametersLinkPtrOutpu
 }
 
 func (o ParametersLinkOutput) ToParametersLinkPtrOutputWithContext(ctx context.Context) ParametersLinkPtrOutput {
-	return o.ApplyT(func(v ParametersLink) *ParametersLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParametersLink) *ParametersLink {
 		return &v
 	}).(ParametersLinkPtrOutput)
 }
@@ -4077,7 +4167,13 @@ func (o ParametersLinkPtrOutput) ToParametersLinkPtrOutputWithContext(ctx contex
 }
 
 func (o ParametersLinkPtrOutput) Elem() ParametersLinkOutput {
-	return o.ApplyT(func(v *ParametersLink) ParametersLink { return *v }).(ParametersLinkOutput)
+	return o.ApplyT(func(v *ParametersLink) ParametersLink {
+		if v != nil {
+			return *v
+		}
+		var ret ParametersLink
+		return ret
+	}).(ParametersLinkOutput)
 }
 
 // If included, must match the ContentVersion in the template.
@@ -4200,7 +4296,7 @@ func (o ParametersLinkResponseOutput) ToParametersLinkResponsePtrOutput() Parame
 }
 
 func (o ParametersLinkResponseOutput) ToParametersLinkResponsePtrOutputWithContext(ctx context.Context) ParametersLinkResponsePtrOutput {
-	return o.ApplyT(func(v ParametersLinkResponse) *ParametersLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParametersLinkResponse) *ParametersLinkResponse {
 		return &v
 	}).(ParametersLinkResponsePtrOutput)
 }
@@ -4230,7 +4326,13 @@ func (o ParametersLinkResponsePtrOutput) ToParametersLinkResponsePtrOutputWithCo
 }
 
 func (o ParametersLinkResponsePtrOutput) Elem() ParametersLinkResponseOutput {
-	return o.ApplyT(func(v *ParametersLinkResponse) ParametersLinkResponse { return *v }).(ParametersLinkResponseOutput)
+	return o.ApplyT(func(v *ParametersLinkResponse) ParametersLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ParametersLinkResponse
+		return ret
+	}).(ParametersLinkResponseOutput)
 }
 
 // If included, must match the ContentVersion in the template.
@@ -4365,7 +4467,7 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
@@ -4410,7 +4512,13 @@ func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOu
 }
 
 func (o PlanPtrOutput) Elem() PlanOutput {
-	return o.ApplyT(func(v *Plan) Plan { return *v }).(PlanOutput)
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
 // The plan ID.
@@ -4575,7 +4683,7 @@ func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
 }
 
 func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyT(func(v PlanResponse) *PlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
 		return &v
 	}).(PlanResponsePtrOutput)
 }
@@ -4620,7 +4728,13 @@ func (o PlanResponsePtrOutput) ToPlanResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o PlanResponsePtrOutput) Elem() PlanResponseOutput {
-	return o.ApplyT(func(v *PlanResponse) PlanResponse { return *v }).(PlanResponseOutput)
+	return o.ApplyT(func(v *PlanResponse) PlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanResponse
+		return ret
+	}).(PlanResponseOutput)
 }
 
 // The plan ID.
@@ -5201,7 +5315,7 @@ func (o ResourceGroupPropertiesResponseOutput) ToResourceGroupPropertiesResponse
 }
 
 func (o ResourceGroupPropertiesResponseOutput) ToResourceGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ResourceGroupPropertiesResponse) *ResourceGroupPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroupPropertiesResponse) *ResourceGroupPropertiesResponse {
 		return &v
 	}).(ResourceGroupPropertiesResponsePtrOutput)
 }
@@ -5226,7 +5340,13 @@ func (o ResourceGroupPropertiesResponsePtrOutput) ToResourceGroupPropertiesRespo
 }
 
 func (o ResourceGroupPropertiesResponsePtrOutput) Elem() ResourceGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) ResourceGroupPropertiesResponse { return *v }).(ResourceGroupPropertiesResponseOutput)
+	return o.ApplyT(func(v *ResourceGroupPropertiesResponse) ResourceGroupPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroupPropertiesResponse
+		return ret
+	}).(ResourceGroupPropertiesResponseOutput)
 }
 
 // The provisioning state.
@@ -5455,7 +5575,7 @@ func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutput() ScriptStat
 }
 
 func (o ScriptStatusResponseOutput) ToScriptStatusResponsePtrOutputWithContext(ctx context.Context) ScriptStatusResponsePtrOutput {
-	return o.ApplyT(func(v ScriptStatusResponse) *ScriptStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScriptStatusResponse) *ScriptStatusResponse {
 		return &v
 	}).(ScriptStatusResponsePtrOutput)
 }
@@ -5505,7 +5625,13 @@ func (o ScriptStatusResponsePtrOutput) ToScriptStatusResponsePtrOutputWithContex
 }
 
 func (o ScriptStatusResponsePtrOutput) Elem() ScriptStatusResponseOutput {
-	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse { return *v }).(ScriptStatusResponseOutput)
+	return o.ApplyT(func(v *ScriptStatusResponse) ScriptStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ScriptStatusResponse
+		return ret
+	}).(ScriptStatusResponseOutput)
 }
 
 // ACI resource Id.
@@ -5684,7 +5810,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -5734,7 +5860,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The SKU capacity.
@@ -5913,7 +6045,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -5963,7 +6095,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The SKU capacity.
@@ -6126,7 +6264,7 @@ func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutpu
 }
 
 func (o StorageAccountConfigurationOutput) ToStorageAccountConfigurationPtrOutputWithContext(ctx context.Context) StorageAccountConfigurationPtrOutput {
-	return o.ApplyT(func(v StorageAccountConfiguration) *StorageAccountConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountConfiguration) *StorageAccountConfiguration {
 		return &v
 	}).(StorageAccountConfigurationPtrOutput)
 }
@@ -6156,7 +6294,13 @@ func (o StorageAccountConfigurationPtrOutput) ToStorageAccountConfigurationPtrOu
 }
 
 func (o StorageAccountConfigurationPtrOutput) Elem() StorageAccountConfigurationOutput {
-	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration { return *v }).(StorageAccountConfigurationOutput)
+	return o.ApplyT(func(v *StorageAccountConfiguration) StorageAccountConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountConfiguration
+		return ret
+	}).(StorageAccountConfigurationOutput)
 }
 
 // The storage account access key.
@@ -6279,7 +6423,7 @@ func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfiguration
 }
 
 func (o StorageAccountConfigurationResponseOutput) ToStorageAccountConfigurationResponsePtrOutputWithContext(ctx context.Context) StorageAccountConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountConfigurationResponse) *StorageAccountConfigurationResponse {
 		return &v
 	}).(StorageAccountConfigurationResponsePtrOutput)
 }
@@ -6309,7 +6453,13 @@ func (o StorageAccountConfigurationResponsePtrOutput) ToStorageAccountConfigurat
 }
 
 func (o StorageAccountConfigurationResponsePtrOutput) Elem() StorageAccountConfigurationResponseOutput {
-	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse { return *v }).(StorageAccountConfigurationResponseOutput)
+	return o.ApplyT(func(v *StorageAccountConfigurationResponse) StorageAccountConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountConfigurationResponse
+		return ret
+	}).(StorageAccountConfigurationResponseOutput)
 }
 
 // The storage account access key.
@@ -6448,7 +6598,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -6498,7 +6648,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -6655,10 +6811,11 @@ func (o TagsOutput) ToTagsPtrOutput() TagsPtrOutput {
 }
 
 func (o TagsOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
-	return o.ApplyT(func(v Tags) *Tags {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Tags) *Tags {
 		return &v
 	}).(TagsPtrOutput)
 }
+
 func (o TagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v Tags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -6678,7 +6835,13 @@ func (o TagsPtrOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOu
 }
 
 func (o TagsPtrOutput) Elem() TagsOutput {
-	return o.ApplyT(func(v *Tags) Tags { return *v }).(TagsOutput)
+	return o.ApplyT(func(v *Tags) Tags {
+		if v != nil {
+			return *v
+		}
+		var ret Tags
+		return ret
+	}).(TagsOutput)
 }
 
 func (o TagsPtrOutput) Tags() pulumi.StringMapOutput {
@@ -6784,10 +6947,11 @@ func (o TagsResponseOutput) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
 }
 
 func (o TagsResponseOutput) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
-	return o.ApplyT(func(v TagsResponse) *TagsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagsResponse) *TagsResponse {
 		return &v
 	}).(TagsResponsePtrOutput)
 }
+
 func (o TagsResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v TagsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -6807,7 +6971,13 @@ func (o TagsResponsePtrOutput) ToTagsResponsePtrOutputWithContext(ctx context.Co
 }
 
 func (o TagsResponsePtrOutput) Elem() TagsResponseOutput {
-	return o.ApplyT(func(v *TagsResponse) TagsResponse { return *v }).(TagsResponseOutput)
+	return o.ApplyT(func(v *TagsResponse) TagsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TagsResponse
+		return ret
+	}).(TagsResponseOutput)
 }
 
 func (o TagsResponsePtrOutput) Tags() pulumi.StringMapOutput {
@@ -6931,7 +7101,7 @@ func (o TemplateLinkOutput) ToTemplateLinkPtrOutput() TemplateLinkPtrOutput {
 }
 
 func (o TemplateLinkOutput) ToTemplateLinkPtrOutputWithContext(ctx context.Context) TemplateLinkPtrOutput {
-	return o.ApplyT(func(v TemplateLink) *TemplateLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLink) *TemplateLink {
 		return &v
 	}).(TemplateLinkPtrOutput)
 }
@@ -6976,7 +7146,13 @@ func (o TemplateLinkPtrOutput) ToTemplateLinkPtrOutputWithContext(ctx context.Co
 }
 
 func (o TemplateLinkPtrOutput) Elem() TemplateLinkOutput {
-	return o.ApplyT(func(v *TemplateLink) TemplateLink { return *v }).(TemplateLinkOutput)
+	return o.ApplyT(func(v *TemplateLink) TemplateLink {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLink
+		return ret
+	}).(TemplateLinkOutput)
 }
 
 // If included, must match the ContentVersion in the template.
@@ -7141,7 +7317,7 @@ func (o TemplateLinkResponseOutput) ToTemplateLinkResponsePtrOutput() TemplateLi
 }
 
 func (o TemplateLinkResponseOutput) ToTemplateLinkResponsePtrOutputWithContext(ctx context.Context) TemplateLinkResponsePtrOutput {
-	return o.ApplyT(func(v TemplateLinkResponse) *TemplateLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateLinkResponse) *TemplateLinkResponse {
 		return &v
 	}).(TemplateLinkResponsePtrOutput)
 }
@@ -7186,7 +7362,13 @@ func (o TemplateLinkResponsePtrOutput) ToTemplateLinkResponsePtrOutputWithContex
 }
 
 func (o TemplateLinkResponsePtrOutput) Elem() TemplateLinkResponseOutput {
-	return o.ApplyT(func(v *TemplateLinkResponse) TemplateLinkResponse { return *v }).(TemplateLinkResponseOutput)
+	return o.ApplyT(func(v *TemplateLinkResponse) TemplateLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateLinkResponse
+		return ret
+	}).(TemplateLinkResponseOutput)
 }
 
 // If included, must match the ContentVersion in the template.

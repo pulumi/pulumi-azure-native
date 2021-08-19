@@ -94,45 +94,9 @@ func GetWorkloadNetworkDnsZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkDnsZone resources.
 type workloadNetworkDnsZoneState struct {
-	// Display name of the DNS Zone.
-	DisplayName *string `pulumi:"displayName"`
-	// DNS Server IP array of the DNS Zone.
-	DnsServerIps []string `pulumi:"dnsServerIps"`
-	// Number of DNS Services using the DNS zone.
-	DnsServices *float64 `pulumi:"dnsServices"`
-	// Domain names of the DNS Zone.
-	Domain []string `pulumi:"domain"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// Source IP of the DNS Zone.
-	SourceIp *string `pulumi:"sourceIp"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkDnsZoneState struct {
-	// Display name of the DNS Zone.
-	DisplayName pulumi.StringPtrInput
-	// DNS Server IP array of the DNS Zone.
-	DnsServerIps pulumi.StringArrayInput
-	// Number of DNS Services using the DNS zone.
-	DnsServices pulumi.Float64PtrInput
-	// Domain names of the DNS Zone.
-	Domain pulumi.StringArrayInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// Source IP of the DNS Zone.
-	SourceIp pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkDnsZoneState) ElementType() reflect.Type {
@@ -205,9 +169,7 @@ func (i *WorkloadNetworkDnsZone) ToWorkloadNetworkDnsZoneOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsZoneOutput)
 }
 
-type WorkloadNetworkDnsZoneOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkDnsZoneOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDnsZoneOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDnsZone)(nil))

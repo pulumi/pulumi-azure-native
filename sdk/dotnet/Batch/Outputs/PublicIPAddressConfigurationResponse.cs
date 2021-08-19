@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The public IP Address configuration of the networking configuration of a Pool.
+    /// </summary>
     [OutputType]
     public sealed class PublicIPAddressConfigurationResponse
     {

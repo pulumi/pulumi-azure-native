@@ -182,45 +182,9 @@ func GetDdosCustomPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DdosCustomPolicy resources.
 type ddosCustomPolicyState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The protocol-specific DDoS policy customization parameters.
-	ProtocolCustomSettings []ProtocolCustomSettingsFormatResponse `pulumi:"protocolCustomSettings"`
-	// The provisioning state of the DDoS custom policy resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-	PublicIPAddresses []SubResourceResponse `pulumi:"publicIPAddresses"`
-	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DdosCustomPolicyState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The protocol-specific DDoS policy customization parameters.
-	ProtocolCustomSettings ProtocolCustomSettingsFormatResponseArrayInput
-	// The provisioning state of the DDoS custom policy resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-	PublicIPAddresses SubResourceResponseArrayInput
-	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DdosCustomPolicyState) ElementType() reflect.Type {
@@ -281,9 +245,7 @@ func (i *DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DdosCustomPolicyOutput)
 }
 
-type DdosCustomPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DdosCustomPolicyOutput struct{ *pulumi.OutputState }
 
 func (DdosCustomPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DdosCustomPolicy)(nil))

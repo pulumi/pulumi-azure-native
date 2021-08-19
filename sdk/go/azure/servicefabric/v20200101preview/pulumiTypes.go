@@ -114,7 +114,7 @@ func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutput() AzureActiv
 }
 
 func (o AzureActiveDirectoryOutput) ToAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) AzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectory) *AzureActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectory) *AzureActiveDirectory {
 		return &v
 	}).(AzureActiveDirectoryPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o AzureActiveDirectoryPtrOutput) ToAzureActiveDirectoryPtrOutputWithContex
 }
 
 func (o AzureActiveDirectoryPtrOutput) Elem() AzureActiveDirectoryOutput {
-	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory { return *v }).(AzureActiveDirectoryOutput)
+	return o.ApplyT(func(v *AzureActiveDirectory) AzureActiveDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret AzureActiveDirectory
+		return ret
+	}).(AzureActiveDirectoryOutput)
 }
 
 // Azure active directory client application id.
@@ -286,7 +292,7 @@ func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOut
 }
 
 func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return o.ApplyT(func(v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
 		return &v
 	}).(AzureActiveDirectoryResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o AzureActiveDirectoryResponsePtrOutput) ToAzureActiveDirectoryResponsePtr
 }
 
 func (o AzureActiveDirectoryResponsePtrOutput) Elem() AzureActiveDirectoryResponseOutput {
-	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse { return *v }).(AzureActiveDirectoryResponseOutput)
+	return o.ApplyT(func(v *AzureActiveDirectoryResponse) AzureActiveDirectoryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureActiveDirectoryResponse
+		return ret
+	}).(AzureActiveDirectoryResponseOutput)
 }
 
 // Azure active directory client application id.
@@ -708,7 +720,7 @@ func (o EndpointRangeDescriptionOutput) ToEndpointRangeDescriptionPtrOutput() En
 }
 
 func (o EndpointRangeDescriptionOutput) ToEndpointRangeDescriptionPtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionPtrOutput {
-	return o.ApplyT(func(v EndpointRangeDescription) *EndpointRangeDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescription) *EndpointRangeDescription {
 		return &v
 	}).(EndpointRangeDescriptionPtrOutput)
 }
@@ -738,7 +750,13 @@ func (o EndpointRangeDescriptionPtrOutput) ToEndpointRangeDescriptionPtrOutputWi
 }
 
 func (o EndpointRangeDescriptionPtrOutput) Elem() EndpointRangeDescriptionOutput {
-	return o.ApplyT(func(v *EndpointRangeDescription) EndpointRangeDescription { return *v }).(EndpointRangeDescriptionOutput)
+	return o.ApplyT(func(v *EndpointRangeDescription) EndpointRangeDescription {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRangeDescription
+		return ret
+	}).(EndpointRangeDescriptionOutput)
 }
 
 // End port of a range of ports
@@ -861,7 +879,7 @@ func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionRespon
 }
 
 func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
 		return &v
 	}).(EndpointRangeDescriptionResponsePtrOutput)
 }
@@ -891,7 +909,13 @@ func (o EndpointRangeDescriptionResponsePtrOutput) ToEndpointRangeDescriptionRes
 }
 
 func (o EndpointRangeDescriptionResponsePtrOutput) Elem() EndpointRangeDescriptionResponseOutput {
-	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) EndpointRangeDescriptionResponse { return *v }).(EndpointRangeDescriptionResponseOutput)
+	return o.ApplyT(func(v *EndpointRangeDescriptionResponse) EndpointRangeDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRangeDescriptionResponse
+		return ret
+	}).(EndpointRangeDescriptionResponseOutput)
 }
 
 // End port of a range of ports
@@ -1718,7 +1742,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1743,7 +1767,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Sku Name.
@@ -1852,7 +1882,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1877,7 +1907,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Sku Name.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20181101Preview.Outputs
 {
 
+    /// <summary>
+    /// Identity of resource
+    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

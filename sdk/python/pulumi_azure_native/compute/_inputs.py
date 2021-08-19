@@ -22,15 +22,15 @@ __all__ = [
     'CloudServiceNetworkProfileArgs',
     'CloudServiceOsProfileArgs',
     'CloudServicePropertiesArgs',
-    'CloudServiceRoleProfileArgs',
     'CloudServiceRoleProfilePropertiesArgs',
+    'CloudServiceRoleProfileArgs',
     'CloudServiceRoleSkuArgs',
     'CloudServiceVaultAndSecretReferenceArgs',
     'CloudServiceVaultCertificateArgs',
     'CloudServiceVaultSecretGroupArgs',
     'CreationDataArgs',
-    'DataDiskArgs',
     'DataDiskImageEncryptionArgs',
+    'DataDiskArgs',
     'DiagnosticsProfileArgs',
     'DiffDiskSettingsArgs',
     'DisallowedArgs',
@@ -38,11 +38,11 @@ __all__ = [
     'DiskEncryptionSettingsArgs',
     'DiskSecurityProfileArgs',
     'DiskSkuArgs',
-    'EncryptionArgs',
     'EncryptionImagesArgs',
     'EncryptionSetIdentityArgs',
     'EncryptionSettingsCollectionArgs',
     'EncryptionSettingsElementArgs',
+    'EncryptionArgs',
     'ExtendedLocationArgs',
     'ExtensionArgs',
     'GalleryApplicationVersionPublishingProfileArgs',
@@ -68,15 +68,15 @@ __all__ = [
     'KeyVaultSecretReferenceArgs',
     'LinuxConfigurationArgs',
     'LinuxPatchSettingsArgs',
-    'LoadBalancerConfigurationArgs',
     'LoadBalancerConfigurationPropertiesArgs',
-    'LoadBalancerFrontendIPConfigurationArgs',
+    'LoadBalancerConfigurationArgs',
     'LoadBalancerFrontendIPConfigurationPropertiesArgs',
+    'LoadBalancerFrontendIPConfigurationArgs',
     'ManagedDiskParametersArgs',
     'NetworkInterfaceReferenceArgs',
     'NetworkProfileArgs',
-    'OSDiskArgs',
     'OSDiskImageEncryptionArgs',
+    'OSDiskArgs',
     'OSProfileArgs',
     'PatchSettingsArgs',
     'PlanArgs',
@@ -118,19 +118,19 @@ __all__ = [
     'VirtualMachinePublicIPAddressDnsSettingsConfigurationArgs',
     'VirtualMachineRunCommandScriptSourceArgs',
     'VirtualMachineScaleSetDataDiskArgs',
-    'VirtualMachineScaleSetExtensionArgs',
     'VirtualMachineScaleSetExtensionProfileArgs',
+    'VirtualMachineScaleSetExtensionArgs',
     'VirtualMachineScaleSetIPConfigurationArgs',
     'VirtualMachineScaleSetIdentityArgs',
     'VirtualMachineScaleSetIpTagArgs',
     'VirtualMachineScaleSetManagedDiskParametersArgs',
-    'VirtualMachineScaleSetNetworkConfigurationArgs',
     'VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs',
+    'VirtualMachineScaleSetNetworkConfigurationArgs',
     'VirtualMachineScaleSetNetworkProfileArgs',
     'VirtualMachineScaleSetOSDiskArgs',
     'VirtualMachineScaleSetOSProfileArgs',
-    'VirtualMachineScaleSetPublicIPAddressConfigurationArgs',
     'VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs',
+    'VirtualMachineScaleSetPublicIPAddressConfigurationArgs',
     'VirtualMachineScaleSetStorageProfileArgs',
     'VirtualMachineScaleSetVMNetworkProfileConfigurationArgs',
     'VirtualMachineScaleSetVMProfileArgs',
@@ -829,30 +829,6 @@ class CloudServicePropertiesArgs:
 
 
 @pulumi.input_type
-class CloudServiceRoleProfileArgs:
-    def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]] = None):
-        """
-        Describes the role profile for the cloud service.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]] roles: List of roles for the cloud service.
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]:
-        """
-        List of roles for the cloud service.
-        """
-        return pulumi.get(self, "roles")
-
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]):
-        pulumi.set(self, "roles", value)
-
-
-@pulumi.input_type
 class CloudServiceRoleProfilePropertiesArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
@@ -890,6 +866,30 @@ class CloudServiceRoleProfilePropertiesArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['CloudServiceRoleSkuArgs']]):
         pulumi.set(self, "sku", value)
+
+
+@pulumi.input_type
+class CloudServiceRoleProfileArgs:
+    def __init__(__self__, *,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]] = None):
+        """
+        Describes the role profile for the cloud service.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]] roles: List of roles for the cloud service.
+        """
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]:
+        """
+        List of roles for the cloud service.
+        """
+        return pulumi.get(self, "roles")
+
+    @roles.setter
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CloudServiceRoleProfilePropertiesArgs']]]]):
+        pulumi.set(self, "roles", value)
 
 
 @pulumi.input_type
@@ -1177,6 +1177,45 @@ class CreationDataArgs:
 
 
 @pulumi.input_type
+class DataDiskImageEncryptionArgs:
+    def __init__(__self__, *,
+                 lun: pulumi.Input[int],
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
+        """
+        Contains encryption settings for a data disk image.
+        :param pulumi.Input[int] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        :param pulumi.Input[str] disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
+        """
+        pulumi.set(__self__, "lun", lun)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> pulumi.Input[int]:
+        """
+        This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        """
+        return pulumi.get(self, "lun")
+
+    @lun.setter
+    def lun(self, value: pulumi.Input[int]):
+        pulumi.set(self, "lun", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A relative URI containing the resource ID of the disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+
+@pulumi.input_type
 class DataDiskArgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
@@ -1372,45 +1411,6 @@ class DataDiskArgs:
     @write_accelerator_enabled.setter
     def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "write_accelerator_enabled", value)
-
-
-@pulumi.input_type
-class DataDiskImageEncryptionArgs:
-    def __init__(__self__, *,
-                 lun: pulumi.Input[int],
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
-        """
-        Contains encryption settings for a data disk image.
-        :param pulumi.Input[int] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-        :param pulumi.Input[str] disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
-        """
-        pulumi.set(__self__, "lun", lun)
-        if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-
-    @property
-    @pulumi.getter
-    def lun(self) -> pulumi.Input[int]:
-        """
-        This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-        """
-        return pulumi.get(self, "lun")
-
-    @lun.setter
-    def lun(self, value: pulumi.Input[int]):
-        pulumi.set(self, "lun", value)
-
-    @property
-    @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A relative URI containing the resource ID of the disk encryption set.
-        """
-        return pulumi.get(self, "disk_encryption_set_id")
-
-    @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_encryption_set_id", value)
 
 
 @pulumi.input_type
@@ -1630,46 +1630,6 @@ class DiskSkuArgs:
 
 
 @pulumi.input_type
-class EncryptionArgs:
-    def __init__(__self__, *,
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None):
-        """
-        Encryption at rest settings for disk or snapshot
-        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
-        :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
-        """
-        if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ResourceId of the disk encryption set to use for enabling encryption at rest.
-        """
-        return pulumi.get(self, "disk_encryption_set_id")
-
-    @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_encryption_set_id", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
-        """
-        The type of key used to encrypt the data of the disk.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
 class EncryptionImagesArgs:
     def __init__(__self__, *,
                  data_disk_images: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskImageEncryptionArgs']]]] = None,
@@ -1826,6 +1786,46 @@ class EncryptionSettingsElementArgs:
     @key_encryption_key.setter
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultAndKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
+
+
+@pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None):
+        """
+        Encryption at rest settings for disk or snapshot
+        :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
+        :param pulumi.Input[Union[str, 'EncryptionType']] type: The type of key used to encrypt the data of the disk.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ResourceId of the disk encryption set to use for enabling encryption at rest.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'EncryptionType']]]:
+        """
+        The type of key used to encrypt the data of the disk.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'EncryptionType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -3351,6 +3351,28 @@ class LinuxPatchSettingsArgs:
 
 
 @pulumi.input_type
+class LoadBalancerConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]] frontend_ip_configurations: Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
+        """
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]:
+        """
+        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @frontend_ip_configurations.setter
+    def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]):
+        pulumi.set(self, "frontend_ip_configurations", value)
+
+
+@pulumi.input_type
 class LoadBalancerConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -3402,65 +3424,6 @@ class LoadBalancerConfigurationArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class LoadBalancerConfigurationPropertiesArgs:
-    def __init__(__self__, *,
-                 frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]] frontend_ip_configurations: Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-        """
-        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
-
-    @property
-    @pulumi.getter(name="frontendIPConfigurations")
-    def frontend_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]:
-        """
-        Specifies the frontend IP to be used for the load balancer. Only IPv4 frontend IP address is supported. Each load balancer configuration must have exactly one frontend IP configuration.
-        """
-        return pulumi.get(self, "frontend_ip_configurations")
-
-    @frontend_ip_configurations.setter
-    def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LoadBalancerFrontendIPConfigurationArgs']]]):
-        pulumi.set(self, "frontend_ip_configurations", value)
-
-
-@pulumi.input_type
-class LoadBalancerFrontendIPConfigurationArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 properties: pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']):
-        """
-        :param pulumi.Input[str] name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
-        :param pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs'] properties: Properties of load balancer frontend ip configuration.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']:
-        """
-        Properties of load balancer frontend ip configuration.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']):
-        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -3517,6 +3480,43 @@ class LoadBalancerFrontendIPConfigurationPropertiesArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class LoadBalancerFrontendIPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 properties: pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']):
+        """
+        :param pulumi.Input[str] name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        :param pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs'] properties: Properties of load balancer frontend ip configuration.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']:
+        """
+        Properties of load balancer frontend ip configuration.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LoadBalancerFrontendIPConfigurationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -3685,6 +3685,30 @@ class NetworkProfileArgs:
     @network_interfaces.setter
     def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceReferenceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
+
+
+@pulumi.input_type
+class OSDiskImageEncryptionArgs:
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
+        """
+        Contains encryption settings for an OS disk image.
+        :param pulumi.Input[str] disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A relative URI containing the resource ID of the disk encryption set.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @disk_encryption_set_id.setter
+    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "disk_encryption_set_id", value)
 
 
 @pulumi.input_type
@@ -3884,30 +3908,6 @@ class OSDiskArgs:
     @write_accelerator_enabled.setter
     def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "write_accelerator_enabled", value)
-
-
-@pulumi.input_type
-class OSDiskImageEncryptionArgs:
-    def __init__(__self__, *,
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
-        """
-        Contains encryption settings for an OS disk image.
-        :param pulumi.Input[str] disk_encryption_set_id: A relative URI containing the resource ID of the disk encryption set.
-        """
-        if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
-
-    @property
-    @pulumi.getter(name="diskEncryptionSetId")
-    def disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        A relative URI containing the resource ID of the disk encryption set.
-        """
-        return pulumi.get(self, "disk_encryption_set_id")
-
-    @disk_encryption_set_id.setter
-    def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "disk_encryption_set_id", value)
 
 
 @pulumi.input_type
@@ -6247,6 +6247,46 @@ class VirtualMachineScaleSetDataDiskArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetExtensionProfileArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None,
+                 extensions_time_budget: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a virtual machine scale set extension profile.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
+        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if extensions_time_budget is not None:
+            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
+        """
+        The virtual machine scale set child extension resources.
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
+    @pulumi.getter(name="extensionsTimeBudget")
+    def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
+        """
+        return pulumi.get(self, "extensions_time_budget")
+
+    @extensions_time_budget.setter
+    def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extensions_time_budget", value)
+
+
+@pulumi.input_type
 class VirtualMachineScaleSetExtensionArgs:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
@@ -6412,46 +6452,6 @@ class VirtualMachineScaleSetExtensionArgs:
     @type_handler_version.setter
     def type_handler_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type_handler_version", value)
-
-
-@pulumi.input_type
-class VirtualMachineScaleSetExtensionProfileArgs:
-    def __init__(__self__, *,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]] = None,
-                 extensions_time_budget: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a virtual machine scale set extension profile.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]] extensions: The virtual machine scale set child extension resources.
-        :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
-        """
-        if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
-        if extensions_time_budget is not None:
-            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
-
-    @property
-    @pulumi.getter
-    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]:
-        """
-        The virtual machine scale set child extension resources.
-        """
-        return pulumi.get(self, "extensions")
-
-    @extensions.setter
-    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetExtensionArgs']]]]):
-        pulumi.set(self, "extensions", value)
-
-    @property
-    @pulumi.getter(name="extensionsTimeBudget")
-    def extensions_time_budget(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
-        """
-        return pulumi.get(self, "extensions_time_budget")
-
-    @extensions_time_budget.setter
-    def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "extensions_time_budget", value)
 
 
 @pulumi.input_type
@@ -6742,6 +6742,30 @@ class VirtualMachineScaleSetManagedDiskParametersArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
+    def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
+        """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of DNS servers IP addresses
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+
+@pulumi.input_type
 class VirtualMachineScaleSetNetworkConfigurationArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['VirtualMachineScaleSetIPConfigurationArgs']]],
@@ -6905,30 +6929,6 @@ class VirtualMachineScaleSetNetworkConfigurationArgs:
     @primary.setter
     def primary(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "primary", value)
-
-
-@pulumi.input_type
-class VirtualMachineScaleSetNetworkConfigurationDnsSettingsArgs:
-    def __init__(__self__, *,
-                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Describes a virtual machines scale sets network configuration's DNS settings.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: List of DNS servers IP addresses
-        """
-        if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of DNS servers IP addresses
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @dns_servers.setter
-    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "dns_servers", value)
 
 
 @pulumi.input_type
@@ -7275,6 +7275,29 @@ class VirtualMachineScaleSetOSProfileArgs:
 
 
 @pulumi.input_type
+class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
+    def __init__(__self__, *,
+                 domain_name_label: pulumi.Input[str]):
+        """
+        Describes a virtual machines scale sets network configuration's DNS settings.
+        :param pulumi.Input[str] domain_name_label: The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+        pulumi.set(__self__, "domain_name_label", domain_name_label)
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> pulumi.Input[str]:
+        """
+        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @domain_name_label.setter
+    def domain_name_label(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name_label", value)
+
+
+@pulumi.input_type
 class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -7407,29 +7430,6 @@ class VirtualMachineScaleSetPublicIPAddressConfigurationArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input['PublicIPAddressSkuArgs']]):
         pulumi.set(self, "sku", value)
-
-
-@pulumi.input_type
-class VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs:
-    def __init__(__self__, *,
-                 domain_name_label: pulumi.Input[str]):
-        """
-        Describes a virtual machines scale sets network configuration's DNS settings.
-        :param pulumi.Input[str] domain_name_label: The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-        """
-        pulumi.set(__self__, "domain_name_label", domain_name_label)
-
-    @property
-    @pulumi.getter(name="domainNameLabel")
-    def domain_name_label(self) -> pulumi.Input[str]:
-        """
-        The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-        """
-        return pulumi.get(self, "domain_name_label")
-
-    @domain_name_label.setter
-    def domain_name_label(self, value: pulumi.Input[str]):
-        pulumi.set(self, "domain_name_label", value)
 
 
 @pulumi.input_type

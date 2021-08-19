@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Transformation for data flow sink.
+    /// </summary>
     [OutputType]
     public sealed class DataFlowSinkResponse
     {

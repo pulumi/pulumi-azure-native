@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Base class for all triggers that support one to many model for trigger to pipeline.
+    /// </summary>
     [OutputType]
     public sealed class MultiplePipelineTriggerResponse
     {

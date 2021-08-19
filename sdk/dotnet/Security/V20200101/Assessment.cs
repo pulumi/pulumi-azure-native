@@ -156,7 +156,7 @@ namespace Pulumi.AzureNative.Security.V20200101
         /// Details of the resource that was assessed
         /// </summary>
         [Input("resourceDetails", required: true)]
-        public Input<object> ResourceDetails { get; set; } = null!;
+        public object ResourceDetails { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.

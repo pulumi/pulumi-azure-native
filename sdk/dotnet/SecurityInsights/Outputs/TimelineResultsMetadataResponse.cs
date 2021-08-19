@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Expansion result metadata.
+    /// </summary>
     [OutputType]
     public sealed class TimelineResultsMetadataResponse
     {

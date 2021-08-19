@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 {
 
+    /// <summary>
+    /// Property overrides on a subnet of a virtual network.
+    /// </summary>
     [OutputType]
     public sealed class SubnetOverrideResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.Outputs
 {
 
+    /// <summary>
+    /// Filter for the Event Channel.
+    /// </summary>
     [OutputType]
     public sealed class EventChannelFilterResponse
     {

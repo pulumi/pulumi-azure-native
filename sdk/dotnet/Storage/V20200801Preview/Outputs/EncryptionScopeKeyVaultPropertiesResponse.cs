@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20200801Preview.Outputs
 {
 
+    /// <summary>
+    /// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionScopeKeyVaultPropertiesResponse
     {

@@ -149,53 +149,9 @@ func GetServerFarmRouteForVnet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerFarmRouteForVnet resources.
 type serverFarmRouteForVnetState struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress *string `pulumi:"endAddress"`
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// The type of route this is:
-	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-	//             INHERITED - Routes inherited from the real Virtual Network routes
-	//             STATIC - Static route set on the web app only
-	//
-	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-	//             with new INHERITED routes.
-	RouteType *string `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress *string `pulumi:"startAddress"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ServerFarmRouteForVnetState struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress pulumi.StringPtrInput
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// The type of route this is:
-	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-	//             INHERITED - Routes inherited from the real Virtual Network routes
-	//             STATIC - Static route set on the web app only
-	//
-	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-	//             with new INHERITED routes.
-	RouteType pulumi.StringPtrInput
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ServerFarmRouteForVnetState) ElementType() reflect.Type {
@@ -292,9 +248,7 @@ func (i *ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmRouteForVnetOutput)
 }
 
-type ServerFarmRouteForVnetOutput struct {
-	*pulumi.OutputState
-}
+type ServerFarmRouteForVnetOutput struct{ *pulumi.OutputState }
 
 func (ServerFarmRouteForVnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil))

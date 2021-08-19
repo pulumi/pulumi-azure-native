@@ -231,58 +231,110 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.network.v20150501preview as v20150501preview
-    import pulumi_azure_native.network.v20150504preview as v20150504preview
-    import pulumi_azure_native.network.v20150615 as v20150615
-    import pulumi_azure_native.network.v20151101 as v20151101
-    import pulumi_azure_native.network.v20160330 as v20160330
-    import pulumi_azure_native.network.v20160401 as v20160401
-    import pulumi_azure_native.network.v20160601 as v20160601
-    import pulumi_azure_native.network.v20160901 as v20160901
-    import pulumi_azure_native.network.v20161201 as v20161201
-    import pulumi_azure_native.network.v20170301 as v20170301
-    import pulumi_azure_native.network.v20170501 as v20170501
-    import pulumi_azure_native.network.v20170601 as v20170601
-    import pulumi_azure_native.network.v20170801 as v20170801
-    import pulumi_azure_native.network.v20170901 as v20170901
-    import pulumi_azure_native.network.v20170901preview as v20170901preview
-    import pulumi_azure_native.network.v20171001 as v20171001
-    import pulumi_azure_native.network.v20171101 as v20171101
-    import pulumi_azure_native.network.v20180101 as v20180101
-    import pulumi_azure_native.network.v20180201 as v20180201
-    import pulumi_azure_native.network.v20180301 as v20180301
-    import pulumi_azure_native.network.v20180301preview as v20180301preview
-    import pulumi_azure_native.network.v20180401 as v20180401
-    import pulumi_azure_native.network.v20180501 as v20180501
-    import pulumi_azure_native.network.v20180601 as v20180601
-    import pulumi_azure_native.network.v20180701 as v20180701
-    import pulumi_azure_native.network.v20180801 as v20180801
-    import pulumi_azure_native.network.v20180901 as v20180901
-    import pulumi_azure_native.network.v20181001 as v20181001
-    import pulumi_azure_native.network.v20181101 as v20181101
-    import pulumi_azure_native.network.v20181201 as v20181201
-    import pulumi_azure_native.network.v20190201 as v20190201
-    import pulumi_azure_native.network.v20190301 as v20190301
-    import pulumi_azure_native.network.v20190401 as v20190401
-    import pulumi_azure_native.network.v20190501 as v20190501
-    import pulumi_azure_native.network.v20190601 as v20190601
-    import pulumi_azure_native.network.v20190701 as v20190701
-    import pulumi_azure_native.network.v20190801 as v20190801
-    import pulumi_azure_native.network.v20190901 as v20190901
-    import pulumi_azure_native.network.v20191001 as v20191001
-    import pulumi_azure_native.network.v20191101 as v20191101
-    import pulumi_azure_native.network.v20191201 as v20191201
-    import pulumi_azure_native.network.v20200101 as v20200101
-    import pulumi_azure_native.network.v20200301 as v20200301
-    import pulumi_azure_native.network.v20200401 as v20200401
-    import pulumi_azure_native.network.v20200501 as v20200501
-    import pulumi_azure_native.network.v20200601 as v20200601
-    import pulumi_azure_native.network.v20200701 as v20200701
-    import pulumi_azure_native.network.v20200801 as v20200801
-    import pulumi_azure_native.network.v20201101 as v20201101
-    import pulumi_azure_native.network.v20210201 as v20210201
-    import pulumi_azure_native.network.v20210201preview as v20210201preview
-    import pulumi_azure_native.network.v20210301preview as v20210301preview
+    import pulumi_azure_native.network.v20150501preview as __v20150501preview
+    v20150501preview = __v20150501preview
+    import pulumi_azure_native.network.v20150504preview as __v20150504preview
+    v20150504preview = __v20150504preview
+    import pulumi_azure_native.network.v20150615 as __v20150615
+    v20150615 = __v20150615
+    import pulumi_azure_native.network.v20151101 as __v20151101
+    v20151101 = __v20151101
+    import pulumi_azure_native.network.v20160330 as __v20160330
+    v20160330 = __v20160330
+    import pulumi_azure_native.network.v20160401 as __v20160401
+    v20160401 = __v20160401
+    import pulumi_azure_native.network.v20160601 as __v20160601
+    v20160601 = __v20160601
+    import pulumi_azure_native.network.v20160901 as __v20160901
+    v20160901 = __v20160901
+    import pulumi_azure_native.network.v20161201 as __v20161201
+    v20161201 = __v20161201
+    import pulumi_azure_native.network.v20170301 as __v20170301
+    v20170301 = __v20170301
+    import pulumi_azure_native.network.v20170501 as __v20170501
+    v20170501 = __v20170501
+    import pulumi_azure_native.network.v20170601 as __v20170601
+    v20170601 = __v20170601
+    import pulumi_azure_native.network.v20170801 as __v20170801
+    v20170801 = __v20170801
+    import pulumi_azure_native.network.v20170901 as __v20170901
+    v20170901 = __v20170901
+    import pulumi_azure_native.network.v20170901preview as __v20170901preview
+    v20170901preview = __v20170901preview
+    import pulumi_azure_native.network.v20171001 as __v20171001
+    v20171001 = __v20171001
+    import pulumi_azure_native.network.v20171101 as __v20171101
+    v20171101 = __v20171101
+    import pulumi_azure_native.network.v20180101 as __v20180101
+    v20180101 = __v20180101
+    import pulumi_azure_native.network.v20180201 as __v20180201
+    v20180201 = __v20180201
+    import pulumi_azure_native.network.v20180301 as __v20180301
+    v20180301 = __v20180301
+    import pulumi_azure_native.network.v20180301preview as __v20180301preview
+    v20180301preview = __v20180301preview
+    import pulumi_azure_native.network.v20180401 as __v20180401
+    v20180401 = __v20180401
+    import pulumi_azure_native.network.v20180501 as __v20180501
+    v20180501 = __v20180501
+    import pulumi_azure_native.network.v20180601 as __v20180601
+    v20180601 = __v20180601
+    import pulumi_azure_native.network.v20180701 as __v20180701
+    v20180701 = __v20180701
+    import pulumi_azure_native.network.v20180801 as __v20180801
+    v20180801 = __v20180801
+    import pulumi_azure_native.network.v20180901 as __v20180901
+    v20180901 = __v20180901
+    import pulumi_azure_native.network.v20181001 as __v20181001
+    v20181001 = __v20181001
+    import pulumi_azure_native.network.v20181101 as __v20181101
+    v20181101 = __v20181101
+    import pulumi_azure_native.network.v20181201 as __v20181201
+    v20181201 = __v20181201
+    import pulumi_azure_native.network.v20190201 as __v20190201
+    v20190201 = __v20190201
+    import pulumi_azure_native.network.v20190301 as __v20190301
+    v20190301 = __v20190301
+    import pulumi_azure_native.network.v20190401 as __v20190401
+    v20190401 = __v20190401
+    import pulumi_azure_native.network.v20190501 as __v20190501
+    v20190501 = __v20190501
+    import pulumi_azure_native.network.v20190601 as __v20190601
+    v20190601 = __v20190601
+    import pulumi_azure_native.network.v20190701 as __v20190701
+    v20190701 = __v20190701
+    import pulumi_azure_native.network.v20190801 as __v20190801
+    v20190801 = __v20190801
+    import pulumi_azure_native.network.v20190901 as __v20190901
+    v20190901 = __v20190901
+    import pulumi_azure_native.network.v20191001 as __v20191001
+    v20191001 = __v20191001
+    import pulumi_azure_native.network.v20191101 as __v20191101
+    v20191101 = __v20191101
+    import pulumi_azure_native.network.v20191201 as __v20191201
+    v20191201 = __v20191201
+    import pulumi_azure_native.network.v20200101 as __v20200101
+    v20200101 = __v20200101
+    import pulumi_azure_native.network.v20200301 as __v20200301
+    v20200301 = __v20200301
+    import pulumi_azure_native.network.v20200401 as __v20200401
+    v20200401 = __v20200401
+    import pulumi_azure_native.network.v20200501 as __v20200501
+    v20200501 = __v20200501
+    import pulumi_azure_native.network.v20200601 as __v20200601
+    v20200601 = __v20200601
+    import pulumi_azure_native.network.v20200701 as __v20200701
+    v20200701 = __v20200701
+    import pulumi_azure_native.network.v20200801 as __v20200801
+    v20200801 = __v20200801
+    import pulumi_azure_native.network.v20201101 as __v20201101
+    v20201101 = __v20201101
+    import pulumi_azure_native.network.v20210201 as __v20210201
+    v20210201 = __v20210201
+    import pulumi_azure_native.network.v20210201preview as __v20210201preview
+    v20210201preview = __v20210201preview
+    import pulumi_azure_native.network.v20210301preview as __v20210301preview
+    v20210301preview = __v20210301preview
 else:
     v20150501preview = _utilities.lazy_import('pulumi_azure_native.network.v20150501preview')
     v20150504preview = _utilities.lazy_import('pulumi_azure_native.network.v20150504preview')

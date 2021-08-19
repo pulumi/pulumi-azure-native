@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Managed Identity used for CMK.
+    /// </summary>
     [OutputType]
     public sealed class CMKIdentityDefinitionResponse
     {

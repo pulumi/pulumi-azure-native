@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Settings which will be used by the data disks associated to Compute Nodes in the Pool. When using attached data disks, you need to mount and format the disks from within a VM to use them.
+    /// </summary>
     [OutputType]
     public sealed class DataDiskResponse
     {

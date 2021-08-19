@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
+    /// <summary>
+    /// The properties associated with a private endpoint.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointPropertiesResponse
     {

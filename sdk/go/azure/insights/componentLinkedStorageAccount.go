@@ -71,21 +71,9 @@ func GetComponentLinkedStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ComponentLinkedStorageAccount resources.
 type componentLinkedStorageAccountState struct {
-	// Linked storage account resource ID
-	LinkedStorageAccount *string `pulumi:"linkedStorageAccount"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ComponentLinkedStorageAccountState struct {
-	// Linked storage account resource ID
-	LinkedStorageAccount pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ComponentLinkedStorageAccountState) ElementType() reflect.Type {
@@ -138,9 +126,7 @@ func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentLinkedStorageAccountOutput)
 }
 
-type ComponentLinkedStorageAccountOutput struct {
-	*pulumi.OutputState
-}
+type ComponentLinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ComponentLinkedStorageAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))

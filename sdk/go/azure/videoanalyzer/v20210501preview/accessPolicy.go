@@ -74,29 +74,9 @@ func GetAccessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessPolicy resources.
 type accessPolicyState struct {
-	// Authentication method to be used when validating client API access.
-	Authentication *JwtAuthenticationResponse `pulumi:"authentication"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Defines the access level granted by this policy.
-	Role *string `pulumi:"role"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type AccessPolicyState struct {
-	// Authentication method to be used when validating client API access.
-	Authentication JwtAuthenticationResponsePtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Defines the access level granted by this policy.
-	Role pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (AccessPolicyState) ElementType() reflect.Type {
@@ -153,9 +133,7 @@ func (i *AccessPolicy) ToAccessPolicyOutputWithContext(ctx context.Context) Acce
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyOutput)
 }
 
-type AccessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type AccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessPolicy)(nil))

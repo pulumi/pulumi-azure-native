@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20170101.Outputs
 {
 
+    /// <summary>
+    /// Defines a global parameter in the graph.
+    /// </summary>
     [OutputType]
     public sealed class GraphParameterResponse
     {

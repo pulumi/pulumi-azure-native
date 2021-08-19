@@ -109,73 +109,9 @@ func GetCustomImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomImage resources.
 type customImageState struct {
-	// The author of the custom image.
-	Author *string `pulumi:"author"`
-	// The creation date of the custom image.
-	CreationDate *string `pulumi:"creationDate"`
-	// Storage information about the plan related to this custom image
-	CustomImagePlan *CustomImagePropertiesFromPlanResponse `pulumi:"customImagePlan"`
-	// Storage information about the data disks present in the custom image
-	DataDiskStorageInfo []DataDiskStorageTypeInfoResponse `pulumi:"dataDiskStorageInfo"`
-	// The description of the custom image.
-	Description *string `pulumi:"description"`
-	// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The Managed Image Id backing the custom image.
-	ManagedImageId *string `pulumi:"managedImageId"`
-	// The Managed Snapshot Id backing the custom image.
-	ManagedSnapshotId *string `pulumi:"managedSnapshotId"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The VHD from which the image is to be created.
-	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
-	// The virtual machine from which the image is to be created.
-	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
 }
 
 type CustomImageState struct {
-	// The author of the custom image.
-	Author pulumi.StringPtrInput
-	// The creation date of the custom image.
-	CreationDate pulumi.StringPtrInput
-	// Storage information about the plan related to this custom image
-	CustomImagePlan CustomImagePropertiesFromPlanResponsePtrInput
-	// Storage information about the data disks present in the custom image
-	DataDiskStorageInfo DataDiskStorageTypeInfoResponseArrayInput
-	// The description of the custom image.
-	Description pulumi.StringPtrInput
-	// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-	IsPlanAuthorized pulumi.BoolPtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The Managed Image Id backing the custom image.
-	ManagedImageId pulumi.StringPtrInput
-	// The Managed Snapshot Id backing the custom image.
-	ManagedSnapshotId pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
-	// The VHD from which the image is to be created.
-	Vhd CustomImagePropertiesCustomResponsePtrInput
-	// The virtual machine from which the image is to be created.
-	Vm CustomImagePropertiesFromVmResponsePtrInput
 }
 
 func (CustomImageState) ElementType() reflect.Type {
@@ -268,9 +204,7 @@ func (i *CustomImage) ToCustomImageOutputWithContext(ctx context.Context) Custom
 	return pulumi.ToOutputWithContext(ctx, i).(CustomImageOutput)
 }
 
-type CustomImageOutput struct {
-	*pulumi.OutputState
-}
+type CustomImageOutput struct{ *pulumi.OutputState }
 
 func (CustomImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomImage)(nil))

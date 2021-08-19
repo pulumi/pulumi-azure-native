@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
+    /// <summary>
+    /// A list of services that support encryption.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionServicesResponse
     {

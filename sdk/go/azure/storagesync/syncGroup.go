@@ -127,25 +127,9 @@ func GetSyncGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SyncGroup resources.
 type syncGroupState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Sync group status
-	SyncGroupStatus *string `pulumi:"syncGroupStatus"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Unique Id
-	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type SyncGroupState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Sync group status
-	SyncGroupStatus pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Unique Id
-	UniqueId pulumi.StringPtrInput
 }
 
 func (SyncGroupState) ElementType() reflect.Type {
@@ -194,9 +178,7 @@ func (i *SyncGroup) ToSyncGroupOutputWithContext(ctx context.Context) SyncGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupOutput)
 }
 
-type SyncGroupOutput struct {
-	*pulumi.OutputState
-}
+type SyncGroupOutput struct{ *pulumi.OutputState }
 
 func (SyncGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SyncGroup)(nil))

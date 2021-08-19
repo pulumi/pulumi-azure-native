@@ -2539,7 +2539,7 @@ func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponsePtrOut
 }
 
 func (o DcAccessSecurityCodeResponseOutput) ToDcAccessSecurityCodeResponsePtrOutputWithContext(ctx context.Context) DcAccessSecurityCodeResponsePtrOutput {
-	return o.ApplyT(func(v DcAccessSecurityCodeResponse) *DcAccessSecurityCodeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DcAccessSecurityCodeResponse) *DcAccessSecurityCodeResponse {
 		return &v
 	}).(DcAccessSecurityCodeResponsePtrOutput)
 }
@@ -2569,7 +2569,13 @@ func (o DcAccessSecurityCodeResponsePtrOutput) ToDcAccessSecurityCodeResponsePtr
 }
 
 func (o DcAccessSecurityCodeResponsePtrOutput) Elem() DcAccessSecurityCodeResponseOutput {
-	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) DcAccessSecurityCodeResponse { return *v }).(DcAccessSecurityCodeResponseOutput)
+	return o.ApplyT(func(v *DcAccessSecurityCodeResponse) DcAccessSecurityCodeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DcAccessSecurityCodeResponse
+		return ret
+	}).(DcAccessSecurityCodeResponseOutput)
 }
 
 // Dc Access Code for dispatching from DC.
@@ -3159,7 +3165,7 @@ func (o ErrorResponseOutput) ToErrorResponsePtrOutput() ErrorResponsePtrOutput {
 }
 
 func (o ErrorResponseOutput) ToErrorResponsePtrOutputWithContext(ctx context.Context) ErrorResponsePtrOutput {
-	return o.ApplyT(func(v ErrorResponse) *ErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponse) *ErrorResponse {
 		return &v
 	}).(ErrorResponsePtrOutput)
 }
@@ -3189,7 +3195,13 @@ func (o ErrorResponsePtrOutput) ToErrorResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ErrorResponsePtrOutput) Elem() ErrorResponseOutput {
-	return o.ApplyT(func(v *ErrorResponse) ErrorResponse { return *v }).(ErrorResponseOutput)
+	return o.ApplyT(func(v *ErrorResponse) ErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ErrorResponse
+		return ret
+	}).(ErrorResponseOutput)
 }
 
 // Error code that can be used to programmatically identify the error.
@@ -3308,7 +3320,7 @@ func (o JobDeliveryInfoOutput) ToJobDeliveryInfoPtrOutput() JobDeliveryInfoPtrOu
 }
 
 func (o JobDeliveryInfoOutput) ToJobDeliveryInfoPtrOutputWithContext(ctx context.Context) JobDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v JobDeliveryInfo) *JobDeliveryInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDeliveryInfo) *JobDeliveryInfo {
 		return &v
 	}).(JobDeliveryInfoPtrOutput)
 }
@@ -3333,7 +3345,13 @@ func (o JobDeliveryInfoPtrOutput) ToJobDeliveryInfoPtrOutputWithContext(ctx cont
 }
 
 func (o JobDeliveryInfoPtrOutput) Elem() JobDeliveryInfoOutput {
-	return o.ApplyT(func(v *JobDeliveryInfo) JobDeliveryInfo { return *v }).(JobDeliveryInfoOutput)
+	return o.ApplyT(func(v *JobDeliveryInfo) JobDeliveryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret JobDeliveryInfo
+		return ret
+	}).(JobDeliveryInfoOutput)
 }
 
 // Scheduled date time.
@@ -3442,7 +3460,7 @@ func (o JobDeliveryInfoResponseOutput) ToJobDeliveryInfoResponsePtrOutput() JobD
 }
 
 func (o JobDeliveryInfoResponseOutput) ToJobDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) JobDeliveryInfoResponsePtrOutput {
-	return o.ApplyT(func(v JobDeliveryInfoResponse) *JobDeliveryInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDeliveryInfoResponse) *JobDeliveryInfoResponse {
 		return &v
 	}).(JobDeliveryInfoResponsePtrOutput)
 }
@@ -3467,7 +3485,13 @@ func (o JobDeliveryInfoResponsePtrOutput) ToJobDeliveryInfoResponsePtrOutputWith
 }
 
 func (o JobDeliveryInfoResponsePtrOutput) Elem() JobDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *JobDeliveryInfoResponse) JobDeliveryInfoResponse { return *v }).(JobDeliveryInfoResponseOutput)
+	return o.ApplyT(func(v *JobDeliveryInfoResponse) JobDeliveryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobDeliveryInfoResponse
+		return ret
+	}).(JobDeliveryInfoResponseOutput)
 }
 
 // Scheduled date time.
@@ -4143,7 +4167,7 @@ func (o PreferencesOutput) ToPreferencesPtrOutput() PreferencesPtrOutput {
 }
 
 func (o PreferencesOutput) ToPreferencesPtrOutputWithContext(ctx context.Context) PreferencesPtrOutput {
-	return o.ApplyT(func(v Preferences) *Preferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Preferences) *Preferences {
 		return &v
 	}).(PreferencesPtrOutput)
 }
@@ -4173,7 +4197,13 @@ func (o PreferencesPtrOutput) ToPreferencesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PreferencesPtrOutput) Elem() PreferencesOutput {
-	return o.ApplyT(func(v *Preferences) Preferences { return *v }).(PreferencesOutput)
+	return o.ApplyT(func(v *Preferences) Preferences {
+		if v != nil {
+			return *v
+		}
+		var ret Preferences
+		return ret
+	}).(PreferencesOutput)
 }
 
 // Preferred Data Center Region.
@@ -4296,7 +4326,7 @@ func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutput() PreferencesR
 }
 
 func (o PreferencesResponseOutput) ToPreferencesResponsePtrOutputWithContext(ctx context.Context) PreferencesResponsePtrOutput {
-	return o.ApplyT(func(v PreferencesResponse) *PreferencesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PreferencesResponse) *PreferencesResponse {
 		return &v
 	}).(PreferencesResponsePtrOutput)
 }
@@ -4326,7 +4356,13 @@ func (o PreferencesResponsePtrOutput) ToPreferencesResponsePtrOutputWithContext(
 }
 
 func (o PreferencesResponsePtrOutput) Elem() PreferencesResponseOutput {
-	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse { return *v }).(PreferencesResponseOutput)
+	return o.ApplyT(func(v *PreferencesResponse) PreferencesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PreferencesResponse
+		return ret
+	}).(PreferencesResponseOutput)
 }
 
 // Preferred Data Center Region.
@@ -4861,7 +4897,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -4896,7 +4932,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The display name of the sku.
@@ -5033,7 +5075,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -5068,7 +5110,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The display name of the sku.
@@ -5197,7 +5245,7 @@ func (o TransportPreferencesOutput) ToTransportPreferencesPtrOutput() TransportP
 }
 
 func (o TransportPreferencesOutput) ToTransportPreferencesPtrOutputWithContext(ctx context.Context) TransportPreferencesPtrOutput {
-	return o.ApplyT(func(v TransportPreferences) *TransportPreferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransportPreferences) *TransportPreferences {
 		return &v
 	}).(TransportPreferencesPtrOutput)
 }
@@ -5222,7 +5270,13 @@ func (o TransportPreferencesPtrOutput) ToTransportPreferencesPtrOutputWithContex
 }
 
 func (o TransportPreferencesPtrOutput) Elem() TransportPreferencesOutput {
-	return o.ApplyT(func(v *TransportPreferences) TransportPreferences { return *v }).(TransportPreferencesOutput)
+	return o.ApplyT(func(v *TransportPreferences) TransportPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret TransportPreferences
+		return ret
+	}).(TransportPreferencesOutput)
 }
 
 // Indicates Shipment Logistics type that the customer preferred.
@@ -5331,7 +5385,7 @@ func (o TransportPreferencesResponseOutput) ToTransportPreferencesResponsePtrOut
 }
 
 func (o TransportPreferencesResponseOutput) ToTransportPreferencesResponsePtrOutputWithContext(ctx context.Context) TransportPreferencesResponsePtrOutput {
-	return o.ApplyT(func(v TransportPreferencesResponse) *TransportPreferencesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransportPreferencesResponse) *TransportPreferencesResponse {
 		return &v
 	}).(TransportPreferencesResponsePtrOutput)
 }
@@ -5356,7 +5410,13 @@ func (o TransportPreferencesResponsePtrOutput) ToTransportPreferencesResponsePtr
 }
 
 func (o TransportPreferencesResponsePtrOutput) Elem() TransportPreferencesResponseOutput {
-	return o.ApplyT(func(v *TransportPreferencesResponse) TransportPreferencesResponse { return *v }).(TransportPreferencesResponseOutput)
+	return o.ApplyT(func(v *TransportPreferencesResponse) TransportPreferencesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TransportPreferencesResponse
+		return ret
+	}).(TransportPreferencesResponseOutput)
 }
 
 // Indicates Shipment Logistics type that the customer preferred.

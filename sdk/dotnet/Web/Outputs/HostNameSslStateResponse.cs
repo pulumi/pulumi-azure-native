@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// SSL-enabled hostname.
+    /// </summary>
     [OutputType]
     public sealed class HostNameSslStateResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Criterion to filter metrics.
+    /// </summary>
     [OutputType]
     public sealed class MetricCriteriaResponse
     {

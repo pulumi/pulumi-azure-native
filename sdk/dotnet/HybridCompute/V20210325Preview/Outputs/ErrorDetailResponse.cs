@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210325Preview.Outputs
 {
 
+    /// <summary>
+    /// The error detail.
+    /// </summary>
     [OutputType]
     public sealed class ErrorDetailResponse
     {

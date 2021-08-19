@@ -94,45 +94,9 @@ func GetManagerExtendedInfo(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagerExtendedInfo resources.
 type managerExtendedInfoState struct {
-	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-	Algorithm *string `pulumi:"algorithm"`
-	// Represents the CEK of the resource
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// Represents the Cert thumbprint that was used to encrypt the CEK
-	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
-	// ETag of the Resource
-	Etag *string `pulumi:"etag"`
-	// Represents the CIK of the resource
-	IntegrityKey *string `pulumi:"integrityKey"`
-	// The name.
-	Name *string `pulumi:"name"`
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-	PortalCertificateThumbprint *string `pulumi:"portalCertificateThumbprint"`
-	// The type.
-	Type *string `pulumi:"type"`
-	// Represents the version of the ExtendedInfo object being persisted
-	Version *string `pulumi:"version"`
 }
 
 type ManagerExtendedInfoState struct {
-	// Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-	Algorithm pulumi.StringPtrInput
-	// Represents the CEK of the resource
-	EncryptionKey pulumi.StringPtrInput
-	// Represents the Cert thumbprint that was used to encrypt the CEK
-	EncryptionKeyThumbprint pulumi.StringPtrInput
-	// ETag of the Resource
-	Etag pulumi.StringPtrInput
-	// Represents the CIK of the resource
-	IntegrityKey pulumi.StringPtrInput
-	// The name.
-	Name pulumi.StringPtrInput
-	// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-	PortalCertificateThumbprint pulumi.StringPtrInput
-	// The type.
-	Type pulumi.StringPtrInput
-	// Represents the version of the ExtendedInfo object being persisted
-	Version pulumi.StringPtrInput
 }
 
 func (ManagerExtendedInfoState) ElementType() reflect.Type {
@@ -205,9 +169,7 @@ func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagerExtendedInfoOutput)
 }
 
-type ManagerExtendedInfoOutput struct {
-	*pulumi.OutputState
-}
+type ManagerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagerExtendedInfo)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.Outputs
 {
 
+    /// <summary>
+    /// Event Hub ingestion endpoint configuration
+    /// </summary>
     [OutputType]
     public sealed class IotEventHubIngestionEndpointConfigurationResponse
     {

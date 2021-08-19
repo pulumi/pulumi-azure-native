@@ -18,8 +18,8 @@ __all__ = [
     'PropertiesLockboxArgs',
     'PropertiesNetworkInjectionArgs',
     'SubnetPropertiesArgs',
-    'VirtualNetworkPropertiesArgs',
     'VirtualNetworkPropertiesListArgs',
+    'VirtualNetworkPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -295,46 +295,6 @@ class SubnetPropertiesArgs:
 
 
 @pulumi.input_type
-class VirtualNetworkPropertiesArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input['SubnetPropertiesArgs']] = None):
-        """
-        Settings concerning the virtual network.
-        :param pulumi.Input[str] id: Uri of the virtual network.
-        :param pulumi.Input['SubnetPropertiesArgs'] subnet: Properties of a subnet.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Uri of the virtual network.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-    @property
-    @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetPropertiesArgs']]:
-        """
-        Properties of a subnet.
-        """
-        return pulumi.get(self, "subnet")
-
-    @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetPropertiesArgs']]):
-        pulumi.set(self, "subnet", value)
-
-
-@pulumi.input_type
 class VirtualNetworkPropertiesListArgs:
     def __init__(__self__, *,
                  next_link: Optional[pulumi.Input[str]] = None,
@@ -372,5 +332,45 @@ class VirtualNetworkPropertiesListArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class VirtualNetworkPropertiesArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 subnet: Optional[pulumi.Input['SubnetPropertiesArgs']] = None):
+        """
+        Settings concerning the virtual network.
+        :param pulumi.Input[str] id: Uri of the virtual network.
+        :param pulumi.Input['SubnetPropertiesArgs'] subnet: Properties of a subnet.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Uri of the virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubnetPropertiesArgs']]:
+        """
+        Properties of a subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubnetPropertiesArgs']]):
+        pulumi.set(self, "subnet", value)
 
 

@@ -10,22 +10,77 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ActionGroupArgs',
     'ActionGroupsInformationArgs',
-    'ConditionArgs',
+    'ActionGroupArgs',
     'ConditionsArgs',
+    'ConditionArgs',
     'DetectorArgs',
     'DiagnosticsArgs',
     'HealthAlertActionArgs',
     'HealthAlertCriteriaArgs',
     'HealthStateArgs',
     'ScopeArgs',
-    'SuppressionArgs',
     'SuppressionConfigArgs',
     'SuppressionScheduleArgs',
+    'SuppressionArgs',
     'ThrottlingInformationArgs',
     'VmGuestHealthAlertCriterionArgs',
 ]
+
+@pulumi.input_type
+class ActionGroupsInformationArgs:
+    def __init__(__self__, *,
+                 group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 custom_email_subject: Optional[pulumi.Input[str]] = None,
+                 custom_webhook_payload: Optional[pulumi.Input[str]] = None):
+        """
+        The Action Groups information, used by the alert rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The Action Group resource IDs.
+        :param pulumi.Input[str] custom_email_subject: An optional custom email subject to use in email notifications.
+        :param pulumi.Input[str] custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        if custom_email_subject is not None:
+            pulumi.set(__self__, "custom_email_subject", custom_email_subject)
+        if custom_webhook_payload is not None:
+            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The Action Group resource IDs.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter(name="customEmailSubject")
+    def custom_email_subject(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional custom email subject to use in email notifications.
+        """
+        return pulumi.get(self, "custom_email_subject")
+
+    @custom_email_subject.setter
+    def custom_email_subject(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_email_subject", value)
+
+    @property
+    @pulumi.getter(name="customWebhookPayload")
+    def custom_webhook_payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional custom web-hook payload to use in web-hook notifications.
+        """
+        return pulumi.get(self, "custom_webhook_payload")
+
+    @custom_webhook_payload.setter
+    def custom_webhook_payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_webhook_payload", value)
+
 
 @pulumi.input_type
 class ActionGroupArgs:
@@ -129,101 +184,6 @@ class ActionGroupArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class ActionGroupsInformationArgs:
-    def __init__(__self__, *,
-                 group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 custom_email_subject: Optional[pulumi.Input[str]] = None,
-                 custom_webhook_payload: Optional[pulumi.Input[str]] = None):
-        """
-        The Action Groups information, used by the alert rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The Action Group resource IDs.
-        :param pulumi.Input[str] custom_email_subject: An optional custom email subject to use in email notifications.
-        :param pulumi.Input[str] custom_webhook_payload: An optional custom web-hook payload to use in web-hook notifications.
-        """
-        pulumi.set(__self__, "group_ids", group_ids)
-        if custom_email_subject is not None:
-            pulumi.set(__self__, "custom_email_subject", custom_email_subject)
-        if custom_webhook_payload is not None:
-            pulumi.set(__self__, "custom_webhook_payload", custom_webhook_payload)
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        The Action Group resource IDs.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @group_ids.setter
-    def group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "group_ids", value)
-
-    @property
-    @pulumi.getter(name="customEmailSubject")
-    def custom_email_subject(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional custom email subject to use in email notifications.
-        """
-        return pulumi.get(self, "custom_email_subject")
-
-    @custom_email_subject.setter
-    def custom_email_subject(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_email_subject", value)
-
-    @property
-    @pulumi.getter(name="customWebhookPayload")
-    def custom_webhook_payload(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional custom web-hook payload to use in web-hook notifications.
-        """
-        return pulumi.get(self, "custom_webhook_payload")
-
-    @custom_webhook_payload.setter
-    def custom_webhook_payload(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_webhook_payload", value)
-
-
-@pulumi.input_type
-class ConditionArgs:
-    def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
-                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        condition to trigger an action rule
-        :param pulumi.Input[Union[str, 'Operator']] operator: operator for a given condition
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of values to match for a given condition.
-        """
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if values is not None:
-            pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
-        """
-        operator for a given condition
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        list of values to match for a given condition.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -344,6 +304,46 @@ class ConditionsArgs:
     @target_resource_type.setter
     def target_resource_type(self, value: Optional[pulumi.Input['ConditionArgs']]):
         pulumi.set(self, "target_resource_type", value)
+
+
+@pulumi.input_type
+class ConditionArgs:
+    def __init__(__self__, *,
+                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        condition to trigger an action rule
+        :param pulumi.Input[Union[str, 'Operator']] operator: operator for a given condition
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of values to match for a given condition.
+        """
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
+        """
+        operator for a given condition
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -681,110 +681,6 @@ class ScopeArgs:
 
 
 @pulumi.input_type
-class SuppressionArgs:
-    def __init__(__self__, *,
-                 suppression_config: pulumi.Input['SuppressionConfigArgs'],
-                 type: pulumi.Input[str],
-                 conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
-                 status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None):
-        """
-        Action rule with suppression configuration
-        :param pulumi.Input['SuppressionConfigArgs'] suppression_config: suppression configuration for the action rule
-        :param pulumi.Input[str] type: Indicates type of action rule
-               Expected value is 'Suppression'.
-        :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
-        :param pulumi.Input[str] description: Description of action rule
-        :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
-        :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
-        """
-        pulumi.set(__self__, "suppression_config", suppression_config)
-        pulumi.set(__self__, "type", 'Suppression')
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="suppressionConfig")
-    def suppression_config(self) -> pulumi.Input['SuppressionConfigArgs']:
-        """
-        suppression configuration for the action rule
-        """
-        return pulumi.get(self, "suppression_config")
-
-    @suppression_config.setter
-    def suppression_config(self, value: pulumi.Input['SuppressionConfigArgs']):
-        pulumi.set(self, "suppression_config", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        """
-        Indicates type of action rule
-        Expected value is 'Suppression'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['ConditionsArgs']]:
-        """
-        conditions on which alerts will be filtered
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['ConditionsArgs']]):
-        pulumi.set(self, "conditions", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of action rule
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
-        """
-        scope on which action rule will apply
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
-        pulumi.set(self, "scope", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]:
-        """
-        Indicates if the given action rule is enabled or disabled
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
 class SuppressionConfigArgs:
     def __init__(__self__, *,
                  recurrence_type: pulumi.Input[Union[str, 'SuppressionType']],
@@ -909,6 +805,110 @@ class SuppressionScheduleArgs:
     @start_time.setter
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class SuppressionArgs:
+    def __init__(__self__, *,
+                 suppression_config: pulumi.Input['SuppressionConfigArgs'],
+                 type: pulumi.Input[str],
+                 conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['ScopeArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None):
+        """
+        Action rule with suppression configuration
+        :param pulumi.Input['SuppressionConfigArgs'] suppression_config: suppression configuration for the action rule
+        :param pulumi.Input[str] type: Indicates type of action rule
+               Expected value is 'Suppression'.
+        :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
+        :param pulumi.Input[str] description: Description of action rule
+        :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
+        :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
+        """
+        pulumi.set(__self__, "suppression_config", suppression_config)
+        pulumi.set(__self__, "type", 'Suppression')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="suppressionConfig")
+    def suppression_config(self) -> pulumi.Input['SuppressionConfigArgs']:
+        """
+        suppression configuration for the action rule
+        """
+        return pulumi.get(self, "suppression_config")
+
+    @suppression_config.setter
+    def suppression_config(self, value: pulumi.Input['SuppressionConfigArgs']):
+        pulumi.set(self, "suppression_config", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates type of action rule
+        Expected value is 'Suppression'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[pulumi.Input['ConditionsArgs']]:
+        """
+        conditions on which alerts will be filtered
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[pulumi.Input['ConditionsArgs']]):
+        pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of action rule
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['ScopeArgs']]:
+        """
+        scope on which action rule will apply
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['ScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]:
+        """
+        Indicates if the given action rule is enabled or disabled
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

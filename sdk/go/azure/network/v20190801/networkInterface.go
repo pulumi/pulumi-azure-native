@@ -313,81 +313,9 @@ func GetNetworkInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterface resources.
 type networkInterfaceState struct {
-	// The DNS settings in network interface.
-	DnsSettings *NetworkInterfaceDnsSettingsResponse `pulumi:"dnsSettings"`
-	// If the network interface is accelerated networking enabled.
-	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
-	// Indicates whether IP forwarding is enabled on this network interface.
-	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// A list of references to linked BareMetal resources.
-	HostedWorkloads []string `pulumi:"hostedWorkloads"`
-	// A list of IPConfigurations of the network interface.
-	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The MAC address of the network interface.
-	MacAddress *string `pulumi:"macAddress"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
-	// Whether this is a primary network interface on a virtual machine.
-	Primary *bool `pulumi:"primary"`
-	// A reference to the private endpoint to which the network interface is linked.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// The provisioning state of the network interface resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource GUID property of the network interface resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// A list of TapConfigurations of the network interface.
-	TapConfigurations []NetworkInterfaceTapConfigurationResponse `pulumi:"tapConfigurations"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The reference of a virtual machine.
-	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
 }
 
 type NetworkInterfaceState struct {
-	// The DNS settings in network interface.
-	DnsSettings NetworkInterfaceDnsSettingsResponsePtrInput
-	// If the network interface is accelerated networking enabled.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput
-	// Indicates whether IP forwarding is enabled on this network interface.
-	EnableIPForwarding pulumi.BoolPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// A list of references to linked BareMetal resources.
-	HostedWorkloads pulumi.StringArrayInput
-	// A list of IPConfigurations of the network interface.
-	IpConfigurations NetworkInterfaceIPConfigurationResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The MAC address of the network interface.
-	MacAddress pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The reference of the NetworkSecurityGroup resource.
-	NetworkSecurityGroup NetworkSecurityGroupResponsePtrInput
-	// Whether this is a primary network interface on a virtual machine.
-	Primary pulumi.BoolPtrInput
-	// A reference to the private endpoint to which the network interface is linked.
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// The provisioning state of the network interface resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource GUID property of the network interface resource.
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// A list of TapConfigurations of the network interface.
-	TapConfigurations NetworkInterfaceTapConfigurationResponseArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The reference of a virtual machine.
-	VirtualMachine SubResourceResponsePtrInput
 }
 
 func (NetworkInterfaceState) ElementType() reflect.Type {
@@ -484,9 +412,7 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
 }
 
-type NetworkInterfaceOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterface)(nil))

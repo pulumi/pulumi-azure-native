@@ -11,7 +11,7 @@ import (
 )
 
 // The API type
-type ApiType pulumi.String
+type ApiType string
 
 const (
 	ApiTypeNotSpecified = ApiType("NotSpecified")
@@ -20,7 +20,23 @@ const (
 )
 
 func (ApiType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ApiType)(nil)).Elem()
+}
+
+func (e ApiType) ToApiTypeOutput() ApiTypeOutput {
+	return pulumi.ToOutput(e).(ApiTypeOutput)
+}
+
+func (e ApiType) ToApiTypeOutputWithContext(ctx context.Context) ApiTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApiTypeOutput)
+}
+
+func (e ApiType) ToApiTypePtrOutput() ApiTypePtrOutput {
+	return e.ToApiTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApiType) ToApiTypePtrOutputWithContext(ctx context.Context) ApiTypePtrOutput {
+	return ApiType(e).ToApiTypeOutputWithContext(ctx).ToApiTypePtrOutputWithContext(ctx)
 }
 
 func (e ApiType) ToStringOutput() pulumi.StringOutput {
@@ -39,8 +55,129 @@ func (e ApiType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.String
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ApiTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiType)(nil)).Elem()
+}
+
+func (o ApiTypeOutput) ToApiTypeOutput() ApiTypeOutput {
+	return o
+}
+
+func (o ApiTypeOutput) ToApiTypeOutputWithContext(ctx context.Context) ApiTypeOutput {
+	return o
+}
+
+func (o ApiTypeOutput) ToApiTypePtrOutput() ApiTypePtrOutput {
+	return o.ToApiTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApiTypeOutput) ToApiTypePtrOutputWithContext(ctx context.Context) ApiTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiType) *ApiType {
+		return &v
+	}).(ApiTypePtrOutput)
+}
+
+func (o ApiTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApiTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiType)(nil)).Elem()
+}
+
+func (o ApiTypePtrOutput) ToApiTypePtrOutput() ApiTypePtrOutput {
+	return o
+}
+
+func (o ApiTypePtrOutput) ToApiTypePtrOutputWithContext(ctx context.Context) ApiTypePtrOutput {
+	return o
+}
+
+func (o ApiTypePtrOutput) Elem() ApiTypeOutput {
+	return o.ApplyT(func(v *ApiType) ApiType {
+		if v != nil {
+			return *v
+		}
+		var ret ApiType
+		return ret
+	}).(ApiTypeOutput)
+}
+
+func (o ApiTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApiType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApiTypeInput is an input type that accepts ApiTypeArgs and ApiTypeOutput values.
+// You can construct a concrete instance of `ApiTypeInput` via:
+//
+//          ApiTypeArgs{...}
+type ApiTypeInput interface {
+	pulumi.Input
+
+	ToApiTypeOutput() ApiTypeOutput
+	ToApiTypeOutputWithContext(context.Context) ApiTypeOutput
+}
+
+var apiTypePtrType = reflect.TypeOf((**ApiType)(nil)).Elem()
+
+type ApiTypePtrInput interface {
+	pulumi.Input
+
+	ToApiTypePtrOutput() ApiTypePtrOutput
+	ToApiTypePtrOutputWithContext(context.Context) ApiTypePtrOutput
+}
+
+type apiTypePtr string
+
+func ApiTypePtr(v string) ApiTypePtrInput {
+	return (*apiTypePtr)(&v)
+}
+
+func (*apiTypePtr) ElementType() reflect.Type {
+	return apiTypePtrType
+}
+
+func (in *apiTypePtr) ToApiTypePtrOutput() ApiTypePtrOutput {
+	return pulumi.ToOutput(in).(ApiTypePtrOutput)
+}
+
+func (in *apiTypePtr) ToApiTypePtrOutputWithContext(ctx context.Context) ApiTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApiTypePtrOutput)
+}
+
 // Type of the parameter
-type ConnectionParameterType pulumi.String
+type ConnectionParameterType string
 
 const (
 	ConnectionParameterTypeString       = ConnectionParameterType("string")
@@ -55,7 +192,23 @@ const (
 )
 
 func (ConnectionParameterType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ConnectionParameterType)(nil)).Elem()
+}
+
+func (e ConnectionParameterType) ToConnectionParameterTypeOutput() ConnectionParameterTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionParameterTypeOutput)
+}
+
+func (e ConnectionParameterType) ToConnectionParameterTypeOutputWithContext(ctx context.Context) ConnectionParameterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionParameterTypeOutput)
+}
+
+func (e ConnectionParameterType) ToConnectionParameterTypePtrOutput() ConnectionParameterTypePtrOutput {
+	return e.ToConnectionParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionParameterType) ToConnectionParameterTypePtrOutputWithContext(ctx context.Context) ConnectionParameterTypePtrOutput {
+	return ConnectionParameterType(e).ToConnectionParameterTypeOutputWithContext(ctx).ToConnectionParameterTypePtrOutputWithContext(ctx)
 }
 
 func (e ConnectionParameterType) ToStringOutput() pulumi.StringOutput {
@@ -74,8 +227,129 @@ func (e ConnectionParameterType) ToStringPtrOutputWithContext(ctx context.Contex
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ConnectionParameterTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionParameterType)(nil)).Elem()
+}
+
+func (o ConnectionParameterTypeOutput) ToConnectionParameterTypeOutput() ConnectionParameterTypeOutput {
+	return o
+}
+
+func (o ConnectionParameterTypeOutput) ToConnectionParameterTypeOutputWithContext(ctx context.Context) ConnectionParameterTypeOutput {
+	return o
+}
+
+func (o ConnectionParameterTypeOutput) ToConnectionParameterTypePtrOutput() ConnectionParameterTypePtrOutput {
+	return o.ToConnectionParameterTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionParameterTypeOutput) ToConnectionParameterTypePtrOutputWithContext(ctx context.Context) ConnectionParameterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionParameterType) *ConnectionParameterType {
+		return &v
+	}).(ConnectionParameterTypePtrOutput)
+}
+
+func (o ConnectionParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionParameterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionParameterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionParameterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionParameterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionParameterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionParameterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionParameterType)(nil)).Elem()
+}
+
+func (o ConnectionParameterTypePtrOutput) ToConnectionParameterTypePtrOutput() ConnectionParameterTypePtrOutput {
+	return o
+}
+
+func (o ConnectionParameterTypePtrOutput) ToConnectionParameterTypePtrOutputWithContext(ctx context.Context) ConnectionParameterTypePtrOutput {
+	return o
+}
+
+func (o ConnectionParameterTypePtrOutput) Elem() ConnectionParameterTypeOutput {
+	return o.ApplyT(func(v *ConnectionParameterType) ConnectionParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionParameterType
+		return ret
+	}).(ConnectionParameterTypeOutput)
+}
+
+func (o ConnectionParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionParameterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionParameterTypeInput is an input type that accepts ConnectionParameterTypeArgs and ConnectionParameterTypeOutput values.
+// You can construct a concrete instance of `ConnectionParameterTypeInput` via:
+//
+//          ConnectionParameterTypeArgs{...}
+type ConnectionParameterTypeInput interface {
+	pulumi.Input
+
+	ToConnectionParameterTypeOutput() ConnectionParameterTypeOutput
+	ToConnectionParameterTypeOutputWithContext(context.Context) ConnectionParameterTypeOutput
+}
+
+var connectionParameterTypePtrType = reflect.TypeOf((**ConnectionParameterType)(nil)).Elem()
+
+type ConnectionParameterTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionParameterTypePtrOutput() ConnectionParameterTypePtrOutput
+	ToConnectionParameterTypePtrOutputWithContext(context.Context) ConnectionParameterTypePtrOutput
+}
+
+type connectionParameterTypePtr string
+
+func ConnectionParameterTypePtr(v string) ConnectionParameterTypePtrInput {
+	return (*connectionParameterTypePtr)(&v)
+}
+
+func (*connectionParameterTypePtr) ElementType() reflect.Type {
+	return connectionParameterTypePtrType
+}
+
+func (in *connectionParameterTypePtr) ToConnectionParameterTypePtrOutput() ConnectionParameterTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionParameterTypePtrOutput)
+}
+
+func (in *connectionParameterTypePtr) ToConnectionParameterTypePtrOutputWithContext(ctx context.Context) ConnectionParameterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionParameterTypePtrOutput)
+}
+
 // The WSDL import method
-type WsdlImportMethod pulumi.String
+type WsdlImportMethod string
 
 const (
 	WsdlImportMethodNotSpecified    = WsdlImportMethod("NotSpecified")
@@ -84,7 +358,23 @@ const (
 )
 
 func (WsdlImportMethod) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*WsdlImportMethod)(nil)).Elem()
+}
+
+func (e WsdlImportMethod) ToWsdlImportMethodOutput() WsdlImportMethodOutput {
+	return pulumi.ToOutput(e).(WsdlImportMethodOutput)
+}
+
+func (e WsdlImportMethod) ToWsdlImportMethodOutputWithContext(ctx context.Context) WsdlImportMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WsdlImportMethodOutput)
+}
+
+func (e WsdlImportMethod) ToWsdlImportMethodPtrOutput() WsdlImportMethodPtrOutput {
+	return e.ToWsdlImportMethodPtrOutputWithContext(context.Background())
+}
+
+func (e WsdlImportMethod) ToWsdlImportMethodPtrOutputWithContext(ctx context.Context) WsdlImportMethodPtrOutput {
+	return WsdlImportMethod(e).ToWsdlImportMethodOutputWithContext(ctx).ToWsdlImportMethodPtrOutputWithContext(ctx)
 }
 
 func (e WsdlImportMethod) ToStringOutput() pulumi.StringOutput {
@@ -101,4 +391,134 @@ func (e WsdlImportMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e WsdlImportMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WsdlImportMethodOutput struct{ *pulumi.OutputState }
+
+func (WsdlImportMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WsdlImportMethod)(nil)).Elem()
+}
+
+func (o WsdlImportMethodOutput) ToWsdlImportMethodOutput() WsdlImportMethodOutput {
+	return o
+}
+
+func (o WsdlImportMethodOutput) ToWsdlImportMethodOutputWithContext(ctx context.Context) WsdlImportMethodOutput {
+	return o
+}
+
+func (o WsdlImportMethodOutput) ToWsdlImportMethodPtrOutput() WsdlImportMethodPtrOutput {
+	return o.ToWsdlImportMethodPtrOutputWithContext(context.Background())
+}
+
+func (o WsdlImportMethodOutput) ToWsdlImportMethodPtrOutputWithContext(ctx context.Context) WsdlImportMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WsdlImportMethod) *WsdlImportMethod {
+		return &v
+	}).(WsdlImportMethodPtrOutput)
+}
+
+func (o WsdlImportMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WsdlImportMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WsdlImportMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WsdlImportMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WsdlImportMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WsdlImportMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WsdlImportMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (WsdlImportMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WsdlImportMethod)(nil)).Elem()
+}
+
+func (o WsdlImportMethodPtrOutput) ToWsdlImportMethodPtrOutput() WsdlImportMethodPtrOutput {
+	return o
+}
+
+func (o WsdlImportMethodPtrOutput) ToWsdlImportMethodPtrOutputWithContext(ctx context.Context) WsdlImportMethodPtrOutput {
+	return o
+}
+
+func (o WsdlImportMethodPtrOutput) Elem() WsdlImportMethodOutput {
+	return o.ApplyT(func(v *WsdlImportMethod) WsdlImportMethod {
+		if v != nil {
+			return *v
+		}
+		var ret WsdlImportMethod
+		return ret
+	}).(WsdlImportMethodOutput)
+}
+
+func (o WsdlImportMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WsdlImportMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WsdlImportMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WsdlImportMethodInput is an input type that accepts WsdlImportMethodArgs and WsdlImportMethodOutput values.
+// You can construct a concrete instance of `WsdlImportMethodInput` via:
+//
+//          WsdlImportMethodArgs{...}
+type WsdlImportMethodInput interface {
+	pulumi.Input
+
+	ToWsdlImportMethodOutput() WsdlImportMethodOutput
+	ToWsdlImportMethodOutputWithContext(context.Context) WsdlImportMethodOutput
+}
+
+var wsdlImportMethodPtrType = reflect.TypeOf((**WsdlImportMethod)(nil)).Elem()
+
+type WsdlImportMethodPtrInput interface {
+	pulumi.Input
+
+	ToWsdlImportMethodPtrOutput() WsdlImportMethodPtrOutput
+	ToWsdlImportMethodPtrOutputWithContext(context.Context) WsdlImportMethodPtrOutput
+}
+
+type wsdlImportMethodPtr string
+
+func WsdlImportMethodPtr(v string) WsdlImportMethodPtrInput {
+	return (*wsdlImportMethodPtr)(&v)
+}
+
+func (*wsdlImportMethodPtr) ElementType() reflect.Type {
+	return wsdlImportMethodPtrType
+}
+
+func (in *wsdlImportMethodPtr) ToWsdlImportMethodPtrOutput() WsdlImportMethodPtrOutput {
+	return pulumi.ToOutput(in).(WsdlImportMethodPtrOutput)
+}
+
+func (in *wsdlImportMethodPtr) ToWsdlImportMethodPtrOutputWithContext(ctx context.Context) WsdlImportMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WsdlImportMethodPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ApiTypeOutput{})
+	pulumi.RegisterOutputType(ApiTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionParameterTypePtrOutput{})
+	pulumi.RegisterOutputType(WsdlImportMethodOutput{})
+	pulumi.RegisterOutputType(WsdlImportMethodPtrOutput{})
 }

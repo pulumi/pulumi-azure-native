@@ -80,33 +80,9 @@ func GetCassandraCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraCluster resources.
 type cassandraClusterState struct {
-	// Identity for the resource.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name *string `pulumi:"name"`
-	// Properties of a managed Cassandra cluster.
-	Properties *ClusterResourceResponseProperties `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type CassandraClusterState struct {
-	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// The name of the ARM resource.
-	Name pulumi.StringPtrInput
-	// Properties of a managed Cassandra cluster.
-	Properties ClusterResourceResponsePropertiesPtrInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CassandraClusterState) ElementType() reflect.Type {
@@ -167,9 +143,7 @@ func (i *CassandraCluster) ToCassandraClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterOutput)
 }
 
-type CassandraClusterOutput struct {
-	*pulumi.OutputState
-}
+type CassandraClusterOutput struct{ *pulumi.OutputState }
 
 func (CassandraClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraCluster)(nil))

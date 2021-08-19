@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20191101.Outputs
 {
 
+    /// <summary>
+    /// Each pivot must contain a 'type' and 'name'.
+    /// </summary>
     [OutputType]
     public sealed class PivotPropertiesResponse
     {

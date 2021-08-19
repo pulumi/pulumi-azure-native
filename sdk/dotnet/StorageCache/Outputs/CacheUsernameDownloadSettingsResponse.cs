@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.Outputs
 {
 
+    /// <summary>
+    /// Settings for Extended Groups username and group download.
+    /// </summary>
     [OutputType]
     public sealed class CacheUsernameDownloadSettingsResponse
     {

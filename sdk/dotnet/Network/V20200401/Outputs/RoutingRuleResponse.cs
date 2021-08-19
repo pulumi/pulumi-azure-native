@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200401.Outputs
 {
 
+    /// <summary>
+    /// A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
+    /// </summary>
     [OutputType]
     public sealed class RoutingRuleResponse
     {

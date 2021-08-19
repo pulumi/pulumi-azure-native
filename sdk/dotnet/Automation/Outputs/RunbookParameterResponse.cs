@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.Outputs
 {
 
+    /// <summary>
+    /// Definition of the runbook parameter type.
+    /// </summary>
     [OutputType]
     public sealed class RunbookParameterResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// The database project summary class.
+    /// </summary>
     [OutputType]
     public sealed class DatabaseProjectSummaryResponse
     {

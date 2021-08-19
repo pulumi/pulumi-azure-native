@@ -90,25 +90,9 @@ func GetSuppression(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Suppression resources.
 type suppressionState struct {
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The GUID of the suppression.
-	SuppressionId *string `pulumi:"suppressionId"`
-	// The duration for which the suppression is valid.
-	Ttl *string `pulumi:"ttl"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type SuppressionState struct {
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The GUID of the suppression.
-	SuppressionId pulumi.StringPtrInput
-	// The duration for which the suppression is valid.
-	Ttl pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (SuppressionState) ElementType() reflect.Type {
@@ -165,9 +149,7 @@ func (i *Suppression) ToSuppressionOutputWithContext(ctx context.Context) Suppre
 	return pulumi.ToOutputWithContext(ctx, i).(SuppressionOutput)
 }
 
-type SuppressionOutput struct {
-	*pulumi.OutputState
-}
+type SuppressionOutput struct{ *pulumi.OutputState }
 
 func (SuppressionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Suppression)(nil))

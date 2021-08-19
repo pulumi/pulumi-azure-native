@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Sweep job definition.
+    /// </summary>
     [OutputType]
     public sealed class SweepJobResponse
     {

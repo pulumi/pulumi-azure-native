@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// ExpressRouteConnection resource.
+    /// </summary>
     [OutputType]
     public sealed class ExpressRouteConnectionResponse
     {

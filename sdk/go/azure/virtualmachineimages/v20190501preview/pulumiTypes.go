@@ -201,7 +201,7 @@ func (o ImageTemplateFileCustomizerResponseOutput) Type() pulumi.StringOutput {
 // Identity for the image template.
 type ImageTemplateIdentity struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -220,7 +220,7 @@ type ImageTemplateIdentityInput interface {
 // Identity for the image template.
 type ImageTemplateIdentityArgs struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -298,14 +298,14 @@ func (o ImageTemplateIdentityOutput) ToImageTemplateIdentityPtrOutput() ImageTem
 }
 
 func (o ImageTemplateIdentityOutput) ToImageTemplateIdentityPtrOutputWithContext(ctx context.Context) ImageTemplateIdentityPtrOutput {
-	return o.ApplyT(func(v ImageTemplateIdentity) *ImageTemplateIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateIdentity) *ImageTemplateIdentity {
 		return &v
 	}).(ImageTemplateIdentityPtrOutput)
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-func (o ImageTemplateIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ImageTemplateIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v ImageTemplateIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -328,17 +328,23 @@ func (o ImageTemplateIdentityPtrOutput) ToImageTemplateIdentityPtrOutputWithCont
 }
 
 func (o ImageTemplateIdentityPtrOutput) Elem() ImageTemplateIdentityOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentity) ImageTemplateIdentity { return *v }).(ImageTemplateIdentityOutput)
+	return o.ApplyT(func(v *ImageTemplateIdentity) ImageTemplateIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTemplateIdentity
+		return ret
+	}).(ImageTemplateIdentityOutput)
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-func (o ImageTemplateIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentity) *string {
+func (o ImageTemplateIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *ImageTemplateIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
@@ -451,7 +457,7 @@ func (o ImageTemplateIdentityResponseOutput) ToImageTemplateIdentityResponsePtrO
 }
 
 func (o ImageTemplateIdentityResponseOutput) ToImageTemplateIdentityResponsePtrOutputWithContext(ctx context.Context) ImageTemplateIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ImageTemplateIdentityResponse) *ImageTemplateIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateIdentityResponse) *ImageTemplateIdentityResponse {
 		return &v
 	}).(ImageTemplateIdentityResponsePtrOutput)
 }
@@ -483,7 +489,13 @@ func (o ImageTemplateIdentityResponsePtrOutput) ToImageTemplateIdentityResponseP
 }
 
 func (o ImageTemplateIdentityResponsePtrOutput) Elem() ImageTemplateIdentityResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentityResponse) ImageTemplateIdentityResponse { return *v }).(ImageTemplateIdentityResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateIdentityResponse) ImageTemplateIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTemplateIdentityResponse
+		return ret
+	}).(ImageTemplateIdentityResponseOutput)
 }
 
 // The type of identity used for the image template. The type 'None' will remove any identities from the image template.
@@ -876,7 +888,7 @@ func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusRe
 }
 
 func (o ImageTemplateLastRunStatusResponseOutput) ToImageTemplateLastRunStatusResponsePtrOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusResponsePtrOutput {
-	return o.ApplyT(func(v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateLastRunStatusResponse) *ImageTemplateLastRunStatusResponse {
 		return &v
 	}).(ImageTemplateLastRunStatusResponsePtrOutput)
 }
@@ -921,7 +933,13 @@ func (o ImageTemplateLastRunStatusResponsePtrOutput) ToImageTemplateLastRunStatu
 }
 
 func (o ImageTemplateLastRunStatusResponsePtrOutput) Elem() ImageTemplateLastRunStatusResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse { return *v }).(ImageTemplateLastRunStatusResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateLastRunStatusResponse) ImageTemplateLastRunStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTemplateLastRunStatusResponse
+		return ret
+	}).(ImageTemplateLastRunStatusResponseOutput)
 }
 
 // End time of the last run (UTC)
@@ -2654,7 +2672,7 @@ func (o ImageTemplateVmProfileOutput) ToImageTemplateVmProfilePtrOutput() ImageT
 }
 
 func (o ImageTemplateVmProfileOutput) ToImageTemplateVmProfilePtrOutputWithContext(ctx context.Context) ImageTemplateVmProfilePtrOutput {
-	return o.ApplyT(func(v ImageTemplateVmProfile) *ImageTemplateVmProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateVmProfile) *ImageTemplateVmProfile {
 		return &v
 	}).(ImageTemplateVmProfilePtrOutput)
 }
@@ -2679,7 +2697,13 @@ func (o ImageTemplateVmProfilePtrOutput) ToImageTemplateVmProfilePtrOutputWithCo
 }
 
 func (o ImageTemplateVmProfilePtrOutput) Elem() ImageTemplateVmProfileOutput {
-	return o.ApplyT(func(v *ImageTemplateVmProfile) ImageTemplateVmProfile { return *v }).(ImageTemplateVmProfileOutput)
+	return o.ApplyT(func(v *ImageTemplateVmProfile) ImageTemplateVmProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTemplateVmProfile
+		return ret
+	}).(ImageTemplateVmProfileOutput)
 }
 
 // Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
@@ -2788,7 +2812,7 @@ func (o ImageTemplateVmProfileResponseOutput) ToImageTemplateVmProfileResponsePt
 }
 
 func (o ImageTemplateVmProfileResponseOutput) ToImageTemplateVmProfileResponsePtrOutputWithContext(ctx context.Context) ImageTemplateVmProfileResponsePtrOutput {
-	return o.ApplyT(func(v ImageTemplateVmProfileResponse) *ImageTemplateVmProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageTemplateVmProfileResponse) *ImageTemplateVmProfileResponse {
 		return &v
 	}).(ImageTemplateVmProfileResponsePtrOutput)
 }
@@ -2813,7 +2837,13 @@ func (o ImageTemplateVmProfileResponsePtrOutput) ToImageTemplateVmProfileRespons
 }
 
 func (o ImageTemplateVmProfileResponsePtrOutput) Elem() ImageTemplateVmProfileResponseOutput {
-	return o.ApplyT(func(v *ImageTemplateVmProfileResponse) ImageTemplateVmProfileResponse { return *v }).(ImageTemplateVmProfileResponseOutput)
+	return o.ApplyT(func(v *ImageTemplateVmProfileResponse) ImageTemplateVmProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageTemplateVmProfileResponse
+		return ret
+	}).(ImageTemplateVmProfileResponseOutput)
 }
 
 // Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
@@ -2926,7 +2956,7 @@ func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutput() 
 }
 
 func (o ProvisioningErrorResponseOutput) ToProvisioningErrorResponsePtrOutputWithContext(ctx context.Context) ProvisioningErrorResponsePtrOutput {
-	return o.ApplyT(func(v ProvisioningErrorResponse) *ProvisioningErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningErrorResponse) *ProvisioningErrorResponse {
 		return &v
 	}).(ProvisioningErrorResponsePtrOutput)
 }
@@ -2956,7 +2986,13 @@ func (o ProvisioningErrorResponsePtrOutput) ToProvisioningErrorResponsePtrOutput
 }
 
 func (o ProvisioningErrorResponsePtrOutput) Elem() ProvisioningErrorResponseOutput {
-	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse { return *v }).(ProvisioningErrorResponseOutput)
+	return o.ApplyT(func(v *ProvisioningErrorResponse) ProvisioningErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisioningErrorResponse
+		return ret
+	}).(ProvisioningErrorResponseOutput)
 }
 
 // Verbose error message about the provisioning failure

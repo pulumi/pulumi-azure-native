@@ -90,35 +90,9 @@ func GetEntityAnalytics(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EntityAnalytics resources.
 type entityAnalyticsState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Determines whether the setting is enable or disabled.
-	IsEnabled *bool `pulumi:"isEnabled"`
-	// The kind of the setting
-	// Expected value is 'EntityAnalytics'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type EntityAnalyticsState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Determines whether the setting is enable or disabled.
-	IsEnabled pulumi.BoolPtrInput
-	// The kind of the setting
-	// Expected value is 'EntityAnalytics'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (EntityAnalyticsState) ElementType() reflect.Type {
@@ -181,9 +155,7 @@ func (i *EntityAnalytics) ToEntityAnalyticsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EntityAnalyticsOutput)
 }
 
-type EntityAnalyticsOutput struct {
-	*pulumi.OutputState
-}
+type EntityAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (EntityAnalyticsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EntityAnalytics)(nil))

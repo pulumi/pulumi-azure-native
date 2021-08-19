@@ -15,8 +15,8 @@ __all__ = [
     'IdentityArgs',
     'ManagementLockOwnerArgs',
     'NonComplianceMessageArgs',
-    'ParameterDefinitionsValueArgs',
     'ParameterDefinitionsValueMetadataArgs',
+    'ParameterDefinitionsValueArgs',
     'ParameterValuesValueArgs',
     'PermissionArgs',
     'PolicyDefinitionGroupArgs',
@@ -175,78 +175,6 @@ class NonComplianceMessageArgs:
 
 
 @pulumi.input_type
-class ParameterDefinitionsValueArgs:
-    def __init__(__self__, *,
-                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 default_value: Optional[Any] = None,
-                 metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
-                 type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None):
-        """
-        The definition of a parameter that can be provided to the policy.
-        :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
-        :param Any default_value: The default value for the parameter if no value is provided.
-        :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
-        :param pulumi.Input[Union[str, 'ParameterType']] type: The data type of the parameter.
-        """
-        if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
-        if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        The allowed values for the parameter.
-        """
-        return pulumi.get(self, "allowed_values")
-
-    @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "allowed_values", value)
-
-    @property
-    @pulumi.getter(name="defaultValue")
-    def default_value(self) -> Optional[Any]:
-        """
-        The default value for the parameter if no value is provided.
-        """
-        return pulumi.get(self, "default_value")
-
-    @default_value.setter
-    def default_value(self, value: Optional[Any]):
-        pulumi.set(self, "default_value", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]:
-        """
-        General metadata for the parameter.
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]):
-        pulumi.set(self, "metadata", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'ParameterType']]]:
-        """
-        The data type of the parameter.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'ParameterType']]]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
 class ParameterDefinitionsValueMetadataArgs:
     def __init__(__self__, *,
                  assign_permissions: Optional[pulumi.Input[bool]] = None,
@@ -316,6 +244,78 @@ class ParameterDefinitionsValueMetadataArgs:
     @strong_type.setter
     def strong_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "strong_type", value)
+
+
+@pulumi.input_type
+class ParameterDefinitionsValueArgs:
+    def __init__(__self__, *,
+                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 default_value: Optional[Any] = None,
+                 metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None):
+        """
+        The definition of a parameter that can be provided to the policy.
+        :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
+        :param Any default_value: The default value for the parameter if no value is provided.
+        :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
+        :param pulumi.Input[Union[str, 'ParameterType']] type: The data type of the parameter.
+        """
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        The allowed values for the parameter.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[Any]:
+        """
+        The default value for the parameter if no value is provided.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[Any]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]:
+        """
+        General metadata for the parameter.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ParameterType']]]:
+        """
+        The data type of the parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ParameterType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// Preferences related to the shipment logistics of the sku
+    /// </summary>
     [OutputType]
     public sealed class TransportPreferencesResponse
     {

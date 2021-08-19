@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// Information about the Azure Container Registry which contains the images deployed to the cluster.
+    /// </summary>
     [OutputType]
     public sealed class ContainerRegistryCredentialsResponse
     {

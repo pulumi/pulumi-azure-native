@@ -266,7 +266,7 @@ func (o AccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) AccessPol
 
 type Action struct {
 	// The type of action.
-	Type *string `pulumi:"type"`
+	Type *KeyRotationPolicyActionType `pulumi:"type"`
 }
 
 // ActionInput is an input type that accepts ActionArgs and ActionOutput values.
@@ -282,7 +282,7 @@ type ActionInput interface {
 
 type ActionArgs struct {
 	// The type of action.
-	Type *KeyRotationPolicyActionType `pulumi:"type"`
+	Type KeyRotationPolicyActionTypePtrInput `pulumi:"type"`
 }
 
 func (ActionArgs) ElementType() reflect.Type {
@@ -357,14 +357,14 @@ func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
 }
 
 func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyT(func(v Action) *Action {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Action) *Action {
 		return &v
 	}).(ActionPtrOutput)
 }
 
 // The type of action.
-func (o ActionOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Action) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ActionOutput) Type() KeyRotationPolicyActionTypePtrOutput {
+	return o.ApplyT(func(v Action) *KeyRotationPolicyActionType { return v.Type }).(KeyRotationPolicyActionTypePtrOutput)
 }
 
 type ActionPtrOutput struct{ *pulumi.OutputState }
@@ -382,17 +382,23 @@ func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) Actio
 }
 
 func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
+	return o.ApplyT(func(v *Action) Action {
+		if v != nil {
+			return *v
+		}
+		var ret Action
+		return ret
+	}).(ActionOutput)
 }
 
 // The type of action.
-func (o ActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Action) *string {
+func (o ActionPtrOutput) Type() KeyRotationPolicyActionTypePtrOutput {
+	return o.ApplyT(func(v *Action) *KeyRotationPolicyActionType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(KeyRotationPolicyActionTypePtrOutput)
 }
 
 type ActionResponse struct {
@@ -488,7 +494,7 @@ func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutpu
 }
 
 func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return o.ApplyT(func(v ActionResponse) *ActionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionResponse) *ActionResponse {
 		return &v
 	}).(ActionResponsePtrOutput)
 }
@@ -513,7 +519,13 @@ func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx contex
 }
 
 func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
-	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
+	return o.ApplyT(func(v *ActionResponse) ActionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActionResponse
+		return ret
+	}).(ActionResponseOutput)
 }
 
 // The type of action.
@@ -830,7 +842,7 @@ func (o KeyAttributesOutput) ToKeyAttributesPtrOutput() KeyAttributesPtrOutput {
 }
 
 func (o KeyAttributesOutput) ToKeyAttributesPtrOutputWithContext(ctx context.Context) KeyAttributesPtrOutput {
-	return o.ApplyT(func(v KeyAttributes) *KeyAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyAttributes) *KeyAttributes {
 		return &v
 	}).(KeyAttributesPtrOutput)
 }
@@ -865,7 +877,13 @@ func (o KeyAttributesPtrOutput) ToKeyAttributesPtrOutputWithContext(ctx context.
 }
 
 func (o KeyAttributesPtrOutput) Elem() KeyAttributesOutput {
-	return o.ApplyT(func(v *KeyAttributes) KeyAttributes { return *v }).(KeyAttributesOutput)
+	return o.ApplyT(func(v *KeyAttributes) KeyAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret KeyAttributes
+		return ret
+	}).(KeyAttributesOutput)
 }
 
 // Determines whether or not the object is enabled.
@@ -1014,7 +1032,7 @@ func (o KeyAttributesResponseOutput) ToKeyAttributesResponsePtrOutput() KeyAttri
 }
 
 func (o KeyAttributesResponseOutput) ToKeyAttributesResponsePtrOutputWithContext(ctx context.Context) KeyAttributesResponsePtrOutput {
-	return o.ApplyT(func(v KeyAttributesResponse) *KeyAttributesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyAttributesResponse) *KeyAttributesResponse {
 		return &v
 	}).(KeyAttributesResponsePtrOutput)
 }
@@ -1064,7 +1082,13 @@ func (o KeyAttributesResponsePtrOutput) ToKeyAttributesResponsePtrOutputWithCont
 }
 
 func (o KeyAttributesResponsePtrOutput) Elem() KeyAttributesResponseOutput {
-	return o.ApplyT(func(v *KeyAttributesResponse) KeyAttributesResponse { return *v }).(KeyAttributesResponseOutput)
+	return o.ApplyT(func(v *KeyAttributesResponse) KeyAttributesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyAttributesResponse
+		return ret
+	}).(KeyAttributesResponseOutput)
 }
 
 // Creation time in seconds since 1970-01-01T00:00:00Z.
@@ -1241,7 +1265,7 @@ func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutput() KeyPropertiesPtrOutput {
 }
 
 func (o KeyPropertiesOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.Context) KeyPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyProperties) *KeyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyProperties) *KeyProperties {
 		return &v
 	}).(KeyPropertiesPtrOutput)
 }
@@ -1290,7 +1314,13 @@ func (o KeyPropertiesPtrOutput) ToKeyPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o KeyPropertiesPtrOutput) Elem() KeyPropertiesOutput {
-	return o.ApplyT(func(v *KeyProperties) KeyProperties { return *v }).(KeyPropertiesOutput)
+	return o.ApplyT(func(v *KeyProperties) KeyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyProperties
+		return ret
+	}).(KeyPropertiesOutput)
 }
 
 // The attributes of the key.
@@ -1445,7 +1475,7 @@ func (o KeyRotationPolicyAttributesOutput) ToKeyRotationPolicyAttributesPtrOutpu
 }
 
 func (o KeyRotationPolicyAttributesOutput) ToKeyRotationPolicyAttributesPtrOutputWithContext(ctx context.Context) KeyRotationPolicyAttributesPtrOutput {
-	return o.ApplyT(func(v KeyRotationPolicyAttributes) *KeyRotationPolicyAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyRotationPolicyAttributes) *KeyRotationPolicyAttributes {
 		return &v
 	}).(KeyRotationPolicyAttributesPtrOutput)
 }
@@ -1470,7 +1500,13 @@ func (o KeyRotationPolicyAttributesPtrOutput) ToKeyRotationPolicyAttributesPtrOu
 }
 
 func (o KeyRotationPolicyAttributesPtrOutput) Elem() KeyRotationPolicyAttributesOutput {
-	return o.ApplyT(func(v *KeyRotationPolicyAttributes) KeyRotationPolicyAttributes { return *v }).(KeyRotationPolicyAttributesOutput)
+	return o.ApplyT(func(v *KeyRotationPolicyAttributes) KeyRotationPolicyAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret KeyRotationPolicyAttributes
+		return ret
+	}).(KeyRotationPolicyAttributesOutput)
 }
 
 // The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
@@ -1584,7 +1620,7 @@ func (o KeyRotationPolicyAttributesResponseOutput) ToKeyRotationPolicyAttributes
 }
 
 func (o KeyRotationPolicyAttributesResponseOutput) ToKeyRotationPolicyAttributesResponsePtrOutputWithContext(ctx context.Context) KeyRotationPolicyAttributesResponsePtrOutput {
-	return o.ApplyT(func(v KeyRotationPolicyAttributesResponse) *KeyRotationPolicyAttributesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyRotationPolicyAttributesResponse) *KeyRotationPolicyAttributesResponse {
 		return &v
 	}).(KeyRotationPolicyAttributesResponsePtrOutput)
 }
@@ -1619,7 +1655,13 @@ func (o KeyRotationPolicyAttributesResponsePtrOutput) ToKeyRotationPolicyAttribu
 }
 
 func (o KeyRotationPolicyAttributesResponsePtrOutput) Elem() KeyRotationPolicyAttributesResponseOutput {
-	return o.ApplyT(func(v *KeyRotationPolicyAttributesResponse) KeyRotationPolicyAttributesResponse { return *v }).(KeyRotationPolicyAttributesResponseOutput)
+	return o.ApplyT(func(v *KeyRotationPolicyAttributesResponse) KeyRotationPolicyAttributesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyRotationPolicyAttributesResponse
+		return ret
+	}).(KeyRotationPolicyAttributesResponseOutput)
 }
 
 // Creation time in seconds since 1970-01-01T00:00:00Z.
@@ -2172,7 +2214,7 @@ func (o MHSMNetworkRuleSetOutput) ToMHSMNetworkRuleSetPtrOutput() MHSMNetworkRul
 }
 
 func (o MHSMNetworkRuleSetOutput) ToMHSMNetworkRuleSetPtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v MHSMNetworkRuleSet) *MHSMNetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MHSMNetworkRuleSet) *MHSMNetworkRuleSet {
 		return &v
 	}).(MHSMNetworkRuleSetPtrOutput)
 }
@@ -2212,7 +2254,13 @@ func (o MHSMNetworkRuleSetPtrOutput) ToMHSMNetworkRuleSetPtrOutputWithContext(ct
 }
 
 func (o MHSMNetworkRuleSetPtrOutput) Elem() MHSMNetworkRuleSetOutput {
-	return o.ApplyT(func(v *MHSMNetworkRuleSet) MHSMNetworkRuleSet { return *v }).(MHSMNetworkRuleSetOutput)
+	return o.ApplyT(func(v *MHSMNetworkRuleSet) MHSMNetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret MHSMNetworkRuleSet
+		return ret
+	}).(MHSMNetworkRuleSetOutput)
 }
 
 // Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -2363,7 +2411,7 @@ func (o MHSMNetworkRuleSetResponseOutput) ToMHSMNetworkRuleSetResponsePtrOutput(
 }
 
 func (o MHSMNetworkRuleSetResponseOutput) ToMHSMNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) MHSMNetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v MHSMNetworkRuleSetResponse) *MHSMNetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MHSMNetworkRuleSetResponse) *MHSMNetworkRuleSetResponse {
 		return &v
 	}).(MHSMNetworkRuleSetResponsePtrOutput)
 }
@@ -2403,7 +2451,13 @@ func (o MHSMNetworkRuleSetResponsePtrOutput) ToMHSMNetworkRuleSetResponsePtrOutp
 }
 
 func (o MHSMNetworkRuleSetResponsePtrOutput) Elem() MHSMNetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) MHSMNetworkRuleSetResponse { return *v }).(MHSMNetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *MHSMNetworkRuleSetResponse) MHSMNetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MHSMNetworkRuleSetResponse
+		return ret
+	}).(MHSMNetworkRuleSetResponseOutput)
 }
 
 // Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -2664,7 +2718,7 @@ func (o MHSMPrivateEndpointResponseOutput) ToMHSMPrivateEndpointResponsePtrOutpu
 }
 
 func (o MHSMPrivateEndpointResponseOutput) ToMHSMPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v MHSMPrivateEndpointResponse) *MHSMPrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MHSMPrivateEndpointResponse) *MHSMPrivateEndpointResponse {
 		return &v
 	}).(MHSMPrivateEndpointResponsePtrOutput)
 }
@@ -2689,7 +2743,13 @@ func (o MHSMPrivateEndpointResponsePtrOutput) ToMHSMPrivateEndpointResponsePtrOu
 }
 
 func (o MHSMPrivateEndpointResponsePtrOutput) Elem() MHSMPrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *MHSMPrivateEndpointResponse) MHSMPrivateEndpointResponse { return *v }).(MHSMPrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *MHSMPrivateEndpointResponse) MHSMPrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MHSMPrivateEndpointResponse
+		return ret
+	}).(MHSMPrivateEndpointResponseOutput)
 }
 
 // Full identifier of the private endpoint resource.
@@ -2806,7 +2866,7 @@ func (o MHSMPrivateLinkServiceConnectionStateOutput) ToMHSMPrivateLinkServiceCon
 }
 
 func (o MHSMPrivateLinkServiceConnectionStateOutput) ToMHSMPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionState) *MHSMPrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MHSMPrivateLinkServiceConnectionState) *MHSMPrivateLinkServiceConnectionState {
 		return &v
 	}).(MHSMPrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -2841,7 +2901,13 @@ func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) ToMHSMPrivateLinkService
 }
 
 func (o MHSMPrivateLinkServiceConnectionStatePtrOutput) Elem() MHSMPrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionState) MHSMPrivateLinkServiceConnectionState { return *v }).(MHSMPrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionState) MHSMPrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret MHSMPrivateLinkServiceConnectionState
+		return ret
+	}).(MHSMPrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -2978,7 +3044,7 @@ func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ToMHSMPrivateLinkSe
 }
 
 func (o MHSMPrivateLinkServiceConnectionStateResponseOutput) ToMHSMPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) MHSMPrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v MHSMPrivateLinkServiceConnectionStateResponse) *MHSMPrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MHSMPrivateLinkServiceConnectionStateResponse) *MHSMPrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(MHSMPrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -3014,7 +3080,11 @@ func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) ToMHSMPrivateLin
 
 func (o MHSMPrivateLinkServiceConnectionStateResponsePtrOutput) Elem() MHSMPrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *MHSMPrivateLinkServiceConnectionStateResponse) MHSMPrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MHSMPrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(MHSMPrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -3251,7 +3321,7 @@ func (o MHSMVirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) MHSM
 // Properties of the managed HSM Pool
 type ManagedHsmProperties struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-	CreateMode *string `pulumi:"createMode"`
+	CreateMode *CreateMode `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
 	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -3282,7 +3352,7 @@ type ManagedHsmPropertiesInput interface {
 // Properties of the managed HSM Pool
 type ManagedHsmPropertiesArgs struct {
 	// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-	CreateMode *CreateMode `pulumi:"createMode"`
+	CreateMode CreateModePtrInput `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -3372,14 +3442,14 @@ func (o ManagedHsmPropertiesOutput) ToManagedHsmPropertiesPtrOutput() ManagedHsm
 }
 
 func (o ManagedHsmPropertiesOutput) ToManagedHsmPropertiesPtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedHsmProperties) *ManagedHsmProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedHsmProperties) *ManagedHsmProperties {
 		return &v
 	}).(ManagedHsmPropertiesPtrOutput)
 }
 
 // The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-func (o ManagedHsmPropertiesOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedHsmProperties) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+func (o ManagedHsmPropertiesOutput) CreateMode() CreateModePtrOutput {
+	return o.ApplyT(func(v ManagedHsmProperties) *CreateMode { return v.CreateMode }).(CreateModePtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
@@ -3432,17 +3502,23 @@ func (o ManagedHsmPropertiesPtrOutput) ToManagedHsmPropertiesPtrOutputWithContex
 }
 
 func (o ManagedHsmPropertiesPtrOutput) Elem() ManagedHsmPropertiesOutput {
-	return o.ApplyT(func(v *ManagedHsmProperties) ManagedHsmProperties { return *v }).(ManagedHsmPropertiesOutput)
+	return o.ApplyT(func(v *ManagedHsmProperties) ManagedHsmProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedHsmProperties
+		return ret
+	}).(ManagedHsmPropertiesOutput)
 }
 
 // The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-func (o ManagedHsmPropertiesPtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedHsmProperties) *string {
+func (o ManagedHsmPropertiesPtrOutput) CreateMode() CreateModePtrOutput {
+	return o.ApplyT(func(v *ManagedHsmProperties) *CreateMode {
 		if v == nil {
 			return nil
 		}
 		return v.CreateMode
-	}).(pulumi.StringPtrOutput)
+	}).(CreateModePtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
@@ -3659,7 +3735,7 @@ func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponsePtrOut
 }
 
 func (o ManagedHsmPropertiesResponseOutput) ToManagedHsmPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedHsmPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManagedHsmPropertiesResponse) *ManagedHsmPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedHsmPropertiesResponse) *ManagedHsmPropertiesResponse {
 		return &v
 	}).(ManagedHsmPropertiesResponsePtrOutput)
 }
@@ -3746,7 +3822,13 @@ func (o ManagedHsmPropertiesResponsePtrOutput) ToManagedHsmPropertiesResponsePtr
 }
 
 func (o ManagedHsmPropertiesResponsePtrOutput) Elem() ManagedHsmPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) ManagedHsmPropertiesResponse { return *v }).(ManagedHsmPropertiesResponseOutput)
+	return o.ApplyT(func(v *ManagedHsmPropertiesResponse) ManagedHsmPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedHsmPropertiesResponse
+		return ret
+	}).(ManagedHsmPropertiesResponseOutput)
 }
 
 // The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
@@ -3884,7 +3966,7 @@ type ManagedHsmSku struct {
 	// SKU Family of the managed HSM Pool
 	Family string `pulumi:"family"`
 	// SKU of the managed HSM Pool
-	Name string `pulumi:"name"`
+	Name ManagedHsmSkuName `pulumi:"name"`
 }
 
 // ManagedHsmSkuInput is an input type that accepts ManagedHsmSkuArgs and ManagedHsmSkuOutput values.
@@ -3903,7 +3985,7 @@ type ManagedHsmSkuArgs struct {
 	// SKU Family of the managed HSM Pool
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU of the managed HSM Pool
-	Name ManagedHsmSkuName `pulumi:"name"`
+	Name ManagedHsmSkuNameInput `pulumi:"name"`
 }
 
 func (ManagedHsmSkuArgs) ElementType() reflect.Type {
@@ -3979,7 +4061,7 @@ func (o ManagedHsmSkuOutput) ToManagedHsmSkuPtrOutput() ManagedHsmSkuPtrOutput {
 }
 
 func (o ManagedHsmSkuOutput) ToManagedHsmSkuPtrOutputWithContext(ctx context.Context) ManagedHsmSkuPtrOutput {
-	return o.ApplyT(func(v ManagedHsmSku) *ManagedHsmSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedHsmSku) *ManagedHsmSku {
 		return &v
 	}).(ManagedHsmSkuPtrOutput)
 }
@@ -3990,8 +4072,8 @@ func (o ManagedHsmSkuOutput) Family() pulumi.StringOutput {
 }
 
 // SKU of the managed HSM Pool
-func (o ManagedHsmSkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedHsmSku) string { return v.Name }).(pulumi.StringOutput)
+func (o ManagedHsmSkuOutput) Name() ManagedHsmSkuNameOutput {
+	return o.ApplyT(func(v ManagedHsmSku) ManagedHsmSkuName { return v.Name }).(ManagedHsmSkuNameOutput)
 }
 
 type ManagedHsmSkuPtrOutput struct{ *pulumi.OutputState }
@@ -4009,7 +4091,13 @@ func (o ManagedHsmSkuPtrOutput) ToManagedHsmSkuPtrOutputWithContext(ctx context.
 }
 
 func (o ManagedHsmSkuPtrOutput) Elem() ManagedHsmSkuOutput {
-	return o.ApplyT(func(v *ManagedHsmSku) ManagedHsmSku { return *v }).(ManagedHsmSkuOutput)
+	return o.ApplyT(func(v *ManagedHsmSku) ManagedHsmSku {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedHsmSku
+		return ret
+	}).(ManagedHsmSkuOutput)
 }
 
 // SKU Family of the managed HSM Pool
@@ -4023,13 +4111,13 @@ func (o ManagedHsmSkuPtrOutput) Family() pulumi.StringPtrOutput {
 }
 
 // SKU of the managed HSM Pool
-func (o ManagedHsmSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedHsmSku) *string {
+func (o ManagedHsmSkuPtrOutput) Name() ManagedHsmSkuNamePtrOutput {
+	return o.ApplyT(func(v *ManagedHsmSku) *ManagedHsmSkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(ManagedHsmSkuNamePtrOutput)
 }
 
 // SKU details
@@ -4132,7 +4220,7 @@ func (o ManagedHsmSkuResponseOutput) ToManagedHsmSkuResponsePtrOutput() ManagedH
 }
 
 func (o ManagedHsmSkuResponseOutput) ToManagedHsmSkuResponsePtrOutputWithContext(ctx context.Context) ManagedHsmSkuResponsePtrOutput {
-	return o.ApplyT(func(v ManagedHsmSkuResponse) *ManagedHsmSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedHsmSkuResponse) *ManagedHsmSkuResponse {
 		return &v
 	}).(ManagedHsmSkuResponsePtrOutput)
 }
@@ -4162,7 +4250,13 @@ func (o ManagedHsmSkuResponsePtrOutput) ToManagedHsmSkuResponsePtrOutputWithCont
 }
 
 func (o ManagedHsmSkuResponsePtrOutput) Elem() ManagedHsmSkuResponseOutput {
-	return o.ApplyT(func(v *ManagedHsmSkuResponse) ManagedHsmSkuResponse { return *v }).(ManagedHsmSkuResponseOutput)
+	return o.ApplyT(func(v *ManagedHsmSkuResponse) ManagedHsmSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedHsmSkuResponse
+		return ret
+	}).(ManagedHsmSkuResponseOutput)
 }
 
 // SKU Family of the managed HSM Pool
@@ -4293,7 +4387,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
@@ -4333,7 +4427,13 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
 // Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -4484,7 +4584,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
@@ -4524,7 +4624,13 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
 // Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
@@ -4965,7 +5071,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -4990,7 +5096,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // Full identifier of the private endpoint resource.
@@ -5107,7 +5219,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -5142,7 +5254,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -5279,7 +5397,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -5315,7 +5433,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -5446,7 +5568,7 @@ func (o RotationPolicyOutput) ToRotationPolicyPtrOutput() RotationPolicyPtrOutpu
 }
 
 func (o RotationPolicyOutput) ToRotationPolicyPtrOutputWithContext(ctx context.Context) RotationPolicyPtrOutput {
-	return o.ApplyT(func(v RotationPolicy) *RotationPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationPolicy) *RotationPolicy {
 		return &v
 	}).(RotationPolicyPtrOutput)
 }
@@ -5476,7 +5598,13 @@ func (o RotationPolicyPtrOutput) ToRotationPolicyPtrOutputWithContext(ctx contex
 }
 
 func (o RotationPolicyPtrOutput) Elem() RotationPolicyOutput {
-	return o.ApplyT(func(v *RotationPolicy) RotationPolicy { return *v }).(RotationPolicyOutput)
+	return o.ApplyT(func(v *RotationPolicy) RotationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RotationPolicy
+		return ret
+	}).(RotationPolicyOutput)
 }
 
 // The attributes of key rotation policy.
@@ -5596,7 +5724,7 @@ func (o RotationPolicyResponseOutput) ToRotationPolicyResponsePtrOutput() Rotati
 }
 
 func (o RotationPolicyResponseOutput) ToRotationPolicyResponsePtrOutputWithContext(ctx context.Context) RotationPolicyResponsePtrOutput {
-	return o.ApplyT(func(v RotationPolicyResponse) *RotationPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationPolicyResponse) *RotationPolicyResponse {
 		return &v
 	}).(RotationPolicyResponsePtrOutput)
 }
@@ -5626,7 +5754,13 @@ func (o RotationPolicyResponsePtrOutput) ToRotationPolicyResponsePtrOutputWithCo
 }
 
 func (o RotationPolicyResponsePtrOutput) Elem() RotationPolicyResponseOutput {
-	return o.ApplyT(func(v *RotationPolicyResponse) RotationPolicyResponse { return *v }).(RotationPolicyResponseOutput)
+	return o.ApplyT(func(v *RotationPolicyResponse) RotationPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RotationPolicyResponse
+		return ret
+	}).(RotationPolicyResponseOutput)
 }
 
 // The attributes of key rotation policy.
@@ -5753,7 +5887,7 @@ func (o SecretAttributesOutput) ToSecretAttributesPtrOutput() SecretAttributesPt
 }
 
 func (o SecretAttributesOutput) ToSecretAttributesPtrOutputWithContext(ctx context.Context) SecretAttributesPtrOutput {
-	return o.ApplyT(func(v SecretAttributes) *SecretAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretAttributes) *SecretAttributes {
 		return &v
 	}).(SecretAttributesPtrOutput)
 }
@@ -5788,7 +5922,13 @@ func (o SecretAttributesPtrOutput) ToSecretAttributesPtrOutputWithContext(ctx co
 }
 
 func (o SecretAttributesPtrOutput) Elem() SecretAttributesOutput {
-	return o.ApplyT(func(v *SecretAttributes) SecretAttributes { return *v }).(SecretAttributesOutput)
+	return o.ApplyT(func(v *SecretAttributes) SecretAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret SecretAttributes
+		return ret
+	}).(SecretAttributesOutput)
 }
 
 // Determines whether the object is enabled.
@@ -5933,7 +6073,7 @@ func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutput() Se
 }
 
 func (o SecretAttributesResponseOutput) ToSecretAttributesResponsePtrOutputWithContext(ctx context.Context) SecretAttributesResponsePtrOutput {
-	return o.ApplyT(func(v SecretAttributesResponse) *SecretAttributesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretAttributesResponse) *SecretAttributesResponse {
 		return &v
 	}).(SecretAttributesResponsePtrOutput)
 }
@@ -5978,7 +6118,13 @@ func (o SecretAttributesResponsePtrOutput) ToSecretAttributesResponsePtrOutputWi
 }
 
 func (o SecretAttributesResponsePtrOutput) Elem() SecretAttributesResponseOutput {
-	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse { return *v }).(SecretAttributesResponseOutput)
+	return o.ApplyT(func(v *SecretAttributesResponse) SecretAttributesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretAttributesResponse
+		return ret
+	}).(SecretAttributesResponseOutput)
 }
 
 // Creation time in seconds since 1970-01-01T00:00:00Z.
@@ -6135,7 +6281,7 @@ func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutput() SecretPropertiesPt
 }
 
 func (o SecretPropertiesOutput) ToSecretPropertiesPtrOutputWithContext(ctx context.Context) SecretPropertiesPtrOutput {
-	return o.ApplyT(func(v SecretProperties) *SecretProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretProperties) *SecretProperties {
 		return &v
 	}).(SecretPropertiesPtrOutput)
 }
@@ -6170,7 +6316,13 @@ func (o SecretPropertiesPtrOutput) ToSecretPropertiesPtrOutputWithContext(ctx co
 }
 
 func (o SecretPropertiesPtrOutput) Elem() SecretPropertiesOutput {
-	return o.ApplyT(func(v *SecretProperties) SecretProperties { return *v }).(SecretPropertiesOutput)
+	return o.ApplyT(func(v *SecretProperties) SecretProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SecretProperties
+		return ret
+	}).(SecretPropertiesOutput)
 }
 
 // The attributes of the secret.
@@ -6315,7 +6467,7 @@ func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutput() Se
 }
 
 func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SecretPropertiesResponse) *SecretPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretPropertiesResponse) *SecretPropertiesResponse {
 		return &v
 	}).(SecretPropertiesResponsePtrOutput)
 }
@@ -6360,7 +6512,13 @@ func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutputWi
 }
 
 func (o SecretPropertiesResponsePtrOutput) Elem() SecretPropertiesResponseOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse { return *v }).(SecretPropertiesResponseOutput)
+	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SecretPropertiesResponse
+		return ret
+	}).(SecretPropertiesResponseOutput)
 }
 
 // The attributes of the secret.
@@ -6418,7 +6576,7 @@ type Sku struct {
 	// SKU family name
 	Family string `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -6437,7 +6595,7 @@ type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -6513,7 +6671,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -6524,8 +6682,8 @@ func (o SkuOutput) Family() pulumi.StringOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -6543,7 +6701,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // SKU family name
@@ -6557,13 +6721,13 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 }
 
 // SKU name to specify whether the key vault is a standard vault or a premium vault.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // SKU details
@@ -6666,7 +6830,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -6696,7 +6860,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // SKU family name
@@ -6835,7 +7005,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -6885,7 +7055,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of the key vault resource creation (UTC).
@@ -7045,7 +7221,7 @@ func (o TriggerOutput) ToTriggerPtrOutput() TriggerPtrOutput {
 }
 
 func (o TriggerOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return o.ApplyT(func(v Trigger) *Trigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Trigger) *Trigger {
 		return &v
 	}).(TriggerPtrOutput)
 }
@@ -7075,7 +7251,13 @@ func (o TriggerPtrOutput) ToTriggerPtrOutputWithContext(ctx context.Context) Tri
 }
 
 func (o TriggerPtrOutput) Elem() TriggerOutput {
-	return o.ApplyT(func(v *Trigger) Trigger { return *v }).(TriggerOutput)
+	return o.ApplyT(func(v *Trigger) Trigger {
+		if v != nil {
+			return *v
+		}
+		var ret Trigger
+		return ret
+	}).(TriggerOutput)
 }
 
 // The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
@@ -7195,7 +7377,7 @@ func (o TriggerResponseOutput) ToTriggerResponsePtrOutput() TriggerResponsePtrOu
 }
 
 func (o TriggerResponseOutput) ToTriggerResponsePtrOutputWithContext(ctx context.Context) TriggerResponsePtrOutput {
-	return o.ApplyT(func(v TriggerResponse) *TriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerResponse) *TriggerResponse {
 		return &v
 	}).(TriggerResponsePtrOutput)
 }
@@ -7225,7 +7407,13 @@ func (o TriggerResponsePtrOutput) ToTriggerResponsePtrOutputWithContext(ctx cont
 }
 
 func (o TriggerResponsePtrOutput) Elem() TriggerResponseOutput {
-	return o.ApplyT(func(v *TriggerResponse) TriggerResponse { return *v }).(TriggerResponseOutput)
+	return o.ApplyT(func(v *TriggerResponse) TriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerResponse
+		return ret
+	}).(TriggerResponseOutput)
 }
 
 // The time duration after key creation to rotate the key. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
@@ -7253,7 +7441,7 @@ type VaultProperties struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies []AccessPolicyEntry `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *string `pulumi:"createMode"`
+	CreateMode *CreateMode `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection *bool `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -7298,7 +7486,7 @@ type VaultPropertiesArgs struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode *CreateMode `pulumi:"createMode"`
+	CreateMode CreateModePtrInput `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -7400,7 +7588,7 @@ func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutput() VaultPropertiesPtrOu
 }
 
 func (o VaultPropertiesOutput) ToVaultPropertiesPtrOutputWithContext(ctx context.Context) VaultPropertiesPtrOutput {
-	return o.ApplyT(func(v VaultProperties) *VaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultProperties) *VaultProperties {
 		return &v
 	}).(VaultPropertiesPtrOutput)
 }
@@ -7411,8 +7599,8 @@ func (o VaultPropertiesOutput) AccessPolicies() AccessPolicyEntryArrayOutput {
 }
 
 // The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VaultProperties) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+func (o VaultPropertiesOutput) CreateMode() CreateModePtrOutput {
+	return o.ApplyT(func(v VaultProperties) *CreateMode { return v.CreateMode }).(CreateModePtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -7495,7 +7683,13 @@ func (o VaultPropertiesPtrOutput) ToVaultPropertiesPtrOutputWithContext(ctx cont
 }
 
 func (o VaultPropertiesPtrOutput) Elem() VaultPropertiesOutput {
-	return o.ApplyT(func(v *VaultProperties) VaultProperties { return *v }).(VaultPropertiesOutput)
+	return o.ApplyT(func(v *VaultProperties) VaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret VaultProperties
+		return ret
+	}).(VaultPropertiesOutput)
 }
 
 // An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
@@ -7509,13 +7703,13 @@ func (o VaultPropertiesPtrOutput) AccessPolicies() AccessPolicyEntryArrayOutput 
 }
 
 // The vault's create mode to indicate whether the vault need to be recovered or not.
-func (o VaultPropertiesPtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VaultProperties) *string {
+func (o VaultPropertiesPtrOutput) CreateMode() CreateModePtrOutput {
+	return o.ApplyT(func(v *VaultProperties) *CreateMode {
 		if v == nil {
 			return nil
 		}
 		return v.CreateMode
-	}).(pulumi.StringPtrOutput)
+	}).(CreateModePtrOutput)
 }
 
 // Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
@@ -7804,7 +7998,7 @@ func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutput() Vaul
 }
 
 func (o VaultPropertiesResponseOutput) ToVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) VaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VaultPropertiesResponse) *VaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPropertiesResponse) *VaultPropertiesResponse {
 		return &v
 	}).(VaultPropertiesResponsePtrOutput)
 }
@@ -7906,7 +8100,13 @@ func (o VaultPropertiesResponsePtrOutput) ToVaultPropertiesResponsePtrOutputWith
 }
 
 func (o VaultPropertiesResponsePtrOutput) Elem() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse { return *v }).(VaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *VaultPropertiesResponse) VaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPropertiesResponse
+		return ret
+	}).(VaultPropertiesResponseOutput)
 }
 
 // An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.

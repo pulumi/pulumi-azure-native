@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
+    /// <summary>
+    /// The integration account AS2 one-way agreement.
+    /// </summary>
     [OutputType]
     public sealed class AS2OneWayAgreementResponse
     {

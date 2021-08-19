@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20210128Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of a Machine Extension.
+    /// </summary>
     [OutputType]
     public sealed class MachineExtensionPropertiesResponse
     {

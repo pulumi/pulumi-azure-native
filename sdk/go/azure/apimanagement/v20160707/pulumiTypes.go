@@ -15,7 +15,7 @@ type AdditionalRegion struct {
 	// The location name of the additional region among Azure Data center regions.
 	Location string `pulumi:"location"`
 	// The SKU type in the location.
-	SkuType string `pulumi:"skuType"`
+	SkuType SkuType `pulumi:"skuType"`
 	// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
 	SkuUnitCount *int `pulumi:"skuUnitCount"`
 	// Virtual network configuration for the location.
@@ -38,7 +38,7 @@ type AdditionalRegionArgs struct {
 	// The location name of the additional region among Azure Data center regions.
 	Location pulumi.StringInput `pulumi:"location"`
 	// The SKU type in the location.
-	SkuType SkuType `pulumi:"skuType"`
+	SkuType SkuTypeInput `pulumi:"skuType"`
 	// The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
 	SkuUnitCount pulumi.IntPtrInput `pulumi:"skuUnitCount"`
 	// Virtual network configuration for the location.
@@ -103,8 +103,8 @@ func (o AdditionalRegionOutput) Location() pulumi.StringOutput {
 }
 
 // The SKU type in the location.
-func (o AdditionalRegionOutput) SkuType() pulumi.StringOutput {
-	return o.ApplyT(func(v AdditionalRegion) string { return v.SkuType }).(pulumi.StringOutput)
+func (o AdditionalRegionOutput) SkuType() SkuTypeOutput {
+	return o.ApplyT(func(v AdditionalRegion) SkuType { return v.SkuType }).(SkuTypeOutput)
 }
 
 // The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
@@ -278,7 +278,7 @@ type ApiManagementServiceSkuProperties struct {
 	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
 	Capacity *int `pulumi:"capacity"`
 	// Name of the Sku.
-	Name string `pulumi:"name"`
+	Name SkuType `pulumi:"name"`
 }
 
 // ApiManagementServiceSkuPropertiesInput is an input type that accepts ApiManagementServiceSkuPropertiesArgs and ApiManagementServiceSkuPropertiesOutput values.
@@ -297,7 +297,7 @@ type ApiManagementServiceSkuPropertiesArgs struct {
 	// Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of the Sku.
-	Name SkuType `pulumi:"name"`
+	Name SkuTypeInput `pulumi:"name"`
 }
 
 func (ApiManagementServiceSkuPropertiesArgs) ElementType() reflect.Type {
@@ -373,7 +373,7 @@ func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuProper
 }
 
 func (o ApiManagementServiceSkuPropertiesOutput) ToApiManagementServiceSkuPropertiesPtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuProperties) *ApiManagementServiceSkuProperties {
 		return &v
 	}).(ApiManagementServiceSkuPropertiesPtrOutput)
 }
@@ -384,8 +384,8 @@ func (o ApiManagementServiceSkuPropertiesOutput) Capacity() pulumi.IntPtrOutput 
 }
 
 // Name of the Sku.
-func (o ApiManagementServiceSkuPropertiesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceSkuProperties) string { return v.Name }).(pulumi.StringOutput)
+func (o ApiManagementServiceSkuPropertiesOutput) Name() SkuTypeOutput {
+	return o.ApplyT(func(v ApiManagementServiceSkuProperties) SkuType { return v.Name }).(SkuTypeOutput)
 }
 
 type ApiManagementServiceSkuPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -403,7 +403,13 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) ToApiManagementServiceSkuPro
 }
 
 func (o ApiManagementServiceSkuPropertiesPtrOutput) Elem() ApiManagementServiceSkuPropertiesOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties { return *v }).(ApiManagementServiceSkuPropertiesOutput)
+	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) ApiManagementServiceSkuProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementServiceSkuProperties
+		return ret
+	}).(ApiManagementServiceSkuPropertiesOutput)
 }
 
 // Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
@@ -417,13 +423,13 @@ func (o ApiManagementServiceSkuPropertiesPtrOutput) Capacity() pulumi.IntPtrOutp
 }
 
 // Name of the Sku.
-func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *string {
+func (o ApiManagementServiceSkuPropertiesPtrOutput) Name() SkuTypePtrOutput {
+	return o.ApplyT(func(v *ApiManagementServiceSkuProperties) *SkuType {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuTypePtrOutput)
 }
 
 // API Management service resource SKU properties.
@@ -526,7 +532,7 @@ func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceS
 }
 
 func (o ApiManagementServiceSkuPropertiesResponseOutput) ToApiManagementServiceSkuPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiManagementServiceSkuPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiManagementServiceSkuPropertiesResponse) *ApiManagementServiceSkuPropertiesResponse {
 		return &v
 	}).(ApiManagementServiceSkuPropertiesResponsePtrOutput)
 }
@@ -557,7 +563,11 @@ func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) ToApiManagementServi
 
 func (o ApiManagementServiceSkuPropertiesResponsePtrOutput) Elem() ApiManagementServiceSkuPropertiesResponseOutput {
 	return o.ApplyT(func(v *ApiManagementServiceSkuPropertiesResponse) ApiManagementServiceSkuPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApiManagementServiceSkuPropertiesResponse
+		return ret
 	}).(ApiManagementServiceSkuPropertiesResponseOutput)
 }
 
@@ -789,7 +799,7 @@ type HostnameConfiguration struct {
 	// Hostname.
 	Hostname string `pulumi:"hostname"`
 	// Hostname type.
-	Type string `pulumi:"type"`
+	Type HostnameType `pulumi:"type"`
 }
 
 // HostnameConfigurationInput is an input type that accepts HostnameConfigurationArgs and HostnameConfigurationOutput values.
@@ -810,7 +820,7 @@ type HostnameConfigurationArgs struct {
 	// Hostname.
 	Hostname pulumi.StringInput `pulumi:"hostname"`
 	// Hostname type.
-	Type HostnameType `pulumi:"type"`
+	Type HostnameTypeInput `pulumi:"type"`
 }
 
 func (HostnameConfigurationArgs) ElementType() reflect.Type {
@@ -876,8 +886,8 @@ func (o HostnameConfigurationOutput) Hostname() pulumi.StringOutput {
 }
 
 // Hostname type.
-func (o HostnameConfigurationOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HostnameConfiguration) string { return v.Type }).(pulumi.StringOutput)
+func (o HostnameConfigurationOutput) Type() HostnameTypeOutput {
+	return o.ApplyT(func(v HostnameConfiguration) HostnameType { return v.Type }).(HostnameTypeOutput)
 }
 
 type HostnameConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1118,7 +1128,7 @@ func (o OAuth2AuthenticationSettingsContractOutput) ToOAuth2AuthenticationSettin
 }
 
 func (o OAuth2AuthenticationSettingsContractOutput) ToOAuth2AuthenticationSettingsContractPtrOutputWithContext(ctx context.Context) OAuth2AuthenticationSettingsContractPtrOutput {
-	return o.ApplyT(func(v OAuth2AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OAuth2AuthenticationSettingsContract) *OAuth2AuthenticationSettingsContract {
 		return &v
 	}).(OAuth2AuthenticationSettingsContractPtrOutput)
 }
@@ -1148,7 +1158,13 @@ func (o OAuth2AuthenticationSettingsContractPtrOutput) ToOAuth2AuthenticationSet
 }
 
 func (o OAuth2AuthenticationSettingsContractPtrOutput) Elem() OAuth2AuthenticationSettingsContractOutput {
-	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) OAuth2AuthenticationSettingsContract { return *v }).(OAuth2AuthenticationSettingsContractOutput)
+	return o.ApplyT(func(v *OAuth2AuthenticationSettingsContract) OAuth2AuthenticationSettingsContract {
+		if v != nil {
+			return *v
+		}
+		var ret OAuth2AuthenticationSettingsContract
+		return ret
+	}).(OAuth2AuthenticationSettingsContractOutput)
 }
 
 // OAuth authorization server identifier.
@@ -1808,7 +1824,7 @@ func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutpu
 }
 
 func (o VirtualNetworkConfigurationOutput) ToVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfiguration) *VirtualNetworkConfiguration {
 		return &v
 	}).(VirtualNetworkConfigurationPtrOutput)
 }
@@ -1838,7 +1854,13 @@ func (o VirtualNetworkConfigurationPtrOutput) ToVirtualNetworkConfigurationPtrOu
 }
 
 func (o VirtualNetworkConfigurationPtrOutput) Elem() VirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration { return *v }).(VirtualNetworkConfigurationOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfiguration) VirtualNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkConfiguration
+		return ret
+	}).(VirtualNetworkConfigurationOutput)
 }
 
 // The location of the virtual network.
@@ -1969,7 +1991,7 @@ func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfiguration
 }
 
 func (o VirtualNetworkConfigurationResponseOutput) ToVirtualNetworkConfigurationResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkConfigurationResponse) *VirtualNetworkConfigurationResponse {
 		return &v
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
@@ -2009,7 +2031,13 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) ToVirtualNetworkConfigurat
 }
 
 func (o VirtualNetworkConfigurationResponsePtrOutput) Elem() VirtualNetworkConfigurationResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse { return *v }).(VirtualNetworkConfigurationResponseOutput)
+	return o.ApplyT(func(v *VirtualNetworkConfigurationResponse) VirtualNetworkConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkConfigurationResponse
+		return ret
+	}).(VirtualNetworkConfigurationResponseOutput)
 }
 
 // The location of the virtual network.

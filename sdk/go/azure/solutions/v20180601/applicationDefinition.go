@@ -59,6 +59,9 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 	if args.Authorizations == nil {
 		return nil, errors.New("invalid value for required argument 'Authorizations'")
 	}
+	if args.LockLevel == nil {
+		return nil, errors.New("invalid value for required argument 'LockLevel'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -120,73 +123,9 @@ func GetApplicationDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationDefinition resources.
 type applicationDefinitionState struct {
-	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts []ApplicationArtifactResponse `pulumi:"artifacts"`
-	// The managed application provider authorizations.
-	Authorizations []ApplicationProviderAuthorizationResponse `pulumi:"authorizations"`
-	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition interface{} `pulumi:"createUiDefinition"`
-	// The managed application definition description.
-	Description *string `pulumi:"description"`
-	// The managed application definition display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// A value indicating whether the package is enabled or not.
-	IsEnabled *string `pulumi:"isEnabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The managed application lock level.
-	LockLevel *string `pulumi:"lockLevel"`
-	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate interface{} `pulumi:"mainTemplate"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The managed application definition package file Uri. Use this element
-	PackageFileUri *string `pulumi:"packageFileUri"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ApplicationDefinitionState struct {
-	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
-	Artifacts ApplicationArtifactResponseArrayInput
-	// The managed application provider authorizations.
-	Authorizations ApplicationProviderAuthorizationResponseArrayInput
-	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
-	CreateUiDefinition pulumi.Input
-	// The managed application definition description.
-	Description pulumi.StringPtrInput
-	// The managed application definition display name.
-	DisplayName pulumi.StringPtrInput
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// A value indicating whether the package is enabled or not.
-	IsEnabled pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The managed application lock level.
-	LockLevel pulumi.StringPtrInput
-	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
-	MainTemplate pulumi.Input
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The managed application definition package file Uri. Use this element
-	PackageFileUri pulumi.StringPtrInput
-	// The SKU of the resource.
-	Sku SkuResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ApplicationDefinitionState) ElementType() reflect.Type {
@@ -213,7 +152,7 @@ type applicationDefinitionArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The managed application lock level.
-	LockLevel string `pulumi:"lockLevel"`
+	LockLevel ApplicationLockLevel `pulumi:"lockLevel"`
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
 	MainTemplate interface{} `pulumi:"mainTemplate"`
 	// ID of the resource that manages this resource.
@@ -249,7 +188,7 @@ type ApplicationDefinitionArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The managed application lock level.
-	LockLevel ApplicationLockLevel
+	LockLevel ApplicationLockLevelInput
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
 	MainTemplate pulumi.Input
 	// ID of the resource that manages this resource.
@@ -287,9 +226,7 @@ func (i *ApplicationDefinition) ToApplicationDefinitionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionOutput)
 }
 
-type ApplicationDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationDefinition)(nil))

@@ -17,6 +17,12 @@ CHANGELOG
 - Fix `sql.ServerVulnerabilityAssessment` existence check
   [#1050](https://github.com/pulumi/pulumi-azure-native/issues/1050).
 
+#### Dependencies
+
+- Updated `pulumi/pulumi` dependencies to 3.10.3
+- The type of discriminated union inputs in the .NET SDK has changed from `Input<object>` to `object`
+- Support inputty Go enums
+
 ---
 
 ## 1.22.0 (2021-08-17)

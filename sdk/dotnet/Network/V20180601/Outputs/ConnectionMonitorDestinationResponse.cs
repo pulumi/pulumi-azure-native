@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Describes the destination of connection monitor.
+    /// </summary>
     [OutputType]
     public sealed class ConnectionMonitorDestinationResponse
     {

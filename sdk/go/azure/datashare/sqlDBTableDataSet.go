@@ -121,47 +121,9 @@ func GetSqlDBTableDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlDBTableDataSet resources.
 type sqlDBTableDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// Database name of the source data set
-	DatabaseName *string `pulumi:"databaseName"`
-	// Kind of data set.
-	// Expected value is 'SqlDBTable'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Schema of the table. Default value is dbo.
-	SchemaName *string `pulumi:"schemaName"`
-	// Resource id of SQL server
-	SqlServerResourceId *string `pulumi:"sqlServerResourceId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// SQL DB table name.
-	TableName *string `pulumi:"tableName"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type SqlDBTableDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// Database name of the source data set
-	DatabaseName pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'SqlDBTable'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Schema of the table. Default value is dbo.
-	SchemaName pulumi.StringPtrInput
-	// Resource id of SQL server
-	SqlServerResourceId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// SQL DB table name.
-	TableName pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (SqlDBTableDataSetState) ElementType() reflect.Type {
@@ -236,9 +198,7 @@ func (i *SqlDBTableDataSet) ToSqlDBTableDataSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDBTableDataSetOutput)
 }
 
-type SqlDBTableDataSetOutput struct {
-	*pulumi.OutputState
-}
+type SqlDBTableDataSetOutput struct{ *pulumi.OutputState }
 
 func (SqlDBTableDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDBTableDataSet)(nil))

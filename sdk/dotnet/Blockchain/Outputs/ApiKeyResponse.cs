@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Blockchain.Outputs
 {
 
+    /// <summary>
+    /// API key payload which is exposed in the request/response of the resource provider.
+    /// </summary>
     [OutputType]
     public sealed class ApiKeyResponse
     {

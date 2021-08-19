@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Activity to get metadata of dataset
+    /// </summary>
     [OutputType]
     public sealed class GetMetadataActivityResponse
     {

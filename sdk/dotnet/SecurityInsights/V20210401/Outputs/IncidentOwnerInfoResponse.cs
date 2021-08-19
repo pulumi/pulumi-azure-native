@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Information on the user an incident is assigned to
+    /// </summary>
     [OutputType]
     public sealed class IncidentOwnerInfoResponse
     {

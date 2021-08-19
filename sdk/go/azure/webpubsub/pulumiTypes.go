@@ -106,7 +106,7 @@ func (o EventHandlerSettingsOutput) ToEventHandlerSettingsPtrOutput() EventHandl
 }
 
 func (o EventHandlerSettingsOutput) ToEventHandlerSettingsPtrOutputWithContext(ctx context.Context) EventHandlerSettingsPtrOutput {
-	return o.ApplyT(func(v EventHandlerSettings) *EventHandlerSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHandlerSettings) *EventHandlerSettings {
 		return &v
 	}).(EventHandlerSettingsPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o EventHandlerSettingsPtrOutput) ToEventHandlerSettingsPtrOutputWithContex
 }
 
 func (o EventHandlerSettingsPtrOutput) Elem() EventHandlerSettingsOutput {
-	return o.ApplyT(func(v *EventHandlerSettings) EventHandlerSettings { return *v }).(EventHandlerSettingsOutput)
+	return o.ApplyT(func(v *EventHandlerSettings) EventHandlerSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EventHandlerSettings
+		return ret
+	}).(EventHandlerSettingsOutput)
 }
 
 // Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
@@ -240,7 +246,7 @@ func (o EventHandlerSettingsResponseOutput) ToEventHandlerSettingsResponsePtrOut
 }
 
 func (o EventHandlerSettingsResponseOutput) ToEventHandlerSettingsResponsePtrOutputWithContext(ctx context.Context) EventHandlerSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EventHandlerSettingsResponse) *EventHandlerSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHandlerSettingsResponse) *EventHandlerSettingsResponse {
 		return &v
 	}).(EventHandlerSettingsResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o EventHandlerSettingsResponsePtrOutput) ToEventHandlerSettingsResponsePtr
 }
 
 func (o EventHandlerSettingsResponsePtrOutput) Elem() EventHandlerSettingsResponseOutput {
-	return o.ApplyT(func(v *EventHandlerSettingsResponse) EventHandlerSettingsResponse { return *v }).(EventHandlerSettingsResponseOutput)
+	return o.ApplyT(func(v *EventHandlerSettingsResponse) EventHandlerSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventHandlerSettingsResponse
+		return ret
+	}).(EventHandlerSettingsResponseOutput)
 }
 
 // Get or set the EventHandler items. The key is the hub name and the value is the corresponding EventHandlerTemplate.
@@ -680,7 +692,7 @@ func (o ManagedIdentityOutput) ToManagedIdentityPtrOutput() ManagedIdentityPtrOu
 }
 
 func (o ManagedIdentityOutput) ToManagedIdentityPtrOutputWithContext(ctx context.Context) ManagedIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *ManagedIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentity) *ManagedIdentity {
 		return &v
 	}).(ManagedIdentityPtrOutput)
 }
@@ -710,7 +722,13 @@ func (o ManagedIdentityPtrOutput) ToManagedIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o ManagedIdentityPtrOutput) Elem() ManagedIdentityOutput {
-	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity { return *v }).(ManagedIdentityOutput)
+	return o.ApplyT(func(v *ManagedIdentity) ManagedIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentity
+		return ret
+	}).(ManagedIdentityOutput)
 }
 
 // Represent the identity type: systemAssigned, userAssigned, None
@@ -845,7 +863,7 @@ func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutput() Mana
 }
 
 func (o ManagedIdentityResponseOutput) ToManagedIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentityResponse) *ManagedIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentityResponse) *ManagedIdentityResponse {
 		return &v
 	}).(ManagedIdentityResponsePtrOutput)
 }
@@ -889,7 +907,13 @@ func (o ManagedIdentityResponsePtrOutput) ToManagedIdentityResponsePtrOutputWith
 }
 
 func (o ManagedIdentityResponsePtrOutput) Elem() ManagedIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse { return *v }).(ManagedIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedIdentityResponse) ManagedIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentityResponse
+		return ret
+	}).(ManagedIdentityResponseOutput)
 }
 
 // Get the principal id for the system assigned identity.
@@ -1032,7 +1056,7 @@ func (o ManagedIdentitySettingsOutput) ToManagedIdentitySettingsPtrOutput() Mana
 }
 
 func (o ManagedIdentitySettingsOutput) ToManagedIdentitySettingsPtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsPtrOutput {
-	return o.ApplyT(func(v ManagedIdentitySettings) *ManagedIdentitySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentitySettings) *ManagedIdentitySettings {
 		return &v
 	}).(ManagedIdentitySettingsPtrOutput)
 }
@@ -1058,7 +1082,13 @@ func (o ManagedIdentitySettingsPtrOutput) ToManagedIdentitySettingsPtrOutputWith
 }
 
 func (o ManagedIdentitySettingsPtrOutput) Elem() ManagedIdentitySettingsOutput {
-	return o.ApplyT(func(v *ManagedIdentitySettings) ManagedIdentitySettings { return *v }).(ManagedIdentitySettingsOutput)
+	return o.ApplyT(func(v *ManagedIdentitySettings) ManagedIdentitySettings {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentitySettings
+		return ret
+	}).(ManagedIdentitySettingsOutput)
 }
 
 // The Resource indicating the App ID URI of the target resource.
@@ -1170,7 +1200,7 @@ func (o ManagedIdentitySettingsResponseOutput) ToManagedIdentitySettingsResponse
 }
 
 func (o ManagedIdentitySettingsResponseOutput) ToManagedIdentitySettingsResponsePtrOutputWithContext(ctx context.Context) ManagedIdentitySettingsResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentitySettingsResponse) *ManagedIdentitySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedIdentitySettingsResponse) *ManagedIdentitySettingsResponse {
 		return &v
 	}).(ManagedIdentitySettingsResponsePtrOutput)
 }
@@ -1196,7 +1226,13 @@ func (o ManagedIdentitySettingsResponsePtrOutput) ToManagedIdentitySettingsRespo
 }
 
 func (o ManagedIdentitySettingsResponsePtrOutput) Elem() ManagedIdentitySettingsResponseOutput {
-	return o.ApplyT(func(v *ManagedIdentitySettingsResponse) ManagedIdentitySettingsResponse { return *v }).(ManagedIdentitySettingsResponseOutput)
+	return o.ApplyT(func(v *ManagedIdentitySettingsResponse) ManagedIdentitySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedIdentitySettingsResponse
+		return ret
+	}).(ManagedIdentitySettingsResponseOutput)
 }
 
 // The Resource indicating the App ID URI of the target resource.
@@ -1310,7 +1346,7 @@ func (o NetworkACLOutput) ToNetworkACLPtrOutput() NetworkACLPtrOutput {
 }
 
 func (o NetworkACLOutput) ToNetworkACLPtrOutputWithContext(ctx context.Context) NetworkACLPtrOutput {
-	return o.ApplyT(func(v NetworkACL) *NetworkACL {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkACL) *NetworkACL {
 		return &v
 	}).(NetworkACLPtrOutput)
 }
@@ -1340,7 +1376,13 @@ func (o NetworkACLPtrOutput) ToNetworkACLPtrOutputWithContext(ctx context.Contex
 }
 
 func (o NetworkACLPtrOutput) Elem() NetworkACLOutput {
-	return o.ApplyT(func(v *NetworkACL) NetworkACL { return *v }).(NetworkACLOutput)
+	return o.ApplyT(func(v *NetworkACL) NetworkACL {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkACL
+		return ret
+	}).(NetworkACLOutput)
 }
 
 // Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
@@ -1463,7 +1505,7 @@ func (o NetworkACLResponseOutput) ToNetworkACLResponsePtrOutput() NetworkACLResp
 }
 
 func (o NetworkACLResponseOutput) ToNetworkACLResponsePtrOutputWithContext(ctx context.Context) NetworkACLResponsePtrOutput {
-	return o.ApplyT(func(v NetworkACLResponse) *NetworkACLResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkACLResponse) *NetworkACLResponse {
 		return &v
 	}).(NetworkACLResponsePtrOutput)
 }
@@ -1493,7 +1535,13 @@ func (o NetworkACLResponsePtrOutput) ToNetworkACLResponsePtrOutputWithContext(ct
 }
 
 func (o NetworkACLResponsePtrOutput) Elem() NetworkACLResponseOutput {
-	return o.ApplyT(func(v *NetworkACLResponse) NetworkACLResponse { return *v }).(NetworkACLResponseOutput)
+	return o.ApplyT(func(v *NetworkACLResponse) NetworkACLResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkACLResponse
+		return ret
+	}).(NetworkACLResponseOutput)
 }
 
 // Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
@@ -1612,7 +1660,7 @@ func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOu
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpoint) *PrivateEndpoint {
 		return &v
 	}).(PrivateEndpointPtrOutput)
 }
@@ -1637,7 +1685,13 @@ func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx cont
 }
 
 func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
+	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpoint
+		return ret
+	}).(PrivateEndpointOutput)
 }
 
 // Full qualified Id of the private endpoint
@@ -2138,7 +2192,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -2163,7 +2217,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // Full qualified Id of the private endpoint
@@ -2280,7 +2340,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -2315,7 +2375,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -2452,7 +2518,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -2488,7 +2554,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -2642,7 +2712,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -2685,7 +2755,13 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
 // Optional, integer. The unit count of the resource. 1 by default.
@@ -2854,7 +2930,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -2907,7 +2983,13 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
 // Optional, integer. The unit count of the resource. 1 by default.
@@ -3256,7 +3338,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -3306,7 +3388,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -3469,7 +3557,7 @@ func (o UpstreamAuthSettingsOutput) ToUpstreamAuthSettingsPtrOutput() UpstreamAu
 }
 
 func (o UpstreamAuthSettingsOutput) ToUpstreamAuthSettingsPtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsPtrOutput {
-	return o.ApplyT(func(v UpstreamAuthSettings) *UpstreamAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamAuthSettings) *UpstreamAuthSettings {
 		return &v
 	}).(UpstreamAuthSettingsPtrOutput)
 }
@@ -3499,7 +3587,13 @@ func (o UpstreamAuthSettingsPtrOutput) ToUpstreamAuthSettingsPtrOutputWithContex
 }
 
 func (o UpstreamAuthSettingsPtrOutput) Elem() UpstreamAuthSettingsOutput {
-	return o.ApplyT(func(v *UpstreamAuthSettings) UpstreamAuthSettings { return *v }).(UpstreamAuthSettingsOutput)
+	return o.ApplyT(func(v *UpstreamAuthSettings) UpstreamAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamAuthSettings
+		return ret
+	}).(UpstreamAuthSettingsOutput)
 }
 
 // Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
@@ -3622,7 +3716,7 @@ func (o UpstreamAuthSettingsResponseOutput) ToUpstreamAuthSettingsResponsePtrOut
 }
 
 func (o UpstreamAuthSettingsResponseOutput) ToUpstreamAuthSettingsResponsePtrOutputWithContext(ctx context.Context) UpstreamAuthSettingsResponsePtrOutput {
-	return o.ApplyT(func(v UpstreamAuthSettingsResponse) *UpstreamAuthSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpstreamAuthSettingsResponse) *UpstreamAuthSettingsResponse {
 		return &v
 	}).(UpstreamAuthSettingsResponsePtrOutput)
 }
@@ -3652,7 +3746,13 @@ func (o UpstreamAuthSettingsResponsePtrOutput) ToUpstreamAuthSettingsResponsePtr
 }
 
 func (o UpstreamAuthSettingsResponsePtrOutput) Elem() UpstreamAuthSettingsResponseOutput {
-	return o.ApplyT(func(v *UpstreamAuthSettingsResponse) UpstreamAuthSettingsResponse { return *v }).(UpstreamAuthSettingsResponseOutput)
+	return o.ApplyT(func(v *UpstreamAuthSettingsResponse) UpstreamAuthSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UpstreamAuthSettingsResponse
+		return ret
+	}).(UpstreamAuthSettingsResponseOutput)
 }
 
 // Gets or sets the managed identity settings. It's required if the auth type is set to ManagedIdentity.
@@ -4142,7 +4242,7 @@ func (o WebPubSubNetworkACLsOutput) ToWebPubSubNetworkACLsPtrOutput() WebPubSubN
 }
 
 func (o WebPubSubNetworkACLsOutput) ToWebPubSubNetworkACLsPtrOutputWithContext(ctx context.Context) WebPubSubNetworkACLsPtrOutput {
-	return o.ApplyT(func(v WebPubSubNetworkACLs) *WebPubSubNetworkACLs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebPubSubNetworkACLs) *WebPubSubNetworkACLs {
 		return &v
 	}).(WebPubSubNetworkACLsPtrOutput)
 }
@@ -4177,7 +4277,13 @@ func (o WebPubSubNetworkACLsPtrOutput) ToWebPubSubNetworkACLsPtrOutputWithContex
 }
 
 func (o WebPubSubNetworkACLsPtrOutput) Elem() WebPubSubNetworkACLsOutput {
-	return o.ApplyT(func(v *WebPubSubNetworkACLs) WebPubSubNetworkACLs { return *v }).(WebPubSubNetworkACLsOutput)
+	return o.ApplyT(func(v *WebPubSubNetworkACLs) WebPubSubNetworkACLs {
+		if v != nil {
+			return *v
+		}
+		var ret WebPubSubNetworkACLs
+		return ret
+	}).(WebPubSubNetworkACLsOutput)
 }
 
 // Default action when no other rule matches
@@ -4314,7 +4420,7 @@ func (o WebPubSubNetworkACLsResponseOutput) ToWebPubSubNetworkACLsResponsePtrOut
 }
 
 func (o WebPubSubNetworkACLsResponseOutput) ToWebPubSubNetworkACLsResponsePtrOutputWithContext(ctx context.Context) WebPubSubNetworkACLsResponsePtrOutput {
-	return o.ApplyT(func(v WebPubSubNetworkACLsResponse) *WebPubSubNetworkACLsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebPubSubNetworkACLsResponse) *WebPubSubNetworkACLsResponse {
 		return &v
 	}).(WebPubSubNetworkACLsResponsePtrOutput)
 }
@@ -4349,7 +4455,13 @@ func (o WebPubSubNetworkACLsResponsePtrOutput) ToWebPubSubNetworkACLsResponsePtr
 }
 
 func (o WebPubSubNetworkACLsResponsePtrOutput) Elem() WebPubSubNetworkACLsResponseOutput {
-	return o.ApplyT(func(v *WebPubSubNetworkACLsResponse) WebPubSubNetworkACLsResponse { return *v }).(WebPubSubNetworkACLsResponseOutput)
+	return o.ApplyT(func(v *WebPubSubNetworkACLsResponse) WebPubSubNetworkACLsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebPubSubNetworkACLsResponse
+		return ret
+	}).(WebPubSubNetworkACLsResponseOutput)
 }
 
 // Default action when no other rule matches
@@ -4478,7 +4590,7 @@ func (o WebPubSubTlsSettingsOutput) ToWebPubSubTlsSettingsPtrOutput() WebPubSubT
 }
 
 func (o WebPubSubTlsSettingsOutput) ToWebPubSubTlsSettingsPtrOutputWithContext(ctx context.Context) WebPubSubTlsSettingsPtrOutput {
-	return o.ApplyT(func(v WebPubSubTlsSettings) *WebPubSubTlsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebPubSubTlsSettings) *WebPubSubTlsSettings {
 		return &v
 	}).(WebPubSubTlsSettingsPtrOutput)
 }
@@ -4503,7 +4615,13 @@ func (o WebPubSubTlsSettingsPtrOutput) ToWebPubSubTlsSettingsPtrOutputWithContex
 }
 
 func (o WebPubSubTlsSettingsPtrOutput) Elem() WebPubSubTlsSettingsOutput {
-	return o.ApplyT(func(v *WebPubSubTlsSettings) WebPubSubTlsSettings { return *v }).(WebPubSubTlsSettingsOutput)
+	return o.ApplyT(func(v *WebPubSubTlsSettings) WebPubSubTlsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret WebPubSubTlsSettings
+		return ret
+	}).(WebPubSubTlsSettingsOutput)
 }
 
 // Request client certificate during TLS handshake if enabled
@@ -4612,7 +4730,7 @@ func (o WebPubSubTlsSettingsResponseOutput) ToWebPubSubTlsSettingsResponsePtrOut
 }
 
 func (o WebPubSubTlsSettingsResponseOutput) ToWebPubSubTlsSettingsResponsePtrOutputWithContext(ctx context.Context) WebPubSubTlsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v WebPubSubTlsSettingsResponse) *WebPubSubTlsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebPubSubTlsSettingsResponse) *WebPubSubTlsSettingsResponse {
 		return &v
 	}).(WebPubSubTlsSettingsResponsePtrOutput)
 }
@@ -4637,7 +4755,13 @@ func (o WebPubSubTlsSettingsResponsePtrOutput) ToWebPubSubTlsSettingsResponsePtr
 }
 
 func (o WebPubSubTlsSettingsResponsePtrOutput) Elem() WebPubSubTlsSettingsResponseOutput {
-	return o.ApplyT(func(v *WebPubSubTlsSettingsResponse) WebPubSubTlsSettingsResponse { return *v }).(WebPubSubTlsSettingsResponseOutput)
+	return o.ApplyT(func(v *WebPubSubTlsSettingsResponse) WebPubSubTlsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WebPubSubTlsSettingsResponse
+		return ret
+	}).(WebPubSubTlsSettingsResponseOutput)
 }
 
 // Request client certificate during TLS handshake if enabled
@@ -4667,7 +4791,7 @@ func (i EventHandlerTemplateArrayMap) ToEventHandlerTemplateArrayMapOutputWithCo
 type EventHandlerTemplateArrayMapOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerTemplateArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplateArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string]EventHandlerTemplateArray)(nil)).Elem()
 }
 
 func (o EventHandlerTemplateArrayMapOutput) ToEventHandlerTemplateArrayMapOutput() EventHandlerTemplateArrayMapOutput {
@@ -4712,7 +4836,7 @@ func (i EventHandlerTemplateResponseArrayMap) ToEventHandlerTemplateResponseArra
 type EventHandlerTemplateResponseArrayMapOutput struct{ *pulumi.OutputState }
 
 func (EventHandlerTemplateResponseArrayMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHandlerTemplateResponseArray)(nil)).Elem()
+	return reflect.TypeOf((*map[string]EventHandlerTemplateResponseArray)(nil)).Elem()
 }
 
 func (o EventHandlerTemplateResponseArrayMapOutput) ToEventHandlerTemplateResponseArrayMapOutput() EventHandlerTemplateResponseArrayMapOutput {
@@ -4801,5 +4925,6 @@ func init() {
 	pulumi.RegisterOutputType(WebPubSubTlsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(WebPubSubTlsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(WebPubSubTlsSettingsResponsePtrOutput{})
+	pulumi.RegisterOutputType(EventHandlerTemplateArrayMapOutput{})
 	pulumi.RegisterOutputType(EventHandlerTemplateResponseArrayMapOutput{})
 }

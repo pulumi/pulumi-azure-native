@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Dns settings of a network interface
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceDnsSettingsResponse
     {

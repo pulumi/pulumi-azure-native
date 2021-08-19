@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20200601.Outputs
 {
 
+    /// <summary>
+    /// The definition for data in the export.
+    /// </summary>
     [OutputType]
     public sealed class ExportDatasetResponse
     {

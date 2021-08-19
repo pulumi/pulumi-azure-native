@@ -117,41 +117,9 @@ func GetWorkloadGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadGroup resources.
 type workloadGroupState struct {
-	// The workload group importance level.
-	Importance *string `pulumi:"importance"`
-	// The workload group cap percentage resource.
-	MaxResourcePercent *int `pulumi:"maxResourcePercent"`
-	// The workload group request maximum grant percentage.
-	MaxResourcePercentPerRequest *float64 `pulumi:"maxResourcePercentPerRequest"`
-	// The workload group minimum percentage resource.
-	MinResourcePercent *int `pulumi:"minResourcePercent"`
-	// The workload group request minimum grant percentage.
-	MinResourcePercentPerRequest *float64 `pulumi:"minResourcePercentPerRequest"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The workload group query execution timeout.
-	QueryExecutionTimeout *int `pulumi:"queryExecutionTimeout"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadGroupState struct {
-	// The workload group importance level.
-	Importance pulumi.StringPtrInput
-	// The workload group cap percentage resource.
-	MaxResourcePercent pulumi.IntPtrInput
-	// The workload group request maximum grant percentage.
-	MaxResourcePercentPerRequest pulumi.Float64PtrInput
-	// The workload group minimum percentage resource.
-	MinResourcePercent pulumi.IntPtrInput
-	// The workload group request minimum grant percentage.
-	MinResourcePercentPerRequest pulumi.Float64PtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The workload group query execution timeout.
-	QueryExecutionTimeout pulumi.IntPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadGroupState) ElementType() reflect.Type {
@@ -228,9 +196,7 @@ func (i *WorkloadGroup) ToWorkloadGroupOutputWithContext(ctx context.Context) Wo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadGroupOutput)
 }
 
-type WorkloadGroupOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (WorkloadGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadGroup)(nil))

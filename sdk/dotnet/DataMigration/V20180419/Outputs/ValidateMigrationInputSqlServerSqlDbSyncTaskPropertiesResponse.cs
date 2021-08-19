@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
+    /// <summary>
+    /// Properties for task that validates migration input for SQL to Azure SQL DB sync migrations
+    /// </summary>
     [OutputType]
     public sealed class ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse
     {

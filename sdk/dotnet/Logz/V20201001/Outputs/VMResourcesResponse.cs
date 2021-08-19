@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001.Outputs
 {
 
+    /// <summary>
+    /// VM Resource Ids
+    /// </summary>
     [OutputType]
     public sealed class VMResourcesResponse
     {

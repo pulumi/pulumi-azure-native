@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview.Outputs
 {
 
+    /// <summary>
+    /// The parameters that describes a set of credentials that will be used when a run is invoked.
+    /// </summary>
     [OutputType]
     public sealed class CredentialsResponse
     {

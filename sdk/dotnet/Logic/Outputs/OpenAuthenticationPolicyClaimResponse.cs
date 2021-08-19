@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// Open authentication policy claim.
+    /// </summary>
     [OutputType]
     public sealed class OpenAuthenticationPolicyClaimResponse
     {

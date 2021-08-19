@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20160901.Outputs
 {
 
+    /// <summary>
+    /// Cluster upgrade policy
+    /// </summary>
     [OutputType]
     public sealed class ClusterUpgradePolicyResponse
     {

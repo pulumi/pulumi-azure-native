@@ -126,59 +126,9 @@ func GetBlobStorageAccountDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobStorageAccountDataSetMapping resources.
 type blobStorageAccountDataSetMappingState struct {
-	// Gets or sets the container name.
-	ContainerName *string `pulumi:"containerName"`
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// Gets or sets the path to folder within the container.
-	Folder *string `pulumi:"folder"`
-	// Kind of data set mapping.
-	// Expected value is 'BlobStorageAccount'.
-	Kind *string `pulumi:"kind"`
-	// Location of the sink storage account.
-	Location *string `pulumi:"location"`
-	// Gets or sets the mount path on the consumer side where the dataset is to be mapped.
-	MountPath *string `pulumi:"mountPath"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource id of the sink storage account
-	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type BlobStorageAccountDataSetMappingState struct {
-	// Gets or sets the container name.
-	ContainerName pulumi.StringPtrInput
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// Gets or sets the path to folder within the container.
-	Folder pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'BlobStorageAccount'.
-	Kind pulumi.StringPtrInput
-	// Location of the sink storage account.
-	Location pulumi.StringPtrInput
-	// Gets or sets the mount path on the consumer side where the dataset is to be mapped.
-	MountPath pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource id of the sink storage account
-	StorageAccountResourceId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (BlobStorageAccountDataSetMappingState) ElementType() reflect.Type {
@@ -257,9 +207,7 @@ func (i *BlobStorageAccountDataSetMapping) ToBlobStorageAccountDataSetMappingOut
 	return pulumi.ToOutputWithContext(ctx, i).(BlobStorageAccountDataSetMappingOutput)
 }
 
-type BlobStorageAccountDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type BlobStorageAccountDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (BlobStorageAccountDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobStorageAccountDataSetMapping)(nil))

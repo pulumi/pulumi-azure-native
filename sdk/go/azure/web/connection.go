@@ -79,31 +79,9 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name       *string                                    `pulumi:"name"`
-	Properties *ApiConnectionDefinitionResponseProperties `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type ConnectionState struct {
-	// Resource ETag
-	Etag pulumi.StringPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties ApiConnectionDefinitionResponsePropertiesPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -166,9 +144,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
-type ConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connection)(nil))

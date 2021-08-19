@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// A set of rules governing the network accessibility of a managed hsm pool.
+    /// </summary>
     [OutputType]
     public sealed class MHSMNetworkRuleSetResponse
     {

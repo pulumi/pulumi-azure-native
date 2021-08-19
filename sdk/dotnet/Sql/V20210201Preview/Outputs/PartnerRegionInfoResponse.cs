@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Partner region information for the failover group.
+    /// </summary>
     [OutputType]
     public sealed class PartnerRegionInfoResponse
     {

@@ -43,6 +43,9 @@ func NewPrivateLinkServicesForSCCPowershell(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
@@ -86,45 +89,9 @@ func GetPrivateLinkServicesForSCCPowershell(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkServicesForSCCPowershell resources.
 type privateLinkServicesForSCCPowershellState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ServicesResourceResponseIdentity `pulumi:"identity"`
-	// The kind of the service.
-	Kind *string `pulumi:"kind"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The common properties of a service.
-	Properties *ServicesPropertiesResponse `pulumi:"properties"`
-	// Required property for system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PrivateLinkServicesForSCCPowershellState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ServicesResourceResponseIdentityPtrInput
-	// The kind of the service.
-	Kind pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The common properties of a service.
-	Properties ServicesPropertiesResponsePtrInput
-	// Required property for system data
-	SystemData SystemDataResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PrivateLinkServicesForSCCPowershellState) ElementType() reflect.Type {
@@ -137,7 +104,7 @@ type privateLinkServicesForSCCPowershellArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity *ServicesResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
-	Kind string `pulumi:"kind"`
+	Kind Kind `pulumi:"kind"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The common properties of a service.
@@ -157,7 +124,7 @@ type PrivateLinkServicesForSCCPowershellArgs struct {
 	// Setting indicating whether the service has a managed identity associated with it.
 	Identity ServicesResourceIdentityPtrInput
 	// The kind of the service.
-	Kind Kind
+	Kind KindInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The common properties of a service.
@@ -193,9 +160,7 @@ func (i *PrivateLinkServicesForSCCPowershell) ToPrivateLinkServicesForSCCPowersh
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServicesForSCCPowershellOutput)
 }
 
-type PrivateLinkServicesForSCCPowershellOutput struct {
-	*pulumi.OutputState
-}
+type PrivateLinkServicesForSCCPowershellOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForSCCPowershellOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateLinkServicesForSCCPowershell)(nil))

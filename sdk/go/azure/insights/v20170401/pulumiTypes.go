@@ -324,7 +324,7 @@ func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutput(
 }
 
 func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionList) *ActivityLogAlertActionList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertActionList) *ActivityLogAlertActionList {
 		return &v
 	}).(ActivityLogAlertActionListPtrOutput)
 }
@@ -349,7 +349,13 @@ func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutp
 }
 
 func (o ActivityLogAlertActionListPtrOutput) Elem() ActivityLogAlertActionListOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList { return *v }).(ActivityLogAlertActionListOutput)
+	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertActionList
+		return ret
+	}).(ActivityLogAlertActionListOutput)
 }
 
 // The list of activity log alerts.
@@ -458,7 +464,7 @@ func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListRe
 }
 
 func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertActionListResponse) *ActivityLogAlertActionListResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertActionListResponse) *ActivityLogAlertActionListResponse {
 		return &v
 	}).(ActivityLogAlertActionListResponsePtrOutput)
 }
@@ -485,7 +491,13 @@ func (o ActivityLogAlertActionListResponsePtrOutput) ToActivityLogAlertActionLis
 }
 
 func (o ActivityLogAlertActionListResponsePtrOutput) Elem() ActivityLogAlertActionListResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) ActivityLogAlertActionListResponse { return *v }).(ActivityLogAlertActionListResponseOutput)
+	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) ActivityLogAlertActionListResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertActionListResponse
+		return ret
+	}).(ActivityLogAlertActionListResponseOutput)
 }
 
 // The list of activity log alerts.
@@ -594,7 +606,7 @@ func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPt
 }
 
 func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
 		return &v
 	}).(ActivityLogAlertAllOfConditionPtrOutput)
 }
@@ -619,7 +631,13 @@ func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditio
 }
 
 func (o ActivityLogAlertAllOfConditionPtrOutput) Elem() ActivityLogAlertAllOfConditionOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition { return *v }).(ActivityLogAlertAllOfConditionOutput)
+	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertAllOfCondition
+		return ret
+	}).(ActivityLogAlertAllOfConditionOutput)
 }
 
 // The list of activity log alert conditions.
@@ -728,7 +746,7 @@ func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfCon
 }
 
 func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o.ApplyT(func(v ActivityLogAlertAllOfConditionResponse) *ActivityLogAlertAllOfConditionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertAllOfConditionResponse) *ActivityLogAlertAllOfConditionResponse {
 		return &v
 	}).(ActivityLogAlertAllOfConditionResponsePtrOutput)
 }
@@ -753,7 +771,13 @@ func (o ActivityLogAlertAllOfConditionResponsePtrOutput) ToActivityLogAlertAllOf
 }
 
 func (o ActivityLogAlertAllOfConditionResponsePtrOutput) Elem() ActivityLogAlertAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) ActivityLogAlertAllOfConditionResponse { return *v }).(ActivityLogAlertAllOfConditionResponseOutput)
+	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) ActivityLogAlertAllOfConditionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActivityLogAlertAllOfConditionResponse
+		return ret
+	}).(ActivityLogAlertAllOfConditionResponseOutput)
 }
 
 // The list of activity log alert conditions.

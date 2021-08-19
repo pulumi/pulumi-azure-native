@@ -10,13 +10,13 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'CorsRuleArgs',
     'CorsRulesArgs',
+    'CorsRuleArgs',
     'CustomDomainArgs',
     'DeleteRetentionPolicyArgs',
-    'EncryptionArgs',
-    'EncryptionServiceArgs',
     'EncryptionServicesArgs',
+    'EncryptionServiceArgs',
+    'EncryptionArgs',
     'IPRuleArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
@@ -25,6 +25,30 @@ __all__ = [
     'SkuArgs',
     'VirtualNetworkRuleArgs',
 ]
+
+@pulumi.input_type
+class CorsRulesArgs:
+    def __init__(__self__, *,
+                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
+        """
+        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
+        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        if cors_rules is not None:
+            pulumi.set(__self__, "cors_rules", cors_rules)
+
+    @property
+    @pulumi.getter(name="corsRules")
+    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
+        """
+        The List of CORS rules. You can include up to five CorsRule elements in the request. 
+        """
+        return pulumi.get(self, "cors_rules")
+
+    @cors_rules.setter
+    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
+        pulumi.set(self, "cors_rules", value)
+
 
 @pulumi.input_type
 class CorsRuleArgs:
@@ -110,30 +134,6 @@ class CorsRuleArgs:
 
 
 @pulumi.input_type
-class CorsRulesArgs:
-    def __init__(__self__, *,
-                 cors_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]] = None):
-        """
-        Sets the CORS rules. You can include up to five CorsRule elements in the request. 
-        :param pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]] cors_rules: The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
-
-    @property
-    @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]:
-        """
-        The List of CORS rules. You can include up to five CorsRule elements in the request. 
-        """
-        return pulumi.get(self, "cors_rules")
-
-    @cors_rules.setter
-    def cors_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CorsRuleArgs']]]]):
-        pulumi.set(self, "cors_rules", value)
-
-
-@pulumi.input_type
 class CustomDomainArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -213,6 +213,70 @@ class DeleteRetentionPolicyArgs:
 
 
 @pulumi.input_type
+class EncryptionServicesArgs:
+    def __init__(__self__, *,
+                 blob: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
+                 file: Optional[pulumi.Input['EncryptionServiceArgs']] = None):
+        """
+        A list of services that support encryption.
+        :param pulumi.Input['EncryptionServiceArgs'] blob: The encryption function of the blob storage service.
+        :param pulumi.Input['EncryptionServiceArgs'] file: The encryption function of the file storage service.
+        """
+        if blob is not None:
+            pulumi.set(__self__, "blob", blob)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+
+    @property
+    @pulumi.getter
+    def blob(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
+        """
+        The encryption function of the blob storage service.
+        """
+        return pulumi.get(self, "blob")
+
+    @blob.setter
+    def blob(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
+        pulumi.set(self, "blob", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
+        """
+        The encryption function of the file storage service.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
+        pulumi.set(self, "file", value)
+
+
+@pulumi.input_type
+class EncryptionServiceArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        A service that allows server-side encryption to be used.
+        :param pulumi.Input[bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating whether or not the service encrypts the data as it is stored.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
                  key_source: pulumi.Input[Union[str, 'KeySource']],
@@ -267,70 +331,6 @@ class EncryptionArgs:
     @services.setter
     def services(self, value: Optional[pulumi.Input['EncryptionServicesArgs']]):
         pulumi.set(self, "services", value)
-
-
-@pulumi.input_type
-class EncryptionServiceArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        A service that allows server-side encryption to be used.
-        :param pulumi.Input[bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean indicating whether or not the service encrypts the data as it is stored.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-@pulumi.input_type
-class EncryptionServicesArgs:
-    def __init__(__self__, *,
-                 blob: Optional[pulumi.Input['EncryptionServiceArgs']] = None,
-                 file: Optional[pulumi.Input['EncryptionServiceArgs']] = None):
-        """
-        A list of services that support encryption.
-        :param pulumi.Input['EncryptionServiceArgs'] blob: The encryption function of the blob storage service.
-        :param pulumi.Input['EncryptionServiceArgs'] file: The encryption function of the file storage service.
-        """
-        if blob is not None:
-            pulumi.set(__self__, "blob", blob)
-        if file is not None:
-            pulumi.set(__self__, "file", file)
-
-    @property
-    @pulumi.getter
-    def blob(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
-        """
-        The encryption function of the blob storage service.
-        """
-        return pulumi.get(self, "blob")
-
-    @blob.setter
-    def blob(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
-        pulumi.set(self, "blob", value)
-
-    @property
-    @pulumi.getter
-    def file(self) -> Optional[pulumi.Input['EncryptionServiceArgs']]:
-        """
-        The encryption function of the file storage service.
-        """
-        return pulumi.get(self, "file")
-
-    @file.setter
-    def file(self, value: Optional[pulumi.Input['EncryptionServiceArgs']]):
-        pulumi.set(self, "file", value)
 
 
 @pulumi.input_type

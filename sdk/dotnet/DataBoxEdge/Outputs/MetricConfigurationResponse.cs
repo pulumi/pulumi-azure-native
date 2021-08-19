@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// Metric configuration.
+    /// </summary>
     [OutputType]
     public sealed class MetricConfigurationResponse
     {

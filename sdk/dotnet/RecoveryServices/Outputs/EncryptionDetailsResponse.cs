@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Encryption details for the fabric.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionDetailsResponse
     {

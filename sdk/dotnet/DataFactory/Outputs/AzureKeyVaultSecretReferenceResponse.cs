@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure Key Vault secret reference.
+    /// </summary>
     [OutputType]
     public sealed class AzureKeyVaultSecretReferenceResponse
     {

@@ -215,7 +215,7 @@ func (o BlockchainMemberNodesSkuOutput) ToBlockchainMemberNodesSkuPtrOutput() Bl
 }
 
 func (o BlockchainMemberNodesSkuOutput) ToBlockchainMemberNodesSkuPtrOutputWithContext(ctx context.Context) BlockchainMemberNodesSkuPtrOutput {
-	return o.ApplyT(func(v BlockchainMemberNodesSku) *BlockchainMemberNodesSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlockchainMemberNodesSku) *BlockchainMemberNodesSku {
 		return &v
 	}).(BlockchainMemberNodesSkuPtrOutput)
 }
@@ -240,7 +240,13 @@ func (o BlockchainMemberNodesSkuPtrOutput) ToBlockchainMemberNodesSkuPtrOutputWi
 }
 
 func (o BlockchainMemberNodesSkuPtrOutput) Elem() BlockchainMemberNodesSkuOutput {
-	return o.ApplyT(func(v *BlockchainMemberNodesSku) BlockchainMemberNodesSku { return *v }).(BlockchainMemberNodesSkuOutput)
+	return o.ApplyT(func(v *BlockchainMemberNodesSku) BlockchainMemberNodesSku {
+		if v != nil {
+			return *v
+		}
+		var ret BlockchainMemberNodesSku
+		return ret
+	}).(BlockchainMemberNodesSkuOutput)
 }
 
 // Gets or sets the nodes capacity.
@@ -349,7 +355,7 @@ func (o BlockchainMemberNodesSkuResponseOutput) ToBlockchainMemberNodesSkuRespon
 }
 
 func (o BlockchainMemberNodesSkuResponseOutput) ToBlockchainMemberNodesSkuResponsePtrOutputWithContext(ctx context.Context) BlockchainMemberNodesSkuResponsePtrOutput {
-	return o.ApplyT(func(v BlockchainMemberNodesSkuResponse) *BlockchainMemberNodesSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlockchainMemberNodesSkuResponse) *BlockchainMemberNodesSkuResponse {
 		return &v
 	}).(BlockchainMemberNodesSkuResponsePtrOutput)
 }
@@ -374,7 +380,13 @@ func (o BlockchainMemberNodesSkuResponsePtrOutput) ToBlockchainMemberNodesSkuRes
 }
 
 func (o BlockchainMemberNodesSkuResponsePtrOutput) Elem() BlockchainMemberNodesSkuResponseOutput {
-	return o.ApplyT(func(v *BlockchainMemberNodesSkuResponse) BlockchainMemberNodesSkuResponse { return *v }).(BlockchainMemberNodesSkuResponseOutput)
+	return o.ApplyT(func(v *BlockchainMemberNodesSkuResponse) BlockchainMemberNodesSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlockchainMemberNodesSkuResponse
+		return ret
+	}).(BlockchainMemberNodesSkuResponseOutput)
 }
 
 // Gets or sets the nodes capacity.
@@ -832,7 +844,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -862,7 +874,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Gets or sets Sku name
@@ -985,7 +1003,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1015,7 +1033,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Gets or sets Sku name

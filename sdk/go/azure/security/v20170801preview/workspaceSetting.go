@@ -72,25 +72,9 @@ func GetWorkspaceSetting(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceSetting resources.
 type workspaceSettingState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
-	Scope *string `pulumi:"scope"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The full Azure ID of the workspace to save the data in
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceSettingState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// All the VMs in this scope will send their security data to the mentioned workspace unless overridden by a setting with more specific scope
-	Scope pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The full Azure ID of the workspace to save the data in
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (WorkspaceSettingState) ElementType() reflect.Type {
@@ -139,9 +123,7 @@ func (i *WorkspaceSetting) ToWorkspaceSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSettingOutput)
 }
 
-type WorkspaceSettingOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceSettingOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSettingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkspaceSetting)(nil))

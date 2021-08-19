@@ -123,53 +123,9 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// UTC Date and time when project was created
-	CreationTime *string `pulumi:"creationTime"`
-	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfoResponse `pulumi:"databasesInfo"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The project's provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Information for connecting to source
-	SourceConnectionInfo interface{} `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform *string `pulumi:"sourcePlatform"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Information for connecting to target
-	TargetConnectionInfo interface{} `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform *string `pulumi:"targetPlatform"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ProjectState struct {
-	// UTC Date and time when project was created
-	CreationTime pulumi.StringPtrInput
-	// List of DatabaseInfo
-	DatabasesInfo DatabaseInfoResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The project's provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// Information for connecting to source
-	SourceConnectionInfo pulumi.Input
-	// Source platform for the project
-	SourcePlatform pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Information for connecting to target
-	TargetConnectionInfo pulumi.Input
-	// Target platform for the project
-	TargetPlatform pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -246,9 +202,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

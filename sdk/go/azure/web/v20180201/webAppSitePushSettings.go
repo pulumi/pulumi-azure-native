@@ -144,43 +144,9 @@ func GetWebAppSitePushSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppSitePushSettings resources.
 type webAppSitePushSettingsState struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled *bool `pulumi:"isPushEnabled"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
-	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppSitePushSettingsState struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson pulumi.StringPtrInput
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled pulumi.BoolPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson pulumi.StringPtrInput
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
-	TagsRequiringAuth pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppSitePushSettingsState) ElementType() reflect.Type {
@@ -251,9 +217,7 @@ func (i *WebAppSitePushSettings) ToWebAppSitePushSettingsOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSitePushSettingsOutput)
 }
 
-type WebAppSitePushSettingsOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSitePushSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppSitePushSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSitePushSettings)(nil))

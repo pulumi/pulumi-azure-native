@@ -130,129 +130,9 @@ func GetAccessReviewScheduleDefinitionById(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessReviewScheduleDefinitionById resources.
 type accessReviewScheduleDefinitionByIdState struct {
-	// The role assignment state eligible/active to review
-	AssignmentState *string `pulumi:"assignmentState"`
-	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
-	AutoApplyDecisionsEnabled *bool `pulumi:"autoApplyDecisionsEnabled"`
-	// This is the collection of backup reviewers.
-	BackupReviewers []AccessReviewReviewerResponse `pulumi:"backupReviewers"`
-	// This specifies the behavior for the autoReview feature when an access review completes.
-	DefaultDecision *string `pulumi:"defaultDecision"`
-	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
-	DefaultDecisionEnabled *bool `pulumi:"defaultDecisionEnabled"`
-	// The description provided by the access review creator and visible to admins.
-	DescriptionForAdmins *string `pulumi:"descriptionForAdmins"`
-	// The description provided by the access review creator to be shown to reviewers.
-	DescriptionForReviewers *string `pulumi:"descriptionForReviewers"`
-	// The display name for the schedule definition.
-	DisplayName *string `pulumi:"displayName"`
-	// The DateTime when the review is scheduled to end. Required if type is endDate
-	EndDate *string `pulumi:"endDate"`
-	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-	InactiveDuration *string `pulumi:"inactiveDuration"`
-	// The duration in days for an instance.
-	InstanceDurationInDays *int `pulumi:"instanceDurationInDays"`
-	// This is the collection of instances returned when one does an expand on it.
-	Instances []AccessReviewInstanceResponse `pulumi:"instances"`
-	// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-	Interval *int `pulumi:"interval"`
-	// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
-	JustificationRequiredOnApproval *bool `pulumi:"justificationRequiredOnApproval"`
-	// Flag to indicate whether sending mails to reviewers and the review creator is enabled.
-	MailNotificationsEnabled *bool `pulumi:"mailNotificationsEnabled"`
-	// The access review schedule definition unique id.
-	Name *string `pulumi:"name"`
-	// The number of times to repeat the access review. Required and must be positive if type is numbered.
-	NumberOfOccurrences *int `pulumi:"numberOfOccurrences"`
-	// The identity id
-	PrincipalId *string `pulumi:"principalId"`
-	// The identity display name
-	PrincipalName *string `pulumi:"principalName"`
-	// The identity type user/servicePrincipal to review
-	PrincipalType *string `pulumi:"principalType"`
-	// Flag to indicate whether showing recommendations to reviewers is enabled.
-	RecommendationsEnabled *bool `pulumi:"recommendationsEnabled"`
-	// Flag to indicate whether sending reminder emails to reviewers are enabled.
-	ReminderNotificationsEnabled *bool `pulumi:"reminderNotificationsEnabled"`
-	// ResourceId in which this review is getting created
-	ResourceId *string `pulumi:"resourceId"`
-	// This is the collection of reviewers.
-	Reviewers []AccessReviewReviewerResponse `pulumi:"reviewers"`
-	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-	ReviewersType *string `pulumi:"reviewersType"`
-	// This is used to indicate the role being reviewed
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-	StartDate *string `pulumi:"startDate"`
-	// This read-only field specifies the status of an accessReview.
-	Status *string `pulumi:"status"`
-	// The resource type.
-	Type *string `pulumi:"type"`
-	// The user principal name(if valid)
-	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
 
 type AccessReviewScheduleDefinitionByIdState struct {
-	// The role assignment state eligible/active to review
-	AssignmentState pulumi.StringPtrInput
-	// Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
-	AutoApplyDecisionsEnabled pulumi.BoolPtrInput
-	// This is the collection of backup reviewers.
-	BackupReviewers AccessReviewReviewerResponseArrayInput
-	// This specifies the behavior for the autoReview feature when an access review completes.
-	DefaultDecision pulumi.StringPtrInput
-	// Flag to indicate whether reviewers are required to provide a justification when reviewing access.
-	DefaultDecisionEnabled pulumi.BoolPtrInput
-	// The description provided by the access review creator and visible to admins.
-	DescriptionForAdmins pulumi.StringPtrInput
-	// The description provided by the access review creator to be shown to reviewers.
-	DescriptionForReviewers pulumi.StringPtrInput
-	// The display name for the schedule definition.
-	DisplayName pulumi.StringPtrInput
-	// The DateTime when the review is scheduled to end. Required if type is endDate
-	EndDate pulumi.StringPtrInput
-	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
-	InactiveDuration pulumi.StringPtrInput
-	// The duration in days for an instance.
-	InstanceDurationInDays pulumi.IntPtrInput
-	// This is the collection of instances returned when one does an expand on it.
-	Instances AccessReviewInstanceResponseArrayInput
-	// The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
-	Interval pulumi.IntPtrInput
-	// Flag to indicate whether the reviewer is required to pass justification when recording a decision.
-	JustificationRequiredOnApproval pulumi.BoolPtrInput
-	// Flag to indicate whether sending mails to reviewers and the review creator is enabled.
-	MailNotificationsEnabled pulumi.BoolPtrInput
-	// The access review schedule definition unique id.
-	Name pulumi.StringPtrInput
-	// The number of times to repeat the access review. Required and must be positive if type is numbered.
-	NumberOfOccurrences pulumi.IntPtrInput
-	// The identity id
-	PrincipalId pulumi.StringPtrInput
-	// The identity display name
-	PrincipalName pulumi.StringPtrInput
-	// The identity type user/servicePrincipal to review
-	PrincipalType pulumi.StringPtrInput
-	// Flag to indicate whether showing recommendations to reviewers is enabled.
-	RecommendationsEnabled pulumi.BoolPtrInput
-	// Flag to indicate whether sending reminder emails to reviewers are enabled.
-	ReminderNotificationsEnabled pulumi.BoolPtrInput
-	// ResourceId in which this review is getting created
-	ResourceId pulumi.StringPtrInput
-	// This is the collection of reviewers.
-	Reviewers AccessReviewReviewerResponseArrayInput
-	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
-	ReviewersType pulumi.StringPtrInput
-	// This is used to indicate the role being reviewed
-	RoleDefinitionId pulumi.StringPtrInput
-	// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-	StartDate pulumi.StringPtrInput
-	// This read-only field specifies the status of an accessReview.
-	Status pulumi.StringPtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
-	// The user principal name(if valid)
-	UserPrincipalName pulumi.StringPtrInput
 }
 
 func (AccessReviewScheduleDefinitionByIdState) ElementType() reflect.Type {
@@ -373,9 +253,7 @@ func (i *AccessReviewScheduleDefinitionById) ToAccessReviewScheduleDefinitionByI
 	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewScheduleDefinitionByIdOutput)
 }
 
-type AccessReviewScheduleDefinitionByIdOutput struct {
-	*pulumi.OutputState
-}
+type AccessReviewScheduleDefinitionByIdOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewScheduleDefinitionByIdOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessReviewScheduleDefinitionById)(nil))

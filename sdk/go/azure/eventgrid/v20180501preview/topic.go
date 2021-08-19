@@ -152,41 +152,9 @@ func GetTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
-	// Endpoint for the topic.
-	Endpoint *string `pulumi:"endpoint"`
-	// This determines the format that Event Grid should expect for incoming events published to the topic.
-	InputSchema *string `pulumi:"inputSchema"`
-	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping *JsonInputSchemaMappingResponse `pulumi:"inputSchemaMapping"`
-	// Location of the resource
-	Location *string `pulumi:"location"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the topic.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
 }
 
 type TopicState struct {
-	// Endpoint for the topic.
-	Endpoint pulumi.StringPtrInput
-	// This determines the format that Event Grid should expect for incoming events published to the topic.
-	InputSchema pulumi.StringPtrInput
-	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
-	InputSchemaMapping JsonInputSchemaMappingResponsePtrInput
-	// Location of the resource
-	Location pulumi.StringPtrInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the topic.
-	ProvisioningState pulumi.StringPtrInput
-	// Tags of the resource
-	Tags pulumi.StringMapInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
 }
 
 func (TopicState) ElementType() reflect.Type {
@@ -247,9 +215,7 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicOutput)
 }
 
-type TopicOutput struct {
-	*pulumi.OutputState
-}
+type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Topic)(nil))

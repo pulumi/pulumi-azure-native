@@ -110,7 +110,7 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
 // Gets or sets the content hash algorithm used to hash the content.
@@ -271,7 +277,7 @@ func (o ContentSourceOutput) ToContentSourcePtrOutput() ContentSourcePtrOutput {
 }
 
 func (o ContentSourceOutput) ToContentSourcePtrOutputWithContext(ctx context.Context) ContentSourcePtrOutput {
-	return o.ApplyT(func(v ContentSource) *ContentSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentSource) *ContentSource {
 		return &v
 	}).(ContentSourcePtrOutput)
 }
@@ -311,7 +317,13 @@ func (o ContentSourcePtrOutput) ToContentSourcePtrOutputWithContext(ctx context.
 }
 
 func (o ContentSourcePtrOutput) Elem() ContentSourceOutput {
-	return o.ApplyT(func(v *ContentSource) ContentSource { return *v }).(ContentSourceOutput)
+	return o.ApplyT(func(v *ContentSource) ContentSource {
+		if v != nil {
+			return *v
+		}
+		var ret ContentSource
+		return ret
+	}).(ContentSourceOutput)
 }
 
 // Gets or sets the hash.
@@ -450,7 +462,7 @@ func (o DscConfigurationAssociationPropertyOutput) ToDscConfigurationAssociation
 }
 
 func (o DscConfigurationAssociationPropertyOutput) ToDscConfigurationAssociationPropertyPtrOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyPtrOutput {
-	return o.ApplyT(func(v DscConfigurationAssociationProperty) *DscConfigurationAssociationProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DscConfigurationAssociationProperty) *DscConfigurationAssociationProperty {
 		return &v
 	}).(DscConfigurationAssociationPropertyPtrOutput)
 }
@@ -475,7 +487,13 @@ func (o DscConfigurationAssociationPropertyPtrOutput) ToDscConfigurationAssociat
 }
 
 func (o DscConfigurationAssociationPropertyPtrOutput) Elem() DscConfigurationAssociationPropertyOutput {
-	return o.ApplyT(func(v *DscConfigurationAssociationProperty) DscConfigurationAssociationProperty { return *v }).(DscConfigurationAssociationPropertyOutput)
+	return o.ApplyT(func(v *DscConfigurationAssociationProperty) DscConfigurationAssociationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret DscConfigurationAssociationProperty
+		return ret
+	}).(DscConfigurationAssociationPropertyOutput)
 }
 
 // Gets or sets the name of the Dsc configuration.
@@ -584,7 +602,7 @@ func (o DscConfigurationAssociationPropertyResponseOutput) ToDscConfigurationAss
 }
 
 func (o DscConfigurationAssociationPropertyResponseOutput) ToDscConfigurationAssociationPropertyResponsePtrOutputWithContext(ctx context.Context) DscConfigurationAssociationPropertyResponsePtrOutput {
-	return o.ApplyT(func(v DscConfigurationAssociationPropertyResponse) *DscConfigurationAssociationPropertyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DscConfigurationAssociationPropertyResponse) *DscConfigurationAssociationPropertyResponse {
 		return &v
 	}).(DscConfigurationAssociationPropertyResponsePtrOutput)
 }
@@ -610,7 +628,11 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) ToDscConfiguration
 
 func (o DscConfigurationAssociationPropertyResponsePtrOutput) Elem() DscConfigurationAssociationPropertyResponseOutput {
 	return o.ApplyT(func(v *DscConfigurationAssociationPropertyResponse) DscConfigurationAssociationPropertyResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DscConfigurationAssociationPropertyResponse
+		return ret
 	}).(DscConfigurationAssociationPropertyResponseOutput)
 }
 

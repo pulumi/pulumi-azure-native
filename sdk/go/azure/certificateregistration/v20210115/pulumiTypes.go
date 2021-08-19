@@ -365,7 +365,7 @@ func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutput(
 }
 
 func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v CertificateDetailsResponse) *CertificateDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDetailsResponse) *CertificateDetailsResponse {
 		return &v
 	}).(CertificateDetailsResponsePtrOutput)
 }
@@ -430,7 +430,13 @@ func (o CertificateDetailsResponsePtrOutput) ToCertificateDetailsResponsePtrOutp
 }
 
 func (o CertificateDetailsResponsePtrOutput) Elem() CertificateDetailsResponseOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse { return *v }).(CertificateDetailsResponseOutput)
+	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateDetailsResponse
+		return ret
+	}).(CertificateDetailsResponseOutput)
 }
 
 // Certificate Issuer.
@@ -620,10 +626,11 @@ func (o CertificateOrderContactResponseOutput) ToCertificateOrderContactResponse
 }
 
 func (o CertificateOrderContactResponseOutput) ToCertificateOrderContactResponsePtrOutputWithContext(ctx context.Context) CertificateOrderContactResponsePtrOutput {
-	return o.ApplyT(func(v CertificateOrderContactResponse) *CertificateOrderContactResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateOrderContactResponse) *CertificateOrderContactResponse {
 		return &v
 	}).(CertificateOrderContactResponsePtrOutput)
 }
+
 func (o CertificateOrderContactResponseOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOrderContactResponse) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
@@ -655,7 +662,13 @@ func (o CertificateOrderContactResponsePtrOutput) ToCertificateOrderContactRespo
 }
 
 func (o CertificateOrderContactResponsePtrOutput) Elem() CertificateOrderContactResponseOutput {
-	return o.ApplyT(func(v *CertificateOrderContactResponse) CertificateOrderContactResponse { return *v }).(CertificateOrderContactResponseOutput)
+	return o.ApplyT(func(v *CertificateOrderContactResponse) CertificateOrderContactResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateOrderContactResponse
+		return ret
+	}).(CertificateOrderContactResponseOutput)
 }
 
 func (o CertificateOrderContactResponsePtrOutput) Email() pulumi.StringPtrOutput {

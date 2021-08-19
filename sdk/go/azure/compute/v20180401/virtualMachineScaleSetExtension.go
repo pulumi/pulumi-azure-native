@@ -148,45 +148,9 @@ func GetVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineScaleSetExtension resources.
 type virtualMachineScaleSetExtensionState struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The name of the extension.
-	Name *string `pulumi:"name"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 type VirtualMachineScaleSetExtensionState struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The name of the extension.
-	Name pulumi.StringPtrInput
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.Input
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput
-	// Json formatted public settings for the extension.
-	Settings pulumi.Input
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput
 }
 
 func (VirtualMachineScaleSetExtensionState) ElementType() reflect.Type {
@@ -267,9 +231,7 @@ func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionOutput)
 }
 
-type VirtualMachineScaleSetExtensionOutput struct {
-	*pulumi.OutputState
-}
+type VirtualMachineScaleSetExtensionOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualMachineScaleSetExtension)(nil))

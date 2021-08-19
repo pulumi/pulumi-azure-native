@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
+    /// <summary>
+    /// Holds the available configuration options for an Azure ML web service endpoint.
+    /// </summary>
     [OutputType]
     public sealed class RealtimeConfigurationResponse
     {

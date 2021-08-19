@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// VMwareV2 fabric specific details.
+    /// </summary>
     [OutputType]
     public sealed class VMwareV2FabricSpecificDetailsResponse
     {

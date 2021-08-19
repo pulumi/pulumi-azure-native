@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200331.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for the url rewrite action.
+    /// </summary>
     [OutputType]
     public sealed class UrlRewriteActionParametersResponse
     {

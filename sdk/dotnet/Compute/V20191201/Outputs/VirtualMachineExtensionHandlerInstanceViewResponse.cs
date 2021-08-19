@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20191201.Outputs
 {
 
+    /// <summary>
+    /// The instance view of a virtual machine extension handler.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineExtensionHandlerInstanceViewResponse
     {

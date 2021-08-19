@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Management resource preference to link device
+    /// </summary>
     [OutputType]
     public sealed class ManagementResourcePreferencesResponse
     {

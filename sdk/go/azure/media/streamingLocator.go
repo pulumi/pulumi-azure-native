@@ -121,61 +121,9 @@ func GetStreamingLocator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingLocator resources.
 type streamingLocatorState struct {
-	// Alternative Media ID of this Streaming Locator
-	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
-	// Asset Name
-	AssetName *string `pulumi:"assetName"`
-	// The ContentKeys used by this Streaming Locator.
-	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
-	// The creation time of the Streaming Locator.
-	Created *string `pulumi:"created"`
-	// Name of the default ContentKeyPolicy used by this Streaming Locator.
-	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
-	// The end time of the Streaming Locator.
-	EndTime *string `pulumi:"endTime"`
-	// A list of asset or account filters which apply to this streaming locator
-	Filters []string `pulumi:"filters"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The start time of the Streaming Locator.
-	StartTime *string `pulumi:"startTime"`
-	// The StreamingLocatorId of the Streaming Locator.
-	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
-	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
-	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type StreamingLocatorState struct {
-	// Alternative Media ID of this Streaming Locator
-	AlternativeMediaId pulumi.StringPtrInput
-	// Asset Name
-	AssetName pulumi.StringPtrInput
-	// The ContentKeys used by this Streaming Locator.
-	ContentKeys StreamingLocatorContentKeyResponseArrayInput
-	// The creation time of the Streaming Locator.
-	Created pulumi.StringPtrInput
-	// Name of the default ContentKeyPolicy used by this Streaming Locator.
-	DefaultContentKeyPolicyName pulumi.StringPtrInput
-	// The end time of the Streaming Locator.
-	EndTime pulumi.StringPtrInput
-	// A list of asset or account filters which apply to this streaming locator
-	Filters pulumi.StringArrayInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The start time of the Streaming Locator.
-	StartTime pulumi.StringPtrInput
-	// The StreamingLocatorId of the Streaming Locator.
-	StreamingLocatorId pulumi.StringPtrInput
-	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
-	StreamingPolicyName pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (StreamingLocatorState) ElementType() reflect.Type {
@@ -260,9 +208,7 @@ func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorOutput)
 }
 
-type StreamingLocatorOutput struct {
-	*pulumi.OutputState
-}
+type StreamingLocatorOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamingLocator)(nil))

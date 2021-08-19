@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.Outputs
 {
 
+    /// <summary>
+    /// The error/warning message due to which the device is ineligible as a failover target device.
+    /// </summary>
     [OutputType]
     public sealed class TargetEligibilityErrorMessageResponse
     {

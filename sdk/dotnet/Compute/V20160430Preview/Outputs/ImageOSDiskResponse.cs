@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160430Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes an Operating System disk.
+    /// </summary>
     [OutputType]
     public sealed class ImageOSDiskResponse
     {

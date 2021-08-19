@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Outputs
 {
 
+    /// <summary>
+    /// Reboots a VM and waits for it to come back online (Windows). Corresponds to Packer windows-restart provisioner
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateRestartCustomizerResponse
     {

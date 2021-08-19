@@ -130,7 +130,7 @@ func (o BgpSessionOutput) ToBgpSessionPtrOutput() BgpSessionPtrOutput {
 }
 
 func (o BgpSessionOutput) ToBgpSessionPtrOutputWithContext(ctx context.Context) BgpSessionPtrOutput {
-	return o.ApplyT(func(v BgpSession) *BgpSession {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BgpSession) *BgpSession {
 		return &v
 	}).(BgpSessionPtrOutput)
 }
@@ -185,7 +185,13 @@ func (o BgpSessionPtrOutput) ToBgpSessionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o BgpSessionPtrOutput) Elem() BgpSessionOutput {
-	return o.ApplyT(func(v *BgpSession) BgpSession { return *v }).(BgpSessionOutput)
+	return o.ApplyT(func(v *BgpSession) BgpSession {
+		if v != nil {
+			return *v
+		}
+		var ret BgpSession
+		return ret
+	}).(BgpSessionOutput)
 }
 
 // The maximum number of prefixes advertised over the IPv4 session.
@@ -394,7 +400,7 @@ func (o BgpSessionResponseOutput) ToBgpSessionResponsePtrOutput() BgpSessionResp
 }
 
 func (o BgpSessionResponseOutput) ToBgpSessionResponsePtrOutputWithContext(ctx context.Context) BgpSessionResponsePtrOutput {
-	return o.ApplyT(func(v BgpSessionResponse) *BgpSessionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BgpSessionResponse) *BgpSessionResponse {
 		return &v
 	}).(BgpSessionResponsePtrOutput)
 }
@@ -469,7 +475,13 @@ func (o BgpSessionResponsePtrOutput) ToBgpSessionResponsePtrOutputWithContext(ct
 }
 
 func (o BgpSessionResponsePtrOutput) Elem() BgpSessionResponseOutput {
-	return o.ApplyT(func(v *BgpSessionResponse) BgpSessionResponse { return *v }).(BgpSessionResponseOutput)
+	return o.ApplyT(func(v *BgpSessionResponse) BgpSessionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BgpSessionResponse
+		return ret
+	}).(BgpSessionResponseOutput)
 }
 
 // The maximum number of prefixes advertised over the IPv4 session.
@@ -682,7 +694,7 @@ func (o ContactInfoOutput) ToContactInfoPtrOutput() ContactInfoPtrOutput {
 }
 
 func (o ContactInfoOutput) ToContactInfoPtrOutputWithContext(ctx context.Context) ContactInfoPtrOutput {
-	return o.ApplyT(func(v ContactInfo) *ContactInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactInfo) *ContactInfo {
 		return &v
 	}).(ContactInfoPtrOutput)
 }
@@ -712,7 +724,13 @@ func (o ContactInfoPtrOutput) ToContactInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContactInfoPtrOutput) Elem() ContactInfoOutput {
-	return o.ApplyT(func(v *ContactInfo) ContactInfo { return *v }).(ContactInfoOutput)
+	return o.ApplyT(func(v *ContactInfo) ContactInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ContactInfo
+		return ret
+	}).(ContactInfoOutput)
 }
 
 // The list of email addresses.
@@ -835,7 +853,7 @@ func (o ContactInfoResponseOutput) ToContactInfoResponsePtrOutput() ContactInfoR
 }
 
 func (o ContactInfoResponseOutput) ToContactInfoResponsePtrOutputWithContext(ctx context.Context) ContactInfoResponsePtrOutput {
-	return o.ApplyT(func(v ContactInfoResponse) *ContactInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactInfoResponse) *ContactInfoResponse {
 		return &v
 	}).(ContactInfoResponsePtrOutput)
 }
@@ -865,7 +883,13 @@ func (o ContactInfoResponsePtrOutput) ToContactInfoResponsePtrOutputWithContext(
 }
 
 func (o ContactInfoResponsePtrOutput) Elem() ContactInfoResponseOutput {
-	return o.ApplyT(func(v *ContactInfoResponse) ContactInfoResponse { return *v }).(ContactInfoResponseOutput)
+	return o.ApplyT(func(v *ContactInfoResponse) ContactInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContactInfoResponse
+		return ret
+	}).(ContactInfoResponseOutput)
 }
 
 // The list of email addresses.
@@ -1563,7 +1587,7 @@ func (o PeeringPropertiesDirectOutput) ToPeeringPropertiesDirectPtrOutput() Peer
 }
 
 func (o PeeringPropertiesDirectOutput) ToPeeringPropertiesDirectPtrOutputWithContext(ctx context.Context) PeeringPropertiesDirectPtrOutput {
-	return o.ApplyT(func(v PeeringPropertiesDirect) *PeeringPropertiesDirect {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringPropertiesDirect) *PeeringPropertiesDirect {
 		return &v
 	}).(PeeringPropertiesDirectPtrOutput)
 }
@@ -1598,7 +1622,13 @@ func (o PeeringPropertiesDirectPtrOutput) ToPeeringPropertiesDirectPtrOutputWith
 }
 
 func (o PeeringPropertiesDirectPtrOutput) Elem() PeeringPropertiesDirectOutput {
-	return o.ApplyT(func(v *PeeringPropertiesDirect) PeeringPropertiesDirect { return *v }).(PeeringPropertiesDirectOutput)
+	return o.ApplyT(func(v *PeeringPropertiesDirect) PeeringPropertiesDirect {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringPropertiesDirect
+		return ret
+	}).(PeeringPropertiesDirectOutput)
 }
 
 // The set of connections that constitute a direct peering.
@@ -1739,7 +1769,7 @@ func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponse
 }
 
 func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesDirectResponsePtrOutput {
-	return o.ApplyT(func(v PeeringPropertiesDirectResponse) *PeeringPropertiesDirectResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringPropertiesDirectResponse) *PeeringPropertiesDirectResponse {
 		return &v
 	}).(PeeringPropertiesDirectResponsePtrOutput)
 }
@@ -1779,7 +1809,13 @@ func (o PeeringPropertiesDirectResponsePtrOutput) ToPeeringPropertiesDirectRespo
 }
 
 func (o PeeringPropertiesDirectResponsePtrOutput) Elem() PeeringPropertiesDirectResponseOutput {
-	return o.ApplyT(func(v *PeeringPropertiesDirectResponse) PeeringPropertiesDirectResponse { return *v }).(PeeringPropertiesDirectResponseOutput)
+	return o.ApplyT(func(v *PeeringPropertiesDirectResponse) PeeringPropertiesDirectResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringPropertiesDirectResponse
+		return ret
+	}).(PeeringPropertiesDirectResponseOutput)
 }
 
 // The set of connections that constitute a direct peering.
@@ -1922,7 +1958,7 @@ func (o PeeringPropertiesExchangeOutput) ToPeeringPropertiesExchangePtrOutput() 
 }
 
 func (o PeeringPropertiesExchangeOutput) ToPeeringPropertiesExchangePtrOutputWithContext(ctx context.Context) PeeringPropertiesExchangePtrOutput {
-	return o.ApplyT(func(v PeeringPropertiesExchange) *PeeringPropertiesExchange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringPropertiesExchange) *PeeringPropertiesExchange {
 		return &v
 	}).(PeeringPropertiesExchangePtrOutput)
 }
@@ -1952,7 +1988,13 @@ func (o PeeringPropertiesExchangePtrOutput) ToPeeringPropertiesExchangePtrOutput
 }
 
 func (o PeeringPropertiesExchangePtrOutput) Elem() PeeringPropertiesExchangeOutput {
-	return o.ApplyT(func(v *PeeringPropertiesExchange) PeeringPropertiesExchange { return *v }).(PeeringPropertiesExchangeOutput)
+	return o.ApplyT(func(v *PeeringPropertiesExchange) PeeringPropertiesExchange {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringPropertiesExchange
+		return ret
+	}).(PeeringPropertiesExchangeOutput)
 }
 
 // The set of connections that constitute an exchange peering.
@@ -2075,7 +2117,7 @@ func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResp
 }
 
 func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesExchangeResponsePtrOutput {
-	return o.ApplyT(func(v PeeringPropertiesExchangeResponse) *PeeringPropertiesExchangeResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringPropertiesExchangeResponse) *PeeringPropertiesExchangeResponse {
 		return &v
 	}).(PeeringPropertiesExchangeResponsePtrOutput)
 }
@@ -2105,7 +2147,13 @@ func (o PeeringPropertiesExchangeResponsePtrOutput) ToPeeringPropertiesExchangeR
 }
 
 func (o PeeringPropertiesExchangeResponsePtrOutput) Elem() PeeringPropertiesExchangeResponseOutput {
-	return o.ApplyT(func(v *PeeringPropertiesExchangeResponse) PeeringPropertiesExchangeResponse { return *v }).(PeeringPropertiesExchangeResponseOutput)
+	return o.ApplyT(func(v *PeeringPropertiesExchangeResponse) PeeringPropertiesExchangeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringPropertiesExchangeResponse
+		return ret
+	}).(PeeringPropertiesExchangeResponseOutput)
 }
 
 // The set of connections that constitute an exchange peering.
@@ -2372,7 +2420,7 @@ func (o PeeringSkuOutput) ToPeeringSkuPtrOutput() PeeringSkuPtrOutput {
 }
 
 func (o PeeringSkuOutput) ToPeeringSkuPtrOutputWithContext(ctx context.Context) PeeringSkuPtrOutput {
-	return o.ApplyT(func(v PeeringSku) *PeeringSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringSku) *PeeringSku {
 		return &v
 	}).(PeeringSkuPtrOutput)
 }
@@ -2412,7 +2460,13 @@ func (o PeeringSkuPtrOutput) ToPeeringSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o PeeringSkuPtrOutput) Elem() PeeringSkuOutput {
-	return o.ApplyT(func(v *PeeringSku) PeeringSku { return *v }).(PeeringSkuOutput)
+	return o.ApplyT(func(v *PeeringSku) PeeringSku {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringSku
+		return ret
+	}).(PeeringSkuOutput)
 }
 
 // The family of the peering SKU.
@@ -2563,7 +2617,7 @@ func (o PeeringSkuResponseOutput) ToPeeringSkuResponsePtrOutput() PeeringSkuResp
 }
 
 func (o PeeringSkuResponseOutput) ToPeeringSkuResponsePtrOutputWithContext(ctx context.Context) PeeringSkuResponsePtrOutput {
-	return o.ApplyT(func(v PeeringSkuResponse) *PeeringSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringSkuResponse) *PeeringSkuResponse {
 		return &v
 	}).(PeeringSkuResponsePtrOutput)
 }
@@ -2603,7 +2657,13 @@ func (o PeeringSkuResponsePtrOutput) ToPeeringSkuResponsePtrOutputWithContext(ct
 }
 
 func (o PeeringSkuResponsePtrOutput) Elem() PeeringSkuResponseOutput {
-	return o.ApplyT(func(v *PeeringSkuResponse) PeeringSkuResponse { return *v }).(PeeringSkuResponseOutput)
+	return o.ApplyT(func(v *PeeringSkuResponse) PeeringSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringSkuResponse
+		return ret
+	}).(PeeringSkuResponseOutput)
 }
 
 // The family of the peering SKU.
@@ -2742,7 +2802,7 @@ func (o SubResourceOutput) ToSubResourcePtrOutput() SubResourcePtrOutput {
 }
 
 func (o SubResourceOutput) ToSubResourcePtrOutputWithContext(ctx context.Context) SubResourcePtrOutput {
-	return o.ApplyT(func(v SubResource) *SubResource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResource) *SubResource {
 		return &v
 	}).(SubResourcePtrOutput)
 }
@@ -2767,7 +2827,13 @@ func (o SubResourcePtrOutput) ToSubResourcePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SubResourcePtrOutput) Elem() SubResourceOutput {
-	return o.ApplyT(func(v *SubResource) SubResource { return *v }).(SubResourceOutput)
+	return o.ApplyT(func(v *SubResource) SubResource {
+		if v != nil {
+			return *v
+		}
+		var ret SubResource
+		return ret
+	}).(SubResourceOutput)
 }
 
 // The identifier of the referenced resource.
@@ -2876,7 +2942,7 @@ func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceR
 }
 
 func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v SubResourceResponse) *SubResourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
 		return &v
 	}).(SubResourceResponsePtrOutput)
 }
@@ -2901,7 +2967,13 @@ func (o SubResourceResponsePtrOutput) ToSubResourceResponsePtrOutputWithContext(
 }
 
 func (o SubResourceResponsePtrOutput) Elem() SubResourceResponseOutput {
-	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse { return *v }).(SubResourceResponseOutput)
+	return o.ApplyT(func(v *SubResourceResponse) SubResourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubResourceResponse
+		return ret
+	}).(SubResourceResponseOutput)
 }
 
 // The identifier of the referenced resource.

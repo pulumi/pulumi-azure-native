@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.Outputs
 {
 
+    /// <summary>
+    /// The Private Endpoint Connection resource.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

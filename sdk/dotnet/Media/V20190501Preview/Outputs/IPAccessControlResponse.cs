@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// The IP access control.
+    /// </summary>
     [OutputType]
     public sealed class IPAccessControlResponse
     {

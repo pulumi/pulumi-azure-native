@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Access Review Instance.
+    /// </summary>
     [OutputType]
     public sealed class AccessReviewInstanceResponse
     {

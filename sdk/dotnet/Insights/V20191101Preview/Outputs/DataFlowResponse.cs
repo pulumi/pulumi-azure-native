@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20191101Preview.Outputs
 {
 
+    /// <summary>
+    /// Definition of which streams are sent to which destinations.
+    /// </summary>
     [OutputType]
     public sealed class DataFlowResponse
     {

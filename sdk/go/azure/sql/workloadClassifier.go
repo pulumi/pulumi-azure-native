@@ -114,41 +114,9 @@ func GetWorkloadClassifier(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadClassifier resources.
 type workloadClassifierState struct {
-	// The workload classifier context.
-	Context *string `pulumi:"context"`
-	// The workload classifier end time for classification.
-	EndTime *string `pulumi:"endTime"`
-	// The workload classifier importance.
-	Importance *string `pulumi:"importance"`
-	// The workload classifier label.
-	Label *string `pulumi:"label"`
-	// The workload classifier member name.
-	MemberName *string `pulumi:"memberName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The workload classifier start time for classification.
-	StartTime *string `pulumi:"startTime"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadClassifierState struct {
-	// The workload classifier context.
-	Context pulumi.StringPtrInput
-	// The workload classifier end time for classification.
-	EndTime pulumi.StringPtrInput
-	// The workload classifier importance.
-	Importance pulumi.StringPtrInput
-	// The workload classifier label.
-	Label pulumi.StringPtrInput
-	// The workload classifier member name.
-	MemberName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The workload classifier start time for classification.
-	StartTime pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadClassifierState) ElementType() reflect.Type {
@@ -229,9 +197,7 @@ func (i *WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadClassifierOutput)
 }
 
-type WorkloadClassifierOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (WorkloadClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadClassifier)(nil))

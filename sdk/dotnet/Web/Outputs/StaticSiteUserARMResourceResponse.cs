@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Static Site User ARM resource.
+    /// </summary>
     [OutputType]
     public sealed class StaticSiteUserARMResourceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20160203.Outputs
 {
 
+    /// <summary>
+    /// The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
+    /// </summary>
     [OutputType]
     public sealed class OperationsMonitoringPropertiesResponse
     {

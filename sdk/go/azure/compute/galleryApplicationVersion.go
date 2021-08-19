@@ -103,37 +103,9 @@ func GetGalleryApplicationVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryApplicationVersion resources.
 type galleryApplicationVersionState struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery image version.
-	PublishingProfile *GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery image version.
-	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type GalleryApplicationVersionState struct {
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringPtrInput
-	// The publishing profile of a gallery image version.
-	PublishingProfile GalleryApplicationVersionPublishingProfileResponsePtrInput
-	// This is the replication status of the gallery image version.
-	ReplicationStatus ReplicationStatusResponsePtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (GalleryApplicationVersionState) ElementType() reflect.Type {
@@ -198,9 +170,7 @@ func (i *GalleryApplicationVersion) ToGalleryApplicationVersionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionOutput)
 }
 
-type GalleryApplicationVersionOutput struct {
-	*pulumi.OutputState
-}
+type GalleryApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GalleryApplicationVersion)(nil))

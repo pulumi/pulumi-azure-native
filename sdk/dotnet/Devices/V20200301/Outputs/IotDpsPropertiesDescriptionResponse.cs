@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200301.Outputs
 {
 
+    /// <summary>
+    /// the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
+    /// </summary>
     [OutputType]
     public sealed class IotDpsPropertiesDescriptionResponse
     {

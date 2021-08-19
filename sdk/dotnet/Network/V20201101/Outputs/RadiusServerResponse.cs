@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Radius Server Settings.
+    /// </summary>
     [OutputType]
     public sealed class RadiusServerResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Managed identity settings for upstream.
+    /// </summary>
     [OutputType]
     public sealed class ManagedIdentitySettingsResponse
     {

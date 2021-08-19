@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Google BigQuery service source.
+    /// </summary>
     [OutputType]
     public sealed class GoogleBigQuerySourceResponse
     {

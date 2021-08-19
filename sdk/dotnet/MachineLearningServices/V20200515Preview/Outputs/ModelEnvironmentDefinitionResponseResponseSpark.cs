@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview.Outputs
 {
 
+    /// <summary>
+    /// The configuration for a Spark environment.
+    /// </summary>
     [OutputType]
     public sealed class ModelEnvironmentDefinitionResponseResponseSpark
     {

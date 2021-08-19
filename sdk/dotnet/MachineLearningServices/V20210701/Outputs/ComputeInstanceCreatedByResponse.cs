@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210701.Outputs
 {
 
+    /// <summary>
+    /// Describes information on user who created this ComputeInstance.
+    /// </summary>
     [OutputType]
     public sealed class ComputeInstanceCreatedByResponse
     {

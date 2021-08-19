@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210101.Outputs
 {
 
+    /// <summary>
+    /// IaaS VM workload-specific backup item representing the Classic Compute VM.
+    /// </summary>
     [OutputType]
     public sealed class AzureIaaSClassicComputeVMProtectedItemResponse
     {

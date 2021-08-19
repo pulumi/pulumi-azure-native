@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// The definition of a prediction grade.
+    /// </summary>
     [OutputType]
     public sealed class PredictionResponseGrades
     {

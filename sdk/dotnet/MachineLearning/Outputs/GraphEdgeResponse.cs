@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
+    /// <summary>
+    /// Defines an edge within the web service's graph.
+    /// </summary>
     [OutputType]
     public sealed class GraphEdgeResponse
     {

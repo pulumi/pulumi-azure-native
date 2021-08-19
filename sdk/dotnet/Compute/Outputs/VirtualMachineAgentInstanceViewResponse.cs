@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// The instance view of the VM Agent running on the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineAgentInstanceViewResponse
     {

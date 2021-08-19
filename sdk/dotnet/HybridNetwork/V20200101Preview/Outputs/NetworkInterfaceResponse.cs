@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// Network interface properties.
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceResponse
     {

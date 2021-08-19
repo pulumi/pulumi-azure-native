@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'LocationDataArgs',
-    'MachineExtensionInstanceViewArgs',
     'MachineExtensionInstanceViewStatusArgs',
+    'MachineExtensionInstanceViewArgs',
     'MachineExtensionPropertiesInstanceViewArgs',
     'MachineIdentityArgs',
 ]
@@ -86,78 +86,6 @@ class LocationDataArgs:
     @district.setter
     def district(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "district", value)
-
-
-@pulumi.input_type
-class MachineExtensionInstanceViewArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None,
-                 type_handler_version: Optional[pulumi.Input[str]] = None):
-        """
-        Describes the Machine Extension Instance View.
-        :param pulumi.Input[str] name: The machine extension name.
-        :param pulumi.Input['MachineExtensionInstanceViewStatusArgs'] status: Instance view status.
-        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
-        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The machine extension name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]:
-        """
-        Instance view status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the type of the extension; an example is "CustomScriptExtension".
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the version of the script handler.
-        """
-        return pulumi.get(self, "type_handler_version")
-
-    @type_handler_version.setter
-    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type_handler_version", value)
 
 
 @pulumi.input_type
@@ -246,6 +174,78 @@ class MachineExtensionInstanceViewStatusArgs:
     @time.setter
     def time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time", value)
+
+
+@pulumi.input_type
+class MachineExtensionInstanceViewArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the Machine Extension Instance View.
+        :param pulumi.Input[str] name: The machine extension name.
+        :param pulumi.Input['MachineExtensionInstanceViewStatusArgs'] status: Instance view status.
+        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine extension name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]:
+        """
+        Instance view status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_handler_version", value)
 
 
 @pulumi.input_type

@@ -125,41 +125,9 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	// The value that indicates whether the admin user is enabled. This value is false by default.
-	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate *string `pulumi:"creationDate"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The URL that can be used to log into the container registry.
-	LoginServer *string `pulumi:"loginServer"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-	StorageAccount *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type RegistryState struct {
-	// The value that indicates whether the admin user is enabled. This value is false by default.
-	AdminUserEnabled pulumi.BoolPtrInput
-	// The creation date of the container registry in ISO8601 format.
-	CreationDate pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The URL that can be used to log into the container registry.
-	LoginServer pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The properties of the storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-	StorageAccount StorageAccountPropertiesResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (RegistryState) ElementType() reflect.Type {
@@ -220,9 +188,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryOutput)
 }
 
-type RegistryOutput struct {
-	*pulumi.OutputState
-}
+type RegistryOutput struct{ *pulumi.OutputState }
 
 func (RegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Registry)(nil))

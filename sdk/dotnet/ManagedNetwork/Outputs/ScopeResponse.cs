@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetwork.Outputs
 {
 
+    /// <summary>
+    /// Scope of a Managed Network
+    /// </summary>
     [OutputType]
     public sealed class ScopeResponse
     {

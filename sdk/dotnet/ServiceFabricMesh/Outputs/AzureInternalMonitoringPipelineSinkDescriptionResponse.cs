@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Diagnostics settings for Geneva.
+    /// </summary>
     [OutputType]
     public sealed class AzureInternalMonitoringPipelineSinkDescriptionResponse
     {

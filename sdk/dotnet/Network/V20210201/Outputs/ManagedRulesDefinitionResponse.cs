@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Allow to exclude some variable satisfy the condition for the WAF check.
+    /// </summary>
     [OutputType]
     public sealed class ManagedRulesDefinitionResponse
     {

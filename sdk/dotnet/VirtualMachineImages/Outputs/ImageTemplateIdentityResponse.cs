@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
+    /// <summary>
+    /// Identity for the image template.
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateIdentityResponse
     {

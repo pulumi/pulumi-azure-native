@@ -83,29 +83,9 @@ func GetDiskAccessAPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DiskAccessAPrivateEndpointConnection resources.
 type diskAccessAPrivateEndpointConnectionState struct {
-	// private endpoint connection name
-	Name *string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// private endpoint connection type
-	Type *string `pulumi:"type"`
 }
 
 type DiskAccessAPrivateEndpointConnectionState struct {
-	// private endpoint connection name
-	Name pulumi.StringPtrInput
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointResponsePtrInput
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput
-	// private endpoint connection type
-	Type pulumi.StringPtrInput
 }
 
 func (DiskAccessAPrivateEndpointConnectionState) ElementType() reflect.Type {
@@ -158,9 +138,7 @@ func (i *DiskAccessAPrivateEndpointConnection) ToDiskAccessAPrivateEndpointConne
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessAPrivateEndpointConnectionOutput)
 }
 
-type DiskAccessAPrivateEndpointConnectionOutput struct {
-	*pulumi.OutputState
-}
+type DiskAccessAPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessAPrivateEndpointConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DiskAccessAPrivateEndpointConnection)(nil))

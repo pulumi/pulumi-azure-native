@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MixedReality.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The resource model definition representing SKU
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

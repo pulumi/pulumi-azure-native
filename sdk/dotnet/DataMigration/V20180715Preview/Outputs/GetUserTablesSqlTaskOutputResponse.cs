@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Output of the task that collects user tables for the given list of databases
+    /// </summary>
     [OutputType]
     public sealed class GetUserTablesSqlTaskOutputResponse
     {

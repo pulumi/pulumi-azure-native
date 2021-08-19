@@ -75,23 +75,9 @@ func GetProviderRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProviderRegistration resources.
 type providerRegistrationState struct {
-	// The name of the resource
-	Name       *string                                 `pulumi:"name"`
-	Properties *ProviderRegistrationResponseProperties `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ProviderRegistrationState struct {
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Properties ProviderRegistrationResponsePropertiesPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ProviderRegistrationState) ElementType() reflect.Type {
@@ -134,9 +120,7 @@ func (i *ProviderRegistration) ToProviderRegistrationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderRegistrationOutput)
 }
 
-type ProviderRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type ProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ProviderRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProviderRegistration)(nil))

@@ -138,10 +138,11 @@ func (o AccountPropertiesOutput) ToAccountPropertiesPtrOutput() AccountPropertie
 }
 
 func (o AccountPropertiesOutput) ToAccountPropertiesPtrOutputWithContext(ctx context.Context) AccountPropertiesPtrOutput {
-	return o.ApplyT(func(v AccountProperties) *AccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountProperties) *AccountProperties {
 		return &v
 	}).(AccountPropertiesPtrOutput)
 }
+
 func (o AccountPropertiesOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountProperties) []string { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
 }
@@ -208,7 +209,13 @@ func (o AccountPropertiesPtrOutput) ToAccountPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o AccountPropertiesPtrOutput) Elem() AccountPropertiesOutput {
-	return o.ApplyT(func(v *AccountProperties) AccountProperties { return *v }).(AccountPropertiesOutput)
+	return o.ApplyT(func(v *AccountProperties) AccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AccountProperties
+		return ret
+	}).(AccountPropertiesOutput)
 }
 
 func (o AccountPropertiesPtrOutput) AllowedFqdnList() pulumi.StringArrayOutput {
@@ -485,10 +492,11 @@ func (o AccountPropertiesResponseOutput) ToAccountPropertiesResponsePtrOutput() 
 }
 
 func (o AccountPropertiesResponseOutput) ToAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) AccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AccountPropertiesResponse) *AccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountPropertiesResponse) *AccountPropertiesResponse {
 		return &v
 	}).(AccountPropertiesResponsePtrOutput)
 }
+
 func (o AccountPropertiesResponseOutput) AllowedFqdnList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountPropertiesResponse) []string { return v.AllowedFqdnList }).(pulumi.StringArrayOutput)
 }
@@ -610,7 +618,13 @@ func (o AccountPropertiesResponsePtrOutput) ToAccountPropertiesResponsePtrOutput
 }
 
 func (o AccountPropertiesResponsePtrOutput) Elem() AccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *AccountPropertiesResponse) AccountPropertiesResponse { return *v }).(AccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *AccountPropertiesResponse) AccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountPropertiesResponse
+		return ret
+	}).(AccountPropertiesResponseOutput)
 }
 
 func (o AccountPropertiesResponsePtrOutput) AllowedFqdnList() pulumi.StringArrayOutput {
@@ -959,7 +973,7 @@ func (o ApiPropertiesOutput) ToApiPropertiesPtrOutput() ApiPropertiesPtrOutput {
 }
 
 func (o ApiPropertiesOutput) ToApiPropertiesPtrOutputWithContext(ctx context.Context) ApiPropertiesPtrOutput {
-	return o.ApplyT(func(v ApiProperties) *ApiProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiProperties) *ApiProperties {
 		return &v
 	}).(ApiPropertiesPtrOutput)
 }
@@ -1029,7 +1043,13 @@ func (o ApiPropertiesPtrOutput) ToApiPropertiesPtrOutputWithContext(ctx context.
 }
 
 func (o ApiPropertiesPtrOutput) Elem() ApiPropertiesOutput {
-	return o.ApplyT(func(v *ApiProperties) ApiProperties { return *v }).(ApiPropertiesOutput)
+	return o.ApplyT(func(v *ApiProperties) ApiProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApiProperties
+		return ret
+	}).(ApiPropertiesOutput)
 }
 
 // (Metrics Advisor Only) The Azure AD Client Id (Application Id).
@@ -1264,7 +1284,7 @@ func (o ApiPropertiesResponseOutput) ToApiPropertiesResponsePtrOutput() ApiPrope
 }
 
 func (o ApiPropertiesResponseOutput) ToApiPropertiesResponsePtrOutputWithContext(ctx context.Context) ApiPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApiPropertiesResponse) *ApiPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPropertiesResponse) *ApiPropertiesResponse {
 		return &v
 	}).(ApiPropertiesResponsePtrOutput)
 }
@@ -1334,7 +1354,13 @@ func (o ApiPropertiesResponsePtrOutput) ToApiPropertiesResponsePtrOutputWithCont
 }
 
 func (o ApiPropertiesResponsePtrOutput) Elem() ApiPropertiesResponseOutput {
-	return o.ApplyT(func(v *ApiPropertiesResponse) ApiPropertiesResponse { return *v }).(ApiPropertiesResponseOutput)
+	return o.ApplyT(func(v *ApiPropertiesResponse) ApiPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPropertiesResponse
+		return ret
+	}).(ApiPropertiesResponseOutput)
 }
 
 // (Metrics Advisor Only) The Azure AD Client Id (Application Id).
@@ -1539,7 +1565,7 @@ func (o CallRateLimitResponseOutput) ToCallRateLimitResponsePtrOutput() CallRate
 }
 
 func (o CallRateLimitResponseOutput) ToCallRateLimitResponsePtrOutputWithContext(ctx context.Context) CallRateLimitResponsePtrOutput {
-	return o.ApplyT(func(v CallRateLimitResponse) *CallRateLimitResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallRateLimitResponse) *CallRateLimitResponse {
 		return &v
 	}).(CallRateLimitResponsePtrOutput)
 }
@@ -1573,7 +1599,13 @@ func (o CallRateLimitResponsePtrOutput) ToCallRateLimitResponsePtrOutputWithCont
 }
 
 func (o CallRateLimitResponsePtrOutput) Elem() CallRateLimitResponseOutput {
-	return o.ApplyT(func(v *CallRateLimitResponse) CallRateLimitResponse { return *v }).(CallRateLimitResponseOutput)
+	return o.ApplyT(func(v *CallRateLimitResponse) CallRateLimitResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CallRateLimitResponse
+		return ret
+	}).(CallRateLimitResponseOutput)
 }
 
 // The count value of Call Rate Limit.
@@ -1705,7 +1737,7 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
@@ -1735,7 +1767,13 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
 // Enumerates the possible value of keySource for Encryption
@@ -1858,7 +1896,7 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
@@ -1888,7 +1926,13 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
 // Enumerates the possible value of keySource for Encryption
@@ -1914,7 +1958,7 @@ func (o EncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResp
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
 }
@@ -1933,7 +1977,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -2011,14 +2055,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
@@ -2041,17 +2085,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
@@ -2172,7 +2222,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -2212,7 +2262,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -2561,10 +2617,11 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
+
 func (o KeyVaultPropertiesOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultProperties) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -2599,7 +2656,13 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
 func (o KeyVaultPropertiesPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
@@ -2747,10 +2810,11 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
+
 func (o KeyVaultPropertiesResponseOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -2785,7 +2849,13 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
@@ -2931,7 +3001,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
@@ -2966,7 +3036,13 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
 // The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -3103,7 +3179,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
@@ -3138,7 +3214,13 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
 // The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
@@ -3271,7 +3353,7 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 }
 
 func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
@@ -3303,7 +3385,13 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 }
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
+	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionProperties
+		return ret
+	}).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 // The private link resource group ids.
@@ -3434,7 +3522,7 @@ func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConn
 }
 
 func (o PrivateEndpointConnectionPropertiesResponseOutput) ToPrivateEndpointConnectionPropertiesResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointConnectionPropertiesResponse) *PrivateEndpointConnectionPropertiesResponse {
 		return &v
 	}).(PrivateEndpointConnectionPropertiesResponsePtrOutput)
 }
@@ -3477,7 +3565,11 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ToPrivateEndpointC
 
 func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) Elem() PrivateEndpointConnectionPropertiesResponseOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionPropertiesResponse) PrivateEndpointConnectionPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointConnectionPropertiesResponse
+		return ret
 	}).(PrivateEndpointConnectionPropertiesResponseOutput)
 }
 
@@ -3773,7 +3865,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -3798,7 +3890,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -3915,7 +4013,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -3950,7 +4048,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -4087,7 +4191,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -4123,7 +4227,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 
@@ -4252,10 +4360,11 @@ func (o QuotaLimitResponseOutput) ToQuotaLimitResponsePtrOutput() QuotaLimitResp
 }
 
 func (o QuotaLimitResponseOutput) ToQuotaLimitResponsePtrOutputWithContext(ctx context.Context) QuotaLimitResponsePtrOutput {
-	return o.ApplyT(func(v QuotaLimitResponse) *QuotaLimitResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuotaLimitResponse) *QuotaLimitResponse {
 		return &v
 	}).(QuotaLimitResponsePtrOutput)
 }
+
 func (o QuotaLimitResponseOutput) Count() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v QuotaLimitResponse) *float64 { return v.Count }).(pulumi.Float64PtrOutput)
 }
@@ -4283,7 +4392,13 @@ func (o QuotaLimitResponsePtrOutput) ToQuotaLimitResponsePtrOutputWithContext(ct
 }
 
 func (o QuotaLimitResponsePtrOutput) Elem() QuotaLimitResponseOutput {
-	return o.ApplyT(func(v *QuotaLimitResponse) QuotaLimitResponse { return *v }).(QuotaLimitResponseOutput)
+	return o.ApplyT(func(v *QuotaLimitResponse) QuotaLimitResponse {
+		if v != nil {
+			return *v
+		}
+		var ret QuotaLimitResponse
+		return ret
+	}).(QuotaLimitResponseOutput)
 }
 
 func (o QuotaLimitResponsePtrOutput) Count() pulumi.Float64PtrOutput {
@@ -4525,7 +4640,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -4570,7 +4685,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -4836,7 +4957,7 @@ func (o SkuChangeInfoResponseOutput) ToSkuChangeInfoResponsePtrOutput() SkuChang
 }
 
 func (o SkuChangeInfoResponseOutput) ToSkuChangeInfoResponsePtrOutputWithContext(ctx context.Context) SkuChangeInfoResponsePtrOutput {
-	return o.ApplyT(func(v SkuChangeInfoResponse) *SkuChangeInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuChangeInfoResponse) *SkuChangeInfoResponse {
 		return &v
 	}).(SkuChangeInfoResponsePtrOutput)
 }
@@ -4871,7 +4992,13 @@ func (o SkuChangeInfoResponsePtrOutput) ToSkuChangeInfoResponsePtrOutputWithCont
 }
 
 func (o SkuChangeInfoResponsePtrOutput) Elem() SkuChangeInfoResponseOutput {
-	return o.ApplyT(func(v *SkuChangeInfoResponse) SkuChangeInfoResponse { return *v }).(SkuChangeInfoResponseOutput)
+	return o.ApplyT(func(v *SkuChangeInfoResponse) SkuChangeInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuChangeInfoResponse
+		return ret
+	}).(SkuChangeInfoResponseOutput)
 }
 
 // Gets the count of downgrades.
@@ -5016,7 +5143,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -5061,7 +5188,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
@@ -5230,7 +5363,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -5280,7 +5413,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

@@ -25,13 +25,20 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.peering.v20190801preview as v20190801preview
-    import pulumi_azure_native.peering.v20190901preview as v20190901preview
-    import pulumi_azure_native.peering.v20200101preview as v20200101preview
-    import pulumi_azure_native.peering.v20200401 as v20200401
-    import pulumi_azure_native.peering.v20201001 as v20201001
-    import pulumi_azure_native.peering.v20210101 as v20210101
-    import pulumi_azure_native.peering.v20210601 as v20210601
+    import pulumi_azure_native.peering.v20190801preview as __v20190801preview
+    v20190801preview = __v20190801preview
+    import pulumi_azure_native.peering.v20190901preview as __v20190901preview
+    v20190901preview = __v20190901preview
+    import pulumi_azure_native.peering.v20200101preview as __v20200101preview
+    v20200101preview = __v20200101preview
+    import pulumi_azure_native.peering.v20200401 as __v20200401
+    v20200401 = __v20200401
+    import pulumi_azure_native.peering.v20201001 as __v20201001
+    v20201001 = __v20201001
+    import pulumi_azure_native.peering.v20210101 as __v20210101
+    v20210101 = __v20210101
+    import pulumi_azure_native.peering.v20210601 as __v20210601
+    v20210601 = __v20210601
 else:
     v20190801preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190801preview')
     v20190901preview = _utilities.lazy_import('pulumi_azure_native.peering.v20190901preview')

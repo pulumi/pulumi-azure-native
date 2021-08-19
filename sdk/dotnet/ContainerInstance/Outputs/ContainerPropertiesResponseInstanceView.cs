@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
+    /// <summary>
+    /// The instance view of the container instance. Only valid in response.
+    /// </summary>
     [OutputType]
     public sealed class ContainerPropertiesResponseInstanceView
     {

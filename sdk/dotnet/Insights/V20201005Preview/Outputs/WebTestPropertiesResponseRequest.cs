@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20201005Preview.Outputs
 {
 
+    /// <summary>
+    /// The collection of request properties
+    /// </summary>
     [OutputType]
     public sealed class WebTestPropertiesResponseRequest
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180419.Outputs
 {
 
+    /// <summary>
+    /// Properties required to create a connection to Azure SQL database Managed instance
+    /// </summary>
     [OutputType]
     public sealed class MiSqlConnectionInfoResponse
     {

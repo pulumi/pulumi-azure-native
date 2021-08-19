@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20151101Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes VM Diagnostics.
+    /// </summary>
     [OutputType]
     public sealed class ContainerServiceVMDiagnosticsResponse
     {

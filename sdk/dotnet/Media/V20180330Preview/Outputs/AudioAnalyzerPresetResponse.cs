@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
+    /// <summary>
+    /// The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
+    /// </summary>
     [OutputType]
     public sealed class AudioAnalyzerPresetResponse
     {

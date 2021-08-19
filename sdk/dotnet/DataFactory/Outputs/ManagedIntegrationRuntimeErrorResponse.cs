@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Error definition for managed integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class ManagedIntegrationRuntimeErrorResponse
     {

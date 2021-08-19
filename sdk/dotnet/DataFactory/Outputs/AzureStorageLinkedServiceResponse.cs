@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The storage account linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureStorageLinkedServiceResponse
     {

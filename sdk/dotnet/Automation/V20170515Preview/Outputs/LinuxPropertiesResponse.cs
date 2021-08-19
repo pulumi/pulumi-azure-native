@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20170515Preview.Outputs
 {
 
+    /// <summary>
+    /// Linux specific update configuration.
+    /// </summary>
     [OutputType]
     public sealed class LinuxPropertiesResponse
     {

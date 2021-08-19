@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// The KPI GroupBy field metadata.
+    /// </summary>
     [OutputType]
     public sealed class KpiGroupByMetadataResponse
     {

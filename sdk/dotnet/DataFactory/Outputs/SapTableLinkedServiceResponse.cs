@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// SAP Table Linked Service.
+    /// </summary>
     [OutputType]
     public sealed class SapTableLinkedServiceResponse
     {

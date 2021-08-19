@@ -10,8 +10,10 @@ from .graph_query import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.resourcegraph.v20180901preview as v20180901preview
-    import pulumi_azure_native.resourcegraph.v20200401preview as v20200401preview
+    import pulumi_azure_native.resourcegraph.v20180901preview as __v20180901preview
+    v20180901preview = __v20180901preview
+    import pulumi_azure_native.resourcegraph.v20200401preview as __v20200401preview
+    v20200401preview = __v20200401preview
 else:
     v20180901preview = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20180901preview')
     v20200401preview = _utilities.lazy_import('pulumi_azure_native.resourcegraph.v20200401preview')

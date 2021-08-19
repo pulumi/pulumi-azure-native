@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Outputs
 {
 
+    /// <summary>
+    /// Detailed information of a specific step run.
+    /// </summary>
     [OutputType]
     public sealed class StepOperationInfoResponse
     {

@@ -110,53 +110,9 @@ func GetAsset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Asset resources.
 type assetState struct {
-	// The alternate ID of the Asset.
-	AlternateId *string `pulumi:"alternateId"`
-	// The Asset ID.
-	AssetId *string `pulumi:"assetId"`
-	// The name of the asset blob container.
-	Container *string `pulumi:"container"`
-	// The creation date of the Asset.
-	Created *string `pulumi:"created"`
-	// The Asset description.
-	Description *string `pulumi:"description"`
-	// The last modified date of the Asset.
-	LastModified *string `pulumi:"lastModified"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The name of the storage account.
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// The Asset encryption format. One of None or MediaStorageEncryption.
-	StorageEncryptionFormat *string `pulumi:"storageEncryptionFormat"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type AssetState struct {
-	// The alternate ID of the Asset.
-	AlternateId pulumi.StringPtrInput
-	// The Asset ID.
-	AssetId pulumi.StringPtrInput
-	// The name of the asset blob container.
-	Container pulumi.StringPtrInput
-	// The creation date of the Asset.
-	Created pulumi.StringPtrInput
-	// The Asset description.
-	Description pulumi.StringPtrInput
-	// The last modified date of the Asset.
-	LastModified pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The name of the storage account.
-	StorageAccountName pulumi.StringPtrInput
-	// The Asset encryption format. One of None or MediaStorageEncryption.
-	StorageEncryptionFormat pulumi.StringPtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (AssetState) ElementType() reflect.Type {
@@ -221,9 +177,7 @@ func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetOutput)
 }
 
-type AssetOutput struct {
-	*pulumi.OutputState
-}
+type AssetOutput struct{ *pulumi.OutputState }
 
 func (AssetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Asset)(nil))

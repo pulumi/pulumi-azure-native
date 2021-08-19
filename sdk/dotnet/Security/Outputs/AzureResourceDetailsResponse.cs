@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Details of the Azure resource that was assessed
+    /// </summary>
     [OutputType]
     public sealed class AzureResourceDetailsResponse
     {

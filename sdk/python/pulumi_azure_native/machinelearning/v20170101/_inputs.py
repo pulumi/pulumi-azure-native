@@ -19,8 +19,8 @@ __all__ = [
     'GraphEdgeArgs',
     'GraphNodeArgs',
     'GraphPackageArgs',
-    'GraphParameterArgs',
     'GraphParameterLinkArgs',
+    'GraphParameterArgs',
     'InputPortArgs',
     'MachineLearningWorkspaceArgs',
     'ModeValueInfoArgs',
@@ -597,6 +597,44 @@ class GraphPackageArgs:
 
 
 @pulumi.input_type
+class GraphParameterLinkArgs:
+    def __init__(__self__, *,
+                 node_id: pulumi.Input[str],
+                 parameter_key: pulumi.Input[str]):
+        """
+        Association link for a graph global parameter to a node in the graph.
+        :param pulumi.Input[str] node_id: The graph node's identifier
+        :param pulumi.Input[str] parameter_key: The identifier of the node parameter that the global parameter maps to.
+        """
+        pulumi.set(__self__, "node_id", node_id)
+        pulumi.set(__self__, "parameter_key", parameter_key)
+
+    @property
+    @pulumi.getter(name="nodeId")
+    def node_id(self) -> pulumi.Input[str]:
+        """
+        The graph node's identifier
+        """
+        return pulumi.get(self, "node_id")
+
+    @node_id.setter
+    def node_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node_id", value)
+
+    @property
+    @pulumi.getter(name="parameterKey")
+    def parameter_key(self) -> pulumi.Input[str]:
+        """
+        The identifier of the node parameter that the global parameter maps to.
+        """
+        return pulumi.get(self, "parameter_key")
+
+    @parameter_key.setter
+    def parameter_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_key", value)
+
+
+@pulumi.input_type
 class GraphParameterArgs:
     def __init__(__self__, *,
                  links: pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]],
@@ -648,44 +686,6 @@ class GraphParameterArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-
-@pulumi.input_type
-class GraphParameterLinkArgs:
-    def __init__(__self__, *,
-                 node_id: pulumi.Input[str],
-                 parameter_key: pulumi.Input[str]):
-        """
-        Association link for a graph global parameter to a node in the graph.
-        :param pulumi.Input[str] node_id: The graph node's identifier
-        :param pulumi.Input[str] parameter_key: The identifier of the node parameter that the global parameter maps to.
-        """
-        pulumi.set(__self__, "node_id", node_id)
-        pulumi.set(__self__, "parameter_key", parameter_key)
-
-    @property
-    @pulumi.getter(name="nodeId")
-    def node_id(self) -> pulumi.Input[str]:
-        """
-        The graph node's identifier
-        """
-        return pulumi.get(self, "node_id")
-
-    @node_id.setter
-    def node_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "node_id", value)
-
-    @property
-    @pulumi.getter(name="parameterKey")
-    def parameter_key(self) -> pulumi.Input[str]:
-        """
-        The identifier of the node parameter that the global parameter maps to.
-        """
-        return pulumi.get(self, "parameter_key")
-
-    @parameter_key.setter
-    def parameter_key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "parameter_key", value)
 
 
 @pulumi.input_type

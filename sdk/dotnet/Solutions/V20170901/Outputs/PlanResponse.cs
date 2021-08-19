@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.V20170901.Outputs
 {
 
+    /// <summary>
+    /// Plan for the managed application.
+    /// </summary>
     [OutputType]
     public sealed class PlanResponse
     {

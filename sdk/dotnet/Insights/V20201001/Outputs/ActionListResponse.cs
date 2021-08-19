@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20201001.Outputs
 {
 
+    /// <summary>
+    /// A list of Activity Log Alert rule actions.
+    /// </summary>
     [OutputType]
     public sealed class ActionListResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.Outputs
 {
 
+    /// <summary>
+    /// User assigned identity properties.
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedPropertiesResponse
     {

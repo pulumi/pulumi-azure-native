@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Azure Search Index.
+    /// </summary>
     [OutputType]
     public sealed class AzureSearchIndexDatasetResponse
     {

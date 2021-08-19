@@ -216,7 +216,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20191101Preview
         /// Describes how the service is partitioned.
         /// </summary>
         [Input("partitionDescription")]
-        public Input<object>? PartitionDescription { get; set; }
+        public object? PartitionDescription { get; set; }
 
         /// <summary>
         /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".

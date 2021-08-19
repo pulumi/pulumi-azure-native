@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Azure VM workload-specific protected item representing SAP HANA Database.
+    /// </summary>
     [OutputType]
     public sealed class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse
     {

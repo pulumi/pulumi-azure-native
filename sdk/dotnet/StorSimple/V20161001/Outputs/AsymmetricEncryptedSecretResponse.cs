@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20161001.Outputs
 {
 
+    /// <summary>
+    /// This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
+    /// </summary>
     [OutputType]
     public sealed class AsymmetricEncryptedSecretResponse
     {

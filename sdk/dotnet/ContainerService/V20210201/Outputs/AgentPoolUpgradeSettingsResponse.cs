@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Settings for upgrading an agentpool
+    /// </summary>
     [OutputType]
     public sealed class AgentPoolUpgradeSettingsResponse
     {

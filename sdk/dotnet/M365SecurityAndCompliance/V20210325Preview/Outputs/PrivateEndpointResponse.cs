@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview.Outputs
 {
 
+    /// <summary>
+    /// The Private Endpoint resource.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Exception object for all custom exceptions
+    /// </summary>
     [OutputType]
     public sealed class ReportableExceptionResponse
     {

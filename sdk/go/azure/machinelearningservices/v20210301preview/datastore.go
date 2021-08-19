@@ -81,25 +81,9 @@ func GetDatastore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Datastore resources.
 type datastoreState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Additional attributes of the entity.
-	Properties *DatastorePropertiesResponse `pulumi:"properties"`
-	// System data associated with resource provider
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DatastoreState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Additional attributes of the entity.
-	Properties DatastorePropertiesResponsePtrInput
-	// System data associated with resource provider
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DatastoreState) ElementType() reflect.Type {
@@ -156,9 +140,7 @@ func (i *Datastore) ToDatastoreOutputWithContext(ctx context.Context) DatastoreO
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreOutput)
 }
 
-type DatastoreOutput struct {
-	*pulumi.OutputState
-}
+type DatastoreOutput struct{ *pulumi.OutputState }
 
 func (DatastoreOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Datastore)(nil))

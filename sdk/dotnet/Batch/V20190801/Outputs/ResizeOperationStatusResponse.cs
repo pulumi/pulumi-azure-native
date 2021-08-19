@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20190801.Outputs
 {
 
+    /// <summary>
+    /// Describes either the current operation (if the pool AllocationState is Resizing) or the previously completed operation (if the AllocationState is Steady).
+    /// </summary>
     [OutputType]
     public sealed class ResizeOperationStatusResponse
     {

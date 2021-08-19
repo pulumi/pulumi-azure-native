@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The live event input.
+    /// </summary>
     [OutputType]
     public sealed class LiveEventInputResponse
     {

@@ -37,9 +37,9 @@ __all__ = [
     'PortArgs',
     'ScheduleArgs',
     'SharedPublicIpAddressConfigurationArgs',
-    'SubnetArgs',
     'SubnetOverrideArgs',
     'SubnetSharedPublicIpAddressConfigurationArgs',
+    'SubnetArgs',
     'UserIdentityArgs',
     'UserSecretStoreArgs',
     'WeekDetailsArgs',
@@ -2182,62 +2182,6 @@ class SharedPublicIpAddressConfigurationArgs:
 
 
 @pulumi.input_type
-class SubnetArgs:
-    def __init__(__self__, *,
-                 allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
-                 lab_subnet_name: Optional[pulumi.Input[str]] = None,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        Subnet information.
-        :param pulumi.Input[Union[str, 'UsagePermissionType']] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-        :param pulumi.Input[str] lab_subnet_name: The name of the subnet as seen in the lab.
-        :param pulumi.Input[str] resource_id: The resource ID of the subnet.
-        """
-        if allow_public_ip is not None:
-            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
-        if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="allowPublicIp")
-    def allow_public_ip(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
-        """
-        The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-        """
-        return pulumi.get(self, "allow_public_ip")
-
-    @allow_public_ip.setter
-    def allow_public_ip(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
-        pulumi.set(self, "allow_public_ip", value)
-
-    @property
-    @pulumi.getter(name="labSubnetName")
-    def lab_subnet_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the subnet as seen in the lab.
-        """
-        return pulumi.get(self, "lab_subnet_name")
-
-    @lab_subnet_name.setter
-    def lab_subnet_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "lab_subnet_name", value)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource ID of the subnet.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
-
-@pulumi.input_type
 class SubnetOverrideArgs:
     def __init__(__self__, *,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
@@ -2363,6 +2307,62 @@ class SubnetSharedPublicIpAddressConfigurationArgs:
     @allowed_ports.setter
     def allowed_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortArgs']]]]):
         pulumi.set(self, "allowed_ports", value)
+
+
+@pulumi.input_type
+class SubnetArgs:
+    def __init__(__self__, *,
+                 allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+                 lab_subnet_name: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Subnet information.
+        :param pulumi.Input[Union[str, 'UsagePermissionType']] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+        :param pulumi.Input[str] lab_subnet_name: The name of the subnet as seen in the lab.
+        :param pulumi.Input[str] resource_id: The resource ID of the subnet.
+        """
+        if allow_public_ip is not None:
+            pulumi.set(__self__, "allow_public_ip", allow_public_ip)
+        if lab_subnet_name is not None:
+            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="allowPublicIp")
+    def allow_public_ip(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
+        """
+        The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+        """
+        return pulumi.get(self, "allow_public_ip")
+
+    @allow_public_ip.setter
+    def allow_public_ip(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
+        pulumi.set(self, "allow_public_ip", value)
+
+    @property
+    @pulumi.getter(name="labSubnetName")
+    def lab_subnet_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the subnet as seen in the lab.
+        """
+        return pulumi.get(self, "lab_subnet_name")
+
+    @lab_subnet_name.setter
+    def lab_subnet_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lab_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the subnet.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type

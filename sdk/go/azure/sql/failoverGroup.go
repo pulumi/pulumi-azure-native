@@ -115,49 +115,9 @@ func GetFailoverGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FailoverGroup resources.
 type failoverGroupState struct {
-	// List of databases in the failover group.
-	Databases []string `pulumi:"databases"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// List of partner server information for the failover group.
-	PartnerServers []PartnerInfoResponse `pulumi:"partnerServers"`
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint *FailoverGroupReadOnlyEndpointResponse `pulumi:"readOnlyEndpoint"`
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint *FailoverGroupReadWriteEndpointResponse `pulumi:"readWriteEndpoint"`
-	// Local replication role of the failover group instance.
-	ReplicationRole *string `pulumi:"replicationRole"`
-	// Replication state of the failover group instance.
-	ReplicationState *string `pulumi:"replicationState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type FailoverGroupState struct {
-	// List of databases in the failover group.
-	Databases pulumi.StringArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// List of partner server information for the failover group.
-	PartnerServers PartnerInfoResponseArrayInput
-	// Read-only endpoint of the failover group instance.
-	ReadOnlyEndpoint FailoverGroupReadOnlyEndpointResponsePtrInput
-	// Read-write endpoint of the failover group instance.
-	ReadWriteEndpoint FailoverGroupReadWriteEndpointResponsePtrInput
-	// Local replication role of the failover group instance.
-	ReplicationRole pulumi.StringPtrInput
-	// Replication state of the failover group instance.
-	ReplicationState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (FailoverGroupState) ElementType() reflect.Type {
@@ -226,9 +186,7 @@ func (i *FailoverGroup) ToFailoverGroupOutputWithContext(ctx context.Context) Fa
 	return pulumi.ToOutputWithContext(ctx, i).(FailoverGroupOutput)
 }
 
-type FailoverGroupOutput struct {
-	*pulumi.OutputState
-}
+type FailoverGroupOutput struct{ *pulumi.OutputState }
 
 func (FailoverGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FailoverGroup)(nil))

@@ -85,57 +85,9 @@ func GetAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assignment resources.
 type assignmentState struct {
-	// ID of the Blueprint definition resource.
-	BlueprintId *string `pulumi:"blueprintId"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Managed Service Identity for this Blueprint assignment
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// The location of this Blueprint assignment.
-	Location *string `pulumi:"location"`
-	// Defines how Blueprint-managed resources will be locked.
-	Locks *AssignmentLockSettingsResponse `pulumi:"locks"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Blueprint parameter values.
-	Parameters map[string]ParameterValueBaseResponse `pulumi:"parameters"`
-	// State of the assignment.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Names and locations of resource group placeholders.
-	ResourceGroups map[string]ResourceGroupValueResponse `pulumi:"resourceGroups"`
-	// Status of Blueprint assignment. This field is readonly.
-	Status *AssignmentStatusResponse `pulumi:"status"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type AssignmentState struct {
-	// ID of the Blueprint definition resource.
-	BlueprintId pulumi.StringPtrInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Managed Service Identity for this Blueprint assignment
-	Identity ManagedServiceIdentityResponsePtrInput
-	// The location of this Blueprint assignment.
-	Location pulumi.StringPtrInput
-	// Defines how Blueprint-managed resources will be locked.
-	Locks AssignmentLockSettingsResponsePtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Blueprint parameter values.
-	Parameters ParameterValueBaseResponseMapInput
-	// State of the assignment.
-	ProvisioningState pulumi.StringPtrInput
-	// Names and locations of resource group placeholders.
-	ResourceGroups ResourceGroupValueResponseMapInput
-	// Status of Blueprint assignment. This field is readonly.
-	Status AssignmentStatusResponsePtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (AssignmentState) ElementType() reflect.Type {
@@ -212,9 +164,7 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentOutput)
 }
 
-type AssignmentOutput struct {
-	*pulumi.OutputState
-}
+type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Assignment)(nil))

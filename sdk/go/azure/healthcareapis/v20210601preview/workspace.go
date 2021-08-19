@@ -75,37 +75,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// Workspaces resource specific properties.
-	Properties *WorkspaceResponseProperties `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkspaceState struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// Workspaces resource specific properties.
-	Properties WorkspaceResponsePropertiesPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -162,9 +134,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// HyperVSite fabric specific details.
+    /// </summary>
     [OutputType]
     public sealed class HyperVSiteDetailsResponse
     {

@@ -100,45 +100,9 @@ func GetActivityLogAlert(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActivityLogAlert resources.
 type activityLogAlertState struct {
-	// The actions that will activate when the condition is met.
-	Actions *ActionListResponse `pulumi:"actions"`
-	// The condition that will cause this alert to activate.
-	Condition *AlertRuleAllOfConditionResponse `pulumi:"condition"`
-	// A description of this Activity Log Alert rule.
-	Description *string `pulumi:"description"`
-	// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
-	Enabled *bool `pulumi:"enabled"`
-	// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
-	Scopes []string `pulumi:"scopes"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ActivityLogAlertState struct {
-	// The actions that will activate when the condition is met.
-	Actions ActionListResponsePtrInput
-	// The condition that will cause this alert to activate.
-	Condition AlertRuleAllOfConditionResponsePtrInput
-	// A description of this Activity Log Alert rule.
-	Description pulumi.StringPtrInput
-	// Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
-	Enabled pulumi.BoolPtrInput
-	// The location of the resource. Since Azure Activity Log Alerts is a global service, the location of the rules should always be 'global'.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
-	Scopes pulumi.StringArrayInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ActivityLogAlertState) ElementType() reflect.Type {
@@ -211,9 +175,7 @@ func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertOutput)
 }
 
-type ActivityLogAlertOutput struct {
-	*pulumi.OutputState
-}
+type ActivityLogAlertOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActivityLogAlert)(nil))

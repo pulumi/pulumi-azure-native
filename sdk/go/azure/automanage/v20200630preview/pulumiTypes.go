@@ -13,7 +13,7 @@ import (
 // Identity for the Automanage account.
 type AccountIdentity struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
@@ -30,7 +30,7 @@ type AccountIdentityInput interface {
 // Identity for the Automanage account.
 type AccountIdentityArgs struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (AccountIdentityArgs) ElementType() reflect.Type {
@@ -106,14 +106,14 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutput() AccountIdentityPtrOu
 }
 
 func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *AccountIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
 }
 
 // The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o AccountIdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AccountIdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v AccountIdentity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type AccountIdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,17 +131,23 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx cont
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
-	return o.ApplyT(func(v *AccountIdentity) AccountIdentity { return *v }).(AccountIdentityOutput)
+	return o.ApplyT(func(v *AccountIdentity) AccountIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentity
+		return ret
+	}).(AccountIdentityOutput)
 }
 
 // The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AccountIdentity) *string {
+func (o AccountIdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *AccountIdentity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the Automanage account.
@@ -248,7 +254,7 @@ func (o AccountIdentityResponseOutput) ToAccountIdentityResponsePtrOutput() Acco
 }
 
 func (o AccountIdentityResponseOutput) ToAccountIdentityResponsePtrOutputWithContext(ctx context.Context) AccountIdentityResponsePtrOutput {
-	return o.ApplyT(func(v AccountIdentityResponse) *AccountIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentityResponse) *AccountIdentityResponse {
 		return &v
 	}).(AccountIdentityResponsePtrOutput)
 }
@@ -283,7 +289,13 @@ func (o AccountIdentityResponsePtrOutput) ToAccountIdentityResponsePtrOutputWith
 }
 
 func (o AccountIdentityResponsePtrOutput) Elem() AccountIdentityResponseOutput {
-	return o.ApplyT(func(v *AccountIdentityResponse) AccountIdentityResponse { return *v }).(AccountIdentityResponseOutput)
+	return o.ApplyT(func(v *AccountIdentityResponse) AccountIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountIdentityResponse
+		return ret
+	}).(AccountIdentityResponseOutput)
 }
 
 // The principal id of Automanage account identity.
@@ -412,7 +424,7 @@ func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationP
 }
 
 func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentComplianceResponse) *ConfigurationProfileAssignmentComplianceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentComplianceResponse) *ConfigurationProfileAssignmentComplianceResponse {
 		return &v
 	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
 }
@@ -438,7 +450,11 @@ func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) ToConfigurati
 
 func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) Elem() ConfigurationProfileAssignmentComplianceResponseOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceResponse) ConfigurationProfileAssignmentComplianceResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileAssignmentComplianceResponse
+		return ret
 	}).(ConfigurationProfileAssignmentComplianceResponseOutput)
 }
 
@@ -560,7 +576,7 @@ func (o ConfigurationProfileAssignmentPropertiesOutput) ToConfigurationProfileAs
 }
 
 func (o ConfigurationProfileAssignmentPropertiesOutput) ToConfigurationProfileAssignmentPropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *ConfigurationProfileAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentProperties) *ConfigurationProfileAssignmentProperties {
 		return &v
 	}).(ConfigurationProfileAssignmentPropertiesPtrOutput)
 }
@@ -600,7 +616,13 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ToConfigurationProfil
 }
 
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) Elem() ConfigurationProfileAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) ConfigurationProfileAssignmentProperties { return *v }).(ConfigurationProfileAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) ConfigurationProfileAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileAssignmentProperties
+		return ret
+	}).(ConfigurationProfileAssignmentPropertiesOutput)
 }
 
 // The Automanage account ARM Resource URI
@@ -759,7 +781,7 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationP
 }
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationProfileAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentPropertiesResponse {
 		return &v
 	}).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
 }
@@ -814,7 +836,11 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ToConfigurati
 
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Elem() ConfigurationProfileAssignmentPropertiesResponseOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) ConfigurationProfileAssignmentPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileAssignmentPropertiesResponse
+		return ret
 	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
 }
 
@@ -994,7 +1020,7 @@ func (o ConfigurationProfilePreferenceAntiMalwareOutput) ToConfigurationProfileP
 }
 
 func (o ConfigurationProfilePreferenceAntiMalwareOutput) ToConfigurationProfilePreferenceAntiMalwarePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwarePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalware) *ConfigurationProfilePreferenceAntiMalware {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceAntiMalware) *ConfigurationProfilePreferenceAntiMalware {
 		return &v
 	}).(ConfigurationProfilePreferenceAntiMalwarePtrOutput)
 }
@@ -1045,7 +1071,11 @@ func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) ToConfigurationProfi
 
 func (o ConfigurationProfilePreferenceAntiMalwarePtrOutput) Elem() ConfigurationProfilePreferenceAntiMalwareOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalware) ConfigurationProfilePreferenceAntiMalware {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfilePreferenceAntiMalware
+		return ret
 	}).(ConfigurationProfilePreferenceAntiMalwareOutput)
 }
 
@@ -1225,7 +1255,7 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfiguration
 }
 
 func (o ConfigurationProfilePreferenceAntiMalwareResponseOutput) ToConfigurationProfilePreferenceAntiMalwareResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceAntiMalwareResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceAntiMalwareResponse) *ConfigurationProfilePreferenceAntiMalwareResponse {
 		return &v
 	}).(ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput)
 }
@@ -1276,7 +1306,11 @@ func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) ToConfigurat
 
 func (o ConfigurationProfilePreferenceAntiMalwareResponsePtrOutput) Elem() ConfigurationProfilePreferenceAntiMalwareResponseOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceAntiMalwareResponse) ConfigurationProfilePreferenceAntiMalwareResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfilePreferenceAntiMalwareResponse
+		return ret
 	}).(ConfigurationProfilePreferenceAntiMalwareResponseOutput)
 }
 
@@ -1440,7 +1474,7 @@ func (o ConfigurationProfilePreferencePropertiesOutput) ToConfigurationProfilePr
 }
 
 func (o ConfigurationProfilePreferencePropertiesOutput) ToConfigurationProfilePreferencePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceProperties) *ConfigurationProfilePreferenceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceProperties) *ConfigurationProfilePreferenceProperties {
 		return &v
 	}).(ConfigurationProfilePreferencePropertiesPtrOutput)
 }
@@ -1474,7 +1508,13 @@ func (o ConfigurationProfilePreferencePropertiesPtrOutput) ToConfigurationProfil
 }
 
 func (o ConfigurationProfilePreferencePropertiesPtrOutput) Elem() ConfigurationProfilePreferencePropertiesOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferenceProperties) ConfigurationProfilePreferenceProperties { return *v }).(ConfigurationProfilePreferencePropertiesOutput)
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceProperties) ConfigurationProfilePreferenceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfilePreferenceProperties
+		return ret
+	}).(ConfigurationProfilePreferencePropertiesOutput)
 }
 
 // The custom preferences for Azure Antimalware.
@@ -1597,7 +1637,7 @@ func (o ConfigurationProfilePreferencePropertiesResponseOutput) ToConfigurationP
 }
 
 func (o ConfigurationProfilePreferencePropertiesResponseOutput) ToConfigurationProfilePreferencePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferencePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferencePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferencePropertiesResponse) *ConfigurationProfilePreferencePropertiesResponse {
 		return &v
 	}).(ConfigurationProfilePreferencePropertiesResponsePtrOutput)
 }
@@ -1632,7 +1672,11 @@ func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) ToConfigurati
 
 func (o ConfigurationProfilePreferencePropertiesResponsePtrOutput) Elem() ConfigurationProfilePreferencePropertiesResponseOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferencePropertiesResponse) ConfigurationProfilePreferencePropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfilePreferencePropertiesResponse
+		return ret
 	}).(ConfigurationProfilePreferencePropertiesResponseOutput)
 }
 
@@ -1764,7 +1808,7 @@ func (o ConfigurationProfilePreferenceVmBackupOutput) ToConfigurationProfilePref
 }
 
 func (o ConfigurationProfilePreferenceVmBackupOutput) ToConfigurationProfilePreferenceVmBackupPtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackup) *ConfigurationProfilePreferenceVmBackup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceVmBackup) *ConfigurationProfilePreferenceVmBackup {
 		return &v
 	}).(ConfigurationProfilePreferenceVmBackupPtrOutput)
 }
@@ -1804,7 +1848,13 @@ func (o ConfigurationProfilePreferenceVmBackupPtrOutput) ToConfigurationProfileP
 }
 
 func (o ConfigurationProfilePreferenceVmBackupPtrOutput) Elem() ConfigurationProfilePreferenceVmBackupOutput {
-	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackup) ConfigurationProfilePreferenceVmBackup { return *v }).(ConfigurationProfilePreferenceVmBackupOutput)
+	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackup) ConfigurationProfilePreferenceVmBackup {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfilePreferenceVmBackup
+		return ret
+	}).(ConfigurationProfilePreferenceVmBackupOutput)
 }
 
 // Instant RP retention policy range in days
@@ -1955,7 +2005,7 @@ func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationPro
 }
 
 func (o ConfigurationProfilePreferenceVmBackupResponseOutput) ToConfigurationProfilePreferenceVmBackupResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfilePreferenceVmBackupResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfilePreferenceVmBackupResponse) *ConfigurationProfilePreferenceVmBackupResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfilePreferenceVmBackupResponse) *ConfigurationProfilePreferenceVmBackupResponse {
 		return &v
 	}).(ConfigurationProfilePreferenceVmBackupResponsePtrOutput)
 }
@@ -1996,7 +2046,11 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) ToConfiguration
 
 func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) Elem() ConfigurationProfilePreferenceVmBackupResponseOutput {
 	return o.ApplyT(func(v *ConfigurationProfilePreferenceVmBackupResponse) ConfigurationProfilePreferenceVmBackupResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfilePreferenceVmBackupResponse
+		return ret
 	}).(ConfigurationProfilePreferenceVmBackupResponseOutput)
 }
 

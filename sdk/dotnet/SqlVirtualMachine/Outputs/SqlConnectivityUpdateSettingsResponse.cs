@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
+    /// <summary>
+    /// Set the access level and network port settings for SQL Server.
+    /// </summary>
     [OutputType]
     public sealed class SqlConnectivityUpdateSettingsResponse
     {

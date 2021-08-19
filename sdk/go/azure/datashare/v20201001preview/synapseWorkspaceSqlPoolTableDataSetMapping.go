@@ -112,43 +112,9 @@ func GetSynapseWorkspaceSqlPoolTableDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SynapseWorkspaceSqlPoolTableDataSetMapping resources.
 type synapseWorkspaceSqlPoolTableDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// Kind of data set mapping.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId *string `pulumi:"synapseWorkspaceSqlPoolTableResourceId"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type SynapseWorkspaceSqlPoolTableDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'SynapseWorkspaceSqlPoolTable'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource id of the Synapse Workspace SQL Pool Table
-	SynapseWorkspaceSqlPoolTableResourceId pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (SynapseWorkspaceSqlPoolTableDataSetMappingState) ElementType() reflect.Type {
@@ -215,9 +181,7 @@ func (i *SynapseWorkspaceSqlPoolTableDataSetMapping) ToSynapseWorkspaceSqlPoolTa
 	return pulumi.ToOutputWithContext(ctx, i).(SynapseWorkspaceSqlPoolTableDataSetMappingOutput)
 }
 
-type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type SynapseWorkspaceSqlPoolTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SynapseWorkspaceSqlPoolTableDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SynapseWorkspaceSqlPoolTableDataSetMapping)(nil))

@@ -294,53 +294,9 @@ func GetLocalNetworkGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalNetworkGateway resources.
 type localNetworkGatewayState struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// FQDN of local network gateway.
-	Fqdn *string `pulumi:"fqdn"`
-	// IP address of local network gateway.
-	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
-	// Local network site address space.
-	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the local network gateway resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource GUID property of the local network gateway resource.
-	ResourceGuid *string `pulumi:"resourceGuid"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type LocalNetworkGatewayState struct {
-	// Local network gateway's BGP speaker settings.
-	BgpSettings BgpSettingsResponsePtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// FQDN of local network gateway.
-	Fqdn pulumi.StringPtrInput
-	// IP address of local network gateway.
-	GatewayIpAddress pulumi.StringPtrInput
-	// Local network site address space.
-	LocalNetworkAddressSpace AddressSpaceResponsePtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the local network gateway resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource GUID property of the local network gateway resource.
-	ResourceGuid pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (LocalNetworkGatewayState) ElementType() reflect.Type {
@@ -413,9 +369,7 @@ func (i *LocalNetworkGateway) ToLocalNetworkGatewayOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LocalNetworkGatewayOutput)
 }
 
-type LocalNetworkGatewayOutput struct {
-	*pulumi.OutputState
-}
+type LocalNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (LocalNetworkGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LocalNetworkGateway)(nil))

@@ -245,7 +245,7 @@ func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePt
 }
 
 func (o ManagementGroupDetailsResponseOutput) ToManagementGroupDetailsResponsePtrOutputWithContext(ctx context.Context) ManagementGroupDetailsResponsePtrOutput {
-	return o.ApplyT(func(v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementGroupDetailsResponse) *ManagementGroupDetailsResponse {
 		return &v
 	}).(ManagementGroupDetailsResponsePtrOutput)
 }
@@ -285,7 +285,13 @@ func (o ManagementGroupDetailsResponsePtrOutput) ToManagementGroupDetailsRespons
 }
 
 func (o ManagementGroupDetailsResponsePtrOutput) Elem() ManagementGroupDetailsResponseOutput {
-	return o.ApplyT(func(v *ManagementGroupDetailsResponse) ManagementGroupDetailsResponse { return *v }).(ManagementGroupDetailsResponseOutput)
+	return o.ApplyT(func(v *ManagementGroupDetailsResponse) ManagementGroupDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementGroupDetailsResponse
+		return ret
+	}).(ManagementGroupDetailsResponseOutput)
 }
 
 // (Optional) The ID of the parent management group.
@@ -428,7 +434,7 @@ func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutput() Pare
 }
 
 func (o ParentGroupInfoResponseOutput) ToParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupInfoResponsePtrOutput {
-	return o.ApplyT(func(v ParentGroupInfoResponse) *ParentGroupInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParentGroupInfoResponse) *ParentGroupInfoResponse {
 		return &v
 	}).(ParentGroupInfoResponsePtrOutput)
 }
@@ -458,7 +464,13 @@ func (o ParentGroupInfoResponsePtrOutput) ToParentGroupInfoResponsePtrOutputWith
 }
 
 func (o ParentGroupInfoResponsePtrOutput) Elem() ParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *ParentGroupInfoResponse) ParentGroupInfoResponse { return *v }).(ParentGroupInfoResponseOutput)
+	return o.ApplyT(func(v *ParentGroupInfoResponse) ParentGroupInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ParentGroupInfoResponse
+		return ret
+	}).(ParentGroupInfoResponseOutput)
 }
 
 // The friendly name of the parent management group.

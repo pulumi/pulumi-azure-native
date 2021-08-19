@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Storage mapping properties.
+    /// </summary>
     [OutputType]
     public sealed class StorageClassificationMappingPropertiesResponse
     {

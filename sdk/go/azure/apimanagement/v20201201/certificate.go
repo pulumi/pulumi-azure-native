@@ -136,33 +136,9 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// KeyVault location details of the certificate.
-	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Subject attribute of the certificate.
-	Subject *string `pulumi:"subject"`
-	// Thumbprint of the certificate.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
-	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-	ExpirationDate pulumi.StringPtrInput
-	// KeyVault location details of the certificate.
-	KeyVault KeyVaultContractPropertiesResponsePtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Subject attribute of the certificate.
-	Subject pulumi.StringPtrInput
-	// Thumbprint of the certificate.
-	Thumbprint pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CertificateState) ElementType() reflect.Type {
@@ -223,9 +199,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
-type CertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Certificate)(nil))

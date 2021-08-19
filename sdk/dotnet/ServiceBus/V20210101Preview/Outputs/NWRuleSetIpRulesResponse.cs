@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Description of NetWorkRuleSet - IpRules resource.
+    /// </summary>
     [OutputType]
     public sealed class NWRuleSetIpRulesResponse
     {

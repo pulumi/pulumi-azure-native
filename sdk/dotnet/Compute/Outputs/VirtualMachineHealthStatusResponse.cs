@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// The health status of the VM.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineHealthStatusResponse
     {

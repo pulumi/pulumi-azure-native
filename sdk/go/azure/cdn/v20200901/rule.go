@@ -90,43 +90,9 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
-	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions []interface{} `pulumi:"actions"`
-	// A list of conditions that must be matched for the actions to be executed
-	Conditions       []interface{} `pulumi:"conditions"`
-	DeploymentStatus *string       `pulumi:"deploymentStatus"`
-	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-	MatchProcessingBehavior *string `pulumi:"matchProcessingBehavior"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-	Order *int `pulumi:"order"`
-	// Provisioning status
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Read only system data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type RuleState struct {
-	// A list of actions that are executed when all the conditions of a rule are satisfied.
-	Actions pulumi.ArrayInput
-	// A list of conditions that must be matched for the actions to be executed
-	Conditions       pulumi.ArrayInput
-	DeploymentStatus pulumi.StringPtrInput
-	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
-	MatchProcessingBehavior pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
-	Order pulumi.IntPtrInput
-	// Provisioning status
-	ProvisioningState pulumi.StringPtrInput
-	// Read only system data
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (RuleState) ElementType() reflect.Type {
@@ -195,9 +161,7 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleOutput)
 }
 
-type RuleOutput struct {
-	*pulumi.OutputState
-}
+type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Rule)(nil))

@@ -106,7 +106,7 @@ func (o ApiDefinitionInfoOutput) ToApiDefinitionInfoPtrOutput() ApiDefinitionInf
 }
 
 func (o ApiDefinitionInfoOutput) ToApiDefinitionInfoPtrOutputWithContext(ctx context.Context) ApiDefinitionInfoPtrOutput {
-	return o.ApplyT(func(v ApiDefinitionInfo) *ApiDefinitionInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDefinitionInfo) *ApiDefinitionInfo {
 		return &v
 	}).(ApiDefinitionInfoPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o ApiDefinitionInfoPtrOutput) ToApiDefinitionInfoPtrOutputWithContext(ctx 
 }
 
 func (o ApiDefinitionInfoPtrOutput) Elem() ApiDefinitionInfoOutput {
-	return o.ApplyT(func(v *ApiDefinitionInfo) ApiDefinitionInfo { return *v }).(ApiDefinitionInfoOutput)
+	return o.ApplyT(func(v *ApiDefinitionInfo) ApiDefinitionInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDefinitionInfo
+		return ret
+	}).(ApiDefinitionInfoOutput)
 }
 
 // The URL of the API definition.
@@ -240,7 +246,7 @@ func (o ApiDefinitionInfoResponseOutput) ToApiDefinitionInfoResponsePtrOutput() 
 }
 
 func (o ApiDefinitionInfoResponseOutput) ToApiDefinitionInfoResponsePtrOutputWithContext(ctx context.Context) ApiDefinitionInfoResponsePtrOutput {
-	return o.ApplyT(func(v ApiDefinitionInfoResponse) *ApiDefinitionInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiDefinitionInfoResponse) *ApiDefinitionInfoResponse {
 		return &v
 	}).(ApiDefinitionInfoResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o ApiDefinitionInfoResponsePtrOutput) ToApiDefinitionInfoResponsePtrOutput
 }
 
 func (o ApiDefinitionInfoResponsePtrOutput) Elem() ApiDefinitionInfoResponseOutput {
-	return o.ApplyT(func(v *ApiDefinitionInfoResponse) ApiDefinitionInfoResponse { return *v }).(ApiDefinitionInfoResponseOutput)
+	return o.ApplyT(func(v *ApiDefinitionInfoResponse) ApiDefinitionInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDefinitionInfoResponse
+		return ret
+	}).(ApiDefinitionInfoResponseOutput)
 }
 
 // The URL of the API definition.
@@ -382,7 +394,7 @@ func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutput() Applicat
 }
 
 func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v ApplicationLogsConfig) *ApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLogsConfig) *ApplicationLogsConfig {
 		return &v
 	}).(ApplicationLogsConfigPtrOutput)
 }
@@ -417,7 +429,13 @@ func (o ApplicationLogsConfigPtrOutput) ToApplicationLogsConfigPtrOutputWithCont
 }
 
 func (o ApplicationLogsConfigPtrOutput) Elem() ApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig { return *v }).(ApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationLogsConfig
+		return ret
+	}).(ApplicationLogsConfigOutput)
 }
 
 // Application logs to blob storage configuration.
@@ -554,7 +572,7 @@ func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrO
 }
 
 func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
 		return &v
 	}).(ApplicationLogsConfigResponsePtrOutput)
 }
@@ -593,7 +611,13 @@ func (o ApplicationLogsConfigResponsePtrOutput) ToApplicationLogsConfigResponseP
 }
 
 func (o ApplicationLogsConfigResponsePtrOutput) Elem() ApplicationLogsConfigResponseOutput {
-	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse { return *v }).(ApplicationLogsConfigResponseOutput)
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationLogsConfigResponse
+		return ret
+	}).(ApplicationLogsConfigResponseOutput)
 }
 
 // Application logs to blob storage configuration.
@@ -629,7 +653,7 @@ func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicati
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActions struct {
 	// Predefined action to be taken.
-	ActionType *string `pulumi:"actionType"`
+	ActionType *AutoHealActionType `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction *AutoHealCustomAction `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -651,7 +675,7 @@ type AutoHealActionsInput interface {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// Predefined action to be taken.
-	ActionType *AutoHealActionType `pulumi:"actionType"`
+	ActionType AutoHealActionTypePtrInput `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -732,14 +756,14 @@ func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutput() AutoHealActionsPtrOu
 }
 
 func (o AutoHealActionsOutput) ToAutoHealActionsPtrOutputWithContext(ctx context.Context) AutoHealActionsPtrOutput {
-	return o.ApplyT(func(v AutoHealActions) *AutoHealActions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealActions) *AutoHealActions {
 		return &v
 	}).(AutoHealActionsPtrOutput)
 }
 
 // Predefined action to be taken.
-func (o AutoHealActionsOutput) ActionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutoHealActions) *string { return v.ActionType }).(pulumi.StringPtrOutput)
+func (o AutoHealActionsOutput) ActionType() AutoHealActionTypePtrOutput {
+	return o.ApplyT(func(v AutoHealActions) *AutoHealActionType { return v.ActionType }).(AutoHealActionTypePtrOutput)
 }
 
 // Custom action to be taken.
@@ -768,17 +792,23 @@ func (o AutoHealActionsPtrOutput) ToAutoHealActionsPtrOutputWithContext(ctx cont
 }
 
 func (o AutoHealActionsPtrOutput) Elem() AutoHealActionsOutput {
-	return o.ApplyT(func(v *AutoHealActions) AutoHealActions { return *v }).(AutoHealActionsOutput)
+	return o.ApplyT(func(v *AutoHealActions) AutoHealActions {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealActions
+		return ret
+	}).(AutoHealActionsOutput)
 }
 
 // Predefined action to be taken.
-func (o AutoHealActionsPtrOutput) ActionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AutoHealActions) *string {
+func (o AutoHealActionsPtrOutput) ActionType() AutoHealActionTypePtrOutput {
+	return o.ApplyT(func(v *AutoHealActions) *AutoHealActionType {
 		if v == nil {
 			return nil
 		}
 		return v.ActionType
-	}).(pulumi.StringPtrOutput)
+	}).(AutoHealActionTypePtrOutput)
 }
 
 // Custom action to be taken.
@@ -908,7 +938,7 @@ func (o AutoHealActionsResponseOutput) ToAutoHealActionsResponsePtrOutput() Auto
 }
 
 func (o AutoHealActionsResponseOutput) ToAutoHealActionsResponsePtrOutputWithContext(ctx context.Context) AutoHealActionsResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealActionsResponse) *AutoHealActionsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealActionsResponse) *AutoHealActionsResponse {
 		return &v
 	}).(AutoHealActionsResponsePtrOutput)
 }
@@ -944,7 +974,13 @@ func (o AutoHealActionsResponsePtrOutput) ToAutoHealActionsResponsePtrOutputWith
 }
 
 func (o AutoHealActionsResponsePtrOutput) Elem() AutoHealActionsResponseOutput {
-	return o.ApplyT(func(v *AutoHealActionsResponse) AutoHealActionsResponse { return *v }).(AutoHealActionsResponseOutput)
+	return o.ApplyT(func(v *AutoHealActionsResponse) AutoHealActionsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealActionsResponse
+		return ret
+	}).(AutoHealActionsResponseOutput)
 }
 
 // Predefined action to be taken.
@@ -1081,7 +1117,7 @@ func (o AutoHealCustomActionOutput) ToAutoHealCustomActionPtrOutput() AutoHealCu
 }
 
 func (o AutoHealCustomActionOutput) ToAutoHealCustomActionPtrOutputWithContext(ctx context.Context) AutoHealCustomActionPtrOutput {
-	return o.ApplyT(func(v AutoHealCustomAction) *AutoHealCustomAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealCustomAction) *AutoHealCustomAction {
 		return &v
 	}).(AutoHealCustomActionPtrOutput)
 }
@@ -1111,7 +1147,13 @@ func (o AutoHealCustomActionPtrOutput) ToAutoHealCustomActionPtrOutputWithContex
 }
 
 func (o AutoHealCustomActionPtrOutput) Elem() AutoHealCustomActionOutput {
-	return o.ApplyT(func(v *AutoHealCustomAction) AutoHealCustomAction { return *v }).(AutoHealCustomActionOutput)
+	return o.ApplyT(func(v *AutoHealCustomAction) AutoHealCustomAction {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealCustomAction
+		return ret
+	}).(AutoHealCustomActionOutput)
 }
 
 // Executable to be run.
@@ -1237,7 +1279,7 @@ func (o AutoHealCustomActionResponseOutput) ToAutoHealCustomActionResponsePtrOut
 }
 
 func (o AutoHealCustomActionResponseOutput) ToAutoHealCustomActionResponsePtrOutputWithContext(ctx context.Context) AutoHealCustomActionResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealCustomActionResponse) *AutoHealCustomActionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealCustomActionResponse) *AutoHealCustomActionResponse {
 		return &v
 	}).(AutoHealCustomActionResponsePtrOutput)
 }
@@ -1267,7 +1309,13 @@ func (o AutoHealCustomActionResponsePtrOutput) ToAutoHealCustomActionResponsePtr
 }
 
 func (o AutoHealCustomActionResponsePtrOutput) Elem() AutoHealCustomActionResponseOutput {
-	return o.ApplyT(func(v *AutoHealCustomActionResponse) AutoHealCustomActionResponse { return *v }).(AutoHealCustomActionResponseOutput)
+	return o.ApplyT(func(v *AutoHealCustomActionResponse) AutoHealCustomActionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealCustomActionResponse
+		return ret
+	}).(AutoHealCustomActionResponseOutput)
 }
 
 // Executable to be run.
@@ -1390,7 +1438,7 @@ func (o AutoHealRulesOutput) ToAutoHealRulesPtrOutput() AutoHealRulesPtrOutput {
 }
 
 func (o AutoHealRulesOutput) ToAutoHealRulesPtrOutputWithContext(ctx context.Context) AutoHealRulesPtrOutput {
-	return o.ApplyT(func(v AutoHealRules) *AutoHealRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealRules) *AutoHealRules {
 		return &v
 	}).(AutoHealRulesPtrOutput)
 }
@@ -1420,7 +1468,13 @@ func (o AutoHealRulesPtrOutput) ToAutoHealRulesPtrOutputWithContext(ctx context.
 }
 
 func (o AutoHealRulesPtrOutput) Elem() AutoHealRulesOutput {
-	return o.ApplyT(func(v *AutoHealRules) AutoHealRules { return *v }).(AutoHealRulesOutput)
+	return o.ApplyT(func(v *AutoHealRules) AutoHealRules {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealRules
+		return ret
+	}).(AutoHealRulesOutput)
 }
 
 // Actions to be executed when a rule is triggered.
@@ -1543,7 +1597,7 @@ func (o AutoHealRulesResponseOutput) ToAutoHealRulesResponsePtrOutput() AutoHeal
 }
 
 func (o AutoHealRulesResponseOutput) ToAutoHealRulesResponsePtrOutputWithContext(ctx context.Context) AutoHealRulesResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealRulesResponse) *AutoHealRulesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealRulesResponse) *AutoHealRulesResponse {
 		return &v
 	}).(AutoHealRulesResponsePtrOutput)
 }
@@ -1573,7 +1627,13 @@ func (o AutoHealRulesResponsePtrOutput) ToAutoHealRulesResponsePtrOutputWithCont
 }
 
 func (o AutoHealRulesResponsePtrOutput) Elem() AutoHealRulesResponseOutput {
-	return o.ApplyT(func(v *AutoHealRulesResponse) AutoHealRulesResponse { return *v }).(AutoHealRulesResponseOutput)
+	return o.ApplyT(func(v *AutoHealRulesResponse) AutoHealRulesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealRulesResponse
+		return ret
+	}).(AutoHealRulesResponseOutput)
 }
 
 // Actions to be executed when a rule is triggered.
@@ -1704,7 +1764,7 @@ func (o AutoHealTriggersOutput) ToAutoHealTriggersPtrOutput() AutoHealTriggersPt
 }
 
 func (o AutoHealTriggersOutput) ToAutoHealTriggersPtrOutputWithContext(ctx context.Context) AutoHealTriggersPtrOutput {
-	return o.ApplyT(func(v AutoHealTriggers) *AutoHealTriggers {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealTriggers) *AutoHealTriggers {
 		return &v
 	}).(AutoHealTriggersPtrOutput)
 }
@@ -1744,7 +1804,13 @@ func (o AutoHealTriggersPtrOutput) ToAutoHealTriggersPtrOutputWithContext(ctx co
 }
 
 func (o AutoHealTriggersPtrOutput) Elem() AutoHealTriggersOutput {
-	return o.ApplyT(func(v *AutoHealTriggers) AutoHealTriggers { return *v }).(AutoHealTriggersOutput)
+	return o.ApplyT(func(v *AutoHealTriggers) AutoHealTriggers {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealTriggers
+		return ret
+	}).(AutoHealTriggersOutput)
 }
 
 // A rule based on private bytes.
@@ -1895,7 +1961,7 @@ func (o AutoHealTriggersResponseOutput) ToAutoHealTriggersResponsePtrOutput() Au
 }
 
 func (o AutoHealTriggersResponseOutput) ToAutoHealTriggersResponsePtrOutputWithContext(ctx context.Context) AutoHealTriggersResponsePtrOutput {
-	return o.ApplyT(func(v AutoHealTriggersResponse) *AutoHealTriggersResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoHealTriggersResponse) *AutoHealTriggersResponse {
 		return &v
 	}).(AutoHealTriggersResponsePtrOutput)
 }
@@ -1935,7 +2001,13 @@ func (o AutoHealTriggersResponsePtrOutput) ToAutoHealTriggersResponsePtrOutputWi
 }
 
 func (o AutoHealTriggersResponsePtrOutput) Elem() AutoHealTriggersResponseOutput {
-	return o.ApplyT(func(v *AutoHealTriggersResponse) AutoHealTriggersResponse { return *v }).(AutoHealTriggersResponseOutput)
+	return o.ApplyT(func(v *AutoHealTriggersResponse) AutoHealTriggersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoHealTriggersResponse
+		return ret
+	}).(AutoHealTriggersResponseOutput)
 }
 
 // A rule based on private bytes.
@@ -1981,7 +2053,7 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfig struct {
 	// Log level.
-	Level *string `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -2004,7 +2076,7 @@ type AzureBlobStorageApplicationLogsConfigInput interface {
 // Application logs azure blob storage configuration.
 type AzureBlobStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level LogLevelPtrInput `pulumi:"level"`
 	// Retention in days.
 	// Remove blobs older than X days.
 	// 0 or lower means no retention.
@@ -2086,14 +2158,14 @@ func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicati
 }
 
 func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
 		return &v
 	}).(AzureBlobStorageApplicationLogsConfigPtrOutput)
 }
 
 // Log level.
-func (o AzureBlobStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o AzureBlobStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
 }
 
 // Retention in days.
@@ -2123,17 +2195,23 @@ func (o AzureBlobStorageApplicationLogsConfigPtrOutput) ToAzureBlobStorageApplic
 }
 
 func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Elem() AzureBlobStorageApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig { return *v }).(AzureBlobStorageApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageApplicationLogsConfig
+		return ret
+	}).(AzureBlobStorageApplicationLogsConfigOutput)
 }
 
 // Log level.
-func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *LogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(LogLevelPtrOutput)
 }
 
 // Retention in days.
@@ -2266,7 +2344,7 @@ func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageA
 }
 
 func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
 		return &v
 	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
 }
@@ -2304,7 +2382,11 @@ func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) ToAzureBlobStora
 
 func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureBlobStorageApplicationLogsConfigResponseOutput {
 	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) AzureBlobStorageApplicationLogsConfigResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageApplicationLogsConfigResponse
+		return ret
 	}).(AzureBlobStorageApplicationLogsConfigResponseOutput)
 }
 
@@ -2448,7 +2530,7 @@ func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPt
 }
 
 func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
 		return &v
 	}).(AzureBlobStorageHttpLogsConfigPtrOutput)
 }
@@ -2485,7 +2567,13 @@ func (o AzureBlobStorageHttpLogsConfigPtrOutput) ToAzureBlobStorageHttpLogsConfi
 }
 
 func (o AzureBlobStorageHttpLogsConfigPtrOutput) Elem() AzureBlobStorageHttpLogsConfigOutput {
-	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig { return *v }).(AzureBlobStorageHttpLogsConfigOutput)
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageHttpLogsConfig
+		return ret
+	}).(AzureBlobStorageHttpLogsConfigOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -2628,7 +2716,7 @@ func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogs
 }
 
 func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
 		return &v
 	}).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
 }
@@ -2665,7 +2753,13 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) ToAzureBlobStorageHttpL
 }
 
 func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Elem() AzureBlobStorageHttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse { return *v }).(AzureBlobStorageHttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBlobStorageHttpLogsConfigResponse
+		return ret
+	}).(AzureBlobStorageHttpLogsConfigResponseOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -2711,7 +2805,7 @@ type AzureStorageInfoValue struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName *string `pulumi:"shareName"`
 	// Type of storage.
-	Type *string `pulumi:"type"`
+	Type *AzureStorageType `pulumi:"type"`
 }
 
 // AzureStorageInfoValueInput is an input type that accepts AzureStorageInfoValueArgs and AzureStorageInfoValueOutput values.
@@ -2736,7 +2830,7 @@ type AzureStorageInfoValueArgs struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// Type of storage.
-	Type *AzureStorageType `pulumi:"type"`
+	Type AzureStorageTypePtrInput `pulumi:"type"`
 }
 
 func (AzureStorageInfoValueArgs) ElementType() reflect.Type {
@@ -2812,8 +2906,8 @@ func (o AzureStorageInfoValueOutput) ShareName() pulumi.StringPtrOutput {
 }
 
 // Type of storage.
-func (o AzureStorageInfoValueOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureStorageInfoValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o AzureStorageInfoValueOutput) Type() AzureStorageTypePtrOutput {
+	return o.ApplyT(func(v AzureStorageInfoValue) *AzureStorageType { return v.Type }).(AzureStorageTypePtrOutput)
 }
 
 type AzureStorageInfoValueMapOutput struct{ *pulumi.OutputState }
@@ -2984,7 +3078,7 @@ func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) A
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfig struct {
 	// Log level.
-	Level *string `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl string `pulumi:"sasUrl"`
 }
@@ -3003,7 +3097,7 @@ type AzureTableStorageApplicationLogsConfigInput interface {
 // Application logs to Azure table storage configuration.
 type AzureTableStorageApplicationLogsConfigArgs struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level LogLevelPtrInput `pulumi:"level"`
 	// SAS URL to an Azure table with add/query/delete permissions.
 	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
 }
@@ -3081,14 +3175,14 @@ func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplica
 }
 
 func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
 		return &v
 	}).(AzureTableStorageApplicationLogsConfigPtrOutput)
 }
 
 // Log level.
-func (o AzureTableStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o AzureTableStorageApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
 }
 
 // SAS URL to an Azure table with add/query/delete permissions.
@@ -3111,17 +3205,23 @@ func (o AzureTableStorageApplicationLogsConfigPtrOutput) ToAzureTableStorageAppl
 }
 
 func (o AzureTableStorageApplicationLogsConfigPtrOutput) Elem() AzureTableStorageApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig { return *v }).(AzureTableStorageApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AzureTableStorageApplicationLogsConfig
+		return ret
+	}).(AzureTableStorageApplicationLogsConfigOutput)
 }
 
 // Log level.
-func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *LogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(LogLevelPtrOutput)
 }
 
 // SAS URL to an Azure table with add/query/delete permissions.
@@ -3234,7 +3334,7 @@ func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorag
 }
 
 func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
 		return &v
 	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
 }
@@ -3265,7 +3365,11 @@ func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) ToAzureTableSto
 
 func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureTableStorageApplicationLogsConfigResponseOutput {
 	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) AzureTableStorageApplicationLogsConfigResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AzureTableStorageApplicationLogsConfigResponse
+		return ret
 	}).(AzureTableStorageApplicationLogsConfigResponseOutput)
 }
 
@@ -3294,7 +3398,7 @@ type BackupSchedule struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval int `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit string `pulumi:"frequencyUnit"`
+	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup bool `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -3319,7 +3423,7 @@ type BackupScheduleArgs struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
+	FrequencyUnit FrequencyUnitInput `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -3401,7 +3505,7 @@ func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutpu
 }
 
 func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupSchedule) *BackupSchedule {
 		return &v
 	}).(BackupSchedulePtrOutput)
 }
@@ -3412,8 +3516,8 @@ func (o BackupScheduleOutput) FrequencyInterval() pulumi.IntOutput {
 }
 
 // The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupScheduleOutput) FrequencyUnit() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupSchedule) string { return v.FrequencyUnit }).(pulumi.StringOutput)
+func (o BackupScheduleOutput) FrequencyUnit() FrequencyUnitOutput {
+	return o.ApplyT(func(v BackupSchedule) FrequencyUnit { return v.FrequencyUnit }).(FrequencyUnitOutput)
 }
 
 // True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -3446,7 +3550,13 @@ func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx contex
 }
 
 func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
-	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
+	return o.ApplyT(func(v *BackupSchedule) BackupSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupSchedule
+		return ret
+	}).(BackupScheduleOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -3460,13 +3570,13 @@ func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
 }
 
 // The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
+func (o BackupSchedulePtrOutput) FrequencyUnit() FrequencyUnitPtrOutput {
+	return o.ApplyT(func(v *BackupSchedule) *FrequencyUnit {
 		if v == nil {
 			return nil
 		}
 		return &v.FrequencyUnit
-	}).(pulumi.StringPtrOutput)
+	}).(FrequencyUnitPtrOutput)
 }
 
 // True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
@@ -3615,7 +3725,7 @@ func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutput() Backup
 }
 
 func (o BackupScheduleResponseOutput) ToBackupScheduleResponsePtrOutputWithContext(ctx context.Context) BackupScheduleResponsePtrOutput {
-	return o.ApplyT(func(v BackupScheduleResponse) *BackupScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupScheduleResponse) *BackupScheduleResponse {
 		return &v
 	}).(BackupScheduleResponsePtrOutput)
 }
@@ -3665,7 +3775,13 @@ func (o BackupScheduleResponsePtrOutput) ToBackupScheduleResponsePtrOutputWithCo
 }
 
 func (o BackupScheduleResponsePtrOutput) Elem() BackupScheduleResponseOutput {
-	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse { return *v }).(BackupScheduleResponseOutput)
+	return o.ApplyT(func(v *BackupScheduleResponse) BackupScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupScheduleResponse
+		return ret
+	}).(BackupScheduleResponseOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -3874,7 +3990,7 @@ func (o CloningInfoOutput) ToCloningInfoPtrOutput() CloningInfoPtrOutput {
 }
 
 func (o CloningInfoOutput) ToCloningInfoPtrOutputWithContext(ctx context.Context) CloningInfoPtrOutput {
-	return o.ApplyT(func(v CloningInfo) *CloningInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloningInfo) *CloningInfo {
 		return &v
 	}).(CloningInfoPtrOutput)
 }
@@ -3954,7 +4070,13 @@ func (o CloningInfoPtrOutput) ToCloningInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CloningInfoPtrOutput) Elem() CloningInfoOutput {
-	return o.ApplyT(func(v *CloningInfo) CloningInfo { return *v }).(CloningInfoOutput)
+	return o.ApplyT(func(v *CloningInfo) CloningInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CloningInfo
+		return ret
+	}).(CloningInfoOutput)
 }
 
 // Application setting overrides for cloned app. If specified, these settings override the settings cloned
@@ -4239,7 +4361,7 @@ type ConnStringInfo struct {
 	// Name of connection string.
 	Name *string `pulumi:"name"`
 	// Type of database.
-	Type *string `pulumi:"type"`
+	Type *ConnectionStringType `pulumi:"type"`
 }
 
 // ConnStringInfoInput is an input type that accepts ConnStringInfoArgs and ConnStringInfoOutput values.
@@ -4260,7 +4382,7 @@ type ConnStringInfoArgs struct {
 	// Name of connection string.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of database.
-	Type *ConnectionStringType `pulumi:"type"`
+	Type ConnectionStringTypePtrInput `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -4326,8 +4448,8 @@ func (o ConnStringInfoOutput) Name() pulumi.StringPtrOutput {
 }
 
 // Type of database.
-func (o ConnStringInfoOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnStringInfo) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnStringInfoOutput) Type() ConnectionStringTypePtrOutput {
+	return o.ApplyT(func(v ConnStringInfo) *ConnectionStringType { return v.Type }).(ConnectionStringTypePtrOutput)
 }
 
 type ConnStringInfoArrayOutput struct{ *pulumi.OutputState }
@@ -4471,7 +4593,7 @@ func (o ConnStringInfoResponseArrayOutput) Index(i pulumi.IntInput) ConnStringIn
 // Database connection string value to type pair.
 type ConnStringValueTypePair struct {
 	// Type of database.
-	Type string `pulumi:"type"`
+	Type ConnectionStringType `pulumi:"type"`
 	// Value of pair.
 	Value string `pulumi:"value"`
 }
@@ -4490,7 +4612,7 @@ type ConnStringValueTypePairInput interface {
 // Database connection string value to type pair.
 type ConnStringValueTypePairArgs struct {
 	// Type of database.
-	Type ConnectionStringType `pulumi:"type"`
+	Type ConnectionStringTypeInput `pulumi:"type"`
 	// Value of pair.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -4548,8 +4670,8 @@ func (o ConnStringValueTypePairOutput) ToConnStringValueTypePairOutputWithContex
 }
 
 // Type of database.
-func (o ConnStringValueTypePairOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnStringValueTypePair) string { return v.Type }).(pulumi.StringOutput)
+func (o ConnStringValueTypePairOutput) Type() ConnectionStringTypeOutput {
+	return o.ApplyT(func(v ConnStringValueTypePair) ConnectionStringType { return v.Type }).(ConnectionStringTypeOutput)
 }
 
 // Value of pair.
@@ -4792,7 +4914,7 @@ func (o CorsSettingsOutput) ToCorsSettingsPtrOutput() CorsSettingsPtrOutput {
 }
 
 func (o CorsSettingsOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Context) CorsSettingsPtrOutput {
-	return o.ApplyT(func(v CorsSettings) *CorsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsSettings) *CorsSettings {
 		return &v
 	}).(CorsSettingsPtrOutput)
 }
@@ -4825,7 +4947,13 @@ func (o CorsSettingsPtrOutput) ToCorsSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o CorsSettingsPtrOutput) Elem() CorsSettingsOutput {
-	return o.ApplyT(func(v *CorsSettings) CorsSettings { return *v }).(CorsSettingsOutput)
+	return o.ApplyT(func(v *CorsSettings) CorsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret CorsSettings
+		return ret
+	}).(CorsSettingsOutput)
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
@@ -4957,7 +5085,7 @@ func (o CorsSettingsResponseOutput) ToCorsSettingsResponsePtrOutput() CorsSettin
 }
 
 func (o CorsSettingsResponseOutput) ToCorsSettingsResponsePtrOutputWithContext(ctx context.Context) CorsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v CorsSettingsResponse) *CorsSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsSettingsResponse) *CorsSettingsResponse {
 		return &v
 	}).(CorsSettingsResponsePtrOutput)
 }
@@ -4990,7 +5118,13 @@ func (o CorsSettingsResponsePtrOutput) ToCorsSettingsResponsePtrOutputWithContex
 }
 
 func (o CorsSettingsResponsePtrOutput) Elem() CorsSettingsResponseOutput {
-	return o.ApplyT(func(v *CorsSettingsResponse) CorsSettingsResponse { return *v }).(CorsSettingsResponseOutput)
+	return o.ApplyT(func(v *CorsSettingsResponse) CorsSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CorsSettingsResponse
+		return ret
+	}).(CorsSettingsResponseOutput)
 }
 
 // Gets or sets the list of origins that should be allowed to make cross-origin
@@ -5366,7 +5500,7 @@ func (o EnabledConfigOutput) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
 }
 
 func (o EnabledConfigOutput) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
-	return o.ApplyT(func(v EnabledConfig) *EnabledConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledConfig) *EnabledConfig {
 		return &v
 	}).(EnabledConfigPtrOutput)
 }
@@ -5391,7 +5525,13 @@ func (o EnabledConfigPtrOutput) ToEnabledConfigPtrOutputWithContext(ctx context.
 }
 
 func (o EnabledConfigPtrOutput) Elem() EnabledConfigOutput {
-	return o.ApplyT(func(v *EnabledConfig) EnabledConfig { return *v }).(EnabledConfigOutput)
+	return o.ApplyT(func(v *EnabledConfig) EnabledConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledConfig
+		return ret
+	}).(EnabledConfigOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -5500,7 +5640,7 @@ func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutput() EnabledC
 }
 
 func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
-	return o.ApplyT(func(v EnabledConfigResponse) *EnabledConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnabledConfigResponse) *EnabledConfigResponse {
 		return &v
 	}).(EnabledConfigResponsePtrOutput)
 }
@@ -5525,7 +5665,13 @@ func (o EnabledConfigResponsePtrOutput) ToEnabledConfigResponsePtrOutputWithCont
 }
 
 func (o EnabledConfigResponsePtrOutput) Elem() EnabledConfigResponseOutput {
-	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse { return *v }).(EnabledConfigResponseOutput)
+	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnabledConfigResponse
+		return ret
+	}).(EnabledConfigResponseOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -5634,7 +5780,7 @@ func (o ExperimentsOutput) ToExperimentsPtrOutput() ExperimentsPtrOutput {
 }
 
 func (o ExperimentsOutput) ToExperimentsPtrOutputWithContext(ctx context.Context) ExperimentsPtrOutput {
-	return o.ApplyT(func(v Experiments) *Experiments {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Experiments) *Experiments {
 		return &v
 	}).(ExperimentsPtrOutput)
 }
@@ -5659,7 +5805,13 @@ func (o ExperimentsPtrOutput) ToExperimentsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ExperimentsPtrOutput) Elem() ExperimentsOutput {
-	return o.ApplyT(func(v *Experiments) Experiments { return *v }).(ExperimentsOutput)
+	return o.ApplyT(func(v *Experiments) Experiments {
+		if v != nil {
+			return *v
+		}
+		var ret Experiments
+		return ret
+	}).(ExperimentsOutput)
 }
 
 // List of ramp-up rules.
@@ -5768,7 +5920,7 @@ func (o ExperimentsResponseOutput) ToExperimentsResponsePtrOutput() ExperimentsR
 }
 
 func (o ExperimentsResponseOutput) ToExperimentsResponsePtrOutputWithContext(ctx context.Context) ExperimentsResponsePtrOutput {
-	return o.ApplyT(func(v ExperimentsResponse) *ExperimentsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentsResponse) *ExperimentsResponse {
 		return &v
 	}).(ExperimentsResponsePtrOutput)
 }
@@ -5793,7 +5945,13 @@ func (o ExperimentsResponsePtrOutput) ToExperimentsResponsePtrOutputWithContext(
 }
 
 func (o ExperimentsResponsePtrOutput) Elem() ExperimentsResponseOutput {
-	return o.ApplyT(func(v *ExperimentsResponse) ExperimentsResponse { return *v }).(ExperimentsResponseOutput)
+	return o.ApplyT(func(v *ExperimentsResponse) ExperimentsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentsResponse
+		return ret
+	}).(ExperimentsResponseOutput)
 }
 
 // List of ramp-up rules.
@@ -5809,7 +5967,7 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfig struct {
 	// Log level.
-	Level *string `pulumi:"level"`
+	Level *LogLevel `pulumi:"level"`
 }
 
 // FileSystemApplicationLogsConfigInput is an input type that accepts FileSystemApplicationLogsConfigArgs and FileSystemApplicationLogsConfigOutput values.
@@ -5826,7 +5984,7 @@ type FileSystemApplicationLogsConfigInput interface {
 // Application logs to file system configuration.
 type FileSystemApplicationLogsConfigArgs struct {
 	// Log level.
-	Level *LogLevel `pulumi:"level"`
+	Level LogLevelPtrInput `pulumi:"level"`
 }
 
 func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
@@ -5902,14 +6060,14 @@ func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfig
 }
 
 func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
 		return &v
 	}).(FileSystemApplicationLogsConfigPtrOutput)
 }
 
 // Log level.
-func (o FileSystemApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+func (o FileSystemApplicationLogsConfigOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *LogLevel { return v.Level }).(LogLevelPtrOutput)
 }
 
 type FileSystemApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
@@ -5927,17 +6085,23 @@ func (o FileSystemApplicationLogsConfigPtrOutput) ToFileSystemApplicationLogsCon
 }
 
 func (o FileSystemApplicationLogsConfigPtrOutput) Elem() FileSystemApplicationLogsConfigOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig { return *v }).(FileSystemApplicationLogsConfigOutput)
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemApplicationLogsConfig
+		return ret
+	}).(FileSystemApplicationLogsConfigOutput)
 }
 
 // Log level.
-func (o FileSystemApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *string {
+func (o FileSystemApplicationLogsConfigPtrOutput) Level() LogLevelPtrOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *LogLevel {
 		if v == nil {
 			return nil
 		}
 		return v.Level
-	}).(pulumi.StringPtrOutput)
+	}).(LogLevelPtrOutput)
 }
 
 // Application logs to file system configuration.
@@ -6036,7 +6200,7 @@ func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLo
 }
 
 func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
 		return &v
 	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
 }
@@ -6061,7 +6225,13 @@ func (o FileSystemApplicationLogsConfigResponsePtrOutput) ToFileSystemApplicatio
 }
 
 func (o FileSystemApplicationLogsConfigResponsePtrOutput) Elem() FileSystemApplicationLogsConfigResponseOutput {
-	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse { return *v }).(FileSystemApplicationLogsConfigResponseOutput)
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemApplicationLogsConfigResponse
+		return ret
+	}).(FileSystemApplicationLogsConfigResponseOutput)
 }
 
 // Log level.
@@ -6186,7 +6356,7 @@ func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutput() Fi
 }
 
 func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
-	return o.ApplyT(func(v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
 		return &v
 	}).(FileSystemHttpLogsConfigPtrOutput)
 }
@@ -6225,7 +6395,13 @@ func (o FileSystemHttpLogsConfigPtrOutput) ToFileSystemHttpLogsConfigPtrOutputWi
 }
 
 func (o FileSystemHttpLogsConfigPtrOutput) Elem() FileSystemHttpLogsConfigOutput {
-	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig { return *v }).(FileSystemHttpLogsConfigOutput)
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemHttpLogsConfig
+		return ret
+	}).(FileSystemHttpLogsConfigOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -6374,7 +6550,7 @@ func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigRespon
 }
 
 func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
 		return &v
 	}).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
@@ -6413,7 +6589,13 @@ func (o FileSystemHttpLogsConfigResponsePtrOutput) ToFileSystemHttpLogsConfigRes
 }
 
 func (o FileSystemHttpLogsConfigResponsePtrOutput) Elem() FileSystemHttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse { return *v }).(FileSystemHttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemHttpLogsConfigResponse
+		return ret
+	}).(FileSystemHttpLogsConfigResponseOutput)
 }
 
 // True if configuration is enabled, false if it is disabled and null if configuration is not set.
@@ -6913,11 +7095,11 @@ func (o HandlerMappingResponseArrayOutput) Index(i pulumi.IntInput) HandlerMappi
 // SSL-enabled hostname.
 type HostNameSslState struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *string `pulumi:"hostType"`
+	HostType *HostType `pulumi:"hostType"`
 	// Hostname.
 	Name *string `pulumi:"name"`
 	// SSL type.
-	SslState *string `pulumi:"sslState"`
+	SslState *SslState `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint *string `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -6940,11 +7122,11 @@ type HostNameSslStateInput interface {
 // SSL-enabled hostname.
 type HostNameSslStateArgs struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType *HostType `pulumi:"hostType"`
+	HostType HostTypePtrInput `pulumi:"hostType"`
 	// Hostname.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// SSL type.
-	SslState *SslState `pulumi:"sslState"`
+	SslState SslStatePtrInput `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -7006,8 +7188,8 @@ func (o HostNameSslStateOutput) ToHostNameSslStateOutputWithContext(ctx context.
 }
 
 // Indicates whether the hostname is a standard or repository hostname.
-func (o HostNameSslStateOutput) HostType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *string { return v.HostType }).(pulumi.StringPtrOutput)
+func (o HostNameSslStateOutput) HostType() HostTypePtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *HostType { return v.HostType }).(HostTypePtrOutput)
 }
 
 // Hostname.
@@ -7016,8 +7198,8 @@ func (o HostNameSslStateOutput) Name() pulumi.StringPtrOutput {
 }
 
 // SSL type.
-func (o HostNameSslStateOutput) SslState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameSslState) *string { return v.SslState }).(pulumi.StringPtrOutput)
+func (o HostNameSslStateOutput) SslState() SslStatePtrOutput {
+	return o.ApplyT(func(v HostNameSslState) *SslState { return v.SslState }).(SslStatePtrOutput)
 }
 
 // SSL certificate thumbprint.
@@ -7296,7 +7478,7 @@ func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutput() 
 }
 
 func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfilePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfile) *HostingEnvironmentProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfile) *HostingEnvironmentProfile {
 		return &v
 	}).(HostingEnvironmentProfilePtrOutput)
 }
@@ -7321,7 +7503,13 @@ func (o HostingEnvironmentProfilePtrOutput) ToHostingEnvironmentProfilePtrOutput
 }
 
 func (o HostingEnvironmentProfilePtrOutput) Elem() HostingEnvironmentProfileOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile { return *v }).(HostingEnvironmentProfileOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfile) HostingEnvironmentProfile {
+		if v != nil {
+			return *v
+		}
+		var ret HostingEnvironmentProfile
+		return ret
+	}).(HostingEnvironmentProfileOutput)
 }
 
 // Resource ID of the App Service Environment.
@@ -7438,7 +7626,7 @@ func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResp
 }
 
 func (o HostingEnvironmentProfileResponseOutput) ToHostingEnvironmentProfileResponsePtrOutputWithContext(ctx context.Context) HostingEnvironmentProfileResponsePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingEnvironmentProfileResponse) *HostingEnvironmentProfileResponse {
 		return &v
 	}).(HostingEnvironmentProfileResponsePtrOutput)
 }
@@ -7473,7 +7661,13 @@ func (o HostingEnvironmentProfileResponsePtrOutput) ToHostingEnvironmentProfileR
 }
 
 func (o HostingEnvironmentProfileResponsePtrOutput) Elem() HostingEnvironmentProfileResponseOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse { return *v }).(HostingEnvironmentProfileResponseOutput)
+	return o.ApplyT(func(v *HostingEnvironmentProfileResponse) HostingEnvironmentProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HostingEnvironmentProfileResponse
+		return ret
+	}).(HostingEnvironmentProfileResponseOutput)
 }
 
 // Resource ID of the App Service Environment.
@@ -7606,7 +7800,7 @@ func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutpu
 }
 
 func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
-	return o.ApplyT(func(v HttpLogsConfig) *HttpLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpLogsConfig) *HttpLogsConfig {
 		return &v
 	}).(HttpLogsConfigPtrOutput)
 }
@@ -7636,7 +7830,13 @@ func (o HttpLogsConfigPtrOutput) ToHttpLogsConfigPtrOutputWithContext(ctx contex
 }
 
 func (o HttpLogsConfigPtrOutput) Elem() HttpLogsConfigOutput {
-	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig { return *v }).(HttpLogsConfigOutput)
+	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret HttpLogsConfig
+		return ret
+	}).(HttpLogsConfigOutput)
 }
 
 // Http logs to azure blob storage configuration.
@@ -7759,7 +7959,7 @@ func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutput() HttpLo
 }
 
 func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
-	return o.ApplyT(func(v HttpLogsConfigResponse) *HttpLogsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpLogsConfigResponse) *HttpLogsConfigResponse {
 		return &v
 	}).(HttpLogsConfigResponsePtrOutput)
 }
@@ -7789,7 +7989,13 @@ func (o HttpLogsConfigResponsePtrOutput) ToHttpLogsConfigResponsePtrOutputWithCo
 }
 
 func (o HttpLogsConfigResponsePtrOutput) Elem() HttpLogsConfigResponseOutput {
-	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse { return *v }).(HttpLogsConfigResponseOutput)
+	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HttpLogsConfigResponse
+		return ret
+	}).(HttpLogsConfigResponseOutput)
 }
 
 // Http logs to azure blob storage configuration.
@@ -7832,7 +8038,7 @@ type IpSecurityRestriction struct {
 	// (internal) Subnet traffic tag
 	SubnetTrafficTag *int `pulumi:"subnetTrafficTag"`
 	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag *string `pulumi:"tag"`
+	Tag *IpFilterTag `pulumi:"tag"`
 	// Virtual network resource id
 	VnetSubnetResourceId *string `pulumi:"vnetSubnetResourceId"`
 	// (internal) Vnet traffic tag
@@ -7870,7 +8076,7 @@ type IpSecurityRestrictionArgs struct {
 	// (internal) Subnet traffic tag
 	SubnetTrafficTag pulumi.IntPtrInput `pulumi:"subnetTrafficTag"`
 	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag *IpFilterTag `pulumi:"tag"`
+	Tag IpFilterTagPtrInput `pulumi:"tag"`
 	// Virtual network resource id
 	VnetSubnetResourceId pulumi.StringPtrInput `pulumi:"vnetSubnetResourceId"`
 	// (internal) Vnet traffic tag
@@ -7968,8 +8174,8 @@ func (o IpSecurityRestrictionOutput) SubnetTrafficTag() pulumi.IntPtrOutput {
 }
 
 // Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-func (o IpSecurityRestrictionOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IpSecurityRestriction) *string { return v.Tag }).(pulumi.StringPtrOutput)
+func (o IpSecurityRestrictionOutput) Tag() IpFilterTagPtrOutput {
+	return o.ApplyT(func(v IpSecurityRestriction) *IpFilterTag { return v.Tag }).(IpFilterTagPtrOutput)
 }
 
 // Virtual network resource id
@@ -8292,7 +8498,7 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
@@ -8322,7 +8528,13 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
 // Type of managed service identity.
@@ -8453,7 +8665,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -8495,7 +8707,13 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
 // Principal Id of managed service identity.
@@ -8980,7 +9198,7 @@ func (o PushSettingsOutput) ToPushSettingsPtrOutput() PushSettingsPtrOutput {
 }
 
 func (o PushSettingsOutput) ToPushSettingsPtrOutputWithContext(ctx context.Context) PushSettingsPtrOutput {
-	return o.ApplyT(func(v PushSettings) *PushSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushSettings) *PushSettings {
 		return &v
 	}).(PushSettingsPtrOutput)
 }
@@ -9028,7 +9246,13 @@ func (o PushSettingsPtrOutput) ToPushSettingsPtrOutputWithContext(ctx context.Co
 }
 
 func (o PushSettingsPtrOutput) Elem() PushSettingsOutput {
-	return o.ApplyT(func(v *PushSettings) PushSettings { return *v }).(PushSettingsOutput)
+	return o.ApplyT(func(v *PushSettings) PushSettings {
+		if v != nil {
+			return *v
+		}
+		var ret PushSettings
+		return ret
+	}).(PushSettingsOutput)
 }
 
 // Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -9214,7 +9438,7 @@ func (o PushSettingsResponseOutput) ToPushSettingsResponsePtrOutput() PushSettin
 }
 
 func (o PushSettingsResponseOutput) ToPushSettingsResponsePtrOutputWithContext(ctx context.Context) PushSettingsResponsePtrOutput {
-	return o.ApplyT(func(v PushSettingsResponse) *PushSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushSettingsResponse) *PushSettingsResponse {
 		return &v
 	}).(PushSettingsResponsePtrOutput)
 }
@@ -9277,7 +9501,13 @@ func (o PushSettingsResponsePtrOutput) ToPushSettingsResponsePtrOutputWithContex
 }
 
 func (o PushSettingsResponsePtrOutput) Elem() PushSettingsResponseOutput {
-	return o.ApplyT(func(v *PushSettingsResponse) PushSettingsResponse { return *v }).(PushSettingsResponseOutput)
+	return o.ApplyT(func(v *PushSettingsResponse) PushSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PushSettingsResponse
+		return ret
+	}).(PushSettingsResponseOutput)
 }
 
 // Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
@@ -9807,7 +10037,7 @@ func (o RequestsBasedTriggerOutput) ToRequestsBasedTriggerPtrOutput() RequestsBa
 }
 
 func (o RequestsBasedTriggerOutput) ToRequestsBasedTriggerPtrOutputWithContext(ctx context.Context) RequestsBasedTriggerPtrOutput {
-	return o.ApplyT(func(v RequestsBasedTrigger) *RequestsBasedTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestsBasedTrigger) *RequestsBasedTrigger {
 		return &v
 	}).(RequestsBasedTriggerPtrOutput)
 }
@@ -9837,7 +10067,13 @@ func (o RequestsBasedTriggerPtrOutput) ToRequestsBasedTriggerPtrOutputWithContex
 }
 
 func (o RequestsBasedTriggerPtrOutput) Elem() RequestsBasedTriggerOutput {
-	return o.ApplyT(func(v *RequestsBasedTrigger) RequestsBasedTrigger { return *v }).(RequestsBasedTriggerOutput)
+	return o.ApplyT(func(v *RequestsBasedTrigger) RequestsBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret RequestsBasedTrigger
+		return ret
+	}).(RequestsBasedTriggerOutput)
 }
 
 // Request Count.
@@ -9960,7 +10196,7 @@ func (o RequestsBasedTriggerResponseOutput) ToRequestsBasedTriggerResponsePtrOut
 }
 
 func (o RequestsBasedTriggerResponseOutput) ToRequestsBasedTriggerResponsePtrOutputWithContext(ctx context.Context) RequestsBasedTriggerResponsePtrOutput {
-	return o.ApplyT(func(v RequestsBasedTriggerResponse) *RequestsBasedTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestsBasedTriggerResponse) *RequestsBasedTriggerResponse {
 		return &v
 	}).(RequestsBasedTriggerResponsePtrOutput)
 }
@@ -9990,7 +10226,13 @@ func (o RequestsBasedTriggerResponsePtrOutput) ToRequestsBasedTriggerResponsePtr
 }
 
 func (o RequestsBasedTriggerResponsePtrOutput) Elem() RequestsBasedTriggerResponseOutput {
-	return o.ApplyT(func(v *RequestsBasedTriggerResponse) RequestsBasedTriggerResponse { return *v }).(RequestsBasedTriggerResponseOutput)
+	return o.ApplyT(func(v *RequestsBasedTriggerResponse) RequestsBasedTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RequestsBasedTriggerResponse
+		return ret
+	}).(RequestsBasedTriggerResponseOutput)
 }
 
 // Request Count.
@@ -10064,13 +10306,13 @@ type SiteConfig struct {
 	// Linux App Framework and version
 	LinuxFxVersion *string `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing *string `pulumi:"loadBalancing"`
+	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId *int `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -10184,13 +10426,13 @@ type SiteConfigArgs struct {
 	// Linux App Framework and version
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing *SiteLoadBalancing `pulumi:"loadBalancing"`
+	LoadBalancing SiteLoadBalancingPtrInput `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode *ManagedPipelineMode `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode ManagedPipelineModePtrInput `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -10315,7 +10557,7 @@ func (o SiteConfigOutput) ToSiteConfigPtrOutput() SiteConfigPtrOutput {
 }
 
 func (o SiteConfigOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) SiteConfigPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteConfig) *SiteConfig {
 		return &v
 	}).(SiteConfigPtrOutput)
 }
@@ -10441,8 +10683,8 @@ func (o SiteConfigOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // Site load balancing.
-func (o SiteConfigOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
+func (o SiteConfigOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *SiteLoadBalancing { return v.LoadBalancing }).(SiteLoadBalancingPtrOutput)
 }
 
 // <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -10456,8 +10698,8 @@ func (o SiteConfigOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode.
-func (o SiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
+func (o SiteConfigOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
+	return o.ApplyT(func(v SiteConfig) *ManagedPipelineMode { return v.ManagedPipelineMode }).(ManagedPipelineModePtrOutput)
 }
 
 // Managed Service Identity Id
@@ -10596,7 +10838,13 @@ func (o SiteConfigPtrOutput) ToSiteConfigPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SiteConfigPtrOutput) Elem() SiteConfigOutput {
-	return o.ApplyT(func(v *SiteConfig) SiteConfig { return *v }).(SiteConfigOutput)
+	return o.ApplyT(func(v *SiteConfig) SiteConfig {
+		if v != nil {
+			return *v
+		}
+		var ret SiteConfig
+		return ret
+	}).(SiteConfigOutput)
 }
 
 // <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
@@ -10840,13 +11088,13 @@ func (o SiteConfigPtrOutput) LinuxFxVersion() pulumi.StringPtrOutput {
 }
 
 // Site load balancing.
-func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigPtrOutput) LoadBalancing() SiteLoadBalancingPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *SiteLoadBalancing {
 		if v == nil {
 			return nil
 		}
 		return v.LoadBalancing
-	}).(pulumi.StringPtrOutput)
+	}).(SiteLoadBalancingPtrOutput)
 }
 
 // <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
@@ -10870,13 +11118,13 @@ func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
 }
 
 // Managed pipeline mode.
-func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *string {
+func (o SiteConfigPtrOutput) ManagedPipelineMode() ManagedPipelineModePtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *ManagedPipelineMode {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedPipelineMode
-	}).(pulumi.StringPtrOutput)
+	}).(ManagedPipelineModePtrOutput)
 }
 
 // Managed Service Identity Id
@@ -11426,7 +11674,7 @@ func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutput() SiteConfigResp
 }
 
 func (o SiteConfigResponseOutput) ToSiteConfigResponsePtrOutputWithContext(ctx context.Context) SiteConfigResponsePtrOutput {
-	return o.ApplyT(func(v SiteConfigResponse) *SiteConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteConfigResponse) *SiteConfigResponse {
 		return &v
 	}).(SiteConfigResponsePtrOutput)
 }
@@ -11712,7 +11960,13 @@ func (o SiteConfigResponsePtrOutput) ToSiteConfigResponsePtrOutputWithContext(ct
 }
 
 func (o SiteConfigResponsePtrOutput) Elem() SiteConfigResponseOutput {
-	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse { return *v }).(SiteConfigResponseOutput)
+	return o.ApplyT(func(v *SiteConfigResponse) SiteConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteConfigResponse
+		return ret
+	}).(SiteConfigResponseOutput)
 }
 
 // <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
@@ -12350,7 +12604,7 @@ func (o SiteLimitsOutput) ToSiteLimitsPtrOutput() SiteLimitsPtrOutput {
 }
 
 func (o SiteLimitsOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Context) SiteLimitsPtrOutput {
-	return o.ApplyT(func(v SiteLimits) *SiteLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLimits) *SiteLimits {
 		return &v
 	}).(SiteLimitsPtrOutput)
 }
@@ -12385,7 +12639,13 @@ func (o SiteLimitsPtrOutput) ToSiteLimitsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SiteLimitsPtrOutput) Elem() SiteLimitsOutput {
-	return o.ApplyT(func(v *SiteLimits) SiteLimits { return *v }).(SiteLimitsOutput)
+	return o.ApplyT(func(v *SiteLimits) SiteLimits {
+		if v != nil {
+			return *v
+		}
+		var ret SiteLimits
+		return ret
+	}).(SiteLimitsOutput)
 }
 
 // Maximum allowed disk size usage in MB.
@@ -12522,7 +12782,7 @@ func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutput() SiteLimitsResp
 }
 
 func (o SiteLimitsResponseOutput) ToSiteLimitsResponsePtrOutputWithContext(ctx context.Context) SiteLimitsResponsePtrOutput {
-	return o.ApplyT(func(v SiteLimitsResponse) *SiteLimitsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteLimitsResponse) *SiteLimitsResponse {
 		return &v
 	}).(SiteLimitsResponsePtrOutput)
 }
@@ -12557,7 +12817,13 @@ func (o SiteLimitsResponsePtrOutput) ToSiteLimitsResponsePtrOutputWithContext(ct
 }
 
 func (o SiteLimitsResponsePtrOutput) Elem() SiteLimitsResponseOutput {
-	return o.ApplyT(func(v *SiteLimitsResponse) SiteLimitsResponse { return *v }).(SiteLimitsResponseOutput)
+	return o.ApplyT(func(v *SiteLimitsResponse) SiteLimitsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteLimitsResponse
+		return ret
+	}).(SiteLimitsResponseOutput)
 }
 
 // Maximum allowed disk size usage in MB.
@@ -12698,7 +12964,7 @@ func (o SiteMachineKeyResponseOutput) ToSiteMachineKeyResponsePtrOutput() SiteMa
 }
 
 func (o SiteMachineKeyResponseOutput) ToSiteMachineKeyResponsePtrOutputWithContext(ctx context.Context) SiteMachineKeyResponsePtrOutput {
-	return o.ApplyT(func(v SiteMachineKeyResponse) *SiteMachineKeyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteMachineKeyResponse) *SiteMachineKeyResponse {
 		return &v
 	}).(SiteMachineKeyResponsePtrOutput)
 }
@@ -12738,7 +13004,13 @@ func (o SiteMachineKeyResponsePtrOutput) ToSiteMachineKeyResponsePtrOutputWithCo
 }
 
 func (o SiteMachineKeyResponsePtrOutput) Elem() SiteMachineKeyResponseOutput {
-	return o.ApplyT(func(v *SiteMachineKeyResponse) SiteMachineKeyResponse { return *v }).(SiteMachineKeyResponseOutput)
+	return o.ApplyT(func(v *SiteMachineKeyResponse) SiteMachineKeyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SiteMachineKeyResponse
+		return ret
+	}).(SiteMachineKeyResponseOutput)
 }
 
 // Algorithm used for decryption.
@@ -12885,7 +13157,7 @@ func (o SlotSwapStatusResponseOutput) ToSlotSwapStatusResponsePtrOutput() SlotSw
 }
 
 func (o SlotSwapStatusResponseOutput) ToSlotSwapStatusResponsePtrOutputWithContext(ctx context.Context) SlotSwapStatusResponsePtrOutput {
-	return o.ApplyT(func(v SlotSwapStatusResponse) *SlotSwapStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotSwapStatusResponse) *SlotSwapStatusResponse {
 		return &v
 	}).(SlotSwapStatusResponsePtrOutput)
 }
@@ -12920,7 +13192,13 @@ func (o SlotSwapStatusResponsePtrOutput) ToSlotSwapStatusResponsePtrOutputWithCo
 }
 
 func (o SlotSwapStatusResponsePtrOutput) Elem() SlotSwapStatusResponseOutput {
-	return o.ApplyT(func(v *SlotSwapStatusResponse) SlotSwapStatusResponse { return *v }).(SlotSwapStatusResponseOutput)
+	return o.ApplyT(func(v *SlotSwapStatusResponse) SlotSwapStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SlotSwapStatusResponse
+		return ret
+	}).(SlotSwapStatusResponseOutput)
 }
 
 // The destination slot of the last swap operation.
@@ -13057,7 +13335,7 @@ func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutput() Sl
 }
 
 func (o SlowRequestsBasedTriggerOutput) ToSlowRequestsBasedTriggerPtrOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerPtrOutput {
-	return o.ApplyT(func(v SlowRequestsBasedTrigger) *SlowRequestsBasedTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlowRequestsBasedTrigger) *SlowRequestsBasedTrigger {
 		return &v
 	}).(SlowRequestsBasedTriggerPtrOutput)
 }
@@ -13092,7 +13370,13 @@ func (o SlowRequestsBasedTriggerPtrOutput) ToSlowRequestsBasedTriggerPtrOutputWi
 }
 
 func (o SlowRequestsBasedTriggerPtrOutput) Elem() SlowRequestsBasedTriggerOutput {
-	return o.ApplyT(func(v *SlowRequestsBasedTrigger) SlowRequestsBasedTrigger { return *v }).(SlowRequestsBasedTriggerOutput)
+	return o.ApplyT(func(v *SlowRequestsBasedTrigger) SlowRequestsBasedTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret SlowRequestsBasedTrigger
+		return ret
+	}).(SlowRequestsBasedTriggerOutput)
 }
 
 // Request Count.
@@ -13229,7 +13513,7 @@ func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerRespon
 }
 
 func (o SlowRequestsBasedTriggerResponseOutput) ToSlowRequestsBasedTriggerResponsePtrOutputWithContext(ctx context.Context) SlowRequestsBasedTriggerResponsePtrOutput {
-	return o.ApplyT(func(v SlowRequestsBasedTriggerResponse) *SlowRequestsBasedTriggerResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlowRequestsBasedTriggerResponse) *SlowRequestsBasedTriggerResponse {
 		return &v
 	}).(SlowRequestsBasedTriggerResponsePtrOutput)
 }
@@ -13264,7 +13548,13 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) ToSlowRequestsBasedTriggerRes
 }
 
 func (o SlowRequestsBasedTriggerResponsePtrOutput) Elem() SlowRequestsBasedTriggerResponseOutput {
-	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) SlowRequestsBasedTriggerResponse { return *v }).(SlowRequestsBasedTriggerResponseOutput)
+	return o.ApplyT(func(v *SlowRequestsBasedTriggerResponse) SlowRequestsBasedTriggerResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SlowRequestsBasedTriggerResponse
+		return ret
+	}).(SlowRequestsBasedTriggerResponseOutput)
 }
 
 // Request Count.

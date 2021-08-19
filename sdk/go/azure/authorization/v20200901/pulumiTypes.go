@@ -13,7 +13,7 @@ import (
 // Identity for the resource.
 type Identity struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type *string `pulumi:"type"`
+	Type *ResourceIdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type. This is the only required field when adding a system assigned identity to a resource.
-	Type *ResourceIdentityType `pulumi:"type"`
+	Type ResourceIdentityTypePtrInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -106,14 +106,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type. This is the only required field when adding a system assigned identity to a resource.
-func (o IdentityOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o IdentityOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v Identity) *ResourceIdentityType { return v.Type }).(ResourceIdentityTypePtrOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -131,17 +131,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type. This is the only required field when adding a system assigned identity to a resource.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() ResourceIdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *ResourceIdentityType {
 		if v == nil {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(ResourceIdentityTypePtrOutput)
 }
 
 // Identity for the resource.
@@ -248,7 +254,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -283,7 +289,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of the resource identity.
@@ -769,7 +781,7 @@ func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMeta
 }
 
 func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
 		return &v
 	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
@@ -809,7 +821,13 @@ func (o ParameterDefinitionsValueMetadataPtrOutput) ToParameterDefinitionsValueM
 }
 
 func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsValueMetadataOutput {
-	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterDefinitionsValueMetadata
+		return ret
+	}).(ParameterDefinitionsValueMetadataOutput)
 }
 
 // Set to true to have Azure portal create role assignments on the resource ID or resource scope value of this parameter during policy assignment. This property is useful in case you wish to assign permissions outside the assignment scope.
@@ -1089,7 +1107,7 @@ func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsV
 }
 
 func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
-	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
 		return &v
 	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
@@ -1130,7 +1148,11 @@ func (o ParameterDefinitionsValueResponseMetadataPtrOutput) ToParameterDefinitio
 
 func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefinitionsValueResponseMetadataOutput {
 	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) ParameterDefinitionsValueResponseMetadata {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ParameterDefinitionsValueResponseMetadata
+		return ret
 	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 

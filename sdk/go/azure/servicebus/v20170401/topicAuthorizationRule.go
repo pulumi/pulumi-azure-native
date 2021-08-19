@@ -106,21 +106,9 @@ func GetTopicAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TopicAuthorizationRule resources.
 type topicAuthorizationRuleState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type TopicAuthorizationRuleState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (TopicAuthorizationRuleState) ElementType() reflect.Type {
@@ -135,7 +123,7 @@ type topicAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
+	Rights []AccessRights `pulumi:"rights"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 }
@@ -177,9 +165,7 @@ func (i *TopicAuthorizationRule) ToTopicAuthorizationRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorizationRuleOutput)
 }
 
-type TopicAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type TopicAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (TopicAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TopicAuthorizationRule)(nil))

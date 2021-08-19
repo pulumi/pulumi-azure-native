@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridData.Outputs
 {
 
+    /// <summary>
+    /// The pair of customer secret.
+    /// </summary>
     [OutputType]
     public sealed class CustomerSecretResponse
     {

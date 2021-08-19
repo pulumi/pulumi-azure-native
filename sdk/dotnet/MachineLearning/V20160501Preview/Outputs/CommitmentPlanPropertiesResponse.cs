@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.V20160501Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of an Azure ML commitment plan.
+    /// </summary>
     [OutputType]
     public sealed class CommitmentPlanPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20191231.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for the cache-key query string action.
+    /// </summary>
     [OutputType]
     public sealed class CacheKeyQueryStringActionParametersResponse
     {

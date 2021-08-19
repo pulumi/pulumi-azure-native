@@ -121,81 +121,9 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin *string `pulumi:"administratorLogin"`
-	// availability zone information of the server.
-	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// Backup properties of a server.
-	Backup *BackupResponse `pulumi:"backup"`
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
-	// High availability properties of a server.
-	HighAvailability *HighAvailabilityResponse `pulumi:"highAvailability"`
-	// The Azure Active Directory identity of the server.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// Maintenance window properties of a server.
-	MaintenanceWindow *MaintenanceWindowResponse `pulumi:"maintenanceWindow"`
-	// The minor version of the server.
-	MinorVersion *string `pulumi:"minorVersion"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Network properties of a server.
-	Network *NetworkResponse `pulumi:"network"`
-	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
-	// A state of a server that is visible to user.
-	State *string `pulumi:"state"`
-	// Storage properties of a server.
-	Storage *StorageResponse `pulumi:"storage"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// PostgreSQL Server version.
-	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
-	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
-	AdministratorLogin pulumi.StringPtrInput
-	// availability zone information of the server.
-	AvailabilityZone pulumi.StringPtrInput
-	// Backup properties of a server.
-	Backup BackupResponsePtrInput
-	// The fully qualified domain name of a server.
-	FullyQualifiedDomainName pulumi.StringPtrInput
-	// High availability properties of a server.
-	HighAvailability HighAvailabilityResponsePtrInput
-	// The Azure Active Directory identity of the server.
-	Identity IdentityResponsePtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// Maintenance window properties of a server.
-	MaintenanceWindow MaintenanceWindowResponsePtrInput
-	// The minor version of the server.
-	MinorVersion pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Network properties of a server.
-	Network NetworkResponsePtrInput
-	// The SKU (pricing tier) of the server.
-	Sku SkuResponsePtrInput
-	// A state of a server that is visible to user.
-	State pulumi.StringPtrInput
-	// Storage properties of a server.
-	Storage StorageResponsePtrInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// PostgreSQL Server version.
-	Version pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -304,9 +232,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerOutput)
 }
 
-type ServerOutput struct {
-	*pulumi.OutputState
-}
+type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Server)(nil))

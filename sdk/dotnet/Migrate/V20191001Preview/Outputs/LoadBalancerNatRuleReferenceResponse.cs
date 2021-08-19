@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines reference to load balancer NAT rules.
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancerNatRuleReferenceResponse
     {

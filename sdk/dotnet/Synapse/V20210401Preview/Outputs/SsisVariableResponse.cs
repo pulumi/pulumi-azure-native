@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Ssis variable.
+    /// </summary>
     [OutputType]
     public sealed class SsisVariableResponse
     {

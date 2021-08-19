@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20190801Preview.Outputs
 {
 
+    /// <summary>
+    /// An NFS mount point for use as a StorageTarget.
+    /// </summary>
     [OutputType]
     public sealed class Nfs3TargetResponse
     {

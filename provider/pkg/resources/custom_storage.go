@@ -4,6 +4,9 @@ package resources
 
 import (
 	"context"
+	"net/http"
+	"strings"
+
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
@@ -12,8 +15,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/accounts"
 	"github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/blobs"
-	"net/http"
-	"strings"
 )
 
 // newStorageAccountStaticWebsite creates a custom resource to mark Azure Storage Account as a static website.
@@ -236,7 +237,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					Description: "The access tier of a storage blob.",
 					Type:        "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{
 						Value:       "Hot",
 						Description: "Optimized for storing data that is accessed frequently.",
@@ -256,7 +257,7 @@ func newBlob(env *azure.Environment, accountsClient *storage.AccountsClient) *Cu
 					Description: "The type of a storage blob to be created.",
 					Type:        "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{
 						Value:       "Block",
 						Description: "Block blobs store text and binary data. Block blobs are made up of blocks of data that can be managed individually.",

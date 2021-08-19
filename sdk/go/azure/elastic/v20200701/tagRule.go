@@ -78,25 +78,9 @@ func GetTagRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagRule resources.
 type tagRuleState struct {
-	// Name of the rule set.
-	Name *string `pulumi:"name"`
-	// Properties of the monitoring tag rules.
-	Properties *MonitoringTagRulesPropertiesResponse `pulumi:"properties"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the rule set.
-	Type *string `pulumi:"type"`
 }
 
 type TagRuleState struct {
-	// Name of the rule set.
-	Name pulumi.StringPtrInput
-	// Properties of the monitoring tag rules.
-	Properties MonitoringTagRulesPropertiesResponsePtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// The type of the rule set.
-	Type pulumi.StringPtrInput
 }
 
 func (TagRuleState) ElementType() reflect.Type {
@@ -149,9 +133,7 @@ func (i *TagRule) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleOutput)
 }
 
-type TagRuleOutput struct {
-	*pulumi.OutputState
-}
+type TagRuleOutput struct{ *pulumi.OutputState }
 
 func (TagRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagRule)(nil))

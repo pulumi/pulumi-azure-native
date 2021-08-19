@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// Connector mapping property availability.
+    /// </summary>
     [OutputType]
     public sealed class ConnectorMappingAvailabilityResponse
     {

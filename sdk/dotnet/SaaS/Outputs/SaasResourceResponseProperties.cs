@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SaaS.Outputs
 {
 
+    /// <summary>
+    /// saas properties
+    /// </summary>
     [OutputType]
     public sealed class SaasResourceResponseProperties
     {

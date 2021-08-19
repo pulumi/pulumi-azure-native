@@ -11,14 +11,30 @@ import (
 )
 
 // The routing types that are supported for action requests.
-type ActionRouting pulumi.String
+type ActionRouting string
 
 const (
 	ActionRoutingProxy = ActionRouting("Proxy")
 )
 
 func (ActionRouting) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ActionRouting)(nil)).Elem()
+}
+
+func (e ActionRouting) ToActionRoutingOutput() ActionRoutingOutput {
+	return pulumi.ToOutput(e).(ActionRoutingOutput)
+}
+
+func (e ActionRouting) ToActionRoutingOutputWithContext(ctx context.Context) ActionRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ActionRoutingOutput)
+}
+
+func (e ActionRouting) ToActionRoutingPtrOutput() ActionRoutingPtrOutput {
+	return e.ToActionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (e ActionRouting) ToActionRoutingPtrOutputWithContext(ctx context.Context) ActionRoutingPtrOutput {
+	return ActionRouting(e).ToActionRoutingOutputWithContext(ctx).ToActionRoutingPtrOutputWithContext(ctx)
 }
 
 func (e ActionRouting) ToStringOutput() pulumi.StringOutput {
@@ -37,8 +53,129 @@ func (e ActionRouting) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ActionRoutingOutput struct{ *pulumi.OutputState }
+
+func (ActionRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionRouting)(nil)).Elem()
+}
+
+func (o ActionRoutingOutput) ToActionRoutingOutput() ActionRoutingOutput {
+	return o
+}
+
+func (o ActionRoutingOutput) ToActionRoutingOutputWithContext(ctx context.Context) ActionRoutingOutput {
+	return o
+}
+
+func (o ActionRoutingOutput) ToActionRoutingPtrOutput() ActionRoutingPtrOutput {
+	return o.ToActionRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRoutingOutput) ToActionRoutingPtrOutputWithContext(ctx context.Context) ActionRoutingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRouting) *ActionRouting {
+		return &v
+	}).(ActionRoutingPtrOutput)
+}
+
+func (o ActionRoutingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ActionRoutingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionRouting) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ActionRoutingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRoutingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ActionRouting) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ActionRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionRouting)(nil)).Elem()
+}
+
+func (o ActionRoutingPtrOutput) ToActionRoutingPtrOutput() ActionRoutingPtrOutput {
+	return o
+}
+
+func (o ActionRoutingPtrOutput) ToActionRoutingPtrOutputWithContext(ctx context.Context) ActionRoutingPtrOutput {
+	return o
+}
+
+func (o ActionRoutingPtrOutput) Elem() ActionRoutingOutput {
+	return o.ApplyT(func(v *ActionRouting) ActionRouting {
+		if v != nil {
+			return *v
+		}
+		var ret ActionRouting
+		return ret
+	}).(ActionRoutingOutput)
+}
+
+func (o ActionRoutingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ActionRoutingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ActionRouting) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ActionRoutingInput is an input type that accepts ActionRoutingArgs and ActionRoutingOutput values.
+// You can construct a concrete instance of `ActionRoutingInput` via:
+//
+//          ActionRoutingArgs{...}
+type ActionRoutingInput interface {
+	pulumi.Input
+
+	ToActionRoutingOutput() ActionRoutingOutput
+	ToActionRoutingOutputWithContext(context.Context) ActionRoutingOutput
+}
+
+var actionRoutingPtrType = reflect.TypeOf((**ActionRouting)(nil)).Elem()
+
+type ActionRoutingPtrInput interface {
+	pulumi.Input
+
+	ToActionRoutingPtrOutput() ActionRoutingPtrOutput
+	ToActionRoutingPtrOutputWithContext(context.Context) ActionRoutingPtrOutput
+}
+
+type actionRoutingPtr string
+
+func ActionRoutingPtr(v string) ActionRoutingPtrInput {
+	return (*actionRoutingPtr)(&v)
+}
+
+func (*actionRoutingPtr) ElementType() reflect.Type {
+	return actionRoutingPtrType
+}
+
+func (in *actionRoutingPtr) ToActionRoutingPtrOutput() ActionRoutingPtrOutput {
+	return pulumi.ToOutput(in).(ActionRoutingPtrOutput)
+}
+
+func (in *actionRoutingPtr) ToActionRoutingPtrOutputWithContext(ctx context.Context) ActionRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ActionRoutingPtrOutput)
+}
+
 // The routing types that are supported for resource requests.
-type ResourceTypeRouting pulumi.String
+type ResourceTypeRouting string
 
 const (
 	ResourceTypeRoutingProxy        = ResourceTypeRouting("Proxy")
@@ -46,7 +183,23 @@ const (
 )
 
 func (ResourceTypeRouting) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ResourceTypeRouting)(nil)).Elem()
+}
+
+func (e ResourceTypeRouting) ToResourceTypeRoutingOutput() ResourceTypeRoutingOutput {
+	return pulumi.ToOutput(e).(ResourceTypeRoutingOutput)
+}
+
+func (e ResourceTypeRouting) ToResourceTypeRoutingOutputWithContext(ctx context.Context) ResourceTypeRoutingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceTypeRoutingOutput)
+}
+
+func (e ResourceTypeRouting) ToResourceTypeRoutingPtrOutput() ResourceTypeRoutingPtrOutput {
+	return e.ToResourceTypeRoutingPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceTypeRouting) ToResourceTypeRoutingPtrOutputWithContext(ctx context.Context) ResourceTypeRoutingPtrOutput {
+	return ResourceTypeRouting(e).ToResourceTypeRoutingOutputWithContext(ctx).ToResourceTypeRoutingPtrOutputWithContext(ctx)
 }
 
 func (e ResourceTypeRouting) ToStringOutput() pulumi.StringOutput {
@@ -65,15 +218,152 @@ func (e ResourceTypeRouting) ToStringPtrOutputWithContext(ctx context.Context) p
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type ResourceTypeRoutingOutput struct{ *pulumi.OutputState }
+
+func (ResourceTypeRoutingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceTypeRouting)(nil)).Elem()
+}
+
+func (o ResourceTypeRoutingOutput) ToResourceTypeRoutingOutput() ResourceTypeRoutingOutput {
+	return o
+}
+
+func (o ResourceTypeRoutingOutput) ToResourceTypeRoutingOutputWithContext(ctx context.Context) ResourceTypeRoutingOutput {
+	return o
+}
+
+func (o ResourceTypeRoutingOutput) ToResourceTypeRoutingPtrOutput() ResourceTypeRoutingPtrOutput {
+	return o.ToResourceTypeRoutingPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceTypeRoutingOutput) ToResourceTypeRoutingPtrOutputWithContext(ctx context.Context) ResourceTypeRoutingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceTypeRouting) *ResourceTypeRouting {
+		return &v
+	}).(ResourceTypeRoutingPtrOutput)
+}
+
+func (o ResourceTypeRoutingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceTypeRoutingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceTypeRouting) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceTypeRoutingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceTypeRoutingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceTypeRouting) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceTypeRoutingPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceTypeRoutingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceTypeRouting)(nil)).Elem()
+}
+
+func (o ResourceTypeRoutingPtrOutput) ToResourceTypeRoutingPtrOutput() ResourceTypeRoutingPtrOutput {
+	return o
+}
+
+func (o ResourceTypeRoutingPtrOutput) ToResourceTypeRoutingPtrOutputWithContext(ctx context.Context) ResourceTypeRoutingPtrOutput {
+	return o
+}
+
+func (o ResourceTypeRoutingPtrOutput) Elem() ResourceTypeRoutingOutput {
+	return o.ApplyT(func(v *ResourceTypeRouting) ResourceTypeRouting {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceTypeRouting
+		return ret
+	}).(ResourceTypeRoutingOutput)
+}
+
+func (o ResourceTypeRoutingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceTypeRoutingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceTypeRouting) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceTypeRoutingInput is an input type that accepts ResourceTypeRoutingArgs and ResourceTypeRoutingOutput values.
+// You can construct a concrete instance of `ResourceTypeRoutingInput` via:
+//
+//          ResourceTypeRoutingArgs{...}
+type ResourceTypeRoutingInput interface {
+	pulumi.Input
+
+	ToResourceTypeRoutingOutput() ResourceTypeRoutingOutput
+	ToResourceTypeRoutingOutputWithContext(context.Context) ResourceTypeRoutingOutput
+}
+
+var resourceTypeRoutingPtrType = reflect.TypeOf((**ResourceTypeRouting)(nil)).Elem()
+
+type ResourceTypeRoutingPtrInput interface {
+	pulumi.Input
+
+	ToResourceTypeRoutingPtrOutput() ResourceTypeRoutingPtrOutput
+	ToResourceTypeRoutingPtrOutputWithContext(context.Context) ResourceTypeRoutingPtrOutput
+}
+
+type resourceTypeRoutingPtr string
+
+func ResourceTypeRoutingPtr(v string) ResourceTypeRoutingPtrInput {
+	return (*resourceTypeRoutingPtr)(&v)
+}
+
+func (*resourceTypeRoutingPtr) ElementType() reflect.Type {
+	return resourceTypeRoutingPtrType
+}
+
+func (in *resourceTypeRoutingPtr) ToResourceTypeRoutingPtrOutput() ResourceTypeRoutingPtrOutput {
+	return pulumi.ToOutput(in).(ResourceTypeRoutingPtrOutput)
+}
+
+func (in *resourceTypeRoutingPtr) ToResourceTypeRoutingPtrOutputWithContext(ctx context.Context) ResourceTypeRoutingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceTypeRoutingPtrOutput)
+}
+
 // The type of validation to run against a matching request.
-type ValidationType pulumi.String
+type ValidationType string
 
 const (
 	ValidationTypeSwagger = ValidationType("Swagger")
 )
 
 func (ValidationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ValidationType)(nil)).Elem()
+}
+
+func (e ValidationType) ToValidationTypeOutput() ValidationTypeOutput {
+	return pulumi.ToOutput(e).(ValidationTypeOutput)
+}
+
+func (e ValidationType) ToValidationTypeOutputWithContext(ctx context.Context) ValidationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ValidationTypeOutput)
+}
+
+func (e ValidationType) ToValidationTypePtrOutput() ValidationTypePtrOutput {
+	return e.ToValidationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ValidationType) ToValidationTypePtrOutputWithContext(ctx context.Context) ValidationTypePtrOutput {
+	return ValidationType(e).ToValidationTypeOutputWithContext(ctx).ToValidationTypePtrOutputWithContext(ctx)
 }
 
 func (e ValidationType) ToStringOutput() pulumi.StringOutput {
@@ -90,4 +380,134 @@ func (e ValidationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ValidationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ValidationTypeOutput struct{ *pulumi.OutputState }
+
+func (ValidationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValidationType)(nil)).Elem()
+}
+
+func (o ValidationTypeOutput) ToValidationTypeOutput() ValidationTypeOutput {
+	return o
+}
+
+func (o ValidationTypeOutput) ToValidationTypeOutputWithContext(ctx context.Context) ValidationTypeOutput {
+	return o
+}
+
+func (o ValidationTypeOutput) ToValidationTypePtrOutput() ValidationTypePtrOutput {
+	return o.ToValidationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ValidationTypeOutput) ToValidationTypePtrOutputWithContext(ctx context.Context) ValidationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ValidationType) *ValidationType {
+		return &v
+	}).(ValidationTypePtrOutput)
+}
+
+func (o ValidationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ValidationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ValidationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ValidationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ValidationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ValidationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ValidationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ValidationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValidationType)(nil)).Elem()
+}
+
+func (o ValidationTypePtrOutput) ToValidationTypePtrOutput() ValidationTypePtrOutput {
+	return o
+}
+
+func (o ValidationTypePtrOutput) ToValidationTypePtrOutputWithContext(ctx context.Context) ValidationTypePtrOutput {
+	return o
+}
+
+func (o ValidationTypePtrOutput) Elem() ValidationTypeOutput {
+	return o.ApplyT(func(v *ValidationType) ValidationType {
+		if v != nil {
+			return *v
+		}
+		var ret ValidationType
+		return ret
+	}).(ValidationTypeOutput)
+}
+
+func (o ValidationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ValidationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ValidationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ValidationTypeInput is an input type that accepts ValidationTypeArgs and ValidationTypeOutput values.
+// You can construct a concrete instance of `ValidationTypeInput` via:
+//
+//          ValidationTypeArgs{...}
+type ValidationTypeInput interface {
+	pulumi.Input
+
+	ToValidationTypeOutput() ValidationTypeOutput
+	ToValidationTypeOutputWithContext(context.Context) ValidationTypeOutput
+}
+
+var validationTypePtrType = reflect.TypeOf((**ValidationType)(nil)).Elem()
+
+type ValidationTypePtrInput interface {
+	pulumi.Input
+
+	ToValidationTypePtrOutput() ValidationTypePtrOutput
+	ToValidationTypePtrOutputWithContext(context.Context) ValidationTypePtrOutput
+}
+
+type validationTypePtr string
+
+func ValidationTypePtr(v string) ValidationTypePtrInput {
+	return (*validationTypePtr)(&v)
+}
+
+func (*validationTypePtr) ElementType() reflect.Type {
+	return validationTypePtrType
+}
+
+func (in *validationTypePtr) ToValidationTypePtrOutput() ValidationTypePtrOutput {
+	return pulumi.ToOutput(in).(ValidationTypePtrOutput)
+}
+
+func (in *validationTypePtr) ToValidationTypePtrOutputWithContext(ctx context.Context) ValidationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ValidationTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ActionRoutingOutput{})
+	pulumi.RegisterOutputType(ActionRoutingPtrOutput{})
+	pulumi.RegisterOutputType(ResourceTypeRoutingOutput{})
+	pulumi.RegisterOutputType(ResourceTypeRoutingPtrOutput{})
+	pulumi.RegisterOutputType(ValidationTypeOutput{})
+	pulumi.RegisterOutputType(ValidationTypePtrOutput{})
 }

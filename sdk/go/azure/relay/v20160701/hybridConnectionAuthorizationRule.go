@@ -82,21 +82,9 @@ func GetHybridConnectionAuthorizationRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HybridConnectionAuthorizationRule resources.
 type hybridConnectionAuthorizationRuleState struct {
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type HybridConnectionAuthorizationRuleState struct {
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (HybridConnectionAuthorizationRuleState) ElementType() reflect.Type {
@@ -153,9 +141,7 @@ func (i *HybridConnectionAuthorizationRule) ToHybridConnectionAuthorizationRuleO
 	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionAuthorizationRuleOutput)
 }
 
-type HybridConnectionAuthorizationRuleOutput struct {
-	*pulumi.OutputState
-}
+type HybridConnectionAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionAuthorizationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HybridConnectionAuthorizationRule)(nil))

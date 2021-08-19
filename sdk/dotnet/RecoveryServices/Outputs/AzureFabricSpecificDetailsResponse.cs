@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Azure Fabric Specific Details.
+    /// </summary>
     [OutputType]
     public sealed class AzureFabricSpecificDetailsResponse
     {

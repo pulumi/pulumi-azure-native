@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of Self-hosted integration runtime node.
+    /// </summary>
     [OutputType]
     public sealed class SelfHostedIntegrationRuntimeNodeResponse
     {

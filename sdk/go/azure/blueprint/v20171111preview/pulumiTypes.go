@@ -106,7 +106,7 @@ func (o AssignmentLockSettingsOutput) ToAssignmentLockSettingsPtrOutput() Assign
 }
 
 func (o AssignmentLockSettingsOutput) ToAssignmentLockSettingsPtrOutputWithContext(ctx context.Context) AssignmentLockSettingsPtrOutput {
-	return o.ApplyT(func(v AssignmentLockSettings) *AssignmentLockSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentLockSettings) *AssignmentLockSettings {
 		return &v
 	}).(AssignmentLockSettingsPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o AssignmentLockSettingsPtrOutput) ToAssignmentLockSettingsPtrOutputWithCo
 }
 
 func (o AssignmentLockSettingsPtrOutput) Elem() AssignmentLockSettingsOutput {
-	return o.ApplyT(func(v *AssignmentLockSettings) AssignmentLockSettings { return *v }).(AssignmentLockSettingsOutput)
+	return o.ApplyT(func(v *AssignmentLockSettings) AssignmentLockSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentLockSettings
+		return ret
+	}).(AssignmentLockSettingsOutput)
 }
 
 // Lock mode.
@@ -240,7 +246,7 @@ func (o AssignmentLockSettingsResponseOutput) ToAssignmentLockSettingsResponsePt
 }
 
 func (o AssignmentLockSettingsResponseOutput) ToAssignmentLockSettingsResponsePtrOutputWithContext(ctx context.Context) AssignmentLockSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AssignmentLockSettingsResponse) *AssignmentLockSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentLockSettingsResponse) *AssignmentLockSettingsResponse {
 		return &v
 	}).(AssignmentLockSettingsResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o AssignmentLockSettingsResponsePtrOutput) ToAssignmentLockSettingsRespons
 }
 
 func (o AssignmentLockSettingsResponsePtrOutput) Elem() AssignmentLockSettingsResponseOutput {
-	return o.ApplyT(func(v *AssignmentLockSettingsResponse) AssignmentLockSettingsResponse { return *v }).(AssignmentLockSettingsResponseOutput)
+	return o.ApplyT(func(v *AssignmentLockSettingsResponse) AssignmentLockSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentLockSettingsResponse
+		return ret
+	}).(AssignmentLockSettingsResponseOutput)
 }
 
 // Lock mode.
@@ -378,7 +390,7 @@ func (o AssignmentStatusResponseOutput) ToAssignmentStatusResponsePtrOutput() As
 }
 
 func (o AssignmentStatusResponseOutput) ToAssignmentStatusResponsePtrOutputWithContext(ctx context.Context) AssignmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v AssignmentStatusResponse) *AssignmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentStatusResponse) *AssignmentStatusResponse {
 		return &v
 	}).(AssignmentStatusResponsePtrOutput)
 }
@@ -408,7 +420,13 @@ func (o AssignmentStatusResponsePtrOutput) ToAssignmentStatusResponsePtrOutputWi
 }
 
 func (o AssignmentStatusResponsePtrOutput) Elem() AssignmentStatusResponseOutput {
-	return o.ApplyT(func(v *AssignmentStatusResponse) AssignmentStatusResponse { return *v }).(AssignmentStatusResponseOutput)
+	return o.ApplyT(func(v *AssignmentStatusResponse) AssignmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssignmentStatusResponse
+		return ret
+	}).(AssignmentStatusResponseOutput)
 }
 
 // Last modified time of this blueprint.
@@ -531,7 +549,7 @@ func (o BlueprintStatusResponseOutput) ToBlueprintStatusResponsePtrOutput() Blue
 }
 
 func (o BlueprintStatusResponseOutput) ToBlueprintStatusResponsePtrOutputWithContext(ctx context.Context) BlueprintStatusResponsePtrOutput {
-	return o.ApplyT(func(v BlueprintStatusResponse) *BlueprintStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlueprintStatusResponse) *BlueprintStatusResponse {
 		return &v
 	}).(BlueprintStatusResponsePtrOutput)
 }
@@ -561,7 +579,13 @@ func (o BlueprintStatusResponsePtrOutput) ToBlueprintStatusResponsePtrOutputWith
 }
 
 func (o BlueprintStatusResponsePtrOutput) Elem() BlueprintStatusResponseOutput {
-	return o.ApplyT(func(v *BlueprintStatusResponse) BlueprintStatusResponse { return *v }).(BlueprintStatusResponseOutput)
+	return o.ApplyT(func(v *BlueprintStatusResponse) BlueprintStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BlueprintStatusResponse
+		return ret
+	}).(BlueprintStatusResponseOutput)
 }
 
 // Last modified time of this blueprint.
@@ -688,7 +712,7 @@ func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutput() Manage
 }
 
 func (o ManagedServiceIdentityOutput) ToManagedServiceIdentityPtrOutputWithContext(ctx context.Context) ManagedServiceIdentityPtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentity) *ManagedServiceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentity) *ManagedServiceIdentity {
 		return &v
 	}).(ManagedServiceIdentityPtrOutput)
 }
@@ -723,7 +747,13 @@ func (o ManagedServiceIdentityPtrOutput) ToManagedServiceIdentityPtrOutputWithCo
 }
 
 func (o ManagedServiceIdentityPtrOutput) Elem() ManagedServiceIdentityOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity { return *v }).(ManagedServiceIdentityOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentity) ManagedServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentity
+		return ret
+	}).(ManagedServiceIdentityOutput)
 }
 
 // Azure Active Directory principal ID associated with this Identity.
@@ -860,7 +890,7 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePt
 }
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
 		return &v
 	}).(ManagedServiceIdentityResponsePtrOutput)
 }
@@ -895,7 +925,13 @@ func (o ManagedServiceIdentityResponsePtrOutput) ToManagedServiceIdentityRespons
 }
 
 func (o ManagedServiceIdentityResponsePtrOutput) Elem() ManagedServiceIdentityResponseOutput {
-	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse { return *v }).(ManagedServiceIdentityResponseOutput)
+	return o.ApplyT(func(v *ManagedServiceIdentityResponse) ManagedServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedServiceIdentityResponse
+		return ret
+	}).(ManagedServiceIdentityResponseOutput)
 }
 
 // Azure Active Directory principal ID associated with this Identity.

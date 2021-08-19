@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
+    /// <summary>
+    /// E2A Network Mapping fabric specific settings.
+    /// </summary>
     [OutputType]
     public sealed class VmmToAzureNetworkMappingSettingsResponse
     {

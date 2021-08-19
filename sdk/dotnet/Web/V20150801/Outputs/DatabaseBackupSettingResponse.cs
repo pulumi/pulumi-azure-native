@@ -10,6 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// Note: properties are serialized in JSON format and stored in DB. 
+    ///             if new properties are added they might not be in the previous data rows 
+    ///             so please handle nulls
+    /// </summary>
     [OutputType]
     public sealed class DatabaseBackupSettingResponse
     {

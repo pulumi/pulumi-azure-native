@@ -231,7 +231,7 @@ func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponsePtrOutpu
 }
 
 func (o DatadogHostMetadataResponseOutput) ToDatadogHostMetadataResponsePtrOutputWithContext(ctx context.Context) DatadogHostMetadataResponsePtrOutput {
-	return o.ApplyT(func(v DatadogHostMetadataResponse) *DatadogHostMetadataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogHostMetadataResponse) *DatadogHostMetadataResponse {
 		return &v
 	}).(DatadogHostMetadataResponsePtrOutput)
 }
@@ -264,7 +264,13 @@ func (o DatadogHostMetadataResponsePtrOutput) ToDatadogHostMetadataResponsePtrOu
 }
 
 func (o DatadogHostMetadataResponsePtrOutput) Elem() DatadogHostMetadataResponseOutput {
-	return o.ApplyT(func(v *DatadogHostMetadataResponse) DatadogHostMetadataResponse { return *v }).(DatadogHostMetadataResponseOutput)
+	return o.ApplyT(func(v *DatadogHostMetadataResponse) DatadogHostMetadataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogHostMetadataResponse
+		return ret
+	}).(DatadogHostMetadataResponseOutput)
 }
 
 // The agent version.
@@ -517,7 +523,7 @@ func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponsePtrOut
 }
 
 func (o DatadogInstallMethodResponseOutput) ToDatadogInstallMethodResponsePtrOutputWithContext(ctx context.Context) DatadogInstallMethodResponsePtrOutput {
-	return o.ApplyT(func(v DatadogInstallMethodResponse) *DatadogInstallMethodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogInstallMethodResponse) *DatadogInstallMethodResponse {
 		return &v
 	}).(DatadogInstallMethodResponsePtrOutput)
 }
@@ -552,7 +558,13 @@ func (o DatadogInstallMethodResponsePtrOutput) ToDatadogInstallMethodResponsePtr
 }
 
 func (o DatadogInstallMethodResponsePtrOutput) Elem() DatadogInstallMethodResponseOutput {
-	return o.ApplyT(func(v *DatadogInstallMethodResponse) DatadogInstallMethodResponse { return *v }).(DatadogInstallMethodResponseOutput)
+	return o.ApplyT(func(v *DatadogInstallMethodResponse) DatadogInstallMethodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogInstallMethodResponse
+		return ret
+	}).(DatadogInstallMethodResponseOutput)
 }
 
 // The installer version.
@@ -678,7 +690,7 @@ func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponsePtrOutput() Da
 }
 
 func (o DatadogLogsAgentResponseOutput) ToDatadogLogsAgentResponsePtrOutputWithContext(ctx context.Context) DatadogLogsAgentResponsePtrOutput {
-	return o.ApplyT(func(v DatadogLogsAgentResponse) *DatadogLogsAgentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogLogsAgentResponse) *DatadogLogsAgentResponse {
 		return &v
 	}).(DatadogLogsAgentResponsePtrOutput)
 }
@@ -703,7 +715,13 @@ func (o DatadogLogsAgentResponsePtrOutput) ToDatadogLogsAgentResponsePtrOutputWi
 }
 
 func (o DatadogLogsAgentResponsePtrOutput) Elem() DatadogLogsAgentResponseOutput {
-	return o.ApplyT(func(v *DatadogLogsAgentResponse) DatadogLogsAgentResponse { return *v }).(DatadogLogsAgentResponseOutput)
+	return o.ApplyT(func(v *DatadogLogsAgentResponse) DatadogLogsAgentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogLogsAgentResponse
+		return ret
+	}).(DatadogLogsAgentResponseOutput)
 }
 
 // The transport.
@@ -832,7 +850,7 @@ func (o DatadogOrganizationPropertiesOutput) ToDatadogOrganizationPropertiesPtrO
 }
 
 func (o DatadogOrganizationPropertiesOutput) ToDatadogOrganizationPropertiesPtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesPtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationProperties) *DatadogOrganizationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogOrganizationProperties) *DatadogOrganizationProperties {
 		return &v
 	}).(DatadogOrganizationPropertiesPtrOutput)
 }
@@ -882,7 +900,13 @@ func (o DatadogOrganizationPropertiesPtrOutput) ToDatadogOrganizationPropertiesP
 }
 
 func (o DatadogOrganizationPropertiesPtrOutput) Elem() DatadogOrganizationPropertiesOutput {
-	return o.ApplyT(func(v *DatadogOrganizationProperties) DatadogOrganizationProperties { return *v }).(DatadogOrganizationPropertiesOutput)
+	return o.ApplyT(func(v *DatadogOrganizationProperties) DatadogOrganizationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogOrganizationProperties
+		return ret
+	}).(DatadogOrganizationPropertiesOutput)
 }
 
 // Api key associated to the Datadog organization.
@@ -1045,7 +1069,7 @@ func (o DatadogOrganizationPropertiesResponseOutput) ToDatadogOrganizationProper
 }
 
 func (o DatadogOrganizationPropertiesResponseOutput) ToDatadogOrganizationPropertiesResponsePtrOutputWithContext(ctx context.Context) DatadogOrganizationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DatadogOrganizationPropertiesResponse) *DatadogOrganizationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatadogOrganizationPropertiesResponse) *DatadogOrganizationPropertiesResponse {
 		return &v
 	}).(DatadogOrganizationPropertiesResponsePtrOutput)
 }
@@ -1075,7 +1099,13 @@ func (o DatadogOrganizationPropertiesResponsePtrOutput) ToDatadogOrganizationPro
 }
 
 func (o DatadogOrganizationPropertiesResponsePtrOutput) Elem() DatadogOrganizationPropertiesResponseOutput {
-	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) DatadogOrganizationPropertiesResponse { return *v }).(DatadogOrganizationPropertiesResponseOutput)
+	return o.ApplyT(func(v *DatadogOrganizationPropertiesResponse) DatadogOrganizationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatadogOrganizationPropertiesResponse
+		return ret
+	}).(DatadogOrganizationPropertiesResponseOutput)
 }
 
 // Id of the Datadog organization.
@@ -1191,7 +1221,7 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
@@ -1216,7 +1246,13 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
 // Identity type
@@ -1330,7 +1366,7 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
@@ -1365,7 +1401,13 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
 // The identity ID.
@@ -1602,7 +1644,7 @@ func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutput() MonitorPropertie
 }
 
 func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutputWithContext(ctx context.Context) MonitorPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *MonitorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorProperties) *MonitorProperties {
 		return &v
 	}).(MonitorPropertiesPtrOutput)
 }
@@ -1637,7 +1679,13 @@ func (o MonitorPropertiesPtrOutput) ToMonitorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o MonitorPropertiesPtrOutput) Elem() MonitorPropertiesOutput {
-	return o.ApplyT(func(v *MonitorProperties) MonitorProperties { return *v }).(MonitorPropertiesOutput)
+	return o.ApplyT(func(v *MonitorProperties) MonitorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorProperties
+		return ret
+	}).(MonitorPropertiesOutput)
 }
 
 // Datadog organization properties
@@ -1786,7 +1834,7 @@ func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutput() 
 }
 
 func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *MonitorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorPropertiesResponse) *MonitorPropertiesResponse {
 		return &v
 	}).(MonitorPropertiesResponsePtrOutput)
 }
@@ -1841,7 +1889,13 @@ func (o MonitorPropertiesResponsePtrOutput) ToMonitorPropertiesResponsePtrOutput
 }
 
 func (o MonitorPropertiesResponsePtrOutput) Elem() MonitorPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse { return *v }).(MonitorPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorPropertiesResponse
+		return ret
+	}).(MonitorPropertiesResponseOutput)
 }
 
 // Datadog organization properties
@@ -2141,7 +2195,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -2166,7 +2220,13 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
 // Name of the SKU.
@@ -2272,7 +2332,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -2297,7 +2357,13 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
 // Name of the SKU.
@@ -2414,7 +2480,7 @@ func (o UserInfoOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
 }
 
 func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
-	return o.ApplyT(func(v UserInfo) *UserInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfo) *UserInfo {
 		return &v
 	}).(UserInfoPtrOutput)
 }
@@ -2449,7 +2515,13 @@ func (o UserInfoPtrOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) U
 }
 
 func (o UserInfoPtrOutput) Elem() UserInfoOutput {
-	return o.ApplyT(func(v *UserInfo) UserInfo { return *v }).(UserInfoOutput)
+	return o.ApplyT(func(v *UserInfo) UserInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfo
+		return ret
+	}).(UserInfoOutput)
 }
 
 // Email of the user used by Datadog for contacting them if needed
@@ -2586,7 +2658,7 @@ func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePt
 }
 
 func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *UserInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfoResponse) *UserInfoResponse {
 		return &v
 	}).(UserInfoResponsePtrOutput)
 }
@@ -2621,7 +2693,13 @@ func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutputWithContext(ctx co
 }
 
 func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
-	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse { return *v }).(UserInfoResponseOutput)
+	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfoResponse
+		return ret
+	}).(UserInfoResponseOutput)
 }
 
 // Email of the user used by Datadog for contacting them if needed

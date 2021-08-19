@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20190401.Outputs
 {
 
+    /// <summary>
+    /// Settings properties for Active Directory (AD).
+    /// </summary>
     [OutputType]
     public sealed class ActiveDirectoryPropertiesResponse
     {

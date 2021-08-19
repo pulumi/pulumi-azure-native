@@ -115,57 +115,9 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// The time the Namespace was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Specifies whether this instance is enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Identifier for Azure Insights metrics
-	MetricId *string `pulumi:"metricId"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning state of the Namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
-	// SKU parameters supplied to the create Namespace operation
-	Sku *SkuResponse `pulumi:"sku"`
-	// State of the Namespace.
-	Status *string `pulumi:"status"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// The time the Namespace was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
-	// The time the Namespace was created.
-	CreatedAt pulumi.StringPtrInput
-	// Specifies whether this instance is enabled.
-	Enabled pulumi.BoolPtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Identifier for Azure Insights metrics
-	MetricId pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning state of the Namespace.
-	ProvisioningState pulumi.StringPtrInput
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringPtrInput
-	// SKU parameters supplied to the create Namespace operation
-	Sku SkuResponsePtrInput
-	// State of the Namespace.
-	Status pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// The time the Namespace was updated.
-	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -190,7 +142,7 @@ type namespaceArgs struct {
 	// SKU parameters supplied to the create Namespace operation
 	Sku *Sku `pulumi:"sku"`
 	// State of the Namespace.
-	Status *string `pulumi:"status"`
+	Status *NamespaceStateEnum `pulumi:"status"`
 	// Namespace tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The time the Namespace was updated.
@@ -216,7 +168,7 @@ type NamespaceArgs struct {
 	// SKU parameters supplied to the create Namespace operation
 	Sku SkuPtrInput
 	// State of the Namespace.
-	Status *NamespaceStateEnum
+	Status NamespaceStateEnumPtrInput
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 	// The time the Namespace was updated.
@@ -246,9 +198,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

@@ -73,33 +73,9 @@ func GetRoleManagementPolicyAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleManagementPolicyAssignment resources.
 type roleManagementPolicyAssignmentState struct {
-	// The role management policy name.
-	Name *string `pulumi:"name"`
-	// Additional properties of scope, role definition and policy
-	PolicyAssignmentProperties *PolicyAssignmentPropertiesResponse `pulumi:"policyAssignmentProperties"`
-	// The policy id role management policy assignment.
-	PolicyId *string `pulumi:"policyId"`
-	// The role definition of management policy assignment.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The role management policy scope.
-	Scope *string `pulumi:"scope"`
-	// The role management policy type.
-	Type *string `pulumi:"type"`
 }
 
 type RoleManagementPolicyAssignmentState struct {
-	// The role management policy name.
-	Name pulumi.StringPtrInput
-	// Additional properties of scope, role definition and policy
-	PolicyAssignmentProperties PolicyAssignmentPropertiesResponsePtrInput
-	// The policy id role management policy assignment.
-	PolicyId pulumi.StringPtrInput
-	// The role definition of management policy assignment.
-	RoleDefinitionId pulumi.StringPtrInput
-	// The role management policy scope.
-	Scope pulumi.StringPtrInput
-	// The role management policy type.
-	Type pulumi.StringPtrInput
 }
 
 func (RoleManagementPolicyAssignmentState) ElementType() reflect.Type {
@@ -152,9 +128,7 @@ func (i *RoleManagementPolicyAssignment) ToRoleManagementPolicyAssignmentOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyAssignmentOutput)
 }
 
-type RoleManagementPolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type RoleManagementPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RoleManagementPolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleManagementPolicyAssignment)(nil))

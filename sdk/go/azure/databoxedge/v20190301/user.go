@@ -120,25 +120,9 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// The password details.
-	EncryptedPassword *AsymmetricEncryptedSecretResponse `pulumi:"encryptedPassword"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type UserState struct {
-	// The password details.
-	EncryptedPassword AsymmetricEncryptedSecretResponsePtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// List of shares that the user has rights on. This field should not be specified during user creation.
-	ShareAccessRights ShareAccessRightResponseArrayInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -195,9 +179,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-type UserOutput struct {
-	*pulumi.OutputState
-}
+type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180330Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents HTTPS job input.
+    /// </summary>
     [OutputType]
     public sealed class JobInputHttpResponse
     {

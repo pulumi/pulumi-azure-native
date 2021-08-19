@@ -145,33 +145,9 @@ func GetSiteMetadataSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SiteMetadataSlot resources.
 type siteMetadataSlotState struct {
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location *string `pulumi:"location"`
-	// Resource Name
-	Name *string `pulumi:"name"`
-	// Settings
-	Properties map[string]string `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type SiteMetadataSlotState struct {
-	// Kind of resource
-	Kind pulumi.StringPtrInput
-	// Resource Location
-	Location pulumi.StringPtrInput
-	// Resource Name
-	Name pulumi.StringPtrInput
-	// Settings
-	Properties pulumi.StringMapInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (SiteMetadataSlotState) ElementType() reflect.Type {
@@ -244,9 +220,7 @@ func (i *SiteMetadataSlot) ToSiteMetadataSlotOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SiteMetadataSlotOutput)
 }
 
-type SiteMetadataSlotOutput struct {
-	*pulumi.OutputState
-}
+type SiteMetadataSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteMetadataSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SiteMetadataSlot)(nil))

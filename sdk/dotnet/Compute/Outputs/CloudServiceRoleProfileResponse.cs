@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes the role profile for the cloud service.
+    /// </summary>
     [OutputType]
     public sealed class CloudServiceRoleProfileResponse
     {

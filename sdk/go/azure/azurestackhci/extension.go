@@ -102,77 +102,9 @@ func GetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Extension resources.
 type extensionState struct {
-	// Aggregate state of Arc Extensions across the nodes in this HCI cluster.
-	AggregateState *string `pulumi:"aggregateState"`
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
-	// The timestamp of resource creation (UTC).
-	CreatedAt *string `pulumi:"createdAt"`
-	// The identity that created the resource.
-	CreatedBy *string `pulumi:"createdBy"`
-	// The type of identity that created the resource.
-	CreatedByType *string `pulumi:"createdByType"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt *string `pulumi:"lastModifiedAt"`
-	// The identity that last modified the resource.
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The type of identity that last modified the resource.
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// State of Arc Extension in each of the nodes.
-	PerNodeExtensionDetails []PerNodeExtensionStateResponse `pulumi:"perNodeExtensionDetails"`
-	// Protected settings (may contain secrets).
-	ProtectedSettings interface{} `pulumi:"protectedSettings"`
-	// Provisioning state of the Extension proxy resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher *string `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings interface{} `pulumi:"settings"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 type ExtensionState struct {
-	// Aggregate state of Arc Extensions across the nodes in this HCI cluster.
-	AggregateState pulumi.StringPtrInput
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput
-	// The timestamp of resource creation (UTC).
-	CreatedAt pulumi.StringPtrInput
-	// The identity that created the resource.
-	CreatedBy pulumi.StringPtrInput
-	// The type of identity that created the resource.
-	CreatedByType pulumi.StringPtrInput
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput
-	// The timestamp of resource last modification (UTC)
-	LastModifiedAt pulumi.StringPtrInput
-	// The identity that last modified the resource.
-	LastModifiedBy pulumi.StringPtrInput
-	// The type of identity that last modified the resource.
-	LastModifiedByType pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// State of Arc Extension in each of the nodes.
-	PerNodeExtensionDetails PerNodeExtensionStateResponseArrayInput
-	// Protected settings (may contain secrets).
-	ProtectedSettings pulumi.Input
-	// Provisioning state of the Extension proxy resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput
-	// Json formatted public settings for the extension.
-	Settings pulumi.Input
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput
 }
 
 func (ExtensionState) ElementType() reflect.Type {
@@ -277,9 +209,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionOutput)
 }
 
-type ExtensionOutput struct {
-	*pulumi.OutputState
-}
+type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Extension)(nil))

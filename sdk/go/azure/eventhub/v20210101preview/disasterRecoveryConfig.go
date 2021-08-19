@@ -98,41 +98,9 @@ func GetDisasterRecoveryConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DisasterRecoveryConfig resources.
 type disasterRecoveryConfigState struct {
-	// Alternate name specified when alias and namespace names are same.
-	AlternateName *string `pulumi:"alternateName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace *string `pulumi:"partnerNamespace"`
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount *float64 `pulumi:"pendingReplicationOperationsCount"`
-	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
-	Role *string `pulumi:"role"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DisasterRecoveryConfigState struct {
-	// Alternate name specified when alias and namespace names are same.
-	AlternateName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace pulumi.StringPtrInput
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.Float64PtrInput
-	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-	ProvisioningState pulumi.StringPtrInput
-	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
-	Role pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DisasterRecoveryConfigState) ElementType() reflect.Type {
@@ -189,9 +157,7 @@ func (i *DisasterRecoveryConfig) ToDisasterRecoveryConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DisasterRecoveryConfigOutput)
 }
 
-type DisasterRecoveryConfigOutput struct {
-	*pulumi.OutputState
-}
+type DisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (DisasterRecoveryConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DisasterRecoveryConfig)(nil))

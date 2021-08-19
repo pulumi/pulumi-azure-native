@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
+    /// <summary>
+    /// The application client details to track the entity creating/updating the managed app resource.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationClientDetailsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Additional information on Azure Sql specific protected item.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlProtectedItemExtendedInfoResponse
     {

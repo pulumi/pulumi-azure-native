@@ -75,37 +75,9 @@ func GetPowerBIResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PowerBIResource resources.
 type powerBIResourceState struct {
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name *string `pulumi:"name"`
-	// Specifies the private endpoint connections of the resource.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// The system metadata relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Specifies the tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the tenant id of the resource.
-	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PowerBIResourceState struct {
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// Specifies the name of the resource.
-	Name pulumi.StringPtrInput
-	// Specifies the private endpoint connections of the resource.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// The system metadata relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Specifies the tags of the resource.
-	Tags pulumi.StringMapInput
-	// Specifies the tenant id of the resource.
-	TenantId pulumi.StringPtrInput
-	// Specifies the type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PowerBIResourceState) ElementType() reflect.Type {
@@ -166,9 +138,7 @@ func (i *PowerBIResource) ToPowerBIResourceOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PowerBIResourceOutput)
 }
 
-type PowerBIResourceOutput struct {
-	*pulumi.OutputState
-}
+type PowerBIResourceOutput struct{ *pulumi.OutputState }
 
 func (PowerBIResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PowerBIResource)(nil))

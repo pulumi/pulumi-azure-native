@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// A single automation scope.
+    /// </summary>
     [OutputType]
     public sealed class AutomationScopeResponse
     {

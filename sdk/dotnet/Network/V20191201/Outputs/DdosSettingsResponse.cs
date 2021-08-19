@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191201.Outputs
 {
 
+    /// <summary>
+    /// Contains the DDoS protection settings of the public IP.
+    /// </summary>
     [OutputType]
     public sealed class DdosSettingsResponse
     {

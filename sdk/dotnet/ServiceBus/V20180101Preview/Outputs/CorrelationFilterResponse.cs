@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.V20180101Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents the correlation filter expression.
+    /// </summary>
     [OutputType]
     public sealed class CorrelationFilterResponse
     {

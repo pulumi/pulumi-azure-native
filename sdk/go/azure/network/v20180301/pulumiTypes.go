@@ -110,7 +110,7 @@ func (o DnsConfigOutput) ToDnsConfigPtrOutput() DnsConfigPtrOutput {
 }
 
 func (o DnsConfigOutput) ToDnsConfigPtrOutputWithContext(ctx context.Context) DnsConfigPtrOutput {
-	return o.ApplyT(func(v DnsConfig) *DnsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsConfig) *DnsConfig {
 		return &v
 	}).(DnsConfigPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o DnsConfigPtrOutput) ToDnsConfigPtrOutputWithContext(ctx context.Context)
 }
 
 func (o DnsConfigPtrOutput) Elem() DnsConfigOutput {
-	return o.ApplyT(func(v *DnsConfig) DnsConfig { return *v }).(DnsConfigOutput)
+	return o.ApplyT(func(v *DnsConfig) DnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DnsConfig
+		return ret
+	}).(DnsConfigOutput)
 }
 
 // The relative DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.
@@ -267,7 +273,7 @@ func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutput() DnsConfigRespons
 }
 
 func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return o.ApplyT(func(v DnsConfigResponse) *DnsConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsConfigResponse) *DnsConfigResponse {
 		return &v
 	}).(DnsConfigResponsePtrOutput)
 }
@@ -302,7 +308,13 @@ func (o DnsConfigResponsePtrOutput) ToDnsConfigResponsePtrOutputWithContext(ctx 
 }
 
 func (o DnsConfigResponsePtrOutput) Elem() DnsConfigResponseOutput {
-	return o.ApplyT(func(v *DnsConfigResponse) DnsConfigResponse { return *v }).(DnsConfigResponseOutput)
+	return o.ApplyT(func(v *DnsConfigResponse) DnsConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DnsConfigResponse
+		return ret
+	}).(DnsConfigResponseOutput)
 }
 
 // The fully-qualified domain name (FQDN) of the Traffic Manager profile. This is formed from the concatenation of the RelativeName with the DNS domain used by Azure Traffic Manager.
@@ -1097,7 +1109,7 @@ func (o MonitorConfigOutput) ToMonitorConfigPtrOutput() MonitorConfigPtrOutput {
 }
 
 func (o MonitorConfigOutput) ToMonitorConfigPtrOutputWithContext(ctx context.Context) MonitorConfigPtrOutput {
-	return o.ApplyT(func(v MonitorConfig) *MonitorConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfig) *MonitorConfig {
 		return &v
 	}).(MonitorConfigPtrOutput)
 }
@@ -1162,7 +1174,13 @@ func (o MonitorConfigPtrOutput) ToMonitorConfigPtrOutputWithContext(ctx context.
 }
 
 func (o MonitorConfigPtrOutput) Elem() MonitorConfigOutput {
-	return o.ApplyT(func(v *MonitorConfig) MonitorConfig { return *v }).(MonitorConfigOutput)
+	return o.ApplyT(func(v *MonitorConfig) MonitorConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorConfig
+		return ret
+	}).(MonitorConfigOutput)
 }
 
 // List of custom headers.
@@ -1601,7 +1619,7 @@ func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutput() MonitorC
 }
 
 func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return o.ApplyT(func(v MonitorConfigResponse) *MonitorConfigResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfigResponse) *MonitorConfigResponse {
 		return &v
 	}).(MonitorConfigResponsePtrOutput)
 }
@@ -1668,7 +1686,13 @@ func (o MonitorConfigResponsePtrOutput) ToMonitorConfigResponsePtrOutputWithCont
 }
 
 func (o MonitorConfigResponsePtrOutput) Elem() MonitorConfigResponseOutput {
-	return o.ApplyT(func(v *MonitorConfigResponse) MonitorConfigResponse { return *v }).(MonitorConfigResponseOutput)
+	return o.ApplyT(func(v *MonitorConfigResponse) MonitorConfigResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorConfigResponse
+		return ret
+	}).(MonitorConfigResponseOutput)
 }
 
 // List of custom headers.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity source for SapBW server via MDX.
+    /// </summary>
     [OutputType]
     public sealed class SapBwSourceResponse
     {

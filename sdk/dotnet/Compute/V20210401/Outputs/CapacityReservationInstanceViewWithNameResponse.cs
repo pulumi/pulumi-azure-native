@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The instance view of a capacity reservation that includes the name of the capacity reservation. It is used for the response to the instance view of a capacity reservation group.
+    /// </summary>
     [OutputType]
     public sealed class CapacityReservationInstanceViewWithNameResponse
     {

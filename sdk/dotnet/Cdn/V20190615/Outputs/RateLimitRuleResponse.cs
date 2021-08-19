@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615.Outputs
 {
 
+    /// <summary>
+    /// Defines a rate limiting rule that can be included in a waf policy
+    /// </summary>
     [OutputType]
     public sealed class RateLimitRuleResponse
     {

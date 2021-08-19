@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Defines the Cookies condition for the delivery rule.
+    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleCookiesConditionResponse
     {

@@ -106,33 +106,9 @@ func GetNamedValue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NamedValue resources.
 type namedValueState struct {
-	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName *string `pulumi:"displayName"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret *bool `pulumi:"secret"`
-	// Optional tags that when provided can be used to filter the NamedValue list.
-	Tags []string `pulumi:"tags"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value *string `pulumi:"value"`
 }
 
 type NamedValueState struct {
-	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-	DisplayName pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
-	Secret pulumi.BoolPtrInput
-	// Optional tags that when provided can be used to filter the NamedValue list.
-	Tags pulumi.StringArrayInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
-	Value pulumi.StringPtrInput
 }
 
 func (NamedValueState) ElementType() reflect.Type {
@@ -197,9 +173,7 @@ func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedVal
 	return pulumi.ToOutputWithContext(ctx, i).(NamedValueOutput)
 }
 
-type NamedValueOutput struct {
-	*pulumi.OutputState
-}
+type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NamedValue)(nil))

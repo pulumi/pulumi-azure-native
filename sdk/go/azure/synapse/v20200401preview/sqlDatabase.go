@@ -76,45 +76,9 @@ func GetSqlDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlDatabase resources.
 type sqlDatabaseState struct {
-	// The collation of the database.
-	Collation *string `pulumi:"collation"`
-	// The Guid of the database.
-	DatabaseGuid *string `pulumi:"databaseGuid"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Status of the database.
-	Status *string `pulumi:"status"`
-	// Storage redundancy of the database.
-	StorageRedundancy *string `pulumi:"storageRedundancy"`
-	// SystemData of SqlDatabase.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type SqlDatabaseState struct {
-	// The collation of the database.
-	Collation pulumi.StringPtrInput
-	// The Guid of the database.
-	DatabaseGuid pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Status of the database.
-	Status pulumi.StringPtrInput
-	// Storage redundancy of the database.
-	StorageRedundancy pulumi.StringPtrInput
-	// SystemData of SqlDatabase.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (SqlDatabaseState) ElementType() reflect.Type {
@@ -179,9 +143,7 @@ func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDat
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseOutput)
 }
 
-type SqlDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type SqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlDatabase)(nil))

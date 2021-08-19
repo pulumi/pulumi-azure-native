@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
+    /// Collected from either Windows and Linux machines, depending on which extension is defined.
+    /// </summary>
     [OutputType]
     public sealed class ExtensionDataSourceResponse
     {

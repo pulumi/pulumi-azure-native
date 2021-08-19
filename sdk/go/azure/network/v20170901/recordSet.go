@@ -129,73 +129,9 @@ func GetRecordSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
-	// The list of A records in the record set.
-	ARecords []ARecordResponse `pulumi:"aRecords"`
-	// The list of AAAA records in the record set.
-	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
-	// The list of CAA records in the record set.
-	CaaRecords []CaaRecordResponse `pulumi:"caaRecords"`
-	// The CNAME record in the  record set.
-	CnameRecord *CnameRecordResponse `pulumi:"cnameRecord"`
-	// The etag of the record set.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified domain name of the record set.
-	Fqdn *string `pulumi:"fqdn"`
-	// The metadata attached to the record set.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The list of MX records in the record set.
-	MxRecords []MxRecordResponse `pulumi:"mxRecords"`
-	// The name of the record set.
-	Name *string `pulumi:"name"`
-	// The list of NS records in the record set.
-	NsRecords []NsRecordResponse `pulumi:"nsRecords"`
-	// The list of PTR records in the record set.
-	PtrRecords []PtrRecordResponse `pulumi:"ptrRecords"`
-	// The SOA record in the record set.
-	SoaRecord *SoaRecordResponse `pulumi:"soaRecord"`
-	// The list of SRV records in the record set.
-	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	Ttl *float64 `pulumi:"ttl"`
-	// The list of TXT records in the record set.
-	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
-	// The type of the record set.
-	Type *string `pulumi:"type"`
 }
 
 type RecordSetState struct {
-	// The list of A records in the record set.
-	ARecords ARecordResponseArrayInput
-	// The list of AAAA records in the record set.
-	AaaaRecords AaaaRecordResponseArrayInput
-	// The list of CAA records in the record set.
-	CaaRecords CaaRecordResponseArrayInput
-	// The CNAME record in the  record set.
-	CnameRecord CnameRecordResponsePtrInput
-	// The etag of the record set.
-	Etag pulumi.StringPtrInput
-	// Fully qualified domain name of the record set.
-	Fqdn pulumi.StringPtrInput
-	// The metadata attached to the record set.
-	Metadata pulumi.StringMapInput
-	// The list of MX records in the record set.
-	MxRecords MxRecordResponseArrayInput
-	// The name of the record set.
-	Name pulumi.StringPtrInput
-	// The list of NS records in the record set.
-	NsRecords NsRecordResponseArrayInput
-	// The list of PTR records in the record set.
-	PtrRecords PtrRecordResponseArrayInput
-	// The SOA record in the record set.
-	SoaRecord SoaRecordResponsePtrInput
-	// The list of SRV records in the record set.
-	SrvRecords SrvRecordResponseArrayInput
-	// The TTL (time-to-live) of the records in the record set.
-	Ttl pulumi.Float64PtrInput
-	// The list of TXT records in the record set.
-	TxtRecords TxtRecordResponseArrayInput
-	// The type of the record set.
-	Type pulumi.StringPtrInput
 }
 
 func (RecordSetState) ElementType() reflect.Type {
@@ -300,9 +236,7 @@ func (i *RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetO
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetOutput)
 }
 
-type RecordSetOutput struct {
-	*pulumi.OutputState
-}
+type RecordSetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RecordSet)(nil))

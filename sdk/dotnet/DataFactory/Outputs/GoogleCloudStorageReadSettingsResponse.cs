@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Google Cloud Storage read settings.
+    /// </summary>
     [OutputType]
     public sealed class GoogleCloudStorageReadSettingsResponse
     {

@@ -107,39 +107,9 @@ func GetKustoDatabaseDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KustoDatabaseDataSet resources.
 type kustoDatabaseDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// Kind of data set.
-	// Expected value is 'KustoDatabase'.
-	Kind *string `pulumi:"kind"`
-	// Resource id of the kusto database.
-	KustoDatabaseResourceId *string `pulumi:"kustoDatabaseResourceId"`
-	// Location of the kusto cluster.
-	Location *string `pulumi:"location"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the kusto database data set.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type KustoDatabaseDataSetState struct {
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'KustoDatabase'.
-	Kind pulumi.StringPtrInput
-	// Resource id of the kusto database.
-	KustoDatabaseResourceId pulumi.StringPtrInput
-	// Location of the kusto cluster.
-	Location pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the kusto database data set.
-	ProvisioningState pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (KustoDatabaseDataSetState) ElementType() reflect.Type {
@@ -202,9 +172,7 @@ func (i *KustoDatabaseDataSet) ToKustoDatabaseDataSetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(KustoDatabaseDataSetOutput)
 }
 
-type KustoDatabaseDataSetOutput struct {
-	*pulumi.OutputState
-}
+type KustoDatabaseDataSetOutput struct{ *pulumi.OutputState }
 
 func (KustoDatabaseDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoDatabaseDataSet)(nil))

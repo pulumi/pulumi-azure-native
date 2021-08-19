@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Outputs
 {
 
+    /// <summary>
+    /// The secret management attributes.
+    /// </summary>
     [OutputType]
     public sealed class SecretAttributesResponse
     {

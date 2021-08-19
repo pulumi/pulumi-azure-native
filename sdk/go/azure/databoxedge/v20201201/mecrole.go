@@ -132,35 +132,9 @@ func GetMECRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MECRole resources.
 type mecroleState struct {
-	// Activation key of the MEC.
-	ConnectionString *AsymmetricEncryptedSecretResponse `pulumi:"connectionString"`
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Role status.
-	RoleStatus *string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type MECRoleState struct {
-	// Activation key of the MEC.
-	ConnectionString AsymmetricEncryptedSecretResponsePtrInput
-	// Role type.
-	// Expected value is 'MEC'.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Role status.
-	RoleStatus pulumi.StringPtrInput
-	// Role configured on ASE resource
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (MECRoleState) ElementType() reflect.Type {
@@ -223,9 +197,7 @@ func (i *MECRole) ToMECRoleOutputWithContext(ctx context.Context) MECRoleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MECRoleOutput)
 }
 
-type MECRoleOutput struct {
-	*pulumi.OutputState
-}
+type MECRoleOutput struct{ *pulumi.OutputState }
 
 func (MECRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MECRole)(nil))

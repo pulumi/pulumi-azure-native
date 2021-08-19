@@ -106,7 +106,7 @@ func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetwork
 }
 
 func (o DataCollectionEndpointNetworkAclsOutput) ToDataCollectionEndpointNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointNetworkAclsPtrOutput {
-	return o.ApplyT(func(v DataCollectionEndpointNetworkAcls) *DataCollectionEndpointNetworkAcls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointNetworkAcls) *DataCollectionEndpointNetworkAcls {
 		return &v
 	}).(DataCollectionEndpointNetworkAclsPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o DataCollectionEndpointNetworkAclsPtrOutput) ToDataCollectionEndpointNetw
 }
 
 func (o DataCollectionEndpointNetworkAclsPtrOutput) Elem() DataCollectionEndpointNetworkAclsOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointNetworkAcls) DataCollectionEndpointNetworkAcls { return *v }).(DataCollectionEndpointNetworkAclsOutput)
+	return o.ApplyT(func(v *DataCollectionEndpointNetworkAcls) DataCollectionEndpointNetworkAcls {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionEndpointNetworkAcls
+		return ret
+	}).(DataCollectionEndpointNetworkAclsOutput)
 }
 
 // The configuration to set whether network access from public internet to the endpoints are allowed.
@@ -260,7 +266,7 @@ func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollection
 }
 
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *DataCollectionEndpointResourceResponseSystemData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResourceResponseSystemData) *DataCollectionEndpointResourceResponseSystemData {
 		return &v
 	}).(DataCollectionEndpointResourceResponseSystemDataPtrOutput)
 }
@@ -311,7 +317,11 @@ func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) ToDataCollect
 
 func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) Elem() DataCollectionEndpointResourceResponseSystemDataOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) DataCollectionEndpointResourceResponseSystemData {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionEndpointResourceResponseSystemData
+		return ret
 	}).(DataCollectionEndpointResourceResponseSystemDataOutput)
 }
 
@@ -471,7 +481,7 @@ func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectio
 }
 
 func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return o.ApplyT(func(v DataCollectionEndpointResponseConfigurationAccess) *DataCollectionEndpointResponseConfigurationAccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResponseConfigurationAccess) *DataCollectionEndpointResponseConfigurationAccess {
 		return &v
 	}).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
 }
@@ -497,7 +507,11 @@ func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) ToDataCollec
 
 func (o DataCollectionEndpointResponseConfigurationAccessPtrOutput) Elem() DataCollectionEndpointResponseConfigurationAccessOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResponseConfigurationAccess) DataCollectionEndpointResponseConfigurationAccess {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionEndpointResponseConfigurationAccess
+		return ret
 	}).(DataCollectionEndpointResponseConfigurationAccessOutput)
 }
 
@@ -607,7 +621,7 @@ func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpo
 }
 
 func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return o.ApplyT(func(v DataCollectionEndpointResponseLogsIngestion) *DataCollectionEndpointResponseLogsIngestion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResponseLogsIngestion) *DataCollectionEndpointResponseLogsIngestion {
 		return &v
 	}).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
 }
@@ -633,7 +647,11 @@ func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) ToDataCollectionEn
 
 func (o DataCollectionEndpointResponseLogsIngestionPtrOutput) Elem() DataCollectionEndpointResponseLogsIngestionOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResponseLogsIngestion) DataCollectionEndpointResponseLogsIngestion {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionEndpointResponseLogsIngestion
+		return ret
 	}).(DataCollectionEndpointResponseLogsIngestionOutput)
 }
 
@@ -743,7 +761,7 @@ func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpoin
 }
 
 func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return o.ApplyT(func(v DataCollectionEndpointResponseNetworkAcls) *DataCollectionEndpointResponseNetworkAcls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResponseNetworkAcls) *DataCollectionEndpointResponseNetworkAcls {
 		return &v
 	}).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
 }
@@ -769,7 +787,11 @@ func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) ToDataCollectionEndp
 
 func (o DataCollectionEndpointResponseNetworkAclsPtrOutput) Elem() DataCollectionEndpointResponseNetworkAclsOutput {
 	return o.ApplyT(func(v *DataCollectionEndpointResponseNetworkAcls) DataCollectionEndpointResponseNetworkAcls {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionEndpointResponseNetworkAcls
+		return ret
 	}).(DataCollectionEndpointResponseNetworkAclsOutput)
 }
 
@@ -899,7 +921,7 @@ func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) 
 }
 
 func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData {
 		return &v
 	}).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput)
 }
@@ -958,7 +980,11 @@ func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutpu
 
 func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) Elem() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
 	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData
+		return ret
 	}).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput)
 }
 
@@ -1133,7 +1159,7 @@ func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrO
 }
 
 func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
 		return &v
 	}).(DataCollectionRuleDataSourcesPtrOutput)
 }
@@ -1173,7 +1199,13 @@ func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesP
 }
 
 func (o DataCollectionRuleDataSourcesPtrOutput) Elem() DataCollectionRuleDataSourcesOutput {
-	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources { return *v }).(DataCollectionRuleDataSourcesOutput)
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDataSources
+		return ret
+	}).(DataCollectionRuleDataSourcesOutput)
 }
 
 // The list of Azure VM extension data source configurations.
@@ -1316,7 +1348,7 @@ func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPt
 }
 
 func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
 		return &v
 	}).(DataCollectionRuleDestinationsPtrOutput)
 }
@@ -1348,7 +1380,13 @@ func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestination
 }
 
 func (o DataCollectionRuleDestinationsPtrOutput) Elem() DataCollectionRuleDestinationsOutput {
-	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations { return *v }).(DataCollectionRuleDestinationsOutput)
+	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDestinations
+		return ret
+	}).(DataCollectionRuleDestinationsOutput)
 }
 
 // Azure Monitor Metrics destination.
@@ -1487,7 +1525,7 @@ func (o DataCollectionRuleResourceResponseSystemDataOutput) ToDataCollectionRule
 }
 
 func (o DataCollectionRuleResourceResponseSystemDataOutput) ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResourceResponseSystemData) *DataCollectionRuleResourceResponseSystemData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResourceResponseSystemData) *DataCollectionRuleResourceResponseSystemData {
 		return &v
 	}).(DataCollectionRuleResourceResponseSystemDataPtrOutput)
 }
@@ -1538,7 +1576,11 @@ func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) ToDataCollectionR
 
 func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) Elem() DataCollectionRuleResourceResponseSystemDataOutput {
 	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) DataCollectionRuleResourceResponseSystemData {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResourceResponseSystemData
+		return ret
 	}).(DataCollectionRuleResourceResponseSystemDataOutput)
 }
 
@@ -1713,7 +1755,7 @@ func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleRespons
 }
 
 func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
 		return &v
 	}).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
@@ -1757,7 +1799,13 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) ToDataCollectionRuleResp
 }
 
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Elem() DataCollectionRuleResponseDataSourcesOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) DataCollectionRuleResponseDataSources { return *v }).(DataCollectionRuleResponseDataSourcesOutput)
+	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) DataCollectionRuleResponseDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResponseDataSources
+		return ret
+	}).(DataCollectionRuleResponseDataSourcesOutput)
 }
 
 // The list of Azure VM extension data source configurations.
@@ -1900,7 +1948,7 @@ func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleRespon
 }
 
 func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
 		return &v
 	}).(DataCollectionRuleResponseDestinationsPtrOutput)
 }
@@ -1934,7 +1982,13 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) ToDataCollectionRuleRes
 }
 
 func (o DataCollectionRuleResponseDestinationsPtrOutput) Elem() DataCollectionRuleResponseDestinationsOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) DataCollectionRuleResponseDestinations { return *v }).(DataCollectionRuleResponseDestinationsOutput)
+	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) DataCollectionRuleResponseDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResponseDestinations
+		return ret
+	}).(DataCollectionRuleResponseDestinationsOutput)
 }
 
 // Azure Monitor Metrics destination.
@@ -2273,7 +2327,7 @@ func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonito
 }
 
 func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecAzureMonitorMetricsPtrOutput {
-	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) *DestinationsSpecAzureMonitorMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecAzureMonitorMetrics) *DestinationsSpecAzureMonitorMetrics {
 		return &v
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
@@ -2299,7 +2353,13 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) ToDestinationsSpecAzureMon
 }
 
 func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecAzureMonitorMetricsOutput {
-	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) DestinationsSpecAzureMonitorMetrics { return *v }).(DestinationsSpecAzureMonitorMetricsOutput)
+	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) DestinationsSpecAzureMonitorMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationsSpecAzureMonitorMetrics
+		return ret
+	}).(DestinationsSpecAzureMonitorMetricsOutput)
 }
 
 // A friendly name for the destination.
@@ -2411,7 +2471,7 @@ func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecRes
 }
 
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
 		return &v
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
@@ -2438,7 +2498,11 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) ToDestinationsSpec
 
 func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecResponseAzureMonitorMetricsOutput {
 	return o.ApplyT(func(v *DestinationsSpecResponseAzureMonitorMetrics) DestinationsSpecResponseAzureMonitorMetrics {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DestinationsSpecResponseAzureMonitorMetrics
+		return ret
 	}).(DestinationsSpecResponseAzureMonitorMetricsOutput)
 }
 

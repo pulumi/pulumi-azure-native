@@ -109,17 +109,28 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.apimanagement.v20160707 as v20160707
-    import pulumi_azure_native.apimanagement.v20161010 as v20161010
-    import pulumi_azure_native.apimanagement.v20170301 as v20170301
-    import pulumi_azure_native.apimanagement.v20180101 as v20180101
-    import pulumi_azure_native.apimanagement.v20180601preview as v20180601preview
-    import pulumi_azure_native.apimanagement.v20190101 as v20190101
-    import pulumi_azure_native.apimanagement.v20191201 as v20191201
-    import pulumi_azure_native.apimanagement.v20191201preview as v20191201preview
-    import pulumi_azure_native.apimanagement.v20200601preview as v20200601preview
-    import pulumi_azure_native.apimanagement.v20201201 as v20201201
-    import pulumi_azure_native.apimanagement.v20210101preview as v20210101preview
+    import pulumi_azure_native.apimanagement.v20160707 as __v20160707
+    v20160707 = __v20160707
+    import pulumi_azure_native.apimanagement.v20161010 as __v20161010
+    v20161010 = __v20161010
+    import pulumi_azure_native.apimanagement.v20170301 as __v20170301
+    v20170301 = __v20170301
+    import pulumi_azure_native.apimanagement.v20180101 as __v20180101
+    v20180101 = __v20180101
+    import pulumi_azure_native.apimanagement.v20180601preview as __v20180601preview
+    v20180601preview = __v20180601preview
+    import pulumi_azure_native.apimanagement.v20190101 as __v20190101
+    v20190101 = __v20190101
+    import pulumi_azure_native.apimanagement.v20191201 as __v20191201
+    v20191201 = __v20191201
+    import pulumi_azure_native.apimanagement.v20191201preview as __v20191201preview
+    v20191201preview = __v20191201preview
+    import pulumi_azure_native.apimanagement.v20200601preview as __v20200601preview
+    v20200601preview = __v20200601preview
+    import pulumi_azure_native.apimanagement.v20201201 as __v20201201
+    v20201201 = __v20201201
+    import pulumi_azure_native.apimanagement.v20210101preview as __v20210101preview
+    v20210101preview = __v20210101preview
 else:
     v20160707 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20160707')
     v20161010 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20161010')

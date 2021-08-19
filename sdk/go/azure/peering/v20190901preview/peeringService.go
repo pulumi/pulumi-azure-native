@@ -111,37 +111,9 @@ func GetPeeringService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PeeringService resources.
 type peeringServiceState struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The PeeringServiceLocation of the Customer.
-	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
-	// The MAPS Provider Name.
-	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type PeeringServiceState struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The PeeringServiceLocation of the Customer.
-	PeeringServiceLocation pulumi.StringPtrInput
-	// The MAPS Provider Name.
-	PeeringServiceProvider pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PeeringServiceState) ElementType() reflect.Type {
@@ -202,9 +174,7 @@ func (i *PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceOutput)
 }
 
-type PeeringServiceOutput struct {
-	*pulumi.OutputState
-}
+type PeeringServiceOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringService)(nil))

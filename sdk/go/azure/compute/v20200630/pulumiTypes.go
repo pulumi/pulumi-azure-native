@@ -134,7 +134,7 @@ func (o CreationDataOutput) ToCreationDataPtrOutput() CreationDataPtrOutput {
 }
 
 func (o CreationDataOutput) ToCreationDataPtrOutputWithContext(ctx context.Context) CreationDataPtrOutput {
-	return o.ApplyT(func(v CreationData) *CreationData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreationData) *CreationData {
 		return &v
 	}).(CreationDataPtrOutput)
 }
@@ -194,7 +194,13 @@ func (o CreationDataPtrOutput) ToCreationDataPtrOutputWithContext(ctx context.Co
 }
 
 func (o CreationDataPtrOutput) Elem() CreationDataOutput {
-	return o.ApplyT(func(v *CreationData) CreationData { return *v }).(CreationDataOutput)
+	return o.ApplyT(func(v *CreationData) CreationData {
+		if v != nil {
+			return *v
+		}
+		var ret CreationData
+		return ret
+	}).(CreationDataOutput)
 }
 
 // This enumerates the possible sources of a disk's creation.
@@ -405,7 +411,7 @@ func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutput() CreationDa
 }
 
 func (o CreationDataResponseOutput) ToCreationDataResponsePtrOutputWithContext(ctx context.Context) CreationDataResponsePtrOutput {
-	return o.ApplyT(func(v CreationDataResponse) *CreationDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreationDataResponse) *CreationDataResponse {
 		return &v
 	}).(CreationDataResponsePtrOutput)
 }
@@ -470,7 +476,13 @@ func (o CreationDataResponsePtrOutput) ToCreationDataResponsePtrOutputWithContex
 }
 
 func (o CreationDataResponsePtrOutput) Elem() CreationDataResponseOutput {
-	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse { return *v }).(CreationDataResponseOutput)
+	return o.ApplyT(func(v *CreationDataResponse) CreationDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreationDataResponse
+		return ret
+	}).(CreationDataResponseOutput)
 }
 
 // This enumerates the possible sources of a disk's creation.
@@ -659,7 +671,7 @@ func (o DiskSkuOutput) ToDiskSkuPtrOutput() DiskSkuPtrOutput {
 }
 
 func (o DiskSkuOutput) ToDiskSkuPtrOutputWithContext(ctx context.Context) DiskSkuPtrOutput {
-	return o.ApplyT(func(v DiskSku) *DiskSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSku) *DiskSku {
 		return &v
 	}).(DiskSkuPtrOutput)
 }
@@ -684,7 +696,13 @@ func (o DiskSkuPtrOutput) ToDiskSkuPtrOutputWithContext(ctx context.Context) Dis
 }
 
 func (o DiskSkuPtrOutput) Elem() DiskSkuOutput {
-	return o.ApplyT(func(v *DiskSku) DiskSku { return *v }).(DiskSkuOutput)
+	return o.ApplyT(func(v *DiskSku) DiskSku {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSku
+		return ret
+	}).(DiskSkuOutput)
 }
 
 // The sku name.
@@ -797,7 +815,7 @@ func (o DiskSkuResponseOutput) ToDiskSkuResponsePtrOutput() DiskSkuResponsePtrOu
 }
 
 func (o DiskSkuResponseOutput) ToDiskSkuResponsePtrOutputWithContext(ctx context.Context) DiskSkuResponsePtrOutput {
-	return o.ApplyT(func(v DiskSkuResponse) *DiskSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiskSkuResponse) *DiskSkuResponse {
 		return &v
 	}).(DiskSkuResponsePtrOutput)
 }
@@ -827,7 +845,13 @@ func (o DiskSkuResponsePtrOutput) ToDiskSkuResponsePtrOutputWithContext(ctx cont
 }
 
 func (o DiskSkuResponsePtrOutput) Elem() DiskSkuResponseOutput {
-	return o.ApplyT(func(v *DiskSkuResponse) DiskSkuResponse { return *v }).(DiskSkuResponseOutput)
+	return o.ApplyT(func(v *DiskSkuResponse) DiskSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DiskSkuResponse
+		return ret
+	}).(DiskSkuResponseOutput)
 }
 
 // The sku name.
@@ -950,7 +974,7 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
@@ -980,7 +1004,13 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
 // ResourceId of the disk encryption set to use for enabling encryption at rest.
@@ -1103,7 +1133,7 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
@@ -1133,7 +1163,13 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
 // ResourceId of the disk encryption set to use for enabling encryption at rest.
@@ -1252,7 +1288,7 @@ func (o EncryptionSetIdentityOutput) ToEncryptionSetIdentityPtrOutput() Encrypti
 }
 
 func (o EncryptionSetIdentityOutput) ToEncryptionSetIdentityPtrOutputWithContext(ctx context.Context) EncryptionSetIdentityPtrOutput {
-	return o.ApplyT(func(v EncryptionSetIdentity) *EncryptionSetIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSetIdentity) *EncryptionSetIdentity {
 		return &v
 	}).(EncryptionSetIdentityPtrOutput)
 }
@@ -1277,7 +1313,13 @@ func (o EncryptionSetIdentityPtrOutput) ToEncryptionSetIdentityPtrOutputWithCont
 }
 
 func (o EncryptionSetIdentityPtrOutput) Elem() EncryptionSetIdentityOutput {
-	return o.ApplyT(func(v *EncryptionSetIdentity) EncryptionSetIdentity { return *v }).(EncryptionSetIdentityOutput)
+	return o.ApplyT(func(v *EncryptionSetIdentity) EncryptionSetIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSetIdentity
+		return ret
+	}).(EncryptionSetIdentityOutput)
 }
 
 // The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
@@ -1394,7 +1436,7 @@ func (o EncryptionSetIdentityResponseOutput) ToEncryptionSetIdentityResponsePtrO
 }
 
 func (o EncryptionSetIdentityResponseOutput) ToEncryptionSetIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionSetIdentityResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionSetIdentityResponse) *EncryptionSetIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSetIdentityResponse) *EncryptionSetIdentityResponse {
 		return &v
 	}).(EncryptionSetIdentityResponsePtrOutput)
 }
@@ -1429,7 +1471,13 @@ func (o EncryptionSetIdentityResponsePtrOutput) ToEncryptionSetIdentityResponseP
 }
 
 func (o EncryptionSetIdentityResponsePtrOutput) Elem() EncryptionSetIdentityResponseOutput {
-	return o.ApplyT(func(v *EncryptionSetIdentityResponse) EncryptionSetIdentityResponse { return *v }).(EncryptionSetIdentityResponseOutput)
+	return o.ApplyT(func(v *EncryptionSetIdentityResponse) EncryptionSetIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSetIdentityResponse
+		return ret
+	}).(EncryptionSetIdentityResponseOutput)
 }
 
 // The object id of the Managed Identity Resource. This will be sent to the RP from ARM via the x-ms-identity-principal-id header in the PUT request if the resource has a systemAssigned(implicit) identity
@@ -1566,7 +1614,7 @@ func (o EncryptionSettingsCollectionOutput) ToEncryptionSettingsCollectionPtrOut
 }
 
 func (o EncryptionSettingsCollectionOutput) ToEncryptionSettingsCollectionPtrOutputWithContext(ctx context.Context) EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v EncryptionSettingsCollection) *EncryptionSettingsCollection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSettingsCollection) *EncryptionSettingsCollection {
 		return &v
 	}).(EncryptionSettingsCollectionPtrOutput)
 }
@@ -1601,7 +1649,13 @@ func (o EncryptionSettingsCollectionPtrOutput) ToEncryptionSettingsCollectionPtr
 }
 
 func (o EncryptionSettingsCollectionPtrOutput) Elem() EncryptionSettingsCollectionOutput {
-	return o.ApplyT(func(v *EncryptionSettingsCollection) EncryptionSettingsCollection { return *v }).(EncryptionSettingsCollectionOutput)
+	return o.ApplyT(func(v *EncryptionSettingsCollection) EncryptionSettingsCollection {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSettingsCollection
+		return ret
+	}).(EncryptionSettingsCollectionOutput)
 }
 
 // Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
@@ -1738,7 +1792,7 @@ func (o EncryptionSettingsCollectionResponseOutput) ToEncryptionSettingsCollecti
 }
 
 func (o EncryptionSettingsCollectionResponseOutput) ToEncryptionSettingsCollectionResponsePtrOutputWithContext(ctx context.Context) EncryptionSettingsCollectionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionSettingsCollectionResponse) *EncryptionSettingsCollectionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionSettingsCollectionResponse) *EncryptionSettingsCollectionResponse {
 		return &v
 	}).(EncryptionSettingsCollectionResponsePtrOutput)
 }
@@ -1775,7 +1829,13 @@ func (o EncryptionSettingsCollectionResponsePtrOutput) ToEncryptionSettingsColle
 }
 
 func (o EncryptionSettingsCollectionResponsePtrOutput) Elem() EncryptionSettingsCollectionResponseOutput {
-	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) EncryptionSettingsCollectionResponse { return *v }).(EncryptionSettingsCollectionResponseOutput)
+	return o.ApplyT(func(v *EncryptionSettingsCollectionResponse) EncryptionSettingsCollectionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionSettingsCollectionResponse
+		return ret
+	}).(EncryptionSettingsCollectionResponseOutput)
 }
 
 // Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
@@ -2128,7 +2188,7 @@ func (o ImageDiskReferenceOutput) ToImageDiskReferencePtrOutput() ImageDiskRefer
 }
 
 func (o ImageDiskReferenceOutput) ToImageDiskReferencePtrOutputWithContext(ctx context.Context) ImageDiskReferencePtrOutput {
-	return o.ApplyT(func(v ImageDiskReference) *ImageDiskReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDiskReference) *ImageDiskReference {
 		return &v
 	}).(ImageDiskReferencePtrOutput)
 }
@@ -2158,7 +2218,13 @@ func (o ImageDiskReferencePtrOutput) ToImageDiskReferencePtrOutputWithContext(ct
 }
 
 func (o ImageDiskReferencePtrOutput) Elem() ImageDiskReferenceOutput {
-	return o.ApplyT(func(v *ImageDiskReference) ImageDiskReference { return *v }).(ImageDiskReferenceOutput)
+	return o.ApplyT(func(v *ImageDiskReference) ImageDiskReference {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDiskReference
+		return ret
+	}).(ImageDiskReferenceOutput)
 }
 
 // A relative uri containing either a Platform Image Repository or user image reference.
@@ -2281,7 +2347,7 @@ func (o ImageDiskReferenceResponseOutput) ToImageDiskReferenceResponsePtrOutput(
 }
 
 func (o ImageDiskReferenceResponseOutput) ToImageDiskReferenceResponsePtrOutputWithContext(ctx context.Context) ImageDiskReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ImageDiskReferenceResponse) *ImageDiskReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageDiskReferenceResponse) *ImageDiskReferenceResponse {
 		return &v
 	}).(ImageDiskReferenceResponsePtrOutput)
 }
@@ -2311,7 +2377,13 @@ func (o ImageDiskReferenceResponsePtrOutput) ToImageDiskReferenceResponsePtrOutp
 }
 
 func (o ImageDiskReferenceResponsePtrOutput) Elem() ImageDiskReferenceResponseOutput {
-	return o.ApplyT(func(v *ImageDiskReferenceResponse) ImageDiskReferenceResponse { return *v }).(ImageDiskReferenceResponseOutput)
+	return o.ApplyT(func(v *ImageDiskReferenceResponse) ImageDiskReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImageDiskReferenceResponse
+		return ret
+	}).(ImageDiskReferenceResponseOutput)
 }
 
 // A relative uri containing either a Platform Image Repository or user image reference.
@@ -2434,7 +2506,7 @@ func (o KeyVaultAndKeyReferenceOutput) ToKeyVaultAndKeyReferencePtrOutput() KeyV
 }
 
 func (o KeyVaultAndKeyReferenceOutput) ToKeyVaultAndKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndKeyReference) *KeyVaultAndKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndKeyReference) *KeyVaultAndKeyReference {
 		return &v
 	}).(KeyVaultAndKeyReferencePtrOutput)
 }
@@ -2464,7 +2536,13 @@ func (o KeyVaultAndKeyReferencePtrOutput) ToKeyVaultAndKeyReferencePtrOutputWith
 }
 
 func (o KeyVaultAndKeyReferencePtrOutput) Elem() KeyVaultAndKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultAndKeyReference) KeyVaultAndKeyReference { return *v }).(KeyVaultAndKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultAndKeyReference) KeyVaultAndKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndKeyReference
+		return ret
+	}).(KeyVaultAndKeyReferenceOutput)
 }
 
 // Url pointing to a key or secret in KeyVault
@@ -2612,7 +2690,7 @@ func (o KeyVaultAndKeyReferenceResponseOutput) ToKeyVaultAndKeyReferenceResponse
 }
 
 func (o KeyVaultAndKeyReferenceResponseOutput) ToKeyVaultAndKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndKeyReferenceResponse) *KeyVaultAndKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndKeyReferenceResponse) *KeyVaultAndKeyReferenceResponse {
 		return &v
 	}).(KeyVaultAndKeyReferenceResponsePtrOutput)
 }
@@ -2642,7 +2720,13 @@ func (o KeyVaultAndKeyReferenceResponsePtrOutput) ToKeyVaultAndKeyReferenceRespo
 }
 
 func (o KeyVaultAndKeyReferenceResponsePtrOutput) Elem() KeyVaultAndKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) KeyVaultAndKeyReferenceResponse { return *v }).(KeyVaultAndKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultAndKeyReferenceResponse) KeyVaultAndKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndKeyReferenceResponse
+		return ret
+	}).(KeyVaultAndKeyReferenceResponseOutput)
 }
 
 // Url pointing to a key or secret in KeyVault
@@ -2785,7 +2869,7 @@ func (o KeyVaultAndSecretReferenceOutput) ToKeyVaultAndSecretReferencePtrOutput(
 }
 
 func (o KeyVaultAndSecretReferenceOutput) ToKeyVaultAndSecretReferencePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndSecretReference) *KeyVaultAndSecretReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndSecretReference) *KeyVaultAndSecretReference {
 		return &v
 	}).(KeyVaultAndSecretReferencePtrOutput)
 }
@@ -2815,7 +2899,13 @@ func (o KeyVaultAndSecretReferencePtrOutput) ToKeyVaultAndSecretReferencePtrOutp
 }
 
 func (o KeyVaultAndSecretReferencePtrOutput) Elem() KeyVaultAndSecretReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultAndSecretReference) KeyVaultAndSecretReference { return *v }).(KeyVaultAndSecretReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultAndSecretReference) KeyVaultAndSecretReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndSecretReference
+		return ret
+	}).(KeyVaultAndSecretReferenceOutput)
 }
 
 // Url pointing to a key or secret in KeyVault
@@ -2938,7 +3028,7 @@ func (o KeyVaultAndSecretReferenceResponseOutput) ToKeyVaultAndSecretReferenceRe
 }
 
 func (o KeyVaultAndSecretReferenceResponseOutput) ToKeyVaultAndSecretReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultAndSecretReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultAndSecretReferenceResponse) *KeyVaultAndSecretReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultAndSecretReferenceResponse) *KeyVaultAndSecretReferenceResponse {
 		return &v
 	}).(KeyVaultAndSecretReferenceResponsePtrOutput)
 }
@@ -2968,7 +3058,13 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) ToKeyVaultAndSecretReferenc
 }
 
 func (o KeyVaultAndSecretReferenceResponsePtrOutput) Elem() KeyVaultAndSecretReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) KeyVaultAndSecretReferenceResponse { return *v }).(KeyVaultAndSecretReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultAndSecretReferenceResponse) KeyVaultAndSecretReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultAndSecretReferenceResponse
+		return ret
+	}).(KeyVaultAndSecretReferenceResponseOutput)
 }
 
 // Url pointing to a key or secret in KeyVault
@@ -3234,7 +3330,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -3259,7 +3355,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -3538,7 +3640,7 @@ func (o SnapshotSkuOutput) ToSnapshotSkuPtrOutput() SnapshotSkuPtrOutput {
 }
 
 func (o SnapshotSkuOutput) ToSnapshotSkuPtrOutputWithContext(ctx context.Context) SnapshotSkuPtrOutput {
-	return o.ApplyT(func(v SnapshotSku) *SnapshotSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSku) *SnapshotSku {
 		return &v
 	}).(SnapshotSkuPtrOutput)
 }
@@ -3563,7 +3665,13 @@ func (o SnapshotSkuPtrOutput) ToSnapshotSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SnapshotSkuPtrOutput) Elem() SnapshotSkuOutput {
-	return o.ApplyT(func(v *SnapshotSku) SnapshotSku { return *v }).(SnapshotSkuOutput)
+	return o.ApplyT(func(v *SnapshotSku) SnapshotSku {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSku
+		return ret
+	}).(SnapshotSkuOutput)
 }
 
 // The sku name.
@@ -3676,7 +3784,7 @@ func (o SnapshotSkuResponseOutput) ToSnapshotSkuResponsePtrOutput() SnapshotSkuR
 }
 
 func (o SnapshotSkuResponseOutput) ToSnapshotSkuResponsePtrOutputWithContext(ctx context.Context) SnapshotSkuResponsePtrOutput {
-	return o.ApplyT(func(v SnapshotSkuResponse) *SnapshotSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSkuResponse) *SnapshotSkuResponse {
 		return &v
 	}).(SnapshotSkuResponsePtrOutput)
 }
@@ -3706,7 +3814,13 @@ func (o SnapshotSkuResponsePtrOutput) ToSnapshotSkuResponsePtrOutputWithContext(
 }
 
 func (o SnapshotSkuResponsePtrOutput) Elem() SnapshotSkuResponseOutput {
-	return o.ApplyT(func(v *SnapshotSkuResponse) SnapshotSkuResponse { return *v }).(SnapshotSkuResponseOutput)
+	return o.ApplyT(func(v *SnapshotSkuResponse) SnapshotSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSkuResponse
+		return ret
+	}).(SnapshotSkuResponseOutput)
 }
 
 // The sku name.
@@ -3825,7 +3939,7 @@ func (o SourceVaultOutput) ToSourceVaultPtrOutput() SourceVaultPtrOutput {
 }
 
 func (o SourceVaultOutput) ToSourceVaultPtrOutputWithContext(ctx context.Context) SourceVaultPtrOutput {
-	return o.ApplyT(func(v SourceVault) *SourceVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceVault) *SourceVault {
 		return &v
 	}).(SourceVaultPtrOutput)
 }
@@ -3850,7 +3964,13 @@ func (o SourceVaultPtrOutput) ToSourceVaultPtrOutputWithContext(ctx context.Cont
 }
 
 func (o SourceVaultPtrOutput) Elem() SourceVaultOutput {
-	return o.ApplyT(func(v *SourceVault) SourceVault { return *v }).(SourceVaultOutput)
+	return o.ApplyT(func(v *SourceVault) SourceVault {
+		if v != nil {
+			return *v
+		}
+		var ret SourceVault
+		return ret
+	}).(SourceVaultOutput)
 }
 
 // Resource Id
@@ -3959,7 +4079,7 @@ func (o SourceVaultResponseOutput) ToSourceVaultResponsePtrOutput() SourceVaultR
 }
 
 func (o SourceVaultResponseOutput) ToSourceVaultResponsePtrOutputWithContext(ctx context.Context) SourceVaultResponsePtrOutput {
-	return o.ApplyT(func(v SourceVaultResponse) *SourceVaultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceVaultResponse) *SourceVaultResponse {
 		return &v
 	}).(SourceVaultResponsePtrOutput)
 }
@@ -3984,7 +4104,13 @@ func (o SourceVaultResponsePtrOutput) ToSourceVaultResponsePtrOutputWithContext(
 }
 
 func (o SourceVaultResponsePtrOutput) Elem() SourceVaultResponseOutput {
-	return o.ApplyT(func(v *SourceVaultResponse) SourceVaultResponse { return *v }).(SourceVaultResponseOutput)
+	return o.ApplyT(func(v *SourceVaultResponse) SourceVaultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceVaultResponse
+		return ret
+	}).(SourceVaultResponseOutput)
 }
 
 // Resource Id

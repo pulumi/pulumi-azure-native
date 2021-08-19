@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The custom setup of running cmdkey commands.
+    /// </summary>
     [OutputType]
     public sealed class CmdkeySetupResponse
     {

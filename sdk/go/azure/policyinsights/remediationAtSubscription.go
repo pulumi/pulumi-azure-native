@@ -84,49 +84,9 @@ func GetRemediationAtSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RemediationAtSubscription resources.
 type remediationAtSubscriptionState struct {
-	// The time at which the remediation was created.
-	CreatedOn *string `pulumi:"createdOn"`
-	// The deployment status summary for all deployments created by the remediation.
-	DeploymentStatus *RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
-	// The filters that will be applied to determine which resources to remediate.
-	Filters *RemediationFiltersResponse `pulumi:"filters"`
-	// The time at which the remediation was last updated.
-	LastUpdatedOn *string `pulumi:"lastUpdatedOn"`
-	// The name of the remediation.
-	Name *string `pulumi:"name"`
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId *string `pulumi:"policyAssignmentId"`
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
-	// The status of the remediation.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
-	// The type of the remediation.
-	Type *string `pulumi:"type"`
 }
 
 type RemediationAtSubscriptionState struct {
-	// The time at which the remediation was created.
-	CreatedOn pulumi.StringPtrInput
-	// The deployment status summary for all deployments created by the remediation.
-	DeploymentStatus RemediationDeploymentSummaryResponsePtrInput
-	// The filters that will be applied to determine which resources to remediate.
-	Filters RemediationFiltersResponsePtrInput
-	// The time at which the remediation was last updated.
-	LastUpdatedOn pulumi.StringPtrInput
-	// The name of the remediation.
-	Name pulumi.StringPtrInput
-	// The resource ID of the policy assignment that should be remediated.
-	PolicyAssignmentId pulumi.StringPtrInput
-	// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-	PolicyDefinitionReferenceId pulumi.StringPtrInput
-	// The status of the remediation.
-	ProvisioningState pulumi.StringPtrInput
-	// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
-	ResourceDiscoveryMode pulumi.StringPtrInput
-	// The type of the remediation.
-	Type pulumi.StringPtrInput
 }
 
 func (RemediationAtSubscriptionState) ElementType() reflect.Type {
@@ -183,9 +143,7 @@ func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationAtSubscriptionOutput)
 }
 
-type RemediationAtSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type RemediationAtSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (RemediationAtSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemediationAtSubscription)(nil))

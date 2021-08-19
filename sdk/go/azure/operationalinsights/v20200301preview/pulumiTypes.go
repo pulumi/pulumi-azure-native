@@ -110,7 +110,7 @@ func (o ClusterSkuOutput) ToClusterSkuPtrOutput() ClusterSkuPtrOutput {
 }
 
 func (o ClusterSkuOutput) ToClusterSkuPtrOutputWithContext(ctx context.Context) ClusterSkuPtrOutput {
-	return o.ApplyT(func(v ClusterSku) *ClusterSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSku) *ClusterSku {
 		return &v
 	}).(ClusterSkuPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o ClusterSkuPtrOutput) ToClusterSkuPtrOutputWithContext(ctx context.Contex
 }
 
 func (o ClusterSkuPtrOutput) Elem() ClusterSkuOutput {
-	return o.ApplyT(func(v *ClusterSku) ClusterSku { return *v }).(ClusterSkuOutput)
+	return o.ApplyT(func(v *ClusterSku) ClusterSku {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSku
+		return ret
+	}).(ClusterSkuOutput)
 }
 
 // The capacity value
@@ -263,7 +269,7 @@ func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutput() ClusterSkuResp
 }
 
 func (o ClusterSkuResponseOutput) ToClusterSkuResponsePtrOutputWithContext(ctx context.Context) ClusterSkuResponsePtrOutput {
-	return o.ApplyT(func(v ClusterSkuResponse) *ClusterSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSkuResponse) *ClusterSkuResponse {
 		return &v
 	}).(ClusterSkuResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o ClusterSkuResponsePtrOutput) ToClusterSkuResponsePtrOutputWithContext(ct
 }
 
 func (o ClusterSkuResponsePtrOutput) Elem() ClusterSkuResponseOutput {
-	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse { return *v }).(ClusterSkuResponseOutput)
+	return o.ApplyT(func(v *ClusterSkuResponse) ClusterSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSkuResponse
+		return ret
+	}).(ClusterSkuResponseOutput)
 }
 
 // The capacity value
@@ -319,7 +331,7 @@ func (o ClusterSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type string `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -336,7 +348,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type IdentityTypeInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -412,14 +424,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
+func (o IdentityOutput) Type() IdentityTypeOutput {
+	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -437,17 +449,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(IdentityTypePtrOutput)
 }
 
 // Identity for the resource.
@@ -554,7 +572,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -589,7 +607,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -726,7 +750,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -761,7 +785,13 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
 // The name of the key associated with the Log Analytics cluster.
@@ -898,7 +928,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -933,7 +963,13 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
 // The name of the key associated with the Log Analytics cluster.
@@ -1175,7 +1211,7 @@ func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutpu
 }
 
 func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o.ApplyT(func(v StorageAccount) *StorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
 		return &v
 	}).(StorageAccountPtrOutput)
 }
@@ -1205,7 +1241,13 @@ func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx contex
 }
 
 func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
-	return o.ApplyT(func(v *StorageAccount) StorageAccount { return *v }).(StorageAccountOutput)
+	return o.ApplyT(func(v *StorageAccount) StorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccount
+		return ret
+	}).(StorageAccountOutput)
 }
 
 // The Azure Resource Manager ID of the storage account resource.
@@ -1328,7 +1370,7 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() Storag
 }
 
 func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountResponse) *StorageAccountResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
 		return &v
 	}).(StorageAccountResponsePtrOutput)
 }
@@ -1358,7 +1400,13 @@ func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutputWithCo
 }
 
 func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
-	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse { return *v }).(StorageAccountResponseOutput)
+	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountResponse
+		return ret
+	}).(StorageAccountResponseOutput)
 }
 
 // The Azure Resource Manager ID of the storage account resource.
@@ -1481,7 +1529,7 @@ func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOut
 }
 
 func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOutputWithContext(ctx context.Context) StorageInsightStatusResponsePtrOutput {
-	return o.ApplyT(func(v StorageInsightStatusResponse) *StorageInsightStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageInsightStatusResponse) *StorageInsightStatusResponse {
 		return &v
 	}).(StorageInsightStatusResponsePtrOutput)
 }
@@ -1511,7 +1559,13 @@ func (o StorageInsightStatusResponsePtrOutput) ToStorageInsightStatusResponsePtr
 }
 
 func (o StorageInsightStatusResponsePtrOutput) Elem() StorageInsightStatusResponseOutput {
-	return o.ApplyT(func(v *StorageInsightStatusResponse) StorageInsightStatusResponse { return *v }).(StorageInsightStatusResponseOutput)
+	return o.ApplyT(func(v *StorageInsightStatusResponse) StorageInsightStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageInsightStatusResponse
+		return ret
+	}).(StorageInsightStatusResponseOutput)
 }
 
 // Description of the state of the storage insight.
@@ -1848,7 +1902,7 @@ func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutput() WorkspaceCappingPt
 }
 
 func (o WorkspaceCappingOutput) ToWorkspaceCappingPtrOutputWithContext(ctx context.Context) WorkspaceCappingPtrOutput {
-	return o.ApplyT(func(v WorkspaceCapping) *WorkspaceCapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCapping) *WorkspaceCapping {
 		return &v
 	}).(WorkspaceCappingPtrOutput)
 }
@@ -1873,7 +1927,13 @@ func (o WorkspaceCappingPtrOutput) ToWorkspaceCappingPtrOutputWithContext(ctx co
 }
 
 func (o WorkspaceCappingPtrOutput) Elem() WorkspaceCappingOutput {
-	return o.ApplyT(func(v *WorkspaceCapping) WorkspaceCapping { return *v }).(WorkspaceCappingOutput)
+	return o.ApplyT(func(v *WorkspaceCapping) WorkspaceCapping {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCapping
+		return ret
+	}).(WorkspaceCappingOutput)
 }
 
 // The workspace daily quota for ingestion. -1 means unlimited.
@@ -1990,7 +2050,7 @@ func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutput() Wo
 }
 
 func (o WorkspaceCappingResponseOutput) ToWorkspaceCappingResponsePtrOutputWithContext(ctx context.Context) WorkspaceCappingResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceCappingResponse) *WorkspaceCappingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceCappingResponse) *WorkspaceCappingResponse {
 		return &v
 	}).(WorkspaceCappingResponsePtrOutput)
 }
@@ -2025,7 +2085,13 @@ func (o WorkspaceCappingResponsePtrOutput) ToWorkspaceCappingResponsePtrOutputWi
 }
 
 func (o WorkspaceCappingResponsePtrOutput) Elem() WorkspaceCappingResponseOutput {
-	return o.ApplyT(func(v *WorkspaceCappingResponse) WorkspaceCappingResponse { return *v }).(WorkspaceCappingResponseOutput)
+	return o.ApplyT(func(v *WorkspaceCappingResponse) WorkspaceCappingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceCappingResponse
+		return ret
+	}).(WorkspaceCappingResponseOutput)
 }
 
 // The workspace daily quota for ingestion. -1 means unlimited.
@@ -2158,7 +2224,7 @@ func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutput() WorkspaceSkuPtrOutput {
 }
 
 func (o WorkspaceSkuOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Context) WorkspaceSkuPtrOutput {
-	return o.ApplyT(func(v WorkspaceSku) *WorkspaceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSku) *WorkspaceSku {
 		return &v
 	}).(WorkspaceSkuPtrOutput)
 }
@@ -2188,7 +2254,13 @@ func (o WorkspaceSkuPtrOutput) ToWorkspaceSkuPtrOutputWithContext(ctx context.Co
 }
 
 func (o WorkspaceSkuPtrOutput) Elem() WorkspaceSkuOutput {
-	return o.ApplyT(func(v *WorkspaceSku) WorkspaceSku { return *v }).(WorkspaceSkuOutput)
+	return o.ApplyT(func(v *WorkspaceSku) WorkspaceSku {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceSku
+		return ret
+	}).(WorkspaceSkuOutput)
 }
 
 // The capacity reservation level for this workspace, when CapacityReservation sku is selected.
@@ -2319,7 +2391,7 @@ func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutput() WorkspaceS
 }
 
 func (o WorkspaceSkuResponseOutput) ToWorkspaceSkuResponsePtrOutputWithContext(ctx context.Context) WorkspaceSkuResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceSkuResponse) *WorkspaceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSkuResponse) *WorkspaceSkuResponse {
 		return &v
 	}).(WorkspaceSkuResponsePtrOutput)
 }
@@ -2359,7 +2431,13 @@ func (o WorkspaceSkuResponsePtrOutput) ToWorkspaceSkuResponsePtrOutputWithContex
 }
 
 func (o WorkspaceSkuResponsePtrOutput) Elem() WorkspaceSkuResponseOutput {
-	return o.ApplyT(func(v *WorkspaceSkuResponse) WorkspaceSkuResponse { return *v }).(WorkspaceSkuResponseOutput)
+	return o.ApplyT(func(v *WorkspaceSkuResponse) WorkspaceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceSkuResponse
+		return ret
+	}).(WorkspaceSkuResponseOutput)
 }
 
 // The capacity reservation level for this workspace, when CapacityReservation sku is selected.

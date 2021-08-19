@@ -71,21 +71,9 @@ func GetOutboundFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutboundFirewallRule resources.
 type outboundFirewallRuleState struct {
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the outbound rule.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type OutboundFirewallRuleState struct {
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the outbound rule.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (OutboundFirewallRuleState) ElementType() reflect.Type {
@@ -132,9 +120,7 @@ func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundFirewallRuleOutput)
 }
 
-type OutboundFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type OutboundFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OutboundFirewallRule)(nil))

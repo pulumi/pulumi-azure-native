@@ -97,37 +97,9 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
-	// Gets or sets the connectionType of the connection.
-	ConnectionType *ConnectionTypeAssociationPropertyResponse `pulumi:"connectionType"`
-	// Gets the creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the description.
-	Description *string `pulumi:"description"`
-	// Gets the field definition values of the connection.
-	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
-	// Gets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type ConnectionState struct {
-	// Gets or sets the connectionType of the connection.
-	ConnectionType ConnectionTypeAssociationPropertyResponsePtrInput
-	// Gets the creation time.
-	CreationTime pulumi.StringPtrInput
-	// Gets or sets the description.
-	Description pulumi.StringPtrInput
-	// Gets the field definition values of the connection.
-	FieldDefinitionValues pulumi.StringMapInput
-	// Gets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -192,9 +164,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOutput)
 }
 
-type ConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connection)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a volume whose lifetime is scoped to the application's lifetime.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationScopedVolumeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Parameters that define the configuration of traffic analytics.
+    /// </summary>
     [OutputType]
     public sealed class TrafficAnalyticsPropertiesResponse
     {

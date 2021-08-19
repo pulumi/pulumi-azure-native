@@ -337,10 +337,11 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
+
 func (o IdentityPropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -360,7 +361,13 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
 func (o IdentityPropertiesPtrOutput) Type() pulumi.StringPtrOutput {
@@ -471,7 +478,7 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
@@ -505,7 +512,13 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
 // The identity ID.
@@ -645,7 +658,7 @@ func (o LogRulesOutput) ToLogRulesPtrOutput() LogRulesPtrOutput {
 }
 
 func (o LogRulesOutput) ToLogRulesPtrOutputWithContext(ctx context.Context) LogRulesPtrOutput {
-	return o.ApplyT(func(v LogRules) *LogRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogRules) *LogRules {
 		return &v
 	}).(LogRulesPtrOutput)
 }
@@ -685,7 +698,13 @@ func (o LogRulesPtrOutput) ToLogRulesPtrOutputWithContext(ctx context.Context) L
 }
 
 func (o LogRulesPtrOutput) Elem() LogRulesOutput {
-	return o.ApplyT(func(v *LogRules) LogRules { return *v }).(LogRulesOutput)
+	return o.ApplyT(func(v *LogRules) LogRules {
+		if v != nil {
+			return *v
+		}
+		var ret LogRules
+		return ret
+	}).(LogRulesOutput)
 }
 
 // List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
@@ -836,7 +855,7 @@ func (o LogRulesResponseOutput) ToLogRulesResponsePtrOutput() LogRulesResponsePt
 }
 
 func (o LogRulesResponseOutput) ToLogRulesResponsePtrOutputWithContext(ctx context.Context) LogRulesResponsePtrOutput {
-	return o.ApplyT(func(v LogRulesResponse) *LogRulesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogRulesResponse) *LogRulesResponse {
 		return &v
 	}).(LogRulesResponsePtrOutput)
 }
@@ -876,7 +895,13 @@ func (o LogRulesResponsePtrOutput) ToLogRulesResponsePtrOutputWithContext(ctx co
 }
 
 func (o LogRulesResponsePtrOutput) Elem() LogRulesResponseOutput {
-	return o.ApplyT(func(v *LogRulesResponse) LogRulesResponse { return *v }).(LogRulesResponseOutput)
+	return o.ApplyT(func(v *LogRulesResponse) LogRulesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogRulesResponse
+		return ret
+	}).(LogRulesResponseOutput)
 }
 
 // List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
@@ -1020,7 +1045,7 @@ func (o LogzOrganizationPropertiesOutput) ToLogzOrganizationPropertiesPtrOutput(
 }
 
 func (o LogzOrganizationPropertiesOutput) ToLogzOrganizationPropertiesPtrOutputWithContext(ctx context.Context) LogzOrganizationPropertiesPtrOutput {
-	return o.ApplyT(func(v LogzOrganizationProperties) *LogzOrganizationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzOrganizationProperties) *LogzOrganizationProperties {
 		return &v
 	}).(LogzOrganizationPropertiesPtrOutput)
 }
@@ -1055,7 +1080,13 @@ func (o LogzOrganizationPropertiesPtrOutput) ToLogzOrganizationPropertiesPtrOutp
 }
 
 func (o LogzOrganizationPropertiesPtrOutput) Elem() LogzOrganizationPropertiesOutput {
-	return o.ApplyT(func(v *LogzOrganizationProperties) LogzOrganizationProperties { return *v }).(LogzOrganizationPropertiesOutput)
+	return o.ApplyT(func(v *LogzOrganizationProperties) LogzOrganizationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret LogzOrganizationProperties
+		return ret
+	}).(LogzOrganizationPropertiesOutput)
 }
 
 // Name of the Logz organization.
@@ -1193,7 +1224,7 @@ func (o LogzOrganizationPropertiesResponseOutput) ToLogzOrganizationPropertiesRe
 }
 
 func (o LogzOrganizationPropertiesResponseOutput) ToLogzOrganizationPropertiesResponsePtrOutputWithContext(ctx context.Context) LogzOrganizationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LogzOrganizationPropertiesResponse) *LogzOrganizationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogzOrganizationPropertiesResponse) *LogzOrganizationPropertiesResponse {
 		return &v
 	}).(LogzOrganizationPropertiesResponsePtrOutput)
 }
@@ -1233,7 +1264,13 @@ func (o LogzOrganizationPropertiesResponsePtrOutput) ToLogzOrganizationPropertie
 }
 
 func (o LogzOrganizationPropertiesResponsePtrOutput) Elem() LogzOrganizationPropertiesResponseOutput {
-	return o.ApplyT(func(v *LogzOrganizationPropertiesResponse) LogzOrganizationPropertiesResponse { return *v }).(LogzOrganizationPropertiesResponseOutput)
+	return o.ApplyT(func(v *LogzOrganizationPropertiesResponse) LogzOrganizationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogzOrganizationPropertiesResponse
+		return ret
+	}).(LogzOrganizationPropertiesResponseOutput)
 }
 
 // Name of the Logz organization.
@@ -1382,10 +1419,11 @@ func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutput() MonitorPropertie
 }
 
 func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutputWithContext(ctx context.Context) MonitorPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *MonitorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorProperties) *MonitorProperties {
 		return &v
 	}).(MonitorPropertiesPtrOutput)
 }
+
 func (o MonitorPropertiesOutput) LogzOrganizationProperties() LogzOrganizationPropertiesPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *LogzOrganizationProperties { return v.LogzOrganizationProperties }).(LogzOrganizationPropertiesPtrOutput)
 }
@@ -1423,7 +1461,13 @@ func (o MonitorPropertiesPtrOutput) ToMonitorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o MonitorPropertiesPtrOutput) Elem() MonitorPropertiesOutput {
-	return o.ApplyT(func(v *MonitorProperties) MonitorProperties { return *v }).(MonitorPropertiesOutput)
+	return o.ApplyT(func(v *MonitorProperties) MonitorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorProperties
+		return ret
+	}).(MonitorPropertiesOutput)
 }
 
 func (o MonitorPropertiesPtrOutput) LogzOrganizationProperties() LogzOrganizationPropertiesPtrOutput {
@@ -1589,10 +1633,11 @@ func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutput() 
 }
 
 func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *MonitorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorPropertiesResponse) *MonitorPropertiesResponse {
 		return &v
 	}).(MonitorPropertiesResponsePtrOutput)
 }
+
 func (o MonitorPropertiesResponseOutput) LiftrResourceCategory() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.LiftrResourceCategory }).(pulumi.StringOutput)
 }
@@ -1646,7 +1691,13 @@ func (o MonitorPropertiesResponsePtrOutput) ToMonitorPropertiesResponsePtrOutput
 }
 
 func (o MonitorPropertiesResponsePtrOutput) Elem() MonitorPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse { return *v }).(MonitorPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorPropertiesResponse
+		return ret
+	}).(MonitorPropertiesResponseOutput)
 }
 
 func (o MonitorPropertiesResponsePtrOutput) LiftrResourceCategory() pulumi.StringPtrOutput {
@@ -1966,7 +2017,7 @@ func (o MonitoringTagRulesPropertiesOutput) ToMonitoringTagRulesPropertiesPtrOut
 }
 
 func (o MonitoringTagRulesPropertiesOutput) ToMonitoringTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MonitoringTagRulesPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitoringTagRulesProperties) *MonitoringTagRulesProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringTagRulesProperties) *MonitoringTagRulesProperties {
 		return &v
 	}).(MonitoringTagRulesPropertiesPtrOutput)
 }
@@ -1991,7 +2042,13 @@ func (o MonitoringTagRulesPropertiesPtrOutput) ToMonitoringTagRulesPropertiesPtr
 }
 
 func (o MonitoringTagRulesPropertiesPtrOutput) Elem() MonitoringTagRulesPropertiesOutput {
-	return o.ApplyT(func(v *MonitoringTagRulesProperties) MonitoringTagRulesProperties { return *v }).(MonitoringTagRulesPropertiesOutput)
+	return o.ApplyT(func(v *MonitoringTagRulesProperties) MonitoringTagRulesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringTagRulesProperties
+		return ret
+	}).(MonitoringTagRulesPropertiesOutput)
 }
 
 // Set of rules for sending logs for the Monitor resource.
@@ -2108,7 +2165,7 @@ func (o MonitoringTagRulesPropertiesResponseOutput) ToMonitoringTagRulesProperti
 }
 
 func (o MonitoringTagRulesPropertiesResponseOutput) ToMonitoringTagRulesPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitoringTagRulesPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitoringTagRulesPropertiesResponse) *MonitoringTagRulesPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringTagRulesPropertiesResponse) *MonitoringTagRulesPropertiesResponse {
 		return &v
 	}).(MonitoringTagRulesPropertiesResponsePtrOutput)
 }
@@ -2143,7 +2200,13 @@ func (o MonitoringTagRulesPropertiesResponsePtrOutput) ToMonitoringTagRulesPrope
 }
 
 func (o MonitoringTagRulesPropertiesResponsePtrOutput) Elem() MonitoringTagRulesPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) MonitoringTagRulesPropertiesResponse { return *v }).(MonitoringTagRulesPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) MonitoringTagRulesPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringTagRulesPropertiesResponse
+		return ret
+	}).(MonitoringTagRulesPropertiesResponseOutput)
 }
 
 // Set of rules for sending logs for the Monitor resource.
@@ -2281,7 +2344,7 @@ func (o PlanDataOutput) ToPlanDataPtrOutput() PlanDataPtrOutput {
 }
 
 func (o PlanDataOutput) ToPlanDataPtrOutputWithContext(ctx context.Context) PlanDataPtrOutput {
-	return o.ApplyT(func(v PlanData) *PlanData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanData) *PlanData {
 		return &v
 	}).(PlanDataPtrOutput)
 }
@@ -2321,7 +2384,13 @@ func (o PlanDataPtrOutput) ToPlanDataPtrOutputWithContext(ctx context.Context) P
 }
 
 func (o PlanDataPtrOutput) Elem() PlanDataOutput {
-	return o.ApplyT(func(v *PlanData) PlanData { return *v }).(PlanDataOutput)
+	return o.ApplyT(func(v *PlanData) PlanData {
+		if v != nil {
+			return *v
+		}
+		var ret PlanData
+		return ret
+	}).(PlanDataOutput)
 }
 
 // different billing cycles like MONTHLY/WEEKLY. this could be enum
@@ -2469,7 +2538,7 @@ func (o PlanDataResponseOutput) ToPlanDataResponsePtrOutput() PlanDataResponsePt
 }
 
 func (o PlanDataResponseOutput) ToPlanDataResponsePtrOutputWithContext(ctx context.Context) PlanDataResponsePtrOutput {
-	return o.ApplyT(func(v PlanDataResponse) *PlanDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanDataResponse) *PlanDataResponse {
 		return &v
 	}).(PlanDataResponsePtrOutput)
 }
@@ -2509,7 +2578,13 @@ func (o PlanDataResponsePtrOutput) ToPlanDataResponsePtrOutputWithContext(ctx co
 }
 
 func (o PlanDataResponsePtrOutput) Elem() PlanDataResponseOutput {
-	return o.ApplyT(func(v *PlanDataResponse) PlanDataResponse { return *v }).(PlanDataResponseOutput)
+	return o.ApplyT(func(v *PlanDataResponse) PlanDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlanDataResponse
+		return ret
+	}).(PlanDataResponseOutput)
 }
 
 // different billing cycles like MONTHLY/WEEKLY. this could be enum
@@ -2668,7 +2743,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -2718,7 +2793,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -2886,7 +2967,7 @@ func (o UserInfoOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
 }
 
 func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
-	return o.ApplyT(func(v UserInfo) *UserInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfo) *UserInfo {
 		return &v
 	}).(UserInfoPtrOutput)
 }
@@ -2926,7 +3007,13 @@ func (o UserInfoPtrOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) U
 }
 
 func (o UserInfoPtrOutput) Elem() UserInfoOutput {
-	return o.ApplyT(func(v *UserInfo) UserInfo { return *v }).(UserInfoOutput)
+	return o.ApplyT(func(v *UserInfo) UserInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfo
+		return ret
+	}).(UserInfoOutput)
 }
 
 // Email of the user used by Logz for contacting them if needed
@@ -3074,7 +3161,7 @@ func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutput() UserInfoResponsePt
 }
 
 func (o UserInfoResponseOutput) ToUserInfoResponsePtrOutputWithContext(ctx context.Context) UserInfoResponsePtrOutput {
-	return o.ApplyT(func(v UserInfoResponse) *UserInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfoResponse) *UserInfoResponse {
 		return &v
 	}).(UserInfoResponsePtrOutput)
 }
@@ -3114,7 +3201,13 @@ func (o UserInfoResponsePtrOutput) ToUserInfoResponsePtrOutputWithContext(ctx co
 }
 
 func (o UserInfoResponsePtrOutput) Elem() UserInfoResponseOutput {
-	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse { return *v }).(UserInfoResponseOutput)
+	return o.ApplyT(func(v *UserInfoResponse) UserInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfoResponse
+		return ret
+	}).(UserInfoResponseOutput)
 }
 
 // Email of the user used by Logz for contacting them if needed

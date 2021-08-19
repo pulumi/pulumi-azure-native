@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// Uploads files to VMs (Linux, Windows). Corresponds to Packer file provisioner
+    /// </summary>
     [OutputType]
     public sealed class ImageTemplateFileCustomizerResponse
     {

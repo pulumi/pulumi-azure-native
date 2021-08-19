@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes the compute profile.
+    /// </summary>
     [OutputType]
     public sealed class ComputeProfileResponse
     {

@@ -204,37 +204,9 @@ func GetIotHubResource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IotHubResource resources.
 type iotHubResourceState struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// IotHub properties
-	Properties *IotHubPropertiesResponse `pulumi:"properties"`
-	// IotHub SKU info
-	Sku *IotHubSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IotHubResourceState struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// IotHub properties
-	Properties IotHubPropertiesResponsePtrInput
-	// IotHub SKU info
-	Sku IotHubSkuInfoResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IotHubResourceState) ElementType() reflect.Type {
@@ -299,9 +271,7 @@ func (i *IotHubResource) ToIotHubResourceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceOutput)
 }
 
-type IotHubResourceOutput struct {
-	*pulumi.OutputState
-}
+type IotHubResourceOutput struct{ *pulumi.OutputState }
 
 func (IotHubResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IotHubResource)(nil))

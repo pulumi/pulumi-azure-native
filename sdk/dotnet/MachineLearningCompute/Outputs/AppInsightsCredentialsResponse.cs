@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// AppInsights credentials.
+    /// </summary>
     [OutputType]
     public sealed class AppInsightsCredentialsResponse
     {

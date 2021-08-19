@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
+    /// <summary>
+    /// Information about an asset associated with the web service.
+    /// </summary>
     [OutputType]
     public sealed class AssetItemResponse
     {

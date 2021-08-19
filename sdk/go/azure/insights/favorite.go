@@ -87,53 +87,9 @@ func GetFavorite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Favorite resources.
 type favoriteState struct {
-	// Favorite category, as defined by the user at creation time.
-	Category *string `pulumi:"category"`
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config *string `pulumi:"config"`
-	// Internally assigned unique id of the favorite definition.
-	FavoriteId *string `pulumi:"favoriteId"`
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *string `pulumi:"favoriteType"`
-	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate *bool `pulumi:"isGeneratedFromTemplate"`
-	// The user-defined name of the favorite.
-	Name *string `pulumi:"name"`
-	// The source of the favorite definition.
-	SourceType *string `pulumi:"sourceType"`
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags []string `pulumi:"tags"`
-	// Date and time in UTC of the last modification that was made to this favorite definition.
-	TimeModified *string `pulumi:"timeModified"`
-	// Unique user id of the specific user that owns this favorite.
-	UserId *string `pulumi:"userId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version *string `pulumi:"version"`
 }
 
 type FavoriteState struct {
-	// Favorite category, as defined by the user at creation time.
-	Category pulumi.StringPtrInput
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config pulumi.StringPtrInput
-	// Internally assigned unique id of the favorite definition.
-	FavoriteId pulumi.StringPtrInput
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType pulumi.StringPtrInput
-	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate pulumi.BoolPtrInput
-	// The user-defined name of the favorite.
-	Name pulumi.StringPtrInput
-	// The source of the favorite definition.
-	SourceType pulumi.StringPtrInput
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags pulumi.StringArrayInput
-	// Date and time in UTC of the last modification that was made to this favorite definition.
-	TimeModified pulumi.StringPtrInput
-	// Unique user id of the specific user that owns this favorite.
-	UserId pulumi.StringPtrInput
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version pulumi.StringPtrInput
 }
 
 func (FavoriteState) ElementType() reflect.Type {
@@ -148,7 +104,7 @@ type favoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
 	FavoriteId *string `pulumi:"favoriteId"`
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *string `pulumi:"favoriteType"`
+	FavoriteType *FavoriteType `pulumi:"favoriteType"`
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate *bool `pulumi:"isGeneratedFromTemplate"`
 	// The user-defined name of the favorite.
@@ -174,7 +130,7 @@ type FavoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
 	FavoriteId pulumi.StringPtrInput
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *FavoriteType
+	FavoriteType FavoriteTypePtrInput
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate pulumi.BoolPtrInput
 	// The user-defined name of the favorite.
@@ -214,9 +170,7 @@ func (i *Favorite) ToFavoriteOutputWithContext(ctx context.Context) FavoriteOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FavoriteOutput)
 }
 
-type FavoriteOutput struct {
-	*pulumi.OutputState
-}
+type FavoriteOutput struct{ *pulumi.OutputState }
 
 func (FavoriteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Favorite)(nil))

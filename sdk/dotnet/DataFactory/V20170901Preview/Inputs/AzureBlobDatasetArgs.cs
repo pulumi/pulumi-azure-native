@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The data compression method used for the blob storage.
         /// </summary>
         [Input("compression")]
-        public Input<object>? Compression { get; set; }
+        public object? Compression { get; set; }
 
         /// <summary>
         /// Dataset description.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// The format of the Azure Blob storage.
         /// </summary>
         [Input("format")]
-        public Input<object>? Format { get; set; }
+        public object? Format { get; set; }
 
         /// <summary>
         /// Linked service reference.

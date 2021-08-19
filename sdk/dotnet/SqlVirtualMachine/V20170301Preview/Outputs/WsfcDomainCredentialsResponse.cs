@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview.Outputs
 {
 
+    /// <summary>
+    /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+    /// </summary>
     [OutputType]
     public sealed class WsfcDomainCredentialsResponse
     {

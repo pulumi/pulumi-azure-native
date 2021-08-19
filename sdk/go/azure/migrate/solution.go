@@ -73,25 +73,9 @@ func GetSolution(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Solution resources.
 type solutionState struct {
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag *string `pulumi:"etag"`
-	// Gets the name of this REST resource.
-	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the solution.
-	Properties *SolutionPropertiesResponse `pulumi:"properties"`
-	// Gets the type of this REST resource.
-	Type *string `pulumi:"type"`
 }
 
 type SolutionState struct {
-	// Gets or sets the ETAG for optimistic concurrency control.
-	Etag pulumi.StringPtrInput
-	// Gets the name of this REST resource.
-	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the solution.
-	Properties SolutionPropertiesResponsePtrInput
-	// Gets the type of this REST resource.
-	Type pulumi.StringPtrInput
 }
 
 func (SolutionState) ElementType() reflect.Type {
@@ -148,9 +132,7 @@ func (i *Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionOutput)
 }
 
-type SolutionOutput struct {
-	*pulumi.OutputState
-}
+type SolutionOutput struct{ *pulumi.OutputState }
 
 func (SolutionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Solution)(nil))

@@ -231,133 +231,9 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// The flag to indicate whether to allow public access when behind VNet.
-	AllowPublicAccessWhenBehindVnet *bool `pulumi:"allowPublicAccessWhenBehindVnet"`
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights *string `pulumi:"applicationInsights"`
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry *string `pulumi:"containerRegistry"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl *string `pulumi:"discoveryUrl"`
-	// The encryption settings of Azure ML workspace.
-	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-	HbiWorkspace *bool `pulumi:"hbiWorkspace"`
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The compute name for image build
-	ImageBuildCompute *string `pulumi:"imageBuildCompute"`
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault *string `pulumi:"keyVault"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// The URI associated with this workspace that machine learning flow must point at to set up tracking.
-	MlFlowTrackingUri *string `pulumi:"mlFlowTrackingUri"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The notebook info of Azure ML workspace.
-	NotebookInfo *NotebookResourceInfoResponse `pulumi:"notebookInfo"`
-	// The user assigned identity resource id that represents the workspace identity.
-	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
-	// The list of private endpoint connections in the workspace.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Count of private connections in the workspace
-	PrivateLinkCount *int `pulumi:"privateLinkCount"`
-	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Whether requests from Public Network are allowed.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// The service managed resource settings.
-	ServiceManagedResourcesSettings *ServiceManagedResourcesSettingsResponse `pulumi:"serviceManagedResourcesSettings"`
-	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
-	ServiceProvisionedResourceGroup *string `pulumi:"serviceProvisionedResourceGroup"`
-	// The list of shared private link resources in this workspace.
-	SharedPrivateLinkResources []SharedPrivateLinkResourceResponse `pulumi:"sharedPrivateLinkResources"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount *string `pulumi:"storageAccount"`
-	// If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
-	StorageHnsEnabled *bool `pulumi:"storageHnsEnabled"`
-	// System data
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// The tenant id associated with this workspace.
-	TenantId *string `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The immutable id associated with this workspace.
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type WorkspaceState struct {
-	// The flag to indicate whether to allow public access when behind VNet.
-	AllowPublicAccessWhenBehindVnet pulumi.BoolPtrInput
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights pulumi.StringPtrInput
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry pulumi.StringPtrInput
-	// The description of this workspace.
-	Description pulumi.StringPtrInput
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl pulumi.StringPtrInput
-	// The encryption settings of Azure ML workspace.
-	Encryption EncryptionPropertyResponsePtrInput
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName pulumi.StringPtrInput
-	// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-	HbiWorkspace pulumi.BoolPtrInput
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput
-	// The compute name for image build
-	ImageBuildCompute pulumi.StringPtrInput
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault pulumi.StringPtrInput
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput
-	// The URI associated with this workspace that machine learning flow must point at to set up tracking.
-	MlFlowTrackingUri pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The notebook info of Azure ML workspace.
-	NotebookInfo NotebookResourceInfoResponsePtrInput
-	// The user assigned identity resource id that represents the workspace identity.
-	PrimaryUserAssignedIdentity pulumi.StringPtrInput
-	// The list of private endpoint connections in the workspace.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Count of private connections in the workspace
-	PrivateLinkCount pulumi.IntPtrInput
-	// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// Whether requests from Public Network are allowed.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// The service managed resource settings.
-	ServiceManagedResourcesSettings ServiceManagedResourcesSettingsResponsePtrInput
-	// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
-	ServiceProvisionedResourceGroup pulumi.StringPtrInput
-	// The list of shared private link resources in this workspace.
-	SharedPrivateLinkResources SharedPrivateLinkResourceResponseArrayInput
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount pulumi.StringPtrInput
-	// If the storage associated with the workspace has hierarchical namespace(HNS) enabled.
-	StorageHnsEnabled pulumi.BoolPtrInput
-	// System data
-	SystemData SystemDataResponsePtrInput
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput
-	// The tenant id associated with this workspace.
-	TenantId pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The immutable id associated with this workspace.
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -478,9 +354,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceOutput)
 }
 
-type WorkspaceOutput struct {
-	*pulumi.OutputState
-}
+type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workspace)(nil))

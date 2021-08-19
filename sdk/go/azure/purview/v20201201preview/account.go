@@ -107,83 +107,9 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// Cloud connectors.
-	// External cloud identifier used as part of scanning configuration.
-	CloudConnectors *CloudConnectorsResponse `pulumi:"cloudConnectors"`
-	// Gets the time at which the entity was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Gets the creator of the entity.
-	CreatedBy *string `pulumi:"createdBy"`
-	// Gets the creators of the entity's object id.
-	CreatedByObjectId *string `pulumi:"createdByObjectId"`
-	// The URIs that are the public endpoints of the account.
-	Endpoints *AccountPropertiesResponseEndpoints `pulumi:"endpoints"`
-	// Gets or sets the friendly name.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Identity Info on the tracked resource
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Gets or sets the location.
-	Location *string `pulumi:"location"`
-	// Gets or sets the managed resource group name
-	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
-	// Gets the resource identifiers of the managed resources.
-	ManagedResources *AccountPropertiesResponseManagedResources `pulumi:"managedResources"`
-	// Gets or sets the name.
-	Name *string `pulumi:"name"`
-	// Gets the private endpoint connections information.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Gets or sets the state of the provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the public network access.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Gets or sets the Sku.
-	Sku *AccountSkuResponse `pulumi:"sku"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *AccountPropertiesResponseSystemData `pulumi:"systemData"`
-	// Tags on the azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets the type.
-	Type *string `pulumi:"type"`
 }
 
 type AccountState struct {
-	// Cloud connectors.
-	// External cloud identifier used as part of scanning configuration.
-	CloudConnectors CloudConnectorsResponsePtrInput
-	// Gets the time at which the entity was created.
-	CreatedAt pulumi.StringPtrInput
-	// Gets the creator of the entity.
-	CreatedBy pulumi.StringPtrInput
-	// Gets the creators of the entity's object id.
-	CreatedByObjectId pulumi.StringPtrInput
-	// The URIs that are the public endpoints of the account.
-	Endpoints AccountPropertiesResponseEndpointsPtrInput
-	// Gets or sets the friendly name.
-	FriendlyName pulumi.StringPtrInput
-	// Identity Info on the tracked resource
-	Identity IdentityResponsePtrInput
-	// Gets or sets the location.
-	Location pulumi.StringPtrInput
-	// Gets or sets the managed resource group name
-	ManagedResourceGroupName pulumi.StringPtrInput
-	// Gets the resource identifiers of the managed resources.
-	ManagedResources AccountPropertiesResponseManagedResourcesPtrInput
-	// Gets or sets the name.
-	Name pulumi.StringPtrInput
-	// Gets the private endpoint connections information.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Gets or sets the state of the provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets the public network access.
-	PublicNetworkAccess pulumi.StringPtrInput
-	// Gets or sets the Sku.
-	Sku AccountSkuResponsePtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData AccountPropertiesResponseSystemDataPtrInput
-	// Tags on the azure resource.
-	Tags pulumi.StringMapInput
-	// Gets or sets the type.
-	Type pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {
@@ -252,9 +178,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AccountOutput)
 }
 
-type AccountOutput struct {
-	*pulumi.OutputState
-}
+type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Account)(nil))

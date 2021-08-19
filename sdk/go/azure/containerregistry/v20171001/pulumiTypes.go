@@ -106,7 +106,7 @@ func (o ActorResponseOutput) ToActorResponsePtrOutput() ActorResponsePtrOutput {
 }
 
 func (o ActorResponseOutput) ToActorResponsePtrOutputWithContext(ctx context.Context) ActorResponsePtrOutput {
-	return o.ApplyT(func(v ActorResponse) *ActorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActorResponse) *ActorResponse {
 		return &v
 	}).(ActorResponsePtrOutput)
 }
@@ -131,7 +131,13 @@ func (o ActorResponsePtrOutput) ToActorResponsePtrOutputWithContext(ctx context.
 }
 
 func (o ActorResponsePtrOutput) Elem() ActorResponseOutput {
-	return o.ApplyT(func(v *ActorResponse) ActorResponse { return *v }).(ActorResponseOutput)
+	return o.ApplyT(func(v *ActorResponse) ActorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ActorResponse
+		return ret
+	}).(ActorResponseOutput)
 }
 
 // The subject or username associated with the request context that generated the event.
@@ -264,7 +270,7 @@ func (o EventContentResponseOutput) ToEventContentResponsePtrOutput() EventConte
 }
 
 func (o EventContentResponseOutput) ToEventContentResponsePtrOutputWithContext(ctx context.Context) EventContentResponsePtrOutput {
-	return o.ApplyT(func(v EventContentResponse) *EventContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventContentResponse) *EventContentResponse {
 		return &v
 	}).(EventContentResponsePtrOutput)
 }
@@ -319,7 +325,13 @@ func (o EventContentResponsePtrOutput) ToEventContentResponsePtrOutputWithContex
 }
 
 func (o EventContentResponsePtrOutput) Elem() EventContentResponseOutput {
-	return o.ApplyT(func(v *EventContentResponse) EventContentResponse { return *v }).(EventContentResponseOutput)
+	return o.ApplyT(func(v *EventContentResponse) EventContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventContentResponse
+		return ret
+	}).(EventContentResponseOutput)
 }
 
 // The action that encompasses the provided event.
@@ -504,7 +516,7 @@ func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponsePtrOutpu
 }
 
 func (o EventRequestMessageResponseOutput) ToEventRequestMessageResponsePtrOutputWithContext(ctx context.Context) EventRequestMessageResponsePtrOutput {
-	return o.ApplyT(func(v EventRequestMessageResponse) *EventRequestMessageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventRequestMessageResponse) *EventRequestMessageResponse {
 		return &v
 	}).(EventRequestMessageResponsePtrOutput)
 }
@@ -549,7 +561,13 @@ func (o EventRequestMessageResponsePtrOutput) ToEventRequestMessageResponsePtrOu
 }
 
 func (o EventRequestMessageResponsePtrOutput) Elem() EventRequestMessageResponseOutput {
-	return o.ApplyT(func(v *EventRequestMessageResponse) EventRequestMessageResponse { return *v }).(EventRequestMessageResponseOutput)
+	return o.ApplyT(func(v *EventRequestMessageResponse) EventRequestMessageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventRequestMessageResponse
+		return ret
+	}).(EventRequestMessageResponseOutput)
 }
 
 // The content of the event request message.
@@ -832,7 +850,7 @@ func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponsePtrOut
 }
 
 func (o EventResponseMessageResponseOutput) ToEventResponseMessageResponsePtrOutputWithContext(ctx context.Context) EventResponseMessageResponsePtrOutput {
-	return o.ApplyT(func(v EventResponseMessageResponse) *EventResponseMessageResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventResponseMessageResponse) *EventResponseMessageResponse {
 		return &v
 	}).(EventResponseMessageResponsePtrOutput)
 }
@@ -877,7 +895,13 @@ func (o EventResponseMessageResponsePtrOutput) ToEventResponseMessageResponsePtr
 }
 
 func (o EventResponseMessageResponsePtrOutput) Elem() EventResponseMessageResponseOutput {
-	return o.ApplyT(func(v *EventResponseMessageResponse) EventResponseMessageResponse { return *v }).(EventResponseMessageResponseOutput)
+	return o.ApplyT(func(v *EventResponseMessageResponse) EventResponseMessageResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventResponseMessageResponse
+		return ret
+	}).(EventResponseMessageResponseOutput)
 }
 
 // The content of the event response message.
@@ -1252,7 +1276,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
@@ -1287,7 +1311,13 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
 // The default action of allow or deny when no other rules match.
@@ -1424,7 +1454,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
@@ -1459,7 +1489,13 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
 // The default action of allow or deny when no other rules match.
@@ -1713,7 +1749,7 @@ func (o RequestResponseOutput) ToRequestResponsePtrOutput() RequestResponsePtrOu
 }
 
 func (o RequestResponseOutput) ToRequestResponsePtrOutputWithContext(ctx context.Context) RequestResponsePtrOutput {
-	return o.ApplyT(func(v RequestResponse) *RequestResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestResponse) *RequestResponse {
 		return &v
 	}).(RequestResponsePtrOutput)
 }
@@ -1758,7 +1794,13 @@ func (o RequestResponsePtrOutput) ToRequestResponsePtrOutputWithContext(ctx cont
 }
 
 func (o RequestResponsePtrOutput) Elem() RequestResponseOutput {
-	return o.ApplyT(func(v *RequestResponse) RequestResponse { return *v }).(RequestResponseOutput)
+	return o.ApplyT(func(v *RequestResponse) RequestResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RequestResponse
+		return ret
+	}).(RequestResponseOutput)
 }
 
 // The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.
@@ -1907,7 +1949,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1932,7 +1974,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The SKU name of the container registry. Required for registry creation.
@@ -2045,7 +2093,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -2075,7 +2123,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The SKU name of the container registry. Required for registry creation.
@@ -2198,7 +2252,7 @@ func (o SourceResponseOutput) ToSourceResponsePtrOutput() SourceResponsePtrOutpu
 }
 
 func (o SourceResponseOutput) ToSourceResponsePtrOutputWithContext(ctx context.Context) SourceResponsePtrOutput {
-	return o.ApplyT(func(v SourceResponse) *SourceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceResponse) *SourceResponse {
 		return &v
 	}).(SourceResponsePtrOutput)
 }
@@ -2228,7 +2282,13 @@ func (o SourceResponsePtrOutput) ToSourceResponsePtrOutputWithContext(ctx contex
 }
 
 func (o SourceResponsePtrOutput) Elem() SourceResponseOutput {
-	return o.ApplyT(func(v *SourceResponse) SourceResponse { return *v }).(SourceResponseOutput)
+	return o.ApplyT(func(v *SourceResponse) SourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SourceResponse
+		return ret
+	}).(SourceResponseOutput)
 }
 
 // The IP or hostname and the port of the registry node that generated the event. Generally, this will be resolved by os.Hostname() along with the running port.
@@ -2355,7 +2415,7 @@ func (o StatusResponseOutput) ToStatusResponsePtrOutput() StatusResponsePtrOutpu
 }
 
 func (o StatusResponseOutput) ToStatusResponsePtrOutputWithContext(ctx context.Context) StatusResponsePtrOutput {
-	return o.ApplyT(func(v StatusResponse) *StatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StatusResponse) *StatusResponse {
 		return &v
 	}).(StatusResponsePtrOutput)
 }
@@ -2390,7 +2450,13 @@ func (o StatusResponsePtrOutput) ToStatusResponsePtrOutputWithContext(ctx contex
 }
 
 func (o StatusResponsePtrOutput) Elem() StatusResponseOutput {
-	return o.ApplyT(func(v *StatusResponse) StatusResponse { return *v }).(StatusResponseOutput)
+	return o.ApplyT(func(v *StatusResponse) StatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StatusResponse
+		return ret
+	}).(StatusResponseOutput)
 }
 
 // The short label for the status.
@@ -2519,7 +2585,7 @@ func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutput() St
 }
 
 func (o StorageAccountPropertiesOutput) ToStorageAccountPropertiesPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageAccountProperties) *StorageAccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountProperties) *StorageAccountProperties {
 		return &v
 	}).(StorageAccountPropertiesPtrOutput)
 }
@@ -2544,7 +2610,13 @@ func (o StorageAccountPropertiesPtrOutput) ToStorageAccountPropertiesPtrOutputWi
 }
 
 func (o StorageAccountPropertiesPtrOutput) Elem() StorageAccountPropertiesOutput {
-	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties { return *v }).(StorageAccountPropertiesOutput)
+	return o.ApplyT(func(v *StorageAccountProperties) StorageAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountProperties
+		return ret
+	}).(StorageAccountPropertiesOutput)
 }
 
 // The resource ID of the storage account.
@@ -2653,7 +2725,7 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 }
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
 		return &v
 	}).(StorageAccountPropertiesResponsePtrOutput)
 }
@@ -2678,7 +2750,13 @@ func (o StorageAccountPropertiesResponsePtrOutput) ToStorageAccountPropertiesRes
 }
 
 func (o StorageAccountPropertiesResponsePtrOutput) Elem() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse { return *v }).(StorageAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *StorageAccountPropertiesResponse) StorageAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountPropertiesResponse
+		return ret
+	}).(StorageAccountPropertiesResponseOutput)
 }
 
 // The resource ID of the storage account.
@@ -2819,7 +2897,7 @@ func (o TargetResponseOutput) ToTargetResponsePtrOutput() TargetResponsePtrOutpu
 }
 
 func (o TargetResponseOutput) ToTargetResponsePtrOutputWithContext(ctx context.Context) TargetResponsePtrOutput {
-	return o.ApplyT(func(v TargetResponse) *TargetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetResponse) *TargetResponse {
 		return &v
 	}).(TargetResponsePtrOutput)
 }
@@ -2884,7 +2962,13 @@ func (o TargetResponsePtrOutput) ToTargetResponsePtrOutputWithContext(ctx contex
 }
 
 func (o TargetResponsePtrOutput) Elem() TargetResponseOutput {
-	return o.ApplyT(func(v *TargetResponse) TargetResponse { return *v }).(TargetResponseOutput)
+	return o.ApplyT(func(v *TargetResponse) TargetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TargetResponse
+		return ret
+	}).(TargetResponseOutput)
 }
 
 // The digest of the content, as defined by the Registry V2 HTTP API Specification.

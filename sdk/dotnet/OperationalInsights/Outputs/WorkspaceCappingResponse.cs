@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.Outputs
 {
 
+    /// <summary>
+    /// The daily volume cap for ingestion.
+    /// </summary>
     [OutputType]
     public sealed class WorkspaceCappingResponse
     {

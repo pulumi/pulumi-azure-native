@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Application gateway web application firewall configuration.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayWebApplicationFirewallConfigurationResponse
     {

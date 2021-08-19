@@ -142,25 +142,9 @@ func GetWebAppConnectionStringsSlot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppConnectionStringsSlot resources.
 type webAppConnectionStringsSlotState struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Connection strings.
-	Properties map[string]ConnStringValueTypePairResponse `pulumi:"properties"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppConnectionStringsSlotState struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Connection strings.
-	Properties ConnStringValueTypePairResponseMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppConnectionStringsSlotState) ElementType() reflect.Type {
@@ -217,9 +201,7 @@ func (i *WebAppConnectionStringsSlot) ToWebAppConnectionStringsSlotOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppConnectionStringsSlotOutput)
 }
 
-type WebAppConnectionStringsSlotOutput struct {
-	*pulumi.OutputState
-}
+type WebAppConnectionStringsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppConnectionStringsSlotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppConnectionStringsSlot)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20171201.Outputs
 {
 
+    /// <summary>
+    /// Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
+    /// </summary>
     [OutputType]
     public sealed class AdditionalUnattendContentResponse
     {

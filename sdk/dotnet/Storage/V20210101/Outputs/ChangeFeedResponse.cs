@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The blob service properties for change feed events.
+    /// </summary>
     [OutputType]
     public sealed class ChangeFeedResponse
     {

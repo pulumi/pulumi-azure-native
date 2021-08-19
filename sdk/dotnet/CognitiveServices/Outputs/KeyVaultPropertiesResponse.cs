@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
+    /// <summary>
+    /// Properties to configure keyVault Properties
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultPropertiesResponse
     {

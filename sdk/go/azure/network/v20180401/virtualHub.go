@@ -211,45 +211,9 @@ func GetVirtualHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHub resources.
 type virtualHubState struct {
-	// Address-prefix for this VirtualHub.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// list of all vnet connections with this VirtualHub.
-	HubVirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"hubVirtualNetworkConnections"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The VirtualWAN to which the VirtualHub belongs
-	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
 }
 
 type VirtualHubState struct {
-	// Address-prefix for this VirtualHub.
-	AddressPrefix pulumi.StringPtrInput
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// list of all vnet connections with this VirtualHub.
-	HubVirtualNetworkConnections HubVirtualNetworkConnectionResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The VirtualWAN to which the VirtualHub belongs
-	VirtualWan SubResourceResponsePtrInput
 }
 
 func (VirtualHubState) ElementType() reflect.Type {
@@ -318,9 +282,7 @@ func (i *VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualH
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubOutput)
 }
 
-type VirtualHubOutput struct {
-	*pulumi.OutputState
-}
+type VirtualHubOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualHub)(nil))

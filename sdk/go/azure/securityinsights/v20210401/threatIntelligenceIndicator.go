@@ -86,29 +86,9 @@ func GetThreatIntelligenceIndicator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ThreatIntelligenceIndicator resources.
 type threatIntelligenceIndicatorState struct {
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the entity.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type ThreatIntelligenceIndicatorState struct {
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the entity.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (ThreatIntelligenceIndicatorState) ElementType() reflect.Type {
@@ -281,9 +261,7 @@ func (i *ThreatIntelligenceIndicator) ToThreatIntelligenceIndicatorOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelligenceIndicatorOutput)
 }
 
-type ThreatIntelligenceIndicatorOutput struct {
-	*pulumi.OutputState
-}
+type ThreatIntelligenceIndicatorOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelligenceIndicatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreatIntelligenceIndicator)(nil))

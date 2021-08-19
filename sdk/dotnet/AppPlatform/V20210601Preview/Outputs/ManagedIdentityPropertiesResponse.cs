@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Managed identity properties retrieved from ARM request headers.
+    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityPropertiesResponse
     {

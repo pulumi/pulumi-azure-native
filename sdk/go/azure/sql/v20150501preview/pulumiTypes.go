@@ -106,7 +106,7 @@ func (o FailoverGroupReadOnlyEndpointOutput) ToFailoverGroupReadOnlyEndpointPtrO
 }
 
 func (o FailoverGroupReadOnlyEndpointOutput) ToFailoverGroupReadOnlyEndpointPtrOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointPtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadOnlyEndpoint) *FailoverGroupReadOnlyEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadOnlyEndpoint) *FailoverGroupReadOnlyEndpoint {
 		return &v
 	}).(FailoverGroupReadOnlyEndpointPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o FailoverGroupReadOnlyEndpointPtrOutput) ToFailoverGroupReadOnlyEndpointP
 }
 
 func (o FailoverGroupReadOnlyEndpointPtrOutput) Elem() FailoverGroupReadOnlyEndpointOutput {
-	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpoint) FailoverGroupReadOnlyEndpoint { return *v }).(FailoverGroupReadOnlyEndpointOutput)
+	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpoint) FailoverGroupReadOnlyEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReadOnlyEndpoint
+		return ret
+	}).(FailoverGroupReadOnlyEndpointOutput)
 }
 
 // Failover policy of the read-only endpoint for the failover group.
@@ -240,7 +246,7 @@ func (o FailoverGroupReadOnlyEndpointResponseOutput) ToFailoverGroupReadOnlyEndp
 }
 
 func (o FailoverGroupReadOnlyEndpointResponseOutput) ToFailoverGroupReadOnlyEndpointResponsePtrOutputWithContext(ctx context.Context) FailoverGroupReadOnlyEndpointResponsePtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadOnlyEndpointResponse) *FailoverGroupReadOnlyEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadOnlyEndpointResponse) *FailoverGroupReadOnlyEndpointResponse {
 		return &v
 	}).(FailoverGroupReadOnlyEndpointResponsePtrOutput)
 }
@@ -265,7 +271,13 @@ func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) ToFailoverGroupReadOnlyE
 }
 
 func (o FailoverGroupReadOnlyEndpointResponsePtrOutput) Elem() FailoverGroupReadOnlyEndpointResponseOutput {
-	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpointResponse) FailoverGroupReadOnlyEndpointResponse { return *v }).(FailoverGroupReadOnlyEndpointResponseOutput)
+	return o.ApplyT(func(v *FailoverGroupReadOnlyEndpointResponse) FailoverGroupReadOnlyEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReadOnlyEndpointResponse
+		return ret
+	}).(FailoverGroupReadOnlyEndpointResponseOutput)
 }
 
 // Failover policy of the read-only endpoint for the failover group.
@@ -378,7 +390,7 @@ func (o FailoverGroupReadWriteEndpointOutput) ToFailoverGroupReadWriteEndpointPt
 }
 
 func (o FailoverGroupReadWriteEndpointOutput) ToFailoverGroupReadWriteEndpointPtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointPtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadWriteEndpoint) *FailoverGroupReadWriteEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpoint) *FailoverGroupReadWriteEndpoint {
 		return &v
 	}).(FailoverGroupReadWriteEndpointPtrOutput)
 }
@@ -408,7 +420,13 @@ func (o FailoverGroupReadWriteEndpointPtrOutput) ToFailoverGroupReadWriteEndpoin
 }
 
 func (o FailoverGroupReadWriteEndpointPtrOutput) Elem() FailoverGroupReadWriteEndpointOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpoint) FailoverGroupReadWriteEndpoint { return *v }).(FailoverGroupReadWriteEndpointOutput)
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpoint) FailoverGroupReadWriteEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReadWriteEndpoint
+		return ret
+	}).(FailoverGroupReadWriteEndpointOutput)
 }
 
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -531,7 +549,7 @@ func (o FailoverGroupReadWriteEndpointResponseOutput) ToFailoverGroupReadWriteEn
 }
 
 func (o FailoverGroupReadWriteEndpointResponseOutput) ToFailoverGroupReadWriteEndpointResponsePtrOutputWithContext(ctx context.Context) FailoverGroupReadWriteEndpointResponsePtrOutput {
-	return o.ApplyT(func(v FailoverGroupReadWriteEndpointResponse) *FailoverGroupReadWriteEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FailoverGroupReadWriteEndpointResponse) *FailoverGroupReadWriteEndpointResponse {
 		return &v
 	}).(FailoverGroupReadWriteEndpointResponsePtrOutput)
 }
@@ -561,7 +579,13 @@ func (o FailoverGroupReadWriteEndpointResponsePtrOutput) ToFailoverGroupReadWrit
 }
 
 func (o FailoverGroupReadWriteEndpointResponsePtrOutput) Elem() FailoverGroupReadWriteEndpointResponseOutput {
-	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointResponse) FailoverGroupReadWriteEndpointResponse { return *v }).(FailoverGroupReadWriteEndpointResponseOutput)
+	return o.ApplyT(func(v *FailoverGroupReadWriteEndpointResponse) FailoverGroupReadWriteEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret FailoverGroupReadWriteEndpointResponse
+		return ret
+	}).(FailoverGroupReadWriteEndpointResponseOutput)
 }
 
 // Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
@@ -898,7 +922,7 @@ func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPt
 }
 
 func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
-	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
 		return &v
 	}).(ResourceIdentityPtrOutput)
 }
@@ -923,7 +947,13 @@ func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx co
 }
 
 func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
-	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
 }
 
 // The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
@@ -1040,7 +1070,7 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() Re
 }
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceIdentityResponse) *ResourceIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
 		return &v
 	}).(ResourceIdentityResponsePtrOutput)
 }
@@ -1075,7 +1105,13 @@ func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWi
 }
 
 func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
-	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse { return *v }).(ResourceIdentityResponseOutput)
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
 }
 
 // The Azure Active Directory principal id.
@@ -1220,7 +1256,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1265,7 +1301,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Capacity of the particular SKU.
@@ -1430,7 +1472,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1475,7 +1517,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Capacity of the particular SKU.
@@ -1628,7 +1676,7 @@ func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutput() SyncGroupSchemaPtrOu
 }
 
 func (o SyncGroupSchemaOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx context.Context) SyncGroupSchemaPtrOutput {
-	return o.ApplyT(func(v SyncGroupSchema) *SyncGroupSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroupSchema) *SyncGroupSchema {
 		return &v
 	}).(SyncGroupSchemaPtrOutput)
 }
@@ -1658,7 +1706,13 @@ func (o SyncGroupSchemaPtrOutput) ToSyncGroupSchemaPtrOutputWithContext(ctx cont
 }
 
 func (o SyncGroupSchemaPtrOutput) Elem() SyncGroupSchemaOutput {
-	return o.ApplyT(func(v *SyncGroupSchema) SyncGroupSchema { return *v }).(SyncGroupSchemaOutput)
+	return o.ApplyT(func(v *SyncGroupSchema) SyncGroupSchema {
+		if v != nil {
+			return *v
+		}
+		var ret SyncGroupSchema
+		return ret
+	}).(SyncGroupSchemaOutput)
 }
 
 // Name of master sync member where the schema is from.
@@ -1781,7 +1835,7 @@ func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutput() Sync
 }
 
 func (o SyncGroupSchemaResponseOutput) ToSyncGroupSchemaResponsePtrOutputWithContext(ctx context.Context) SyncGroupSchemaResponsePtrOutput {
-	return o.ApplyT(func(v SyncGroupSchemaResponse) *SyncGroupSchemaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncGroupSchemaResponse) *SyncGroupSchemaResponse {
 		return &v
 	}).(SyncGroupSchemaResponsePtrOutput)
 }
@@ -1811,7 +1865,13 @@ func (o SyncGroupSchemaResponsePtrOutput) ToSyncGroupSchemaResponsePtrOutputWith
 }
 
 func (o SyncGroupSchemaResponsePtrOutput) Elem() SyncGroupSchemaResponseOutput {
-	return o.ApplyT(func(v *SyncGroupSchemaResponse) SyncGroupSchemaResponse { return *v }).(SyncGroupSchemaResponseOutput)
+	return o.ApplyT(func(v *SyncGroupSchemaResponse) SyncGroupSchemaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SyncGroupSchemaResponse
+		return ret
+	}).(SyncGroupSchemaResponseOutput)
 }
 
 // Name of master sync member where the schema is from.

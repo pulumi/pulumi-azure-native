@@ -121,7 +121,7 @@ func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrO
 }
 
 func (o DataCollectionRuleDataSourcesOutput) ToDataCollectionRuleDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleDataSourcesPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDataSources) *DataCollectionRuleDataSources {
 		return &v
 	}).(DataCollectionRuleDataSourcesPtrOutput)
 }
@@ -161,7 +161,13 @@ func (o DataCollectionRuleDataSourcesPtrOutput) ToDataCollectionRuleDataSourcesP
 }
 
 func (o DataCollectionRuleDataSourcesPtrOutput) Elem() DataCollectionRuleDataSourcesOutput {
-	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources { return *v }).(DataCollectionRuleDataSourcesOutput)
+	return o.ApplyT(func(v *DataCollectionRuleDataSources) DataCollectionRuleDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDataSources
+		return ret
+	}).(DataCollectionRuleDataSourcesOutput)
 }
 
 // The list of Azure VM extension data source configurations.
@@ -304,7 +310,7 @@ func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPt
 }
 
 func (o DataCollectionRuleDestinationsOutput) ToDataCollectionRuleDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleDestinationsPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleDestinations) *DataCollectionRuleDestinations {
 		return &v
 	}).(DataCollectionRuleDestinationsPtrOutput)
 }
@@ -336,7 +342,13 @@ func (o DataCollectionRuleDestinationsPtrOutput) ToDataCollectionRuleDestination
 }
 
 func (o DataCollectionRuleDestinationsPtrOutput) Elem() DataCollectionRuleDestinationsOutput {
-	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations { return *v }).(DataCollectionRuleDestinationsOutput)
+	return o.ApplyT(func(v *DataCollectionRuleDestinations) DataCollectionRuleDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleDestinations
+		return ret
+	}).(DataCollectionRuleDestinationsOutput)
 }
 
 // Azure Monitor Metrics destination.
@@ -470,7 +482,7 @@ func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleRespons
 }
 
 func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
 		return &v
 	}).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
@@ -514,7 +526,13 @@ func (o DataCollectionRuleResponseDataSourcesPtrOutput) ToDataCollectionRuleResp
 }
 
 func (o DataCollectionRuleResponseDataSourcesPtrOutput) Elem() DataCollectionRuleResponseDataSourcesOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) DataCollectionRuleResponseDataSources { return *v }).(DataCollectionRuleResponseDataSourcesOutput)
+	return o.ApplyT(func(v *DataCollectionRuleResponseDataSources) DataCollectionRuleResponseDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResponseDataSources
+		return ret
+	}).(DataCollectionRuleResponseDataSourcesOutput)
 }
 
 // The list of Azure VM extension data source configurations.
@@ -657,7 +675,7 @@ func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleRespon
 }
 
 func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsPtrOutput {
-	return o.ApplyT(func(v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
 		return &v
 	}).(DataCollectionRuleResponseDestinationsPtrOutput)
 }
@@ -691,7 +709,13 @@ func (o DataCollectionRuleResponseDestinationsPtrOutput) ToDataCollectionRuleRes
 }
 
 func (o DataCollectionRuleResponseDestinationsPtrOutput) Elem() DataCollectionRuleResponseDestinationsOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) DataCollectionRuleResponseDestinations { return *v }).(DataCollectionRuleResponseDestinationsOutput)
+	return o.ApplyT(func(v *DataCollectionRuleResponseDestinations) DataCollectionRuleResponseDestinations {
+		if v != nil {
+			return *v
+		}
+		var ret DataCollectionRuleResponseDestinations
+		return ret
+	}).(DataCollectionRuleResponseDestinationsOutput)
 }
 
 // Azure Monitor Metrics destination.
@@ -1030,7 +1054,7 @@ func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonito
 }
 
 func (o DestinationsSpecAzureMonitorMetricsOutput) ToDestinationsSpecAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecAzureMonitorMetricsPtrOutput {
-	return o.ApplyT(func(v DestinationsSpecAzureMonitorMetrics) *DestinationsSpecAzureMonitorMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecAzureMonitorMetrics) *DestinationsSpecAzureMonitorMetrics {
 		return &v
 	}).(DestinationsSpecAzureMonitorMetricsPtrOutput)
 }
@@ -1056,7 +1080,13 @@ func (o DestinationsSpecAzureMonitorMetricsPtrOutput) ToDestinationsSpecAzureMon
 }
 
 func (o DestinationsSpecAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecAzureMonitorMetricsOutput {
-	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) DestinationsSpecAzureMonitorMetrics { return *v }).(DestinationsSpecAzureMonitorMetricsOutput)
+	return o.ApplyT(func(v *DestinationsSpecAzureMonitorMetrics) DestinationsSpecAzureMonitorMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret DestinationsSpecAzureMonitorMetrics
+		return ret
+	}).(DestinationsSpecAzureMonitorMetricsOutput)
 }
 
 // A friendly name for the destination.
@@ -1168,7 +1198,7 @@ func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecRes
 }
 
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return o.ApplyT(func(v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
 		return &v
 	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
@@ -1195,7 +1225,11 @@ func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) ToDestinationsSpec
 
 func (o DestinationsSpecResponseAzureMonitorMetricsPtrOutput) Elem() DestinationsSpecResponseAzureMonitorMetricsOutput {
 	return o.ApplyT(func(v *DestinationsSpecResponseAzureMonitorMetrics) DestinationsSpecResponseAzureMonitorMetrics {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DestinationsSpecResponseAzureMonitorMetrics
+		return ret
 	}).(DestinationsSpecResponseAzureMonitorMetricsOutput)
 }
 

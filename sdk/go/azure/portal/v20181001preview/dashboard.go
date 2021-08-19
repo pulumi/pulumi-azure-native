@@ -91,33 +91,9 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// The dashboard lenses.
-	Lenses map[string]DashboardLensResponse `pulumi:"lenses"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// The dashboard metadata.
-	Metadata map[string]interface{} `pulumi:"metadata"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type DashboardState struct {
-	// The dashboard lenses.
-	Lenses DashboardLensResponseMapInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// The dashboard metadata.
-	Metadata pulumi.MapInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (DashboardState) ElementType() reflect.Type {
@@ -178,9 +154,7 @@ func (i *Dashboard) ToDashboardOutputWithContext(ctx context.Context) DashboardO
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardOutput)
 }
 
-type DashboardOutput struct {
-	*pulumi.OutputState
-}
+type DashboardOutput struct{ *pulumi.OutputState }
 
 func (DashboardOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Dashboard)(nil))

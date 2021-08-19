@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200701.Outputs
 {
 
+    /// <summary>
+    /// Office365 breakout categories.
+    /// </summary>
     [OutputType]
     public sealed class O365BreakOutCategoryPoliciesResponse
     {

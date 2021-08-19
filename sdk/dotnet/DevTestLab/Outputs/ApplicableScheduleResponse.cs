@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
+    /// </summary>
     [OutputType]
     public sealed class ApplicableScheduleResponse
     {

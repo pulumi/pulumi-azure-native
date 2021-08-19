@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties for the task that validates Oracle database connection
+    /// </summary>
     [OutputType]
     public sealed class ConnectToSourceOracleSyncTaskPropertiesResponse
     {

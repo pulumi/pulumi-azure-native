@@ -88,55 +88,9 @@ func GetMultipleActivationKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MultipleActivationKey resources.
 type multipleActivationKeyState struct {
-	// Agreement number under which the key is requested.
-	AgreementNumber *string `pulumi:"agreementNumber"`
-	// End of support of security updates activated by the MAK key.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// Number of activations/servers using the MAK key.
-	InstalledServerNumber *int `pulumi:"installedServerNumber"`
-	// <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
-	IsEligible *bool `pulumi:"isEligible"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// MAK 5x5 key.
-	MultipleActivationKey *string `pulumi:"multipleActivationKey"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Type of OS for which the key is requested.
-	OsType            *string `pulumi:"osType"`
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of support
-	SupportType *string `pulumi:"supportType"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type MultipleActivationKeyState struct {
-	// Agreement number under which the key is requested.
-	AgreementNumber pulumi.StringPtrInput
-	// End of support of security updates activated by the MAK key.
-	ExpirationDate pulumi.StringPtrInput
-	// Number of activations/servers using the MAK key.
-	InstalledServerNumber pulumi.IntPtrInput
-	// <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
-	IsEligible pulumi.BoolPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// MAK 5x5 key.
-	MultipleActivationKey pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Type of OS for which the key is requested.
-	OsType            pulumi.StringPtrInput
-	ProvisioningState pulumi.StringPtrInput
-	// Type of support
-	SupportType pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (MultipleActivationKeyState) ElementType() reflect.Type {
@@ -209,9 +163,7 @@ func (i *MultipleActivationKey) ToMultipleActivationKeyOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(MultipleActivationKeyOutput)
 }
 
-type MultipleActivationKeyOutput struct {
-	*pulumi.OutputState
-}
+type MultipleActivationKeyOutput struct{ *pulumi.OutputState }
 
 func (MultipleActivationKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MultipleActivationKey)(nil))

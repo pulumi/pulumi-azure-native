@@ -136,39 +136,9 @@ func GetCloudEdgeManagementRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudEdgeManagementRole resources.
 type cloudEdgeManagementRoleState struct {
-	// Edge Profile of the resource
-	EdgeProfile *EdgeProfileResponse `pulumi:"edgeProfile"`
-	// Role type.
-	// Expected value is 'CloudEdgeManagement'.
-	Kind *string `pulumi:"kind"`
-	// Local Edge Management Status
-	LocalManagementStatus *string `pulumi:"localManagementStatus"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Role status.
-	RoleStatus *string `pulumi:"roleStatus"`
-	// Role configured on ASE resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type CloudEdgeManagementRoleState struct {
-	// Edge Profile of the resource
-	EdgeProfile EdgeProfileResponsePtrInput
-	// Role type.
-	// Expected value is 'CloudEdgeManagement'.
-	Kind pulumi.StringPtrInput
-	// Local Edge Management Status
-	LocalManagementStatus pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Role status.
-	RoleStatus pulumi.StringPtrInput
-	// Role configured on ASE resource
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (CloudEdgeManagementRoleState) ElementType() reflect.Type {
@@ -227,9 +197,7 @@ func (i *CloudEdgeManagementRole) ToCloudEdgeManagementRoleOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CloudEdgeManagementRoleOutput)
 }
 
-type CloudEdgeManagementRoleOutput struct {
-	*pulumi.OutputState
-}
+type CloudEdgeManagementRoleOutput struct{ *pulumi.OutputState }
 
 func (CloudEdgeManagementRoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudEdgeManagementRole)(nil))

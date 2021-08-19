@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Data type for indicators connection.
+    /// </summary>
     [OutputType]
     public sealed class TIDataConnectorDataTypesResponseIndicators
     {

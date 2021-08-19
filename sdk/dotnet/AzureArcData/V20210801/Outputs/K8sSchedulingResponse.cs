@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureArcData.V20210801.Outputs
 {
 
+    /// <summary>
+    /// The kubernetes scheduling information.
+    /// </summary>
     [OutputType]
     public sealed class K8sSchedulingResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Management.V20201001.Outputs
 {
 
+    /// <summary>
+    /// The entity.
+    /// </summary>
     [OutputType]
     public sealed class EntityInfoResponse
     {

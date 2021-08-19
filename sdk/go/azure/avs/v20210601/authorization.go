@@ -92,29 +92,9 @@ func GetAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Authorization resources.
 type authorizationState struct {
-	// The ID of the ExpressRoute Circuit Authorization
-	ExpressRouteAuthorizationId *string `pulumi:"expressRouteAuthorizationId"`
-	// The key of the ExpressRoute Circuit Authorization
-	ExpressRouteAuthorizationKey *string `pulumi:"expressRouteAuthorizationKey"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The state of the  ExpressRoute Circuit Authorization provisioning
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type AuthorizationState struct {
-	// The ID of the ExpressRoute Circuit Authorization
-	ExpressRouteAuthorizationId pulumi.StringPtrInput
-	// The key of the ExpressRoute Circuit Authorization
-	ExpressRouteAuthorizationKey pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The state of the  ExpressRoute Circuit Authorization provisioning
-	ProvisioningState pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (AuthorizationState) ElementType() reflect.Type {
@@ -163,9 +143,7 @@ func (i *Authorization) ToAuthorizationOutputWithContext(ctx context.Context) Au
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationOutput)
 }
 
-type AuthorizationOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Authorization)(nil))

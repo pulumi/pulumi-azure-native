@@ -84,41 +84,9 @@ func GetMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Monitor resources.
 type monitorState struct {
-	// Identity properties of the monitor resource.
-	Identity *IdentityPropertiesResponse `pulumi:"identity"`
-	// The location of the monitor resource
-	Location *string `pulumi:"location"`
-	// Name of the monitor resource.
-	Name *string `pulumi:"name"`
-	// Properties of the monitor resource.
-	Properties *MonitorPropertiesResponse `pulumi:"properties"`
-	// SKU of the monitor resource.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// The system metadata relating to this resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The tags of the monitor resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the monitor resource.
-	Type *string `pulumi:"type"`
 }
 
 type MonitorState struct {
-	// Identity properties of the monitor resource.
-	Identity IdentityPropertiesResponsePtrInput
-	// The location of the monitor resource
-	Location pulumi.StringPtrInput
-	// Name of the monitor resource.
-	Name pulumi.StringPtrInput
-	// Properties of the monitor resource.
-	Properties MonitorPropertiesResponsePtrInput
-	// SKU of the monitor resource.
-	Sku ResourceSkuResponsePtrInput
-	// The system metadata relating to this resource
-	SystemData SystemDataResponsePtrInput
-	// The tags of the monitor resource.
-	Tags pulumi.StringMapInput
-	// The type of the monitor resource.
-	Type pulumi.StringPtrInput
 }
 
 func (MonitorState) ElementType() reflect.Type {
@@ -183,9 +151,7 @@ func (i *Monitor) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorOutput)
 }
 
-type MonitorOutput struct {
-	*pulumi.OutputState
-}
+type MonitorOutput struct{ *pulumi.OutputState }
 
 func (MonitorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Monitor)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthcareApis.V20190916.Outputs
 {
 
+    /// <summary>
+    /// The properties of a service instance.
+    /// </summary>
     [OutputType]
     public sealed class ServicesPropertiesResponse
     {

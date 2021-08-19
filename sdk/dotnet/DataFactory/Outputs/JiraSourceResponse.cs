@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Jira Service source.
+    /// </summary>
     [OutputType]
     public sealed class JiraSourceResponse
     {

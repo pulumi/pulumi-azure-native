@@ -125,65 +125,9 @@ func GetRecordSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
-	// Gets or sets the list of AAAA records in the RecordSet.
-	AAAARecords []AaaaRecordResponse `pulumi:"aAAARecords"`
-	// Gets or sets the list of A records in the RecordSet.
-	ARecords []ARecordResponse `pulumi:"aRecords"`
-	// Gets or sets the CNAME record in the RecordSet.
-	CNAMERecord *CnameRecordResponse `pulumi:"cNAMERecord"`
-	// The etag of the record set.
-	Etag *string `pulumi:"etag"`
-	// Fully qualified domain name of the record set.
-	Fqdn *string `pulumi:"fqdn"`
-	// Gets or sets the list of MX records in the RecordSet.
-	MXRecords []MxRecordResponse `pulumi:"mXRecords"`
-	// Gets or sets the list of NS records in the RecordSet.
-	NSRecords []NsRecordResponse `pulumi:"nSRecords"`
-	// The name of the record set.
-	Name *string `pulumi:"name"`
-	// Gets or sets the list of PTR records in the RecordSet.
-	PTRRecords []PtrRecordResponse `pulumi:"pTRRecords"`
-	// Gets or sets the SOA record in the RecordSet.
-	SOARecord *SoaRecordResponse `pulumi:"sOARecord"`
-	// Gets or sets the list of SRV records in the RecordSet.
-	SRVRecords []SrvRecordResponse `pulumi:"sRVRecords"`
-	// Gets or sets the list of TXT records in the RecordSet.
-	TXTRecords []TxtRecordResponse `pulumi:"tXTRecords"`
-	// Gets or sets the TTL of the records in the RecordSet.
-	Ttl *float64 `pulumi:"ttl"`
-	// The type of the record set.
-	Type *string `pulumi:"type"`
 }
 
 type RecordSetState struct {
-	// Gets or sets the list of AAAA records in the RecordSet.
-	AAAARecords AaaaRecordResponseArrayInput
-	// Gets or sets the list of A records in the RecordSet.
-	ARecords ARecordResponseArrayInput
-	// Gets or sets the CNAME record in the RecordSet.
-	CNAMERecord CnameRecordResponsePtrInput
-	// The etag of the record set.
-	Etag pulumi.StringPtrInput
-	// Fully qualified domain name of the record set.
-	Fqdn pulumi.StringPtrInput
-	// Gets or sets the list of MX records in the RecordSet.
-	MXRecords MxRecordResponseArrayInput
-	// Gets or sets the list of NS records in the RecordSet.
-	NSRecords NsRecordResponseArrayInput
-	// The name of the record set.
-	Name pulumi.StringPtrInput
-	// Gets or sets the list of PTR records in the RecordSet.
-	PTRRecords PtrRecordResponseArrayInput
-	// Gets or sets the SOA record in the RecordSet.
-	SOARecord SoaRecordResponsePtrInput
-	// Gets or sets the list of SRV records in the RecordSet.
-	SRVRecords SrvRecordResponseArrayInput
-	// Gets or sets the list of TXT records in the RecordSet.
-	TXTRecords TxtRecordResponseArrayInput
-	// Gets or sets the TTL of the records in the RecordSet.
-	Ttl pulumi.Float64PtrInput
-	// The type of the record set.
-	Type pulumi.StringPtrInput
 }
 
 func (RecordSetState) ElementType() reflect.Type {
@@ -280,9 +224,7 @@ func (i *RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetO
 	return pulumi.ToOutputWithContext(ctx, i).(RecordSetOutput)
 }
 
-type RecordSetOutput struct {
-	*pulumi.OutputState
-}
+type RecordSetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RecordSet)(nil))

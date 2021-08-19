@@ -107,33 +107,9 @@ func GetVirtualApplianceSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualApplianceSite resources.
 type virtualApplianceSiteState struct {
-	// Address Prefix.
-	AddressPrefix *string `pulumi:"addressPrefix"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Name of the virtual appliance site.
-	Name *string `pulumi:"name"`
-	// Office 365 Policy.
-	O365Policy *Office365PolicyPropertiesResponse `pulumi:"o365Policy"`
-	// The provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Site type.
-	Type *string `pulumi:"type"`
 }
 
 type VirtualApplianceSiteState struct {
-	// Address Prefix.
-	AddressPrefix pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// Name of the virtual appliance site.
-	Name pulumi.StringPtrInput
-	// Office 365 Policy.
-	O365Policy Office365PolicyPropertiesResponsePtrInput
-	// The provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Site type.
-	Type pulumi.StringPtrInput
 }
 
 func (VirtualApplianceSiteState) ElementType() reflect.Type {
@@ -198,9 +174,7 @@ func (i *VirtualApplianceSite) ToVirtualApplianceSiteOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualApplianceSiteOutput)
 }
 
-type VirtualApplianceSiteOutput struct {
-	*pulumi.OutputState
-}
+type VirtualApplianceSiteOutput struct{ *pulumi.OutputState }
 
 func (VirtualApplianceSiteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualApplianceSite)(nil))

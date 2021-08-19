@@ -97,49 +97,9 @@ func GetWorkloadNetworkDnsService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkloadNetworkDnsService resources.
 type workloadNetworkDnsServiceState struct {
-	// Default DNS zone of the DNS Service.
-	DefaultDnsZone *string `pulumi:"defaultDnsZone"`
-	// Display name of the DNS Service.
-	DisplayName *string `pulumi:"displayName"`
-	// DNS service IP of the DNS Service.
-	DnsServiceIp *string `pulumi:"dnsServiceIp"`
-	// FQDN zones of the DNS Service.
-	FqdnZones []string `pulumi:"fqdnZones"`
-	// DNS Service log level.
-	LogLevel *string `pulumi:"logLevel"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// NSX revision number.
-	Revision *float64 `pulumi:"revision"`
-	// DNS Service status.
-	Status *string `pulumi:"status"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WorkloadNetworkDnsServiceState struct {
-	// Default DNS zone of the DNS Service.
-	DefaultDnsZone pulumi.StringPtrInput
-	// Display name of the DNS Service.
-	DisplayName pulumi.StringPtrInput
-	// DNS service IP of the DNS Service.
-	DnsServiceIp pulumi.StringPtrInput
-	// FQDN zones of the DNS Service.
-	FqdnZones pulumi.StringArrayInput
-	// DNS Service log level.
-	LogLevel pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state
-	ProvisioningState pulumi.StringPtrInput
-	// NSX revision number.
-	Revision pulumi.Float64PtrInput
-	// DNS Service status.
-	Status pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WorkloadNetworkDnsServiceState) ElementType() reflect.Type {
@@ -212,9 +172,7 @@ func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkloadNetworkDnsServiceOutput)
 }
 
-type WorkloadNetworkDnsServiceOutput struct {
-	*pulumi.OutputState
-}
+type WorkloadNetworkDnsServiceOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDnsServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Outputs
 {
 
+    /// <summary>
+    /// Properties related to EventGrid.
+    /// </summary>
     [OutputType]
     public sealed class EventGridResponse
     {

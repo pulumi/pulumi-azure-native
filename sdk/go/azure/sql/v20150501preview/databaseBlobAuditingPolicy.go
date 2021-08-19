@@ -51,6 +51,9 @@ func NewDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:DatabaseBlobAuditingPolicy"),
@@ -115,45 +118,9 @@ func GetDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DatabaseBlobAuditingPolicy resources.
 type databaseBlobAuditingPolicyState struct {
-	// Specifies the Actions and Actions-Groups to audit.
-	AuditActionsAndGroups []string `pulumi:"auditActionsAndGroups"`
-	// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
-	IsStorageSecondaryKeyInUse *bool `pulumi:"isStorageSecondaryKeyInUse"`
-	// Resource kind.
-	Kind *string `pulumi:"kind"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Specifies the number of days to keep in the audit logs.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State *string `pulumi:"state"`
-	// Specifies the blob storage subscription Id.
-	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type DatabaseBlobAuditingPolicyState struct {
-	// Specifies the Actions and Actions-Groups to audit.
-	AuditActionsAndGroups pulumi.StringArrayInput
-	// Specifies whether storageAccountAccessKey value is the storage’s secondary key.
-	IsStorageSecondaryKeyInUse pulumi.BoolPtrInput
-	// Resource kind.
-	Kind pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Specifies the number of days to keep in the audit logs.
-	RetentionDays pulumi.IntPtrInput
-	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State pulumi.StringPtrInput
-	// Specifies the blob storage subscription Id.
-	StorageAccountSubscriptionId pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint is required.
-	StorageEndpoint pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (DatabaseBlobAuditingPolicyState) ElementType() reflect.Type {
@@ -176,7 +143,7 @@ type databaseBlobAuditingPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State string `pulumi:"state"`
+	State BlobAuditingPolicyState `pulumi:"state"`
 	// Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage subscription Id.
@@ -202,7 +169,7 @@ type DatabaseBlobAuditingPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
-	State BlobAuditingPolicyState
+	State BlobAuditingPolicyStateInput
 	// Specifies the identifier key of the auditing storage account. If state is Enabled, storageAccountAccessKey is required.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage subscription Id.
@@ -234,9 +201,7 @@ func (i *DatabaseBlobAuditingPolicy) ToDatabaseBlobAuditingPolicyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseBlobAuditingPolicyOutput)
 }
 
-type DatabaseBlobAuditingPolicyOutput struct {
-	*pulumi.OutputState
-}
+type DatabaseBlobAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBlobAuditingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DatabaseBlobAuditingPolicy)(nil))

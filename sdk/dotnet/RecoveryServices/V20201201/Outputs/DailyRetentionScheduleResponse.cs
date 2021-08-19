@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Daily retention schedule.
+    /// </summary>
     [OutputType]
     public sealed class DailyRetentionScheduleResponse
     {

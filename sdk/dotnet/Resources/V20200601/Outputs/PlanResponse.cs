@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Resources.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Plan for the resource.
+    /// </summary>
     [OutputType]
     public sealed class PlanResponse
     {

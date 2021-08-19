@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Configuration for a scoring code asset.
+    /// </summary>
     [OutputType]
     public sealed class CodeConfigurationResponse
     {

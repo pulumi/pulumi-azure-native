@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180301.Outputs
 {
 
+    /// <summary>
+    /// Criterion for dynamic threshold.
+    /// </summary>
     [OutputType]
     public sealed class DynamicMetricCriteriaResponse
     {

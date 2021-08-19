@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200831Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of an enrichment that your IoT hub applies to messages delivered to endpoints.
+    /// </summary>
     [OutputType]
     public sealed class EnrichmentPropertiesResponse
     {

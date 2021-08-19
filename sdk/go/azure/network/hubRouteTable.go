@@ -117,41 +117,9 @@ func GetHubRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HubRouteTable resources.
 type hubRouteTableState struct {
-	// List of all connections associated with this route table.
-	AssociatedConnections []string `pulumi:"associatedConnections"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// List of labels associated with this route table.
-	Labels []string `pulumi:"labels"`
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name *string `pulumi:"name"`
-	// List of all connections that advertise to this route table.
-	PropagatingConnections []string `pulumi:"propagatingConnections"`
-	// The provisioning state of the RouteTable resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// List of all routes.
-	Routes []HubRouteResponse `pulumi:"routes"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type HubRouteTableState struct {
-	// List of all connections associated with this route table.
-	AssociatedConnections pulumi.StringArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// List of labels associated with this route table.
-	Labels pulumi.StringArrayInput
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringPtrInput
-	// List of all connections that advertise to this route table.
-	PropagatingConnections pulumi.StringArrayInput
-	// The provisioning state of the RouteTable resource.
-	ProvisioningState pulumi.StringPtrInput
-	// List of all routes.
-	Routes HubRouteResponseArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (HubRouteTableState) ElementType() reflect.Type {
@@ -216,9 +184,7 @@ func (i *HubRouteTable) ToHubRouteTableOutputWithContext(ctx context.Context) Hu
 	return pulumi.ToOutputWithContext(ctx, i).(HubRouteTableOutput)
 }
 
-type HubRouteTableOutput struct {
-	*pulumi.OutputState
-}
+type HubRouteTableOutput struct{ *pulumi.OutputState }
 
 func (HubRouteTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HubRouteTable)(nil))

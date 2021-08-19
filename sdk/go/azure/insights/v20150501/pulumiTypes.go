@@ -106,7 +106,7 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplication
 }
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemProperties) *ApplicationInsightsComponentAnalyticsItemProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentAnalyticsItemProperties) *ApplicationInsightsComponentAnalyticsItemProperties {
 		return &v
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput)
 }
@@ -132,7 +132,11 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) ToApplicat
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput) Elem() ApplicationInsightsComponentAnalyticsItemPropertiesOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemProperties) ApplicationInsightsComponentAnalyticsItemProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentAnalyticsItemProperties
+		return ret
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesOutput)
 }
 
@@ -242,7 +246,7 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApp
 }
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput) ToApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentAnalyticsItemPropertiesResponse) *ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
 		return &v
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
 }
@@ -268,7 +272,11 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) To
 
 func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Elem() ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentAnalyticsItemPropertiesResponse) ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentAnalyticsItemPropertiesResponse
+		return ret
 	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput)
 }
 
@@ -390,7 +398,7 @@ func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsCo
 }
 
 func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *ApplicationInsightsComponentDataVolumeCap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentDataVolumeCap) *ApplicationInsightsComponentDataVolumeCap {
 		return &v
 	}).(ApplicationInsightsComponentDataVolumeCapPtrOutput)
 }
@@ -431,7 +439,11 @@ func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) ToApplicationInsight
 
 func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Elem() ApplicationInsightsComponentDataVolumeCapOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) ApplicationInsightsComponentDataVolumeCap {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentDataVolumeCap
+		return ret
 	}).(ApplicationInsightsComponentDataVolumeCapOutput)
 }
 
@@ -591,7 +603,7 @@ func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationIn
 }
 
 func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *ApplicationInsightsComponentDataVolumeCapResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentDataVolumeCapResponse) *ApplicationInsightsComponentDataVolumeCapResponse {
 		return &v
 	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
 }
@@ -646,7 +658,11 @@ func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ToApplicatio
 
 func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Elem() ApplicationInsightsComponentDataVolumeCapResponseOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) ApplicationInsightsComponentDataVolumeCapResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentDataVolumeCapResponse
+		return ret
 	}).(ApplicationInsightsComponentDataVolumeCapResponseOutput)
 }
 
@@ -834,7 +850,7 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 }
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
 		return &v
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput)
 }
@@ -911,7 +927,11 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleD
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsPtrOutput) Elem() ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions) ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions
+		return ret
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitionsOutput)
 }
 
@@ -1119,7 +1139,7 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 }
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput) ToApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput {
-	return o.ApplyT(func(v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
 		return &v
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput)
 }
@@ -1196,7 +1216,11 @@ func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitio
 
 func (o ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsPtrOutput) Elem() ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput {
 	return o.ApplyT(func(v *ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions) ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions
+		return ret
 	}).(ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsOutput)
 }
 
@@ -1685,7 +1709,7 @@ func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPt
 }
 
 func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
 		return &v
 	}).(WebTestPropertiesConfigurationPtrOutput)
 }
@@ -1710,7 +1734,13 @@ func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfiguratio
 }
 
 func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration { return *v }).(WebTestPropertiesConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesConfiguration
+		return ret
+	}).(WebTestPropertiesConfigurationOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
@@ -1819,7 +1849,7 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 }
 
 func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
 		return &v
 	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
@@ -1844,7 +1874,13 @@ func (o WebTestPropertiesResponseConfigurationPtrOutput) ToWebTestPropertiesResp
 }
 
 func (o WebTestPropertiesResponseConfigurationPtrOutput) Elem() WebTestPropertiesResponseConfigurationOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration { return *v }).(WebTestPropertiesResponseConfigurationOutput)
+	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebTestPropertiesResponseConfiguration
+		return ret
+	}).(WebTestPropertiesResponseConfigurationOutput)
 }
 
 // The XML specification of a WebTest to run against an application.

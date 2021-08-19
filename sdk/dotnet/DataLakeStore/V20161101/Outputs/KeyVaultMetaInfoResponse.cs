@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeStore.V20161101.Outputs
 {
 
+    /// <summary>
+    /// Metadata information used by account encryption.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultMetaInfoResponse
     {

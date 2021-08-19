@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// Defines the move resource status.
+    /// </summary>
     [OutputType]
     public sealed class MoveResourcePropertiesResponseMoveStatus
     {

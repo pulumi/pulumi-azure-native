@@ -118,61 +118,9 @@ func GetMicrosoftSecurityIncidentCreationAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MicrosoftSecurityIncidentCreationAlertRule resources.
 type microsoftSecurityIncidentCreationAlertRuleState struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName *string `pulumi:"alertRuleTemplateName"`
-	// The description of the alert rule.
-	Description *string `pulumi:"description"`
-	// The display name for alerts created by this alert rule.
-	DisplayName *string `pulumi:"displayName"`
-	// the alerts' displayNames on which the cases will not be generated
-	DisplayNamesExcludeFilter []string `pulumi:"displayNamesExcludeFilter"`
-	// the alerts' displayNames on which the cases will be generated
-	DisplayNamesFilter []string `pulumi:"displayNamesFilter"`
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'MicrosoftSecurityIncidentCreation'.
-	Kind *string `pulumi:"kind"`
-	// The last time that this alert has been modified.
-	LastModifiedUtc *string `pulumi:"lastModifiedUtc"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The alerts' productName on which the cases will be generated
-	ProductFilter *string `pulumi:"productFilter"`
-	// the alerts' severities on which the cases will be generated
-	SeveritiesFilter []string `pulumi:"severitiesFilter"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type MicrosoftSecurityIncidentCreationAlertRuleState struct {
-	// The Name of the alert rule template used to create this rule.
-	AlertRuleTemplateName pulumi.StringPtrInput
-	// The description of the alert rule.
-	Description pulumi.StringPtrInput
-	// The display name for alerts created by this alert rule.
-	DisplayName pulumi.StringPtrInput
-	// the alerts' displayNames on which the cases will not be generated
-	DisplayNamesExcludeFilter pulumi.StringArrayInput
-	// the alerts' displayNames on which the cases will be generated
-	DisplayNamesFilter pulumi.StringArrayInput
-	// Determines whether this alert rule is enabled or disabled.
-	Enabled pulumi.BoolPtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'MicrosoftSecurityIncidentCreation'.
-	Kind pulumi.StringPtrInput
-	// The last time that this alert has been modified.
-	LastModifiedUtc pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The alerts' productName on which the cases will be generated
-	ProductFilter pulumi.StringPtrInput
-	// the alerts' severities on which the cases will be generated
-	SeveritiesFilter pulumi.StringArrayInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MicrosoftSecurityIncidentCreationAlertRuleState) ElementType() reflect.Type {
@@ -265,9 +213,7 @@ func (i *MicrosoftSecurityIncidentCreationAlertRule) ToMicrosoftSecurityIncident
 	return pulumi.ToOutputWithContext(ctx, i).(MicrosoftSecurityIncidentCreationAlertRuleOutput)
 }
 
-type MicrosoftSecurityIncidentCreationAlertRuleOutput struct {
-	*pulumi.OutputState
-}
+type MicrosoftSecurityIncidentCreationAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (MicrosoftSecurityIncidentCreationAlertRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MicrosoftSecurityIncidentCreationAlertRule)(nil))

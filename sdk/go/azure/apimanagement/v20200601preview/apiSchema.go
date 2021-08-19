@@ -128,29 +128,9 @@ func GetApiSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiSchema resources.
 type apiSchemaState struct {
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-	ContentType *string `pulumi:"contentType"`
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions interface{} `pulumi:"definitions"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Resource type for API Management resource.
-	Type *string `pulumi:"type"`
-	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-	Value *string `pulumi:"value"`
 }
 
 type ApiSchemaState struct {
-	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-	ContentType pulumi.StringPtrInput
-	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
-	Definitions pulumi.Input
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Resource type for API Management resource.
-	Type pulumi.StringPtrInput
-	// Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
-	Value pulumi.StringPtrInput
 }
 
 func (ApiSchemaState) ElementType() reflect.Type {
@@ -215,9 +195,7 @@ func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiSchemaOutput)
 }
 
-type ApiSchemaOutput struct {
-	*pulumi.OutputState
-}
+type ApiSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiSchema)(nil))

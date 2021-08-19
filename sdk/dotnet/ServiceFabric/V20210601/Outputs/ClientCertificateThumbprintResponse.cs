@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Describes the client certificate details using thumbprint.
+    /// </summary>
     [OutputType]
     public sealed class ClientCertificateThumbprintResponse
     {

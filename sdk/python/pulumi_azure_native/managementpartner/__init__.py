@@ -10,7 +10,8 @@ from .partner import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managementpartner.v20180201 as v20180201
+    import pulumi_azure_native.managementpartner.v20180201 as __v20180201
+    v20180201 = __v20180201
 else:
     v20180201 = _utilities.lazy_import('pulumi_azure_native.managementpartner.v20180201')
 

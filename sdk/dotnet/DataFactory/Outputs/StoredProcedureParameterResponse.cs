@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// SQL stored procedure parameter.
+    /// </summary>
     [OutputType]
     public sealed class StoredProcedureParameterResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Common Data Service for Apps entity dataset.
+    /// </summary>
     [OutputType]
     public sealed class CommonDataServiceForAppsEntityDatasetResponse
     {

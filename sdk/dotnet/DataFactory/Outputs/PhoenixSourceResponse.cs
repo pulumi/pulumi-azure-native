@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Phoenix server source.
+    /// </summary>
     [OutputType]
     public sealed class PhoenixSourceResponse
     {

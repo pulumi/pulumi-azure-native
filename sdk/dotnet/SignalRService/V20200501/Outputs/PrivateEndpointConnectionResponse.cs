@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200501.Outputs
 {
 
+    /// <summary>
+    /// A private endpoint connection to SignalR resource
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {

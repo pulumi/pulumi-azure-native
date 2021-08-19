@@ -12,8 +12,8 @@ from ._enums import *
 __all__ = [
     'AzureSkuArgs',
     'ConnectionStateArgs',
-    'PrivateEndpointArgs',
     'PrivateEndpointConnectionArgs',
+    'PrivateEndpointArgs',
 ]
 
 @pulumi.input_type
@@ -110,29 +110,6 @@ class ConnectionStateArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] id: Specifies the id of private endpoint.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the id of private endpoint.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
@@ -185,5 +162,28 @@ class PrivateEndpointConnectionArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+
+@pulumi.input_type
+class PrivateEndpointArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Specifies the id of private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the id of private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 

@@ -344,7 +344,7 @@ func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutput() Configurat
 }
 
 func (o ConfigurationSettingOutput) ToConfigurationSettingPtrOutputWithContext(ctx context.Context) ConfigurationSettingPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetting) *ConfigurationSetting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetting) *ConfigurationSetting {
 		return &v
 	}).(ConfigurationSettingPtrOutput)
 }
@@ -394,7 +394,13 @@ func (o ConfigurationSettingPtrOutput) ToConfigurationSettingPtrOutputWithContex
 }
 
 func (o ConfigurationSettingPtrOutput) Elem() ConfigurationSettingOutput {
-	return o.ApplyT(func(v *ConfigurationSetting) ConfigurationSetting { return *v }).(ConfigurationSettingOutput)
+	return o.ApplyT(func(v *ConfigurationSetting) ConfigurationSetting {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetting
+		return ret
+	}).(ConfigurationSettingOutput)
 }
 
 // Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
@@ -573,7 +579,7 @@ func (o ConfigurationSettingResponseOutput) ToConfigurationSettingResponsePtrOut
 }
 
 func (o ConfigurationSettingResponseOutput) ToConfigurationSettingResponsePtrOutputWithContext(ctx context.Context) ConfigurationSettingResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationSettingResponse) *ConfigurationSettingResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSettingResponse) *ConfigurationSettingResponse {
 		return &v
 	}).(ConfigurationSettingResponsePtrOutput)
 }
@@ -623,7 +629,13 @@ func (o ConfigurationSettingResponsePtrOutput) ToConfigurationSettingResponsePtr
 }
 
 func (o ConfigurationSettingResponsePtrOutput) Elem() ConfigurationSettingResponseOutput {
-	return o.ApplyT(func(v *ConfigurationSettingResponse) ConfigurationSettingResponse { return *v }).(ConfigurationSettingResponseOutput)
+	return o.ApplyT(func(v *ConfigurationSettingResponse) ConfigurationSettingResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSettingResponse
+		return ret
+	}).(ConfigurationSettingResponseOutput)
 }
 
 // Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
@@ -786,7 +798,7 @@ func (o GuestConfigurationAssignmentPropertiesOutput) ToGuestConfigurationAssign
 }
 
 func (o GuestConfigurationAssignmentPropertiesOutput) ToGuestConfigurationAssignmentPropertiesPtrOutputWithContext(ctx context.Context) GuestConfigurationAssignmentPropertiesPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
 		return &v
 	}).(GuestConfigurationAssignmentPropertiesPtrOutput)
 }
@@ -818,7 +830,13 @@ func (o GuestConfigurationAssignmentPropertiesPtrOutput) ToGuestConfigurationAss
 }
 
 func (o GuestConfigurationAssignmentPropertiesPtrOutput) Elem() GuestConfigurationAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) GuestConfigurationAssignmentProperties { return *v }).(GuestConfigurationAssignmentPropertiesOutput)
+	return o.ApplyT(func(v *GuestConfigurationAssignmentProperties) GuestConfigurationAssignmentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationAssignmentProperties
+		return ret
+	}).(GuestConfigurationAssignmentPropertiesOutput)
 }
 
 // The source which initiated the guest configuration assignment. Ex: Azure Policy
@@ -961,7 +979,7 @@ func (o GuestConfigurationAssignmentPropertiesResponseOutput) ToGuestConfigurati
 }
 
 func (o GuestConfigurationAssignmentPropertiesResponseOutput) ToGuestConfigurationAssignmentPropertiesResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationAssignmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentPropertiesResponse) *GuestConfigurationAssignmentPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationAssignmentPropertiesResponse) *GuestConfigurationAssignmentPropertiesResponse {
 		return &v
 	}).(GuestConfigurationAssignmentPropertiesResponsePtrOutput)
 }
@@ -1019,7 +1037,11 @@ func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) ToGuestConfigur
 
 func (o GuestConfigurationAssignmentPropertiesResponsePtrOutput) Elem() GuestConfigurationAssignmentPropertiesResponseOutput {
 	return o.ApplyT(func(v *GuestConfigurationAssignmentPropertiesResponse) GuestConfigurationAssignmentPropertiesResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationAssignmentPropertiesResponse
+		return ret
 	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
 }
 
@@ -1217,7 +1239,7 @@ func (o GuestConfigurationNavigationOutput) ToGuestConfigurationNavigationPtrOut
 }
 
 func (o GuestConfigurationNavigationOutput) ToGuestConfigurationNavigationPtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigation) *GuestConfigurationNavigation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationNavigation) *GuestConfigurationNavigation {
 		return &v
 	}).(GuestConfigurationNavigationPtrOutput)
 }
@@ -1277,7 +1299,13 @@ func (o GuestConfigurationNavigationPtrOutput) ToGuestConfigurationNavigationPtr
 }
 
 func (o GuestConfigurationNavigationPtrOutput) Elem() GuestConfigurationNavigationOutput {
-	return o.ApplyT(func(v *GuestConfigurationNavigation) GuestConfigurationNavigation { return *v }).(GuestConfigurationNavigationOutput)
+	return o.ApplyT(func(v *GuestConfigurationNavigation) GuestConfigurationNavigation {
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationNavigation
+		return ret
+	}).(GuestConfigurationNavigationOutput)
 }
 
 // Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
@@ -1484,7 +1512,7 @@ func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigati
 }
 
 func (o GuestConfigurationNavigationResponseOutput) ToGuestConfigurationNavigationResponsePtrOutputWithContext(ctx context.Context) GuestConfigurationNavigationResponsePtrOutput {
-	return o.ApplyT(func(v GuestConfigurationNavigationResponse) *GuestConfigurationNavigationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuestConfigurationNavigationResponse) *GuestConfigurationNavigationResponse {
 		return &v
 	}).(GuestConfigurationNavigationResponsePtrOutput)
 }
@@ -1548,7 +1576,13 @@ func (o GuestConfigurationNavigationResponsePtrOutput) ToGuestConfigurationNavig
 }
 
 func (o GuestConfigurationNavigationResponsePtrOutput) Elem() GuestConfigurationNavigationResponseOutput {
-	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) GuestConfigurationNavigationResponse { return *v }).(GuestConfigurationNavigationResponseOutput)
+	return o.ApplyT(func(v *GuestConfigurationNavigationResponse) GuestConfigurationNavigationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GuestConfigurationNavigationResponse
+		return ret
+	}).(GuestConfigurationNavigationResponseOutput)
 }
 
 // Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.

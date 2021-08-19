@@ -88,45 +88,9 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// The creation date of the user profile.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The identity of the user.
-	Identity *UserIdentityResponse `pulumi:"identity"`
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The secret store of the user.
-	SecretStore *UserSecretStoreResponse `pulumi:"secretStore"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type UserState struct {
-	// The creation date of the user profile.
-	CreatedDate pulumi.StringPtrInput
-	// The identity of the user.
-	Identity UserIdentityResponsePtrInput
-	// The location of the resource.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The secret store of the user.
-	SecretStore UserSecretStoreResponsePtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {
@@ -191,9 +155,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-type UserOutput struct {
-	*pulumi.OutputState
-}
+type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))

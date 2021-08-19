@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.Outputs
 {
 
+    /// <summary>
+    /// The properties of a resource currently being monitored by the Logz monitor resource.
+    /// </summary>
     [OutputType]
     public sealed class MonitoredResourceResponse
     {

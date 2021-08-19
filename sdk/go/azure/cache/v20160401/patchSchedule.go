@@ -75,25 +75,9 @@ func GetPatchSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PatchSchedule resources.
 type patchScheduleState struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
-	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PatchScheduleState struct {
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// List of patch schedules for a Redis cache.
-	ScheduleEntries ScheduleEntryResponseArrayInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PatchScheduleState) ElementType() reflect.Type {
@@ -142,9 +126,7 @@ func (i *PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) Pa
 	return pulumi.ToOutputWithContext(ctx, i).(PatchScheduleOutput)
 }
 
-type PatchScheduleOutput struct {
-	*pulumi.OutputState
-}
+type PatchScheduleOutput struct{ *pulumi.OutputState }
 
 func (PatchScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PatchSchedule)(nil))

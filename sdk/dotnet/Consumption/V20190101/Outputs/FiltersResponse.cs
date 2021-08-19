@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Consumption.V20190101.Outputs
 {
 
+    /// <summary>
+    /// May be used to filter budgets by resource group, resource, or meter.
+    /// </summary>
     [OutputType]
     public sealed class FiltersResponse
     {

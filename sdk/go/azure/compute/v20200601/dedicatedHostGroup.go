@@ -118,45 +118,9 @@ func GetDedicatedHostGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedHostGroup resources.
 type dedicatedHostGroupState struct {
-	// A list of references to all dedicated hosts in the dedicated host group.
-	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
-	// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
-	InstanceView *DedicatedHostGroupInstanceViewResponse `pulumi:"instanceView"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Number of fault domains that the host group can span.
-	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
-	SupportAutomaticPlacement *bool `pulumi:"supportAutomaticPlacement"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-	Zones []string `pulumi:"zones"`
 }
 
 type DedicatedHostGroupState struct {
-	// A list of references to all dedicated hosts in the dedicated host group.
-	Hosts SubResourceReadOnlyResponseArrayInput
-	// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
-	InstanceView DedicatedHostGroupInstanceViewResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Number of fault domains that the host group can span.
-	PlatformFaultDomainCount pulumi.IntPtrInput
-	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
-	SupportAutomaticPlacement pulumi.BoolPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-	Zones pulumi.StringArrayInput
 }
 
 func (DedicatedHostGroupState) ElementType() reflect.Type {
@@ -221,9 +185,7 @@ func (i *DedicatedHostGroup) ToDedicatedHostGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostGroupOutput)
 }
 
-type DedicatedHostGroupOutput struct {
-	*pulumi.OutputState
-}
+type DedicatedHostGroupOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DedicatedHostGroup)(nil))

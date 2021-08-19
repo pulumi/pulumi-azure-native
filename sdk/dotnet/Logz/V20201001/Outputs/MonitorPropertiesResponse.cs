@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Properties specific to the monitor resource.
+    /// </summary>
     [OutputType]
     public sealed class MonitorPropertiesResponse
     {

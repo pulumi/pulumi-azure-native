@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for RequestHeader match conditions
+    /// </summary>
     [OutputType]
     public sealed class RequestHeaderMatchConditionParametersResponse
     {

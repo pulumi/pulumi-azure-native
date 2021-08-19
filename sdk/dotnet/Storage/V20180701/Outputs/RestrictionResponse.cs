@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20180701.Outputs
 {
 
+    /// <summary>
+    /// The restriction because of which SKU cannot be used.
+    /// </summary>
     [OutputType]
     public sealed class RestrictionResponse
     {

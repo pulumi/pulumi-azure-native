@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Outputs
 {
 
+    /// <summary>
+    /// Information about the HybridConnection destination for an event subscription.
+    /// </summary>
     [OutputType]
     public sealed class HybridConnectionEventSubscriptionDestinationResponse
     {

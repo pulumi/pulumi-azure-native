@@ -103,33 +103,9 @@ func GetTransform(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Transform resources.
 type transformState struct {
-	// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created *string `pulumi:"created"`
-	// An optional verbose description of the Transform.
-	Description *string `pulumi:"description"`
-	// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified *string `pulumi:"lastModified"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs []TransformOutputResponse `pulumi:"outputs"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type TransformState struct {
-	// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	Created pulumi.StringPtrInput
-	// An optional verbose description of the Transform.
-	Description pulumi.StringPtrInput
-	// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-	LastModified pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// An array of one or more TransformOutputs that the Transform should generate.
-	Outputs TransformOutputResponseArrayInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TransformState) ElementType() reflect.Type {
@@ -186,9 +162,7 @@ func (i *Transform) ToTransformOutputWithContext(ctx context.Context) TransformO
 	return pulumi.ToOutputWithContext(ctx, i).(TransformOutput)
 }
 
-type TransformOutput struct {
-	*pulumi.OutputState
-}
+type TransformOutput struct{ *pulumi.OutputState }
 
 func (TransformOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Transform)(nil))

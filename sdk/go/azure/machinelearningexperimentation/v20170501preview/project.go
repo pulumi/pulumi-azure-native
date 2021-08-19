@@ -94,57 +94,9 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// The immutable id of the team account which contains this project.
-	AccountId *string `pulumi:"accountId"`
-	// The creation date of the project in ISO8601 format.
-	CreationDate *string `pulumi:"creationDate"`
-	// The description of this project.
-	Description *string `pulumi:"description"`
-	// The friendly name for this project.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The reference to git repo for this project.
-	Gitrepo *string `pulumi:"gitrepo"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// The immutable id of this project.
-	ProjectId *string `pulumi:"projectId"`
-	// The current deployment state of project resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// The immutable id of the workspace which contains this project.
-	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 type ProjectState struct {
-	// The immutable id of the team account which contains this project.
-	AccountId pulumi.StringPtrInput
-	// The creation date of the project in ISO8601 format.
-	CreationDate pulumi.StringPtrInput
-	// The description of this project.
-	Description pulumi.StringPtrInput
-	// The friendly name for this project.
-	FriendlyName pulumi.StringPtrInput
-	// The reference to git repo for this project.
-	Gitrepo pulumi.StringPtrInput
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// The immutable id of this project.
-	ProjectId pulumi.StringPtrInput
-	// The current deployment state of project resource. The provisioningState is to indicate states for resource provisioning.
-	ProvisioningState pulumi.StringPtrInput
-	// The tags of the resource.
-	Tags pulumi.StringMapInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// The immutable id of the workspace which contains this project.
-	WorkspaceId pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -217,9 +169,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

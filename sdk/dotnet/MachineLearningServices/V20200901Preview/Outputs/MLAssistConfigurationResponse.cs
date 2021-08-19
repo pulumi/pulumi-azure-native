@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview.Outputs
 {
 
+    /// <summary>
+    /// Represents configuration for machine learning assisted features in a labeling job.
+    /// </summary>
     [OutputType]
     public sealed class MLAssistConfigurationResponse
     {

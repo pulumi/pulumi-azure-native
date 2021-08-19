@@ -110,7 +110,7 @@ func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutput() EnterpriseSkuPtrOutput {
 }
 
 func (o EnterpriseSkuOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.Context) EnterpriseSkuPtrOutput {
-	return o.ApplyT(func(v EnterpriseSku) *EnterpriseSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseSku) *EnterpriseSku {
 		return &v
 	}).(EnterpriseSkuPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o EnterpriseSkuPtrOutput) ToEnterpriseSkuPtrOutputWithContext(ctx context.
 }
 
 func (o EnterpriseSkuPtrOutput) Elem() EnterpriseSkuOutput {
-	return o.ApplyT(func(v *EnterpriseSku) EnterpriseSku { return *v }).(EnterpriseSkuOutput)
+	return o.ApplyT(func(v *EnterpriseSku) EnterpriseSku {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseSku
+		return ret
+	}).(EnterpriseSkuOutput)
 }
 
 // The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
@@ -263,7 +269,7 @@ func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutput() Enterpri
 }
 
 func (o EnterpriseSkuResponseOutput) ToEnterpriseSkuResponsePtrOutputWithContext(ctx context.Context) EnterpriseSkuResponsePtrOutput {
-	return o.ApplyT(func(v EnterpriseSkuResponse) *EnterpriseSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseSkuResponse) *EnterpriseSkuResponse {
 		return &v
 	}).(EnterpriseSkuResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o EnterpriseSkuResponsePtrOutput) ToEnterpriseSkuResponsePtrOutputWithCont
 }
 
 func (o EnterpriseSkuResponsePtrOutput) Elem() EnterpriseSkuResponseOutput {
-	return o.ApplyT(func(v *EnterpriseSkuResponse) EnterpriseSkuResponse { return *v }).(EnterpriseSkuResponseOutput)
+	return o.ApplyT(func(v *EnterpriseSkuResponse) EnterpriseSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnterpriseSkuResponse
+		return ret
+	}).(EnterpriseSkuResponseOutput)
 }
 
 // The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
@@ -651,7 +663,7 @@ func (o PersistenceOutput) ToPersistencePtrOutput() PersistencePtrOutput {
 }
 
 func (o PersistenceOutput) ToPersistencePtrOutputWithContext(ctx context.Context) PersistencePtrOutput {
-	return o.ApplyT(func(v Persistence) *Persistence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Persistence) *Persistence {
 		return &v
 	}).(PersistencePtrOutput)
 }
@@ -691,7 +703,13 @@ func (o PersistencePtrOutput) ToPersistencePtrOutputWithContext(ctx context.Cont
 }
 
 func (o PersistencePtrOutput) Elem() PersistenceOutput {
-	return o.ApplyT(func(v *Persistence) Persistence { return *v }).(PersistenceOutput)
+	return o.ApplyT(func(v *Persistence) Persistence {
+		if v != nil {
+			return *v
+		}
+		var ret Persistence
+		return ret
+	}).(PersistenceOutput)
 }
 
 // Sets whether AOF is enabled.
@@ -842,7 +860,7 @@ func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutput() PersistenceR
 }
 
 func (o PersistenceResponseOutput) ToPersistenceResponsePtrOutputWithContext(ctx context.Context) PersistenceResponsePtrOutput {
-	return o.ApplyT(func(v PersistenceResponse) *PersistenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersistenceResponse) *PersistenceResponse {
 		return &v
 	}).(PersistenceResponsePtrOutput)
 }
@@ -882,7 +900,13 @@ func (o PersistenceResponsePtrOutput) ToPersistenceResponsePtrOutputWithContext(
 }
 
 func (o PersistenceResponsePtrOutput) Elem() PersistenceResponseOutput {
-	return o.ApplyT(func(v *PersistenceResponse) PersistenceResponse { return *v }).(PersistenceResponseOutput)
+	return o.ApplyT(func(v *PersistenceResponse) PersistenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PersistenceResponse
+		return ret
+	}).(PersistenceResponseOutput)
 }
 
 // Sets whether AOF is enabled.
@@ -1168,7 +1192,7 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() Priv
 }
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointResponse) *PrivateEndpointResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
 		return &v
 	}).(PrivateEndpointResponsePtrOutput)
 }
@@ -1193,7 +1217,13 @@ func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWith
 }
 
 func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
-	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse { return *v }).(PrivateEndpointResponseOutput)
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
 }
 
 // The ARM identifier for Private Endpoint
@@ -1310,7 +1340,7 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 }
 
 func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
 		return &v
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -1345,7 +1375,13 @@ func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnecti
 }
 
 func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionState
+		return ret
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A message indicating if changes on the service provider require any updates on the consumer.
@@ -1482,7 +1518,7 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
 		return &v
 	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
@@ -1518,7 +1554,11 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkService
 
 func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
 	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateResponse
+		return ret
 	}).(PrivateLinkServiceConnectionStateResponseOutput)
 }
 

@@ -264,7 +264,7 @@ func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusRespon
 }
 
 func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointSyncStatusResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) *ServerEndpointSyncStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointSyncStatusResponse) *ServerEndpointSyncStatusResponse {
 		return &v
 	}).(ServerEndpointSyncStatusResponsePtrOutput)
 }
@@ -339,7 +339,13 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) ToServerEndpointSyncStatusRes
 }
 
 func (o ServerEndpointSyncStatusResponsePtrOutput) Elem() ServerEndpointSyncStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse { return *v }).(ServerEndpointSyncStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointSyncStatusResponse
+		return ret
+	}).(ServerEndpointSyncStatusResponseOutput)
 }
 
 // Combined Health Status.
@@ -568,7 +574,7 @@ func (o SyncActivityStatusResponseOutput) ToSyncActivityStatusResponsePtrOutput(
 }
 
 func (o SyncActivityStatusResponseOutput) ToSyncActivityStatusResponsePtrOutputWithContext(ctx context.Context) SyncActivityStatusResponsePtrOutput {
-	return o.ApplyT(func(v SyncActivityStatusResponse) *SyncActivityStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncActivityStatusResponse) *SyncActivityStatusResponse {
 		return &v
 	}).(SyncActivityStatusResponsePtrOutput)
 }
@@ -618,7 +624,13 @@ func (o SyncActivityStatusResponsePtrOutput) ToSyncActivityStatusResponsePtrOutp
 }
 
 func (o SyncActivityStatusResponsePtrOutput) Elem() SyncActivityStatusResponseOutput {
-	return o.ApplyT(func(v *SyncActivityStatusResponse) SyncActivityStatusResponse { return *v }).(SyncActivityStatusResponseOutput)
+	return o.ApplyT(func(v *SyncActivityStatusResponse) SyncActivityStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SyncActivityStatusResponse
+		return ret
+	}).(SyncActivityStatusResponseOutput)
 }
 
 // Applied bytes
@@ -801,7 +813,7 @@ func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutput() 
 }
 
 func (o SyncSessionStatusResponseOutput) ToSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) SyncSessionStatusResponsePtrOutput {
-	return o.ApplyT(func(v SyncSessionStatusResponse) *SyncSessionStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SyncSessionStatusResponse) *SyncSessionStatusResponse {
 		return &v
 	}).(SyncSessionStatusResponsePtrOutput)
 }
@@ -856,7 +868,13 @@ func (o SyncSessionStatusResponsePtrOutput) ToSyncSessionStatusResponsePtrOutput
 }
 
 func (o SyncSessionStatusResponsePtrOutput) Elem() SyncSessionStatusResponseOutput {
-	return o.ApplyT(func(v *SyncSessionStatusResponse) SyncSessionStatusResponse { return *v }).(SyncSessionStatusResponseOutput)
+	return o.ApplyT(func(v *SyncSessionStatusResponse) SyncSessionStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SyncSessionStatusResponse
+		return ret
+	}).(SyncSessionStatusResponseOutput)
 }
 
 // Array of per-item errors coming from the last sync session. Reserved for future use.

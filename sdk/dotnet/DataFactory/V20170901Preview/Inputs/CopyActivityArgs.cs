@@ -109,13 +109,13 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Inputs
         /// Copy activity sink.
         /// </summary>
         [Input("sink", required: true)]
-        public Input<object> Sink { get; set; } = null!;
+        public object Sink { get; set; } = null!;
 
         /// <summary>
         /// Copy activity source.
         /// </summary>
         [Input("source", required: true)]
-        public Input<object> Source { get; set; } = null!;
+        public object Source { get; set; } = null!;
 
         /// <summary>
         /// Specifies interim staging settings when EnableStaging is true.

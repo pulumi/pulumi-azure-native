@@ -118,7 +118,7 @@ func (o ServerEndpointCloudTieringStatusResponseOutput) ToServerEndpointCloudTie
 }
 
 func (o ServerEndpointCloudTieringStatusResponseOutput) ToServerEndpointCloudTieringStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointCloudTieringStatusResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointCloudTieringStatusResponse) *ServerEndpointCloudTieringStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointCloudTieringStatusResponse) *ServerEndpointCloudTieringStatusResponse {
 		return &v
 	}).(ServerEndpointCloudTieringStatusResponsePtrOutput)
 }
@@ -158,7 +158,13 @@ func (o ServerEndpointCloudTieringStatusResponsePtrOutput) ToServerEndpointCloud
 }
 
 func (o ServerEndpointCloudTieringStatusResponsePtrOutput) Elem() ServerEndpointCloudTieringStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointCloudTieringStatusResponse) ServerEndpointCloudTieringStatusResponse { return *v }).(ServerEndpointCloudTieringStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointCloudTieringStatusResponse) ServerEndpointCloudTieringStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointCloudTieringStatusResponse
+		return ret
+	}).(ServerEndpointCloudTieringStatusResponseOutput)
 }
 
 // Cloud tiering health state.
@@ -532,7 +538,7 @@ func (o ServerEndpointRecallStatusResponseOutput) ToServerEndpointRecallStatusRe
 }
 
 func (o ServerEndpointRecallStatusResponseOutput) ToServerEndpointRecallStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointRecallStatusResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointRecallStatusResponse) *ServerEndpointRecallStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointRecallStatusResponse) *ServerEndpointRecallStatusResponse {
 		return &v
 	}).(ServerEndpointRecallStatusResponsePtrOutput)
 }
@@ -567,7 +573,13 @@ func (o ServerEndpointRecallStatusResponsePtrOutput) ToServerEndpointRecallStatu
 }
 
 func (o ServerEndpointRecallStatusResponsePtrOutput) Elem() ServerEndpointRecallStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointRecallStatusResponse) ServerEndpointRecallStatusResponse { return *v }).(ServerEndpointRecallStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointRecallStatusResponse) ServerEndpointRecallStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointRecallStatusResponse
+		return ret
+	}).(ServerEndpointRecallStatusResponseOutput)
 }
 
 // Last updated timestamp
@@ -716,7 +728,7 @@ func (o ServerEndpointSyncActivityStatusResponseOutput) ToServerEndpointSyncActi
 }
 
 func (o ServerEndpointSyncActivityStatusResponseOutput) ToServerEndpointSyncActivityStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointSyncActivityStatusResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointSyncActivityStatusResponse) *ServerEndpointSyncActivityStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointSyncActivityStatusResponse) *ServerEndpointSyncActivityStatusResponse {
 		return &v
 	}).(ServerEndpointSyncActivityStatusResponsePtrOutput)
 }
@@ -766,7 +778,13 @@ func (o ServerEndpointSyncActivityStatusResponsePtrOutput) ToServerEndpointSyncA
 }
 
 func (o ServerEndpointSyncActivityStatusResponsePtrOutput) Elem() ServerEndpointSyncActivityStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) ServerEndpointSyncActivityStatusResponse { return *v }).(ServerEndpointSyncActivityStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointSyncActivityStatusResponse) ServerEndpointSyncActivityStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointSyncActivityStatusResponse
+		return ret
+	}).(ServerEndpointSyncActivityStatusResponseOutput)
 }
 
 // Applied bytes
@@ -949,7 +967,7 @@ func (o ServerEndpointSyncSessionStatusResponseOutput) ToServerEndpointSyncSessi
 }
 
 func (o ServerEndpointSyncSessionStatusResponseOutput) ToServerEndpointSyncSessionStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointSyncSessionStatusResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointSyncSessionStatusResponse) *ServerEndpointSyncSessionStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointSyncSessionStatusResponse) *ServerEndpointSyncSessionStatusResponse {
 		return &v
 	}).(ServerEndpointSyncSessionStatusResponsePtrOutput)
 }
@@ -1006,7 +1024,13 @@ func (o ServerEndpointSyncSessionStatusResponsePtrOutput) ToServerEndpointSyncSe
 }
 
 func (o ServerEndpointSyncSessionStatusResponsePtrOutput) Elem() ServerEndpointSyncSessionStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointSyncSessionStatusResponse) ServerEndpointSyncSessionStatusResponse { return *v }).(ServerEndpointSyncSessionStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointSyncSessionStatusResponse) ServerEndpointSyncSessionStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointSyncSessionStatusResponse
+		return ret
+	}).(ServerEndpointSyncSessionStatusResponseOutput)
 }
 
 // Array of per-item errors coming from the last sync session.
@@ -1215,7 +1239,7 @@ func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusRespon
 }
 
 func (o ServerEndpointSyncStatusResponseOutput) ToServerEndpointSyncStatusResponsePtrOutputWithContext(ctx context.Context) ServerEndpointSyncStatusResponsePtrOutput {
-	return o.ApplyT(func(v ServerEndpointSyncStatusResponse) *ServerEndpointSyncStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointSyncStatusResponse) *ServerEndpointSyncStatusResponse {
 		return &v
 	}).(ServerEndpointSyncStatusResponsePtrOutput)
 }
@@ -1298,7 +1322,13 @@ func (o ServerEndpointSyncStatusResponsePtrOutput) ToServerEndpointSyncStatusRes
 }
 
 func (o ServerEndpointSyncStatusResponsePtrOutput) Elem() ServerEndpointSyncStatusResponseOutput {
-	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse { return *v }).(ServerEndpointSyncStatusResponseOutput)
+	return o.ApplyT(func(v *ServerEndpointSyncStatusResponse) ServerEndpointSyncStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointSyncStatusResponse
+		return ret
+	}).(ServerEndpointSyncStatusResponseOutput)
 }
 
 // Combined Health Status.

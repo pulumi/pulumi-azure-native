@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The content link.
+    /// </summary>
     [OutputType]
     public sealed class ContentLinkResponse
     {

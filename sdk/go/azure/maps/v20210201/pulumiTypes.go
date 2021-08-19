@@ -106,7 +106,7 @@ func (o CreatorPropertiesOutput) ToCreatorPropertiesPtrOutput() CreatorPropertie
 }
 
 func (o CreatorPropertiesOutput) ToCreatorPropertiesPtrOutputWithContext(ctx context.Context) CreatorPropertiesPtrOutput {
-	return o.ApplyT(func(v CreatorProperties) *CreatorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatorProperties) *CreatorProperties {
 		return &v
 	}).(CreatorPropertiesPtrOutput)
 }
@@ -131,7 +131,13 @@ func (o CreatorPropertiesPtrOutput) ToCreatorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o CreatorPropertiesPtrOutput) Elem() CreatorPropertiesOutput {
-	return o.ApplyT(func(v *CreatorProperties) CreatorProperties { return *v }).(CreatorPropertiesOutput)
+	return o.ApplyT(func(v *CreatorProperties) CreatorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CreatorProperties
+		return ret
+	}).(CreatorPropertiesOutput)
 }
 
 // The storage units to be allocated. Integer values from 1 to 100, inclusive.
@@ -244,7 +250,7 @@ func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutput() 
 }
 
 func (o CreatorPropertiesResponseOutput) ToCreatorPropertiesResponsePtrOutputWithContext(ctx context.Context) CreatorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CreatorPropertiesResponse) *CreatorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreatorPropertiesResponse) *CreatorPropertiesResponse {
 		return &v
 	}).(CreatorPropertiesResponsePtrOutput)
 }
@@ -274,7 +280,13 @@ func (o CreatorPropertiesResponsePtrOutput) ToCreatorPropertiesResponsePtrOutput
 }
 
 func (o CreatorPropertiesResponsePtrOutput) Elem() CreatorPropertiesResponseOutput {
-	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse { return *v }).(CreatorPropertiesResponseOutput)
+	return o.ApplyT(func(v *CreatorPropertiesResponse) CreatorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CreatorPropertiesResponse
+		return ret
+	}).(CreatorPropertiesResponseOutput)
 }
 
 // The state of the resource provisioning, terminal states: Succeeded, Failed, Canceled
@@ -393,7 +405,7 @@ func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesPtrOutput() MapsAcco
 }
 
 func (o MapsAccountPropertiesOutput) ToMapsAccountPropertiesPtrOutputWithContext(ctx context.Context) MapsAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v MapsAccountProperties) *MapsAccountProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapsAccountProperties) *MapsAccountProperties {
 		return &v
 	}).(MapsAccountPropertiesPtrOutput)
 }
@@ -418,7 +430,13 @@ func (o MapsAccountPropertiesPtrOutput) ToMapsAccountPropertiesPtrOutputWithCont
 }
 
 func (o MapsAccountPropertiesPtrOutput) Elem() MapsAccountPropertiesOutput {
-	return o.ApplyT(func(v *MapsAccountProperties) MapsAccountProperties { return *v }).(MapsAccountPropertiesOutput)
+	return o.ApplyT(func(v *MapsAccountProperties) MapsAccountProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MapsAccountProperties
+		return ret
+	}).(MapsAccountPropertiesOutput)
 }
 
 // Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
@@ -535,7 +553,7 @@ func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrO
 }
 
 func (o MapsAccountPropertiesResponseOutput) ToMapsAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) MapsAccountPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MapsAccountPropertiesResponse) *MapsAccountPropertiesResponse {
 		return &v
 	}).(MapsAccountPropertiesResponsePtrOutput)
 }
@@ -570,7 +588,13 @@ func (o MapsAccountPropertiesResponsePtrOutput) ToMapsAccountPropertiesResponseP
 }
 
 func (o MapsAccountPropertiesResponsePtrOutput) Elem() MapsAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse { return *v }).(MapsAccountPropertiesResponseOutput)
+	return o.ApplyT(func(v *MapsAccountPropertiesResponse) MapsAccountPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MapsAccountPropertiesResponse
+		return ret
+	}).(MapsAccountPropertiesResponseOutput)
 }
 
 // Allows toggle functionality on Azure Policy to disable Azure Maps local authentication support. This will disable Shared Keys authentication from any usage.
@@ -699,7 +723,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -724,7 +748,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The name of the SKU, in standard format (such as S0).
@@ -837,7 +867,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -867,7 +897,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The name of the SKU, in standard format (such as S0).
@@ -1006,7 +1042,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1056,7 +1092,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.Outputs
 {
 
+    /// <summary>
+    /// The storage profile of the user settings.
+    /// </summary>
     [OutputType]
     public sealed class StorageProfileResponse
     {

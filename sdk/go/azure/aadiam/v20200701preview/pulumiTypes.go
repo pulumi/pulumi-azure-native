@@ -103,7 +103,7 @@ func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsProperties
 }
 
 func (o AzureADMetricsPropertiesFormatResponseOutput) ToAzureADMetricsPropertiesFormatResponsePtrOutputWithContext(ctx context.Context) AzureADMetricsPropertiesFormatResponsePtrOutput {
-	return o.ApplyT(func(v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureADMetricsPropertiesFormatResponse) *AzureADMetricsPropertiesFormatResponse {
 		return &v
 	}).(AzureADMetricsPropertiesFormatResponsePtrOutput)
 }
@@ -128,7 +128,13 @@ func (o AzureADMetricsPropertiesFormatResponsePtrOutput) ToAzureADMetricsPropert
 }
 
 func (o AzureADMetricsPropertiesFormatResponsePtrOutput) Elem() AzureADMetricsPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse { return *v }).(AzureADMetricsPropertiesFormatResponseOutput)
+	return o.ApplyT(func(v *AzureADMetricsPropertiesFormatResponse) AzureADMetricsPropertiesFormatResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureADMetricsPropertiesFormatResponse
+		return ret
+	}).(AzureADMetricsPropertiesFormatResponseOutput)
 }
 
 // The provisioning state of the resource.

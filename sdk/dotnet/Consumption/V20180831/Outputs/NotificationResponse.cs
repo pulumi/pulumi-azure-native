@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Consumption.V20180831.Outputs
 {
 
+    /// <summary>
+    /// The notification associated with a budget.
+    /// </summary>
     [OutputType]
     public sealed class NotificationResponse
     {

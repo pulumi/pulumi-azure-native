@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search.V20200801Preview.Outputs
 {
 
+    /// <summary>
+    /// Network specific rules that determine how the Azure Cognitive Search service may be reached.
+    /// </summary>
     [OutputType]
     public sealed class NetworkRuleSetResponse
     {

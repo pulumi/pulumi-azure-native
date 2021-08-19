@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties of an environment deployment.
+    /// </summary>
     [OutputType]
     public sealed class EnvironmentDeploymentPropertiesResponse
     {

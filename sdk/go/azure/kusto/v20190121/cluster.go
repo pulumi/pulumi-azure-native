@@ -138,49 +138,9 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The cluster data ingestion URI.
-	DataIngestionUri *string `pulumi:"dataIngestionUri"`
-	// The geo-location where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The SKU of the cluster.
-	Sku *AzureSkuResponse `pulumi:"sku"`
-	// The state of the resource.
-	State *string `pulumi:"state"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The cluster's external tenants.
-	TrustedExternalTenants []TrustedExternalTenantResponse `pulumi:"trustedExternalTenants"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
-	// The cluster URI.
-	Uri *string `pulumi:"uri"`
 }
 
 type ClusterState struct {
-	// The cluster data ingestion URI.
-	DataIngestionUri pulumi.StringPtrInput
-	// The geo-location where the resource lives
-	Location pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The SKU of the cluster.
-	Sku AzureSkuResponsePtrInput
-	// The state of the resource.
-	State pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// The cluster's external tenants.
-	TrustedExternalTenants TrustedExternalTenantResponseArrayInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
-	// The cluster URI.
-	Uri pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -241,9 +201,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

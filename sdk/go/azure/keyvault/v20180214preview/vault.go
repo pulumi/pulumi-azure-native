@@ -116,29 +116,9 @@ func GetVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vault resources.
 type vaultState struct {
-	// The supported Azure location where the key vault should be created.
-	Location *string `pulumi:"location"`
-	// The name of the key vault.
-	Name *string `pulumi:"name"`
-	// Properties of the vault
-	Properties *VaultPropertiesResponse `pulumi:"properties"`
-	// The tags that will be assigned to the key vault.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type of the key vault.
-	Type *string `pulumi:"type"`
 }
 
 type VaultState struct {
-	// The supported Azure location where the key vault should be created.
-	Location pulumi.StringPtrInput
-	// The name of the key vault.
-	Name pulumi.StringPtrInput
-	// Properties of the vault
-	Properties VaultPropertiesResponsePtrInput
-	// The tags that will be assigned to the key vault.
-	Tags pulumi.StringMapInput
-	// The resource type of the key vault.
-	Type pulumi.StringPtrInput
 }
 
 func (VaultState) ElementType() reflect.Type {
@@ -195,9 +175,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
 }
 
-type VaultOutput struct {
-	*pulumi.OutputState
-}
+type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vault)(nil))

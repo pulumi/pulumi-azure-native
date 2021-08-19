@@ -78,41 +78,9 @@ func GetCustomResourceProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomResourceProvider resources.
 type customResourceProviderState struct {
-	// A list of actions that the custom resource provider implements.
-	Actions []CustomRPActionRouteDefinitionResponse `pulumi:"actions"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// The provisioning state of the resource provider.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// A list of resource types that the custom resource provider implements.
-	ResourceTypes []CustomRPResourceTypeRouteDefinitionResponse `pulumi:"resourceTypes"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// A list of validations to run on the custom resource provider's requests.
-	Validations []CustomRPValidationsResponse `pulumi:"validations"`
 }
 
 type CustomResourceProviderState struct {
-	// A list of actions that the custom resource provider implements.
-	Actions CustomRPActionRouteDefinitionResponseArrayInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// The provisioning state of the resource provider.
-	ProvisioningState pulumi.StringPtrInput
-	// A list of resource types that the custom resource provider implements.
-	ResourceTypes CustomRPResourceTypeRouteDefinitionResponseArrayInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// A list of validations to run on the custom resource provider's requests.
-	Validations CustomRPValidationsResponseArrayInput
 }
 
 func (CustomResourceProviderState) ElementType() reflect.Type {
@@ -177,9 +145,7 @@ func (i *CustomResourceProvider) ToCustomResourceProviderOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CustomResourceProviderOutput)
 }
 
-type CustomResourceProviderOutput struct {
-	*pulumi.OutputState
-}
+type CustomResourceProviderOutput struct{ *pulumi.OutputState }
 
 func (CustomResourceProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomResourceProvider)(nil))

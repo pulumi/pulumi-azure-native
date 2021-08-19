@@ -104,29 +104,9 @@ func GetSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlResourceSqlRoleAssignment resources.
 type sqlResourceSqlRoleAssignmentState struct {
-	// The name of the database account.
-	Name *string `pulumi:"name"`
-	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
-	PrincipalId *string `pulumi:"principalId"`
-	// The unique identifier for the associated Role Definition.
-	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
-	// The data plane resource path for which access is being granted through this Role Assignment.
-	Scope *string `pulumi:"scope"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type SqlResourceSqlRoleAssignmentState struct {
-	// The name of the database account.
-	Name pulumi.StringPtrInput
-	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
-	PrincipalId pulumi.StringPtrInput
-	// The unique identifier for the associated Role Definition.
-	RoleDefinitionId pulumi.StringPtrInput
-	// The data plane resource path for which access is being granted through this Role Assignment.
-	Scope pulumi.StringPtrInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (SqlResourceSqlRoleAssignmentState) ElementType() reflect.Type {
@@ -187,9 +167,7 @@ func (i *SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlRoleAssignmentOutput)
 }
 
-type SqlResourceSqlRoleAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type SqlResourceSqlRoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlRoleAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil))

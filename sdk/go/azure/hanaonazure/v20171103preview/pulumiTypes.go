@@ -337,7 +337,7 @@ func (o HardwareProfileResponseOutput) ToHardwareProfileResponsePtrOutput() Hard
 }
 
 func (o HardwareProfileResponseOutput) ToHardwareProfileResponsePtrOutputWithContext(ctx context.Context) HardwareProfileResponsePtrOutput {
-	return o.ApplyT(func(v HardwareProfileResponse) *HardwareProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HardwareProfileResponse) *HardwareProfileResponse {
 		return &v
 	}).(HardwareProfileResponsePtrOutput)
 }
@@ -367,7 +367,13 @@ func (o HardwareProfileResponsePtrOutput) ToHardwareProfileResponsePtrOutputWith
 }
 
 func (o HardwareProfileResponsePtrOutput) Elem() HardwareProfileResponseOutput {
-	return o.ApplyT(func(v *HardwareProfileResponse) HardwareProfileResponse { return *v }).(HardwareProfileResponseOutput)
+	return o.ApplyT(func(v *HardwareProfileResponse) HardwareProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret HardwareProfileResponse
+		return ret
+	}).(HardwareProfileResponseOutput)
 }
 
 // Specifies the HANA instance SKU.
@@ -686,7 +692,7 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutput() NetworkProfilePtrOutpu
 }
 
 func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.Context) NetworkProfilePtrOutput {
-	return o.ApplyT(func(v NetworkProfile) *NetworkProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfile) *NetworkProfile {
 		return &v
 	}).(NetworkProfilePtrOutput)
 }
@@ -711,7 +717,13 @@ func (o NetworkProfilePtrOutput) ToNetworkProfilePtrOutputWithContext(ctx contex
 }
 
 func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
-	return o.ApplyT(func(v *NetworkProfile) NetworkProfile { return *v }).(NetworkProfileOutput)
+	return o.ApplyT(func(v *NetworkProfile) NetworkProfile {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfile
+		return ret
+	}).(NetworkProfileOutput)
 }
 
 // Specifies the network interfaces for the HANA instance.
@@ -824,7 +836,7 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() Networ
 }
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v NetworkProfileResponse) *NetworkProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
 		return &v
 	}).(NetworkProfileResponsePtrOutput)
 }
@@ -854,7 +866,13 @@ func (o NetworkProfileResponsePtrOutput) ToNetworkProfileResponsePtrOutputWithCo
 }
 
 func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
-	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse { return *v }).(NetworkProfileResponseOutput)
+	return o.ApplyT(func(v *NetworkProfileResponse) NetworkProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkProfileResponse
+		return ret
+	}).(NetworkProfileResponseOutput)
 }
 
 // Specifies the circuit id for connecting to express route.
@@ -977,7 +995,7 @@ func (o OSProfileOutput) ToOSProfilePtrOutput() OSProfilePtrOutput {
 }
 
 func (o OSProfileOutput) ToOSProfilePtrOutputWithContext(ctx context.Context) OSProfilePtrOutput {
-	return o.ApplyT(func(v OSProfile) *OSProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfile) *OSProfile {
 		return &v
 	}).(OSProfilePtrOutput)
 }
@@ -1007,7 +1025,13 @@ func (o OSProfilePtrOutput) ToOSProfilePtrOutputWithContext(ctx context.Context)
 }
 
 func (o OSProfilePtrOutput) Elem() OSProfileOutput {
-	return o.ApplyT(func(v *OSProfile) OSProfile { return *v }).(OSProfileOutput)
+	return o.ApplyT(func(v *OSProfile) OSProfile {
+		if v != nil {
+			return *v
+		}
+		var ret OSProfile
+		return ret
+	}).(OSProfileOutput)
 }
 
 // Specifies the host OS name of the HANA instance.
@@ -1138,7 +1162,7 @@ func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutput() OSProfileRespons
 }
 
 func (o OSProfileResponseOutput) ToOSProfileResponsePtrOutputWithContext(ctx context.Context) OSProfileResponsePtrOutput {
-	return o.ApplyT(func(v OSProfileResponse) *OSProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OSProfileResponse) *OSProfileResponse {
 		return &v
 	}).(OSProfileResponsePtrOutput)
 }
@@ -1178,7 +1202,13 @@ func (o OSProfileResponsePtrOutput) ToOSProfileResponsePtrOutputWithContext(ctx 
 }
 
 func (o OSProfileResponsePtrOutput) Elem() OSProfileResponseOutput {
-	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse { return *v }).(OSProfileResponseOutput)
+	return o.ApplyT(func(v *OSProfileResponse) OSProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret OSProfileResponse
+		return ret
+	}).(OSProfileResponseOutput)
 }
 
 // Specifies the host OS name of the HANA instance.
@@ -1584,7 +1614,7 @@ func (o StorageProfileOutput) ToStorageProfilePtrOutput() StorageProfilePtrOutpu
 }
 
 func (o StorageProfileOutput) ToStorageProfilePtrOutputWithContext(ctx context.Context) StorageProfilePtrOutput {
-	return o.ApplyT(func(v StorageProfile) *StorageProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfile) *StorageProfile {
 		return &v
 	}).(StorageProfilePtrOutput)
 }
@@ -1614,7 +1644,13 @@ func (o StorageProfilePtrOutput) ToStorageProfilePtrOutputWithContext(ctx contex
 }
 
 func (o StorageProfilePtrOutput) Elem() StorageProfileOutput {
-	return o.ApplyT(func(v *StorageProfile) StorageProfile { return *v }).(StorageProfileOutput)
+	return o.ApplyT(func(v *StorageProfile) StorageProfile {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfile
+		return ret
+	}).(StorageProfileOutput)
 }
 
 // Specifies information related to SAP system IDs for the hana instance.
@@ -1741,7 +1777,7 @@ func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutput() Storag
 }
 
 func (o StorageProfileResponseOutput) ToStorageProfileResponsePtrOutputWithContext(ctx context.Context) StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v StorageProfileResponse) *StorageProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageProfileResponse) *StorageProfileResponse {
 		return &v
 	}).(StorageProfileResponsePtrOutput)
 }
@@ -1776,7 +1812,13 @@ func (o StorageProfileResponsePtrOutput) ToStorageProfileResponsePtrOutputWithCo
 }
 
 func (o StorageProfileResponsePtrOutput) Elem() StorageProfileResponseOutput {
-	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse { return *v }).(StorageProfileResponseOutput)
+	return o.ApplyT(func(v *StorageProfileResponse) StorageProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageProfileResponse
+		return ret
+	}).(StorageProfileResponseOutput)
 }
 
 // Specifies information related to SAP system IDs for the hana instance.

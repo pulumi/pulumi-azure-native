@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.V20150301Preview.Outputs
 {
 
+    /// <summary>
+    /// The SSH public key for the cluster nodes.
+    /// </summary>
     [OutputType]
     public sealed class SshPublicKeyResponse
     {

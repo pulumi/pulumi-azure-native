@@ -110,7 +110,7 @@ func (o AuthorizationOutput) ToAuthorizationPtrOutput() AuthorizationPtrOutput {
 }
 
 func (o AuthorizationOutput) ToAuthorizationPtrOutputWithContext(ctx context.Context) AuthorizationPtrOutput {
-	return o.ApplyT(func(v Authorization) *Authorization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Authorization) *Authorization {
 		return &v
 	}).(AuthorizationPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o AuthorizationPtrOutput) ToAuthorizationPtrOutputWithContext(ctx context.
 }
 
 func (o AuthorizationPtrOutput) Elem() AuthorizationOutput {
-	return o.ApplyT(func(v *Authorization) Authorization { return *v }).(AuthorizationOutput)
+	return o.ApplyT(func(v *Authorization) Authorization {
+		if v != nil {
+			return *v
+		}
+		var ret Authorization
+		return ret
+	}).(AuthorizationOutput)
 }
 
 // Type of authorization.
@@ -263,7 +269,7 @@ func (o AuthorizationResponseOutput) ToAuthorizationResponsePtrOutput() Authoriz
 }
 
 func (o AuthorizationResponseOutput) ToAuthorizationResponsePtrOutputWithContext(ctx context.Context) AuthorizationResponsePtrOutput {
-	return o.ApplyT(func(v AuthorizationResponse) *AuthorizationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationResponse) *AuthorizationResponse {
 		return &v
 	}).(AuthorizationResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o AuthorizationResponsePtrOutput) ToAuthorizationResponsePtrOutputWithCont
 }
 
 func (o AuthorizationResponsePtrOutput) Elem() AuthorizationResponseOutput {
-	return o.ApplyT(func(v *AuthorizationResponse) AuthorizationResponse { return *v }).(AuthorizationResponseOutput)
+	return o.ApplyT(func(v *AuthorizationResponse) AuthorizationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AuthorizationResponse
+		return ret
+	}).(AuthorizationResponseOutput)
 }
 
 // Type of authorization.
@@ -416,7 +428,7 @@ func (o BootstrapConfigurationOutput) ToBootstrapConfigurationPtrOutput() Bootst
 }
 
 func (o BootstrapConfigurationOutput) ToBootstrapConfigurationPtrOutputWithContext(ctx context.Context) BootstrapConfigurationPtrOutput {
-	return o.ApplyT(func(v BootstrapConfiguration) *BootstrapConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootstrapConfiguration) *BootstrapConfiguration {
 		return &v
 	}).(BootstrapConfigurationPtrOutput)
 }
@@ -446,7 +458,13 @@ func (o BootstrapConfigurationPtrOutput) ToBootstrapConfigurationPtrOutputWithCo
 }
 
 func (o BootstrapConfigurationPtrOutput) Elem() BootstrapConfigurationOutput {
-	return o.ApplyT(func(v *BootstrapConfiguration) BootstrapConfiguration { return *v }).(BootstrapConfigurationOutput)
+	return o.ApplyT(func(v *BootstrapConfiguration) BootstrapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BootstrapConfiguration
+		return ret
+	}).(BootstrapConfigurationOutput)
 }
 
 // Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
@@ -569,7 +587,7 @@ func (o BootstrapConfigurationResponseOutput) ToBootstrapConfigurationResponsePt
 }
 
 func (o BootstrapConfigurationResponseOutput) ToBootstrapConfigurationResponsePtrOutputWithContext(ctx context.Context) BootstrapConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v BootstrapConfigurationResponse) *BootstrapConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BootstrapConfigurationResponse) *BootstrapConfigurationResponse {
 		return &v
 	}).(BootstrapConfigurationResponsePtrOutput)
 }
@@ -599,7 +617,13 @@ func (o BootstrapConfigurationResponsePtrOutput) ToBootstrapConfigurationRespons
 }
 
 func (o BootstrapConfigurationResponsePtrOutput) Elem() BootstrapConfigurationResponseOutput {
-	return o.ApplyT(func(v *BootstrapConfigurationResponse) BootstrapConfigurationResponse { return *v }).(BootstrapConfigurationResponseOutput)
+	return o.ApplyT(func(v *BootstrapConfigurationResponse) BootstrapConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BootstrapConfigurationResponse
+		return ret
+	}).(BootstrapConfigurationResponseOutput)
 }
 
 // Repository containing the source code for the pipeline. Currently only 'azurePipeline' pipeline type supports this.
@@ -734,7 +758,7 @@ func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutpu
 }
 
 func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return o.ApplyT(func(v CodeRepository) *CodeRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepository) *CodeRepository {
 		return &v
 	}).(CodeRepositoryPtrOutput)
 }
@@ -779,7 +803,13 @@ func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutputWithContext(ctx contex
 }
 
 func (o CodeRepositoryPtrOutput) Elem() CodeRepositoryOutput {
-	return o.ApplyT(func(v *CodeRepository) CodeRepository { return *v }).(CodeRepositoryOutput)
+	return o.ApplyT(func(v *CodeRepository) CodeRepository {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepository
+		return ret
+	}).(CodeRepositoryOutput)
 }
 
 // Authorization info to access the code repository.
@@ -944,7 +974,7 @@ func (o CodeRepositoryResponseOutput) ToCodeRepositoryResponsePtrOutput() CodeRe
 }
 
 func (o CodeRepositoryResponseOutput) ToCodeRepositoryResponsePtrOutputWithContext(ctx context.Context) CodeRepositoryResponsePtrOutput {
-	return o.ApplyT(func(v CodeRepositoryResponse) *CodeRepositoryResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryResponse) *CodeRepositoryResponse {
 		return &v
 	}).(CodeRepositoryResponsePtrOutput)
 }
@@ -989,7 +1019,13 @@ func (o CodeRepositoryResponsePtrOutput) ToCodeRepositoryResponsePtrOutputWithCo
 }
 
 func (o CodeRepositoryResponsePtrOutput) Elem() CodeRepositoryResponseOutput {
-	return o.ApplyT(func(v *CodeRepositoryResponse) CodeRepositoryResponse { return *v }).(CodeRepositoryResponseOutput)
+	return o.ApplyT(func(v *CodeRepositoryResponse) CodeRepositoryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepositoryResponse
+		return ret
+	}).(CodeRepositoryResponseOutput)
 }
 
 // Authorization info to access the code repository.
@@ -1142,7 +1178,7 @@ func (o PipelineTemplateOutput) ToPipelineTemplatePtrOutput() PipelineTemplatePt
 }
 
 func (o PipelineTemplateOutput) ToPipelineTemplatePtrOutputWithContext(ctx context.Context) PipelineTemplatePtrOutput {
-	return o.ApplyT(func(v PipelineTemplate) *PipelineTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTemplate) *PipelineTemplate {
 		return &v
 	}).(PipelineTemplatePtrOutput)
 }
@@ -1172,7 +1208,13 @@ func (o PipelineTemplatePtrOutput) ToPipelineTemplatePtrOutputWithContext(ctx co
 }
 
 func (o PipelineTemplatePtrOutput) Elem() PipelineTemplateOutput {
-	return o.ApplyT(func(v *PipelineTemplate) PipelineTemplate { return *v }).(PipelineTemplateOutput)
+	return o.ApplyT(func(v *PipelineTemplate) PipelineTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTemplate
+		return ret
+	}).(PipelineTemplateOutput)
 }
 
 // Unique identifier of the pipeline template.
@@ -1295,7 +1337,7 @@ func (o PipelineTemplateResponseOutput) ToPipelineTemplateResponsePtrOutput() Pi
 }
 
 func (o PipelineTemplateResponseOutput) ToPipelineTemplateResponsePtrOutputWithContext(ctx context.Context) PipelineTemplateResponsePtrOutput {
-	return o.ApplyT(func(v PipelineTemplateResponse) *PipelineTemplateResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineTemplateResponse) *PipelineTemplateResponse {
 		return &v
 	}).(PipelineTemplateResponsePtrOutput)
 }
@@ -1325,7 +1367,13 @@ func (o PipelineTemplateResponsePtrOutput) ToPipelineTemplateResponsePtrOutputWi
 }
 
 func (o PipelineTemplateResponsePtrOutput) Elem() PipelineTemplateResponseOutput {
-	return o.ApplyT(func(v *PipelineTemplateResponse) PipelineTemplateResponse { return *v }).(PipelineTemplateResponseOutput)
+	return o.ApplyT(func(v *PipelineTemplateResponse) PipelineTemplateResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineTemplateResponse
+		return ret
+	}).(PipelineTemplateResponseOutput)
 }
 
 // Unique identifier of the pipeline template.
@@ -1464,7 +1512,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1514,7 +1562,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).

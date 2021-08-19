@@ -141,37 +141,9 @@ func GetPolicyAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAssignment resources.
 type policyAssignmentState struct {
-	// This message will be part of response in case of policy violation.
-	Description *string `pulumi:"description"`
-	// The display name of the policy assignment.
-	DisplayName *string `pulumi:"displayName"`
-	// The name of the policy assignment.
-	Name *string `pulumi:"name"`
-	// Required if a parameter is used in policy rule.
-	Parameters interface{} `pulumi:"parameters"`
-	// The ID of the policy definition.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// The scope for the policy assignment.
-	Scope *string `pulumi:"scope"`
-	// The type of the policy assignment.
-	Type *string `pulumi:"type"`
 }
 
 type PolicyAssignmentState struct {
-	// This message will be part of response in case of policy violation.
-	Description pulumi.StringPtrInput
-	// The display name of the policy assignment.
-	DisplayName pulumi.StringPtrInput
-	// The name of the policy assignment.
-	Name pulumi.StringPtrInput
-	// Required if a parameter is used in policy rule.
-	Parameters pulumi.Input
-	// The ID of the policy definition.
-	PolicyDefinitionId pulumi.StringPtrInput
-	// The scope for the policy assignment.
-	Scope pulumi.StringPtrInput
-	// The type of the policy assignment.
-	Type pulumi.StringPtrInput
 }
 
 func (PolicyAssignmentState) ElementType() reflect.Type {
@@ -240,9 +212,7 @@ func (i *PolicyAssignment) ToPolicyAssignmentOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentOutput)
 }
 
-type PolicyAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignment)(nil))

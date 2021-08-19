@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.Outputs
 {
 
+    /// <summary>
+    /// Mount target properties
+    /// </summary>
     [OutputType]
     public sealed class MountTargetPropertiesResponse
     {

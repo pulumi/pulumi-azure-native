@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DelegatedNetwork.V20200808Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of orchestrator
+    /// </summary>
     [OutputType]
     public sealed class SubnetDetailsResponse
     {

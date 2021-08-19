@@ -85,49 +85,9 @@ func GetBlueprint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Blueprint resources.
 type blueprintState struct {
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Layout view of the blueprint definition for UI reference.
-	Layout interface{} `pulumi:"layout"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Parameters required by this blueprint definition.
-	Parameters map[string]ParameterDefinitionResponse `pulumi:"parameters"`
-	// Resource group placeholders defined by this blueprint definition.
-	ResourceGroups map[string]ResourceGroupDefinitionResponse `pulumi:"resourceGroups"`
-	// Status of the blueprint. This field is readonly.
-	Status *BlueprintStatusResponse `pulumi:"status"`
-	// The scope where this blueprint definition can be assigned.
-	TargetScope *string `pulumi:"targetScope"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
-	// Published versions of this blueprint definition.
-	Versions interface{} `pulumi:"versions"`
 }
 
 type BlueprintState struct {
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Layout view of the blueprint definition for UI reference.
-	Layout pulumi.Input
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Parameters required by this blueprint definition.
-	Parameters ParameterDefinitionResponseMapInput
-	// Resource group placeholders defined by this blueprint definition.
-	ResourceGroups ResourceGroupDefinitionResponseMapInput
-	// Status of the blueprint. This field is readonly.
-	Status BlueprintStatusResponsePtrInput
-	// The scope where this blueprint definition can be assigned.
-	TargetScope pulumi.StringPtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
-	// Published versions of this blueprint definition.
-	Versions pulumi.Input
 }
 
 func (BlueprintState) ElementType() reflect.Type {
@@ -196,9 +156,7 @@ func (i *Blueprint) ToBlueprintOutputWithContext(ctx context.Context) BlueprintO
 	return pulumi.ToOutputWithContext(ctx, i).(BlueprintOutput)
 }
 
-type BlueprintOutput struct {
-	*pulumi.OutputState
-}
+type BlueprintOutput struct{ *pulumi.OutputState }
 
 func (BlueprintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Blueprint)(nil))

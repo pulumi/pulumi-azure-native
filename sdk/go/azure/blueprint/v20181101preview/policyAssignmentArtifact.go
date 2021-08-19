@@ -93,47 +93,9 @@ func GetPolicyAssignmentArtifact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyAssignmentArtifact resources.
 type policyAssignmentArtifactState struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn []string `pulumi:"dependsOn"`
-	// Multi-line explain this resource.
-	Description *string `pulumi:"description"`
-	// One-liner string explain this resource.
-	DisplayName *string `pulumi:"displayName"`
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'policyAssignment'.
-	Kind *string `pulumi:"kind"`
-	// Name of this resource.
-	Name *string `pulumi:"name"`
-	// Parameter values for the policy definition.
-	Parameters map[string]ParameterValueResponse `pulumi:"parameters"`
-	// Azure resource ID of the policy definition.
-	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-	// Name of the resource group placeholder to which the policy will be assigned.
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Type of this resource.
-	Type *string `pulumi:"type"`
 }
 
 type PolicyAssignmentArtifactState struct {
-	// Artifacts which need to be deployed before the specified artifact.
-	DependsOn pulumi.StringArrayInput
-	// Multi-line explain this resource.
-	Description pulumi.StringPtrInput
-	// One-liner string explain this resource.
-	DisplayName pulumi.StringPtrInput
-	// Specifies the kind of blueprint artifact.
-	// Expected value is 'policyAssignment'.
-	Kind pulumi.StringPtrInput
-	// Name of this resource.
-	Name pulumi.StringPtrInput
-	// Parameter values for the policy definition.
-	Parameters ParameterValueResponseMapInput
-	// Azure resource ID of the policy definition.
-	PolicyDefinitionId pulumi.StringPtrInput
-	// Name of the resource group placeholder to which the policy will be assigned.
-	ResourceGroup pulumi.StringPtrInput
-	// Type of this resource.
-	Type pulumi.StringPtrInput
 }
 
 func (PolicyAssignmentArtifactState) ElementType() reflect.Type {
@@ -212,9 +174,7 @@ func (i *PolicyAssignmentArtifact) ToPolicyAssignmentArtifactOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentArtifactOutput)
 }
 
-type PolicyAssignmentArtifactOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAssignmentArtifactOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAssignmentArtifact)(nil))

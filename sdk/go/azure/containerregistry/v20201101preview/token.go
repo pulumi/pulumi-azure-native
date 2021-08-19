@@ -92,41 +92,9 @@ func GetToken(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Token resources.
 type tokenState struct {
-	// The creation date of scope map.
-	CreationDate *string `pulumi:"creationDate"`
-	// The credentials that can be used for authenticating the token.
-	Credentials *TokenCredentialsPropertiesResponse `pulumi:"credentials"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// Provisioning state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource ID of the scope map to which the token will be associated with.
-	ScopeMapId *string `pulumi:"scopeMapId"`
-	// The status of the token example enabled or disabled.
-	Status *string `pulumi:"status"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
 }
 
 type TokenState struct {
-	// The creation date of scope map.
-	CreationDate pulumi.StringPtrInput
-	// The credentials that can be used for authenticating the token.
-	Credentials TokenCredentialsPropertiesResponsePtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// Provisioning state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource ID of the scope map to which the token will be associated with.
-	ScopeMapId pulumi.StringPtrInput
-	// The status of the token example enabled or disabled.
-	Status pulumi.StringPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
 }
 
 func (TokenState) ElementType() reflect.Type {
@@ -187,9 +155,7 @@ func (i *Token) ToTokenOutputWithContext(ctx context.Context) TokenOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TokenOutput)
 }
 
-type TokenOutput struct {
-	*pulumi.OutputState
-}
+type TokenOutput struct{ *pulumi.OutputState }
 
 func (TokenOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Token)(nil))

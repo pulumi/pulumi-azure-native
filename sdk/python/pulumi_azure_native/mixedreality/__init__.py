@@ -20,12 +20,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.mixedreality.v20190228preview as v20190228preview
-    import pulumi_azure_native.mixedreality.v20191202preview as v20191202preview
-    import pulumi_azure_native.mixedreality.v20200406preview as v20200406preview
-    import pulumi_azure_native.mixedreality.v20200501 as v20200501
-    import pulumi_azure_native.mixedreality.v20210101 as v20210101
-    import pulumi_azure_native.mixedreality.v20210301preview as v20210301preview
+    import pulumi_azure_native.mixedreality.v20190228preview as __v20190228preview
+    v20190228preview = __v20190228preview
+    import pulumi_azure_native.mixedreality.v20191202preview as __v20191202preview
+    v20191202preview = __v20191202preview
+    import pulumi_azure_native.mixedreality.v20200406preview as __v20200406preview
+    v20200406preview = __v20200406preview
+    import pulumi_azure_native.mixedreality.v20200501 as __v20200501
+    v20200501 = __v20200501
+    import pulumi_azure_native.mixedreality.v20210101 as __v20210101
+    v20210101 = __v20210101
+    import pulumi_azure_native.mixedreality.v20210301preview as __v20210301preview
+    v20210301preview = __v20210301preview
 else:
     v20190228preview = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20190228preview')
     v20191202preview = _utilities.lazy_import('pulumi_azure_native.mixedreality.v20191202preview')

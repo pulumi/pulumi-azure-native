@@ -328,7 +328,7 @@ func (o PolicySkuOutput) ToPolicySkuPtrOutput() PolicySkuPtrOutput {
 }
 
 func (o PolicySkuOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context) PolicySkuPtrOutput {
-	return o.ApplyT(func(v PolicySku) *PolicySku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySku) *PolicySku {
 		return &v
 	}).(PolicySkuPtrOutput)
 }
@@ -358,7 +358,13 @@ func (o PolicySkuPtrOutput) ToPolicySkuPtrOutputWithContext(ctx context.Context)
 }
 
 func (o PolicySkuPtrOutput) Elem() PolicySkuOutput {
-	return o.ApplyT(func(v *PolicySku) PolicySku { return *v }).(PolicySkuOutput)
+	return o.ApplyT(func(v *PolicySku) PolicySku {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySku
+		return ret
+	}).(PolicySkuOutput)
 }
 
 // The name of the policy sku. Possible values are A0 and A1.
@@ -481,7 +487,7 @@ func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutput() PolicySkuRespons
 }
 
 func (o PolicySkuResponseOutput) ToPolicySkuResponsePtrOutputWithContext(ctx context.Context) PolicySkuResponsePtrOutput {
-	return o.ApplyT(func(v PolicySkuResponse) *PolicySkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySkuResponse) *PolicySkuResponse {
 		return &v
 	}).(PolicySkuResponsePtrOutput)
 }
@@ -511,7 +517,13 @@ func (o PolicySkuResponsePtrOutput) ToPolicySkuResponsePtrOutputWithContext(ctx 
 }
 
 func (o PolicySkuResponsePtrOutput) Elem() PolicySkuResponseOutput {
-	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse { return *v }).(PolicySkuResponseOutput)
+	return o.ApplyT(func(v *PolicySkuResponse) PolicySkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySkuResponse
+		return ret
+	}).(PolicySkuResponseOutput)
 }
 
 // The name of the policy sku. Possible values are A0 and A1.

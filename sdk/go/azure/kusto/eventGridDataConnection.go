@@ -150,63 +150,9 @@ func GetEventGridDataConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventGridDataConnection resources.
 type eventGridDataConnectionState struct {
-	// The name of blob storage event type to process.
-	BlobStorageEventType *string `pulumi:"blobStorageEventType"`
-	// The event hub consumer group.
-	ConsumerGroup *string `pulumi:"consumerGroup"`
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat *string `pulumi:"dataFormat"`
-	// The resource ID where the event grid is configured to send events.
-	EventHubResourceId *string `pulumi:"eventHubResourceId"`
-	// A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
-	IgnoreFirstRecord *bool `pulumi:"ignoreFirstRecord"`
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventGrid'.
-	Kind *string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName *string `pulumi:"mappingRuleName"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// The provisioned state of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The resource ID of the storage account where the data resides.
-	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName *string `pulumi:"tableName"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type EventGridDataConnectionState struct {
-	// The name of blob storage event type to process.
-	BlobStorageEventType pulumi.StringPtrInput
-	// The event hub consumer group.
-	ConsumerGroup pulumi.StringPtrInput
-	// The data format of the message. Optionally the data format can be added to each message.
-	DataFormat pulumi.StringPtrInput
-	// The resource ID where the event grid is configured to send events.
-	EventHubResourceId pulumi.StringPtrInput
-	// A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
-	IgnoreFirstRecord pulumi.BoolPtrInput
-	// Kind of the endpoint for the data connection
-	// Expected value is 'EventGrid'.
-	Kind pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
-	MappingRuleName pulumi.StringPtrInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// The provisioned state of the resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The resource ID of the storage account where the data resides.
-	StorageAccountResourceId pulumi.StringPtrInput
-	// The table where the data should be ingested. Optionally the table information can be added to each message.
-	TableName pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (EventGridDataConnectionState) ElementType() reflect.Type {
@@ -301,9 +247,7 @@ func (i *EventGridDataConnection) ToEventGridDataConnectionOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EventGridDataConnectionOutput)
 }
 
-type EventGridDataConnectionOutput struct {
-	*pulumi.OutputState
-}
+type EventGridDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventGridDataConnection)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppConfiguration.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Describes a configuration store SKU.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

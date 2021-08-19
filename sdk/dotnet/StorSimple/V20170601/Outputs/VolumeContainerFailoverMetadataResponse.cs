@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20170601.Outputs
 {
 
+    /// <summary>
+    /// The metadata of the volume container, that is being considered as part of a failover set.
+    /// </summary>
     [OutputType]
     public sealed class VolumeContainerFailoverMetadataResponse
     {

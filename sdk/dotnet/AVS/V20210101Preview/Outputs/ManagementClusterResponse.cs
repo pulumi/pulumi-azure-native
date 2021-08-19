@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of a management cluster
+    /// </summary>
     [OutputType]
     public sealed class ManagementClusterResponse
     {

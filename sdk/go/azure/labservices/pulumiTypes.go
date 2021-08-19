@@ -430,7 +430,7 @@ func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrO
 }
 
 func (o GalleryImageReferenceResponseOutput) ToGalleryImageReferenceResponsePtrOutputWithContext(ctx context.Context) GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageReferenceResponse) *GalleryImageReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GalleryImageReferenceResponse) *GalleryImageReferenceResponse {
 		return &v
 	}).(GalleryImageReferenceResponsePtrOutput)
 }
@@ -475,7 +475,13 @@ func (o GalleryImageReferenceResponsePtrOutput) ToGalleryImageReferenceResponseP
 }
 
 func (o GalleryImageReferenceResponsePtrOutput) Elem() GalleryImageReferenceResponseOutput {
-	return o.ApplyT(func(v *GalleryImageReferenceResponse) GalleryImageReferenceResponse { return *v }).(GalleryImageReferenceResponseOutput)
+	return o.ApplyT(func(v *GalleryImageReferenceResponse) GalleryImageReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GalleryImageReferenceResponse
+		return ret
+	}).(GalleryImageReferenceResponseOutput)
 }
 
 // The offer of the gallery image.
@@ -771,7 +777,7 @@ func (o LatestOperationResultResponseOutput) ToLatestOperationResultResponsePtrO
 }
 
 func (o LatestOperationResultResponseOutput) ToLatestOperationResultResponsePtrOutputWithContext(ctx context.Context) LatestOperationResultResponsePtrOutput {
-	return o.ApplyT(func(v LatestOperationResultResponse) *LatestOperationResultResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LatestOperationResultResponse) *LatestOperationResultResponse {
 		return &v
 	}).(LatestOperationResultResponsePtrOutput)
 }
@@ -821,7 +827,13 @@ func (o LatestOperationResultResponsePtrOutput) ToLatestOperationResultResponseP
 }
 
 func (o LatestOperationResultResponsePtrOutput) Elem() LatestOperationResultResponseOutput {
-	return o.ApplyT(func(v *LatestOperationResultResponse) LatestOperationResultResponse { return *v }).(LatestOperationResultResponseOutput)
+	return o.ApplyT(func(v *LatestOperationResultResponse) LatestOperationResultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LatestOperationResultResponse
+		return ret
+	}).(LatestOperationResultResponseOutput)
 }
 
 // Error code on failure.
@@ -992,7 +1004,7 @@ func (o NetworkInterfaceResponseOutput) ToNetworkInterfaceResponsePtrOutput() Ne
 }
 
 func (o NetworkInterfaceResponseOutput) ToNetworkInterfaceResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceResponsePtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceResponse) *NetworkInterfaceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceResponse) *NetworkInterfaceResponse {
 		return &v
 	}).(NetworkInterfaceResponsePtrOutput)
 }
@@ -1032,7 +1044,13 @@ func (o NetworkInterfaceResponsePtrOutput) ToNetworkInterfaceResponsePtrOutputWi
 }
 
 func (o NetworkInterfaceResponsePtrOutput) Elem() NetworkInterfaceResponseOutput {
-	return o.ApplyT(func(v *NetworkInterfaceResponse) NetworkInterfaceResponse { return *v }).(NetworkInterfaceResponseOutput)
+	return o.ApplyT(func(v *NetworkInterfaceResponse) NetworkInterfaceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceResponse
+		return ret
+	}).(NetworkInterfaceResponseOutput)
 }
 
 // PrivateIp address of the Compute VM
@@ -1284,7 +1302,7 @@ func (o ReferenceVmOutput) ToReferenceVmPtrOutput() ReferenceVmPtrOutput {
 }
 
 func (o ReferenceVmOutput) ToReferenceVmPtrOutputWithContext(ctx context.Context) ReferenceVmPtrOutput {
-	return o.ApplyT(func(v ReferenceVm) *ReferenceVm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceVm) *ReferenceVm {
 		return &v
 	}).(ReferenceVmPtrOutput)
 }
@@ -1314,7 +1332,13 @@ func (o ReferenceVmPtrOutput) ToReferenceVmPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ReferenceVmPtrOutput) Elem() ReferenceVmOutput {
-	return o.ApplyT(func(v *ReferenceVm) ReferenceVm { return *v }).(ReferenceVmOutput)
+	return o.ApplyT(func(v *ReferenceVm) ReferenceVm {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceVm
+		return ret
+	}).(ReferenceVmOutput)
 }
 
 // The password of the virtual machine. This will be set to null in GET resource API
@@ -1445,7 +1469,7 @@ func (o ReferenceVmResponseOutput) ToReferenceVmResponsePtrOutput() ReferenceVmR
 }
 
 func (o ReferenceVmResponseOutput) ToReferenceVmResponsePtrOutputWithContext(ctx context.Context) ReferenceVmResponsePtrOutput {
-	return o.ApplyT(func(v ReferenceVmResponse) *ReferenceVmResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReferenceVmResponse) *ReferenceVmResponse {
 		return &v
 	}).(ReferenceVmResponsePtrOutput)
 }
@@ -1485,7 +1509,13 @@ func (o ReferenceVmResponsePtrOutput) ToReferenceVmResponsePtrOutputWithContext(
 }
 
 func (o ReferenceVmResponsePtrOutput) Elem() ReferenceVmResponseOutput {
-	return o.ApplyT(func(v *ReferenceVmResponse) ReferenceVmResponse { return *v }).(ReferenceVmResponseOutput)
+	return o.ApplyT(func(v *ReferenceVmResponse) ReferenceVmResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ReferenceVmResponse
+		return ret
+	}).(ReferenceVmResponseOutput)
 }
 
 // The password of the virtual machine. This will be set to null in GET resource API
@@ -1737,7 +1767,7 @@ func (o ResourceSetOutput) ToResourceSetPtrOutput() ResourceSetPtrOutput {
 }
 
 func (o ResourceSetOutput) ToResourceSetPtrOutputWithContext(ctx context.Context) ResourceSetPtrOutput {
-	return o.ApplyT(func(v ResourceSet) *ResourceSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSet) *ResourceSet {
 		return &v
 	}).(ResourceSetPtrOutput)
 }
@@ -1767,7 +1797,13 @@ func (o ResourceSetPtrOutput) ToResourceSetPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSetPtrOutput) Elem() ResourceSetOutput {
-	return o.ApplyT(func(v *ResourceSet) ResourceSet { return *v }).(ResourceSetOutput)
+	return o.ApplyT(func(v *ResourceSet) ResourceSet {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSet
+		return ret
+	}).(ResourceSetOutput)
 }
 
 // resourceSettingId for the environment
@@ -1890,7 +1926,7 @@ func (o ResourceSetResponseOutput) ToResourceSetResponsePtrOutput() ResourceSetR
 }
 
 func (o ResourceSetResponseOutput) ToResourceSetResponsePtrOutputWithContext(ctx context.Context) ResourceSetResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSetResponse) *ResourceSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSetResponse) *ResourceSetResponse {
 		return &v
 	}).(ResourceSetResponsePtrOutput)
 }
@@ -1920,7 +1956,13 @@ func (o ResourceSetResponsePtrOutput) ToResourceSetResponsePtrOutputWithContext(
 }
 
 func (o ResourceSetResponsePtrOutput) Elem() ResourceSetResponseOutput {
-	return o.ApplyT(func(v *ResourceSetResponse) ResourceSetResponse { return *v }).(ResourceSetResponseOutput)
+	return o.ApplyT(func(v *ResourceSetResponse) ResourceSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSetResponse
+		return ret
+	}).(ResourceSetResponseOutput)
 }
 
 // resourceSettingId for the environment
@@ -2047,7 +2089,7 @@ func (o ResourceSettingsOutput) ToResourceSettingsPtrOutput() ResourceSettingsPt
 }
 
 func (o ResourceSettingsOutput) ToResourceSettingsPtrOutputWithContext(ctx context.Context) ResourceSettingsPtrOutput {
-	return o.ApplyT(func(v ResourceSettings) *ResourceSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSettings) *ResourceSettings {
 		return &v
 	}).(ResourceSettingsPtrOutput)
 }
@@ -2082,7 +2124,13 @@ func (o ResourceSettingsPtrOutput) ToResourceSettingsPtrOutputWithContext(ctx co
 }
 
 func (o ResourceSettingsPtrOutput) Elem() ResourceSettingsOutput {
-	return o.ApplyT(func(v *ResourceSettings) ResourceSettings { return *v }).(ResourceSettingsOutput)
+	return o.ApplyT(func(v *ResourceSettings) ResourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSettings
+		return ret
+	}).(ResourceSettingsOutput)
 }
 
 // The resource id of the gallery image used for creating the virtual machine
@@ -2231,7 +2279,7 @@ func (o ResourceSettingsResponseOutput) ToResourceSettingsResponsePtrOutput() Re
 }
 
 func (o ResourceSettingsResponseOutput) ToResourceSettingsResponsePtrOutputWithContext(ctx context.Context) ResourceSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSettingsResponse) *ResourceSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSettingsResponse) *ResourceSettingsResponse {
 		return &v
 	}).(ResourceSettingsResponsePtrOutput)
 }
@@ -2281,7 +2329,13 @@ func (o ResourceSettingsResponsePtrOutput) ToResourceSettingsResponsePtrOutputWi
 }
 
 func (o ResourceSettingsResponsePtrOutput) Elem() ResourceSettingsResponseOutput {
-	return o.ApplyT(func(v *ResourceSettingsResponse) ResourceSettingsResponse { return *v }).(ResourceSettingsResponseOutput)
+	return o.ApplyT(func(v *ResourceSettingsResponse) ResourceSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSettingsResponse
+		return ret
+	}).(ResourceSettingsResponseOutput)
 }
 
 // The translated compute cores of the virtual machine
@@ -2549,7 +2603,7 @@ func (o SizeConfigurationPropertiesResponseOutput) ToSizeConfigurationProperties
 }
 
 func (o SizeConfigurationPropertiesResponseOutput) ToSizeConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) SizeConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SizeConfigurationPropertiesResponse) *SizeConfigurationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SizeConfigurationPropertiesResponse) *SizeConfigurationPropertiesResponse {
 		return &v
 	}).(SizeConfigurationPropertiesResponsePtrOutput)
 }
@@ -2574,7 +2628,13 @@ func (o SizeConfigurationPropertiesResponsePtrOutput) ToSizeConfigurationPropert
 }
 
 func (o SizeConfigurationPropertiesResponsePtrOutput) Elem() SizeConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *SizeConfigurationPropertiesResponse) SizeConfigurationPropertiesResponse { return *v }).(SizeConfigurationPropertiesResponseOutput)
+	return o.ApplyT(func(v *SizeConfigurationPropertiesResponse) SizeConfigurationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SizeConfigurationPropertiesResponse
+		return ret
+	}).(SizeConfigurationPropertiesResponseOutput)
 }
 
 // Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
@@ -2922,7 +2982,7 @@ func (o VmStateDetailsResponseOutput) ToVmStateDetailsResponsePtrOutput() VmStat
 }
 
 func (o VmStateDetailsResponseOutput) ToVmStateDetailsResponsePtrOutputWithContext(ctx context.Context) VmStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v VmStateDetailsResponse) *VmStateDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VmStateDetailsResponse) *VmStateDetailsResponse {
 		return &v
 	}).(VmStateDetailsResponsePtrOutput)
 }
@@ -2962,7 +3022,13 @@ func (o VmStateDetailsResponsePtrOutput) ToVmStateDetailsResponsePtrOutputWithCo
 }
 
 func (o VmStateDetailsResponsePtrOutput) Elem() VmStateDetailsResponseOutput {
-	return o.ApplyT(func(v *VmStateDetailsResponse) VmStateDetailsResponse { return *v }).(VmStateDetailsResponseOutput)
+	return o.ApplyT(func(v *VmStateDetailsResponse) VmStateDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret VmStateDetailsResponse
+		return ret
+	}).(VmStateDetailsResponseOutput)
 }
 
 // Last known compute power state captured in DTL

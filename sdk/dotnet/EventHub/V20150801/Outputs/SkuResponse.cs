@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20150801.Outputs
 {
 
+    /// <summary>
+    /// SKU parameters supplied to the create Namespace operation
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

@@ -146,41 +146,9 @@ func GetWebAppSourceControl(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppSourceControl resources.
 type webAppSourceControlState struct {
-	// Name of branch to use for deployment.
-	Branch *string `pulumi:"branch"`
-	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
-	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-	IsManualIntegration *bool `pulumi:"isManualIntegration"`
-	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-	IsMercurial *bool `pulumi:"isMercurial"`
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Name.
-	Name *string `pulumi:"name"`
-	// Repository or source control URL.
-	RepoUrl *string `pulumi:"repoUrl"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebAppSourceControlState struct {
-	// Name of branch to use for deployment.
-	Branch pulumi.StringPtrInput
-	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-	DeploymentRollbackEnabled pulumi.BoolPtrInput
-	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-	IsManualIntegration pulumi.BoolPtrInput
-	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-	IsMercurial pulumi.BoolPtrInput
-	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Resource Name.
-	Name pulumi.StringPtrInput
-	// Repository or source control URL.
-	RepoUrl pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebAppSourceControlState) ElementType() reflect.Type {
@@ -249,9 +217,7 @@ func (i *WebAppSourceControl) ToWebAppSourceControlOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppSourceControlOutput)
 }
 
-type WebAppSourceControlOutput struct {
-	*pulumi.OutputState
-}
+type WebAppSourceControlOutput struct{ *pulumi.OutputState }
 
 func (WebAppSourceControlOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAppSourceControl)(nil))

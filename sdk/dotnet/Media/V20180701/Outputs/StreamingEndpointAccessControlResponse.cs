@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
+    /// <summary>
+    /// StreamingEndpoint access control definition.
+    /// </summary>
     [OutputType]
     public sealed class StreamingEndpointAccessControlResponse
     {

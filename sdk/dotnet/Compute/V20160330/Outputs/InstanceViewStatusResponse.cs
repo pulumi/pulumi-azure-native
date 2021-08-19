@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160330.Outputs
 {
 
+    /// <summary>
+    /// Instance view status.
+    /// </summary>
     [OutputType]
     public sealed class InstanceViewStatusResponse
     {

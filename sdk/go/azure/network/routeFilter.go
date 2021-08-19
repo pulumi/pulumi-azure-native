@@ -266,45 +266,9 @@ func GetRouteFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteFilter resources.
 type routeFilterState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// A collection of references to express route circuit ipv6 peerings.
-	Ipv6Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"ipv6Peerings"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// A collection of references to express route circuit peerings.
-	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
-	// The provisioning state of the route filter resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Collection of RouteFilterRules contained within a route filter.
-	Rules []RouteFilterRuleResponse `pulumi:"rules"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type RouteFilterState struct {
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// A collection of references to express route circuit ipv6 peerings.
-	Ipv6Peerings ExpressRouteCircuitPeeringResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// A collection of references to express route circuit peerings.
-	Peerings ExpressRouteCircuitPeeringResponseArrayInput
-	// The provisioning state of the route filter resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Collection of RouteFilterRules contained within a route filter.
-	Rules RouteFilterRuleResponseArrayInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (RouteFilterState) ElementType() reflect.Type {
@@ -365,9 +329,7 @@ func (i *RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteF
 	return pulumi.ToOutputWithContext(ctx, i).(RouteFilterOutput)
 }
 
-type RouteFilterOutput struct {
-	*pulumi.OutputState
-}
+type RouteFilterOutput struct{ *pulumi.OutputState }
 
 func (RouteFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteFilter)(nil))

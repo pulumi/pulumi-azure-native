@@ -86,41 +86,9 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// List of activities in pipeline.
-	Activities []interface{} `pulumi:"activities"`
-	// List of tags that can be used for describing the Pipeline.
-	Annotations []interface{} `pulumi:"annotations"`
-	// The max number of concurrent runs for the pipeline.
-	Concurrency *int `pulumi:"concurrency"`
-	// The description of the pipeline.
-	Description *string `pulumi:"description"`
-	// Etag identifies change in the resource.
-	Etag *string `pulumi:"etag"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// List of parameters for pipeline.
-	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type PipelineState struct {
-	// List of activities in pipeline.
-	Activities pulumi.ArrayInput
-	// List of tags that can be used for describing the Pipeline.
-	Annotations pulumi.ArrayInput
-	// The max number of concurrent runs for the pipeline.
-	Concurrency pulumi.IntPtrInput
-	// The description of the pipeline.
-	Description pulumi.StringPtrInput
-	// Etag identifies change in the resource.
-	Etag pulumi.StringPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// List of parameters for pipeline.
-	Parameters ParameterSpecificationResponseMapInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (PipelineState) ElementType() reflect.Type {
@@ -189,9 +157,7 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineOutput)
 }
 
-type PipelineOutput struct {
-	*pulumi.OutputState
-}
+type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pipeline)(nil))

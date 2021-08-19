@@ -76,21 +76,9 @@ func GetCassandraDataCenter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CassandraDataCenter resources.
 type cassandraDataCenterState struct {
-	// The name of the database account.
-	Name *string `pulumi:"name"`
-	// Properties of a managed Cassandra data center.
-	Properties *DataCenterResourceResponseProperties `pulumi:"properties"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type CassandraDataCenterState struct {
-	// The name of the database account.
-	Name pulumi.StringPtrInput
-	// Properties of a managed Cassandra data center.
-	Properties DataCenterResourceResponsePropertiesPtrInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (CassandraDataCenterState) ElementType() reflect.Type {
@@ -143,9 +131,7 @@ func (i *CassandraDataCenter) ToCassandraDataCenterOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraDataCenterOutput)
 }
 
-type CassandraDataCenterOutput struct {
-	*pulumi.OutputState
-}
+type CassandraDataCenterOutput struct{ *pulumi.OutputState }
 
 func (CassandraDataCenterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CassandraDataCenter)(nil))

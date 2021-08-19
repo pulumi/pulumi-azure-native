@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Information about migration eligibility of a server object
+    /// </summary>
     [OutputType]
     public sealed class MigrationEligibilityInfoResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20140401.Outputs
 {
 
+    /// <summary>
+    /// A Slo Usage Metric.
+    /// </summary>
     [OutputType]
     public sealed class SloUsageMetricResponse
     {

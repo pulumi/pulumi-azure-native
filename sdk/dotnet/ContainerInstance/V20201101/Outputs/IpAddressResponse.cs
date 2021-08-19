@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20201101.Outputs
 {
 
+    /// <summary>
+    /// IP address for the container group.
+    /// </summary>
     [OutputType]
     public sealed class IpAddressResponse
     {

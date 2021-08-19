@@ -113,65 +113,9 @@ func GetMaintenanceConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceConfiguration resources.
 type maintenanceConfigurationState struct {
-	// Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
-	Duration *string `pulumi:"duration"`
-	// Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-	ExpirationDateTime *string `pulumi:"expirationDateTime"`
-	// Gets or sets extensionProperties of the maintenanceConfiguration
-	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
-	// Gets or sets location of the resource
-	Location *string `pulumi:"location"`
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope *string `pulumi:"maintenanceScope"`
-	// Name of the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets namespace of the resource
-	Namespace *string `pulumi:"namespace"`
-	// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-	RecurEvery *string `pulumi:"recurEvery"`
-	// Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-	StartDateTime *string `pulumi:"startDateTime"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Gets or sets tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-	TimeZone *string `pulumi:"timeZone"`
-	// Type of the resource
-	Type *string `pulumi:"type"`
-	// Gets or sets the visibility of the configuration. The default value is 'Custom'
-	Visibility *string `pulumi:"visibility"`
 }
 
 type MaintenanceConfigurationState struct {
-	// Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
-	Duration pulumi.StringPtrInput
-	// Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
-	ExpirationDateTime pulumi.StringPtrInput
-	// Gets or sets extensionProperties of the maintenanceConfiguration
-	ExtensionProperties pulumi.StringMapInput
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrInput
-	// Gets or sets maintenanceScope of the configuration
-	MaintenanceScope pulumi.StringPtrInput
-	// Name of the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets namespace of the resource
-	Namespace pulumi.StringPtrInput
-	// Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
-	RecurEvery pulumi.StringPtrInput
-	// Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
-	StartDateTime pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapInput
-	// Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-	TimeZone pulumi.StringPtrInput
-	// Type of the resource
-	Type pulumi.StringPtrInput
-	// Gets or sets the visibility of the configuration. The default value is 'Custom'
-	Visibility pulumi.StringPtrInput
 }
 
 func (MaintenanceConfigurationState) ElementType() reflect.Type {
@@ -260,9 +204,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationOutput)
 }
 
-type MaintenanceConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MaintenanceConfiguration)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// How the data that is collected should be combined over time.
+    /// </summary>
     [OutputType]
     public sealed class ManagementEventAggregationConditionResponse
     {

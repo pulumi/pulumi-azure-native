@@ -105,25 +105,9 @@ func GetAddon(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
-	// Addon type.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Addon type
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type AddonState struct {
-	// Addon type.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Addon type
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (AddonState) ElementType() reflect.Type {
@@ -180,9 +164,7 @@ func (i *Addon) ToAddonOutputWithContext(ctx context.Context) AddonOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AddonOutput)
 }
 
-type AddonOutput struct {
-	*pulumi.OutputState
-}
+type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Addon)(nil))

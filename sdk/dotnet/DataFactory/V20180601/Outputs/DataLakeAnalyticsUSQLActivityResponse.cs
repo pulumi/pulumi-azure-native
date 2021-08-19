@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Data Lake Analytics U-SQL activity.
+    /// </summary>
     [OutputType]
     public sealed class DataLakeAnalyticsUSQLActivityResponse
     {

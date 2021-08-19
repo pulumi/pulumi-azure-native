@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 {
 
+    /// <summary>
+    /// Credentials kept in the keyvault.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultCredentialPropertiesResponse
     {

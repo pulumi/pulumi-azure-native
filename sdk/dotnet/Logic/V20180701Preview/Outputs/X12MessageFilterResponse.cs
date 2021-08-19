@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20180701Preview.Outputs
 {
 
+    /// <summary>
+    /// The X12 message filter for odata query.
+    /// </summary>
     [OutputType]
     public sealed class X12MessageFilterResponse
     {

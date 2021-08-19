@@ -80,23 +80,9 @@ func GetNotificationRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotificationRegistration resources.
 type notificationRegistrationState struct {
-	// The name of the resource
-	Name       *string                                     `pulumi:"name"`
-	Properties *NotificationRegistrationResponseProperties `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type NotificationRegistrationState struct {
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Properties NotificationRegistrationResponsePropertiesPtrInput
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponsePtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (NotificationRegistrationState) ElementType() reflect.Type {
@@ -143,9 +129,7 @@ func (i *NotificationRegistration) ToNotificationRegistrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRegistrationOutput)
 }
 
-type NotificationRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRegistrationOutput struct{ *pulumi.OutputState }
 
 func (NotificationRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRegistration)(nil))

@@ -150,7 +150,7 @@ func (o SaasCreationPropertiesOutput) ToSaasCreationPropertiesPtrOutput() SaasCr
 }
 
 func (o SaasCreationPropertiesOutput) ToSaasCreationPropertiesPtrOutputWithContext(ctx context.Context) SaasCreationPropertiesPtrOutput {
-	return o.ApplyT(func(v SaasCreationProperties) *SaasCreationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SaasCreationProperties) *SaasCreationProperties {
 		return &v
 	}).(SaasCreationPropertiesPtrOutput)
 }
@@ -230,7 +230,13 @@ func (o SaasCreationPropertiesPtrOutput) ToSaasCreationPropertiesPtrOutputWithCo
 }
 
 func (o SaasCreationPropertiesPtrOutput) Elem() SaasCreationPropertiesOutput {
-	return o.ApplyT(func(v *SaasCreationProperties) SaasCreationProperties { return *v }).(SaasCreationPropertiesOutput)
+	return o.ApplyT(func(v *SaasCreationProperties) SaasCreationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SaasCreationProperties
+		return ret
+	}).(SaasCreationPropertiesOutput)
 }
 
 // Whether the SaaS subscription will auto renew upon term end.
@@ -457,7 +463,7 @@ func (o SaasPropertiesResponseTermOutput) ToSaasPropertiesResponseTermPtrOutput(
 }
 
 func (o SaasPropertiesResponseTermOutput) ToSaasPropertiesResponseTermPtrOutputWithContext(ctx context.Context) SaasPropertiesResponseTermPtrOutput {
-	return o.ApplyT(func(v SaasPropertiesResponseTerm) *SaasPropertiesResponseTerm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SaasPropertiesResponseTerm) *SaasPropertiesResponseTerm {
 		return &v
 	}).(SaasPropertiesResponseTermPtrOutput)
 }
@@ -492,7 +498,13 @@ func (o SaasPropertiesResponseTermPtrOutput) ToSaasPropertiesResponseTermPtrOutp
 }
 
 func (o SaasPropertiesResponseTermPtrOutput) Elem() SaasPropertiesResponseTermOutput {
-	return o.ApplyT(func(v *SaasPropertiesResponseTerm) SaasPropertiesResponseTerm { return *v }).(SaasPropertiesResponseTermOutput)
+	return o.ApplyT(func(v *SaasPropertiesResponseTerm) SaasPropertiesResponseTerm {
+		if v != nil {
+			return *v
+		}
+		var ret SaasPropertiesResponseTerm
+		return ret
+	}).(SaasPropertiesResponseTermOutput)
 }
 
 // The end date of the current term
@@ -685,7 +697,7 @@ func (o SaasResourceResponsePropertiesOutput) ToSaasResourceResponsePropertiesPt
 }
 
 func (o SaasResourceResponsePropertiesOutput) ToSaasResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) SaasResourceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v SaasResourceResponseProperties) *SaasResourceResponseProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SaasResourceResponseProperties) *SaasResourceResponseProperties {
 		return &v
 	}).(SaasResourceResponsePropertiesPtrOutput)
 }
@@ -790,7 +802,13 @@ func (o SaasResourceResponsePropertiesPtrOutput) ToSaasResourceResponsePropertie
 }
 
 func (o SaasResourceResponsePropertiesPtrOutput) Elem() SaasResourceResponsePropertiesOutput {
-	return o.ApplyT(func(v *SaasResourceResponseProperties) SaasResourceResponseProperties { return *v }).(SaasResourceResponsePropertiesOutput)
+	return o.ApplyT(func(v *SaasResourceResponseProperties) SaasResourceResponseProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SaasResourceResponseProperties
+		return ret
+	}).(SaasResourceResponsePropertiesOutput)
 }
 
 // Whether the SaaS subscription will auto renew upon term end.

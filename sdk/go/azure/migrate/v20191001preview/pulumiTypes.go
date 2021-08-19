@@ -108,7 +108,7 @@ func (o AutomaticResolutionPropertiesResponseOutput) ToAutomaticResolutionProper
 }
 
 func (o AutomaticResolutionPropertiesResponseOutput) ToAutomaticResolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) AutomaticResolutionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AutomaticResolutionPropertiesResponse) *AutomaticResolutionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomaticResolutionPropertiesResponse) *AutomaticResolutionPropertiesResponse {
 		return &v
 	}).(AutomaticResolutionPropertiesResponsePtrOutput)
 }
@@ -134,7 +134,13 @@ func (o AutomaticResolutionPropertiesResponsePtrOutput) ToAutomaticResolutionPro
 }
 
 func (o AutomaticResolutionPropertiesResponsePtrOutput) Elem() AutomaticResolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *AutomaticResolutionPropertiesResponse) AutomaticResolutionPropertiesResponse { return *v }).(AutomaticResolutionPropertiesResponseOutput)
+	return o.ApplyT(func(v *AutomaticResolutionPropertiesResponse) AutomaticResolutionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutomaticResolutionPropertiesResponse
+		return ret
+	}).(AutomaticResolutionPropertiesResponseOutput)
 }
 
 // Gets the MoveResource ARM ID of
@@ -556,7 +562,7 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
@@ -591,7 +597,13 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // Gets or sets the principal id.
@@ -728,7 +740,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -763,7 +775,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // Gets or sets the principal id.
@@ -896,7 +914,7 @@ func (o JobStatusResponseOutput) ToJobStatusResponsePtrOutput() JobStatusRespons
 }
 
 func (o JobStatusResponseOutput) ToJobStatusResponsePtrOutputWithContext(ctx context.Context) JobStatusResponsePtrOutput {
-	return o.ApplyT(func(v JobStatusResponse) *JobStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobStatusResponse) *JobStatusResponse {
 		return &v
 	}).(JobStatusResponsePtrOutput)
 }
@@ -926,7 +944,13 @@ func (o JobStatusResponsePtrOutput) ToJobStatusResponsePtrOutputWithContext(ctx 
 }
 
 func (o JobStatusResponsePtrOutput) Elem() JobStatusResponseOutput {
-	return o.ApplyT(func(v *JobStatusResponse) JobStatusResponse { return *v }).(JobStatusResponseOutput)
+	return o.ApplyT(func(v *JobStatusResponse) JobStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret JobStatusResponse
+		return ret
+	}).(JobStatusResponseOutput)
 }
 
 // Defines the job name.
@@ -2313,7 +2337,7 @@ func (o ManualResolutionPropertiesResponseOutput) ToManualResolutionPropertiesRe
 }
 
 func (o ManualResolutionPropertiesResponseOutput) ToManualResolutionPropertiesResponsePtrOutputWithContext(ctx context.Context) ManualResolutionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ManualResolutionPropertiesResponse) *ManualResolutionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManualResolutionPropertiesResponse) *ManualResolutionPropertiesResponse {
 		return &v
 	}).(ManualResolutionPropertiesResponsePtrOutput)
 }
@@ -2338,7 +2362,13 @@ func (o ManualResolutionPropertiesResponsePtrOutput) ToManualResolutionPropertie
 }
 
 func (o ManualResolutionPropertiesResponsePtrOutput) Elem() ManualResolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v *ManualResolutionPropertiesResponse) ManualResolutionPropertiesResponse { return *v }).(ManualResolutionPropertiesResponseOutput)
+	return o.ApplyT(func(v *ManualResolutionPropertiesResponse) ManualResolutionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManualResolutionPropertiesResponse
+		return ret
+	}).(ManualResolutionPropertiesResponseOutput)
 }
 
 // Gets or sets the target resource ARM ID of the dependent resource if the resource type is Manual.
@@ -2451,7 +2481,7 @@ func (o MoveCollectionPropertiesOutput) ToMoveCollectionPropertiesPtrOutput() Mo
 }
 
 func (o MoveCollectionPropertiesOutput) ToMoveCollectionPropertiesPtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesPtrOutput {
-	return o.ApplyT(func(v MoveCollectionProperties) *MoveCollectionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveCollectionProperties) *MoveCollectionProperties {
 		return &v
 	}).(MoveCollectionPropertiesPtrOutput)
 }
@@ -2481,7 +2511,13 @@ func (o MoveCollectionPropertiesPtrOutput) ToMoveCollectionPropertiesPtrOutputWi
 }
 
 func (o MoveCollectionPropertiesPtrOutput) Elem() MoveCollectionPropertiesOutput {
-	return o.ApplyT(func(v *MoveCollectionProperties) MoveCollectionProperties { return *v }).(MoveCollectionPropertiesOutput)
+	return o.ApplyT(func(v *MoveCollectionProperties) MoveCollectionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MoveCollectionProperties
+		return ret
+	}).(MoveCollectionPropertiesOutput)
 }
 
 // Gets or sets the source region.
@@ -2612,7 +2648,7 @@ func (o MoveCollectionPropertiesResponseOutput) ToMoveCollectionPropertiesRespon
 }
 
 func (o MoveCollectionPropertiesResponseOutput) ToMoveCollectionPropertiesResponsePtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MoveCollectionPropertiesResponse) *MoveCollectionPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveCollectionPropertiesResponse) *MoveCollectionPropertiesResponse {
 		return &v
 	}).(MoveCollectionPropertiesResponsePtrOutput)
 }
@@ -2652,7 +2688,13 @@ func (o MoveCollectionPropertiesResponsePtrOutput) ToMoveCollectionPropertiesRes
 }
 
 func (o MoveCollectionPropertiesResponsePtrOutput) Elem() MoveCollectionPropertiesResponseOutput {
-	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) MoveCollectionPropertiesResponse { return *v }).(MoveCollectionPropertiesResponseOutput)
+	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) MoveCollectionPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MoveCollectionPropertiesResponse
+		return ret
+	}).(MoveCollectionPropertiesResponseOutput)
 }
 
 // Defines the move collection errors.
@@ -2791,7 +2833,7 @@ func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionProperties
 }
 
 func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsPtrOutput {
-	return o.ApplyT(func(v MoveCollectionPropertiesResponseErrors) *MoveCollectionPropertiesResponseErrors {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveCollectionPropertiesResponseErrors) *MoveCollectionPropertiesResponseErrors {
 		return &v
 	}).(MoveCollectionPropertiesResponseErrorsPtrOutput)
 }
@@ -2816,7 +2858,13 @@ func (o MoveCollectionPropertiesResponseErrorsPtrOutput) ToMoveCollectionPropert
 }
 
 func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Elem() MoveCollectionPropertiesResponseErrorsOutput {
-	return o.ApplyT(func(v *MoveCollectionPropertiesResponseErrors) MoveCollectionPropertiesResponseErrors { return *v }).(MoveCollectionPropertiesResponseErrorsOutput)
+	return o.ApplyT(func(v *MoveCollectionPropertiesResponseErrors) MoveCollectionPropertiesResponseErrors {
+		if v != nil {
+			return *v
+		}
+		var ret MoveCollectionPropertiesResponseErrors
+		return ret
+	}).(MoveCollectionPropertiesResponseErrorsOutput)
 }
 
 // The move resource error body.
@@ -3342,7 +3390,7 @@ func (o MoveResourceErrorBodyResponseOutput) ToMoveResourceErrorBodyResponsePtrO
 }
 
 func (o MoveResourceErrorBodyResponseOutput) ToMoveResourceErrorBodyResponsePtrOutputWithContext(ctx context.Context) MoveResourceErrorBodyResponsePtrOutput {
-	return o.ApplyT(func(v MoveResourceErrorBodyResponse) *MoveResourceErrorBodyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveResourceErrorBodyResponse) *MoveResourceErrorBodyResponse {
 		return &v
 	}).(MoveResourceErrorBodyResponsePtrOutput)
 }
@@ -3382,7 +3430,13 @@ func (o MoveResourceErrorBodyResponsePtrOutput) ToMoveResourceErrorBodyResponseP
 }
 
 func (o MoveResourceErrorBodyResponsePtrOutput) Elem() MoveResourceErrorBodyResponseOutput {
-	return o.ApplyT(func(v *MoveResourceErrorBodyResponse) MoveResourceErrorBodyResponse { return *v }).(MoveResourceErrorBodyResponseOutput)
+	return o.ApplyT(func(v *MoveResourceErrorBodyResponse) MoveResourceErrorBodyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MoveResourceErrorBodyResponse
+		return ret
+	}).(MoveResourceErrorBodyResponseOutput)
 }
 
 // An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
@@ -3541,7 +3595,7 @@ func (o MoveResourceErrorResponseOutput) ToMoveResourceErrorResponsePtrOutput() 
 }
 
 func (o MoveResourceErrorResponseOutput) ToMoveResourceErrorResponsePtrOutputWithContext(ctx context.Context) MoveResourceErrorResponsePtrOutput {
-	return o.ApplyT(func(v MoveResourceErrorResponse) *MoveResourceErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveResourceErrorResponse) *MoveResourceErrorResponse {
 		return &v
 	}).(MoveResourceErrorResponsePtrOutput)
 }
@@ -3566,7 +3620,13 @@ func (o MoveResourceErrorResponsePtrOutput) ToMoveResourceErrorResponsePtrOutput
 }
 
 func (o MoveResourceErrorResponsePtrOutput) Elem() MoveResourceErrorResponseOutput {
-	return o.ApplyT(func(v *MoveResourceErrorResponse) MoveResourceErrorResponse { return *v }).(MoveResourceErrorResponseOutput)
+	return o.ApplyT(func(v *MoveResourceErrorResponse) MoveResourceErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MoveResourceErrorResponse
+		return ret
+	}).(MoveResourceErrorResponseOutput)
 }
 
 // The move resource error body.
@@ -3687,7 +3747,7 @@ func (o MoveResourcePropertiesOutput) ToMoveResourcePropertiesPtrOutput() MoveRe
 }
 
 func (o MoveResourcePropertiesOutput) ToMoveResourcePropertiesPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v MoveResourceProperties) *MoveResourceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveResourceProperties) *MoveResourceProperties {
 		return &v
 	}).(MoveResourcePropertiesPtrOutput)
 }
@@ -3727,7 +3787,13 @@ func (o MoveResourcePropertiesPtrOutput) ToMoveResourcePropertiesPtrOutputWithCo
 }
 
 func (o MoveResourcePropertiesPtrOutput) Elem() MoveResourcePropertiesOutput {
-	return o.ApplyT(func(v *MoveResourceProperties) MoveResourceProperties { return *v }).(MoveResourcePropertiesOutput)
+	return o.ApplyT(func(v *MoveResourceProperties) MoveResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MoveResourceProperties
+		return ret
+	}).(MoveResourcePropertiesOutput)
 }
 
 // Gets or sets the move resource dependencies overrides.
@@ -3906,7 +3972,7 @@ func (o MoveResourcePropertiesResponseOutput) ToMoveResourcePropertiesResponsePt
 }
 
 func (o MoveResourcePropertiesResponseOutput) ToMoveResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponse) *MoveResourcePropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveResourcePropertiesResponse) *MoveResourcePropertiesResponse {
 		return &v
 	}).(MoveResourcePropertiesResponsePtrOutput)
 }
@@ -3983,7 +4049,13 @@ func (o MoveResourcePropertiesResponsePtrOutput) ToMoveResourcePropertiesRespons
 }
 
 func (o MoveResourcePropertiesResponsePtrOutput) Elem() MoveResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponse) MoveResourcePropertiesResponse { return *v }).(MoveResourcePropertiesResponseOutput)
+	return o.ApplyT(func(v *MoveResourcePropertiesResponse) MoveResourcePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MoveResourcePropertiesResponse
+		return ret
+	}).(MoveResourcePropertiesResponseOutput)
 }
 
 // Gets or sets the move resource dependencies.
@@ -4192,7 +4264,7 @@ func (o MoveResourcePropertiesResponseErrorsOutput) ToMoveResourcePropertiesResp
 }
 
 func (o MoveResourcePropertiesResponseErrorsOutput) ToMoveResourcePropertiesResponseErrorsPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseErrorsPtrOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseErrors) *MoveResourcePropertiesResponseErrors {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveResourcePropertiesResponseErrors) *MoveResourcePropertiesResponseErrors {
 		return &v
 	}).(MoveResourcePropertiesResponseErrorsPtrOutput)
 }
@@ -4217,7 +4289,13 @@ func (o MoveResourcePropertiesResponseErrorsPtrOutput) ToMoveResourcePropertiesR
 }
 
 func (o MoveResourcePropertiesResponseErrorsPtrOutput) Elem() MoveResourcePropertiesResponseErrorsOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponseErrors) MoveResourcePropertiesResponseErrors { return *v }).(MoveResourcePropertiesResponseErrorsOutput)
+	return o.ApplyT(func(v *MoveResourcePropertiesResponseErrors) MoveResourcePropertiesResponseErrors {
+		if v != nil {
+			return *v
+		}
+		var ret MoveResourcePropertiesResponseErrors
+		return ret
+	}).(MoveResourcePropertiesResponseErrorsOutput)
 }
 
 // The move resource error body.
@@ -4334,7 +4412,7 @@ func (o MoveResourcePropertiesResponseMoveStatusOutput) ToMoveResourceProperties
 }
 
 func (o MoveResourcePropertiesResponseMoveStatusOutput) ToMoveResourcePropertiesResponseMoveStatusPtrOutputWithContext(ctx context.Context) MoveResourcePropertiesResponseMoveStatusPtrOutput {
-	return o.ApplyT(func(v MoveResourcePropertiesResponseMoveStatus) *MoveResourcePropertiesResponseMoveStatus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MoveResourcePropertiesResponseMoveStatus) *MoveResourcePropertiesResponseMoveStatus {
 		return &v
 	}).(MoveResourcePropertiesResponseMoveStatusPtrOutput)
 }
@@ -4369,7 +4447,13 @@ func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) ToMoveResourcePropert
 }
 
 func (o MoveResourcePropertiesResponseMoveStatusPtrOutput) Elem() MoveResourcePropertiesResponseMoveStatusOutput {
-	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) MoveResourcePropertiesResponseMoveStatus { return *v }).(MoveResourcePropertiesResponseMoveStatusOutput)
+	return o.ApplyT(func(v *MoveResourcePropertiesResponseMoveStatus) MoveResourcePropertiesResponseMoveStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MoveResourcePropertiesResponseMoveStatus
+		return ret
+	}).(MoveResourcePropertiesResponseMoveStatusOutput)
 }
 
 // An error response from the azure resource mover service.
@@ -5158,7 +5242,7 @@ func (o NsgReferenceOutput) ToNsgReferencePtrOutput() NsgReferencePtrOutput {
 }
 
 func (o NsgReferenceOutput) ToNsgReferencePtrOutputWithContext(ctx context.Context) NsgReferencePtrOutput {
-	return o.ApplyT(func(v NsgReference) *NsgReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NsgReference) *NsgReference {
 		return &v
 	}).(NsgReferencePtrOutput)
 }
@@ -5183,7 +5267,13 @@ func (o NsgReferencePtrOutput) ToNsgReferencePtrOutputWithContext(ctx context.Co
 }
 
 func (o NsgReferencePtrOutput) Elem() NsgReferenceOutput {
-	return o.ApplyT(func(v *NsgReference) NsgReference { return *v }).(NsgReferenceOutput)
+	return o.ApplyT(func(v *NsgReference) NsgReference {
+		if v != nil {
+			return *v
+		}
+		var ret NsgReference
+		return ret
+	}).(NsgReferenceOutput)
 }
 
 // Gets the ARM resource ID of the tracked resource being referenced.
@@ -5292,7 +5382,7 @@ func (o NsgReferenceResponseOutput) ToNsgReferenceResponsePtrOutput() NsgReferen
 }
 
 func (o NsgReferenceResponseOutput) ToNsgReferenceResponsePtrOutputWithContext(ctx context.Context) NsgReferenceResponsePtrOutput {
-	return o.ApplyT(func(v NsgReferenceResponse) *NsgReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NsgReferenceResponse) *NsgReferenceResponse {
 		return &v
 	}).(NsgReferenceResponsePtrOutput)
 }
@@ -5317,7 +5407,13 @@ func (o NsgReferenceResponsePtrOutput) ToNsgReferenceResponsePtrOutputWithContex
 }
 
 func (o NsgReferenceResponsePtrOutput) Elem() NsgReferenceResponseOutput {
-	return o.ApplyT(func(v *NsgReferenceResponse) NsgReferenceResponse { return *v }).(NsgReferenceResponseOutput)
+	return o.ApplyT(func(v *NsgReferenceResponse) NsgReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NsgReferenceResponse
+		return ret
+	}).(NsgReferenceResponseOutput)
 }
 
 // Gets the ARM resource ID of the tracked resource being referenced.
@@ -6078,7 +6174,7 @@ func (o PublicIpReferenceOutput) ToPublicIpReferencePtrOutput() PublicIpReferenc
 }
 
 func (o PublicIpReferenceOutput) ToPublicIpReferencePtrOutputWithContext(ctx context.Context) PublicIpReferencePtrOutput {
-	return o.ApplyT(func(v PublicIpReference) *PublicIpReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIpReference) *PublicIpReference {
 		return &v
 	}).(PublicIpReferencePtrOutput)
 }
@@ -6103,7 +6199,13 @@ func (o PublicIpReferencePtrOutput) ToPublicIpReferencePtrOutputWithContext(ctx 
 }
 
 func (o PublicIpReferencePtrOutput) Elem() PublicIpReferenceOutput {
-	return o.ApplyT(func(v *PublicIpReference) PublicIpReference { return *v }).(PublicIpReferenceOutput)
+	return o.ApplyT(func(v *PublicIpReference) PublicIpReference {
+		if v != nil {
+			return *v
+		}
+		var ret PublicIpReference
+		return ret
+	}).(PublicIpReferenceOutput)
 }
 
 // Gets the ARM resource ID of the tracked resource being referenced.
@@ -6212,7 +6314,7 @@ func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponsePtrOutput() 
 }
 
 func (o PublicIpReferenceResponseOutput) ToPublicIpReferenceResponsePtrOutputWithContext(ctx context.Context) PublicIpReferenceResponsePtrOutput {
-	return o.ApplyT(func(v PublicIpReferenceResponse) *PublicIpReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicIpReferenceResponse) *PublicIpReferenceResponse {
 		return &v
 	}).(PublicIpReferenceResponsePtrOutput)
 }
@@ -6237,7 +6339,13 @@ func (o PublicIpReferenceResponsePtrOutput) ToPublicIpReferenceResponsePtrOutput
 }
 
 func (o PublicIpReferenceResponsePtrOutput) Elem() PublicIpReferenceResponseOutput {
-	return o.ApplyT(func(v *PublicIpReferenceResponse) PublicIpReferenceResponse { return *v }).(PublicIpReferenceResponseOutput)
+	return o.ApplyT(func(v *PublicIpReferenceResponse) PublicIpReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PublicIpReferenceResponse
+		return ret
+	}).(PublicIpReferenceResponseOutput)
 }
 
 // Gets the ARM resource ID of the tracked resource being referenced.
@@ -6922,7 +7030,7 @@ func (o SubnetReferenceOutput) ToSubnetReferencePtrOutput() SubnetReferencePtrOu
 }
 
 func (o SubnetReferenceOutput) ToSubnetReferencePtrOutputWithContext(ctx context.Context) SubnetReferencePtrOutput {
-	return o.ApplyT(func(v SubnetReference) *SubnetReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetReference) *SubnetReference {
 		return &v
 	}).(SubnetReferencePtrOutput)
 }
@@ -6952,7 +7060,13 @@ func (o SubnetReferencePtrOutput) ToSubnetReferencePtrOutputWithContext(ctx cont
 }
 
 func (o SubnetReferencePtrOutput) Elem() SubnetReferenceOutput {
-	return o.ApplyT(func(v *SubnetReference) SubnetReference { return *v }).(SubnetReferenceOutput)
+	return o.ApplyT(func(v *SubnetReference) SubnetReference {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetReference
+		return ret
+	}).(SubnetReferenceOutput)
 }
 
 // Gets the name of the proxy resource on the target side.
@@ -7075,7 +7189,7 @@ func (o SubnetReferenceResponseOutput) ToSubnetReferenceResponsePtrOutput() Subn
 }
 
 func (o SubnetReferenceResponseOutput) ToSubnetReferenceResponsePtrOutputWithContext(ctx context.Context) SubnetReferenceResponsePtrOutput {
-	return o.ApplyT(func(v SubnetReferenceResponse) *SubnetReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetReferenceResponse) *SubnetReferenceResponse {
 		return &v
 	}).(SubnetReferenceResponsePtrOutput)
 }
@@ -7105,7 +7219,13 @@ func (o SubnetReferenceResponsePtrOutput) ToSubnetReferenceResponsePtrOutputWith
 }
 
 func (o SubnetReferenceResponsePtrOutput) Elem() SubnetReferenceResponseOutput {
-	return o.ApplyT(func(v *SubnetReferenceResponse) SubnetReferenceResponse { return *v }).(SubnetReferenceResponseOutput)
+	return o.ApplyT(func(v *SubnetReferenceResponse) SubnetReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SubnetReferenceResponse
+		return ret
+	}).(SubnetReferenceResponseOutput)
 }
 
 // Gets the name of the proxy resource on the target side.

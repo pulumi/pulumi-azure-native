@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs.V20170401.Outputs
 {
 
+    /// <summary>
+    /// Description of a NotificationHub MpnsCredential.
+    /// </summary>
     [OutputType]
     public sealed class MpnsCredentialResponse
     {

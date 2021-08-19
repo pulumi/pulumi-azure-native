@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Daily Schedule properties
+    /// </summary>
     [OutputType]
     public sealed class DailyScheduleResponse
     {

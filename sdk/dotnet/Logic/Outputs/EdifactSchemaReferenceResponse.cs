@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The Edifact schema reference.
+    /// </summary>
     [OutputType]
     public sealed class EdifactSchemaReferenceResponse
     {

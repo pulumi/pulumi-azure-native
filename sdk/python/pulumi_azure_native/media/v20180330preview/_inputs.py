@@ -13,9 +13,9 @@ __all__ = [
     'AacAudioArgs',
     'AkamaiAccessControlArgs',
     'AkamaiSignatureHeaderAuthenticationKeyArgs',
-    'AudioArgs',
     'AudioAnalyzerPresetArgs',
     'AudioOverlayArgs',
+    'AudioArgs',
     'BuiltInStandardEncoderPresetArgs',
     'CbcsDrmConfigurationArgs',
     'CencDrmConfigurationArgs',
@@ -52,8 +52,8 @@ __all__ = [
     'HlsArgs',
     'IPAccessControlArgs',
     'IPRangeArgs',
-    'ImageArgs',
     'ImageFormatArgs',
+    'ImageArgs',
     'JobInputAssetArgs',
     'JobInputClipArgs',
     'JobInputHttpArgs',
@@ -65,8 +65,8 @@ __all__ = [
     'LiveEventEncodingArgs',
     'LiveEventEndpointArgs',
     'LiveEventInputArgs',
-    'LiveEventPreviewArgs',
     'LiveEventPreviewAccessControlArgs',
+    'LiveEventPreviewArgs',
     'Mp4FormatArgs',
     'MultiBitrateFormatArgs',
     'NoEncryptionArgs',
@@ -79,8 +79,8 @@ __all__ = [
     'StorageAccountArgs',
     'StreamingEndpointAccessControlArgs',
     'StreamingLocatorUserDefinedContentKeyArgs',
-    'StreamingPolicyContentKeyArgs',
     'StreamingPolicyContentKeysArgs',
+    'StreamingPolicyContentKeyArgs',
     'StreamingPolicyFairPlayConfigurationArgs',
     'StreamingPolicyPlayReadyConfigurationArgs',
     'StreamingPolicyWidevineConfigurationArgs',
@@ -88,9 +88,9 @@ __all__ = [
     'TrackSelectionArgs',
     'TransformOutputArgs',
     'TransportStreamFormatArgs',
-    'VideoArgs',
     'VideoAnalyzerPresetArgs',
     'VideoOverlayArgs',
+    'VideoArgs',
 ]
 
 @pulumi.input_type
@@ -279,95 +279,6 @@ class AkamaiSignatureHeaderAuthenticationKeyArgs:
 
 
 @pulumi.input_type
-class AudioArgs:
-    def __init__(__self__, *,
-                 odata_type: pulumi.Input[str],
-                 bitrate: Optional[pulumi.Input[int]] = None,
-                 channels: Optional[pulumi.Input[int]] = None,
-                 label: Optional[pulumi.Input[str]] = None,
-                 sampling_rate: Optional[pulumi.Input[int]] = None):
-        """
-        Defines the common properties for all audio codecs.
-        :param pulumi.Input[str] odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.Audio'.
-        :param pulumi.Input[int] bitrate: The bitrate, in bits per second, of the output encoded audio.
-        :param pulumi.Input[int] channels: The number of channels in the audio.
-        :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[int] sampling_rate: The sampling rate to use for encoding in hertz.
-        """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
-        if bitrate is not None:
-            pulumi.set(__self__, "bitrate", bitrate)
-        if channels is not None:
-            pulumi.set(__self__, "channels", channels)
-        if label is not None:
-            pulumi.set(__self__, "label", label)
-        if sampling_rate is not None:
-            pulumi.set(__self__, "sampling_rate", sampling_rate)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> pulumi.Input[str]:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.Audio'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @odata_type.setter
-    def odata_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "odata_type", value)
-
-    @property
-    @pulumi.getter
-    def bitrate(self) -> Optional[pulumi.Input[int]]:
-        """
-        The bitrate, in bits per second, of the output encoded audio.
-        """
-        return pulumi.get(self, "bitrate")
-
-    @bitrate.setter
-    def bitrate(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "bitrate", value)
-
-    @property
-    @pulumi.getter
-    def channels(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of channels in the audio.
-        """
-        return pulumi.get(self, "channels")
-
-    @channels.setter
-    def channels(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "channels", value)
-
-    @property
-    @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional label for the codec. The label can be used to control muxing behavior.
-        """
-        return pulumi.get(self, "label")
-
-    @label.setter
-    def label(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "label", value)
-
-    @property
-    @pulumi.getter(name="samplingRate")
-    def sampling_rate(self) -> Optional[pulumi.Input[int]]:
-        """
-        The sampling rate to use for encoding in hertz.
-        """
-        return pulumi.get(self, "sampling_rate")
-
-    @sampling_rate.setter
-    def sampling_rate(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "sampling_rate", value)
-
-
-@pulumi.input_type
 class AudioAnalyzerPresetArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
@@ -527,6 +438,95 @@ class AudioOverlayArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class AudioArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 bitrate: Optional[pulumi.Input[int]] = None,
+                 channels: Optional[pulumi.Input[int]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 sampling_rate: Optional[pulumi.Input[int]] = None):
+        """
+        Defines the common properties for all audio codecs.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Audio'.
+        :param pulumi.Input[int] bitrate: The bitrate, in bits per second, of the output encoded audio.
+        :param pulumi.Input[int] channels: The number of channels in the audio.
+        :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[int] sampling_rate: The sampling rate to use for encoding in hertz.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Audio')
+        if bitrate is not None:
+            pulumi.set(__self__, "bitrate", bitrate)
+        if channels is not None:
+            pulumi.set(__self__, "channels", channels)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Audio'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter
+    def bitrate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The bitrate, in bits per second, of the output encoded audio.
+        """
+        return pulumi.get(self, "bitrate")
+
+    @bitrate.setter
+    def bitrate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "bitrate", value)
+
+    @property
+    @pulumi.getter
+    def channels(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of channels in the audio.
+        """
+        return pulumi.get(self, "channels")
+
+    @channels.setter
+    def channels(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "channels", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        The sampling rate to use for encoding in hertz.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+    @sampling_rate.setter
+    def sampling_rate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sampling_rate", value)
 
 
 @pulumi.input_type
@@ -2835,6 +2835,47 @@ class IPRangeArgs:
 
 
 @pulumi.input_type
+class ImageFormatArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 filename_pattern: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the properties for an output image file.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.ImageFormat'.
+        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
+        if filename_pattern is not None:
+            pulumi.set(__self__, "filename_pattern", filename_pattern)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.ImageFormat'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="filenamePattern")
+    def filename_pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        return pulumi.get(self, "filename_pattern")
+
+    @filename_pattern.setter
+    def filename_pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename_pattern", value)
+
+
+@pulumi.input_type
 class ImageArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
@@ -2953,47 +2994,6 @@ class ImageArgs:
     @stretch_mode.setter
     def stretch_mode(self, value: Optional[pulumi.Input[Union[str, 'StretchMode']]]):
         pulumi.set(self, "stretch_mode", value)
-
-
-@pulumi.input_type
-class ImageFormatArgs:
-    def __init__(__self__, *,
-                 odata_type: pulumi.Input[str],
-                 filename_pattern: Optional[pulumi.Input[str]] = None):
-        """
-        Describes the properties for an output image file.
-        :param pulumi.Input[str] odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.ImageFormat'.
-        :param pulumi.Input[str] filename_pattern: The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-        """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.ImageFormat')
-        if filename_pattern is not None:
-            pulumi.set(__self__, "filename_pattern", filename_pattern)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> pulumi.Input[str]:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.ImageFormat'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @odata_type.setter
-    def odata_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "odata_type", value)
-
-    @property
-    @pulumi.getter(name="filenamePattern")
-    def filename_pattern(self) -> Optional[pulumi.Input[str]]:
-        """
-        The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - The base name of the input video {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. Any unsubstituted macros will be collapsed and removed from the filename.
-        """
-        return pulumi.get(self, "filename_pattern")
-
-    @filename_pattern.setter
-    def filename_pattern(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "filename_pattern", value)
 
 
 @pulumi.input_type
@@ -3714,6 +3714,30 @@ class LiveEventInputArgs:
 
 
 @pulumi.input_type
+class LiveEventPreviewAccessControlArgs:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
+        """
+        The IP access control for Live Event preview.
+        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
+        """
+        The IP access control properties.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
+        pulumi.set(self, "ip", value)
+
+
+@pulumi.input_type
 class LiveEventPreviewArgs:
     def __init__(__self__, *,
                  access_control: Optional[pulumi.Input['LiveEventPreviewAccessControlArgs']] = None,
@@ -3783,30 +3807,6 @@ class LiveEventPreviewArgs:
     @streaming_policy_name.setter
     def streaming_policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "streaming_policy_name", value)
-
-
-@pulumi.input_type
-class LiveEventPreviewAccessControlArgs:
-    def __init__(__self__, *,
-                 ip: Optional[pulumi.Input['IPAccessControlArgs']] = None):
-        """
-        The IP access control for Live Event preview.
-        :param pulumi.Input['IPAccessControlArgs'] ip: The IP access control properties.
-        """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-
-    @property
-    @pulumi.getter
-    def ip(self) -> Optional[pulumi.Input['IPAccessControlArgs']]:
-        """
-        The IP access control properties.
-        """
-        return pulumi.get(self, "ip")
-
-    @ip.setter
-    def ip(self, value: Optional[pulumi.Input['IPAccessControlArgs']]):
-        pulumi.set(self, "ip", value)
 
 
 @pulumi.input_type
@@ -4502,6 +4502,46 @@ class StreamingLocatorUserDefinedContentKeyArgs:
 
 
 @pulumi.input_type
+class StreamingPolicyContentKeysArgs:
+    def __init__(__self__, *,
+                 default_key: Optional[pulumi.Input['DefaultKeyArgs']] = None,
+                 key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]] = None):
+        """
+        Class to specify properties of all content keys in Streaming Policy
+        :param pulumi.Input['DefaultKeyArgs'] default_key: Default content key for an encryption scheme
+        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]] key_to_track_mappings: Representing tracks needs separate content key
+        """
+        if default_key is not None:
+            pulumi.set(__self__, "default_key", default_key)
+        if key_to_track_mappings is not None:
+            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
+
+    @property
+    @pulumi.getter(name="defaultKey")
+    def default_key(self) -> Optional[pulumi.Input['DefaultKeyArgs']]:
+        """
+        Default content key for an encryption scheme
+        """
+        return pulumi.get(self, "default_key")
+
+    @default_key.setter
+    def default_key(self, value: Optional[pulumi.Input['DefaultKeyArgs']]):
+        pulumi.set(self, "default_key", value)
+
+    @property
+    @pulumi.getter(name="keyToTrackMappings")
+    def key_to_track_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]:
+        """
+        Representing tracks needs separate content key
+        """
+        return pulumi.get(self, "key_to_track_mappings")
+
+    @key_to_track_mappings.setter
+    def key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]):
+        pulumi.set(self, "key_to_track_mappings", value)
+
+
+@pulumi.input_type
 class StreamingPolicyContentKeyArgs:
     def __init__(__self__, *,
                  label: Optional[pulumi.Input[str]] = None,
@@ -4555,46 +4595,6 @@ class StreamingPolicyContentKeyArgs:
     @tracks.setter
     def tracks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrackSelectionArgs']]]]):
         pulumi.set(self, "tracks", value)
-
-
-@pulumi.input_type
-class StreamingPolicyContentKeysArgs:
-    def __init__(__self__, *,
-                 default_key: Optional[pulumi.Input['DefaultKeyArgs']] = None,
-                 key_to_track_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]] = None):
-        """
-        Class to specify properties of all content keys in Streaming Policy
-        :param pulumi.Input['DefaultKeyArgs'] default_key: Default content key for an encryption scheme
-        :param pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]] key_to_track_mappings: Representing tracks needs separate content key
-        """
-        if default_key is not None:
-            pulumi.set(__self__, "default_key", default_key)
-        if key_to_track_mappings is not None:
-            pulumi.set(__self__, "key_to_track_mappings", key_to_track_mappings)
-
-    @property
-    @pulumi.getter(name="defaultKey")
-    def default_key(self) -> Optional[pulumi.Input['DefaultKeyArgs']]:
-        """
-        Default content key for an encryption scheme
-        """
-        return pulumi.get(self, "default_key")
-
-    @default_key.setter
-    def default_key(self, value: Optional[pulumi.Input['DefaultKeyArgs']]):
-        pulumi.set(self, "default_key", value)
-
-    @property
-    @pulumi.getter(name="keyToTrackMappings")
-    def key_to_track_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]:
-        """
-        Representing tracks needs separate content key
-        """
-        return pulumi.get(self, "key_to_track_mappings")
-
-    @key_to_track_mappings.setter
-    def key_to_track_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyContentKeyArgs']]]]):
-        pulumi.set(self, "key_to_track_mappings", value)
 
 
 @pulumi.input_type
@@ -4891,79 +4891,6 @@ class TransportStreamFormatArgs:
 
 
 @pulumi.input_type
-class VideoArgs:
-    def __init__(__self__, *,
-                 odata_type: pulumi.Input[str],
-                 key_frame_interval: Optional[pulumi.Input[str]] = None,
-                 label: Optional[pulumi.Input[str]] = None,
-                 stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None):
-        """
-        Describes the basic properties for encoding the input video.
-        :param pulumi.Input[str] odata_type: The discriminator for derived types.
-               Expected value is '#Microsoft.Media.Video'.
-        :param pulumi.Input[str] key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-        :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-        """
-        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
-        if key_frame_interval is not None:
-            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
-        if label is not None:
-            pulumi.set(__self__, "label", label)
-        if stretch_mode is not None:
-            pulumi.set(__self__, "stretch_mode", stretch_mode)
-
-    @property
-    @pulumi.getter(name="odataType")
-    def odata_type(self) -> pulumi.Input[str]:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.Media.Video'.
-        """
-        return pulumi.get(self, "odata_type")
-
-    @odata_type.setter
-    def odata_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "odata_type", value)
-
-    @property
-    @pulumi.getter(name="keyFrameInterval")
-    def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
-        """
-        The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
-        """
-        return pulumi.get(self, "key_frame_interval")
-
-    @key_frame_interval.setter
-    def key_frame_interval(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "key_frame_interval", value)
-
-    @property
-    @pulumi.getter
-    def label(self) -> Optional[pulumi.Input[str]]:
-        """
-        An optional label for the codec. The label can be used to control muxing behavior.
-        """
-        return pulumi.get(self, "label")
-
-    @label.setter
-    def label(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "label", value)
-
-    @property
-    @pulumi.getter(name="stretchMode")
-    def stretch_mode(self) -> Optional[pulumi.Input[Union[str, 'StretchMode']]]:
-        """
-        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-        """
-        return pulumi.get(self, "stretch_mode")
-
-    @stretch_mode.setter
-    def stretch_mode(self, value: Optional[pulumi.Input[Union[str, 'StretchMode']]]):
-        pulumi.set(self, "stretch_mode", value)
-
-
-@pulumi.input_type
 class VideoAnalyzerPresetArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
@@ -5187,5 +5114,78 @@ class VideoOverlayArgs:
     @start.setter
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
+
+
+@pulumi.input_type
+class VideoArgs:
+    def __init__(__self__, *,
+                 odata_type: pulumi.Input[str],
+                 key_frame_interval: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None):
+        """
+        Describes the basic properties for encoding the input video.
+        :param pulumi.Input[str] odata_type: The discriminator for derived types.
+               Expected value is '#Microsoft.Media.Video'.
+        :param pulumi.Input[str] key_frame_interval: The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
+        :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
+        if key_frame_interval is not None:
+            pulumi.set(__self__, "key_frame_interval", key_frame_interval)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if stretch_mode is not None:
+            pulumi.set(__self__, "stretch_mode", stretch_mode)
+
+    @property
+    @pulumi.getter(name="odataType")
+    def odata_type(self) -> pulumi.Input[str]:
+        """
+        The discriminator for derived types.
+        Expected value is '#Microsoft.Media.Video'.
+        """
+        return pulumi.get(self, "odata_type")
+
+    @odata_type.setter
+    def odata_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "odata_type", value)
+
+    @property
+    @pulumi.getter(name="keyFrameInterval")
+    def key_frame_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        The distance between two key frames, thereby defining a group of pictures (GOP). The value should be a non-zero integer in the range [1, 30] seconds, specified in ISO 8601 format. The default is 2 seconds (PT2S).
+        """
+        return pulumi.get(self, "key_frame_interval")
+
+    @key_frame_interval.setter
+    def key_frame_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_frame_interval", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional label for the codec. The label can be used to control muxing behavior.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="stretchMode")
+    def stretch_mode(self) -> Optional[pulumi.Input[Union[str, 'StretchMode']]]:
+        """
+        The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        """
+        return pulumi.get(self, "stretch_mode")
+
+    @stretch_mode.setter
+    def stretch_mode(self, value: Optional[pulumi.Input[Union[str, 'StretchMode']]]):
+        pulumi.set(self, "stretch_mode", value)
 
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Details of the On Premise Sql resource that was assessed
+    /// </summary>
     [OutputType]
     public sealed class OnPremiseSqlResourceDetailsResponse
     {

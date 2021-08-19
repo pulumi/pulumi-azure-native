@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180701.Outputs
 {
 
+    /// <summary>
+    /// The Asset File Storage encryption metadata.
+    /// </summary>
     [OutputType]
     public sealed class AssetFileEncryptionMetadataResponse
     {

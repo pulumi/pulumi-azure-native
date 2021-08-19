@@ -89,29 +89,9 @@ func GetIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IntegrationAccountBatchConfiguration resources.
 type integrationAccountBatchConfigurationState struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name *string `pulumi:"name"`
-	// The batch configuration properties.
-	Properties *BatchConfigurationPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type *string `pulumi:"type"`
 }
 
 type IntegrationAccountBatchConfigurationState struct {
-	// The resource location.
-	Location pulumi.StringPtrInput
-	// Gets the resource name.
-	Name pulumi.StringPtrInput
-	// The batch configuration properties.
-	Properties BatchConfigurationPropertiesResponsePtrInput
-	// The resource tags.
-	Tags pulumi.StringMapInput
-	// Gets the resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (IntegrationAccountBatchConfigurationState) ElementType() reflect.Type {
@@ -172,9 +152,7 @@ func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationOutput)
 }
 
-type IntegrationAccountBatchConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationAccountBatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil))

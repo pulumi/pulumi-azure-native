@@ -12,8 +12,8 @@ from ._enums import *
 __all__ = [
     'ReportAggregationArgs',
     'ReportComparisonExpressionArgs',
-    'ReportDatasetArgs',
     'ReportDatasetConfigurationArgs',
+    'ReportDatasetArgs',
     'ReportDefinitionArgs',
     'ReportDeliveryDestinationArgs',
     'ReportDeliveryInfoArgs',
@@ -116,6 +116,30 @@ class ReportComparisonExpressionArgs:
 
 
 @pulumi.input_type
+class ReportDatasetConfigurationArgs:
+    def __init__(__self__, *,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The configuration of dataset in the report.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "columns", value)
+
+
+@pulumi.input_type
 class ReportDatasetArgs:
     def __init__(__self__, *,
                  aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]]] = None,
@@ -201,30 +225,6 @@ class ReportDatasetArgs:
     @grouping.setter
     def grouping(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]]):
         pulumi.set(self, "grouping", value)
-
-
-@pulumi.input_type
-class ReportDatasetConfigurationArgs:
-    def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        The configuration of dataset in the report.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] columns: Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        if columns is not None:
-            pulumi.set(__self__, "columns", columns)
-
-    @property
-    @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-        """
-        return pulumi.get(self, "columns")
-
-    @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "columns", value)
 
 
 @pulumi.input_type

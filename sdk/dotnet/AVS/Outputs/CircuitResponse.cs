@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.Outputs
 {
 
+    /// <summary>
+    /// An ExpressRoute Circuit
+    /// </summary>
     [OutputType]
     public sealed class CircuitResponse
     {

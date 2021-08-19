@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190701.Outputs
 {
 
+    /// <summary>
+    /// The gallery artifact version source.
+    /// </summary>
     [OutputType]
     public sealed class GalleryArtifactVersionSourceResponse
     {

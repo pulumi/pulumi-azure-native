@@ -110,7 +110,7 @@ func (o StorageAccountOutput) ToStorageAccountPtrOutput() StorageAccountPtrOutpu
 }
 
 func (o StorageAccountOutput) ToStorageAccountPtrOutputWithContext(ctx context.Context) StorageAccountPtrOutput {
-	return o.ApplyT(func(v StorageAccount) *StorageAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccount) *StorageAccount {
 		return &v
 	}).(StorageAccountPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o StorageAccountPtrOutput) ToStorageAccountPtrOutputWithContext(ctx contex
 }
 
 func (o StorageAccountPtrOutput) Elem() StorageAccountOutput {
-	return o.ApplyT(func(v *StorageAccount) StorageAccount { return *v }).(StorageAccountOutput)
+	return o.ApplyT(func(v *StorageAccount) StorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccount
+		return ret
+	}).(StorageAccountOutput)
 }
 
 // The Azure Resource Manager ID of the storage account resource.
@@ -263,7 +269,7 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() Storag
 }
 
 func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountResponse) *StorageAccountResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
 		return &v
 	}).(StorageAccountResponsePtrOutput)
 }
@@ -293,7 +299,13 @@ func (o StorageAccountResponsePtrOutput) ToStorageAccountResponsePtrOutputWithCo
 }
 
 func (o StorageAccountResponsePtrOutput) Elem() StorageAccountResponseOutput {
-	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse { return *v }).(StorageAccountResponseOutput)
+	return o.ApplyT(func(v *StorageAccountResponse) StorageAccountResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountResponse
+		return ret
+	}).(StorageAccountResponseOutput)
 }
 
 // The Azure Resource Manager ID of the storage account resource.
@@ -416,7 +428,7 @@ func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOut
 }
 
 func (o StorageInsightStatusResponseOutput) ToStorageInsightStatusResponsePtrOutputWithContext(ctx context.Context) StorageInsightStatusResponsePtrOutput {
-	return o.ApplyT(func(v StorageInsightStatusResponse) *StorageInsightStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageInsightStatusResponse) *StorageInsightStatusResponse {
 		return &v
 	}).(StorageInsightStatusResponsePtrOutput)
 }
@@ -446,7 +458,13 @@ func (o StorageInsightStatusResponsePtrOutput) ToStorageInsightStatusResponsePtr
 }
 
 func (o StorageInsightStatusResponsePtrOutput) Elem() StorageInsightStatusResponseOutput {
-	return o.ApplyT(func(v *StorageInsightStatusResponse) StorageInsightStatusResponse { return *v }).(StorageInsightStatusResponseOutput)
+	return o.ApplyT(func(v *StorageInsightStatusResponse) StorageInsightStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret StorageInsightStatusResponse
+		return ret
+	}).(StorageInsightStatusResponseOutput)
 }
 
 // Description of the state of the storage insight.

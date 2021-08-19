@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20200601.Outputs
 {
 
+    /// <summary>
+    /// The definition of an export.
+    /// </summary>
     [OutputType]
     public sealed class ExportDefinitionResponse
     {

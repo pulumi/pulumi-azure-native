@@ -94,35 +94,9 @@ func GetAADDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AADDataConnector resources.
 type aaddataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes *AlertsDataTypeOfDataConnectorResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'AzureActiveDirectory'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// The tenant id to connect to, and get the data from.
-	TenantId *string `pulumi:"tenantId"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type AADDataConnectorState struct {
-	// The available data types for the connector.
-	DataTypes AlertsDataTypeOfDataConnectorResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'AzureActiveDirectory'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// The tenant id to connect to, and get the data from.
-	TenantId pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (AADDataConnectorState) ElementType() reflect.Type {
@@ -189,9 +163,7 @@ func (i *AADDataConnector) ToAADDataConnectorOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AADDataConnectorOutput)
 }
 
-type AADDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type AADDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AADDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AADDataConnector)(nil))

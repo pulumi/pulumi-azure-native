@@ -186,61 +186,9 @@ func GetWebApplicationFirewallPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebApplicationFirewallPolicy resources.
 type webApplicationFirewallPolicyState struct {
-	// A collection of references to application gateways.
-	ApplicationGateways []ApplicationGatewayResponse `pulumi:"applicationGateways"`
-	// Describes custom rules inside the policy.
-	CustomRules []WebApplicationFirewallCustomRuleResponse `pulumi:"customRules"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// A collection of references to application gateway http listeners.
-	HttpListeners []SubResourceResponse `pulumi:"httpListeners"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Describes the managedRules structure.
-	ManagedRules *ManagedRulesDefinitionResponse `pulumi:"managedRules"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// A collection of references to application gateway path rules.
-	PathBasedRules []SubResourceResponse `pulumi:"pathBasedRules"`
-	// Describes policySettings for policy.
-	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
-	// The provisioning state of the web application firewall policy resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource status of the policy.
-	ResourceState *string `pulumi:"resourceState"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type WebApplicationFirewallPolicyState struct {
-	// A collection of references to application gateways.
-	ApplicationGateways ApplicationGatewayResponseArrayInput
-	// Describes custom rules inside the policy.
-	CustomRules WebApplicationFirewallCustomRuleResponseArrayInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// A collection of references to application gateway http listeners.
-	HttpListeners SubResourceResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Describes the managedRules structure.
-	ManagedRules ManagedRulesDefinitionResponsePtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// A collection of references to application gateway path rules.
-	PathBasedRules SubResourceResponseArrayInput
-	// Describes policySettings for policy.
-	PolicySettings PolicySettingsResponsePtrInput
-	// The provisioning state of the web application firewall policy resource.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource status of the policy.
-	ResourceState pulumi.StringPtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (WebApplicationFirewallPolicyState) ElementType() reflect.Type {
@@ -309,9 +257,7 @@ func (i *WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebApplicationFirewallPolicyOutput)
 }
 
-type WebApplicationFirewallPolicyOutput struct {
-	*pulumi.OutputState
-}
+type WebApplicationFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (WebApplicationFirewallPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebApplicationFirewallPolicy)(nil))

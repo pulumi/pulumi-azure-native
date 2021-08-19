@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20170119.Outputs
 {
 
+    /// <summary>
+    /// The properties of an IoT hub shared access policy.
+    /// </summary>
     [OutputType]
     public sealed class SharedAccessSignatureAuthorizationRuleResponse
     {

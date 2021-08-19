@@ -115,47 +115,9 @@ func GetKustoClusterDataSetMapping(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KustoClusterDataSetMapping resources.
 type kustoClusterDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId *string `pulumi:"dataSetId"`
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus *string `pulumi:"dataSetMappingStatus"`
-	// Kind of data set mapping.
-	// Expected value is 'KustoCluster'.
-	Kind *string `pulumi:"kind"`
-	// Resource id of the sink kusto cluster.
-	KustoClusterResourceId *string `pulumi:"kustoClusterResourceId"`
-	// Location of the sink kusto cluster.
-	Location *string `pulumi:"location"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Provisioning state of the data set mapping.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// System Data of the Azure resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type KustoClusterDataSetMappingState struct {
-	// The id of the source data set.
-	DataSetId pulumi.StringPtrInput
-	// Gets the status of the data set mapping.
-	DataSetMappingStatus pulumi.StringPtrInput
-	// Kind of data set mapping.
-	// Expected value is 'KustoCluster'.
-	Kind pulumi.StringPtrInput
-	// Resource id of the sink kusto cluster.
-	KustoClusterResourceId pulumi.StringPtrInput
-	// Location of the sink kusto cluster.
-	Location pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Provisioning state of the data set mapping.
-	ProvisioningState pulumi.StringPtrInput
-	// System Data of the Azure resource.
-	SystemData SystemDataResponsePtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (KustoClusterDataSetMappingState) ElementType() reflect.Type {
@@ -222,9 +184,7 @@ func (i *KustoClusterDataSetMapping) ToKustoClusterDataSetMappingOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KustoClusterDataSetMappingOutput)
 }
 
-type KustoClusterDataSetMappingOutput struct {
-	*pulumi.OutputState
-}
+type KustoClusterDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (KustoClusterDataSetMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KustoClusterDataSetMapping)(nil))

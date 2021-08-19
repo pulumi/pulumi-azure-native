@@ -31,8 +31,8 @@ __all__ = [
     'DataCollectionRuleDataSourcesArgs',
     'DataCollectionRuleDestinationsArgs',
     'DataFlowArgs',
-    'DataSourceArgs',
     'DataSourceConfigurationArgs',
+    'DataSourceArgs',
     'DestinationsSpecAzureMonitorMetricsArgs',
     'DimensionArgs',
     'DynamicMetricCriteriaArgs',
@@ -75,8 +75,8 @@ __all__ = [
     'RuleWebhookActionArgs',
     'ScaleActionArgs',
     'ScaleCapacityArgs',
-    'ScaleRuleArgs',
     'ScaleRuleMetricDimensionArgs',
+    'ScaleRuleArgs',
     'ScheduleArgs',
     'SinkConfigurationArgs',
     'SmsReceiverArgs',
@@ -1354,51 +1354,6 @@ class DataFlowArgs:
 
 
 @pulumi.input_type
-class DataSourceArgs:
-    def __init__(__self__, *,
-                 configuration: pulumi.Input['DataSourceConfigurationArgs'],
-                 kind: pulumi.Input[str],
-                 sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
-        """
-        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
-        :param pulumi.Input[str] kind: Datasource kind
-        """
-        pulumi.set(__self__, "configuration", configuration)
-        pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "sinks", sinks)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> pulumi.Input['DataSourceConfigurationArgs']:
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: pulumi.Input['DataSourceConfigurationArgs']):
-        pulumi.set(self, "configuration", value)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
-        """
-        Datasource kind
-        """
-        return pulumi.get(self, "kind")
-
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter
-    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]:
-        return pulumi.get(self, "sinks")
-
-    @sinks.setter
-    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
-        pulumi.set(self, "sinks", value)
-
-
-@pulumi.input_type
 class DataSourceConfigurationArgs:
     def __init__(__self__, *,
                  event_logs: Optional[pulumi.Input[Sequence[pulumi.Input['EventLogConfigurationArgs']]]] = None,
@@ -1451,6 +1406,51 @@ class DataSourceConfigurationArgs:
     @providers.setter
     def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EtwProviderConfigurationArgs']]]]):
         pulumi.set(self, "providers", value)
+
+
+@pulumi.input_type
+class DataSourceArgs:
+    def __init__(__self__, *,
+                 configuration: pulumi.Input['DataSourceConfigurationArgs'],
+                 kind: pulumi.Input[str],
+                 sinks: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
+        """
+        Data source object contains configuration to collect telemetry and one or more sinks to send that telemetry data to
+        :param pulumi.Input[str] kind: Datasource kind
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "sinks", sinks)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['DataSourceConfigurationArgs']:
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['DataSourceConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Datasource kind
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def sinks(self) -> pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]:
+        return pulumi.get(self, "sinks")
+
+    @sinks.setter
+    def sinks(self, value: pulumi.Input[Sequence[pulumi.Input['SinkConfigurationArgs']]]):
+        pulumi.set(self, "sinks", value)
 
 
 @pulumi.input_type
@@ -4174,44 +4174,6 @@ class ScaleCapacityArgs:
 
 
 @pulumi.input_type
-class ScaleRuleArgs:
-    def __init__(__self__, *,
-                 metric_trigger: pulumi.Input['MetricTriggerArgs'],
-                 scale_action: pulumi.Input['ScaleActionArgs']):
-        """
-        A rule that provide the triggers and parameters for the scaling action.
-        :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
-        :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
-        """
-        pulumi.set(__self__, "metric_trigger", metric_trigger)
-        pulumi.set(__self__, "scale_action", scale_action)
-
-    @property
-    @pulumi.getter(name="metricTrigger")
-    def metric_trigger(self) -> pulumi.Input['MetricTriggerArgs']:
-        """
-        the trigger that results in a scaling action.
-        """
-        return pulumi.get(self, "metric_trigger")
-
-    @metric_trigger.setter
-    def metric_trigger(self, value: pulumi.Input['MetricTriggerArgs']):
-        pulumi.set(self, "metric_trigger", value)
-
-    @property
-    @pulumi.getter(name="scaleAction")
-    def scale_action(self) -> pulumi.Input['ScaleActionArgs']:
-        """
-        the parameters for the scaling action.
-        """
-        return pulumi.get(self, "scale_action")
-
-    @scale_action.setter
-    def scale_action(self, value: pulumi.Input['ScaleActionArgs']):
-        pulumi.set(self, "scale_action", value)
-
-
-@pulumi.input_type
 class ScaleRuleMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[str],
@@ -4262,6 +4224,44 @@ class ScaleRuleMetricDimensionArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ScaleRuleArgs:
+    def __init__(__self__, *,
+                 metric_trigger: pulumi.Input['MetricTriggerArgs'],
+                 scale_action: pulumi.Input['ScaleActionArgs']):
+        """
+        A rule that provide the triggers and parameters for the scaling action.
+        :param pulumi.Input['MetricTriggerArgs'] metric_trigger: the trigger that results in a scaling action.
+        :param pulumi.Input['ScaleActionArgs'] scale_action: the parameters for the scaling action.
+        """
+        pulumi.set(__self__, "metric_trigger", metric_trigger)
+        pulumi.set(__self__, "scale_action", scale_action)
+
+    @property
+    @pulumi.getter(name="metricTrigger")
+    def metric_trigger(self) -> pulumi.Input['MetricTriggerArgs']:
+        """
+        the trigger that results in a scaling action.
+        """
+        return pulumi.get(self, "metric_trigger")
+
+    @metric_trigger.setter
+    def metric_trigger(self, value: pulumi.Input['MetricTriggerArgs']):
+        pulumi.set(self, "metric_trigger", value)
+
+    @property
+    @pulumi.getter(name="scaleAction")
+    def scale_action(self) -> pulumi.Input['ScaleActionArgs']:
+        """
+        the parameters for the scaling action.
+        """
+        return pulumi.get(self, "scale_action")
+
+    @scale_action.setter
+    def scale_action(self, value: pulumi.Input['ScaleActionArgs']):
+        pulumi.set(self, "scale_action", value)
 
 
 @pulumi.input_type

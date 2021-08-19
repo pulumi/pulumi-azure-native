@@ -185,29 +185,9 @@ func GetMongoDBResourceMongoDBCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MongoDBResourceMongoDBCollection resources.
 type mongoDBResourceMongoDBCollectionState struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name     *string                                         `pulumi:"name"`
-	Options  *MongoDBCollectionGetPropertiesResponseOptions  `pulumi:"options"`
-	Resource *MongoDBCollectionGetPropertiesResponseResource `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type MongoDBResourceMongoDBCollectionState struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// The name of the ARM resource.
-	Name     pulumi.StringPtrInput
-	Options  MongoDBCollectionGetPropertiesResponseOptionsPtrInput
-	Resource MongoDBCollectionGetPropertiesResponseResourcePtrInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (MongoDBResourceMongoDBCollectionState) ElementType() reflect.Type {
@@ -276,9 +256,7 @@ func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOut
 	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionOutput)
 }
 
-type MongoDBResourceMongoDBCollectionOutput struct {
-	*pulumi.OutputState
-}
+type MongoDBResourceMongoDBCollectionOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoDBCollectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))

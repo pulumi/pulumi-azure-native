@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
+    /// <summary>
+    /// The settings to enable AAD authentication on the cluster.
+    /// </summary>
     [OutputType]
     public sealed class AzureActiveDirectoryResponse
     {

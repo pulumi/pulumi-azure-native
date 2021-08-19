@@ -463,7 +463,7 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOut
 }
 
 func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
 		return &v
 	}).(ContainerServiceLinuxProfilePtrOutput)
 }
@@ -493,7 +493,13 @@ func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtr
 }
 
 func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile { return *v }).(ContainerServiceLinuxProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfile
+		return ret
+	}).(ContainerServiceLinuxProfileOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -616,7 +622,7 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
 		return &v
 	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
@@ -646,7 +652,13 @@ func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxPr
 }
 
 func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse { return *v }).(ContainerServiceLinuxProfileResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceLinuxProfileResponse
+		return ret
+	}).(ContainerServiceLinuxProfileResponseOutput)
 }
 
 // The administrator username to use for Linux VMs.
@@ -773,7 +785,7 @@ func (o ContainerServiceServicePrincipalProfileOutput) ToContainerServiceService
 }
 
 func (o ContainerServiceServicePrincipalProfileOutput) ToContainerServiceServicePrincipalProfilePtrOutputWithContext(ctx context.Context) ContainerServiceServicePrincipalProfilePtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfile) *ContainerServiceServicePrincipalProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceServicePrincipalProfile) *ContainerServiceServicePrincipalProfile {
 		return &v
 	}).(ContainerServiceServicePrincipalProfilePtrOutput)
 }
@@ -808,7 +820,13 @@ func (o ContainerServiceServicePrincipalProfilePtrOutput) ToContainerServiceServ
 }
 
 func (o ContainerServiceServicePrincipalProfilePtrOutput) Elem() ContainerServiceServicePrincipalProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfile) ContainerServiceServicePrincipalProfile { return *v }).(ContainerServiceServicePrincipalProfileOutput)
+	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfile) ContainerServiceServicePrincipalProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceServicePrincipalProfile
+		return ret
+	}).(ContainerServiceServicePrincipalProfileOutput)
 }
 
 // The ID for the service principal.
@@ -945,7 +963,7 @@ func (o ContainerServiceServicePrincipalProfileResponseOutput) ToContainerServic
 }
 
 func (o ContainerServiceServicePrincipalProfileResponseOutput) ToContainerServiceServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceServicePrincipalProfileResponse) *ContainerServiceServicePrincipalProfileResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceServicePrincipalProfileResponse) *ContainerServiceServicePrincipalProfileResponse {
 		return &v
 	}).(ContainerServiceServicePrincipalProfileResponsePtrOutput)
 }
@@ -983,7 +1001,11 @@ func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) ToContainerSer
 
 func (o ContainerServiceServicePrincipalProfileResponsePtrOutput) Elem() ContainerServiceServicePrincipalProfileResponseOutput {
 	return o.ApplyT(func(v *ContainerServiceServicePrincipalProfileResponse) ContainerServiceServicePrincipalProfileResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceServicePrincipalProfileResponse
+		return ret
 	}).(ContainerServiceServicePrincipalProfileResponseOutput)
 }
 
@@ -1113,7 +1135,7 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 }
 
 func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
 		return &v
 	}).(ContainerServiceSshConfigurationPtrOutput)
 }
@@ -1138,7 +1160,13 @@ func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigur
 }
 
 func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration { return *v }).(ContainerServiceSshConfigurationOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfiguration
+		return ret
+	}).(ContainerServiceSshConfigurationOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -1247,7 +1275,7 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
 		return &v
 	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
@@ -1274,7 +1302,13 @@ func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSsh
 }
 
 func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse { return *v }).(ContainerServiceSshConfigurationResponseOutput)
+	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceSshConfigurationResponse
+		return ret
+	}).(ContainerServiceSshConfigurationResponseOutput)
 }
 
 // The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
@@ -1591,7 +1625,7 @@ func (o KeyVaultSecretRefOutput) ToKeyVaultSecretRefPtrOutput() KeyVaultSecretRe
 }
 
 func (o KeyVaultSecretRefOutput) ToKeyVaultSecretRefPtrOutputWithContext(ctx context.Context) KeyVaultSecretRefPtrOutput {
-	return o.ApplyT(func(v KeyVaultSecretRef) *KeyVaultSecretRef {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultSecretRef) *KeyVaultSecretRef {
 		return &v
 	}).(KeyVaultSecretRefPtrOutput)
 }
@@ -1626,7 +1660,13 @@ func (o KeyVaultSecretRefPtrOutput) ToKeyVaultSecretRefPtrOutputWithContext(ctx 
 }
 
 func (o KeyVaultSecretRefPtrOutput) Elem() KeyVaultSecretRefOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRef) KeyVaultSecretRef { return *v }).(KeyVaultSecretRefOutput)
+	return o.ApplyT(func(v *KeyVaultSecretRef) KeyVaultSecretRef {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultSecretRef
+		return ret
+	}).(KeyVaultSecretRefOutput)
 }
 
 // The secret name.
@@ -1763,7 +1803,7 @@ func (o KeyVaultSecretRefResponseOutput) ToKeyVaultSecretRefResponsePtrOutput() 
 }
 
 func (o KeyVaultSecretRefResponseOutput) ToKeyVaultSecretRefResponsePtrOutputWithContext(ctx context.Context) KeyVaultSecretRefResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultSecretRefResponse) *KeyVaultSecretRefResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultSecretRefResponse) *KeyVaultSecretRefResponse {
 		return &v
 	}).(KeyVaultSecretRefResponsePtrOutput)
 }
@@ -1798,7 +1838,13 @@ func (o KeyVaultSecretRefResponsePtrOutput) ToKeyVaultSecretRefResponsePtrOutput
 }
 
 func (o KeyVaultSecretRefResponsePtrOutput) Elem() KeyVaultSecretRefResponseOutput {
-	return o.ApplyT(func(v *KeyVaultSecretRefResponse) KeyVaultSecretRefResponse { return *v }).(KeyVaultSecretRefResponseOutput)
+	return o.ApplyT(func(v *KeyVaultSecretRefResponse) KeyVaultSecretRefResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultSecretRefResponse
+		return ret
+	}).(KeyVaultSecretRefResponseOutput)
 }
 
 // The secret name.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Database specific information for SQL to Azure SQL DB sync migration task inputs
+    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlDbSyncDatabaseInputResponse
     {

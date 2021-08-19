@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Identifies the unique system identifier for each Azure resource.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

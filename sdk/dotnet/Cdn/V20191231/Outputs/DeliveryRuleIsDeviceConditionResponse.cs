@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20191231.Outputs
 {
 
+    /// <summary>
+    /// Defines the IsDevice condition for the delivery rule.
+    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleIsDeviceConditionResponse
     {

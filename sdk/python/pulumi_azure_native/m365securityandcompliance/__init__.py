@@ -35,7 +35,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.m365securityandcompliance.v20210325preview as v20210325preview
+    import pulumi_azure_native.m365securityandcompliance.v20210325preview as __v20210325preview
+    v20210325preview = __v20210325preview
 else:
     v20210325preview = _utilities.lazy_import('pulumi_azure_native.m365securityandcompliance.v20210325preview')
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
+    /// <summary>
+    /// Details of the backing virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineDetailsResponse
     {

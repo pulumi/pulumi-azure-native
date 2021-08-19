@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// A class that contains the optimized auto scale definition.
+    /// </summary>
     [OutputType]
     public sealed class OptimizedAutoscaleResponse
     {

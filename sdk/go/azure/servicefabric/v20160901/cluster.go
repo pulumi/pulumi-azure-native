@@ -167,101 +167,9 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
-	AvailableClusterVersions []ClusterVersionDetailsResponse `pulumi:"availableClusterVersions"`
-	// The settings to enable AAD authentication on the cluster
-	AzureActiveDirectory *AzureActiveDirectoryResponse `pulumi:"azureActiveDirectory"`
-	// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-	Certificate *CertificateDescriptionResponse `pulumi:"certificate"`
-	//  List of client certificates to whitelist based on common names
-	ClientCertificateCommonNames []ClientCertificateCommonNameResponse `pulumi:"clientCertificateCommonNames"`
-	// The client thumbprint details ,it is used for client access for cluster operation
-	ClientCertificateThumbprints []ClientCertificateThumbprintResponse `pulumi:"clientCertificateThumbprints"`
-	// The ServiceFabric code version running in your cluster
-	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
-	// The endpoint for the cluster connecting to servicefabric resource provider
-	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
-	// The unique identifier for the cluster resource
-	ClusterId *string `pulumi:"clusterId"`
-	// The state for the cluster
-	ClusterState *string `pulumi:"clusterState"`
-	// The storage diagnostics account configuration details
-	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfigResponse `pulumi:"diagnosticsStorageAccountConfig"`
-	// List of custom fabric settings to configure the cluster.
-	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The http management endpoint of the cluster
-	ManagementEndpoint *string `pulumi:"managementEndpoint"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The list of node types that make up the cluster
-	NodeTypes []NodeTypeDescriptionResponse `pulumi:"nodeTypes"`
-	// The provisioning state of the cluster resource
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Cluster reliability level indicates replica set size of system service
-	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
-	// The server certificate used by reverse proxy
-	ReverseProxyCertificate *CertificateDescriptionResponse `pulumi:"reverseProxyCertificate"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The policy to use when upgrading the cluster.
-	UpgradeDescription *ClusterUpgradePolicyResponse `pulumi:"upgradeDescription"`
-	// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
-	UpgradeMode *string `pulumi:"upgradeMode"`
-	// The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-	VmImage *string `pulumi:"vmImage"`
 }
 
 type ClusterState struct {
-	// The available cluster code version which the cluster can upgrade to, note that you must choose upgradeMode to manual to upgrade to
-	AvailableClusterVersions ClusterVersionDetailsResponseArrayInput
-	// The settings to enable AAD authentication on the cluster
-	AzureActiveDirectory AzureActiveDirectoryResponsePtrInput
-	// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
-	Certificate CertificateDescriptionResponsePtrInput
-	//  List of client certificates to whitelist based on common names
-	ClientCertificateCommonNames ClientCertificateCommonNameResponseArrayInput
-	// The client thumbprint details ,it is used for client access for cluster operation
-	ClientCertificateThumbprints ClientCertificateThumbprintResponseArrayInput
-	// The ServiceFabric code version running in your cluster
-	ClusterCodeVersion pulumi.StringPtrInput
-	// The endpoint for the cluster connecting to servicefabric resource provider
-	ClusterEndpoint pulumi.StringPtrInput
-	// The unique identifier for the cluster resource
-	ClusterId pulumi.StringPtrInput
-	// The state for the cluster
-	ClusterState pulumi.StringPtrInput
-	// The storage diagnostics account configuration details
-	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigResponsePtrInput
-	// List of custom fabric settings to configure the cluster.
-	FabricSettings SettingsSectionDescriptionResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// The http management endpoint of the cluster
-	ManagementEndpoint pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The list of node types that make up the cluster
-	NodeTypes NodeTypeDescriptionResponseArrayInput
-	// The provisioning state of the cluster resource
-	ProvisioningState pulumi.StringPtrInput
-	// Cluster reliability level indicates replica set size of system service
-	ReliabilityLevel pulumi.StringPtrInput
-	// The server certificate used by reverse proxy
-	ReverseProxyCertificate CertificateDescriptionResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The policy to use when upgrading the cluster.
-	UpgradeDescription ClusterUpgradePolicyResponsePtrInput
-	// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
-	UpgradeMode pulumi.StringPtrInput
-	// The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
-	VmImage pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -370,9 +278,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))

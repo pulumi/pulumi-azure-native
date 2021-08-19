@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview.Outputs
 {
 
+    /// <summary>
+    /// Delegated subnet arguments of a server
+    /// </summary>
     [OutputType]
     public sealed class DelegatedSubnetArgumentsResponse
     {

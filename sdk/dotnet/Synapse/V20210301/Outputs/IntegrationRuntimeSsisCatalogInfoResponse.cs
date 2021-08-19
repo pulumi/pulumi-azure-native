@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Catalog information for managed dedicated integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeSsisCatalogInfoResponse
     {

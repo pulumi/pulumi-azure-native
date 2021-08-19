@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Holds billing meter details for each type of billing
+    /// </summary>
     [OutputType]
     public sealed class BillingMeterDetailsResponse
     {

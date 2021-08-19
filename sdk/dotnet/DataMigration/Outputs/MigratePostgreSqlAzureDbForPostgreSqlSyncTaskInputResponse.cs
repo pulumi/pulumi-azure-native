@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.Outputs
 {
 
+    /// <summary>
+    /// Input for the task that migrates PostgreSQL databases to Azure Database for PostgreSQL for online migrations
+    /// </summary>
     [OutputType]
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse
     {

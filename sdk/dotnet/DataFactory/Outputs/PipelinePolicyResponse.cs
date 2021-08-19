@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Pipeline Policy.
+    /// </summary>
     [OutputType]
     public sealed class PipelinePolicyResponse
     {

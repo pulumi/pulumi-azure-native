@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AVS.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// The resource model definition representing SKU
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

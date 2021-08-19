@@ -80,21 +80,9 @@ func GetDefaultRollout(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DefaultRollout resources.
 type defaultRolloutState struct {
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Properties of the rollout.
-	Properties *DefaultRolloutResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type DefaultRolloutState struct {
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Properties of the rollout.
-	Properties DefaultRolloutResponsePropertiesPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (DefaultRolloutState) ElementType() reflect.Type {
@@ -143,9 +131,7 @@ func (i *DefaultRollout) ToDefaultRolloutOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultRolloutOutput)
 }
 
-type DefaultRolloutOutput struct {
-	*pulumi.OutputState
-}
+type DefaultRolloutOutput struct{ *pulumi.OutputState }
 
 func (DefaultRolloutOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultRollout)(nil))

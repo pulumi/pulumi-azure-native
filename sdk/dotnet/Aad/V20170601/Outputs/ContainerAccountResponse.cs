@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.V20170601.Outputs
 {
 
+    /// <summary>
+    /// Container Account Description
+    /// </summary>
     [OutputType]
     public sealed class ContainerAccountResponse
     {

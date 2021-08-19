@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Parameters in Policy
+    /// </summary>
     [OutputType]
     public sealed class PolicyParametersResponse
     {

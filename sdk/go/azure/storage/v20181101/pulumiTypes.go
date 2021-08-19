@@ -378,7 +378,7 @@ func (o CorsRulesOutput) ToCorsRulesPtrOutput() CorsRulesPtrOutput {
 }
 
 func (o CorsRulesOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context) CorsRulesPtrOutput {
-	return o.ApplyT(func(v CorsRules) *CorsRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsRules) *CorsRules {
 		return &v
 	}).(CorsRulesPtrOutput)
 }
@@ -403,7 +403,13 @@ func (o CorsRulesPtrOutput) ToCorsRulesPtrOutputWithContext(ctx context.Context)
 }
 
 func (o CorsRulesPtrOutput) Elem() CorsRulesOutput {
-	return o.ApplyT(func(v *CorsRules) CorsRules { return *v }).(CorsRulesOutput)
+	return o.ApplyT(func(v *CorsRules) CorsRules {
+		if v != nil {
+			return *v
+		}
+		var ret CorsRules
+		return ret
+	}).(CorsRulesOutput)
 }
 
 // The List of CORS rules. You can include up to five CorsRule elements in the request.
@@ -512,7 +518,7 @@ func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutput() CorsRulesRespons
 }
 
 func (o CorsRulesResponseOutput) ToCorsRulesResponsePtrOutputWithContext(ctx context.Context) CorsRulesResponsePtrOutput {
-	return o.ApplyT(func(v CorsRulesResponse) *CorsRulesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsRulesResponse) *CorsRulesResponse {
 		return &v
 	}).(CorsRulesResponsePtrOutput)
 }
@@ -537,7 +543,13 @@ func (o CorsRulesResponsePtrOutput) ToCorsRulesResponsePtrOutputWithContext(ctx 
 }
 
 func (o CorsRulesResponsePtrOutput) Elem() CorsRulesResponseOutput {
-	return o.ApplyT(func(v *CorsRulesResponse) CorsRulesResponse { return *v }).(CorsRulesResponseOutput)
+	return o.ApplyT(func(v *CorsRulesResponse) CorsRulesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CorsRulesResponse
+		return ret
+	}).(CorsRulesResponseOutput)
 }
 
 // The List of CORS rules. You can include up to five CorsRule elements in the request.
@@ -650,7 +662,7 @@ func (o CustomDomainOutput) ToCustomDomainPtrOutput() CustomDomainPtrOutput {
 }
 
 func (o CustomDomainOutput) ToCustomDomainPtrOutputWithContext(ctx context.Context) CustomDomainPtrOutput {
-	return o.ApplyT(func(v CustomDomain) *CustomDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomain) *CustomDomain {
 		return &v
 	}).(CustomDomainPtrOutput)
 }
@@ -680,7 +692,13 @@ func (o CustomDomainPtrOutput) ToCustomDomainPtrOutputWithContext(ctx context.Co
 }
 
 func (o CustomDomainPtrOutput) Elem() CustomDomainOutput {
-	return o.ApplyT(func(v *CustomDomain) CustomDomain { return *v }).(CustomDomainOutput)
+	return o.ApplyT(func(v *CustomDomain) CustomDomain {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomain
+		return ret
+	}).(CustomDomainOutput)
 }
 
 // Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -803,7 +821,7 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDoma
 }
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyT(func(v CustomDomainResponse) *CustomDomainResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
 		return &v
 	}).(CustomDomainResponsePtrOutput)
 }
@@ -833,7 +851,13 @@ func (o CustomDomainResponsePtrOutput) ToCustomDomainResponsePtrOutputWithContex
 }
 
 func (o CustomDomainResponsePtrOutput) Elem() CustomDomainResponseOutput {
-	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse { return *v }).(CustomDomainResponseOutput)
+	return o.ApplyT(func(v *CustomDomainResponse) CustomDomainResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDomainResponse
+		return ret
+	}).(CustomDomainResponseOutput)
 }
 
 // Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
@@ -952,7 +976,7 @@ func (o DateAfterCreationOutput) ToDateAfterCreationPtrOutput() DateAfterCreatio
 }
 
 func (o DateAfterCreationOutput) ToDateAfterCreationPtrOutputWithContext(ctx context.Context) DateAfterCreationPtrOutput {
-	return o.ApplyT(func(v DateAfterCreation) *DateAfterCreation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DateAfterCreation) *DateAfterCreation {
 		return &v
 	}).(DateAfterCreationPtrOutput)
 }
@@ -977,7 +1001,13 @@ func (o DateAfterCreationPtrOutput) ToDateAfterCreationPtrOutputWithContext(ctx 
 }
 
 func (o DateAfterCreationPtrOutput) Elem() DateAfterCreationOutput {
-	return o.ApplyT(func(v *DateAfterCreation) DateAfterCreation { return *v }).(DateAfterCreationOutput)
+	return o.ApplyT(func(v *DateAfterCreation) DateAfterCreation {
+		if v != nil {
+			return *v
+		}
+		var ret DateAfterCreation
+		return ret
+	}).(DateAfterCreationOutput)
 }
 
 // Integer value indicating the age in days after creation
@@ -1086,7 +1116,7 @@ func (o DateAfterCreationResponseOutput) ToDateAfterCreationResponsePtrOutput() 
 }
 
 func (o DateAfterCreationResponseOutput) ToDateAfterCreationResponsePtrOutputWithContext(ctx context.Context) DateAfterCreationResponsePtrOutput {
-	return o.ApplyT(func(v DateAfterCreationResponse) *DateAfterCreationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DateAfterCreationResponse) *DateAfterCreationResponse {
 		return &v
 	}).(DateAfterCreationResponsePtrOutput)
 }
@@ -1111,7 +1141,13 @@ func (o DateAfterCreationResponsePtrOutput) ToDateAfterCreationResponsePtrOutput
 }
 
 func (o DateAfterCreationResponsePtrOutput) Elem() DateAfterCreationResponseOutput {
-	return o.ApplyT(func(v *DateAfterCreationResponse) DateAfterCreationResponse { return *v }).(DateAfterCreationResponseOutput)
+	return o.ApplyT(func(v *DateAfterCreationResponse) DateAfterCreationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DateAfterCreationResponse
+		return ret
+	}).(DateAfterCreationResponseOutput)
 }
 
 // Integer value indicating the age in days after creation
@@ -1220,7 +1256,7 @@ func (o DateAfterModificationOutput) ToDateAfterModificationPtrOutput() DateAfte
 }
 
 func (o DateAfterModificationOutput) ToDateAfterModificationPtrOutputWithContext(ctx context.Context) DateAfterModificationPtrOutput {
-	return o.ApplyT(func(v DateAfterModification) *DateAfterModification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DateAfterModification) *DateAfterModification {
 		return &v
 	}).(DateAfterModificationPtrOutput)
 }
@@ -1245,7 +1281,13 @@ func (o DateAfterModificationPtrOutput) ToDateAfterModificationPtrOutputWithCont
 }
 
 func (o DateAfterModificationPtrOutput) Elem() DateAfterModificationOutput {
-	return o.ApplyT(func(v *DateAfterModification) DateAfterModification { return *v }).(DateAfterModificationOutput)
+	return o.ApplyT(func(v *DateAfterModification) DateAfterModification {
+		if v != nil {
+			return *v
+		}
+		var ret DateAfterModification
+		return ret
+	}).(DateAfterModificationOutput)
 }
 
 // Integer value indicating the age in days after last modification
@@ -1354,7 +1396,7 @@ func (o DateAfterModificationResponseOutput) ToDateAfterModificationResponsePtrO
 }
 
 func (o DateAfterModificationResponseOutput) ToDateAfterModificationResponsePtrOutputWithContext(ctx context.Context) DateAfterModificationResponsePtrOutput {
-	return o.ApplyT(func(v DateAfterModificationResponse) *DateAfterModificationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DateAfterModificationResponse) *DateAfterModificationResponse {
 		return &v
 	}).(DateAfterModificationResponsePtrOutput)
 }
@@ -1379,7 +1421,13 @@ func (o DateAfterModificationResponsePtrOutput) ToDateAfterModificationResponseP
 }
 
 func (o DateAfterModificationResponsePtrOutput) Elem() DateAfterModificationResponseOutput {
-	return o.ApplyT(func(v *DateAfterModificationResponse) DateAfterModificationResponse { return *v }).(DateAfterModificationResponseOutput)
+	return o.ApplyT(func(v *DateAfterModificationResponse) DateAfterModificationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DateAfterModificationResponse
+		return ret
+	}).(DateAfterModificationResponseOutput)
 }
 
 // Integer value indicating the age in days after last modification
@@ -1492,7 +1540,7 @@ func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutput() DeleteRe
 }
 
 func (o DeleteRetentionPolicyOutput) ToDeleteRetentionPolicyPtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DeleteRetentionPolicy) *DeleteRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeleteRetentionPolicy) *DeleteRetentionPolicy {
 		return &v
 	}).(DeleteRetentionPolicyPtrOutput)
 }
@@ -1522,7 +1570,13 @@ func (o DeleteRetentionPolicyPtrOutput) ToDeleteRetentionPolicyPtrOutputWithCont
 }
 
 func (o DeleteRetentionPolicyPtrOutput) Elem() DeleteRetentionPolicyOutput {
-	return o.ApplyT(func(v *DeleteRetentionPolicy) DeleteRetentionPolicy { return *v }).(DeleteRetentionPolicyOutput)
+	return o.ApplyT(func(v *DeleteRetentionPolicy) DeleteRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DeleteRetentionPolicy
+		return ret
+	}).(DeleteRetentionPolicyOutput)
 }
 
 // Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
@@ -1645,7 +1699,7 @@ func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrO
 }
 
 func (o DeleteRetentionPolicyResponseOutput) ToDeleteRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) DeleteRetentionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v DeleteRetentionPolicyResponse) *DeleteRetentionPolicyResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeleteRetentionPolicyResponse) *DeleteRetentionPolicyResponse {
 		return &v
 	}).(DeleteRetentionPolicyResponsePtrOutput)
 }
@@ -1675,7 +1729,13 @@ func (o DeleteRetentionPolicyResponsePtrOutput) ToDeleteRetentionPolicyResponseP
 }
 
 func (o DeleteRetentionPolicyResponsePtrOutput) Elem() DeleteRetentionPolicyResponseOutput {
-	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) DeleteRetentionPolicyResponse { return *v }).(DeleteRetentionPolicyResponseOutput)
+	return o.ApplyT(func(v *DeleteRetentionPolicyResponse) DeleteRetentionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeleteRetentionPolicyResponse
+		return ret
+	}).(DeleteRetentionPolicyResponseOutput)
 }
 
 // Indicates the number of days that the deleted blob should be retained. The minimum specified value can be 1 and the maximum value can be 365.
@@ -1802,7 +1862,7 @@ func (o EncryptionOutput) ToEncryptionPtrOutput() EncryptionPtrOutput {
 }
 
 func (o EncryptionOutput) ToEncryptionPtrOutputWithContext(ctx context.Context) EncryptionPtrOutput {
-	return o.ApplyT(func(v Encryption) *Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Encryption) *Encryption {
 		return &v
 	}).(EncryptionPtrOutput)
 }
@@ -1837,7 +1897,13 @@ func (o EncryptionPtrOutput) ToEncryptionPtrOutputWithContext(ctx context.Contex
 }
 
 func (o EncryptionPtrOutput) Elem() EncryptionOutput {
-	return o.ApplyT(func(v *Encryption) Encryption { return *v }).(EncryptionOutput)
+	return o.ApplyT(func(v *Encryption) Encryption {
+		if v != nil {
+			return *v
+		}
+		var ret Encryption
+		return ret
+	}).(EncryptionOutput)
 }
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -1974,7 +2040,7 @@ func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutput() EncryptionResp
 }
 
 func (o EncryptionResponseOutput) ToEncryptionResponsePtrOutputWithContext(ctx context.Context) EncryptionResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionResponse) *EncryptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionResponse) *EncryptionResponse {
 		return &v
 	}).(EncryptionResponsePtrOutput)
 }
@@ -2009,7 +2075,13 @@ func (o EncryptionResponsePtrOutput) ToEncryptionResponsePtrOutputWithContext(ct
 }
 
 func (o EncryptionResponsePtrOutput) Elem() EncryptionResponseOutput {
-	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse { return *v }).(EncryptionResponseOutput)
+	return o.ApplyT(func(v *EncryptionResponse) EncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionResponse
+		return ret
+	}).(EncryptionResponseOutput)
 }
 
 // The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
@@ -2138,7 +2210,7 @@ func (o EncryptionServiceOutput) ToEncryptionServicePtrOutput() EncryptionServic
 }
 
 func (o EncryptionServiceOutput) ToEncryptionServicePtrOutputWithContext(ctx context.Context) EncryptionServicePtrOutput {
-	return o.ApplyT(func(v EncryptionService) *EncryptionService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionService) *EncryptionService {
 		return &v
 	}).(EncryptionServicePtrOutput)
 }
@@ -2163,7 +2235,13 @@ func (o EncryptionServicePtrOutput) ToEncryptionServicePtrOutputWithContext(ctx 
 }
 
 func (o EncryptionServicePtrOutput) Elem() EncryptionServiceOutput {
-	return o.ApplyT(func(v *EncryptionService) EncryptionService { return *v }).(EncryptionServiceOutput)
+	return o.ApplyT(func(v *EncryptionService) EncryptionService {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionService
+		return ret
+	}).(EncryptionServiceOutput)
 }
 
 // A boolean indicating whether or not the service encrypts the data as it is stored.
@@ -2276,7 +2354,7 @@ func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutput() 
 }
 
 func (o EncryptionServiceResponseOutput) ToEncryptionServiceResponsePtrOutputWithContext(ctx context.Context) EncryptionServiceResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionServiceResponse) *EncryptionServiceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServiceResponse) *EncryptionServiceResponse {
 		return &v
 	}).(EncryptionServiceResponsePtrOutput)
 }
@@ -2306,7 +2384,13 @@ func (o EncryptionServiceResponsePtrOutput) ToEncryptionServiceResponsePtrOutput
 }
 
 func (o EncryptionServiceResponsePtrOutput) Elem() EncryptionServiceResponseOutput {
-	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse { return *v }).(EncryptionServiceResponseOutput)
+	return o.ApplyT(func(v *EncryptionServiceResponse) EncryptionServiceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServiceResponse
+		return ret
+	}).(EncryptionServiceResponseOutput)
 }
 
 // A boolean indicating whether or not the service encrypts the data as it is stored.
@@ -2429,7 +2513,7 @@ func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutput() EncryptionServ
 }
 
 func (o EncryptionServicesOutput) ToEncryptionServicesPtrOutputWithContext(ctx context.Context) EncryptionServicesPtrOutput {
-	return o.ApplyT(func(v EncryptionServices) *EncryptionServices {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServices) *EncryptionServices {
 		return &v
 	}).(EncryptionServicesPtrOutput)
 }
@@ -2459,7 +2543,13 @@ func (o EncryptionServicesPtrOutput) ToEncryptionServicesPtrOutputWithContext(ct
 }
 
 func (o EncryptionServicesPtrOutput) Elem() EncryptionServicesOutput {
-	return o.ApplyT(func(v *EncryptionServices) EncryptionServices { return *v }).(EncryptionServicesOutput)
+	return o.ApplyT(func(v *EncryptionServices) EncryptionServices {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServices
+		return ret
+	}).(EncryptionServicesOutput)
 }
 
 // The encryption function of the blob storage service.
@@ -2590,7 +2680,7 @@ func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutput(
 }
 
 func (o EncryptionServicesResponseOutput) ToEncryptionServicesResponsePtrOutputWithContext(ctx context.Context) EncryptionServicesResponsePtrOutput {
-	return o.ApplyT(func(v EncryptionServicesResponse) *EncryptionServicesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionServicesResponse) *EncryptionServicesResponse {
 		return &v
 	}).(EncryptionServicesResponsePtrOutput)
 }
@@ -2630,7 +2720,13 @@ func (o EncryptionServicesResponsePtrOutput) ToEncryptionServicesResponsePtrOutp
 }
 
 func (o EncryptionServicesResponsePtrOutput) Elem() EncryptionServicesResponseOutput {
-	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse { return *v }).(EncryptionServicesResponseOutput)
+	return o.ApplyT(func(v *EncryptionServicesResponse) EncryptionServicesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionServicesResponse
+		return ret
+	}).(EncryptionServicesResponseOutput)
 }
 
 // The encryption function of the blob storage service.
@@ -2789,7 +2885,7 @@ func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsRespons
 }
 
 func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyT(func(v EndpointsResponse) *EndpointsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
 		return &v
 	}).(EndpointsResponsePtrOutput)
 }
@@ -2839,7 +2935,13 @@ func (o EndpointsResponsePtrOutput) ToEndpointsResponsePtrOutputWithContext(ctx 
 }
 
 func (o EndpointsResponsePtrOutput) Elem() EndpointsResponseOutput {
-	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse { return *v }).(EndpointsResponseOutput)
+	return o.ApplyT(func(v *EndpointsResponse) EndpointsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointsResponse
+		return ret
+	}).(EndpointsResponseOutput)
 }
 
 // Gets the blob endpoint.
@@ -3006,7 +3108,7 @@ func (o GeoReplicationStatsResponseOutput) ToGeoReplicationStatsResponsePtrOutpu
 }
 
 func (o GeoReplicationStatsResponseOutput) ToGeoReplicationStatsResponsePtrOutputWithContext(ctx context.Context) GeoReplicationStatsResponsePtrOutput {
-	return o.ApplyT(func(v GeoReplicationStatsResponse) *GeoReplicationStatsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeoReplicationStatsResponse) *GeoReplicationStatsResponse {
 		return &v
 	}).(GeoReplicationStatsResponsePtrOutput)
 }
@@ -3041,7 +3143,13 @@ func (o GeoReplicationStatsResponsePtrOutput) ToGeoReplicationStatsResponsePtrOu
 }
 
 func (o GeoReplicationStatsResponsePtrOutput) Elem() GeoReplicationStatsResponseOutput {
-	return o.ApplyT(func(v *GeoReplicationStatsResponse) GeoReplicationStatsResponse { return *v }).(GeoReplicationStatsResponseOutput)
+	return o.ApplyT(func(v *GeoReplicationStatsResponse) GeoReplicationStatsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GeoReplicationStatsResponse
+		return ret
+	}).(GeoReplicationStatsResponseOutput)
 }
 
 // A boolean flag which indicates whether or not account failover is supported for the account.
@@ -3077,7 +3185,7 @@ func (o GeoReplicationStatsResponsePtrOutput) Status() pulumi.StringPtrOutput {
 // IP rule with specific IP or IP range in CIDR format.
 type IPRule struct {
 	// The action of IP ACL rule.
-	Action *string `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 	IPAddressOrRange string `pulumi:"iPAddressOrRange"`
 }
@@ -3096,7 +3204,7 @@ type IPRuleInput interface {
 // IP rule with specific IP or IP range in CIDR format.
 type IPRuleArgs struct {
 	// The action of IP ACL rule.
-	Action *Action `pulumi:"action"`
+	Action ActionPtrInput `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
@@ -3154,8 +3262,8 @@ func (o IPRuleOutput) ToIPRuleOutputWithContext(ctx context.Context) IPRuleOutpu
 }
 
 // The action of IP ACL rule.
-func (o IPRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IPRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o IPRuleOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v IPRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 // Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
@@ -3295,7 +3403,7 @@ func (o IPRuleResponseArrayOutput) Index(i pulumi.IntInput) IPRuleResponseOutput
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
-	Type string `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -3312,7 +3420,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type IdentityType `pulumi:"type"`
+	Type IdentityTypeInput `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -3388,14 +3496,14 @@ func (o IdentityOutput) ToIdentityPtrOutput() IdentityPtrOutput {
 }
 
 func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) IdentityPtrOutput {
-	return o.ApplyT(func(v Identity) *Identity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Identity) *Identity {
 		return &v
 	}).(IdentityPtrOutput)
 }
 
 // The identity type.
-func (o IdentityOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
+func (o IdentityOutput) Type() IdentityTypeOutput {
+	return o.ApplyT(func(v Identity) IdentityType { return v.Type }).(IdentityTypeOutput)
 }
 
 type IdentityPtrOutput struct{ *pulumi.OutputState }
@@ -3413,17 +3521,23 @@ func (o IdentityPtrOutput) ToIdentityPtrOutputWithContext(ctx context.Context) I
 }
 
 func (o IdentityPtrOutput) Elem() IdentityOutput {
-	return o.ApplyT(func(v *Identity) Identity { return *v }).(IdentityOutput)
+	return o.ApplyT(func(v *Identity) Identity {
+		if v != nil {
+			return *v
+		}
+		var ret Identity
+		return ret
+	}).(IdentityOutput)
 }
 
 // The identity type.
-func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
+func (o IdentityPtrOutput) Type() IdentityTypePtrOutput {
+	return o.ApplyT(func(v *Identity) *IdentityType {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
+	}).(IdentityTypePtrOutput)
 }
 
 // Identity for the resource.
@@ -3530,7 +3644,7 @@ func (o IdentityResponseOutput) ToIdentityResponsePtrOutput() IdentityResponsePt
 }
 
 func (o IdentityResponseOutput) ToIdentityResponsePtrOutputWithContext(ctx context.Context) IdentityResponsePtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *IdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityResponse) *IdentityResponse {
 		return &v
 	}).(IdentityResponsePtrOutput)
 }
@@ -3565,7 +3679,13 @@ func (o IdentityResponsePtrOutput) ToIdentityResponsePtrOutputWithContext(ctx co
 }
 
 func (o IdentityResponsePtrOutput) Elem() IdentityResponseOutput {
-	return o.ApplyT(func(v *IdentityResponse) IdentityResponse { return *v }).(IdentityResponseOutput)
+	return o.ApplyT(func(v *IdentityResponse) IdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityResponse
+		return ret
+	}).(IdentityResponseOutput)
 }
 
 // The principal ID of resource identity.
@@ -3706,7 +3826,7 @@ func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyProperti
 }
 
 func (o ImmutabilityPolicyPropertiesResponseOutput) ToImmutabilityPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyPropertiesResponse) *ImmutabilityPolicyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImmutabilityPolicyPropertiesResponse) *ImmutabilityPolicyPropertiesResponse {
 		return &v
 	}).(ImmutabilityPolicyPropertiesResponsePtrOutput)
 }
@@ -3746,7 +3866,13 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) ToImmutabilityPolicyPrope
 }
 
 func (o ImmutabilityPolicyPropertiesResponsePtrOutput) Elem() ImmutabilityPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) ImmutabilityPolicyPropertiesResponse { return *v }).(ImmutabilityPolicyPropertiesResponseOutput)
+	return o.ApplyT(func(v *ImmutabilityPolicyPropertiesResponse) ImmutabilityPolicyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ImmutabilityPolicyPropertiesResponse
+		return ret
+	}).(ImmutabilityPolicyPropertiesResponseOutput)
 }
 
 // ImmutabilityPolicy Etag.
@@ -3893,7 +4019,7 @@ func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultProper
 }
 
 func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultProperties) *KeyVaultProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
 		return &v
 	}).(KeyVaultPropertiesPtrOutput)
 }
@@ -3928,7 +4054,13 @@ func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ct
 }
 
 func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties { return *v }).(KeyVaultPropertiesOutput)
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
 }
 
 // The name of KeyVault key.
@@ -4065,7 +4197,7 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput(
 }
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
 		return &v
 	}).(KeyVaultPropertiesResponsePtrOutput)
 }
@@ -4100,7 +4232,13 @@ func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutp
 }
 
 func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
-	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse { return *v }).(KeyVaultPropertiesResponseOutput)
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
 }
 
 // The name of KeyVault key.
@@ -4233,7 +4371,7 @@ func (o LegalHoldPropertiesResponseOutput) ToLegalHoldPropertiesResponsePtrOutpu
 }
 
 func (o LegalHoldPropertiesResponseOutput) ToLegalHoldPropertiesResponsePtrOutputWithContext(ctx context.Context) LegalHoldPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LegalHoldPropertiesResponse) *LegalHoldPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LegalHoldPropertiesResponse) *LegalHoldPropertiesResponse {
 		return &v
 	}).(LegalHoldPropertiesResponsePtrOutput)
 }
@@ -4263,7 +4401,13 @@ func (o LegalHoldPropertiesResponsePtrOutput) ToLegalHoldPropertiesResponsePtrOu
 }
 
 func (o LegalHoldPropertiesResponsePtrOutput) Elem() LegalHoldPropertiesResponseOutput {
-	return o.ApplyT(func(v *LegalHoldPropertiesResponse) LegalHoldPropertiesResponse { return *v }).(LegalHoldPropertiesResponseOutput)
+	return o.ApplyT(func(v *LegalHoldPropertiesResponse) LegalHoldPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LegalHoldPropertiesResponse
+		return ret
+	}).(LegalHoldPropertiesResponseOutput)
 }
 
 // The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
@@ -4518,7 +4662,7 @@ func (o ManagementPolicyBaseBlobOutput) ToManagementPolicyBaseBlobPtrOutput() Ma
 }
 
 func (o ManagementPolicyBaseBlobOutput) ToManagementPolicyBaseBlobPtrOutputWithContext(ctx context.Context) ManagementPolicyBaseBlobPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyBaseBlob) *ManagementPolicyBaseBlob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyBaseBlob) *ManagementPolicyBaseBlob {
 		return &v
 	}).(ManagementPolicyBaseBlobPtrOutput)
 }
@@ -4553,7 +4697,13 @@ func (o ManagementPolicyBaseBlobPtrOutput) ToManagementPolicyBaseBlobPtrOutputWi
 }
 
 func (o ManagementPolicyBaseBlobPtrOutput) Elem() ManagementPolicyBaseBlobOutput {
-	return o.ApplyT(func(v *ManagementPolicyBaseBlob) ManagementPolicyBaseBlob { return *v }).(ManagementPolicyBaseBlobOutput)
+	return o.ApplyT(func(v *ManagementPolicyBaseBlob) ManagementPolicyBaseBlob {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyBaseBlob
+		return ret
+	}).(ManagementPolicyBaseBlobOutput)
 }
 
 // The function to delete the blob
@@ -4690,7 +4840,7 @@ func (o ManagementPolicyBaseBlobResponseOutput) ToManagementPolicyBaseBlobRespon
 }
 
 func (o ManagementPolicyBaseBlobResponseOutput) ToManagementPolicyBaseBlobResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyBaseBlobResponsePtrOutput {
-	return o.ApplyT(func(v ManagementPolicyBaseBlobResponse) *ManagementPolicyBaseBlobResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyBaseBlobResponse) *ManagementPolicyBaseBlobResponse {
 		return &v
 	}).(ManagementPolicyBaseBlobResponsePtrOutput)
 }
@@ -4725,7 +4875,13 @@ func (o ManagementPolicyBaseBlobResponsePtrOutput) ToManagementPolicyBaseBlobRes
 }
 
 func (o ManagementPolicyBaseBlobResponsePtrOutput) Elem() ManagementPolicyBaseBlobResponseOutput {
-	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) ManagementPolicyBaseBlobResponse { return *v }).(ManagementPolicyBaseBlobResponseOutput)
+	return o.ApplyT(func(v *ManagementPolicyBaseBlobResponse) ManagementPolicyBaseBlobResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyBaseBlobResponse
+		return ret
+	}).(ManagementPolicyBaseBlobResponseOutput)
 }
 
 // The function to delete the blob
@@ -4986,7 +5142,7 @@ func (o ManagementPolicyFilterOutput) ToManagementPolicyFilterPtrOutput() Manage
 }
 
 func (o ManagementPolicyFilterOutput) ToManagementPolicyFilterPtrOutputWithContext(ctx context.Context) ManagementPolicyFilterPtrOutput {
-	return o.ApplyT(func(v ManagementPolicyFilter) *ManagementPolicyFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyFilter) *ManagementPolicyFilter {
 		return &v
 	}).(ManagementPolicyFilterPtrOutput)
 }
@@ -5016,7 +5172,13 @@ func (o ManagementPolicyFilterPtrOutput) ToManagementPolicyFilterPtrOutputWithCo
 }
 
 func (o ManagementPolicyFilterPtrOutput) Elem() ManagementPolicyFilterOutput {
-	return o.ApplyT(func(v *ManagementPolicyFilter) ManagementPolicyFilter { return *v }).(ManagementPolicyFilterOutput)
+	return o.ApplyT(func(v *ManagementPolicyFilter) ManagementPolicyFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyFilter
+		return ret
+	}).(ManagementPolicyFilterOutput)
 }
 
 // An array of predefined enum values. Only blockBlob is supported.
@@ -5139,7 +5301,7 @@ func (o ManagementPolicyFilterResponseOutput) ToManagementPolicyFilterResponsePt
 }
 
 func (o ManagementPolicyFilterResponseOutput) ToManagementPolicyFilterResponsePtrOutputWithContext(ctx context.Context) ManagementPolicyFilterResponsePtrOutput {
-	return o.ApplyT(func(v ManagementPolicyFilterResponse) *ManagementPolicyFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicyFilterResponse) *ManagementPolicyFilterResponse {
 		return &v
 	}).(ManagementPolicyFilterResponsePtrOutput)
 }
@@ -5169,7 +5331,13 @@ func (o ManagementPolicyFilterResponsePtrOutput) ToManagementPolicyFilterRespons
 }
 
 func (o ManagementPolicyFilterResponsePtrOutput) Elem() ManagementPolicyFilterResponseOutput {
-	return o.ApplyT(func(v *ManagementPolicyFilterResponse) ManagementPolicyFilterResponse { return *v }).(ManagementPolicyFilterResponseOutput)
+	return o.ApplyT(func(v *ManagementPolicyFilterResponse) ManagementPolicyFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicyFilterResponse
+		return ret
+	}).(ManagementPolicyFilterResponseOutput)
 }
 
 // An array of predefined enum values. Only blockBlob is supported.
@@ -5542,7 +5710,7 @@ func (o ManagementPolicySchemaOutput) ToManagementPolicySchemaPtrOutput() Manage
 }
 
 func (o ManagementPolicySchemaOutput) ToManagementPolicySchemaPtrOutputWithContext(ctx context.Context) ManagementPolicySchemaPtrOutput {
-	return o.ApplyT(func(v ManagementPolicySchema) *ManagementPolicySchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicySchema) *ManagementPolicySchema {
 		return &v
 	}).(ManagementPolicySchemaPtrOutput)
 }
@@ -5567,7 +5735,13 @@ func (o ManagementPolicySchemaPtrOutput) ToManagementPolicySchemaPtrOutputWithCo
 }
 
 func (o ManagementPolicySchemaPtrOutput) Elem() ManagementPolicySchemaOutput {
-	return o.ApplyT(func(v *ManagementPolicySchema) ManagementPolicySchema { return *v }).(ManagementPolicySchemaOutput)
+	return o.ApplyT(func(v *ManagementPolicySchema) ManagementPolicySchema {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicySchema
+		return ret
+	}).(ManagementPolicySchemaOutput)
 }
 
 // The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
@@ -5676,7 +5850,7 @@ func (o ManagementPolicySchemaResponseOutput) ToManagementPolicySchemaResponsePt
 }
 
 func (o ManagementPolicySchemaResponseOutput) ToManagementPolicySchemaResponsePtrOutputWithContext(ctx context.Context) ManagementPolicySchemaResponsePtrOutput {
-	return o.ApplyT(func(v ManagementPolicySchemaResponse) *ManagementPolicySchemaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicySchemaResponse) *ManagementPolicySchemaResponse {
 		return &v
 	}).(ManagementPolicySchemaResponsePtrOutput)
 }
@@ -5701,7 +5875,13 @@ func (o ManagementPolicySchemaResponsePtrOutput) ToManagementPolicySchemaRespons
 }
 
 func (o ManagementPolicySchemaResponsePtrOutput) Elem() ManagementPolicySchemaResponseOutput {
-	return o.ApplyT(func(v *ManagementPolicySchemaResponse) ManagementPolicySchemaResponse { return *v }).(ManagementPolicySchemaResponseOutput)
+	return o.ApplyT(func(v *ManagementPolicySchemaResponse) ManagementPolicySchemaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicySchemaResponse
+		return ret
+	}).(ManagementPolicySchemaResponseOutput)
 }
 
 // The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
@@ -5810,7 +5990,7 @@ func (o ManagementPolicySnapShotOutput) ToManagementPolicySnapShotPtrOutput() Ma
 }
 
 func (o ManagementPolicySnapShotOutput) ToManagementPolicySnapShotPtrOutputWithContext(ctx context.Context) ManagementPolicySnapShotPtrOutput {
-	return o.ApplyT(func(v ManagementPolicySnapShot) *ManagementPolicySnapShot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicySnapShot) *ManagementPolicySnapShot {
 		return &v
 	}).(ManagementPolicySnapShotPtrOutput)
 }
@@ -5835,7 +6015,13 @@ func (o ManagementPolicySnapShotPtrOutput) ToManagementPolicySnapShotPtrOutputWi
 }
 
 func (o ManagementPolicySnapShotPtrOutput) Elem() ManagementPolicySnapShotOutput {
-	return o.ApplyT(func(v *ManagementPolicySnapShot) ManagementPolicySnapShot { return *v }).(ManagementPolicySnapShotOutput)
+	return o.ApplyT(func(v *ManagementPolicySnapShot) ManagementPolicySnapShot {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicySnapShot
+		return ret
+	}).(ManagementPolicySnapShotOutput)
 }
 
 // The function to delete the blob snapshot
@@ -5944,7 +6130,7 @@ func (o ManagementPolicySnapShotResponseOutput) ToManagementPolicySnapShotRespon
 }
 
 func (o ManagementPolicySnapShotResponseOutput) ToManagementPolicySnapShotResponsePtrOutputWithContext(ctx context.Context) ManagementPolicySnapShotResponsePtrOutput {
-	return o.ApplyT(func(v ManagementPolicySnapShotResponse) *ManagementPolicySnapShotResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagementPolicySnapShotResponse) *ManagementPolicySnapShotResponse {
 		return &v
 	}).(ManagementPolicySnapShotResponsePtrOutput)
 }
@@ -5969,7 +6155,13 @@ func (o ManagementPolicySnapShotResponsePtrOutput) ToManagementPolicySnapShotRes
 }
 
 func (o ManagementPolicySnapShotResponsePtrOutput) Elem() ManagementPolicySnapShotResponseOutput {
-	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) ManagementPolicySnapShotResponse { return *v }).(ManagementPolicySnapShotResponseOutput)
+	return o.ApplyT(func(v *ManagementPolicySnapShotResponse) ManagementPolicySnapShotResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ManagementPolicySnapShotResponse
+		return ret
+	}).(ManagementPolicySnapShotResponseOutput)
 }
 
 // The function to delete the blob snapshot
@@ -5987,7 +6179,7 @@ type NetworkRuleSet struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 	Bypass *string `pulumi:"bypass"`
 	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction string `pulumi:"defaultAction"`
+	DefaultAction DefaultAction `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules []IPRule `pulumi:"ipRules"`
 	// Sets the virtual network rules
@@ -6010,7 +6202,7 @@ type NetworkRuleSetArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction DefaultAction `pulumi:"defaultAction"`
+	DefaultAction DefaultActionInput `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules IPRuleArrayInput `pulumi:"ipRules"`
 	// Sets the virtual network rules
@@ -6090,7 +6282,7 @@ func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutput() NetworkRuleSetPtrOutpu
 }
 
 func (o NetworkRuleSetOutput) ToNetworkRuleSetPtrOutputWithContext(ctx context.Context) NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v NetworkRuleSet) *NetworkRuleSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSet) *NetworkRuleSet {
 		return &v
 	}).(NetworkRuleSetPtrOutput)
 }
@@ -6101,8 +6293,8 @@ func (o NetworkRuleSetOutput) Bypass() pulumi.StringPtrOutput {
 }
 
 // Specifies the default action of allow or deny when no other rules match.
-func (o NetworkRuleSetOutput) DefaultAction() pulumi.StringOutput {
-	return o.ApplyT(func(v NetworkRuleSet) string { return v.DefaultAction }).(pulumi.StringOutput)
+func (o NetworkRuleSetOutput) DefaultAction() DefaultActionOutput {
+	return o.ApplyT(func(v NetworkRuleSet) DefaultAction { return v.DefaultAction }).(DefaultActionOutput)
 }
 
 // Sets the IP ACL rules
@@ -6130,7 +6322,13 @@ func (o NetworkRuleSetPtrOutput) ToNetworkRuleSetPtrOutputWithContext(ctx contex
 }
 
 func (o NetworkRuleSetPtrOutput) Elem() NetworkRuleSetOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet { return *v }).(NetworkRuleSetOutput)
+	return o.ApplyT(func(v *NetworkRuleSet) NetworkRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSet
+		return ret
+	}).(NetworkRuleSetOutput)
 }
 
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
@@ -6144,13 +6342,13 @@ func (o NetworkRuleSetPtrOutput) Bypass() pulumi.StringPtrOutput {
 }
 
 // Specifies the default action of allow or deny when no other rules match.
-func (o NetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NetworkRuleSet) *string {
+func (o NetworkRuleSetPtrOutput) DefaultAction() DefaultActionPtrOutput {
+	return o.ApplyT(func(v *NetworkRuleSet) *DefaultAction {
 		if v == nil {
 			return nil
 		}
 		return &v.DefaultAction
-	}).(pulumi.StringPtrOutput)
+	}).(DefaultActionPtrOutput)
 }
 
 // Sets the IP ACL rules
@@ -6281,7 +6479,7 @@ func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutput() Networ
 }
 
 func (o NetworkRuleSetResponseOutput) ToNetworkRuleSetResponsePtrOutputWithContext(ctx context.Context) NetworkRuleSetResponsePtrOutput {
-	return o.ApplyT(func(v NetworkRuleSetResponse) *NetworkRuleSetResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkRuleSetResponse) *NetworkRuleSetResponse {
 		return &v
 	}).(NetworkRuleSetResponsePtrOutput)
 }
@@ -6321,7 +6519,13 @@ func (o NetworkRuleSetResponsePtrOutput) ToNetworkRuleSetResponsePtrOutputWithCo
 }
 
 func (o NetworkRuleSetResponsePtrOutput) Elem() NetworkRuleSetResponseOutput {
-	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse { return *v }).(NetworkRuleSetResponseOutput)
+	return o.ApplyT(func(v *NetworkRuleSetResponse) NetworkRuleSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkRuleSetResponse
+		return ret
+	}).(NetworkRuleSetResponseOutput)
 }
 
 // Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
@@ -6694,7 +6898,7 @@ func (o SKUCapabilityResponseArrayOutput) Index(i pulumi.IntInput) SKUCapability
 // The SKU of the storage account.
 type Sku struct {
 	// Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 	Restrictions []Restriction `pulumi:"restrictions"`
 }
@@ -6713,7 +6917,7 @@ type SkuInput interface {
 // The SKU of the storage account.
 type SkuArgs struct {
 	// Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 	Restrictions RestrictionArrayInput `pulumi:"restrictions"`
 }
@@ -6791,14 +6995,14 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
 
 // Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 // The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
@@ -6821,17 +7025,23 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
@@ -6964,7 +7174,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -7019,7 +7229,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc.
@@ -7494,9 +7710,9 @@ func (o UpdateHistoryPropertyResponseArrayOutput) Index(i pulumi.IntInput) Updat
 // Virtual Network rule.
 type VirtualNetworkRule struct {
 	// The action of virtual network rule.
-	Action *string `pulumi:"action"`
+	Action *Action `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State *string `pulumi:"state"`
+	State *State `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId string `pulumi:"virtualNetworkResourceId"`
 }
@@ -7515,9 +7731,9 @@ type VirtualNetworkRuleInput interface {
 // Virtual Network rule.
 type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
-	Action *Action `pulumi:"action"`
+	Action ActionPtrInput `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State *State `pulumi:"state"`
+	State StatePtrInput `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }
@@ -7575,13 +7791,13 @@ func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutputWithContext(ctx cont
 }
 
 // The action of virtual network rule.
-func (o VirtualNetworkRuleOutput) Action() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.Action }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkRuleOutput) Action() ActionPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *Action { return v.Action }).(ActionPtrOutput)
 }
 
 // Gets the state of virtual network rule.
-func (o VirtualNetworkRuleOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkRule) *string { return v.State }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkRuleOutput) State() StatePtrOutput {
+	return o.ApplyT(func(v VirtualNetworkRule) *State { return v.State }).(StatePtrOutput)
 }
 
 // Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.

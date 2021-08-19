@@ -78,19 +78,9 @@ func GetResourceTypeRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceTypeRegistration resources.
 type resourceTypeRegistrationState struct {
-	// The name of the resource
-	Name       *string                                     `pulumi:"name"`
-	Properties *ResourceTypeRegistrationResponseProperties `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ResourceTypeRegistrationState struct {
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Properties ResourceTypeRegistrationResponsePropertiesPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ResourceTypeRegistrationState) ElementType() reflect.Type {
@@ -137,9 +127,7 @@ func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeRegistrationOutput)
 }
 
-type ResourceTypeRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type ResourceTypeRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ResourceTypeRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceTypeRegistration)(nil))

@@ -11,8 +11,8 @@ from ._enums import *
 
 __all__ = [
     'BudgetComparisonExpressionArgs',
-    'BudgetFilterArgs',
     'BudgetFilterPropertiesArgs',
+    'BudgetFilterArgs',
     'BudgetTimePeriodArgs',
     'NotificationArgs',
 ]
@@ -68,6 +68,46 @@ class BudgetComparisonExpressionArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class BudgetFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
+        """
+        The Dimensions or Tags to filter a budget by.
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a dimension
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a tag
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
@@ -128,46 +168,6 @@ class BudgetFilterArgs:
     @not_.setter
     def not_(self, value: Optional[pulumi.Input['BudgetFilterPropertiesArgs']]):
         pulumi.set(self, "not_", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a tag
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
-        pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class BudgetFilterPropertiesArgs:
-    def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
-                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
-        """
-        The Dimensions or Tags to filter a budget by.
-        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
-        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag
-        """
-        if dimensions is not None:
-            pulumi.set(__self__, "dimensions", dimensions)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a dimension
-        """
-        return pulumi.get(self, "dimensions")
-
-    @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
-        pulumi.set(self, "dimensions", value)
 
     @property
     @pulumi.getter

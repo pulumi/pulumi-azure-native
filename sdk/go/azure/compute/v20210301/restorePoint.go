@@ -84,37 +84,9 @@ func GetRestorePoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestorePoint resources.
 type restorePointState struct {
-	// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
-	ConsistencyMode *string `pulumi:"consistencyMode"`
-	// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-	ExcludeDisks []ApiEntityReferenceResponse `pulumi:"excludeDisks"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Gets the provisioning details set by the server during Create restore point operation.
-	ProvisioningDetails *RestorePointProvisioningDetailsResponse `pulumi:"provisioningDetails"`
-	// Gets the provisioning state of the restore point.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets the details of the VM captured at the time of the restore point creation.
-	SourceMetadata *RestorePointSourceMetadataResponse `pulumi:"sourceMetadata"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type RestorePointState struct {
-	// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
-	ConsistencyMode pulumi.StringPtrInput
-	// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
-	ExcludeDisks ApiEntityReferenceResponseArrayInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Gets the provisioning details set by the server during Create restore point operation.
-	ProvisioningDetails RestorePointProvisioningDetailsResponsePtrInput
-	// Gets the provisioning state of the restore point.
-	ProvisioningState pulumi.StringPtrInput
-	// Gets the details of the VM captured at the time of the restore point creation.
-	SourceMetadata RestorePointSourceMetadataResponsePtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (RestorePointState) ElementType() reflect.Type {
@@ -167,9 +139,7 @@ func (i *RestorePoint) ToRestorePointOutputWithContext(ctx context.Context) Rest
 	return pulumi.ToOutputWithContext(ctx, i).(RestorePointOutput)
 }
 
-type RestorePointOutput struct {
-	*pulumi.OutputState
-}
+type RestorePointOutput struct{ *pulumi.OutputState }
 
 func (RestorePointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RestorePoint)(nil))

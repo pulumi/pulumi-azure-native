@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20190901Preview.Outputs
 {
 
+    /// <summary>
+    /// Asset sink
+    /// </summary>
     [OutputType]
     public sealed class MediaGraphAssetSinkResponse
     {

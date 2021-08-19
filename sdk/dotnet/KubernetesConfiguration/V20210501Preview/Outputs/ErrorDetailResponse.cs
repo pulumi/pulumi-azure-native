@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.KubernetesConfiguration.V20210501Preview.Outputs
 {
 
+    /// <summary>
+    /// The error detail.
+    /// </summary>
     [OutputType]
     public sealed class ErrorDetailResponse
     {

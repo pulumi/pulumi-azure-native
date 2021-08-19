@@ -104,41 +104,9 @@ func GetMigrationConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MigrationConfig resources.
 type migrationConfigState struct {
-	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
-	MigrationState *string `pulumi:"migrationState"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount *float64 `pulumi:"pendingReplicationOperationsCount"`
-	// Name to access Standard Namespace after migration
-	PostMigrationName *string `pulumi:"postMigrationName"`
-	// Provisioning state of Migration Configuration
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
-	TargetNamespace *string `pulumi:"targetNamespace"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type MigrationConfigState struct {
-	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
-	MigrationState pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Number of entities pending to be replicated.
-	PendingReplicationOperationsCount pulumi.Float64PtrInput
-	// Name to access Standard Namespace after migration
-	PostMigrationName pulumi.StringPtrInput
-	// Provisioning state of Migration Configuration
-	ProvisioningState pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
-	TargetNamespace pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (MigrationConfigState) ElementType() reflect.Type {
@@ -195,9 +163,7 @@ func (i *MigrationConfig) ToMigrationConfigOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationConfigOutput)
 }
 
-type MigrationConfigOutput struct {
-	*pulumi.OutputState
-}
+type MigrationConfigOutput struct{ *pulumi.OutputState }
 
 func (MigrationConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MigrationConfig)(nil))

@@ -103,33 +103,9 @@ func GetManagedInstanceKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedInstanceKey resources.
 type managedInstanceKeyState struct {
-	// Key auto rotation opt-in flag. Either true or false.
-	AutoRotationEnabled *bool `pulumi:"autoRotationEnabled"`
-	// The key creation date.
-	CreationDate *string `pulumi:"creationDate"`
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind *string `pulumi:"kind"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Thumbprint of the key.
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ManagedInstanceKeyState struct {
-	// Key auto rotation opt-in flag. Either true or false.
-	AutoRotationEnabled pulumi.BoolPtrInput
-	// The key creation date.
-	CreationDate pulumi.StringPtrInput
-	// Kind of encryption protector. This is metadata used for the Azure portal experience.
-	Kind pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Thumbprint of the key.
-	Thumbprint pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ManagedInstanceKeyState) ElementType() reflect.Type {
@@ -186,9 +162,7 @@ func (i *ManagedInstanceKey) ToManagedInstanceKeyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedInstanceKeyOutput)
 }
 
-type ManagedInstanceKeyOutput struct {
-	*pulumi.OutputState
-}
+type ManagedInstanceKeyOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedInstanceKey)(nil))

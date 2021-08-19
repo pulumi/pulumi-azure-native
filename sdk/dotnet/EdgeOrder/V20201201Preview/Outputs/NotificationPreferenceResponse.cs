@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// Notification preference for a job stage.
+    /// </summary>
     [OutputType]
     public sealed class NotificationPreferenceResponse
     {

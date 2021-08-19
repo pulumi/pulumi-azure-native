@@ -10,8 +10,10 @@ from .user_assigned_identity import *
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managedidentity.v20150831preview as v20150831preview
-    import pulumi_azure_native.managedidentity.v20181130 as v20181130
+    import pulumi_azure_native.managedidentity.v20150831preview as __v20150831preview
+    v20150831preview = __v20150831preview
+    import pulumi_azure_native.managedidentity.v20181130 as __v20181130
+    v20181130 = __v20181130
 else:
     v20150831preview = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20150831preview')
     v20181130 = _utilities.lazy_import('pulumi_azure_native.managedidentity.v20181130')

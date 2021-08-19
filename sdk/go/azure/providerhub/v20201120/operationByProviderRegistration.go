@@ -86,31 +86,9 @@ func GetOperationByProviderRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OperationByProviderRegistration resources.
 type operationByProviderRegistrationState struct {
-	ActionType *string `pulumi:"actionType"`
-	// Display information of the operation.
-	Display *OperationsDefinitionResponseDisplay `pulumi:"display"`
-	// Indicates whether the operation applies to data-plane.
-	IsDataAction *bool `pulumi:"isDataAction"`
-	// The name of the resource
-	Name       *string     `pulumi:"name"`
-	Origin     *string     `pulumi:"origin"`
-	Properties interface{} `pulumi:"properties"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type OperationByProviderRegistrationState struct {
-	ActionType pulumi.StringPtrInput
-	// Display information of the operation.
-	Display OperationsDefinitionResponseDisplayPtrInput
-	// Indicates whether the operation applies to data-plane.
-	IsDataAction pulumi.BoolPtrInput
-	// The name of the resource
-	Name       pulumi.StringPtrInput
-	Origin     pulumi.StringPtrInput
-	Properties pulumi.Input
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (OperationByProviderRegistrationState) ElementType() reflect.Type {
@@ -153,9 +131,7 @@ func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OperationByProviderRegistrationOutput)
 }
 
-type OperationByProviderRegistrationOutput struct {
-	*pulumi.OutputState
-}
+type OperationByProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (OperationByProviderRegistrationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OperationByProviderRegistration)(nil))

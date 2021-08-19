@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// This is the gallery image definition identifier.
+    /// </summary>
     [OutputType]
     public sealed class GalleryImageIdentifierResponse
     {

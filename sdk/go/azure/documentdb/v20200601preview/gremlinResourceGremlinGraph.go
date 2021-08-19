@@ -187,33 +187,9 @@ func GetGremlinResourceGremlinGraph(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GremlinResourceGremlinGraph resources.
 type gremlinResourceGremlinGraphState struct {
-	// Identity for the resource.
-	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name     *string                                    `pulumi:"name"`
-	Options  *GremlinGraphGetPropertiesResponseOptions  `pulumi:"options"`
-	Resource *GremlinGraphGetPropertiesResponseResource `pulumi:"resource"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags map[string]string `pulumi:"tags"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type GremlinResourceGremlinGraphState struct {
-	// Identity for the resource.
-	Identity ManagedServiceIdentityResponsePtrInput
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput
-	// The name of the ARM resource.
-	Name     pulumi.StringPtrInput
-	Options  GremlinGraphGetPropertiesResponseOptionsPtrInput
-	Resource GremlinGraphGetPropertiesResponseResourcePtrInput
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags pulumi.StringMapInput
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (GremlinResourceGremlinGraphState) ElementType() reflect.Type {
@@ -286,9 +262,7 @@ func (i *GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinGraphOutput)
 }
 
-type GremlinResourceGremlinGraphOutput struct {
-	*pulumi.OutputState
-}
+type GremlinResourceGremlinGraphOutput struct{ *pulumi.OutputState }
 
 func (GremlinResourceGremlinGraphOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil))

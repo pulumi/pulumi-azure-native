@@ -110,7 +110,7 @@ func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOut
 }
 
 func (o EventSubscriptionDestinationOutput) ToEventSubscriptionDestinationPtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestination) *EventSubscriptionDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDestination) *EventSubscriptionDestination {
 		return &v
 	}).(EventSubscriptionDestinationPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o EventSubscriptionDestinationPtrOutput) ToEventSubscriptionDestinationPtr
 }
 
 func (o EventSubscriptionDestinationPtrOutput) Elem() EventSubscriptionDestinationOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestination) EventSubscriptionDestination { return *v }).(EventSubscriptionDestinationOutput)
+	return o.ApplyT(func(v *EventSubscriptionDestination) EventSubscriptionDestination {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionDestination
+		return ret
+	}).(EventSubscriptionDestinationOutput)
 }
 
 // Type of the endpoint for the event subscription destination
@@ -267,7 +273,7 @@ func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinati
 }
 
 func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
 		return &v
 	}).(EventSubscriptionDestinationResponsePtrOutput)
 }
@@ -302,7 +308,13 @@ func (o EventSubscriptionDestinationResponsePtrOutput) ToEventSubscriptionDestin
 }
 
 func (o EventSubscriptionDestinationResponsePtrOutput) Elem() EventSubscriptionDestinationResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) EventSubscriptionDestinationResponse { return *v }).(EventSubscriptionDestinationResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionDestinationResponse) EventSubscriptionDestinationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionDestinationResponse
+		return ret
+	}).(EventSubscriptionDestinationResponseOutput)
 }
 
 // The base URL that represents the endpoint of the destination of an event subscription.
@@ -453,7 +465,7 @@ func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutput() Even
 }
 
 func (o EventSubscriptionFilterOutput) ToEventSubscriptionFilterPtrOutputWithContext(ctx context.Context) EventSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilter) *EventSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilter) *EventSubscriptionFilter {
 		return &v
 	}).(EventSubscriptionFilterPtrOutput)
 }
@@ -498,7 +510,13 @@ func (o EventSubscriptionFilterPtrOutput) ToEventSubscriptionFilterPtrOutputWith
 }
 
 func (o EventSubscriptionFilterPtrOutput) Elem() EventSubscriptionFilterOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter { return *v }).(EventSubscriptionFilterOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilter) EventSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilter
+		return ret
+	}).(EventSubscriptionFilterOutput)
 }
 
 // A list of applicable event types that need to be part of the event subscription.
@@ -664,7 +682,7 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 }
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyT(func(v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
 		return &v
 	}).(EventSubscriptionFilterResponsePtrOutput)
 }
@@ -709,7 +727,13 @@ func (o EventSubscriptionFilterResponsePtrOutput) ToEventSubscriptionFilterRespo
 }
 
 func (o EventSubscriptionFilterResponsePtrOutput) Elem() EventSubscriptionFilterResponseOutput {
-	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse { return *v }).(EventSubscriptionFilterResponseOutput)
+	return o.ApplyT(func(v *EventSubscriptionFilterResponse) EventSubscriptionFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EventSubscriptionFilterResponse
+		return ret
+	}).(EventSubscriptionFilterResponseOutput)
 }
 
 // A list of applicable event types that need to be part of the event subscription.

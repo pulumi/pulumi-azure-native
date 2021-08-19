@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.V20191212.Outputs
 {
 
+    /// <summary>
+    /// Describes the Machine Extension Instance View.
+    /// </summary>
     [OutputType]
     public sealed class MachineExtensionInstanceViewResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20200615.Outputs
 {
 
+    /// <summary>
+    /// The properties related to service bus queue endpoint types.
+    /// </summary>
     [OutputType]
     public sealed class RoutingServiceBusQueueEndpointPropertiesResponse
     {

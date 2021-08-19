@@ -131,33 +131,9 @@ func GetProtectionPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionPolicy resources.
 type protectionPolicyState struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name *string `pulumi:"name"`
-	// ProtectionPolicyResource properties
-	Properties interface{} `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type *string `pulumi:"type"`
 }
 
 type ProtectionPolicyState struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name associated with the resource.
-	Name pulumi.StringPtrInput
-	// ProtectionPolicyResource properties
-	Properties pulumi.Input
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringPtrInput
 }
 
 func (ProtectionPolicyState) ElementType() reflect.Type {
@@ -222,9 +198,7 @@ func (i *ProtectionPolicy) ToProtectionPolicyOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionPolicyOutput)
 }
 
-type ProtectionPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProtectionPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProtectionPolicy)(nil))

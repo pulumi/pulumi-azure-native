@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Subscription key parameter names details.
+    /// </summary>
     [OutputType]
     public sealed class SubscriptionKeyParameterNamesContractResponse
     {

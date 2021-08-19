@@ -34,14 +34,22 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.operationalinsights.v20150320 as v20150320
-    import pulumi_azure_native.operationalinsights.v20151101preview as v20151101preview
-    import pulumi_azure_native.operationalinsights.v20190801preview as v20190801preview
-    import pulumi_azure_native.operationalinsights.v20190901preview as v20190901preview
-    import pulumi_azure_native.operationalinsights.v20200301preview as v20200301preview
-    import pulumi_azure_native.operationalinsights.v20200801 as v20200801
-    import pulumi_azure_native.operationalinsights.v20201001 as v20201001
-    import pulumi_azure_native.operationalinsights.v20210601 as v20210601
+    import pulumi_azure_native.operationalinsights.v20150320 as __v20150320
+    v20150320 = __v20150320
+    import pulumi_azure_native.operationalinsights.v20151101preview as __v20151101preview
+    v20151101preview = __v20151101preview
+    import pulumi_azure_native.operationalinsights.v20190801preview as __v20190801preview
+    v20190801preview = __v20190801preview
+    import pulumi_azure_native.operationalinsights.v20190901preview as __v20190901preview
+    v20190901preview = __v20190901preview
+    import pulumi_azure_native.operationalinsights.v20200301preview as __v20200301preview
+    v20200301preview = __v20200301preview
+    import pulumi_azure_native.operationalinsights.v20200801 as __v20200801
+    v20200801 = __v20200801
+    import pulumi_azure_native.operationalinsights.v20201001 as __v20201001
+    v20201001 = __v20201001
+    import pulumi_azure_native.operationalinsights.v20210601 as __v20210601
+    v20210601 = __v20210601
 else:
     v20150320 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20150320')
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20151101preview')

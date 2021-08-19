@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Jira Service dataset.
+    /// </summary>
     [OutputType]
     public sealed class JiraObjectDatasetResponse
     {

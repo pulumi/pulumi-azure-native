@@ -98,33 +98,9 @@ func GetAwsCloudTrailDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AwsCloudTrailDataConnector resources.
 type awsCloudTrailDataConnectorState struct {
-	// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
-	AwsRoleArn *string `pulumi:"awsRoleArn"`
-	// The available data types for the connector.
-	DataTypes *AwsCloudTrailDataConnectorDataTypesResponse `pulumi:"dataTypes"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// Expected value is 'AmazonWebServicesCloudTrail'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type AwsCloudTrailDataConnectorState struct {
-	// The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
-	AwsRoleArn pulumi.StringPtrInput
-	// The available data types for the connector.
-	DataTypes AwsCloudTrailDataConnectorDataTypesResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// Expected value is 'AmazonWebServicesCloudTrail'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (AwsCloudTrailDataConnectorState) ElementType() reflect.Type {
@@ -193,9 +169,7 @@ func (i *AwsCloudTrailDataConnector) ToAwsCloudTrailDataConnectorOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AwsCloudTrailDataConnectorOutput)
 }
 
-type AwsCloudTrailDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type AwsCloudTrailDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AwsCloudTrailDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AwsCloudTrailDataConnector)(nil))

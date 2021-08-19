@@ -34,6 +34,9 @@ func NewStorageDomain(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EncryptionStatus == nil {
+		return nil, errors.New("invalid value for required argument 'EncryptionStatus'")
+	}
 	if args.ManagerName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagerName'")
 	}
@@ -71,29 +74,9 @@ func GetStorageDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageDomain resources.
 type storageDomainState struct {
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus *string `pulumi:"encryptionStatus"`
-	// The name.
-	Name *string `pulumi:"name"`
-	// The storage account credentials.
-	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
-	// The type.
-	Type *string `pulumi:"type"`
 }
 
 type StorageDomainState struct {
-	// The encryption key used to encrypt the data. This is a user secret.
-	EncryptionKey AsymmetricEncryptedSecretResponsePtrInput
-	// The encryption status "Enabled | Disabled".
-	EncryptionStatus pulumi.StringPtrInput
-	// The name.
-	Name pulumi.StringPtrInput
-	// The storage account credentials.
-	StorageAccountCredentialIds pulumi.StringArrayInput
-	// The type.
-	Type pulumi.StringPtrInput
 }
 
 func (StorageDomainState) ElementType() reflect.Type {
@@ -104,7 +87,7 @@ type storageDomainArgs struct {
 	// The encryption key used to encrypt the data. This is a user secret.
 	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
 	// The encryption status "Enabled | Disabled".
-	EncryptionStatus string `pulumi:"encryptionStatus"`
+	EncryptionStatus EncryptionStatus `pulumi:"encryptionStatus"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The resource group name
@@ -120,7 +103,7 @@ type StorageDomainArgs struct {
 	// The encryption key used to encrypt the data. This is a user secret.
 	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The encryption status "Enabled | Disabled".
-	EncryptionStatus EncryptionStatus
+	EncryptionStatus EncryptionStatusInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
@@ -154,9 +137,7 @@ func (i *StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) St
 	return pulumi.ToOutputWithContext(ctx, i).(StorageDomainOutput)
 }
 
-type StorageDomainOutput struct {
-	*pulumi.OutputState
-}
+type StorageDomainOutput struct{ *pulumi.OutputState }
 
 func (StorageDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StorageDomain)(nil))

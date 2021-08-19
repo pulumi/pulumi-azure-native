@@ -74,33 +74,9 @@ func GetMigrateProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MigrateProject resources.
 type migrateProjectState struct {
-	// Gets or sets the eTag for concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Gets or sets the Azure location in which migrate project is created.
-	Location *string `pulumi:"location"`
-	// Gets the name of the migrate project.
-	Name *string `pulumi:"name"`
-	// Gets or sets the nested properties.
-	Properties *MigrateProjectPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags *MigrateProjectResponseTags `pulumi:"tags"`
-	// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
-	Type *string `pulumi:"type"`
 }
 
 type MigrateProjectState struct {
-	// Gets or sets the eTag for concurrency control.
-	ETag pulumi.StringPtrInput
-	// Gets or sets the Azure location in which migrate project is created.
-	Location pulumi.StringPtrInput
-	// Gets the name of the migrate project.
-	Name pulumi.StringPtrInput
-	// Gets or sets the nested properties.
-	Properties MigrateProjectPropertiesResponsePtrInput
-	// Gets or sets the tags.
-	Tags MigrateProjectResponseTagsPtrInput
-	// Handled by resource provider. Type = Microsoft.Migrate/MigrateProject.
-	Type pulumi.StringPtrInput
 }
 
 func (MigrateProjectState) ElementType() reflect.Type {
@@ -161,9 +137,7 @@ func (i *MigrateProject) ToMigrateProjectOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MigrateProjectOutput)
 }
 
-type MigrateProjectOutput struct {
-	*pulumi.OutputState
-}
+type MigrateProjectOutput struct{ *pulumi.OutputState }
 
 func (MigrateProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MigrateProject)(nil))

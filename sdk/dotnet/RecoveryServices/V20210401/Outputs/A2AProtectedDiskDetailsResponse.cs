@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// A2A protected disk details.
+    /// </summary>
     [OutputType]
     public sealed class A2AProtectedDiskDetailsResponse
     {

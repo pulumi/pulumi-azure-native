@@ -96,35 +96,9 @@ func GetCodelessUiDataConnector(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CodelessUiDataConnector resources.
 type codelessUiDataConnectorState struct {
-	// Config to describe the instructions blade
-	ConnectorUiConfig *CodelessUiConnectorConfigPropertiesResponse `pulumi:"connectorUiConfig"`
-	// Etag of the azure resource
-	Etag *string `pulumi:"etag"`
-	// The kind of the data connector
-	// Expected value is 'GenericUI'.
-	Kind *string `pulumi:"kind"`
-	// Azure resource name
-	Name *string `pulumi:"name"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Azure resource type
-	Type *string `pulumi:"type"`
 }
 
 type CodelessUiDataConnectorState struct {
-	// Config to describe the instructions blade
-	ConnectorUiConfig CodelessUiConnectorConfigPropertiesResponsePtrInput
-	// Etag of the azure resource
-	Etag pulumi.StringPtrInput
-	// The kind of the data connector
-	// Expected value is 'GenericUI'.
-	Kind pulumi.StringPtrInput
-	// Azure resource name
-	Name pulumi.StringPtrInput
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponsePtrInput
-	// Azure resource type
-	Type pulumi.StringPtrInput
 }
 
 func (CodelessUiDataConnectorState) ElementType() reflect.Type {
@@ -191,9 +165,7 @@ func (i *CodelessUiDataConnector) ToCodelessUiDataConnectorOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CodelessUiDataConnectorOutput)
 }
 
-type CodelessUiDataConnectorOutput struct {
-	*pulumi.OutputState
-}
+type CodelessUiDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (CodelessUiDataConnectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodelessUiDataConnector)(nil))

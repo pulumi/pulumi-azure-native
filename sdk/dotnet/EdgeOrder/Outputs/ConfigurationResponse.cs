@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Configuration object.
+    /// </summary>
     [OutputType]
     public sealed class ConfigurationResponse
     {

@@ -49,6 +49,9 @@ func NewServerSecurityAlertPolicy(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:dbforpostgresql:ServerSecurityAlertPolicy"),
@@ -89,45 +92,9 @@ func GetServerSecurityAlertPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerSecurityAlertPolicy resources.
 type serverSecurityAlertPolicyState struct {
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
-	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Specifies that the alert is sent to the account administrators.
-	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
-	// Specifies an array of e-mail addresses to which the alert is sent.
-	EmailAddresses []string `pulumi:"emailAddresses"`
-	// The name of the resource
-	Name *string `pulumi:"name"`
-	// Specifies the number of days to keep in the Threat Detection audit logs.
-	RetentionDays *int `pulumi:"retentionDays"`
-	// Specifies the state of the policy, whether it is enabled or disabled.
-	State *string `pulumi:"state"`
-	// Specifies the identifier key of the Threat Detection audit storage account.
-	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type *string `pulumi:"type"`
 }
 
 type ServerSecurityAlertPolicyState struct {
-	// Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
-	DisabledAlerts pulumi.StringArrayInput
-	// Specifies that the alert is sent to the account administrators.
-	EmailAccountAdmins pulumi.BoolPtrInput
-	// Specifies an array of e-mail addresses to which the alert is sent.
-	EmailAddresses pulumi.StringArrayInput
-	// The name of the resource
-	Name pulumi.StringPtrInput
-	// Specifies the number of days to keep in the Threat Detection audit logs.
-	RetentionDays pulumi.IntPtrInput
-	// Specifies the state of the policy, whether it is enabled or disabled.
-	State pulumi.StringPtrInput
-	// Specifies the identifier key of the Threat Detection audit storage account.
-	StorageAccountAccessKey pulumi.StringPtrInput
-	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
-	StorageEndpoint pulumi.StringPtrInput
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringPtrInput
 }
 
 func (ServerSecurityAlertPolicyState) ElementType() reflect.Type {
@@ -150,7 +117,7 @@ type serverSecurityAlertPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy, whether it is enabled or disabled.
-	State string `pulumi:"state"`
+	State ServerSecurityAlertPolicyStateEnum `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -174,7 +141,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy, whether it is enabled or disabled.
-	State ServerSecurityAlertPolicyStateEnum
+	State ServerSecurityAlertPolicyStateEnumInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -204,9 +171,7 @@ func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServerSecurityAlertPolicyOutput)
 }
 
-type ServerSecurityAlertPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ServerSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil))

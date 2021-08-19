@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Definition of a single parameter for an entity.
+    /// </summary>
     [OutputType]
     public sealed class ParameterSpecificationResponse
     {

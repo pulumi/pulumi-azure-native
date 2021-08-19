@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180710.Outputs
 {
 
+    /// <summary>
+    /// The data store details of the MT.
+    /// </summary>
     [OutputType]
     public sealed class DataStoreResponse
     {

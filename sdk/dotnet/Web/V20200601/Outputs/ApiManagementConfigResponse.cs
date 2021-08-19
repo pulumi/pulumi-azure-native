@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Azure API management (APIM) configuration linked to the app.
+    /// </summary>
     [OutputType]
     public sealed class ApiManagementConfigResponse
     {

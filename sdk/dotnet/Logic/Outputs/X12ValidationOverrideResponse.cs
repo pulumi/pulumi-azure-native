@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The X12 validation override settings.
+    /// </summary>
     [OutputType]
     public sealed class X12ValidationOverrideResponse
     {

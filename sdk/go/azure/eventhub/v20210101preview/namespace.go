@@ -131,89 +131,9 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Cluster ARM ID of the Namespace.
-	ClusterArmId *string `pulumi:"clusterArmId"`
-	// The time the Namespace was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Properties of BYOK Encryption description
-	Encryption *EncryptionResponse `pulumi:"encryption"`
-	// Properties of BYOK Identity description
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// Identifier for Azure Insights metrics.
-	MetricId *string `pulumi:"metricId"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// List of private endpoint connections.
-	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
-	// Provisioning state of the Namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
-	// Properties of sku resource
-	Sku *SkuResponse `pulumi:"sku"`
-	// Status of the Namespace.
-	Status *string `pulumi:"status"`
-	// The system meta data relating to this resource.
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// The time the Namespace was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
-	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type NamespaceState struct {
-	// Cluster ARM ID of the Namespace.
-	ClusterArmId pulumi.StringPtrInput
-	// The time the Namespace was created.
-	CreatedAt pulumi.StringPtrInput
-	// Properties of BYOK Encryption description
-	Encryption EncryptionResponsePtrInput
-	// Properties of BYOK Identity description
-	Identity IdentityResponsePtrInput
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled pulumi.BoolPtrInput
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled pulumi.BoolPtrInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits pulumi.IntPtrInput
-	// Identifier for Azure Insights metrics.
-	MetricId pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// List of private endpoint connections.
-	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
-	// Provisioning state of the Namespace.
-	ProvisioningState pulumi.StringPtrInput
-	// Endpoint you can use to perform Service Bus operations.
-	ServiceBusEndpoint pulumi.StringPtrInput
-	// Properties of sku resource
-	Sku SkuResponsePtrInput
-	// Status of the Namespace.
-	Status pulumi.StringPtrInput
-	// The system meta data relating to this resource.
-	SystemData SystemDataResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// The time the Namespace was updated.
-	UpdatedAt pulumi.StringPtrInput
-	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
-	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {
@@ -302,9 +222,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-type NamespaceOutput struct {
-	*pulumi.OutputState
-}
+type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Namespace)(nil))

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the login flow, including the scopes that should be requested.
+    /// </summary>
     [OutputType]
     public sealed class LoginScopesResponse
     {

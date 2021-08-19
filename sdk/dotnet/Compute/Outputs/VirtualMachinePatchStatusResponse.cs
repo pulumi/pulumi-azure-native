@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// The status of virtual machine patch operations.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachinePatchStatusResponse
     {

@@ -95,77 +95,9 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp *string `pulumi:"createdTimestamp"`
-	// ARM ID of the Service Map workspace created by user.
-	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
-	// Location of the Service Map workspace created by user.
-	CustomerWorkspaceLocation *string `pulumi:"customerWorkspaceLocation"`
-	// Reports whether project is under discovery.
-	DiscoveryStatus *string `pulumi:"discoveryStatus"`
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-	LastAssessmentTimestamp *string `pulumi:"lastAssessmentTimestamp"`
-	// Session id of the last discovery.
-	LastDiscoverySessionId *string `pulumi:"lastDiscoverySessionId"`
-	// Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
-	LastDiscoveryTimestamp *string `pulumi:"lastDiscoveryTimestamp"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the project.
-	Name *string `pulumi:"name"`
-	// Number of assessments created in the project.
-	NumberOfAssessments *int `pulumi:"numberOfAssessments"`
-	// Number of groups created in the project.
-	NumberOfGroups *int `pulumi:"numberOfGroups"`
-	// Number of machines in the project.
-	NumberOfMachines *int `pulumi:"numberOfMachines"`
-	// Provisioning state of the project.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Tags provided by Azure Tagging service.
-	Tags interface{} `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type *string `pulumi:"type"`
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp *string `pulumi:"updatedTimestamp"`
 }
 
 type ProjectState struct {
-	// Time when this project was created. Date-Time represented in ISO-8601 format.
-	CreatedTimestamp pulumi.StringPtrInput
-	// ARM ID of the Service Map workspace created by user.
-	CustomerWorkspaceId pulumi.StringPtrInput
-	// Location of the Service Map workspace created by user.
-	CustomerWorkspaceLocation pulumi.StringPtrInput
-	// Reports whether project is under discovery.
-	DiscoveryStatus pulumi.StringPtrInput
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput
-	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-	LastAssessmentTimestamp pulumi.StringPtrInput
-	// Session id of the last discovery.
-	LastDiscoverySessionId pulumi.StringPtrInput
-	// Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
-	LastDiscoveryTimestamp pulumi.StringPtrInput
-	// Azure location in which project is created.
-	Location pulumi.StringPtrInput
-	// Name of the project.
-	Name pulumi.StringPtrInput
-	// Number of assessments created in the project.
-	NumberOfAssessments pulumi.IntPtrInput
-	// Number of groups created in the project.
-	NumberOfGroups pulumi.IntPtrInput
-	// Number of machines in the project.
-	NumberOfMachines pulumi.IntPtrInput
-	// Provisioning state of the project.
-	ProvisioningState pulumi.StringPtrInput
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.Input
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type pulumi.StringPtrInput
-	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
-	UpdatedTimestamp pulumi.StringPtrInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -234,9 +166,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
 }
 
-type ProjectOutput struct {
-	*pulumi.OutputState
-}
+type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Project)(nil))

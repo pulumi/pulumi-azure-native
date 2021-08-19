@@ -125,25 +125,9 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
-	// Role type.
-	Kind *string `pulumi:"kind"`
-	// The object name.
-	Name *string `pulumi:"name"`
-	// Role configured on ASE resource
-	SystemData *SystemDataResponse `pulumi:"systemData"`
-	// The hierarchical type of the object.
-	Type *string `pulumi:"type"`
 }
 
 type RoleState struct {
-	// Role type.
-	Kind pulumi.StringPtrInput
-	// The object name.
-	Name pulumi.StringPtrInput
-	// Role configured on ASE resource
-	SystemData SystemDataResponsePtrInput
-	// The hierarchical type of the object.
-	Type pulumi.StringPtrInput
 }
 
 func (RoleState) ElementType() reflect.Type {
@@ -196,9 +180,7 @@ func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleOutput)
 }
 
-type RoleOutput struct {
-	*pulumi.OutputState
-}
+type RoleOutput struct{ *pulumi.OutputState }
 
 func (RoleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Role)(nil))

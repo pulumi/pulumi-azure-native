@@ -163,45 +163,9 @@ func GetBastionHost(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BastionHost resources.
 type bastionHostState struct {
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName *string `pulumi:"dnsName"`
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// The provisioning state of the bastion host resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The sku of this Bastion Host.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type BastionHostState struct {
-	// FQDN for the endpoint on which bastion host is accessible.
-	DnsName pulumi.StringPtrInput
-	// A unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput
-	// IP configuration of the Bastion Host resource.
-	IpConfigurations BastionHostIPConfigurationResponseArrayInput
-	// Resource location.
-	Location pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// The provisioning state of the bastion host resource.
-	ProvisioningState pulumi.StringPtrInput
-	// The sku of this Bastion Host.
-	Sku SkuResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (BastionHostState) ElementType() reflect.Type {
@@ -270,9 +234,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 	return pulumi.ToOutputWithContext(ctx, i).(BastionHostOutput)
 }
 
-type BastionHostOutput struct {
-	*pulumi.OutputState
-}
+type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BastionHost)(nil))

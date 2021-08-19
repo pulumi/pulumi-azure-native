@@ -146,29 +146,9 @@ func GetCustomDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomDomain resources.
 type customDomainState struct {
-	// The host name of the custom domain. Must be a domain name.
-	HostName *string `pulumi:"hostName"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Provisioning status of the custom domain.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState *string `pulumi:"resourceState"`
-	// Resource type
-	Type *string `pulumi:"type"`
 }
 
 type CustomDomainState struct {
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Provisioning status of the custom domain.
-	ProvisioningState pulumi.StringPtrInput
-	// Resource status of the custom domain.
-	ResourceState pulumi.StringPtrInput
-	// Resource type
-	Type pulumi.StringPtrInput
 }
 
 func (CustomDomainState) ElementType() reflect.Type {
@@ -225,9 +205,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainOutput)
 }
 
-type CustomDomainOutput struct {
-	*pulumi.OutputState
-}
+type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDomain)(nil))

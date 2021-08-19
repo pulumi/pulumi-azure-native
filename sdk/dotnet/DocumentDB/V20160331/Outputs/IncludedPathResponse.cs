@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20160331.Outputs
 {
 
+    /// <summary>
+    /// The paths that are included in indexing
+    /// </summary>
     [OutputType]
     public sealed class IncludedPathResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Referenced tumbling window trigger dependency.
+    /// </summary>
     [OutputType]
     public sealed class TumblingWindowTriggerDependencyReferenceResponse
     {

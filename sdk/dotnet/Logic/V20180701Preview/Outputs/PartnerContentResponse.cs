@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20180701Preview.Outputs
 {
 
+    /// <summary>
+    /// The integration account partner content.
+    /// </summary>
     [OutputType]
     public sealed class PartnerContentResponse
     {

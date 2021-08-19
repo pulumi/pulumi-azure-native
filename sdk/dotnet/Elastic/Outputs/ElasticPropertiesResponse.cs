@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Elastic.Outputs
 {
 
+    /// <summary>
+    /// Elastic Resource Properties.
+    /// </summary>
     [OutputType]
     public sealed class ElasticPropertiesResponse
     {

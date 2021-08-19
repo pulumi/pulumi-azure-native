@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Gets or sets the tags.
+    /// </summary>
     [OutputType]
     public sealed class MigrateProjectResponseTags
     {

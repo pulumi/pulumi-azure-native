@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// A Machine Learning compute based on Azure Virtual Machines.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineResponse
     {

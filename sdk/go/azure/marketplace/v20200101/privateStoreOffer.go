@@ -87,61 +87,9 @@ func GetPrivateStoreOffer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateStoreOffer resources.
 type privateStoreOfferState struct {
-	// Private store offer creation date
-	CreatedAt *string `pulumi:"createdAt"`
-	// Identifier for purposes of race condition
-	ETag *string `pulumi:"eTag"`
-	// Icon File Uris
-	IconFileUris map[string]string `pulumi:"iconFileUris"`
-	// Private store offer modification date
-	ModifiedAt *string `pulumi:"modifiedAt"`
-	// The name of the resource.
-	Name *string `pulumi:"name"`
-	// It will be displayed prominently in the marketplace
-	OfferDisplayName *string `pulumi:"offerDisplayName"`
-	// Offer plans
-	Plans []PlanResponse `pulumi:"plans"`
-	// Private store unique id
-	PrivateStoreId *string `pulumi:"privateStoreId"`
-	// Publisher name that will be displayed prominently in the marketplace
-	PublisherDisplayName *string `pulumi:"publisherDisplayName"`
-	// Plan ids limitation for this offer
-	SpecificPlanIdsLimitation []string `pulumi:"specificPlanIdsLimitation"`
-	// The type of the resource.
-	Type *string `pulumi:"type"`
-	// Offers unique id
-	UniqueOfferId *string `pulumi:"uniqueOfferId"`
-	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence *bool `pulumi:"updateSuppressedDueIdempotence"`
 }
 
 type PrivateStoreOfferState struct {
-	// Private store offer creation date
-	CreatedAt pulumi.StringPtrInput
-	// Identifier for purposes of race condition
-	ETag pulumi.StringPtrInput
-	// Icon File Uris
-	IconFileUris pulumi.StringMapInput
-	// Private store offer modification date
-	ModifiedAt pulumi.StringPtrInput
-	// The name of the resource.
-	Name pulumi.StringPtrInput
-	// It will be displayed prominently in the marketplace
-	OfferDisplayName pulumi.StringPtrInput
-	// Offer plans
-	Plans PlanResponseArrayInput
-	// Private store unique id
-	PrivateStoreId pulumi.StringPtrInput
-	// Publisher name that will be displayed prominently in the marketplace
-	PublisherDisplayName pulumi.StringPtrInput
-	// Plan ids limitation for this offer
-	SpecificPlanIdsLimitation pulumi.StringArrayInput
-	// The type of the resource.
-	Type pulumi.StringPtrInput
-	// Offers unique id
-	UniqueOfferId pulumi.StringPtrInput
-	// Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
-	UpdateSuppressedDueIdempotence pulumi.BoolPtrInput
 }
 
 func (PrivateStoreOfferState) ElementType() reflect.Type {
@@ -206,9 +154,7 @@ func (i *PrivateStoreOffer) ToPrivateStoreOfferOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateStoreOfferOutput)
 }
 
-type PrivateStoreOfferOutput struct {
-	*pulumi.OutputState
-}
+type PrivateStoreOfferOutput struct{ *pulumi.OutputState }
 
 func (PrivateStoreOfferOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateStoreOffer)(nil))

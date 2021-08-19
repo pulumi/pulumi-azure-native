@@ -1254,7 +1254,7 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointProper
 }
 
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
 		return &v
 	}).(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput)
 }
@@ -1285,7 +1285,11 @@ func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) ToEndpointPro
 
 func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) EndpointPropertiesUpdateParametersDeliveryPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersDeliveryPolicy
+		return ret
 	}).(EndpointPropertiesUpdateParametersDeliveryPolicyOutput)
 }
 
@@ -1409,7 +1413,7 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpoi
 }
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		return &v
 	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
@@ -1442,7 +1446,11 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) ToEnd
 
 func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
 	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointPropertiesUpdateParametersResponseDeliveryPolicy
+		return ret
 	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput)
 }
 
@@ -1469,7 +1477,7 @@ func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Rules
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilter struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action string `pulumi:"action"`
+	Action GeoFilterActions `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes []string `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -1490,7 +1498,7 @@ type GeoFilterInput interface {
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilterArgs struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action GeoFilterActions `pulumi:"action"`
+	Action GeoFilterActionsInput `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -1550,8 +1558,8 @@ func (o GeoFilterOutput) ToGeoFilterOutputWithContext(ctx context.Context) GeoFi
 }
 
 // Action of the geo filter, i.e. allow or block access.
-func (o GeoFilterOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GeoFilter) string { return v.Action }).(pulumi.StringOutput)
+func (o GeoFilterOutput) Action() GeoFilterActionsOutput {
+	return o.ApplyT(func(v GeoFilter) GeoFilterActions { return v.Action }).(GeoFilterActionsOutput)
 }
 
 // Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
@@ -1798,7 +1806,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -1823,7 +1831,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // Name of the pricing tier.
@@ -1932,7 +1946,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1957,7 +1971,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // Name of the pricing tier.

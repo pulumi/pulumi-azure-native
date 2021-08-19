@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PolicyInsights.Outputs
 {
 
+    /// <summary>
+    /// A piece of evidence supporting the compliance state set in the attestation.
+    /// </summary>
     [OutputType]
     public sealed class AttestationEvidenceResponse
     {

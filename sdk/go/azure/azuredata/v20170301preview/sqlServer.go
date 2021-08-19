@@ -82,33 +82,9 @@ func GetSqlServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlServer resources.
 type sqlServerState struct {
-	// Sql Server Edition.
-	Edition *string `pulumi:"edition"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Sql Server Json Property Bag.
-	PropertyBag *string `pulumi:"propertyBag"`
-	// ID for Parent Sql Server Registration.
-	RegistrationID *string `pulumi:"registrationID"`
-	// Resource type.
-	Type *string `pulumi:"type"`
-	// Version of the Sql Server.
-	Version *string `pulumi:"version"`
 }
 
 type SqlServerState struct {
-	// Sql Server Edition.
-	Edition pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Sql Server Json Property Bag.
-	PropertyBag pulumi.StringPtrInput
-	// ID for Parent Sql Server Registration.
-	RegistrationID pulumi.StringPtrInput
-	// Resource type.
-	Type pulumi.StringPtrInput
-	// Version of the Sql Server.
-	Version pulumi.StringPtrInput
 }
 
 func (SqlServerState) ElementType() reflect.Type {
@@ -177,9 +153,7 @@ func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
 }
 
-type SqlServerOutput struct {
-	*pulumi.OutputState
-}
+type SqlServerOutput struct{ *pulumi.OutputState }
 
 func (SqlServerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlServer)(nil))

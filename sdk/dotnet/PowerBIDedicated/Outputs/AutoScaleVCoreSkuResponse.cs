@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerBIDedicated.Outputs
 {
 
+    /// <summary>
+    /// Represents the SKU name and Azure pricing tier for auto scale v-core resource.
+    /// </summary>
     [OutputType]
     public sealed class AutoScaleVCoreSkuResponse
     {

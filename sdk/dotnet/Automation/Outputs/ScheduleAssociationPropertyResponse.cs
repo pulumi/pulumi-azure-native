@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.Outputs
 {
 
+    /// <summary>
+    /// The schedule property associated with the entity.
+    /// </summary>
     [OutputType]
     public sealed class ScheduleAssociationPropertyResponse
     {

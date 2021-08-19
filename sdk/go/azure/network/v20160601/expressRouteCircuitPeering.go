@@ -314,77 +314,9 @@ func GetExpressRouteCircuitPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuitPeering resources.
 type expressRouteCircuitPeeringState struct {
-	// Gets or sets the azure ASN
-	AzureASN *int `pulumi:"azureASN"`
-	// A unique read-only string that changes whenever the resource is updated
-	Etag *string `pulumi:"etag"`
-	// Gets or sets the GatewayManager Etag
-	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
-	// Gets whether the provider or the customer last modified the peering
-	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// Gets or sets the Microsoft peering config
-	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name *string `pulumi:"name"`
-	// Gets or sets the peer ASN
-	PeerASN *int `pulumi:"peerASN"`
-	// Gets or sets PeeringType
-	PeeringType *string `pulumi:"peeringType"`
-	// Gets or sets the primary port
-	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
-	// Gets or sets the primary address prefix
-	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Gets or sets the secondary port
-	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
-	// Gets or sets the secondary address prefix
-	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
-	// Gets or sets the shared key
-	SharedKey *string `pulumi:"sharedKey"`
-	// Gets or sets state of Peering
-	State *string `pulumi:"state"`
-	// Gets or peering stats
-	Stats *ExpressRouteCircuitStatsResponse `pulumi:"stats"`
-	// Gets or sets the vlan id
-	VlanId *int `pulumi:"vlanId"`
 }
 
 type ExpressRouteCircuitPeeringState struct {
-	// Gets or sets the azure ASN
-	AzureASN pulumi.IntPtrInput
-	// A unique read-only string that changes whenever the resource is updated
-	Etag pulumi.StringPtrInput
-	// Gets or sets the GatewayManager Etag
-	GatewayManagerEtag pulumi.StringPtrInput
-	// Gets whether the provider or the customer last modified the peering
-	LastModifiedBy pulumi.StringPtrInput
-	// Gets or sets the Microsoft peering config
-	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigResponsePtrInput
-	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name pulumi.StringPtrInput
-	// Gets or sets the peer ASN
-	PeerASN pulumi.IntPtrInput
-	// Gets or sets PeeringType
-	PeeringType pulumi.StringPtrInput
-	// Gets or sets the primary port
-	PrimaryAzurePort pulumi.StringPtrInput
-	// Gets or sets the primary address prefix
-	PrimaryPeerAddressPrefix pulumi.StringPtrInput
-	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-	ProvisioningState pulumi.StringPtrInput
-	// Gets or sets the secondary port
-	SecondaryAzurePort pulumi.StringPtrInput
-	// Gets or sets the secondary address prefix
-	SecondaryPeerAddressPrefix pulumi.StringPtrInput
-	// Gets or sets the shared key
-	SharedKey pulumi.StringPtrInput
-	// Gets or sets state of Peering
-	State pulumi.StringPtrInput
-	// Gets or peering stats
-	Stats ExpressRouteCircuitStatsResponsePtrInput
-	// Gets or sets the vlan id
-	VlanId pulumi.IntPtrInput
 }
 
 func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
@@ -505,9 +437,7 @@ func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitPeeringOutput)
 }
 
-type ExpressRouteCircuitPeeringOutput struct {
-	*pulumi.OutputState
-}
+type ExpressRouteCircuitPeeringOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitPeeringOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExpressRouteCircuitPeering)(nil))

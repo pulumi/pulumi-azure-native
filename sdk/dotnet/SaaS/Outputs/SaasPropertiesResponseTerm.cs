@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SaaS.Outputs
 {
 
+    /// <summary>
+    /// The current Term object.
+    /// </summary>
     [OutputType]
     public sealed class SaasPropertiesResponseTerm
     {

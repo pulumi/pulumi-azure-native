@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventHub.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties to configure Identity for Bring your Own Keys
+    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

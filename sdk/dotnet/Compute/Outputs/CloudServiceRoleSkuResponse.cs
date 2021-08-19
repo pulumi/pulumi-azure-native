@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.Outputs
 {
 
+    /// <summary>
+    /// Describes the cloud service role sku.
+    /// </summary>
     [OutputType]
     public sealed class CloudServiceRoleSkuResponse
     {

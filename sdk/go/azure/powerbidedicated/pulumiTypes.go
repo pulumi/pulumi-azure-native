@@ -114,7 +114,7 @@ func (o AutoScaleVCoreSkuOutput) ToAutoScaleVCoreSkuPtrOutput() AutoScaleVCoreSk
 }
 
 func (o AutoScaleVCoreSkuOutput) ToAutoScaleVCoreSkuPtrOutputWithContext(ctx context.Context) AutoScaleVCoreSkuPtrOutput {
-	return o.ApplyT(func(v AutoScaleVCoreSku) *AutoScaleVCoreSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleVCoreSku) *AutoScaleVCoreSku {
 		return &v
 	}).(AutoScaleVCoreSkuPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o AutoScaleVCoreSkuPtrOutput) ToAutoScaleVCoreSkuPtrOutputWithContext(ctx 
 }
 
 func (o AutoScaleVCoreSkuPtrOutput) Elem() AutoScaleVCoreSkuOutput {
-	return o.ApplyT(func(v *AutoScaleVCoreSku) AutoScaleVCoreSku { return *v }).(AutoScaleVCoreSkuOutput)
+	return o.ApplyT(func(v *AutoScaleVCoreSku) AutoScaleVCoreSku {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleVCoreSku
+		return ret
+	}).(AutoScaleVCoreSkuOutput)
 }
 
 // The capacity of an auto scale v-core resource.
@@ -286,7 +292,7 @@ func (o AutoScaleVCoreSkuResponseOutput) ToAutoScaleVCoreSkuResponsePtrOutput() 
 }
 
 func (o AutoScaleVCoreSkuResponseOutput) ToAutoScaleVCoreSkuResponsePtrOutputWithContext(ctx context.Context) AutoScaleVCoreSkuResponsePtrOutput {
-	return o.ApplyT(func(v AutoScaleVCoreSkuResponse) *AutoScaleVCoreSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleVCoreSkuResponse) *AutoScaleVCoreSkuResponse {
 		return &v
 	}).(AutoScaleVCoreSkuResponsePtrOutput)
 }
@@ -321,7 +327,13 @@ func (o AutoScaleVCoreSkuResponsePtrOutput) ToAutoScaleVCoreSkuResponsePtrOutput
 }
 
 func (o AutoScaleVCoreSkuResponsePtrOutput) Elem() AutoScaleVCoreSkuResponseOutput {
-	return o.ApplyT(func(v *AutoScaleVCoreSkuResponse) AutoScaleVCoreSkuResponse { return *v }).(AutoScaleVCoreSkuResponseOutput)
+	return o.ApplyT(func(v *AutoScaleVCoreSkuResponse) AutoScaleVCoreSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScaleVCoreSkuResponse
+		return ret
+	}).(AutoScaleVCoreSkuResponseOutput)
 }
 
 // The capacity of an auto scale v-core resource.
@@ -454,7 +466,7 @@ func (o CapacitySkuOutput) ToCapacitySkuPtrOutput() CapacitySkuPtrOutput {
 }
 
 func (o CapacitySkuOutput) ToCapacitySkuPtrOutputWithContext(ctx context.Context) CapacitySkuPtrOutput {
-	return o.ApplyT(func(v CapacitySku) *CapacitySku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacitySku) *CapacitySku {
 		return &v
 	}).(CapacitySkuPtrOutput)
 }
@@ -484,7 +496,13 @@ func (o CapacitySkuPtrOutput) ToCapacitySkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CapacitySkuPtrOutput) Elem() CapacitySkuOutput {
-	return o.ApplyT(func(v *CapacitySku) CapacitySku { return *v }).(CapacitySkuOutput)
+	return o.ApplyT(func(v *CapacitySku) CapacitySku {
+		if v != nil {
+			return *v
+		}
+		var ret CapacitySku
+		return ret
+	}).(CapacitySkuOutput)
 }
 
 // Name of the SKU level.
@@ -607,7 +625,7 @@ func (o CapacitySkuResponseOutput) ToCapacitySkuResponsePtrOutput() CapacitySkuR
 }
 
 func (o CapacitySkuResponseOutput) ToCapacitySkuResponsePtrOutputWithContext(ctx context.Context) CapacitySkuResponsePtrOutput {
-	return o.ApplyT(func(v CapacitySkuResponse) *CapacitySkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacitySkuResponse) *CapacitySkuResponse {
 		return &v
 	}).(CapacitySkuResponsePtrOutput)
 }
@@ -637,7 +655,13 @@ func (o CapacitySkuResponsePtrOutput) ToCapacitySkuResponsePtrOutputWithContext(
 }
 
 func (o CapacitySkuResponsePtrOutput) Elem() CapacitySkuResponseOutput {
-	return o.ApplyT(func(v *CapacitySkuResponse) CapacitySkuResponse { return *v }).(CapacitySkuResponseOutput)
+	return o.ApplyT(func(v *CapacitySkuResponse) CapacitySkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CapacitySkuResponse
+		return ret
+	}).(CapacitySkuResponseOutput)
 }
 
 // Name of the SKU level.
@@ -756,7 +780,7 @@ func (o DedicatedCapacityAdministratorsOutput) ToDedicatedCapacityAdministrators
 }
 
 func (o DedicatedCapacityAdministratorsOutput) ToDedicatedCapacityAdministratorsPtrOutputWithContext(ctx context.Context) DedicatedCapacityAdministratorsPtrOutput {
-	return o.ApplyT(func(v DedicatedCapacityAdministrators) *DedicatedCapacityAdministrators {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DedicatedCapacityAdministrators) *DedicatedCapacityAdministrators {
 		return &v
 	}).(DedicatedCapacityAdministratorsPtrOutput)
 }
@@ -781,7 +805,13 @@ func (o DedicatedCapacityAdministratorsPtrOutput) ToDedicatedCapacityAdministrat
 }
 
 func (o DedicatedCapacityAdministratorsPtrOutput) Elem() DedicatedCapacityAdministratorsOutput {
-	return o.ApplyT(func(v *DedicatedCapacityAdministrators) DedicatedCapacityAdministrators { return *v }).(DedicatedCapacityAdministratorsOutput)
+	return o.ApplyT(func(v *DedicatedCapacityAdministrators) DedicatedCapacityAdministrators {
+		if v != nil {
+			return *v
+		}
+		var ret DedicatedCapacityAdministrators
+		return ret
+	}).(DedicatedCapacityAdministratorsOutput)
 }
 
 // An array of administrator user identities.
@@ -890,7 +920,7 @@ func (o DedicatedCapacityAdministratorsResponseOutput) ToDedicatedCapacityAdmini
 }
 
 func (o DedicatedCapacityAdministratorsResponseOutput) ToDedicatedCapacityAdministratorsResponsePtrOutputWithContext(ctx context.Context) DedicatedCapacityAdministratorsResponsePtrOutput {
-	return o.ApplyT(func(v DedicatedCapacityAdministratorsResponse) *DedicatedCapacityAdministratorsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DedicatedCapacityAdministratorsResponse) *DedicatedCapacityAdministratorsResponse {
 		return &v
 	}).(DedicatedCapacityAdministratorsResponsePtrOutput)
 }
@@ -915,7 +945,13 @@ func (o DedicatedCapacityAdministratorsResponsePtrOutput) ToDedicatedCapacityAdm
 }
 
 func (o DedicatedCapacityAdministratorsResponsePtrOutput) Elem() DedicatedCapacityAdministratorsResponseOutput {
-	return o.ApplyT(func(v *DedicatedCapacityAdministratorsResponse) DedicatedCapacityAdministratorsResponse { return *v }).(DedicatedCapacityAdministratorsResponseOutput)
+	return o.ApplyT(func(v *DedicatedCapacityAdministratorsResponse) DedicatedCapacityAdministratorsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DedicatedCapacityAdministratorsResponse
+		return ret
+	}).(DedicatedCapacityAdministratorsResponseOutput)
 }
 
 // An array of administrator user identities.
@@ -1044,7 +1080,7 @@ func (o SystemDataOutput) ToSystemDataPtrOutput() SystemDataPtrOutput {
 }
 
 func (o SystemDataOutput) ToSystemDataPtrOutputWithContext(ctx context.Context) SystemDataPtrOutput {
-	return o.ApplyT(func(v SystemData) *SystemData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemData) *SystemData {
 		return &v
 	}).(SystemDataPtrOutput)
 }
@@ -1094,7 +1130,13 @@ func (o SystemDataPtrOutput) ToSystemDataPtrOutputWithContext(ctx context.Contex
 }
 
 func (o SystemDataPtrOutput) Elem() SystemDataOutput {
-	return o.ApplyT(func(v *SystemData) SystemData { return *v }).(SystemDataOutput)
+	return o.ApplyT(func(v *SystemData) SystemData {
+		if v != nil {
+			return *v
+		}
+		var ret SystemData
+		return ret
+	}).(SystemDataOutput)
 }
 
 // The timestamp of resource creation (UTC)
@@ -1273,7 +1315,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -1323,7 +1365,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC)

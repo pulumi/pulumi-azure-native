@@ -88,33 +88,9 @@ func GetComputePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ComputePolicy resources.
 type computePolicyState struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The resource name.
-	Name *string `pulumi:"name"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId *string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType *string `pulumi:"objectType"`
-	// The resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ComputePolicyState struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs.
-	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
-	// The minimum priority per job this user can use to submit jobs.
-	MinPriorityPerJob pulumi.IntPtrInput
-	// The resource name.
-	Name pulumi.StringPtrInput
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringPtrInput
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringPtrInput
-	// The resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ComputePolicyState) ElementType() reflect.Type {
@@ -179,9 +155,7 @@ func (i *ComputePolicy) ToComputePolicyOutputWithContext(ctx context.Context) Co
 	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyOutput)
 }
 
-type ComputePolicyOutput struct {
-	*pulumi.OutputState
-}
+type ComputePolicyOutput struct{ *pulumi.OutputState }
 
 func (ComputePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ComputePolicy)(nil))

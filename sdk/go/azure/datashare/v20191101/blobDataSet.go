@@ -123,47 +123,9 @@ func GetBlobDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BlobDataSet resources.
 type blobDataSetState struct {
-	// Container that has the file path.
-	ContainerName *string `pulumi:"containerName"`
-	// Unique id for identifying a data set resource
-	DataSetId *string `pulumi:"dataSetId"`
-	// File path within the source data set
-	FilePath *string `pulumi:"filePath"`
-	// Kind of data set.
-	// Expected value is 'Blob'.
-	Kind *string `pulumi:"kind"`
-	// Name of the azure resource
-	Name *string `pulumi:"name"`
-	// Resource group of storage account
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Storage account name of the source data set
-	StorageAccountName *string `pulumi:"storageAccountName"`
-	// Subscription id of storage account
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// Type of the azure resource
-	Type *string `pulumi:"type"`
 }
 
 type BlobDataSetState struct {
-	// Container that has the file path.
-	ContainerName pulumi.StringPtrInput
-	// Unique id for identifying a data set resource
-	DataSetId pulumi.StringPtrInput
-	// File path within the source data set
-	FilePath pulumi.StringPtrInput
-	// Kind of data set.
-	// Expected value is 'Blob'.
-	Kind pulumi.StringPtrInput
-	// Name of the azure resource
-	Name pulumi.StringPtrInput
-	// Resource group of storage account
-	ResourceGroup pulumi.StringPtrInput
-	// Storage account name of the source data set
-	StorageAccountName pulumi.StringPtrInput
-	// Subscription id of storage account
-	SubscriptionId pulumi.StringPtrInput
-	// Type of the azure resource
-	Type pulumi.StringPtrInput
 }
 
 func (BlobDataSetState) ElementType() reflect.Type {
@@ -242,9 +204,7 @@ func (i *BlobDataSet) ToBlobDataSetOutputWithContext(ctx context.Context) BlobDa
 	return pulumi.ToOutputWithContext(ctx, i).(BlobDataSetOutput)
 }
 
-type BlobDataSetOutput struct {
-	*pulumi.OutputState
-}
+type BlobDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BlobDataSet)(nil))

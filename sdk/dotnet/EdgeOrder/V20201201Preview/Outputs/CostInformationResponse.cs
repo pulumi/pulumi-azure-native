@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.V20201201Preview.Outputs
 {
 
+    /// <summary>
+    /// Cost information for the product system
+    /// </summary>
     [OutputType]
     public sealed class CostInformationResponse
     {

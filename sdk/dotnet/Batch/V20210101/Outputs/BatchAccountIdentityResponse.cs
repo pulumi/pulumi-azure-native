@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210101.Outputs
 {
 
+    /// <summary>
+    /// The identity of the Batch account, if configured. This is only used when the user specifies 'Microsoft.KeyVault' as their Batch account encryption configuration.
+    /// </summary>
     [OutputType]
     public sealed class BatchAccountIdentityResponse
     {

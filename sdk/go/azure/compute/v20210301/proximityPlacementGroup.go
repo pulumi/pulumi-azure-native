@@ -133,45 +133,9 @@ func GetProximityPlacementGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProximityPlacementGroup resources.
 type proximityPlacementGroupState struct {
-	// A list of references to all availability sets in the proximity placement group.
-	AvailabilitySets []SubResourceWithColocationStatusResponse `pulumi:"availabilitySets"`
-	// Describes colocation status of the Proximity Placement Group.
-	ColocationStatus *InstanceViewStatusResponse `pulumi:"colocationStatus"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name *string `pulumi:"name"`
-	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-	ProximityPlacementGroupType *string `pulumi:"proximityPlacementGroupType"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-	// A list of references to all virtual machine scale sets in the proximity placement group.
-	VirtualMachineScaleSets []SubResourceWithColocationStatusResponse `pulumi:"virtualMachineScaleSets"`
-	// A list of references to all virtual machines in the proximity placement group.
-	VirtualMachines []SubResourceWithColocationStatusResponse `pulumi:"virtualMachines"`
 }
 
 type ProximityPlacementGroupState struct {
-	// A list of references to all availability sets in the proximity placement group.
-	AvailabilitySets SubResourceWithColocationStatusResponseArrayInput
-	// Describes colocation status of the Proximity Placement Group.
-	ColocationStatus InstanceViewStatusResponsePtrInput
-	// Resource location
-	Location pulumi.StringPtrInput
-	// Resource name
-	Name pulumi.StringPtrInput
-	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-	ProximityPlacementGroupType pulumi.StringPtrInput
-	// Resource tags
-	Tags pulumi.StringMapInput
-	// Resource type
-	Type pulumi.StringPtrInput
-	// A list of references to all virtual machine scale sets in the proximity placement group.
-	VirtualMachineScaleSets SubResourceWithColocationStatusResponseArrayInput
-	// A list of references to all virtual machines in the proximity placement group.
-	VirtualMachines SubResourceWithColocationStatusResponseArrayInput
 }
 
 func (ProximityPlacementGroupState) ElementType() reflect.Type {
@@ -232,9 +196,7 @@ func (i *ProximityPlacementGroup) ToProximityPlacementGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProximityPlacementGroupOutput)
 }
 
-type ProximityPlacementGroupOutput struct {
-	*pulumi.OutputState
-}
+type ProximityPlacementGroupOutput struct{ *pulumi.OutputState }
 
 func (ProximityPlacementGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProximityPlacementGroup)(nil))

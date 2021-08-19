@@ -72,37 +72,9 @@ func GetReportConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReportConfig resources.
 type reportConfigState struct {
-	// Has definition for the report config.
-	Definition *ReportConfigDefinitionResponse `pulumi:"definition"`
-	// Has delivery information for the report config.
-	DeliveryInfo *ReportConfigDeliveryInfoResponse `pulumi:"deliveryInfo"`
-	// The format of the report being delivered.
-	Format *string `pulumi:"format"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Has schedule information for the report config.
-	Schedule *ReportConfigScheduleResponse `pulumi:"schedule"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type *string `pulumi:"type"`
 }
 
 type ReportConfigState struct {
-	// Has definition for the report config.
-	Definition ReportConfigDefinitionResponsePtrInput
-	// Has delivery information for the report config.
-	DeliveryInfo ReportConfigDeliveryInfoResponsePtrInput
-	// The format of the report being delivered.
-	Format pulumi.StringPtrInput
-	// Resource name.
-	Name pulumi.StringPtrInput
-	// Has schedule information for the report config.
-	Schedule ReportConfigScheduleResponsePtrInput
-	// Resource tags.
-	Tags pulumi.StringMapInput
-	// Resource type.
-	Type pulumi.StringPtrInput
 }
 
 func (ReportConfigState) ElementType() reflect.Type {
@@ -159,9 +131,7 @@ func (i *ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) Repo
 	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigOutput)
 }
 
-type ReportConfigOutput struct {
-	*pulumi.OutputState
-}
+type ReportConfigOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportConfig)(nil))

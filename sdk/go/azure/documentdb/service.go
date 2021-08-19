@@ -71,21 +71,9 @@ func GetService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Service resources.
 type serviceState struct {
-	// The name of the database account.
-	Name *string `pulumi:"name"`
-	// Services response resource.
-	Properties interface{} `pulumi:"properties"`
-	// The type of Azure resource.
-	Type *string `pulumi:"type"`
 }
 
 type ServiceState struct {
-	// The name of the database account.
-	Name pulumi.StringPtrInput
-	// Services response resource.
-	Properties pulumi.Input
-	// The type of Azure resource.
-	Type pulumi.StringPtrInput
 }
 
 func (ServiceState) ElementType() reflect.Type {
@@ -138,9 +126,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-type ServiceOutput struct {
-	*pulumi.OutputState
-}
+type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Service)(nil))

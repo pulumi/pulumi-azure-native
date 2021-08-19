@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20180901.Outputs
 {
 
+    /// <summary>
+    /// A container group or container instance event.
+    /// </summary>
     [OutputType]
     public sealed class EventResponse
     {

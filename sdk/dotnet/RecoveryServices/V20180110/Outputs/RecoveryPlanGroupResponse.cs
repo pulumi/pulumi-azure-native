@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20180110.Outputs
 {
 
+    /// <summary>
+    /// Recovery plan group details.
+    /// </summary>
     [OutputType]
     public sealed class RecoveryPlanGroupResponse
     {

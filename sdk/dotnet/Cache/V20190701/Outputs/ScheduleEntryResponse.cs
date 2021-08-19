@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20190701.Outputs
 {
 
+    /// <summary>
+    /// Patch schedule entry for a Premium Redis Cache.
+    /// </summary>
     [OutputType]
     public sealed class ScheduleEntryResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// DataStoreInfo base
+    /// </summary>
     [OutputType]
     public sealed class DataStoreInfoBaseResponse
     {

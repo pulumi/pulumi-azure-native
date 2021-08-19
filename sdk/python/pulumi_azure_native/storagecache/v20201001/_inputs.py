@@ -10,25 +10,63 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'CacheActiveDirectorySettingsArgs',
     'CacheActiveDirectorySettingsCredentialsArgs',
+    'CacheActiveDirectorySettingsArgs',
     'CacheDirectorySettingsArgs',
     'CacheEncryptionSettingsArgs',
     'CacheIdentityArgs',
     'CacheNetworkSettingsArgs',
     'CacheSecuritySettingsArgs',
     'CacheSkuArgs',
-    'CacheUsernameDownloadSettingsArgs',
     'CacheUsernameDownloadSettingsCredentialsArgs',
+    'CacheUsernameDownloadSettingsArgs',
     'ClfsTargetArgs',
-    'KeyVaultKeyReferenceArgs',
     'KeyVaultKeyReferenceSourceVaultArgs',
+    'KeyVaultKeyReferenceArgs',
     'NamespaceJunctionArgs',
     'Nfs3TargetArgs',
     'NfsAccessPolicyArgs',
     'NfsAccessRuleArgs',
     'UnknownTargetArgs',
 ]
+
+@pulumi.input_type
+class CacheActiveDirectorySettingsCredentialsArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        Active Directory admin credentials used to join the HPC Cache to a domain.
+        :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        :param pulumi.Input[str] username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
 
 @pulumi.input_type
 class CacheActiveDirectorySettingsArgs:
@@ -128,44 +166,6 @@ class CacheActiveDirectorySettingsArgs:
     @secondary_dns_ip_address.setter
     def secondary_dns_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_dns_ip_address", value)
-
-
-@pulumi.input_type
-class CacheActiveDirectorySettingsCredentialsArgs:
-    def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
-        """
-        Active Directory admin credentials used to join the HPC Cache to a domain.
-        :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        :param pulumi.Input[str] username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type
@@ -328,6 +328,46 @@ class CacheSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CacheUsernameDownloadSettingsCredentialsArgs:
+    def __init__(__self__, *,
+                 bind_dn: Optional[pulumi.Input[str]] = None,
+                 bind_password: Optional[pulumi.Input[str]] = None):
+        """
+        When present, these are the credentials for the secure LDAP connection.
+        :param pulumi.Input[str] bind_dn: The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+        :param pulumi.Input[str] bind_password: The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+        """
+        if bind_dn is not None:
+            pulumi.set(__self__, "bind_dn", bind_dn)
+        if bind_password is not None:
+            pulumi.set(__self__, "bind_password", bind_password)
+
+    @property
+    @pulumi.getter(name="bindDn")
+    def bind_dn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "bind_dn")
+
+    @bind_dn.setter
+    def bind_dn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bind_dn", value)
+
+    @property
+    @pulumi.getter(name="bindPassword")
+    def bind_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "bind_password")
+
+    @bind_password.setter
+    def bind_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bind_password", value)
 
 
 @pulumi.input_type
@@ -517,46 +557,6 @@ class CacheUsernameDownloadSettingsArgs:
 
 
 @pulumi.input_type
-class CacheUsernameDownloadSettingsCredentialsArgs:
-    def __init__(__self__, *,
-                 bind_dn: Optional[pulumi.Input[str]] = None,
-                 bind_password: Optional[pulumi.Input[str]] = None):
-        """
-        When present, these are the credentials for the secure LDAP connection.
-        :param pulumi.Input[str] bind_dn: The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-        :param pulumi.Input[str] bind_password: The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-        """
-        if bind_dn is not None:
-            pulumi.set(__self__, "bind_dn", bind_dn)
-        if bind_password is not None:
-            pulumi.set(__self__, "bind_password", bind_password)
-
-    @property
-    @pulumi.getter(name="bindDn")
-    def bind_dn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Bind Distinguished Name identity to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "bind_dn")
-
-    @bind_dn.setter
-    def bind_dn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "bind_dn", value)
-
-    @property
-    @pulumi.getter(name="bindPassword")
-    def bind_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Bind password to be used in the secure LDAP connection. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "bind_password")
-
-    @bind_password.setter
-    def bind_password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "bind_password", value)
-
-
-@pulumi.input_type
 class ClfsTargetArgs:
     def __init__(__self__, *,
                  target: Optional[pulumi.Input[str]] = None):
@@ -578,6 +578,30 @@ class ClfsTargetArgs:
     @target.setter
     def target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class KeyVaultKeyReferenceSourceVaultArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a resource Id to source Key Vault.
+        :param pulumi.Input[str] id: Resource Id.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -616,30 +640,6 @@ class KeyVaultKeyReferenceArgs:
     @source_vault.setter
     def source_vault(self, value: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs']):
         pulumi.set(self, "source_vault", value)
-
-
-@pulumi.input_type
-class KeyVaultKeyReferenceSourceVaultArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Describes a resource Id to source Key Vault.
-        :param pulumi.Input[str] id: Resource Id.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type

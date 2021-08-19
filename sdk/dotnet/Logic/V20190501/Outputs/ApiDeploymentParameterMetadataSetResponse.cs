@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
+    /// <summary>
+    /// The API deployment parameters metadata.
+    /// </summary>
     [OutputType]
     public sealed class ApiDeploymentParameterMetadataSetResponse
     {

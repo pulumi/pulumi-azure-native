@@ -110,7 +110,7 @@ func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponse
 }
 
 func (o EnvironmentStateDetailsResponseOutput) ToEnvironmentStateDetailsResponsePtrOutputWithContext(ctx context.Context) EnvironmentStateDetailsResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStateDetailsResponse) *EnvironmentStateDetailsResponse {
 		return &v
 	}).(EnvironmentStateDetailsResponsePtrOutput)
 }
@@ -140,7 +140,13 @@ func (o EnvironmentStateDetailsResponsePtrOutput) ToEnvironmentStateDetailsRespo
 }
 
 func (o EnvironmentStateDetailsResponsePtrOutput) Elem() EnvironmentStateDetailsResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse { return *v }).(EnvironmentStateDetailsResponseOutput)
+	return o.ApplyT(func(v *EnvironmentStateDetailsResponse) EnvironmentStateDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentStateDetailsResponse
+		return ret
+	}).(EnvironmentStateDetailsResponseOutput)
 }
 
 // Contains the code that represents the reason of an environment being in a particular state. Can be used to programmatically handle specific cases.
@@ -259,7 +265,7 @@ func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutput() 
 }
 
 func (o EnvironmentStatusResponseOutput) ToEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) EnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentStatusResponse) *EnvironmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentStatusResponse) *EnvironmentStatusResponse {
 		return &v
 	}).(EnvironmentStatusResponsePtrOutput)
 }
@@ -284,7 +290,13 @@ func (o EnvironmentStatusResponsePtrOutput) ToEnvironmentStatusResponsePtrOutput
 }
 
 func (o EnvironmentStatusResponsePtrOutput) Elem() EnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse { return *v }).(EnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *EnvironmentStatusResponse) EnvironmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentStatusResponse
+		return ret
+	}).(EnvironmentStatusResponseOutput)
 }
 
 // An object that represents the status of ingress on an environment.
@@ -397,7 +409,7 @@ func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusRespon
 }
 
 func (o IngressEnvironmentStatusResponseOutput) ToIngressEnvironmentStatusResponsePtrOutputWithContext(ctx context.Context) IngressEnvironmentStatusResponsePtrOutput {
-	return o.ApplyT(func(v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngressEnvironmentStatusResponse) *IngressEnvironmentStatusResponse {
 		return &v
 	}).(IngressEnvironmentStatusResponsePtrOutput)
 }
@@ -427,7 +439,13 @@ func (o IngressEnvironmentStatusResponsePtrOutput) ToIngressEnvironmentStatusRes
 }
 
 func (o IngressEnvironmentStatusResponsePtrOutput) Elem() IngressEnvironmentStatusResponseOutput {
-	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse { return *v }).(IngressEnvironmentStatusResponseOutput)
+	return o.ApplyT(func(v *IngressEnvironmentStatusResponse) IngressEnvironmentStatusResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IngressEnvironmentStatusResponse
+		return ret
+	}).(IngressEnvironmentStatusResponseOutput)
 }
 
 // This string represents the state of ingress operations on an environment. It can be "Disabled", "Ready", "Running", "Paused" or "Unknown"
@@ -673,7 +691,7 @@ type ReferenceDataSetKeyProperty struct {
 	// The name of the key property.
 	Name *string `pulumi:"name"`
 	// The type of the key property.
-	Type *string `pulumi:"type"`
+	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
 }
 
 // ReferenceDataSetKeyPropertyInput is an input type that accepts ReferenceDataSetKeyPropertyArgs and ReferenceDataSetKeyPropertyOutput values.
@@ -692,7 +710,7 @@ type ReferenceDataSetKeyPropertyArgs struct {
 	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of the key property.
-	Type *ReferenceDataKeyPropertyType `pulumi:"type"`
+	Type ReferenceDataKeyPropertyTypePtrInput `pulumi:"type"`
 }
 
 func (ReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
@@ -753,8 +771,8 @@ func (o ReferenceDataSetKeyPropertyOutput) Name() pulumi.StringPtrOutput {
 }
 
 // The type of the key property.
-func (o ReferenceDataSetKeyPropertyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ReferenceDataSetKeyPropertyOutput) Type() ReferenceDataKeyPropertyTypePtrOutput {
+	return o.ApplyT(func(v ReferenceDataSetKeyProperty) *ReferenceDataKeyPropertyType { return v.Type }).(ReferenceDataKeyPropertyTypePtrOutput)
 }
 
 type ReferenceDataSetKeyPropertyArrayOutput struct{ *pulumi.OutputState }
@@ -891,7 +909,7 @@ type Sku struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity int `pulumi:"capacity"`
 	// The name of this SKU.
-	Name string `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 // SkuInput is an input type that accepts SkuArgs and SkuOutput values.
@@ -910,7 +928,7 @@ type SkuArgs struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of this SKU.
-	Name SkuName `pulumi:"name"`
+	Name SkuNameInput `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -986,7 +1004,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -997,8 +1015,8 @@ func (o SkuOutput) Capacity() pulumi.IntOutput {
 }
 
 // The name of this SKU.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
+func (o SkuOutput) Name() SkuNameOutput {
+	return o.ApplyT(func(v Sku) SkuName { return v.Name }).(SkuNameOutput)
 }
 
 type SkuPtrOutput struct{ *pulumi.OutputState }
@@ -1016,7 +1034,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
@@ -1030,13 +1054,13 @@ func (o SkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 }
 
 // The name of this SKU.
-func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Sku) *string {
+func (o SkuPtrOutput) Name() SkuNamePtrOutput {
+	return o.ApplyT(func(v *Sku) *SkuName {
 		if v == nil {
 			return nil
 		}
 		return &v.Name
-	}).(pulumi.StringPtrOutput)
+	}).(SkuNamePtrOutput)
 }
 
 // The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
@@ -1139,7 +1163,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -1169,7 +1193,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The capacity of the sku. This value can be changed to support scale out of environments after they have been created.

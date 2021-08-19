@@ -118,7 +118,7 @@ func (o AS2AcknowledgementConnectionSettingsOutput) ToAS2AcknowledgementConnecti
 }
 
 func (o AS2AcknowledgementConnectionSettingsOutput) ToAS2AcknowledgementConnectionSettingsPtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsPtrOutput {
-	return o.ApplyT(func(v AS2AcknowledgementConnectionSettings) *AS2AcknowledgementConnectionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AcknowledgementConnectionSettings) *AS2AcknowledgementConnectionSettings {
 		return &v
 	}).(AS2AcknowledgementConnectionSettingsPtrOutput)
 }
@@ -158,7 +158,13 @@ func (o AS2AcknowledgementConnectionSettingsPtrOutput) ToAS2AcknowledgementConne
 }
 
 func (o AS2AcknowledgementConnectionSettingsPtrOutput) Elem() AS2AcknowledgementConnectionSettingsOutput {
-	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) AS2AcknowledgementConnectionSettings { return *v }).(AS2AcknowledgementConnectionSettingsOutput)
+	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettings) AS2AcknowledgementConnectionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2AcknowledgementConnectionSettings
+		return ret
+	}).(AS2AcknowledgementConnectionSettingsOutput)
 }
 
 // The value indicating whether to ignore mismatch in certificate name.
@@ -309,7 +315,7 @@ func (o AS2AcknowledgementConnectionSettingsResponseOutput) ToAS2Acknowledgement
 }
 
 func (o AS2AcknowledgementConnectionSettingsResponseOutput) ToAS2AcknowledgementConnectionSettingsResponsePtrOutputWithContext(ctx context.Context) AS2AcknowledgementConnectionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2AcknowledgementConnectionSettingsResponse) *AS2AcknowledgementConnectionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AcknowledgementConnectionSettingsResponse) *AS2AcknowledgementConnectionSettingsResponse {
 		return &v
 	}).(AS2AcknowledgementConnectionSettingsResponsePtrOutput)
 }
@@ -350,7 +356,11 @@ func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) ToAS2Acknowledgem
 
 func (o AS2AcknowledgementConnectionSettingsResponsePtrOutput) Elem() AS2AcknowledgementConnectionSettingsResponseOutput {
 	return o.ApplyT(func(v *AS2AcknowledgementConnectionSettingsResponse) AS2AcknowledgementConnectionSettingsResponse {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AS2AcknowledgementConnectionSettingsResponse
+		return ret
 	}).(AS2AcknowledgementConnectionSettingsResponseOutput)
 }
 
@@ -494,7 +504,7 @@ func (o AS2AgreementContentOutput) ToAS2AgreementContentPtrOutput() AS2Agreement
 }
 
 func (o AS2AgreementContentOutput) ToAS2AgreementContentPtrOutputWithContext(ctx context.Context) AS2AgreementContentPtrOutput {
-	return o.ApplyT(func(v AS2AgreementContent) *AS2AgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AgreementContent) *AS2AgreementContent {
 		return &v
 	}).(AS2AgreementContentPtrOutput)
 }
@@ -524,7 +534,13 @@ func (o AS2AgreementContentPtrOutput) ToAS2AgreementContentPtrOutputWithContext(
 }
 
 func (o AS2AgreementContentPtrOutput) Elem() AS2AgreementContentOutput {
-	return o.ApplyT(func(v *AS2AgreementContent) AS2AgreementContent { return *v }).(AS2AgreementContentOutput)
+	return o.ApplyT(func(v *AS2AgreementContent) AS2AgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret AS2AgreementContent
+		return ret
+	}).(AS2AgreementContentOutput)
 }
 
 // The AS2 one-way receive agreement.
@@ -647,7 +663,7 @@ func (o AS2AgreementContentResponseOutput) ToAS2AgreementContentResponsePtrOutpu
 }
 
 func (o AS2AgreementContentResponseOutput) ToAS2AgreementContentResponsePtrOutputWithContext(ctx context.Context) AS2AgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v AS2AgreementContentResponse) *AS2AgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2AgreementContentResponse) *AS2AgreementContentResponse {
 		return &v
 	}).(AS2AgreementContentResponsePtrOutput)
 }
@@ -677,7 +693,13 @@ func (o AS2AgreementContentResponsePtrOutput) ToAS2AgreementContentResponsePtrOu
 }
 
 func (o AS2AgreementContentResponsePtrOutput) Elem() AS2AgreementContentResponseOutput {
-	return o.ApplyT(func(v *AS2AgreementContentResponse) AS2AgreementContentResponse { return *v }).(AS2AgreementContentResponseOutput)
+	return o.ApplyT(func(v *AS2AgreementContentResponse) AS2AgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2AgreementContentResponse
+		return ret
+	}).(AS2AgreementContentResponseOutput)
 }
 
 // The AS2 one-way receive agreement.
@@ -812,7 +834,7 @@ func (o AS2EnvelopeSettingsOutput) ToAS2EnvelopeSettingsPtrOutput() AS2EnvelopeS
 }
 
 func (o AS2EnvelopeSettingsOutput) ToAS2EnvelopeSettingsPtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsPtrOutput {
-	return o.ApplyT(func(v AS2EnvelopeSettings) *AS2EnvelopeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2EnvelopeSettings) *AS2EnvelopeSettings {
 		return &v
 	}).(AS2EnvelopeSettingsPtrOutput)
 }
@@ -857,7 +879,13 @@ func (o AS2EnvelopeSettingsPtrOutput) ToAS2EnvelopeSettingsPtrOutputWithContext(
 }
 
 func (o AS2EnvelopeSettingsPtrOutput) Elem() AS2EnvelopeSettingsOutput {
-	return o.ApplyT(func(v *AS2EnvelopeSettings) AS2EnvelopeSettings { return *v }).(AS2EnvelopeSettingsOutput)
+	return o.ApplyT(func(v *AS2EnvelopeSettings) AS2EnvelopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2EnvelopeSettings
+		return ret
+	}).(AS2EnvelopeSettingsOutput)
 }
 
 // The value indicating whether to auto generate file name.
@@ -1022,7 +1050,7 @@ func (o AS2EnvelopeSettingsResponseOutput) ToAS2EnvelopeSettingsResponsePtrOutpu
 }
 
 func (o AS2EnvelopeSettingsResponseOutput) ToAS2EnvelopeSettingsResponsePtrOutputWithContext(ctx context.Context) AS2EnvelopeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2EnvelopeSettingsResponse) *AS2EnvelopeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2EnvelopeSettingsResponse) *AS2EnvelopeSettingsResponse {
 		return &v
 	}).(AS2EnvelopeSettingsResponsePtrOutput)
 }
@@ -1067,7 +1095,13 @@ func (o AS2EnvelopeSettingsResponsePtrOutput) ToAS2EnvelopeSettingsResponsePtrOu
 }
 
 func (o AS2EnvelopeSettingsResponsePtrOutput) Elem() AS2EnvelopeSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) AS2EnvelopeSettingsResponse { return *v }).(AS2EnvelopeSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2EnvelopeSettingsResponse) AS2EnvelopeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2EnvelopeSettingsResponse
+		return ret
+	}).(AS2EnvelopeSettingsResponseOutput)
 }
 
 // The value indicating whether to auto generate file name.
@@ -1220,7 +1254,7 @@ func (o AS2ErrorSettingsOutput) ToAS2ErrorSettingsPtrOutput() AS2ErrorSettingsPt
 }
 
 func (o AS2ErrorSettingsOutput) ToAS2ErrorSettingsPtrOutputWithContext(ctx context.Context) AS2ErrorSettingsPtrOutput {
-	return o.ApplyT(func(v AS2ErrorSettings) *AS2ErrorSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ErrorSettings) *AS2ErrorSettings {
 		return &v
 	}).(AS2ErrorSettingsPtrOutput)
 }
@@ -1250,7 +1284,13 @@ func (o AS2ErrorSettingsPtrOutput) ToAS2ErrorSettingsPtrOutputWithContext(ctx co
 }
 
 func (o AS2ErrorSettingsPtrOutput) Elem() AS2ErrorSettingsOutput {
-	return o.ApplyT(func(v *AS2ErrorSettings) AS2ErrorSettings { return *v }).(AS2ErrorSettingsOutput)
+	return o.ApplyT(func(v *AS2ErrorSettings) AS2ErrorSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ErrorSettings
+		return ret
+	}).(AS2ErrorSettingsOutput)
 }
 
 // The value indicating whether to resend message If MDN is not received.
@@ -1373,7 +1413,7 @@ func (o AS2ErrorSettingsResponseOutput) ToAS2ErrorSettingsResponsePtrOutput() AS
 }
 
 func (o AS2ErrorSettingsResponseOutput) ToAS2ErrorSettingsResponsePtrOutputWithContext(ctx context.Context) AS2ErrorSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2ErrorSettingsResponse) *AS2ErrorSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ErrorSettingsResponse) *AS2ErrorSettingsResponse {
 		return &v
 	}).(AS2ErrorSettingsResponsePtrOutput)
 }
@@ -1403,7 +1443,13 @@ func (o AS2ErrorSettingsResponsePtrOutput) ToAS2ErrorSettingsResponsePtrOutputWi
 }
 
 func (o AS2ErrorSettingsResponsePtrOutput) Elem() AS2ErrorSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2ErrorSettingsResponse) AS2ErrorSettingsResponse { return *v }).(AS2ErrorSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2ErrorSettingsResponse) AS2ErrorSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ErrorSettingsResponse
+		return ret
+	}).(AS2ErrorSettingsResponseOutput)
 }
 
 // The value indicating whether to resend message If MDN is not received.
@@ -1554,7 +1600,7 @@ func (o AS2MdnSettingsOutput) ToAS2MdnSettingsPtrOutput() AS2MdnSettingsPtrOutpu
 }
 
 func (o AS2MdnSettingsOutput) ToAS2MdnSettingsPtrOutputWithContext(ctx context.Context) AS2MdnSettingsPtrOutput {
-	return o.ApplyT(func(v AS2MdnSettings) *AS2MdnSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MdnSettings) *AS2MdnSettings {
 		return &v
 	}).(AS2MdnSettingsPtrOutput)
 }
@@ -1619,7 +1665,13 @@ func (o AS2MdnSettingsPtrOutput) ToAS2MdnSettingsPtrOutputWithContext(ctx contex
 }
 
 func (o AS2MdnSettingsPtrOutput) Elem() AS2MdnSettingsOutput {
-	return o.ApplyT(func(v *AS2MdnSettings) AS2MdnSettings { return *v }).(AS2MdnSettingsOutput)
+	return o.ApplyT(func(v *AS2MdnSettings) AS2MdnSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MdnSettings
+		return ret
+	}).(AS2MdnSettingsOutput)
 }
 
 // The disposition notification to header value.
@@ -1840,7 +1892,7 @@ func (o AS2MdnSettingsResponseOutput) ToAS2MdnSettingsResponsePtrOutput() AS2Mdn
 }
 
 func (o AS2MdnSettingsResponseOutput) ToAS2MdnSettingsResponsePtrOutputWithContext(ctx context.Context) AS2MdnSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2MdnSettingsResponse) *AS2MdnSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MdnSettingsResponse) *AS2MdnSettingsResponse {
 		return &v
 	}).(AS2MdnSettingsResponsePtrOutput)
 }
@@ -1905,7 +1957,13 @@ func (o AS2MdnSettingsResponsePtrOutput) ToAS2MdnSettingsResponsePtrOutputWithCo
 }
 
 func (o AS2MdnSettingsResponsePtrOutput) Elem() AS2MdnSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2MdnSettingsResponse) AS2MdnSettingsResponse { return *v }).(AS2MdnSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2MdnSettingsResponse) AS2MdnSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MdnSettingsResponse
+		return ret
+	}).(AS2MdnSettingsResponseOutput)
 }
 
 // The disposition notification to header value.
@@ -2106,7 +2164,7 @@ func (o AS2MessageConnectionSettingsOutput) ToAS2MessageConnectionSettingsPtrOut
 }
 
 func (o AS2MessageConnectionSettingsOutput) ToAS2MessageConnectionSettingsPtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsPtrOutput {
-	return o.ApplyT(func(v AS2MessageConnectionSettings) *AS2MessageConnectionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MessageConnectionSettings) *AS2MessageConnectionSettings {
 		return &v
 	}).(AS2MessageConnectionSettingsPtrOutput)
 }
@@ -2146,7 +2204,13 @@ func (o AS2MessageConnectionSettingsPtrOutput) ToAS2MessageConnectionSettingsPtr
 }
 
 func (o AS2MessageConnectionSettingsPtrOutput) Elem() AS2MessageConnectionSettingsOutput {
-	return o.ApplyT(func(v *AS2MessageConnectionSettings) AS2MessageConnectionSettings { return *v }).(AS2MessageConnectionSettingsOutput)
+	return o.ApplyT(func(v *AS2MessageConnectionSettings) AS2MessageConnectionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MessageConnectionSettings
+		return ret
+	}).(AS2MessageConnectionSettingsOutput)
 }
 
 // The value indicating whether to ignore mismatch in certificate name.
@@ -2297,7 +2361,7 @@ func (o AS2MessageConnectionSettingsResponseOutput) ToAS2MessageConnectionSettin
 }
 
 func (o AS2MessageConnectionSettingsResponseOutput) ToAS2MessageConnectionSettingsResponsePtrOutputWithContext(ctx context.Context) AS2MessageConnectionSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2MessageConnectionSettingsResponse) *AS2MessageConnectionSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2MessageConnectionSettingsResponse) *AS2MessageConnectionSettingsResponse {
 		return &v
 	}).(AS2MessageConnectionSettingsResponsePtrOutput)
 }
@@ -2337,7 +2401,13 @@ func (o AS2MessageConnectionSettingsResponsePtrOutput) ToAS2MessageConnectionSet
 }
 
 func (o AS2MessageConnectionSettingsResponsePtrOutput) Elem() AS2MessageConnectionSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) AS2MessageConnectionSettingsResponse { return *v }).(AS2MessageConnectionSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2MessageConnectionSettingsResponse) AS2MessageConnectionSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2MessageConnectionSettingsResponse
+		return ret
+	}).(AS2MessageConnectionSettingsResponseOutput)
 }
 
 // The value indicating whether to ignore mismatch in certificate name.
@@ -2484,7 +2554,7 @@ func (o AS2OneWayAgreementOutput) ToAS2OneWayAgreementPtrOutput() AS2OneWayAgree
 }
 
 func (o AS2OneWayAgreementOutput) ToAS2OneWayAgreementPtrOutputWithContext(ctx context.Context) AS2OneWayAgreementPtrOutput {
-	return o.ApplyT(func(v AS2OneWayAgreement) *AS2OneWayAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2OneWayAgreement) *AS2OneWayAgreement {
 		return &v
 	}).(AS2OneWayAgreementPtrOutput)
 }
@@ -2519,7 +2589,13 @@ func (o AS2OneWayAgreementPtrOutput) ToAS2OneWayAgreementPtrOutputWithContext(ct
 }
 
 func (o AS2OneWayAgreementPtrOutput) Elem() AS2OneWayAgreementOutput {
-	return o.ApplyT(func(v *AS2OneWayAgreement) AS2OneWayAgreement { return *v }).(AS2OneWayAgreementOutput)
+	return o.ApplyT(func(v *AS2OneWayAgreement) AS2OneWayAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret AS2OneWayAgreement
+		return ret
+	}).(AS2OneWayAgreementOutput)
 }
 
 // The AS2 protocol settings.
@@ -2656,7 +2732,7 @@ func (o AS2OneWayAgreementResponseOutput) ToAS2OneWayAgreementResponsePtrOutput(
 }
 
 func (o AS2OneWayAgreementResponseOutput) ToAS2OneWayAgreementResponsePtrOutputWithContext(ctx context.Context) AS2OneWayAgreementResponsePtrOutput {
-	return o.ApplyT(func(v AS2OneWayAgreementResponse) *AS2OneWayAgreementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2OneWayAgreementResponse) *AS2OneWayAgreementResponse {
 		return &v
 	}).(AS2OneWayAgreementResponsePtrOutput)
 }
@@ -2691,7 +2767,13 @@ func (o AS2OneWayAgreementResponsePtrOutput) ToAS2OneWayAgreementResponsePtrOutp
 }
 
 func (o AS2OneWayAgreementResponsePtrOutput) Elem() AS2OneWayAgreementResponseOutput {
-	return o.ApplyT(func(v *AS2OneWayAgreementResponse) AS2OneWayAgreementResponse { return *v }).(AS2OneWayAgreementResponseOutput)
+	return o.ApplyT(func(v *AS2OneWayAgreementResponse) AS2OneWayAgreementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2OneWayAgreementResponse
+		return ret
+	}).(AS2OneWayAgreementResponseOutput)
 }
 
 // The AS2 protocol settings.
@@ -2844,7 +2926,7 @@ func (o AS2ProtocolSettingsOutput) ToAS2ProtocolSettingsPtrOutput() AS2ProtocolS
 }
 
 func (o AS2ProtocolSettingsOutput) ToAS2ProtocolSettingsPtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsPtrOutput {
-	return o.ApplyT(func(v AS2ProtocolSettings) *AS2ProtocolSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ProtocolSettings) *AS2ProtocolSettings {
 		return &v
 	}).(AS2ProtocolSettingsPtrOutput)
 }
@@ -2901,7 +2983,13 @@ func (o AS2ProtocolSettingsPtrOutput) ToAS2ProtocolSettingsPtrOutputWithContext(
 }
 
 func (o AS2ProtocolSettingsPtrOutput) Elem() AS2ProtocolSettingsOutput {
-	return o.ApplyT(func(v *AS2ProtocolSettings) AS2ProtocolSettings { return *v }).(AS2ProtocolSettingsOutput)
+	return o.ApplyT(func(v *AS2ProtocolSettings) AS2ProtocolSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ProtocolSettings
+		return ret
+	}).(AS2ProtocolSettingsOutput)
 }
 
 // The acknowledgement connection settings.
@@ -3094,7 +3182,7 @@ func (o AS2ProtocolSettingsResponseOutput) ToAS2ProtocolSettingsResponsePtrOutpu
 }
 
 func (o AS2ProtocolSettingsResponseOutput) ToAS2ProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) AS2ProtocolSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2ProtocolSettingsResponse) *AS2ProtocolSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ProtocolSettingsResponse) *AS2ProtocolSettingsResponse {
 		return &v
 	}).(AS2ProtocolSettingsResponsePtrOutput)
 }
@@ -3153,7 +3241,13 @@ func (o AS2ProtocolSettingsResponsePtrOutput) ToAS2ProtocolSettingsResponsePtrOu
 }
 
 func (o AS2ProtocolSettingsResponsePtrOutput) Elem() AS2ProtocolSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) AS2ProtocolSettingsResponse { return *v }).(AS2ProtocolSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2ProtocolSettingsResponse) AS2ProtocolSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ProtocolSettingsResponse
+		return ret
+	}).(AS2ProtocolSettingsResponseOutput)
 }
 
 // The acknowledgement connection settings.
@@ -3358,7 +3452,7 @@ func (o AS2SecuritySettingsOutput) ToAS2SecuritySettingsPtrOutput() AS2SecurityS
 }
 
 func (o AS2SecuritySettingsOutput) ToAS2SecuritySettingsPtrOutputWithContext(ctx context.Context) AS2SecuritySettingsPtrOutput {
-	return o.ApplyT(func(v AS2SecuritySettings) *AS2SecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2SecuritySettings) *AS2SecuritySettings {
 		return &v
 	}).(AS2SecuritySettingsPtrOutput)
 }
@@ -3428,7 +3522,13 @@ func (o AS2SecuritySettingsPtrOutput) ToAS2SecuritySettingsPtrOutputWithContext(
 }
 
 func (o AS2SecuritySettingsPtrOutput) Elem() AS2SecuritySettingsOutput {
-	return o.ApplyT(func(v *AS2SecuritySettings) AS2SecuritySettings { return *v }).(AS2SecuritySettingsOutput)
+	return o.ApplyT(func(v *AS2SecuritySettings) AS2SecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2SecuritySettings
+		return ret
+	}).(AS2SecuritySettingsOutput)
 }
 
 // The value indicating whether to enable NRR for inbound decoded messages.
@@ -3663,7 +3763,7 @@ func (o AS2SecuritySettingsResponseOutput) ToAS2SecuritySettingsResponsePtrOutpu
 }
 
 func (o AS2SecuritySettingsResponseOutput) ToAS2SecuritySettingsResponsePtrOutputWithContext(ctx context.Context) AS2SecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2SecuritySettingsResponse) *AS2SecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2SecuritySettingsResponse) *AS2SecuritySettingsResponse {
 		return &v
 	}).(AS2SecuritySettingsResponsePtrOutput)
 }
@@ -3733,7 +3833,13 @@ func (o AS2SecuritySettingsResponsePtrOutput) ToAS2SecuritySettingsResponsePtrOu
 }
 
 func (o AS2SecuritySettingsResponsePtrOutput) Elem() AS2SecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *AS2SecuritySettingsResponse) AS2SecuritySettingsResponse { return *v }).(AS2SecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *AS2SecuritySettingsResponse) AS2SecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2SecuritySettingsResponse
+		return ret
+	}).(AS2SecuritySettingsResponseOutput)
 }
 
 // The value indicating whether to enable NRR for inbound decoded messages.
@@ -3968,7 +4074,7 @@ func (o AS2ValidationSettingsOutput) ToAS2ValidationSettingsPtrOutput() AS2Valid
 }
 
 func (o AS2ValidationSettingsOutput) ToAS2ValidationSettingsPtrOutputWithContext(ctx context.Context) AS2ValidationSettingsPtrOutput {
-	return o.ApplyT(func(v AS2ValidationSettings) *AS2ValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ValidationSettings) *AS2ValidationSettings {
 		return &v
 	}).(AS2ValidationSettingsPtrOutput)
 }
@@ -4038,7 +4144,13 @@ func (o AS2ValidationSettingsPtrOutput) ToAS2ValidationSettingsPtrOutputWithCont
 }
 
 func (o AS2ValidationSettingsPtrOutput) Elem() AS2ValidationSettingsOutput {
-	return o.ApplyT(func(v *AS2ValidationSettings) AS2ValidationSettings { return *v }).(AS2ValidationSettingsOutput)
+	return o.ApplyT(func(v *AS2ValidationSettings) AS2ValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ValidationSettings
+		return ret
+	}).(AS2ValidationSettingsOutput)
 }
 
 // The value indicating whether to check for certificate revocation list on receive.
@@ -4273,7 +4385,7 @@ func (o AS2ValidationSettingsResponseOutput) ToAS2ValidationSettingsResponsePtrO
 }
 
 func (o AS2ValidationSettingsResponseOutput) ToAS2ValidationSettingsResponsePtrOutputWithContext(ctx context.Context) AS2ValidationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v AS2ValidationSettingsResponse) *AS2ValidationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AS2ValidationSettingsResponse) *AS2ValidationSettingsResponse {
 		return &v
 	}).(AS2ValidationSettingsResponsePtrOutput)
 }
@@ -4343,7 +4455,13 @@ func (o AS2ValidationSettingsResponsePtrOutput) ToAS2ValidationSettingsResponseP
 }
 
 func (o AS2ValidationSettingsResponsePtrOutput) Elem() AS2ValidationSettingsResponseOutput {
-	return o.ApplyT(func(v *AS2ValidationSettingsResponse) AS2ValidationSettingsResponse { return *v }).(AS2ValidationSettingsResponseOutput)
+	return o.ApplyT(func(v *AS2ValidationSettingsResponse) AS2ValidationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AS2ValidationSettingsResponse
+		return ret
+	}).(AS2ValidationSettingsResponseOutput)
 }
 
 // The value indicating whether to check for certificate revocation list on receive.
@@ -4550,7 +4668,7 @@ func (o AgreementContentOutput) ToAgreementContentPtrOutput() AgreementContentPt
 }
 
 func (o AgreementContentOutput) ToAgreementContentPtrOutputWithContext(ctx context.Context) AgreementContentPtrOutput {
-	return o.ApplyT(func(v AgreementContent) *AgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgreementContent) *AgreementContent {
 		return &v
 	}).(AgreementContentPtrOutput)
 }
@@ -4585,7 +4703,13 @@ func (o AgreementContentPtrOutput) ToAgreementContentPtrOutputWithContext(ctx co
 }
 
 func (o AgreementContentPtrOutput) Elem() AgreementContentOutput {
-	return o.ApplyT(func(v *AgreementContent) AgreementContent { return *v }).(AgreementContentOutput)
+	return o.ApplyT(func(v *AgreementContent) AgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret AgreementContent
+		return ret
+	}).(AgreementContentOutput)
 }
 
 // The AS2 agreement content.
@@ -4722,7 +4846,7 @@ func (o AgreementContentResponseOutput) ToAgreementContentResponsePtrOutput() Ag
 }
 
 func (o AgreementContentResponseOutput) ToAgreementContentResponsePtrOutputWithContext(ctx context.Context) AgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v AgreementContentResponse) *AgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgreementContentResponse) *AgreementContentResponse {
 		return &v
 	}).(AgreementContentResponsePtrOutput)
 }
@@ -4757,7 +4881,13 @@ func (o AgreementContentResponsePtrOutput) ToAgreementContentResponsePtrOutputWi
 }
 
 func (o AgreementContentResponsePtrOutput) Elem() AgreementContentResponseOutput {
-	return o.ApplyT(func(v *AgreementContentResponse) AgreementContentResponse { return *v }).(AgreementContentResponseOutput)
+	return o.ApplyT(func(v *AgreementContentResponse) AgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AgreementContentResponse
+		return ret
+	}).(AgreementContentResponseOutput)
 }
 
 // The AS2 agreement content.
@@ -4918,7 +5048,7 @@ func (o AssemblyPropertiesOutput) ToAssemblyPropertiesPtrOutput() AssemblyProper
 }
 
 func (o AssemblyPropertiesOutput) ToAssemblyPropertiesPtrOutputWithContext(ctx context.Context) AssemblyPropertiesPtrOutput {
-	return o.ApplyT(func(v AssemblyProperties) *AssemblyProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssemblyProperties) *AssemblyProperties {
 		return &v
 	}).(AssemblyPropertiesPtrOutput)
 }
@@ -4986,7 +5116,13 @@ func (o AssemblyPropertiesPtrOutput) ToAssemblyPropertiesPtrOutputWithContext(ct
 }
 
 func (o AssemblyPropertiesPtrOutput) Elem() AssemblyPropertiesOutput {
-	return o.ApplyT(func(v *AssemblyProperties) AssemblyProperties { return *v }).(AssemblyPropertiesOutput)
+	return o.ApplyT(func(v *AssemblyProperties) AssemblyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AssemblyProperties
+		return ret
+	}).(AssemblyPropertiesOutput)
 }
 
 // The assembly culture.
@@ -5215,7 +5351,7 @@ func (o AssemblyPropertiesResponseOutput) ToAssemblyPropertiesResponsePtrOutput(
 }
 
 func (o AssemblyPropertiesResponseOutput) ToAssemblyPropertiesResponsePtrOutputWithContext(ctx context.Context) AssemblyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AssemblyPropertiesResponse) *AssemblyPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssemblyPropertiesResponse) *AssemblyPropertiesResponse {
 		return &v
 	}).(AssemblyPropertiesResponsePtrOutput)
 }
@@ -5283,7 +5419,13 @@ func (o AssemblyPropertiesResponsePtrOutput) ToAssemblyPropertiesResponsePtrOutp
 }
 
 func (o AssemblyPropertiesResponsePtrOutput) Elem() AssemblyPropertiesResponseOutput {
-	return o.ApplyT(func(v *AssemblyPropertiesResponse) AssemblyPropertiesResponse { return *v }).(AssemblyPropertiesResponseOutput)
+	return o.ApplyT(func(v *AssemblyPropertiesResponse) AssemblyPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AssemblyPropertiesResponse
+		return ret
+	}).(AssemblyPropertiesResponseOutput)
 }
 
 // The assembly culture.
@@ -5513,7 +5655,7 @@ func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponsePt
 }
 
 func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v AzureResourceErrorInfoResponse) *AzureResourceErrorInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureResourceErrorInfoResponse) *AzureResourceErrorInfoResponse {
 		return &v
 	}).(AzureResourceErrorInfoResponsePtrOutput)
 }
@@ -5548,7 +5690,13 @@ func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoRespons
 }
 
 func (o AzureResourceErrorInfoResponsePtrOutput) Elem() AzureResourceErrorInfoResponseOutput {
-	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse { return *v }).(AzureResourceErrorInfoResponseOutput)
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureResourceErrorInfoResponse
+		return ret
+	}).(AzureResourceErrorInfoResponseOutput)
 }
 
 // The error code.
@@ -5697,7 +5845,7 @@ func (o B2BPartnerContentOutput) ToB2BPartnerContentPtrOutput() B2BPartnerConten
 }
 
 func (o B2BPartnerContentOutput) ToB2BPartnerContentPtrOutputWithContext(ctx context.Context) B2BPartnerContentPtrOutput {
-	return o.ApplyT(func(v B2BPartnerContent) *B2BPartnerContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2BPartnerContent) *B2BPartnerContent {
 		return &v
 	}).(B2BPartnerContentPtrOutput)
 }
@@ -5722,7 +5870,13 @@ func (o B2BPartnerContentPtrOutput) ToB2BPartnerContentPtrOutputWithContext(ctx 
 }
 
 func (o B2BPartnerContentPtrOutput) Elem() B2BPartnerContentOutput {
-	return o.ApplyT(func(v *B2BPartnerContent) B2BPartnerContent { return *v }).(B2BPartnerContentOutput)
+	return o.ApplyT(func(v *B2BPartnerContent) B2BPartnerContent {
+		if v != nil {
+			return *v
+		}
+		var ret B2BPartnerContent
+		return ret
+	}).(B2BPartnerContentOutput)
 }
 
 // The list of partner business identities.
@@ -5831,7 +5985,7 @@ func (o B2BPartnerContentResponseOutput) ToB2BPartnerContentResponsePtrOutput() 
 }
 
 func (o B2BPartnerContentResponseOutput) ToB2BPartnerContentResponsePtrOutputWithContext(ctx context.Context) B2BPartnerContentResponsePtrOutput {
-	return o.ApplyT(func(v B2BPartnerContentResponse) *B2BPartnerContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v B2BPartnerContentResponse) *B2BPartnerContentResponse {
 		return &v
 	}).(B2BPartnerContentResponsePtrOutput)
 }
@@ -5856,7 +6010,13 @@ func (o B2BPartnerContentResponsePtrOutput) ToB2BPartnerContentResponsePtrOutput
 }
 
 func (o B2BPartnerContentResponsePtrOutput) Elem() B2BPartnerContentResponseOutput {
-	return o.ApplyT(func(v *B2BPartnerContentResponse) B2BPartnerContentResponse { return *v }).(B2BPartnerContentResponseOutput)
+	return o.ApplyT(func(v *B2BPartnerContentResponse) B2BPartnerContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret B2BPartnerContentResponse
+		return ret
+	}).(B2BPartnerContentResponseOutput)
 }
 
 // The list of partner business identities.
@@ -5979,7 +6139,7 @@ func (o BatchConfigurationPropertiesOutput) ToBatchConfigurationPropertiesPtrOut
 }
 
 func (o BatchConfigurationPropertiesOutput) ToBatchConfigurationPropertiesPtrOutputWithContext(ctx context.Context) BatchConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v BatchConfigurationProperties) *BatchConfigurationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchConfigurationProperties) *BatchConfigurationProperties {
 		return &v
 	}).(BatchConfigurationPropertiesPtrOutput)
 }
@@ -6023,7 +6183,13 @@ func (o BatchConfigurationPropertiesPtrOutput) ToBatchConfigurationPropertiesPtr
 }
 
 func (o BatchConfigurationPropertiesPtrOutput) Elem() BatchConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *BatchConfigurationProperties) BatchConfigurationProperties { return *v }).(BatchConfigurationPropertiesOutput)
+	return o.ApplyT(func(v *BatchConfigurationProperties) BatchConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret BatchConfigurationProperties
+		return ret
+	}).(BatchConfigurationPropertiesOutput)
 }
 
 // The name of the batch group.
@@ -6185,7 +6351,7 @@ func (o BatchConfigurationPropertiesResponseOutput) ToBatchConfigurationProperti
 }
 
 func (o BatchConfigurationPropertiesResponseOutput) ToBatchConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) BatchConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BatchConfigurationPropertiesResponse) *BatchConfigurationPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchConfigurationPropertiesResponse) *BatchConfigurationPropertiesResponse {
 		return &v
 	}).(BatchConfigurationPropertiesResponsePtrOutput)
 }
@@ -6229,7 +6395,13 @@ func (o BatchConfigurationPropertiesResponsePtrOutput) ToBatchConfigurationPrope
 }
 
 func (o BatchConfigurationPropertiesResponsePtrOutput) Elem() BatchConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) BatchConfigurationPropertiesResponse { return *v }).(BatchConfigurationPropertiesResponseOutput)
+	return o.ApplyT(func(v *BatchConfigurationPropertiesResponse) BatchConfigurationPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BatchConfigurationPropertiesResponse
+		return ret
+	}).(BatchConfigurationPropertiesResponseOutput)
 }
 
 // The name of the batch group.
@@ -6385,7 +6557,7 @@ func (o BatchReleaseCriteriaOutput) ToBatchReleaseCriteriaPtrOutput() BatchRelea
 }
 
 func (o BatchReleaseCriteriaOutput) ToBatchReleaseCriteriaPtrOutputWithContext(ctx context.Context) BatchReleaseCriteriaPtrOutput {
-	return o.ApplyT(func(v BatchReleaseCriteria) *BatchReleaseCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchReleaseCriteria) *BatchReleaseCriteria {
 		return &v
 	}).(BatchReleaseCriteriaPtrOutput)
 }
@@ -6420,7 +6592,13 @@ func (o BatchReleaseCriteriaPtrOutput) ToBatchReleaseCriteriaPtrOutputWithContex
 }
 
 func (o BatchReleaseCriteriaPtrOutput) Elem() BatchReleaseCriteriaOutput {
-	return o.ApplyT(func(v *BatchReleaseCriteria) BatchReleaseCriteria { return *v }).(BatchReleaseCriteriaOutput)
+	return o.ApplyT(func(v *BatchReleaseCriteria) BatchReleaseCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret BatchReleaseCriteria
+		return ret
+	}).(BatchReleaseCriteriaOutput)
 }
 
 // The batch size in bytes.
@@ -6557,7 +6735,7 @@ func (o BatchReleaseCriteriaResponseOutput) ToBatchReleaseCriteriaResponsePtrOut
 }
 
 func (o BatchReleaseCriteriaResponseOutput) ToBatchReleaseCriteriaResponsePtrOutputWithContext(ctx context.Context) BatchReleaseCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v BatchReleaseCriteriaResponse) *BatchReleaseCriteriaResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BatchReleaseCriteriaResponse) *BatchReleaseCriteriaResponse {
 		return &v
 	}).(BatchReleaseCriteriaResponsePtrOutput)
 }
@@ -6592,7 +6770,13 @@ func (o BatchReleaseCriteriaResponsePtrOutput) ToBatchReleaseCriteriaResponsePtr
 }
 
 func (o BatchReleaseCriteriaResponsePtrOutput) Elem() BatchReleaseCriteriaResponseOutput {
-	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) BatchReleaseCriteriaResponse { return *v }).(BatchReleaseCriteriaResponseOutput)
+	return o.ApplyT(func(v *BatchReleaseCriteriaResponse) BatchReleaseCriteriaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BatchReleaseCriteriaResponse
+		return ret
+	}).(BatchReleaseCriteriaResponseOutput)
 }
 
 // The batch size in bytes.
@@ -6750,7 +6934,7 @@ func (o BusinessIdentityOutput) ToBusinessIdentityPtrOutput() BusinessIdentityPt
 }
 
 func (o BusinessIdentityOutput) ToBusinessIdentityPtrOutputWithContext(ctx context.Context) BusinessIdentityPtrOutput {
-	return o.ApplyT(func(v BusinessIdentity) *BusinessIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessIdentity) *BusinessIdentity {
 		return &v
 	}).(BusinessIdentityPtrOutput)
 }
@@ -6780,7 +6964,13 @@ func (o BusinessIdentityPtrOutput) ToBusinessIdentityPtrOutputWithContext(ctx co
 }
 
 func (o BusinessIdentityPtrOutput) Elem() BusinessIdentityOutput {
-	return o.ApplyT(func(v *BusinessIdentity) BusinessIdentity { return *v }).(BusinessIdentityOutput)
+	return o.ApplyT(func(v *BusinessIdentity) BusinessIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessIdentity
+		return ret
+	}).(BusinessIdentityOutput)
 }
 
 // The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
@@ -6948,7 +7138,7 @@ func (o BusinessIdentityResponseOutput) ToBusinessIdentityResponsePtrOutput() Bu
 }
 
 func (o BusinessIdentityResponseOutput) ToBusinessIdentityResponsePtrOutputWithContext(ctx context.Context) BusinessIdentityResponsePtrOutput {
-	return o.ApplyT(func(v BusinessIdentityResponse) *BusinessIdentityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BusinessIdentityResponse) *BusinessIdentityResponse {
 		return &v
 	}).(BusinessIdentityResponsePtrOutput)
 }
@@ -6978,7 +7168,13 @@ func (o BusinessIdentityResponsePtrOutput) ToBusinessIdentityResponsePtrOutputWi
 }
 
 func (o BusinessIdentityResponsePtrOutput) Elem() BusinessIdentityResponseOutput {
-	return o.ApplyT(func(v *BusinessIdentityResponse) BusinessIdentityResponse { return *v }).(BusinessIdentityResponseOutput)
+	return o.ApplyT(func(v *BusinessIdentityResponse) BusinessIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BusinessIdentityResponse
+		return ret
+	}).(BusinessIdentityResponseOutput)
 }
 
 // The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
@@ -7121,7 +7317,7 @@ func (o ContentHashOutput) ToContentHashPtrOutput() ContentHashPtrOutput {
 }
 
 func (o ContentHashOutput) ToContentHashPtrOutputWithContext(ctx context.Context) ContentHashPtrOutput {
-	return o.ApplyT(func(v ContentHash) *ContentHash {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHash) *ContentHash {
 		return &v
 	}).(ContentHashPtrOutput)
 }
@@ -7151,7 +7347,13 @@ func (o ContentHashPtrOutput) ToContentHashPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentHashPtrOutput) Elem() ContentHashOutput {
-	return o.ApplyT(func(v *ContentHash) ContentHash { return *v }).(ContentHashOutput)
+	return o.ApplyT(func(v *ContentHash) ContentHash {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHash
+		return ret
+	}).(ContentHashOutput)
 }
 
 // The algorithm of the content hash.
@@ -7274,7 +7476,7 @@ func (o ContentHashResponseOutput) ToContentHashResponsePtrOutput() ContentHashR
 }
 
 func (o ContentHashResponseOutput) ToContentHashResponsePtrOutputWithContext(ctx context.Context) ContentHashResponsePtrOutput {
-	return o.ApplyT(func(v ContentHashResponse) *ContentHashResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentHashResponse) *ContentHashResponse {
 		return &v
 	}).(ContentHashResponsePtrOutput)
 }
@@ -7304,7 +7506,13 @@ func (o ContentHashResponsePtrOutput) ToContentHashResponsePtrOutputWithContext(
 }
 
 func (o ContentHashResponsePtrOutput) Elem() ContentHashResponseOutput {
-	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse { return *v }).(ContentHashResponseOutput)
+	return o.ApplyT(func(v *ContentHashResponse) ContentHashResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentHashResponse
+		return ret
+	}).(ContentHashResponseOutput)
 }
 
 // The algorithm of the content hash.
@@ -7439,7 +7647,7 @@ func (o ContentLinkOutput) ToContentLinkPtrOutput() ContentLinkPtrOutput {
 }
 
 func (o ContentLinkOutput) ToContentLinkPtrOutputWithContext(ctx context.Context) ContentLinkPtrOutput {
-	return o.ApplyT(func(v ContentLink) *ContentLink {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLink) *ContentLink {
 		return &v
 	}).(ContentLinkPtrOutput)
 }
@@ -7484,7 +7692,13 @@ func (o ContentLinkPtrOutput) ToContentLinkPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ContentLinkPtrOutput) Elem() ContentLinkOutput {
-	return o.ApplyT(func(v *ContentLink) ContentLink { return *v }).(ContentLinkOutput)
+	return o.ApplyT(func(v *ContentLink) ContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLink
+		return ret
+	}).(ContentLinkOutput)
 }
 
 // The content hash.
@@ -7649,7 +7863,7 @@ func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutput() ContentLinkR
 }
 
 func (o ContentLinkResponseOutput) ToContentLinkResponsePtrOutputWithContext(ctx context.Context) ContentLinkResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ContentLinkResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContentLinkResponse) *ContentLinkResponse {
 		return &v
 	}).(ContentLinkResponsePtrOutput)
 }
@@ -7694,7 +7908,13 @@ func (o ContentLinkResponsePtrOutput) ToContentLinkResponsePtrOutputWithContext(
 }
 
 func (o ContentLinkResponsePtrOutput) Elem() ContentLinkResponseOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse { return *v }).(ContentLinkResponseOutput)
+	return o.ApplyT(func(v *ContentLinkResponse) ContentLinkResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ContentLinkResponse
+		return ret
+	}).(ContentLinkResponseOutput)
 }
 
 // The content hash.
@@ -7883,7 +8103,7 @@ func (o EdifactAcknowledgementSettingsOutput) ToEdifactAcknowledgementSettingsPt
 }
 
 func (o EdifactAcknowledgementSettingsOutput) ToEdifactAcknowledgementSettingsPtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactAcknowledgementSettings) *EdifactAcknowledgementSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAcknowledgementSettings) *EdifactAcknowledgementSettings {
 		return &v
 	}).(EdifactAcknowledgementSettingsPtrOutput)
 }
@@ -7958,7 +8178,13 @@ func (o EdifactAcknowledgementSettingsPtrOutput) ToEdifactAcknowledgementSetting
 }
 
 func (o EdifactAcknowledgementSettingsPtrOutput) Elem() EdifactAcknowledgementSettingsOutput {
-	return o.ApplyT(func(v *EdifactAcknowledgementSettings) EdifactAcknowledgementSettings { return *v }).(EdifactAcknowledgementSettingsOutput)
+	return o.ApplyT(func(v *EdifactAcknowledgementSettings) EdifactAcknowledgementSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAcknowledgementSettings
+		return ret
+	}).(EdifactAcknowledgementSettingsOutput)
 }
 
 // The acknowledgement control number lower bound.
@@ -8207,7 +8433,7 @@ func (o EdifactAcknowledgementSettingsResponseOutput) ToEdifactAcknowledgementSe
 }
 
 func (o EdifactAcknowledgementSettingsResponseOutput) ToEdifactAcknowledgementSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactAcknowledgementSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactAcknowledgementSettingsResponse) *EdifactAcknowledgementSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAcknowledgementSettingsResponse) *EdifactAcknowledgementSettingsResponse {
 		return &v
 	}).(EdifactAcknowledgementSettingsResponsePtrOutput)
 }
@@ -8282,7 +8508,13 @@ func (o EdifactAcknowledgementSettingsResponsePtrOutput) ToEdifactAcknowledgemen
 }
 
 func (o EdifactAcknowledgementSettingsResponsePtrOutput) Elem() EdifactAcknowledgementSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) EdifactAcknowledgementSettingsResponse { return *v }).(EdifactAcknowledgementSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactAcknowledgementSettingsResponse) EdifactAcknowledgementSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAcknowledgementSettingsResponse
+		return ret
+	}).(EdifactAcknowledgementSettingsResponseOutput)
 }
 
 // The acknowledgement control number lower bound.
@@ -8495,7 +8727,7 @@ func (o EdifactAgreementContentOutput) ToEdifactAgreementContentPtrOutput() Edif
 }
 
 func (o EdifactAgreementContentOutput) ToEdifactAgreementContentPtrOutputWithContext(ctx context.Context) EdifactAgreementContentPtrOutput {
-	return o.ApplyT(func(v EdifactAgreementContent) *EdifactAgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAgreementContent) *EdifactAgreementContent {
 		return &v
 	}).(EdifactAgreementContentPtrOutput)
 }
@@ -8525,7 +8757,13 @@ func (o EdifactAgreementContentPtrOutput) ToEdifactAgreementContentPtrOutputWith
 }
 
 func (o EdifactAgreementContentPtrOutput) Elem() EdifactAgreementContentOutput {
-	return o.ApplyT(func(v *EdifactAgreementContent) EdifactAgreementContent { return *v }).(EdifactAgreementContentOutput)
+	return o.ApplyT(func(v *EdifactAgreementContent) EdifactAgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAgreementContent
+		return ret
+	}).(EdifactAgreementContentOutput)
 }
 
 // The EDIFACT one-way receive agreement.
@@ -8648,7 +8886,7 @@ func (o EdifactAgreementContentResponseOutput) ToEdifactAgreementContentResponse
 }
 
 func (o EdifactAgreementContentResponseOutput) ToEdifactAgreementContentResponsePtrOutputWithContext(ctx context.Context) EdifactAgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v EdifactAgreementContentResponse) *EdifactAgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactAgreementContentResponse) *EdifactAgreementContentResponse {
 		return &v
 	}).(EdifactAgreementContentResponsePtrOutput)
 }
@@ -8678,7 +8916,13 @@ func (o EdifactAgreementContentResponsePtrOutput) ToEdifactAgreementContentRespo
 }
 
 func (o EdifactAgreementContentResponsePtrOutput) Elem() EdifactAgreementContentResponseOutput {
-	return o.ApplyT(func(v *EdifactAgreementContentResponse) EdifactAgreementContentResponse { return *v }).(EdifactAgreementContentResponseOutput)
+	return o.ApplyT(func(v *EdifactAgreementContentResponse) EdifactAgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactAgreementContentResponse
+		return ret
+	}).(EdifactAgreementContentResponseOutput)
 }
 
 // The EDIFACT one-way receive agreement.
@@ -8708,7 +8952,7 @@ type EdifactDelimiterOverride struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode *string `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -8724,7 +8968,7 @@ type EdifactDelimiterOverride struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -8747,7 +8991,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -8763,7 +9007,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -8831,8 +9075,8 @@ func (o EdifactDelimiterOverrideOutput) DataElementSeparator() pulumi.IntOutput 
 }
 
 // The decimal point indicator.
-func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
 // The message association assigned code.
@@ -8871,8 +9115,8 @@ func (o EdifactDelimiterOverrideOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactDelimiterOverride) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactDelimiterOverrideOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactDelimiterOverride) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -9807,7 +10051,7 @@ func (o EdifactEnvelopeSettingsOutput) ToEdifactEnvelopeSettingsPtrOutput() Edif
 }
 
 func (o EdifactEnvelopeSettingsOutput) ToEdifactEnvelopeSettingsPtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettings) *EdifactEnvelopeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactEnvelopeSettings) *EdifactEnvelopeSettings {
 		return &v
 	}).(EdifactEnvelopeSettingsPtrOutput)
 }
@@ -10032,7 +10276,13 @@ func (o EdifactEnvelopeSettingsPtrOutput) ToEdifactEnvelopeSettingsPtrOutputWith
 }
 
 func (o EdifactEnvelopeSettingsPtrOutput) Elem() EdifactEnvelopeSettingsOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettings) EdifactEnvelopeSettings { return *v }).(EdifactEnvelopeSettingsOutput)
+	return o.ApplyT(func(v *EdifactEnvelopeSettings) EdifactEnvelopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactEnvelopeSettings
+		return ret
+	}).(EdifactEnvelopeSettingsOutput)
 }
 
 // The application reference id.
@@ -10701,7 +10951,7 @@ func (o EdifactEnvelopeSettingsResponseOutput) ToEdifactEnvelopeSettingsResponse
 }
 
 func (o EdifactEnvelopeSettingsResponseOutput) ToEdifactEnvelopeSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactEnvelopeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactEnvelopeSettingsResponse) *EdifactEnvelopeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactEnvelopeSettingsResponse) *EdifactEnvelopeSettingsResponse {
 		return &v
 	}).(EdifactEnvelopeSettingsResponsePtrOutput)
 }
@@ -10926,7 +11176,13 @@ func (o EdifactEnvelopeSettingsResponsePtrOutput) ToEdifactEnvelopeSettingsRespo
 }
 
 func (o EdifactEnvelopeSettingsResponsePtrOutput) Elem() EdifactEnvelopeSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) EdifactEnvelopeSettingsResponse { return *v }).(EdifactEnvelopeSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactEnvelopeSettingsResponse) EdifactEnvelopeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactEnvelopeSettingsResponse
+		return ret
+	}).(EdifactEnvelopeSettingsResponseOutput)
 }
 
 // The application reference id.
@@ -11350,7 +11606,7 @@ type EdifactFramingSettings struct {
 	// The data element separator.
 	DataElementSeparator int `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator string `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion int `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -11360,7 +11616,7 @@ type EdifactFramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion *string `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -11387,7 +11643,7 @@ type EdifactFramingSettingsArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicatorInput `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -11397,7 +11653,7 @@ type EdifactFramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -11475,7 +11731,7 @@ func (o EdifactFramingSettingsOutput) ToEdifactFramingSettingsPtrOutput() Edifac
 }
 
 func (o EdifactFramingSettingsOutput) ToEdifactFramingSettingsPtrOutputWithContext(ctx context.Context) EdifactFramingSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) *EdifactFramingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactFramingSettings) *EdifactFramingSettings {
 		return &v
 	}).(EdifactFramingSettingsPtrOutput)
 }
@@ -11501,8 +11757,8 @@ func (o EdifactFramingSettingsOutput) DataElementSeparator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsOutput) DecimalPointIndicator() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.DecimalPointIndicator }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) DecimalPointIndicator() EdifactDecimalIndicatorOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) EdifactDecimalIndicator { return v.DecimalPointIndicator }).(EdifactDecimalIndicatorOutput)
 }
 
 // The protocol version.
@@ -11526,8 +11782,8 @@ func (o EdifactFramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v EdifactFramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o EdifactFramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v EdifactFramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The service code list directory version.
@@ -11550,7 +11806,13 @@ func (o EdifactFramingSettingsPtrOutput) ToEdifactFramingSettingsPtrOutputWithCo
 }
 
 func (o EdifactFramingSettingsPtrOutput) Elem() EdifactFramingSettingsOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) EdifactFramingSettings { return *v }).(EdifactFramingSettingsOutput)
+	return o.ApplyT(func(v *EdifactFramingSettings) EdifactFramingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactFramingSettings
+		return ret
+	}).(EdifactFramingSettingsOutput)
 }
 
 // The character encoding.
@@ -11594,13 +11856,13 @@ func (o EdifactFramingSettingsPtrOutput) DataElementSeparator() pulumi.IntPtrOut
 }
 
 // The EDIFACT frame setting decimal indicator.
-func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) DecimalPointIndicator() EdifactDecimalIndicatorPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *EdifactDecimalIndicator {
 		if v == nil {
 			return nil
 		}
 		return &v.DecimalPointIndicator
-	}).(pulumi.StringPtrOutput)
+	}).(EdifactDecimalIndicatorPtrOutput)
 }
 
 // The protocol version.
@@ -11644,13 +11906,13 @@ func (o EdifactFramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput
 }
 
 // The EDIFACT frame setting segment terminator suffix.
-func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EdifactFramingSettings) *string {
+func (o EdifactFramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *EdifactFramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
 // The service code list directory version.
@@ -11799,7 +12061,7 @@ func (o EdifactFramingSettingsResponseOutput) ToEdifactFramingSettingsResponsePt
 }
 
 func (o EdifactFramingSettingsResponseOutput) ToEdifactFramingSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactFramingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactFramingSettingsResponse) *EdifactFramingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactFramingSettingsResponse) *EdifactFramingSettingsResponse {
 		return &v
 	}).(EdifactFramingSettingsResponsePtrOutput)
 }
@@ -11874,7 +12136,13 @@ func (o EdifactFramingSettingsResponsePtrOutput) ToEdifactFramingSettingsRespons
 }
 
 func (o EdifactFramingSettingsResponsePtrOutput) Elem() EdifactFramingSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactFramingSettingsResponse) EdifactFramingSettingsResponse { return *v }).(EdifactFramingSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactFramingSettingsResponse) EdifactFramingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactFramingSettingsResponse
+		return ret
+	}).(EdifactFramingSettingsResponseOutput)
 }
 
 // The character encoding.
@@ -12083,7 +12351,7 @@ func (o EdifactMessageFilterOutput) ToEdifactMessageFilterPtrOutput() EdifactMes
 }
 
 func (o EdifactMessageFilterOutput) ToEdifactMessageFilterPtrOutputWithContext(ctx context.Context) EdifactMessageFilterPtrOutput {
-	return o.ApplyT(func(v EdifactMessageFilter) *EdifactMessageFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactMessageFilter) *EdifactMessageFilter {
 		return &v
 	}).(EdifactMessageFilterPtrOutput)
 }
@@ -12108,7 +12376,13 @@ func (o EdifactMessageFilterPtrOutput) ToEdifactMessageFilterPtrOutputWithContex
 }
 
 func (o EdifactMessageFilterPtrOutput) Elem() EdifactMessageFilterOutput {
-	return o.ApplyT(func(v *EdifactMessageFilter) EdifactMessageFilter { return *v }).(EdifactMessageFilterOutput)
+	return o.ApplyT(func(v *EdifactMessageFilter) EdifactMessageFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactMessageFilter
+		return ret
+	}).(EdifactMessageFilterOutput)
 }
 
 // The message filter type.
@@ -12217,7 +12491,7 @@ func (o EdifactMessageFilterResponseOutput) ToEdifactMessageFilterResponsePtrOut
 }
 
 func (o EdifactMessageFilterResponseOutput) ToEdifactMessageFilterResponsePtrOutputWithContext(ctx context.Context) EdifactMessageFilterResponsePtrOutput {
-	return o.ApplyT(func(v EdifactMessageFilterResponse) *EdifactMessageFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactMessageFilterResponse) *EdifactMessageFilterResponse {
 		return &v
 	}).(EdifactMessageFilterResponsePtrOutput)
 }
@@ -12242,7 +12516,13 @@ func (o EdifactMessageFilterResponsePtrOutput) ToEdifactMessageFilterResponsePtr
 }
 
 func (o EdifactMessageFilterResponsePtrOutput) Elem() EdifactMessageFilterResponseOutput {
-	return o.ApplyT(func(v *EdifactMessageFilterResponse) EdifactMessageFilterResponse { return *v }).(EdifactMessageFilterResponseOutput)
+	return o.ApplyT(func(v *EdifactMessageFilterResponse) EdifactMessageFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactMessageFilterResponse
+		return ret
+	}).(EdifactMessageFilterResponseOutput)
 }
 
 // The message filter type.
@@ -12559,7 +12839,7 @@ func (o EdifactOneWayAgreementOutput) ToEdifactOneWayAgreementPtrOutput() Edifac
 }
 
 func (o EdifactOneWayAgreementOutput) ToEdifactOneWayAgreementPtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementPtrOutput {
-	return o.ApplyT(func(v EdifactOneWayAgreement) *EdifactOneWayAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactOneWayAgreement) *EdifactOneWayAgreement {
 		return &v
 	}).(EdifactOneWayAgreementPtrOutput)
 }
@@ -12594,7 +12874,13 @@ func (o EdifactOneWayAgreementPtrOutput) ToEdifactOneWayAgreementPtrOutputWithCo
 }
 
 func (o EdifactOneWayAgreementPtrOutput) Elem() EdifactOneWayAgreementOutput {
-	return o.ApplyT(func(v *EdifactOneWayAgreement) EdifactOneWayAgreement { return *v }).(EdifactOneWayAgreementOutput)
+	return o.ApplyT(func(v *EdifactOneWayAgreement) EdifactOneWayAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactOneWayAgreement
+		return ret
+	}).(EdifactOneWayAgreementOutput)
 }
 
 // The EDIFACT protocol settings.
@@ -12731,7 +13017,7 @@ func (o EdifactOneWayAgreementResponseOutput) ToEdifactOneWayAgreementResponsePt
 }
 
 func (o EdifactOneWayAgreementResponseOutput) ToEdifactOneWayAgreementResponsePtrOutputWithContext(ctx context.Context) EdifactOneWayAgreementResponsePtrOutput {
-	return o.ApplyT(func(v EdifactOneWayAgreementResponse) *EdifactOneWayAgreementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactOneWayAgreementResponse) *EdifactOneWayAgreementResponse {
 		return &v
 	}).(EdifactOneWayAgreementResponsePtrOutput)
 }
@@ -12766,7 +13052,13 @@ func (o EdifactOneWayAgreementResponsePtrOutput) ToEdifactOneWayAgreementRespons
 }
 
 func (o EdifactOneWayAgreementResponsePtrOutput) Elem() EdifactOneWayAgreementResponseOutput {
-	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) EdifactOneWayAgreementResponse { return *v }).(EdifactOneWayAgreementResponseOutput)
+	return o.ApplyT(func(v *EdifactOneWayAgreementResponse) EdifactOneWayAgreementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactOneWayAgreementResponse
+		return ret
+	}).(EdifactOneWayAgreementResponseOutput)
 }
 
 // The EDIFACT protocol settings.
@@ -12911,7 +13203,7 @@ func (o EdifactProcessingSettingsOutput) ToEdifactProcessingSettingsPtrOutput() 
 }
 
 func (o EdifactProcessingSettingsOutput) ToEdifactProcessingSettingsPtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactProcessingSettings) *EdifactProcessingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProcessingSettings) *EdifactProcessingSettings {
 		return &v
 	}).(EdifactProcessingSettingsPtrOutput)
 }
@@ -12956,7 +13248,13 @@ func (o EdifactProcessingSettingsPtrOutput) ToEdifactProcessingSettingsPtrOutput
 }
 
 func (o EdifactProcessingSettingsPtrOutput) Elem() EdifactProcessingSettingsOutput {
-	return o.ApplyT(func(v *EdifactProcessingSettings) EdifactProcessingSettings { return *v }).(EdifactProcessingSettingsOutput)
+	return o.ApplyT(func(v *EdifactProcessingSettings) EdifactProcessingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProcessingSettings
+		return ret
+	}).(EdifactProcessingSettingsOutput)
 }
 
 // The value indicating whether to create empty xml tags for trailing separators.
@@ -13121,7 +13419,7 @@ func (o EdifactProcessingSettingsResponseOutput) ToEdifactProcessingSettingsResp
 }
 
 func (o EdifactProcessingSettingsResponseOutput) ToEdifactProcessingSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactProcessingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactProcessingSettingsResponse) *EdifactProcessingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProcessingSettingsResponse) *EdifactProcessingSettingsResponse {
 		return &v
 	}).(EdifactProcessingSettingsResponsePtrOutput)
 }
@@ -13166,7 +13464,13 @@ func (o EdifactProcessingSettingsResponsePtrOutput) ToEdifactProcessingSettingsR
 }
 
 func (o EdifactProcessingSettingsResponsePtrOutput) Elem() EdifactProcessingSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) EdifactProcessingSettingsResponse { return *v }).(EdifactProcessingSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactProcessingSettingsResponse) EdifactProcessingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProcessingSettingsResponse
+		return ret
+	}).(EdifactProcessingSettingsResponseOutput)
 }
 
 // The value indicating whether to create empty xml tags for trailing separators.
@@ -13355,7 +13659,7 @@ func (o EdifactProtocolSettingsOutput) ToEdifactProtocolSettingsPtrOutput() Edif
 }
 
 func (o EdifactProtocolSettingsOutput) ToEdifactProtocolSettingsPtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactProtocolSettings) *EdifactProtocolSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProtocolSettings) *EdifactProtocolSettings {
 		return &v
 	}).(EdifactProtocolSettingsPtrOutput)
 }
@@ -13430,7 +13734,13 @@ func (o EdifactProtocolSettingsPtrOutput) ToEdifactProtocolSettingsPtrOutputWith
 }
 
 func (o EdifactProtocolSettingsPtrOutput) Elem() EdifactProtocolSettingsOutput {
-	return o.ApplyT(func(v *EdifactProtocolSettings) EdifactProtocolSettings { return *v }).(EdifactProtocolSettingsOutput)
+	return o.ApplyT(func(v *EdifactProtocolSettings) EdifactProtocolSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProtocolSettings
+		return ret
+	}).(EdifactProtocolSettingsOutput)
 }
 
 // The EDIFACT acknowledgement settings.
@@ -13679,7 +13989,7 @@ func (o EdifactProtocolSettingsResponseOutput) ToEdifactProtocolSettingsResponse
 }
 
 func (o EdifactProtocolSettingsResponseOutput) ToEdifactProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactProtocolSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactProtocolSettingsResponse) *EdifactProtocolSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactProtocolSettingsResponse) *EdifactProtocolSettingsResponse {
 		return &v
 	}).(EdifactProtocolSettingsResponsePtrOutput)
 }
@@ -13760,7 +14070,13 @@ func (o EdifactProtocolSettingsResponsePtrOutput) ToEdifactProtocolSettingsRespo
 }
 
 func (o EdifactProtocolSettingsResponsePtrOutput) Elem() EdifactProtocolSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) EdifactProtocolSettingsResponse { return *v }).(EdifactProtocolSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactProtocolSettingsResponse) EdifactProtocolSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactProtocolSettingsResponse
+		return ret
+	}).(EdifactProtocolSettingsResponseOutput)
 }
 
 // The EDIFACT acknowledgement settings.
@@ -14621,7 +14937,7 @@ func (o EdifactValidationSettingsOutput) ToEdifactValidationSettingsPtrOutput() 
 }
 
 func (o EdifactValidationSettingsOutput) ToEdifactValidationSettingsPtrOutputWithContext(ctx context.Context) EdifactValidationSettingsPtrOutput {
-	return o.ApplyT(func(v EdifactValidationSettings) *EdifactValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactValidationSettings) *EdifactValidationSettings {
 		return &v
 	}).(EdifactValidationSettingsPtrOutput)
 }
@@ -14691,7 +15007,13 @@ func (o EdifactValidationSettingsPtrOutput) ToEdifactValidationSettingsPtrOutput
 }
 
 func (o EdifactValidationSettingsPtrOutput) Elem() EdifactValidationSettingsOutput {
-	return o.ApplyT(func(v *EdifactValidationSettings) EdifactValidationSettings { return *v }).(EdifactValidationSettingsOutput)
+	return o.ApplyT(func(v *EdifactValidationSettings) EdifactValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactValidationSettings
+		return ret
+	}).(EdifactValidationSettingsOutput)
 }
 
 // The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -14926,7 +15248,7 @@ func (o EdifactValidationSettingsResponseOutput) ToEdifactValidationSettingsResp
 }
 
 func (o EdifactValidationSettingsResponseOutput) ToEdifactValidationSettingsResponsePtrOutputWithContext(ctx context.Context) EdifactValidationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v EdifactValidationSettingsResponse) *EdifactValidationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EdifactValidationSettingsResponse) *EdifactValidationSettingsResponse {
 		return &v
 	}).(EdifactValidationSettingsResponsePtrOutput)
 }
@@ -14996,7 +15318,13 @@ func (o EdifactValidationSettingsResponsePtrOutput) ToEdifactValidationSettingsR
 }
 
 func (o EdifactValidationSettingsResponsePtrOutput) Elem() EdifactValidationSettingsResponseOutput {
-	return o.ApplyT(func(v *EdifactValidationSettingsResponse) EdifactValidationSettingsResponse { return *v }).(EdifactValidationSettingsResponseOutput)
+	return o.ApplyT(func(v *EdifactValidationSettingsResponse) EdifactValidationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdifactValidationSettingsResponse
+		return ret
+	}).(EdifactValidationSettingsResponseOutput)
 }
 
 // The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -15434,7 +15762,7 @@ func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAcco
 }
 
 func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesParametersSchema) *IntegrationAccountMapPropertiesParametersSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMapPropertiesParametersSchema) *IntegrationAccountMapPropertiesParametersSchema {
 		return &v
 	}).(IntegrationAccountMapPropertiesParametersSchemaPtrOutput)
 }
@@ -15460,7 +15788,11 @@ func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) ToIntegrationA
 
 func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Elem() IntegrationAccountMapPropertiesParametersSchemaOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapPropertiesParametersSchema) IntegrationAccountMapPropertiesParametersSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMapPropertiesParametersSchema
+		return ret
 	}).(IntegrationAccountMapPropertiesParametersSchemaOutput)
 }
 
@@ -15570,7 +15902,7 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegra
 }
 
 func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseParametersSchema) *IntegrationAccountMapPropertiesResponseParametersSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountMapPropertiesResponseParametersSchema) *IntegrationAccountMapPropertiesResponseParametersSchema {
 		return &v
 	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
@@ -15596,7 +15928,11 @@ func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) ToInte
 
 func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Elem() IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
 	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseParametersSchema) IntegrationAccountMapPropertiesResponseParametersSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountMapPropertiesResponseParametersSchema
+		return ret
 	}).(IntegrationAccountMapPropertiesResponseParametersSchemaOutput)
 }
 
@@ -15706,7 +16042,7 @@ func (o IntegrationAccountSkuOutput) ToIntegrationAccountSkuPtrOutput() Integrat
 }
 
 func (o IntegrationAccountSkuOutput) ToIntegrationAccountSkuPtrOutputWithContext(ctx context.Context) IntegrationAccountSkuPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSku) *IntegrationAccountSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountSku) *IntegrationAccountSku {
 		return &v
 	}).(IntegrationAccountSkuPtrOutput)
 }
@@ -15731,7 +16067,13 @@ func (o IntegrationAccountSkuPtrOutput) ToIntegrationAccountSkuPtrOutputWithCont
 }
 
 func (o IntegrationAccountSkuPtrOutput) Elem() IntegrationAccountSkuOutput {
-	return o.ApplyT(func(v *IntegrationAccountSku) IntegrationAccountSku { return *v }).(IntegrationAccountSkuOutput)
+	return o.ApplyT(func(v *IntegrationAccountSku) IntegrationAccountSku {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountSku
+		return ret
+	}).(IntegrationAccountSkuOutput)
 }
 
 // The sku name.
@@ -15840,7 +16182,7 @@ func (o IntegrationAccountSkuResponseOutput) ToIntegrationAccountSkuResponsePtrO
 }
 
 func (o IntegrationAccountSkuResponseOutput) ToIntegrationAccountSkuResponsePtrOutputWithContext(ctx context.Context) IntegrationAccountSkuResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSkuResponse) *IntegrationAccountSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationAccountSkuResponse) *IntegrationAccountSkuResponse {
 		return &v
 	}).(IntegrationAccountSkuResponsePtrOutput)
 }
@@ -15865,7 +16207,13 @@ func (o IntegrationAccountSkuResponsePtrOutput) ToIntegrationAccountSkuResponseP
 }
 
 func (o IntegrationAccountSkuResponsePtrOutput) Elem() IntegrationAccountSkuResponseOutput {
-	return o.ApplyT(func(v *IntegrationAccountSkuResponse) IntegrationAccountSkuResponse { return *v }).(IntegrationAccountSkuResponseOutput)
+	return o.ApplyT(func(v *IntegrationAccountSkuResponse) IntegrationAccountSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationAccountSkuResponse
+		return ret
+	}).(IntegrationAccountSkuResponseOutput)
 }
 
 // The sku name.
@@ -15982,7 +16330,7 @@ func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutput() KeyVaultKe
 }
 
 func (o KeyVaultKeyReferenceOutput) ToKeyVaultKeyReferencePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReference) *KeyVaultKeyReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReference) *KeyVaultKeyReference {
 		return &v
 	}).(KeyVaultKeyReferencePtrOutput)
 }
@@ -16017,7 +16365,13 @@ func (o KeyVaultKeyReferencePtrOutput) ToKeyVaultKeyReferencePtrOutputWithContex
 }
 
 func (o KeyVaultKeyReferencePtrOutput) Elem() KeyVaultKeyReferenceOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference { return *v }).(KeyVaultKeyReferenceOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReference) KeyVaultKeyReference {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReference
+		return ret
+	}).(KeyVaultKeyReferenceOutput)
 }
 
 // The private key name in key vault.
@@ -16146,7 +16500,7 @@ func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultPtrOut
 }
 
 func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceKeyVault) *KeyVaultKeyReferenceKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceKeyVault) *KeyVaultKeyReferenceKeyVault {
 		return &v
 	}).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
@@ -16171,7 +16525,13 @@ func (o KeyVaultKeyReferenceKeyVaultPtrOutput) ToKeyVaultKeyReferenceKeyVaultPtr
 }
 
 func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Elem() KeyVaultKeyReferenceKeyVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) KeyVaultKeyReferenceKeyVault { return *v }).(KeyVaultKeyReferenceKeyVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) KeyVaultKeyReferenceKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceKeyVault
+		return ret
+	}).(KeyVaultKeyReferenceKeyVaultOutput)
 }
 
 // The resource id.
@@ -16288,7 +16648,7 @@ func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOut
 }
 
 func (o KeyVaultKeyReferenceResponseOutput) ToKeyVaultKeyReferenceResponsePtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponse {
 		return &v
 	}).(KeyVaultKeyReferenceResponsePtrOutput)
 }
@@ -16323,7 +16683,13 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) ToKeyVaultKeyReferenceResponsePtr
 }
 
 func (o KeyVaultKeyReferenceResponsePtrOutput) Elem() KeyVaultKeyReferenceResponseOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse { return *v }).(KeyVaultKeyReferenceResponseOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponse
+		return ret
+	}).(KeyVaultKeyReferenceResponseOutput)
 }
 
 // The private key name in key vault.
@@ -16460,7 +16826,7 @@ func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceRespon
 }
 
 func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) *KeyVaultKeyReferenceResponseKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyReferenceResponseKeyVault) *KeyVaultKeyReferenceResponseKeyVault {
 		return &v
 	}).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
@@ -16495,7 +16861,13 @@ func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) ToKeyVaultKeyReferenceRes
 }
 
 func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseKeyVaultOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) KeyVaultKeyReferenceResponseKeyVault { return *v }).(KeyVaultKeyReferenceResponseKeyVaultOutput)
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) KeyVaultKeyReferenceResponseKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyReferenceResponseKeyVault
+		return ret
+	}).(KeyVaultKeyReferenceResponseKeyVaultOutput)
 }
 
 // The resource id.
@@ -16741,7 +17113,7 @@ func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrO
 }
 
 func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *KeyVaultKeyResponseAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultKeyResponseAttributes) *KeyVaultKeyResponseAttributes {
 		return &v
 	}).(KeyVaultKeyResponseAttributesPtrOutput)
 }
@@ -16776,7 +17148,13 @@ func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesP
 }
 
 func (o KeyVaultKeyResponseAttributesPtrOutput) Elem() KeyVaultKeyResponseAttributesOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes { return *v }).(KeyVaultKeyResponseAttributesOutput)
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultKeyResponseAttributes
+		return ret
+	}).(KeyVaultKeyResponseAttributesOutput)
 }
 
 // When the key was created.
@@ -16969,7 +17347,7 @@ func (o PartnerContentOutput) ToPartnerContentPtrOutput() PartnerContentPtrOutpu
 }
 
 func (o PartnerContentOutput) ToPartnerContentPtrOutputWithContext(ctx context.Context) PartnerContentPtrOutput {
-	return o.ApplyT(func(v PartnerContent) *PartnerContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerContent) *PartnerContent {
 		return &v
 	}).(PartnerContentPtrOutput)
 }
@@ -16994,7 +17372,13 @@ func (o PartnerContentPtrOutput) ToPartnerContentPtrOutputWithContext(ctx contex
 }
 
 func (o PartnerContentPtrOutput) Elem() PartnerContentOutput {
-	return o.ApplyT(func(v *PartnerContent) PartnerContent { return *v }).(PartnerContentOutput)
+	return o.ApplyT(func(v *PartnerContent) PartnerContent {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerContent
+		return ret
+	}).(PartnerContentOutput)
 }
 
 // The B2B partner content.
@@ -17103,7 +17487,7 @@ func (o PartnerContentResponseOutput) ToPartnerContentResponsePtrOutput() Partne
 }
 
 func (o PartnerContentResponseOutput) ToPartnerContentResponsePtrOutputWithContext(ctx context.Context) PartnerContentResponsePtrOutput {
-	return o.ApplyT(func(v PartnerContentResponse) *PartnerContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerContentResponse) *PartnerContentResponse {
 		return &v
 	}).(PartnerContentResponsePtrOutput)
 }
@@ -17128,7 +17512,13 @@ func (o PartnerContentResponsePtrOutput) ToPartnerContentResponsePtrOutputWithCo
 }
 
 func (o PartnerContentResponsePtrOutput) Elem() PartnerContentResponseOutput {
-	return o.ApplyT(func(v *PartnerContentResponse) PartnerContentResponse { return *v }).(PartnerContentResponseOutput)
+	return o.ApplyT(func(v *PartnerContentResponse) PartnerContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerContentResponse
+		return ret
+	}).(PartnerContentResponseOutput)
 }
 
 // The B2B partner content.
@@ -17152,7 +17542,7 @@ type RecurrenceSchedule struct {
 	// The monthly occurrences.
 	MonthlyOccurrences []RecurrenceScheduleOccurrence `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays []string `pulumi:"weekDays"`
+	WeekDays []DaysOfWeek `pulumi:"weekDays"`
 }
 
 // RecurrenceScheduleInput is an input type that accepts RecurrenceScheduleArgs and RecurrenceScheduleOutput values.
@@ -17253,7 +17643,7 @@ func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutput() RecurrenceSche
 }
 
 func (o RecurrenceScheduleOutput) ToRecurrenceSchedulePtrOutputWithContext(ctx context.Context) RecurrenceSchedulePtrOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) *RecurrenceSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceSchedule) *RecurrenceSchedule {
 		return &v
 	}).(RecurrenceSchedulePtrOutput)
 }
@@ -17279,8 +17669,8 @@ func (o RecurrenceScheduleOutput) MonthlyOccurrences() RecurrenceScheduleOccurre
 }
 
 // The days of the week.
-func (o RecurrenceScheduleOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RecurrenceSchedule) []string { return v.WeekDays }).(pulumi.StringArrayOutput)
+func (o RecurrenceScheduleOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v RecurrenceSchedule) []DaysOfWeek { return v.WeekDays }).(DaysOfWeekArrayOutput)
 }
 
 type RecurrenceSchedulePtrOutput struct{ *pulumi.OutputState }
@@ -17298,7 +17688,13 @@ func (o RecurrenceSchedulePtrOutput) ToRecurrenceSchedulePtrOutputWithContext(ct
 }
 
 func (o RecurrenceSchedulePtrOutput) Elem() RecurrenceScheduleOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule { return *v }).(RecurrenceScheduleOutput)
+	return o.ApplyT(func(v *RecurrenceSchedule) RecurrenceSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret RecurrenceSchedule
+		return ret
+	}).(RecurrenceScheduleOutput)
 }
 
 // The hours.
@@ -17342,19 +17738,19 @@ func (o RecurrenceSchedulePtrOutput) MonthlyOccurrences() RecurrenceScheduleOccu
 }
 
 // The days of the week.
-func (o RecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RecurrenceSchedule) []string {
+func (o RecurrenceSchedulePtrOutput) WeekDays() DaysOfWeekArrayOutput {
+	return o.ApplyT(func(v *RecurrenceSchedule) []DaysOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.WeekDays
-	}).(pulumi.StringArrayOutput)
+	}).(DaysOfWeekArrayOutput)
 }
 
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrence struct {
 	// The day of the week.
-	Day *string `pulumi:"day"`
+	Day *DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence *int `pulumi:"occurrence"`
 }
@@ -17373,7 +17769,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day *DayOfWeek `pulumi:"day"`
+	Day DayOfWeekPtrInput `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -17431,8 +17827,8 @@ func (o RecurrenceScheduleOccurrenceOutput) ToRecurrenceScheduleOccurrenceOutput
 }
 
 // The day of the week.
-func (o RecurrenceScheduleOccurrenceOutput) Day() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
+func (o RecurrenceScheduleOccurrenceOutput) Day() DayOfWeekPtrOutput {
+	return o.ApplyT(func(v RecurrenceScheduleOccurrence) *DayOfWeek { return v.Day }).(DayOfWeekPtrOutput)
 }
 
 // The occurrence.
@@ -17681,7 +18077,7 @@ func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutput(
 }
 
 func (o RecurrenceScheduleResponseOutput) ToRecurrenceScheduleResponsePtrOutputWithContext(ctx context.Context) RecurrenceScheduleResponsePtrOutput {
-	return o.ApplyT(func(v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecurrenceScheduleResponse) *RecurrenceScheduleResponse {
 		return &v
 	}).(RecurrenceScheduleResponsePtrOutput)
 }
@@ -17726,7 +18122,13 @@ func (o RecurrenceScheduleResponsePtrOutput) ToRecurrenceScheduleResponsePtrOutp
 }
 
 func (o RecurrenceScheduleResponsePtrOutput) Elem() RecurrenceScheduleResponseOutput {
-	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse { return *v }).(RecurrenceScheduleResponseOutput)
+	return o.ApplyT(func(v *RecurrenceScheduleResponse) RecurrenceScheduleResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RecurrenceScheduleResponse
+		return ret
+	}).(RecurrenceScheduleResponseOutput)
 }
 
 // The hours.
@@ -17875,7 +18277,7 @@ func (o ResourceReferenceOutput) ToResourceReferencePtrOutput() ResourceReferenc
 }
 
 func (o ResourceReferenceOutput) ToResourceReferencePtrOutputWithContext(ctx context.Context) ResourceReferencePtrOutput {
-	return o.ApplyT(func(v ResourceReference) *ResourceReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReference) *ResourceReference {
 		return &v
 	}).(ResourceReferencePtrOutput)
 }
@@ -17900,7 +18302,13 @@ func (o ResourceReferencePtrOutput) ToResourceReferencePtrOutputWithContext(ctx 
 }
 
 func (o ResourceReferencePtrOutput) Elem() ResourceReferenceOutput {
-	return o.ApplyT(func(v *ResourceReference) ResourceReference { return *v }).(ResourceReferenceOutput)
+	return o.ApplyT(func(v *ResourceReference) ResourceReference {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReference
+		return ret
+	}).(ResourceReferenceOutput)
 }
 
 // The resource id.
@@ -18017,7 +18425,7 @@ func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutput() 
 }
 
 func (o ResourceReferenceResponseOutput) ToResourceReferenceResponsePtrOutputWithContext(ctx context.Context) ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v ResourceReferenceResponse) *ResourceReferenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceReferenceResponse) *ResourceReferenceResponse {
 		return &v
 	}).(ResourceReferenceResponsePtrOutput)
 }
@@ -18052,7 +18460,13 @@ func (o ResourceReferenceResponsePtrOutput) ToResourceReferenceResponsePtrOutput
 }
 
 func (o ResourceReferenceResponsePtrOutput) Elem() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse { return *v }).(ResourceReferenceResponseOutput)
+	return o.ApplyT(func(v *ResourceReferenceResponse) ResourceReferenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceReferenceResponse
+		return ret
+	}).(ResourceReferenceResponseOutput)
 }
 
 // The resource id.
@@ -18185,7 +18599,7 @@ func (o SkuOutput) ToSkuPtrOutput() SkuPtrOutput {
 }
 
 func (o SkuOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutput {
-	return o.ApplyT(func(v Sku) *Sku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Sku) *Sku {
 		return &v
 	}).(SkuPtrOutput)
 }
@@ -18215,7 +18629,13 @@ func (o SkuPtrOutput) ToSkuPtrOutputWithContext(ctx context.Context) SkuPtrOutpu
 }
 
 func (o SkuPtrOutput) Elem() SkuOutput {
-	return o.ApplyT(func(v *Sku) Sku { return *v }).(SkuOutput)
+	return o.ApplyT(func(v *Sku) Sku {
+		if v != nil {
+			return *v
+		}
+		var ret Sku
+		return ret
+	}).(SkuOutput)
 }
 
 // The name.
@@ -18338,7 +18758,7 @@ func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
 }
 
 func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyT(func(v SkuResponse) *SkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
 		return &v
 	}).(SkuResponsePtrOutput)
 }
@@ -18368,7 +18788,13 @@ func (o SkuResponsePtrOutput) ToSkuResponsePtrOutputWithContext(ctx context.Cont
 }
 
 func (o SkuResponsePtrOutput) Elem() SkuResponseOutput {
-	return o.ApplyT(func(v *SkuResponse) SkuResponse { return *v }).(SkuResponseOutput)
+	return o.ApplyT(func(v *SkuResponse) SkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuResponse
+		return ret
+	}).(SkuResponseOutput)
 }
 
 // The name.
@@ -18852,7 +19278,7 @@ func (o WorkflowTriggerRecurrenceOutput) ToWorkflowTriggerRecurrencePtrOutput() 
 }
 
 func (o WorkflowTriggerRecurrenceOutput) ToWorkflowTriggerRecurrencePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrencePtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerRecurrence) *WorkflowTriggerRecurrence {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowTriggerRecurrence) *WorkflowTriggerRecurrence {
 		return &v
 	}).(WorkflowTriggerRecurrencePtrOutput)
 }
@@ -18902,7 +19328,13 @@ func (o WorkflowTriggerRecurrencePtrOutput) ToWorkflowTriggerRecurrencePtrOutput
 }
 
 func (o WorkflowTriggerRecurrencePtrOutput) Elem() WorkflowTriggerRecurrenceOutput {
-	return o.ApplyT(func(v *WorkflowTriggerRecurrence) WorkflowTriggerRecurrence { return *v }).(WorkflowTriggerRecurrenceOutput)
+	return o.ApplyT(func(v *WorkflowTriggerRecurrence) WorkflowTriggerRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerRecurrence
+		return ret
+	}).(WorkflowTriggerRecurrenceOutput)
 }
 
 // The end time.
@@ -19081,7 +19513,7 @@ func (o WorkflowTriggerRecurrenceResponseOutput) ToWorkflowTriggerRecurrenceResp
 }
 
 func (o WorkflowTriggerRecurrenceResponseOutput) ToWorkflowTriggerRecurrenceResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerRecurrenceResponsePtrOutput {
-	return o.ApplyT(func(v WorkflowTriggerRecurrenceResponse) *WorkflowTriggerRecurrenceResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowTriggerRecurrenceResponse) *WorkflowTriggerRecurrenceResponse {
 		return &v
 	}).(WorkflowTriggerRecurrenceResponsePtrOutput)
 }
@@ -19131,7 +19563,13 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) ToWorkflowTriggerRecurrenceR
 }
 
 func (o WorkflowTriggerRecurrenceResponsePtrOutput) Elem() WorkflowTriggerRecurrenceResponseOutput {
-	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) WorkflowTriggerRecurrenceResponse { return *v }).(WorkflowTriggerRecurrenceResponseOutput)
+	return o.ApplyT(func(v *WorkflowTriggerRecurrenceResponse) WorkflowTriggerRecurrenceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerRecurrenceResponse
+		return ret
+	}).(WorkflowTriggerRecurrenceResponseOutput)
 }
 
 // The end time.
@@ -19346,7 +19784,7 @@ func (o X12AcknowledgementSettingsOutput) ToX12AcknowledgementSettingsPtrOutput(
 }
 
 func (o X12AcknowledgementSettingsOutput) ToX12AcknowledgementSettingsPtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsPtrOutput {
-	return o.ApplyT(func(v X12AcknowledgementSettings) *X12AcknowledgementSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AcknowledgementSettings) *X12AcknowledgementSettings {
 		return &v
 	}).(X12AcknowledgementSettingsPtrOutput)
 }
@@ -19441,7 +19879,13 @@ func (o X12AcknowledgementSettingsPtrOutput) ToX12AcknowledgementSettingsPtrOutp
 }
 
 func (o X12AcknowledgementSettingsPtrOutput) Elem() X12AcknowledgementSettingsOutput {
-	return o.ApplyT(func(v *X12AcknowledgementSettings) X12AcknowledgementSettings { return *v }).(X12AcknowledgementSettingsOutput)
+	return o.ApplyT(func(v *X12AcknowledgementSettings) X12AcknowledgementSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12AcknowledgementSettings
+		return ret
+	}).(X12AcknowledgementSettingsOutput)
 }
 
 // The acknowledgement control number lower bound.
@@ -19746,7 +20190,7 @@ func (o X12AcknowledgementSettingsResponseOutput) ToX12AcknowledgementSettingsRe
 }
 
 func (o X12AcknowledgementSettingsResponseOutput) ToX12AcknowledgementSettingsResponsePtrOutputWithContext(ctx context.Context) X12AcknowledgementSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12AcknowledgementSettingsResponse) *X12AcknowledgementSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AcknowledgementSettingsResponse) *X12AcknowledgementSettingsResponse {
 		return &v
 	}).(X12AcknowledgementSettingsResponsePtrOutput)
 }
@@ -19841,7 +20285,13 @@ func (o X12AcknowledgementSettingsResponsePtrOutput) ToX12AcknowledgementSetting
 }
 
 func (o X12AcknowledgementSettingsResponsePtrOutput) Elem() X12AcknowledgementSettingsResponseOutput {
-	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) X12AcknowledgementSettingsResponse { return *v }).(X12AcknowledgementSettingsResponseOutput)
+	return o.ApplyT(func(v *X12AcknowledgementSettingsResponse) X12AcknowledgementSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12AcknowledgementSettingsResponse
+		return ret
+	}).(X12AcknowledgementSettingsResponseOutput)
 }
 
 // The acknowledgement control number lower bound.
@@ -20094,7 +20544,7 @@ func (o X12AgreementContentOutput) ToX12AgreementContentPtrOutput() X12Agreement
 }
 
 func (o X12AgreementContentOutput) ToX12AgreementContentPtrOutputWithContext(ctx context.Context) X12AgreementContentPtrOutput {
-	return o.ApplyT(func(v X12AgreementContent) *X12AgreementContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AgreementContent) *X12AgreementContent {
 		return &v
 	}).(X12AgreementContentPtrOutput)
 }
@@ -20124,7 +20574,13 @@ func (o X12AgreementContentPtrOutput) ToX12AgreementContentPtrOutputWithContext(
 }
 
 func (o X12AgreementContentPtrOutput) Elem() X12AgreementContentOutput {
-	return o.ApplyT(func(v *X12AgreementContent) X12AgreementContent { return *v }).(X12AgreementContentOutput)
+	return o.ApplyT(func(v *X12AgreementContent) X12AgreementContent {
+		if v != nil {
+			return *v
+		}
+		var ret X12AgreementContent
+		return ret
+	}).(X12AgreementContentOutput)
 }
 
 // The X12 one-way receive agreement.
@@ -20247,7 +20703,7 @@ func (o X12AgreementContentResponseOutput) ToX12AgreementContentResponsePtrOutpu
 }
 
 func (o X12AgreementContentResponseOutput) ToX12AgreementContentResponsePtrOutputWithContext(ctx context.Context) X12AgreementContentResponsePtrOutput {
-	return o.ApplyT(func(v X12AgreementContentResponse) *X12AgreementContentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12AgreementContentResponse) *X12AgreementContentResponse {
 		return &v
 	}).(X12AgreementContentResponsePtrOutput)
 }
@@ -20277,7 +20733,13 @@ func (o X12AgreementContentResponsePtrOutput) ToX12AgreementContentResponsePtrOu
 }
 
 func (o X12AgreementContentResponsePtrOutput) Elem() X12AgreementContentResponseOutput {
-	return o.ApplyT(func(v *X12AgreementContentResponse) X12AgreementContentResponse { return *v }).(X12AgreementContentResponseOutput)
+	return o.ApplyT(func(v *X12AgreementContentResponse) X12AgreementContentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12AgreementContentResponse
+		return ret
+	}).(X12AgreementContentResponseOutput)
 }
 
 // The X12 one-way receive agreement.
@@ -20317,7 +20779,7 @@ type X12DelimiterOverrides struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace *string `pulumi:"targetNamespace"`
 }
@@ -20350,7 +20812,7 @@ type X12DelimiterOverridesArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -20443,8 +20905,8 @@ func (o X12DelimiterOverridesOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12DelimiterOverrides) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12DelimiterOverridesOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12DelimiterOverrides) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 // The target namespace on which this delimiter settings has to be applied.
@@ -21194,7 +21656,7 @@ func (o X12EnvelopeSettingsOutput) ToX12EnvelopeSettingsPtrOutput() X12EnvelopeS
 }
 
 func (o X12EnvelopeSettingsOutput) ToX12EnvelopeSettingsPtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsPtrOutput {
-	return o.ApplyT(func(v X12EnvelopeSettings) *X12EnvelopeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12EnvelopeSettings) *X12EnvelopeSettings {
 		return &v
 	}).(X12EnvelopeSettingsPtrOutput)
 }
@@ -21334,7 +21796,13 @@ func (o X12EnvelopeSettingsPtrOutput) ToX12EnvelopeSettingsPtrOutputWithContext(
 }
 
 func (o X12EnvelopeSettingsPtrOutput) Elem() X12EnvelopeSettingsOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettings) X12EnvelopeSettings { return *v }).(X12EnvelopeSettingsOutput)
+	return o.ApplyT(func(v *X12EnvelopeSettings) X12EnvelopeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12EnvelopeSettings
+		return ret
+	}).(X12EnvelopeSettingsOutput)
 }
 
 // The controls standards id.
@@ -21765,7 +22233,7 @@ func (o X12EnvelopeSettingsResponseOutput) ToX12EnvelopeSettingsResponsePtrOutpu
 }
 
 func (o X12EnvelopeSettingsResponseOutput) ToX12EnvelopeSettingsResponsePtrOutputWithContext(ctx context.Context) X12EnvelopeSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12EnvelopeSettingsResponse) *X12EnvelopeSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12EnvelopeSettingsResponse) *X12EnvelopeSettingsResponse {
 		return &v
 	}).(X12EnvelopeSettingsResponsePtrOutput)
 }
@@ -21905,7 +22373,13 @@ func (o X12EnvelopeSettingsResponsePtrOutput) ToX12EnvelopeSettingsResponsePtrOu
 }
 
 func (o X12EnvelopeSettingsResponsePtrOutput) Elem() X12EnvelopeSettingsResponseOutput {
-	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) X12EnvelopeSettingsResponse { return *v }).(X12EnvelopeSettingsResponseOutput)
+	return o.ApplyT(func(v *X12EnvelopeSettingsResponse) X12EnvelopeSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12EnvelopeSettingsResponse
+		return ret
+	}).(X12EnvelopeSettingsResponseOutput)
 }
 
 // The controls standards id.
@@ -22163,7 +22637,7 @@ type X12FramingSettings struct {
 	// The segment terminator.
 	SegmentTerminator int `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix string `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 // X12FramingSettingsInput is an input type that accepts X12FramingSettingsArgs and X12FramingSettingsOutput values.
@@ -22192,7 +22666,7 @@ type X12FramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffixInput `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {
@@ -22268,7 +22742,7 @@ func (o X12FramingSettingsOutput) ToX12FramingSettingsPtrOutput() X12FramingSett
 }
 
 func (o X12FramingSettingsOutput) ToX12FramingSettingsPtrOutputWithContext(ctx context.Context) X12FramingSettingsPtrOutput {
-	return o.ApplyT(func(v X12FramingSettings) *X12FramingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12FramingSettings) *X12FramingSettings {
 		return &v
 	}).(X12FramingSettingsPtrOutput)
 }
@@ -22304,8 +22778,8 @@ func (o X12FramingSettingsOutput) SegmentTerminator() pulumi.IntOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() pulumi.StringOutput {
-	return o.ApplyT(func(v X12FramingSettings) string { return v.SegmentTerminatorSuffix }).(pulumi.StringOutput)
+func (o X12FramingSettingsOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixOutput {
+	return o.ApplyT(func(v X12FramingSettings) SegmentTerminatorSuffix { return v.SegmentTerminatorSuffix }).(SegmentTerminatorSuffixOutput)
 }
 
 type X12FramingSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -22323,7 +22797,13 @@ func (o X12FramingSettingsPtrOutput) ToX12FramingSettingsPtrOutputWithContext(ct
 }
 
 func (o X12FramingSettingsPtrOutput) Elem() X12FramingSettingsOutput {
-	return o.ApplyT(func(v *X12FramingSettings) X12FramingSettings { return *v }).(X12FramingSettingsOutput)
+	return o.ApplyT(func(v *X12FramingSettings) X12FramingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12FramingSettings
+		return ret
+	}).(X12FramingSettingsOutput)
 }
 
 // The X12 character set.
@@ -22387,13 +22867,13 @@ func (o X12FramingSettingsPtrOutput) SegmentTerminator() pulumi.IntPtrOutput {
 }
 
 // The segment terminator suffix.
-func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *X12FramingSettings) *string {
+func (o X12FramingSettingsPtrOutput) SegmentTerminatorSuffix() SegmentTerminatorSuffixPtrOutput {
+	return o.ApplyT(func(v *X12FramingSettings) *SegmentTerminatorSuffix {
 		if v == nil {
 			return nil
 		}
 		return &v.SegmentTerminatorSuffix
-	}).(pulumi.StringPtrOutput)
+	}).(SegmentTerminatorSuffixPtrOutput)
 }
 
 // The X12 agreement framing settings.
@@ -22516,7 +22996,7 @@ func (o X12FramingSettingsResponseOutput) ToX12FramingSettingsResponsePtrOutput(
 }
 
 func (o X12FramingSettingsResponseOutput) ToX12FramingSettingsResponsePtrOutputWithContext(ctx context.Context) X12FramingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12FramingSettingsResponse) *X12FramingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12FramingSettingsResponse) *X12FramingSettingsResponse {
 		return &v
 	}).(X12FramingSettingsResponsePtrOutput)
 }
@@ -22571,7 +23051,13 @@ func (o X12FramingSettingsResponsePtrOutput) ToX12FramingSettingsResponsePtrOutp
 }
 
 func (o X12FramingSettingsResponsePtrOutput) Elem() X12FramingSettingsResponseOutput {
-	return o.ApplyT(func(v *X12FramingSettingsResponse) X12FramingSettingsResponse { return *v }).(X12FramingSettingsResponseOutput)
+	return o.ApplyT(func(v *X12FramingSettingsResponse) X12FramingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12FramingSettingsResponse
+		return ret
+	}).(X12FramingSettingsResponseOutput)
 }
 
 // The X12 character set.
@@ -22740,7 +23226,7 @@ func (o X12MessageFilterOutput) ToX12MessageFilterPtrOutput() X12MessageFilterPt
 }
 
 func (o X12MessageFilterOutput) ToX12MessageFilterPtrOutputWithContext(ctx context.Context) X12MessageFilterPtrOutput {
-	return o.ApplyT(func(v X12MessageFilter) *X12MessageFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12MessageFilter) *X12MessageFilter {
 		return &v
 	}).(X12MessageFilterPtrOutput)
 }
@@ -22765,7 +23251,13 @@ func (o X12MessageFilterPtrOutput) ToX12MessageFilterPtrOutputWithContext(ctx co
 }
 
 func (o X12MessageFilterPtrOutput) Elem() X12MessageFilterOutput {
-	return o.ApplyT(func(v *X12MessageFilter) X12MessageFilter { return *v }).(X12MessageFilterOutput)
+	return o.ApplyT(func(v *X12MessageFilter) X12MessageFilter {
+		if v != nil {
+			return *v
+		}
+		var ret X12MessageFilter
+		return ret
+	}).(X12MessageFilterOutput)
 }
 
 // The message filter type.
@@ -22874,7 +23366,7 @@ func (o X12MessageFilterResponseOutput) ToX12MessageFilterResponsePtrOutput() X1
 }
 
 func (o X12MessageFilterResponseOutput) ToX12MessageFilterResponsePtrOutputWithContext(ctx context.Context) X12MessageFilterResponsePtrOutput {
-	return o.ApplyT(func(v X12MessageFilterResponse) *X12MessageFilterResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12MessageFilterResponse) *X12MessageFilterResponse {
 		return &v
 	}).(X12MessageFilterResponsePtrOutput)
 }
@@ -22899,7 +23391,13 @@ func (o X12MessageFilterResponsePtrOutput) ToX12MessageFilterResponsePtrOutputWi
 }
 
 func (o X12MessageFilterResponsePtrOutput) Elem() X12MessageFilterResponseOutput {
-	return o.ApplyT(func(v *X12MessageFilterResponse) X12MessageFilterResponse { return *v }).(X12MessageFilterResponseOutput)
+	return o.ApplyT(func(v *X12MessageFilterResponse) X12MessageFilterResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12MessageFilterResponse
+		return ret
+	}).(X12MessageFilterResponseOutput)
 }
 
 // The message filter type.
@@ -23216,7 +23714,7 @@ func (o X12OneWayAgreementOutput) ToX12OneWayAgreementPtrOutput() X12OneWayAgree
 }
 
 func (o X12OneWayAgreementOutput) ToX12OneWayAgreementPtrOutputWithContext(ctx context.Context) X12OneWayAgreementPtrOutput {
-	return o.ApplyT(func(v X12OneWayAgreement) *X12OneWayAgreement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12OneWayAgreement) *X12OneWayAgreement {
 		return &v
 	}).(X12OneWayAgreementPtrOutput)
 }
@@ -23251,7 +23749,13 @@ func (o X12OneWayAgreementPtrOutput) ToX12OneWayAgreementPtrOutputWithContext(ct
 }
 
 func (o X12OneWayAgreementPtrOutput) Elem() X12OneWayAgreementOutput {
-	return o.ApplyT(func(v *X12OneWayAgreement) X12OneWayAgreement { return *v }).(X12OneWayAgreementOutput)
+	return o.ApplyT(func(v *X12OneWayAgreement) X12OneWayAgreement {
+		if v != nil {
+			return *v
+		}
+		var ret X12OneWayAgreement
+		return ret
+	}).(X12OneWayAgreementOutput)
 }
 
 // The X12 protocol settings.
@@ -23388,7 +23892,7 @@ func (o X12OneWayAgreementResponseOutput) ToX12OneWayAgreementResponsePtrOutput(
 }
 
 func (o X12OneWayAgreementResponseOutput) ToX12OneWayAgreementResponsePtrOutputWithContext(ctx context.Context) X12OneWayAgreementResponsePtrOutput {
-	return o.ApplyT(func(v X12OneWayAgreementResponse) *X12OneWayAgreementResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12OneWayAgreementResponse) *X12OneWayAgreementResponse {
 		return &v
 	}).(X12OneWayAgreementResponsePtrOutput)
 }
@@ -23423,7 +23927,13 @@ func (o X12OneWayAgreementResponsePtrOutput) ToX12OneWayAgreementResponsePtrOutp
 }
 
 func (o X12OneWayAgreementResponsePtrOutput) Elem() X12OneWayAgreementResponseOutput {
-	return o.ApplyT(func(v *X12OneWayAgreementResponse) X12OneWayAgreementResponse { return *v }).(X12OneWayAgreementResponseOutput)
+	return o.ApplyT(func(v *X12OneWayAgreementResponse) X12OneWayAgreementResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12OneWayAgreementResponse
+		return ret
+	}).(X12OneWayAgreementResponseOutput)
 }
 
 // The X12 protocol settings.
@@ -23572,7 +24082,7 @@ func (o X12ProcessingSettingsOutput) ToX12ProcessingSettingsPtrOutput() X12Proce
 }
 
 func (o X12ProcessingSettingsOutput) ToX12ProcessingSettingsPtrOutputWithContext(ctx context.Context) X12ProcessingSettingsPtrOutput {
-	return o.ApplyT(func(v X12ProcessingSettings) *X12ProcessingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProcessingSettings) *X12ProcessingSettings {
 		return &v
 	}).(X12ProcessingSettingsPtrOutput)
 }
@@ -23622,7 +24132,13 @@ func (o X12ProcessingSettingsPtrOutput) ToX12ProcessingSettingsPtrOutputWithCont
 }
 
 func (o X12ProcessingSettingsPtrOutput) Elem() X12ProcessingSettingsOutput {
-	return o.ApplyT(func(v *X12ProcessingSettings) X12ProcessingSettings { return *v }).(X12ProcessingSettingsOutput)
+	return o.ApplyT(func(v *X12ProcessingSettings) X12ProcessingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProcessingSettings
+		return ret
+	}).(X12ProcessingSettingsOutput)
 }
 
 // The value indicating whether to convert numerical type to implied decimal.
@@ -23801,7 +24317,7 @@ func (o X12ProcessingSettingsResponseOutput) ToX12ProcessingSettingsResponsePtrO
 }
 
 func (o X12ProcessingSettingsResponseOutput) ToX12ProcessingSettingsResponsePtrOutputWithContext(ctx context.Context) X12ProcessingSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12ProcessingSettingsResponse) *X12ProcessingSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProcessingSettingsResponse) *X12ProcessingSettingsResponse {
 		return &v
 	}).(X12ProcessingSettingsResponsePtrOutput)
 }
@@ -23851,7 +24367,13 @@ func (o X12ProcessingSettingsResponsePtrOutput) ToX12ProcessingSettingsResponseP
 }
 
 func (o X12ProcessingSettingsResponsePtrOutput) Elem() X12ProcessingSettingsResponseOutput {
-	return o.ApplyT(func(v *X12ProcessingSettingsResponse) X12ProcessingSettingsResponse { return *v }).(X12ProcessingSettingsResponseOutput)
+	return o.ApplyT(func(v *X12ProcessingSettingsResponse) X12ProcessingSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProcessingSettingsResponse
+		return ret
+	}).(X12ProcessingSettingsResponseOutput)
 }
 
 // The value indicating whether to convert numerical type to implied decimal.
@@ -24054,7 +24576,7 @@ func (o X12ProtocolSettingsOutput) ToX12ProtocolSettingsPtrOutput() X12ProtocolS
 }
 
 func (o X12ProtocolSettingsOutput) ToX12ProtocolSettingsPtrOutputWithContext(ctx context.Context) X12ProtocolSettingsPtrOutput {
-	return o.ApplyT(func(v X12ProtocolSettings) *X12ProtocolSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProtocolSettings) *X12ProtocolSettings {
 		return &v
 	}).(X12ProtocolSettingsPtrOutput)
 }
@@ -24134,7 +24656,13 @@ func (o X12ProtocolSettingsPtrOutput) ToX12ProtocolSettingsPtrOutputWithContext(
 }
 
 func (o X12ProtocolSettingsPtrOutput) Elem() X12ProtocolSettingsOutput {
-	return o.ApplyT(func(v *X12ProtocolSettings) X12ProtocolSettings { return *v }).(X12ProtocolSettingsOutput)
+	return o.ApplyT(func(v *X12ProtocolSettings) X12ProtocolSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProtocolSettings
+		return ret
+	}).(X12ProtocolSettingsOutput)
 }
 
 // The X12 acknowledgment settings.
@@ -24397,7 +24925,7 @@ func (o X12ProtocolSettingsResponseOutput) ToX12ProtocolSettingsResponsePtrOutpu
 }
 
 func (o X12ProtocolSettingsResponseOutput) ToX12ProtocolSettingsResponsePtrOutputWithContext(ctx context.Context) X12ProtocolSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12ProtocolSettingsResponse) *X12ProtocolSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ProtocolSettingsResponse) *X12ProtocolSettingsResponse {
 		return &v
 	}).(X12ProtocolSettingsResponsePtrOutput)
 }
@@ -24479,7 +25007,13 @@ func (o X12ProtocolSettingsResponsePtrOutput) ToX12ProtocolSettingsResponsePtrOu
 }
 
 func (o X12ProtocolSettingsResponsePtrOutput) Elem() X12ProtocolSettingsResponseOutput {
-	return o.ApplyT(func(v *X12ProtocolSettingsResponse) X12ProtocolSettingsResponse { return *v }).(X12ProtocolSettingsResponseOutput)
+	return o.ApplyT(func(v *X12ProtocolSettingsResponse) X12ProtocolSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12ProtocolSettingsResponse
+		return ret
+	}).(X12ProtocolSettingsResponseOutput)
 }
 
 // The X12 acknowledgment settings.
@@ -24964,7 +25498,7 @@ func (o X12SecuritySettingsOutput) ToX12SecuritySettingsPtrOutput() X12SecurityS
 }
 
 func (o X12SecuritySettingsOutput) ToX12SecuritySettingsPtrOutputWithContext(ctx context.Context) X12SecuritySettingsPtrOutput {
-	return o.ApplyT(func(v X12SecuritySettings) *X12SecuritySettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12SecuritySettings) *X12SecuritySettings {
 		return &v
 	}).(X12SecuritySettingsPtrOutput)
 }
@@ -25004,7 +25538,13 @@ func (o X12SecuritySettingsPtrOutput) ToX12SecuritySettingsPtrOutputWithContext(
 }
 
 func (o X12SecuritySettingsPtrOutput) Elem() X12SecuritySettingsOutput {
-	return o.ApplyT(func(v *X12SecuritySettings) X12SecuritySettings { return *v }).(X12SecuritySettingsOutput)
+	return o.ApplyT(func(v *X12SecuritySettings) X12SecuritySettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12SecuritySettings
+		return ret
+	}).(X12SecuritySettingsOutput)
 }
 
 // The authorization qualifier.
@@ -25155,7 +25695,7 @@ func (o X12SecuritySettingsResponseOutput) ToX12SecuritySettingsResponsePtrOutpu
 }
 
 func (o X12SecuritySettingsResponseOutput) ToX12SecuritySettingsResponsePtrOutputWithContext(ctx context.Context) X12SecuritySettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12SecuritySettingsResponse) *X12SecuritySettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12SecuritySettingsResponse) *X12SecuritySettingsResponse {
 		return &v
 	}).(X12SecuritySettingsResponsePtrOutput)
 }
@@ -25195,7 +25735,13 @@ func (o X12SecuritySettingsResponsePtrOutput) ToX12SecuritySettingsResponsePtrOu
 }
 
 func (o X12SecuritySettingsResponsePtrOutput) Elem() X12SecuritySettingsResponseOutput {
-	return o.ApplyT(func(v *X12SecuritySettingsResponse) X12SecuritySettingsResponse { return *v }).(X12SecuritySettingsResponseOutput)
+	return o.ApplyT(func(v *X12SecuritySettingsResponse) X12SecuritySettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12SecuritySettingsResponse
+		return ret
+	}).(X12SecuritySettingsResponseOutput)
 }
 
 // The authorization qualifier.
@@ -25678,7 +26224,7 @@ func (o X12ValidationSettingsOutput) ToX12ValidationSettingsPtrOutput() X12Valid
 }
 
 func (o X12ValidationSettingsOutput) ToX12ValidationSettingsPtrOutputWithContext(ctx context.Context) X12ValidationSettingsPtrOutput {
-	return o.ApplyT(func(v X12ValidationSettings) *X12ValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ValidationSettings) *X12ValidationSettings {
 		return &v
 	}).(X12ValidationSettingsPtrOutput)
 }
@@ -25748,7 +26294,13 @@ func (o X12ValidationSettingsPtrOutput) ToX12ValidationSettingsPtrOutputWithCont
 }
 
 func (o X12ValidationSettingsPtrOutput) Elem() X12ValidationSettingsOutput {
-	return o.ApplyT(func(v *X12ValidationSettings) X12ValidationSettings { return *v }).(X12ValidationSettingsOutput)
+	return o.ApplyT(func(v *X12ValidationSettings) X12ValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret X12ValidationSettings
+		return ret
+	}).(X12ValidationSettingsOutput)
 }
 
 // The value indicating whether to allow leading and trailing spaces and zeroes.
@@ -25983,7 +26535,7 @@ func (o X12ValidationSettingsResponseOutput) ToX12ValidationSettingsResponsePtrO
 }
 
 func (o X12ValidationSettingsResponseOutput) ToX12ValidationSettingsResponsePtrOutputWithContext(ctx context.Context) X12ValidationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v X12ValidationSettingsResponse) *X12ValidationSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v X12ValidationSettingsResponse) *X12ValidationSettingsResponse {
 		return &v
 	}).(X12ValidationSettingsResponsePtrOutput)
 }
@@ -26053,7 +26605,13 @@ func (o X12ValidationSettingsResponsePtrOutput) ToX12ValidationSettingsResponseP
 }
 
 func (o X12ValidationSettingsResponsePtrOutput) Elem() X12ValidationSettingsResponseOutput {
-	return o.ApplyT(func(v *X12ValidationSettingsResponse) X12ValidationSettingsResponse { return *v }).(X12ValidationSettingsResponseOutput)
+	return o.ApplyT(func(v *X12ValidationSettingsResponse) X12ValidationSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret X12ValidationSettingsResponse
+		return ret
+	}).(X12ValidationSettingsResponseOutput)
 }
 
 // The value indicating whether to allow leading and trailing spaces and zeroes.

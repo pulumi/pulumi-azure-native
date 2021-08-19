@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190801.Outputs
 {
 
+    /// <summary>
+    /// Contains stats associated with the peering.
+    /// </summary>
     [OutputType]
     public sealed class ExpressRouteCircuitStatsResponse
     {

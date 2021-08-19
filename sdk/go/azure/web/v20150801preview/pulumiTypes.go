@@ -174,7 +174,7 @@ func (o ApiEntityOutput) ToApiEntityPtrOutput() ApiEntityPtrOutput {
 }
 
 func (o ApiEntityOutput) ToApiEntityPtrOutputWithContext(ctx context.Context) ApiEntityPtrOutput {
-	return o.ApplyT(func(v ApiEntity) *ApiEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntity) *ApiEntity {
 		return &v
 	}).(ApiEntityPtrOutput)
 }
@@ -284,7 +284,13 @@ func (o ApiEntityPtrOutput) ToApiEntityPtrOutputWithContext(ctx context.Context)
 }
 
 func (o ApiEntityPtrOutput) Elem() ApiEntityOutput {
-	return o.ApplyT(func(v *ApiEntity) ApiEntity { return *v }).(ApiEntityOutput)
+	return o.ApplyT(func(v *ApiEntity) ApiEntity {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEntity
+		return ret
+	}).(ApiEntityOutput)
 }
 
 // API definition Url - url where the swagger can be downloaded from
@@ -631,7 +637,7 @@ func (o ApiEntityResponseOutput) ToApiEntityResponsePtrOutput() ApiEntityRespons
 }
 
 func (o ApiEntityResponseOutput) ToApiEntityResponsePtrOutputWithContext(ctx context.Context) ApiEntityResponsePtrOutput {
-	return o.ApplyT(func(v ApiEntityResponse) *ApiEntityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityResponse) *ApiEntityResponse {
 		return &v
 	}).(ApiEntityResponsePtrOutput)
 }
@@ -741,7 +747,13 @@ func (o ApiEntityResponsePtrOutput) ToApiEntityResponsePtrOutputWithContext(ctx 
 }
 
 func (o ApiEntityResponsePtrOutput) Elem() ApiEntityResponseOutput {
-	return o.ApplyT(func(v *ApiEntityResponse) ApiEntityResponse { return *v }).(ApiEntityResponseOutput)
+	return o.ApplyT(func(v *ApiEntityResponse) ApiEntityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEntityResponse
+		return ret
+	}).(ApiEntityResponseOutput)
 }
 
 // API definition Url - url where the swagger can be downloaded from
@@ -1044,7 +1056,7 @@ func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutput() ApiOAuthSettingsPt
 }
 
 func (o ApiOAuthSettingsOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx context.Context) ApiOAuthSettingsPtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettings) *ApiOAuthSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettings) *ApiOAuthSettings {
 		return &v
 	}).(ApiOAuthSettingsPtrOutput)
 }
@@ -1099,7 +1111,13 @@ func (o ApiOAuthSettingsPtrOutput) ToApiOAuthSettingsPtrOutputWithContext(ctx co
 }
 
 func (o ApiOAuthSettingsPtrOutput) Elem() ApiOAuthSettingsOutput {
-	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings { return *v }).(ApiOAuthSettingsOutput)
+	return o.ApplyT(func(v *ApiOAuthSettings) ApiOAuthSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettings
+		return ret
+	}).(ApiOAuthSettingsOutput)
 }
 
 // Resource provider client id
@@ -1528,7 +1546,7 @@ func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() Ap
 }
 
 func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return o.ApplyT(func(v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
 		return &v
 	}).(ApiOAuthSettingsResponsePtrOutput)
 }
@@ -1585,7 +1603,13 @@ func (o ApiOAuthSettingsResponsePtrOutput) ToApiOAuthSettingsResponsePtrOutputWi
 }
 
 func (o ApiOAuthSettingsResponsePtrOutput) Elem() ApiOAuthSettingsResponseOutput {
-	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse { return *v }).(ApiOAuthSettingsResponseOutput)
+	return o.ApplyT(func(v *ApiOAuthSettingsResponse) ApiOAuthSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOAuthSettingsResponse
+		return ret
+	}).(ApiOAuthSettingsResponseOutput)
 }
 
 // Resource provider client id
@@ -1778,7 +1802,7 @@ func (o ApiPoliciesOutput) ToApiPoliciesPtrOutput() ApiPoliciesPtrOutput {
 }
 
 func (o ApiPoliciesOutput) ToApiPoliciesPtrOutputWithContext(ctx context.Context) ApiPoliciesPtrOutput {
-	return o.ApplyT(func(v ApiPolicies) *ApiPolicies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPolicies) *ApiPolicies {
 		return &v
 	}).(ApiPoliciesPtrOutput)
 }
@@ -1833,7 +1857,13 @@ func (o ApiPoliciesPtrOutput) ToApiPoliciesPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ApiPoliciesPtrOutput) Elem() ApiPoliciesOutput {
-	return o.ApplyT(func(v *ApiPolicies) ApiPolicies { return *v }).(ApiPoliciesOutput)
+	return o.ApplyT(func(v *ApiPolicies) ApiPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPolicies
+		return ret
+	}).(ApiPoliciesOutput)
 }
 
 // Content of xml policy
@@ -2026,7 +2056,7 @@ func (o ApiPoliciesResponseOutput) ToApiPoliciesResponsePtrOutput() ApiPoliciesR
 }
 
 func (o ApiPoliciesResponseOutput) ToApiPoliciesResponsePtrOutputWithContext(ctx context.Context) ApiPoliciesResponsePtrOutput {
-	return o.ApplyT(func(v ApiPoliciesResponse) *ApiPoliciesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPoliciesResponse) *ApiPoliciesResponse {
 		return &v
 	}).(ApiPoliciesResponsePtrOutput)
 }
@@ -2081,7 +2111,13 @@ func (o ApiPoliciesResponsePtrOutput) ToApiPoliciesResponsePtrOutputWithContext(
 }
 
 func (o ApiPoliciesResponsePtrOutput) Elem() ApiPoliciesResponseOutput {
-	return o.ApplyT(func(v *ApiPoliciesResponse) ApiPoliciesResponse { return *v }).(ApiPoliciesResponseOutput)
+	return o.ApplyT(func(v *ApiPoliciesResponse) ApiPoliciesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ApiPoliciesResponse
+		return ret
+	}).(ApiPoliciesResponseOutput)
 }
 
 // Content of xml policy
@@ -2266,7 +2302,7 @@ func (o ArmPlanOutput) ToArmPlanPtrOutput() ArmPlanPtrOutput {
 }
 
 func (o ArmPlanOutput) ToArmPlanPtrOutputWithContext(ctx context.Context) ArmPlanPtrOutput {
-	return o.ApplyT(func(v ArmPlan) *ArmPlan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmPlan) *ArmPlan {
 		return &v
 	}).(ArmPlanPtrOutput)
 }
@@ -2311,7 +2347,13 @@ func (o ArmPlanPtrOutput) ToArmPlanPtrOutputWithContext(ctx context.Context) Arm
 }
 
 func (o ArmPlanPtrOutput) Elem() ArmPlanOutput {
-	return o.ApplyT(func(v *ArmPlan) ArmPlan { return *v }).(ArmPlanOutput)
+	return o.ApplyT(func(v *ArmPlan) ArmPlan {
+		if v != nil {
+			return *v
+		}
+		var ret ArmPlan
+		return ret
+	}).(ArmPlanOutput)
 }
 
 // The name
@@ -2476,7 +2518,7 @@ func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOu
 }
 
 func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
-	return o.ApplyT(func(v ArmPlanResponse) *ArmPlanResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmPlanResponse) *ArmPlanResponse {
 		return &v
 	}).(ArmPlanResponsePtrOutput)
 }
@@ -2521,7 +2563,13 @@ func (o ArmPlanResponsePtrOutput) ToArmPlanResponsePtrOutputWithContext(ctx cont
 }
 
 func (o ArmPlanResponsePtrOutput) Elem() ArmPlanResponseOutput {
-	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse { return *v }).(ArmPlanResponseOutput)
+	return o.ApplyT(func(v *ArmPlanResponse) ArmPlanResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ArmPlanResponse
+		return ret
+	}).(ArmPlanResponseOutput)
 }
 
 // The name
@@ -2698,7 +2746,7 @@ func (o BackendServiceDefinitionOutput) ToBackendServiceDefinitionPtrOutput() Ba
 }
 
 func (o BackendServiceDefinitionOutput) ToBackendServiceDefinitionPtrOutputWithContext(ctx context.Context) BackendServiceDefinitionPtrOutput {
-	return o.ApplyT(func(v BackendServiceDefinition) *BackendServiceDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceDefinition) *BackendServiceDefinition {
 		return &v
 	}).(BackendServiceDefinitionPtrOutput)
 }
@@ -2760,7 +2808,13 @@ func (o BackendServiceDefinitionPtrOutput) ToBackendServiceDefinitionPtrOutputWi
 }
 
 func (o BackendServiceDefinitionPtrOutput) Elem() BackendServiceDefinitionOutput {
-	return o.ApplyT(func(v *BackendServiceDefinition) BackendServiceDefinition { return *v }).(BackendServiceDefinitionOutput)
+	return o.ApplyT(func(v *BackendServiceDefinition) BackendServiceDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceDefinition
+		return ret
+	}).(BackendServiceDefinitionOutput)
 }
 
 // Service Urls per Hosting environment
@@ -2967,7 +3021,7 @@ func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionRespon
 }
 
 func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionResponsePtrOutputWithContext(ctx context.Context) BackendServiceDefinitionResponsePtrOutput {
-	return o.ApplyT(func(v BackendServiceDefinitionResponse) *BackendServiceDefinitionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceDefinitionResponse) *BackendServiceDefinitionResponse {
 		return &v
 	}).(BackendServiceDefinitionResponsePtrOutput)
 }
@@ -3029,7 +3083,13 @@ func (o BackendServiceDefinitionResponsePtrOutput) ToBackendServiceDefinitionRes
 }
 
 func (o BackendServiceDefinitionResponsePtrOutput) Elem() BackendServiceDefinitionResponseOutput {
-	return o.ApplyT(func(v *BackendServiceDefinitionResponse) BackendServiceDefinitionResponse { return *v }).(BackendServiceDefinitionResponseOutput)
+	return o.ApplyT(func(v *BackendServiceDefinitionResponse) BackendServiceDefinitionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackendServiceDefinitionResponse
+		return ret
+	}).(BackendServiceDefinitionResponseOutput)
 }
 
 // Service Urls per Hosting environment
@@ -3236,7 +3296,7 @@ func (o ConnectionErrorOutput) ToConnectionErrorPtrOutput() ConnectionErrorPtrOu
 }
 
 func (o ConnectionErrorOutput) ToConnectionErrorPtrOutputWithContext(ctx context.Context) ConnectionErrorPtrOutput {
-	return o.ApplyT(func(v ConnectionError) *ConnectionError {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionError) *ConnectionError {
 		return &v
 	}).(ConnectionErrorPtrOutput)
 }
@@ -3296,7 +3356,13 @@ func (o ConnectionErrorPtrOutput) ToConnectionErrorPtrOutputWithContext(ctx cont
 }
 
 func (o ConnectionErrorPtrOutput) Elem() ConnectionErrorOutput {
-	return o.ApplyT(func(v *ConnectionError) ConnectionError { return *v }).(ConnectionErrorOutput)
+	return o.ApplyT(func(v *ConnectionError) ConnectionError {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionError
+		return ret
+	}).(ConnectionErrorOutput)
 }
 
 // code of the status
@@ -3503,7 +3569,7 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutput() Conn
 }
 
 func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponse) *ConnectionErrorResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionErrorResponse) *ConnectionErrorResponse {
 		return &v
 	}).(ConnectionErrorResponsePtrOutput)
 }
@@ -3563,7 +3629,13 @@ func (o ConnectionErrorResponsePtrOutput) ToConnectionErrorResponsePtrOutputWith
 }
 
 func (o ConnectionErrorResponsePtrOutput) Elem() ConnectionErrorResponseOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse { return *v }).(ConnectionErrorResponseOutput)
+	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionErrorResponse
+		return ret
+	}).(ConnectionErrorResponseOutput)
 }
 
 // code of the status
@@ -3653,7 +3725,7 @@ type ConnectionParameter struct {
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings *ApiOAuthSettings `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *string `pulumi:"type"`
+	Type *ConnectionParameterType `pulumi:"type"`
 	// UI definitions
 	UiDefinition interface{} `pulumi:"uiDefinition"`
 }
@@ -3676,7 +3748,7 @@ type ConnectionParameterArgs struct {
 	// Settings defining OAuth flow for the back end provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type *ConnectionParameterType `pulumi:"type"`
+	Type ConnectionParameterTypePtrInput `pulumi:"type"`
 	// UI definitions
 	UiDefinition pulumi.Input `pulumi:"uiDefinition"`
 }
@@ -3744,8 +3816,8 @@ func (o ConnectionParameterOutput) OAuthSettings() ApiOAuthSettingsPtrOutput {
 }
 
 // Type of the parameter
-func (o ConnectionParameterOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionParameter) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ConnectionParameterOutput) Type() ConnectionParameterTypePtrOutput {
+	return o.ApplyT(func(v ConnectionParameter) *ConnectionParameterType { return v.Type }).(ConnectionParameterTypePtrOutput)
 }
 
 // UI definitions
@@ -4251,7 +4323,7 @@ type ConsentLinkInputParameter struct {
 	// Name of the parameter in the connection provider's oauthSettings
 	ParameterName *string `pulumi:"parameterName"`
 	// Principal type
-	PrincipalType *string `pulumi:"principalType"`
+	PrincipalType *PrincipalType `pulumi:"principalType"`
 	// Name of the parameter in the connection provider's oauthSettings
 	RedirectUrl *string `pulumi:"redirectUrl"`
 	// Tenant Id
@@ -4276,7 +4348,7 @@ type ConsentLinkInputParameterArgs struct {
 	// Name of the parameter in the connection provider's oauthSettings
 	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
 	// Principal type
-	PrincipalType *PrincipalType `pulumi:"principalType"`
+	PrincipalType PrincipalTypePtrInput `pulumi:"principalType"`
 	// Name of the parameter in the connection provider's oauthSettings
 	RedirectUrl pulumi.StringPtrInput `pulumi:"redirectUrl"`
 	// Tenant Id
@@ -4346,8 +4418,8 @@ func (o ConsentLinkInputParameterOutput) ParameterName() pulumi.StringPtrOutput 
 }
 
 // Principal type
-func (o ConsentLinkInputParameterOutput) PrincipalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.PrincipalType }).(pulumi.StringPtrOutput)
+func (o ConsentLinkInputParameterOutput) PrincipalType() PrincipalTypePtrOutput {
+	return o.ApplyT(func(v ConsentLinkInputParameter) *PrincipalType { return v.PrincipalType }).(PrincipalTypePtrOutput)
 }
 
 // Name of the parameter in the connection provider's oauthSettings
@@ -4932,7 +5004,7 @@ func (o ExpandedParentApiEntityOutput) ToExpandedParentApiEntityPtrOutput() Expa
 }
 
 func (o ExpandedParentApiEntityOutput) ToExpandedParentApiEntityPtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityPtrOutput {
-	return o.ApplyT(func(v ExpandedParentApiEntity) *ExpandedParentApiEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpandedParentApiEntity) *ExpandedParentApiEntity {
 		return &v
 	}).(ExpandedParentApiEntityPtrOutput)
 }
@@ -4987,7 +5059,13 @@ func (o ExpandedParentApiEntityPtrOutput) ToExpandedParentApiEntityPtrOutputWith
 }
 
 func (o ExpandedParentApiEntityPtrOutput) Elem() ExpandedParentApiEntityOutput {
-	return o.ApplyT(func(v *ExpandedParentApiEntity) ExpandedParentApiEntity { return *v }).(ExpandedParentApiEntityOutput)
+	return o.ApplyT(func(v *ExpandedParentApiEntity) ExpandedParentApiEntity {
+		if v != nil {
+			return *v
+		}
+		var ret ExpandedParentApiEntity
+		return ret
+	}).(ExpandedParentApiEntityOutput)
 }
 
 // Id of connection provider
@@ -5180,7 +5258,7 @@ func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponse
 }
 
 func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponsePtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponsePtrOutput {
-	return o.ApplyT(func(v ExpandedParentApiEntityResponse) *ExpandedParentApiEntityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpandedParentApiEntityResponse) *ExpandedParentApiEntityResponse {
 		return &v
 	}).(ExpandedParentApiEntityResponsePtrOutput)
 }
@@ -5235,7 +5313,13 @@ func (o ExpandedParentApiEntityResponsePtrOutput) ToExpandedParentApiEntityRespo
 }
 
 func (o ExpandedParentApiEntityResponsePtrOutput) Elem() ExpandedParentApiEntityResponseOutput {
-	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) ExpandedParentApiEntityResponse { return *v }).(ExpandedParentApiEntityResponseOutput)
+	return o.ApplyT(func(v *ExpandedParentApiEntityResponse) ExpandedParentApiEntityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ExpandedParentApiEntityResponse
+		return ret
+	}).(ExpandedParentApiEntityResponseOutput)
 }
 
 // Id of connection provider
@@ -5448,7 +5532,7 @@ func (o GeneralApiInformationOutput) ToGeneralApiInformationPtrOutput() GeneralA
 }
 
 func (o GeneralApiInformationOutput) ToGeneralApiInformationPtrOutputWithContext(ctx context.Context) GeneralApiInformationPtrOutput {
-	return o.ApplyT(func(v GeneralApiInformation) *GeneralApiInformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneralApiInformation) *GeneralApiInformation {
 		return &v
 	}).(GeneralApiInformationPtrOutput)
 }
@@ -5528,7 +5612,13 @@ func (o GeneralApiInformationPtrOutput) ToGeneralApiInformationPtrOutputWithCont
 }
 
 func (o GeneralApiInformationPtrOutput) Elem() GeneralApiInformationOutput {
-	return o.ApplyT(func(v *GeneralApiInformation) GeneralApiInformation { return *v }).(GeneralApiInformationOutput)
+	return o.ApplyT(func(v *GeneralApiInformation) GeneralApiInformation {
+		if v != nil {
+			return *v
+		}
+		var ret GeneralApiInformation
+		return ret
+	}).(GeneralApiInformationOutput)
 }
 
 // DefaultConnectionNameTemplate
@@ -5791,7 +5881,7 @@ func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponsePtrO
 }
 
 func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponsePtrOutputWithContext(ctx context.Context) GeneralApiInformationResponsePtrOutput {
-	return o.ApplyT(func(v GeneralApiInformationResponse) *GeneralApiInformationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneralApiInformationResponse) *GeneralApiInformationResponse {
 		return &v
 	}).(GeneralApiInformationResponsePtrOutput)
 }
@@ -5871,7 +5961,13 @@ func (o GeneralApiInformationResponsePtrOutput) ToGeneralApiInformationResponseP
 }
 
 func (o GeneralApiInformationResponsePtrOutput) Elem() GeneralApiInformationResponseOutput {
-	return o.ApplyT(func(v *GeneralApiInformationResponse) GeneralApiInformationResponse { return *v }).(GeneralApiInformationResponseOutput)
+	return o.ApplyT(func(v *GeneralApiInformationResponse) GeneralApiInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret GeneralApiInformationResponse
+		return ret
+	}).(GeneralApiInformationResponseOutput)
 }
 
 // DefaultConnectionNameTemplate
@@ -6706,7 +6802,7 @@ func (o ResponseMessageEnvelopeApiEntityOutput) ToResponseMessageEnvelopeApiEnti
 }
 
 func (o ResponseMessageEnvelopeApiEntityOutput) ToResponseMessageEnvelopeApiEntityPtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityPtrOutput {
-	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntity) *ResponseMessageEnvelopeApiEntity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseMessageEnvelopeApiEntity) *ResponseMessageEnvelopeApiEntity {
 		return &v
 	}).(ResponseMessageEnvelopeApiEntityPtrOutput)
 }
@@ -6768,7 +6864,13 @@ func (o ResponseMessageEnvelopeApiEntityPtrOutput) ToResponseMessageEnvelopeApiE
 }
 
 func (o ResponseMessageEnvelopeApiEntityPtrOutput) Elem() ResponseMessageEnvelopeApiEntityOutput {
-	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) ResponseMessageEnvelopeApiEntity { return *v }).(ResponseMessageEnvelopeApiEntityOutput)
+	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntity) ResponseMessageEnvelopeApiEntity {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseMessageEnvelopeApiEntity
+		return ret
+	}).(ResponseMessageEnvelopeApiEntityOutput)
 }
 
 // Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
@@ -6981,7 +7083,7 @@ func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelop
 }
 
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return o.ApplyT(func(v ResponseMessageEnvelopeApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseMessageEnvelopeApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse {
 		return &v
 	}).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
 }
@@ -7043,7 +7145,13 @@ func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) ToResponseMessageEnve
 }
 
 func (o ResponseMessageEnvelopeApiEntityResponsePtrOutput) Elem() ResponseMessageEnvelopeApiEntityResponseOutput {
-	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) ResponseMessageEnvelopeApiEntityResponse { return *v }).(ResponseMessageEnvelopeApiEntityResponseOutput)
+	return o.ApplyT(func(v *ResponseMessageEnvelopeApiEntityResponse) ResponseMessageEnvelopeApiEntityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseMessageEnvelopeApiEntityResponse
+		return ret
+	}).(ResponseMessageEnvelopeApiEntityResponseOutput)
 }
 
 // Resource Id. Typically id is populated only for responses to GET requests. Caller is responsible for passing in this
@@ -7240,7 +7348,7 @@ func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutput() SkuDescriptionPtrOutpu
 }
 
 func (o SkuDescriptionOutput) ToSkuDescriptionPtrOutputWithContext(ctx context.Context) SkuDescriptionPtrOutput {
-	return o.ApplyT(func(v SkuDescription) *SkuDescription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescription) *SkuDescription {
 		return &v
 	}).(SkuDescriptionPtrOutput)
 }
@@ -7285,7 +7393,13 @@ func (o SkuDescriptionPtrOutput) ToSkuDescriptionPtrOutputWithContext(ctx contex
 }
 
 func (o SkuDescriptionPtrOutput) Elem() SkuDescriptionOutput {
-	return o.ApplyT(func(v *SkuDescription) SkuDescription { return *v }).(SkuDescriptionOutput)
+	return o.ApplyT(func(v *SkuDescription) SkuDescription {
+		if v != nil {
+			return *v
+		}
+		var ret SkuDescription
+		return ret
+	}).(SkuDescriptionOutput)
 }
 
 // Current number of instances assigned to the resource
@@ -7450,7 +7564,7 @@ func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutput() SkuDes
 }
 
 func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return o.ApplyT(func(v SkuDescriptionResponse) *SkuDescriptionResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescriptionResponse) *SkuDescriptionResponse {
 		return &v
 	}).(SkuDescriptionResponsePtrOutput)
 }
@@ -7495,7 +7609,13 @@ func (o SkuDescriptionResponsePtrOutput) ToSkuDescriptionResponsePtrOutputWithCo
 }
 
 func (o SkuDescriptionResponsePtrOutput) Elem() SkuDescriptionResponseOutput {
-	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse { return *v }).(SkuDescriptionResponseOutput)
+	return o.ApplyT(func(v *SkuDescriptionResponse) SkuDescriptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SkuDescriptionResponse
+		return ret
+	}).(SkuDescriptionResponseOutput)
 }
 
 // Current number of instances assigned to the resource

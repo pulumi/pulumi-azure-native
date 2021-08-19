@@ -122,7 +122,7 @@ func (o CompanyInfoOutput) ToCompanyInfoPtrOutput() CompanyInfoPtrOutput {
 }
 
 func (o CompanyInfoOutput) ToCompanyInfoPtrOutputWithContext(ctx context.Context) CompanyInfoPtrOutput {
-	return o.ApplyT(func(v CompanyInfo) *CompanyInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompanyInfo) *CompanyInfo {
 		return &v
 	}).(CompanyInfoPtrOutput)
 }
@@ -167,7 +167,13 @@ func (o CompanyInfoPtrOutput) ToCompanyInfoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o CompanyInfoPtrOutput) Elem() CompanyInfoOutput {
-	return o.ApplyT(func(v *CompanyInfo) CompanyInfo { return *v }).(CompanyInfoOutput)
+	return o.ApplyT(func(v *CompanyInfo) CompanyInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CompanyInfo
+		return ret
+	}).(CompanyInfoOutput)
 }
 
 // Business of the company
@@ -332,7 +338,7 @@ func (o CompanyInfoResponseOutput) ToCompanyInfoResponsePtrOutput() CompanyInfoR
 }
 
 func (o CompanyInfoResponseOutput) ToCompanyInfoResponsePtrOutputWithContext(ctx context.Context) CompanyInfoResponsePtrOutput {
-	return o.ApplyT(func(v CompanyInfoResponse) *CompanyInfoResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompanyInfoResponse) *CompanyInfoResponse {
 		return &v
 	}).(CompanyInfoResponsePtrOutput)
 }
@@ -377,7 +383,13 @@ func (o CompanyInfoResponsePtrOutput) ToCompanyInfoResponsePtrOutputWithContext(
 }
 
 func (o CompanyInfoResponsePtrOutput) Elem() CompanyInfoResponseOutput {
-	return o.ApplyT(func(v *CompanyInfoResponse) CompanyInfoResponse { return *v }).(CompanyInfoResponseOutput)
+	return o.ApplyT(func(v *CompanyInfoResponse) CompanyInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CompanyInfoResponse
+		return ret
+	}).(CompanyInfoResponseOutput)
 }
 
 // Business of the company
@@ -550,7 +562,7 @@ func (o ElasticCloudDeploymentResponseOutput) ToElasticCloudDeploymentResponsePt
 }
 
 func (o ElasticCloudDeploymentResponseOutput) ToElasticCloudDeploymentResponsePtrOutputWithContext(ctx context.Context) ElasticCloudDeploymentResponsePtrOutput {
-	return o.ApplyT(func(v ElasticCloudDeploymentResponse) *ElasticCloudDeploymentResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticCloudDeploymentResponse) *ElasticCloudDeploymentResponse {
 		return &v
 	}).(ElasticCloudDeploymentResponsePtrOutput)
 }
@@ -605,7 +617,13 @@ func (o ElasticCloudDeploymentResponsePtrOutput) ToElasticCloudDeploymentRespons
 }
 
 func (o ElasticCloudDeploymentResponsePtrOutput) Elem() ElasticCloudDeploymentResponseOutput {
-	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) ElasticCloudDeploymentResponse { return *v }).(ElasticCloudDeploymentResponseOutput)
+	return o.ApplyT(func(v *ElasticCloudDeploymentResponse) ElasticCloudDeploymentResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticCloudDeploymentResponse
+		return ret
+	}).(ElasticCloudDeploymentResponseOutput)
 }
 
 // Associated Azure subscription Id for the elastic deployment.
@@ -782,7 +800,7 @@ func (o ElasticCloudUserResponseOutput) ToElasticCloudUserResponsePtrOutput() El
 }
 
 func (o ElasticCloudUserResponseOutput) ToElasticCloudUserResponsePtrOutputWithContext(ctx context.Context) ElasticCloudUserResponsePtrOutput {
-	return o.ApplyT(func(v ElasticCloudUserResponse) *ElasticCloudUserResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticCloudUserResponse) *ElasticCloudUserResponse {
 		return &v
 	}).(ElasticCloudUserResponsePtrOutput)
 }
@@ -817,7 +835,13 @@ func (o ElasticCloudUserResponsePtrOutput) ToElasticCloudUserResponsePtrOutputWi
 }
 
 func (o ElasticCloudUserResponsePtrOutput) Elem() ElasticCloudUserResponseOutput {
-	return o.ApplyT(func(v *ElasticCloudUserResponse) ElasticCloudUserResponse { return *v }).(ElasticCloudUserResponseOutput)
+	return o.ApplyT(func(v *ElasticCloudUserResponse) ElasticCloudUserResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticCloudUserResponse
+		return ret
+	}).(ElasticCloudUserResponseOutput)
 }
 
 // Elastic cloud default dashboard sso URL of the Elastic user account.
@@ -950,7 +974,7 @@ func (o ElasticPropertiesResponseOutput) ToElasticPropertiesResponsePtrOutput() 
 }
 
 func (o ElasticPropertiesResponseOutput) ToElasticPropertiesResponsePtrOutputWithContext(ctx context.Context) ElasticPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ElasticPropertiesResponse) *ElasticPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticPropertiesResponse) *ElasticPropertiesResponse {
 		return &v
 	}).(ElasticPropertiesResponsePtrOutput)
 }
@@ -980,7 +1004,13 @@ func (o ElasticPropertiesResponsePtrOutput) ToElasticPropertiesResponsePtrOutput
 }
 
 func (o ElasticPropertiesResponsePtrOutput) Elem() ElasticPropertiesResponseOutput {
-	return o.ApplyT(func(v *ElasticPropertiesResponse) ElasticPropertiesResponse { return *v }).(ElasticPropertiesResponseOutput)
+	return o.ApplyT(func(v *ElasticPropertiesResponse) ElasticPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ElasticPropertiesResponse
+		return ret
+	}).(ElasticPropertiesResponseOutput)
 }
 
 // Details of the elastic cloud deployment.
@@ -1335,7 +1365,7 @@ func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutput() IdentityProper
 }
 
 func (o IdentityPropertiesOutput) ToIdentityPropertiesPtrOutputWithContext(ctx context.Context) IdentityPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentityProperties) *IdentityProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProperties) *IdentityProperties {
 		return &v
 	}).(IdentityPropertiesPtrOutput)
 }
@@ -1360,7 +1390,13 @@ func (o IdentityPropertiesPtrOutput) ToIdentityPropertiesPtrOutputWithContext(ct
 }
 
 func (o IdentityPropertiesPtrOutput) Elem() IdentityPropertiesOutput {
-	return o.ApplyT(func(v *IdentityProperties) IdentityProperties { return *v }).(IdentityPropertiesOutput)
+	return o.ApplyT(func(v *IdentityProperties) IdentityProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProperties
+		return ret
+	}).(IdentityPropertiesOutput)
 }
 
 // Managed identity type.
@@ -1477,7 +1513,7 @@ func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutput(
 }
 
 func (o IdentityPropertiesResponseOutput) ToIdentityPropertiesResponsePtrOutputWithContext(ctx context.Context) IdentityPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v IdentityPropertiesResponse) *IdentityPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPropertiesResponse) *IdentityPropertiesResponse {
 		return &v
 	}).(IdentityPropertiesResponsePtrOutput)
 }
@@ -1512,7 +1548,13 @@ func (o IdentityPropertiesResponsePtrOutput) ToIdentityPropertiesResponsePtrOutp
 }
 
 func (o IdentityPropertiesResponsePtrOutput) Elem() IdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse { return *v }).(IdentityPropertiesResponseOutput)
+	return o.ApplyT(func(v *IdentityPropertiesResponse) IdentityPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPropertiesResponse
+		return ret
+	}).(IdentityPropertiesResponseOutput)
 }
 
 // The identity ID.
@@ -1653,7 +1695,7 @@ func (o LogRulesOutput) ToLogRulesPtrOutput() LogRulesPtrOutput {
 }
 
 func (o LogRulesOutput) ToLogRulesPtrOutputWithContext(ctx context.Context) LogRulesPtrOutput {
-	return o.ApplyT(func(v LogRules) *LogRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogRules) *LogRules {
 		return &v
 	}).(LogRulesPtrOutput)
 }
@@ -1693,7 +1735,13 @@ func (o LogRulesPtrOutput) ToLogRulesPtrOutputWithContext(ctx context.Context) L
 }
 
 func (o LogRulesPtrOutput) Elem() LogRulesOutput {
-	return o.ApplyT(func(v *LogRules) LogRules { return *v }).(LogRulesOutput)
+	return o.ApplyT(func(v *LogRules) LogRules {
+		if v != nil {
+			return *v
+		}
+		var ret LogRules
+		return ret
+	}).(LogRulesOutput)
 }
 
 // List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
@@ -1844,7 +1892,7 @@ func (o LogRulesResponseOutput) ToLogRulesResponsePtrOutput() LogRulesResponsePt
 }
 
 func (o LogRulesResponseOutput) ToLogRulesResponsePtrOutputWithContext(ctx context.Context) LogRulesResponsePtrOutput {
-	return o.ApplyT(func(v LogRulesResponse) *LogRulesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogRulesResponse) *LogRulesResponse {
 		return &v
 	}).(LogRulesResponsePtrOutput)
 }
@@ -1884,7 +1932,13 @@ func (o LogRulesResponsePtrOutput) ToLogRulesResponsePtrOutputWithContext(ctx co
 }
 
 func (o LogRulesResponsePtrOutput) Elem() LogRulesResponseOutput {
-	return o.ApplyT(func(v *LogRulesResponse) LogRulesResponse { return *v }).(LogRulesResponseOutput)
+	return o.ApplyT(func(v *LogRulesResponse) LogRulesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LogRulesResponse
+		return ret
+	}).(LogRulesResponseOutput)
 }
 
 // List of filtering tags to be used for capturing logs. This only takes effect if SendActivityLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
@@ -2031,7 +2085,7 @@ func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutput() MonitorPropertie
 }
 
 func (o MonitorPropertiesOutput) ToMonitorPropertiesPtrOutputWithContext(ctx context.Context) MonitorPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *MonitorProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorProperties) *MonitorProperties {
 		return &v
 	}).(MonitorPropertiesPtrOutput)
 }
@@ -2066,7 +2120,13 @@ func (o MonitorPropertiesPtrOutput) ToMonitorPropertiesPtrOutputWithContext(ctx 
 }
 
 func (o MonitorPropertiesPtrOutput) Elem() MonitorPropertiesOutput {
-	return o.ApplyT(func(v *MonitorProperties) MonitorProperties { return *v }).(MonitorPropertiesOutput)
+	return o.ApplyT(func(v *MonitorProperties) MonitorProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorProperties
+		return ret
+	}).(MonitorPropertiesOutput)
 }
 
 // Flag specifying if the resource monitoring is enabled or disabled.
@@ -2209,7 +2269,7 @@ func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutput() 
 }
 
 func (o MonitorPropertiesResponseOutput) ToMonitorPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitorPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *MonitorPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorPropertiesResponse) *MonitorPropertiesResponse {
 		return &v
 	}).(MonitorPropertiesResponsePtrOutput)
 }
@@ -2253,7 +2313,13 @@ func (o MonitorPropertiesResponsePtrOutput) ToMonitorPropertiesResponsePtrOutput
 }
 
 func (o MonitorPropertiesResponsePtrOutput) Elem() MonitorPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse { return *v }).(MonitorPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitorPropertiesResponse) MonitorPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorPropertiesResponse
+		return ret
+	}).(MonitorPropertiesResponseOutput)
 }
 
 // Elastic cloud properties.
@@ -2523,7 +2589,7 @@ func (o MonitoringTagRulesPropertiesOutput) ToMonitoringTagRulesPropertiesPtrOut
 }
 
 func (o MonitoringTagRulesPropertiesOutput) ToMonitoringTagRulesPropertiesPtrOutputWithContext(ctx context.Context) MonitoringTagRulesPropertiesPtrOutput {
-	return o.ApplyT(func(v MonitoringTagRulesProperties) *MonitoringTagRulesProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringTagRulesProperties) *MonitoringTagRulesProperties {
 		return &v
 	}).(MonitoringTagRulesPropertiesPtrOutput)
 }
@@ -2553,7 +2619,13 @@ func (o MonitoringTagRulesPropertiesPtrOutput) ToMonitoringTagRulesPropertiesPtr
 }
 
 func (o MonitoringTagRulesPropertiesPtrOutput) Elem() MonitoringTagRulesPropertiesOutput {
-	return o.ApplyT(func(v *MonitoringTagRulesProperties) MonitoringTagRulesProperties { return *v }).(MonitoringTagRulesPropertiesOutput)
+	return o.ApplyT(func(v *MonitoringTagRulesProperties) MonitoringTagRulesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringTagRulesProperties
+		return ret
+	}).(MonitoringTagRulesPropertiesOutput)
 }
 
 // Rules for sending logs.
@@ -2676,7 +2748,7 @@ func (o MonitoringTagRulesPropertiesResponseOutput) ToMonitoringTagRulesProperti
 }
 
 func (o MonitoringTagRulesPropertiesResponseOutput) ToMonitoringTagRulesPropertiesResponsePtrOutputWithContext(ctx context.Context) MonitoringTagRulesPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MonitoringTagRulesPropertiesResponse) *MonitoringTagRulesPropertiesResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringTagRulesPropertiesResponse) *MonitoringTagRulesPropertiesResponse {
 		return &v
 	}).(MonitoringTagRulesPropertiesResponsePtrOutput)
 }
@@ -2706,7 +2778,13 @@ func (o MonitoringTagRulesPropertiesResponsePtrOutput) ToMonitoringTagRulesPrope
 }
 
 func (o MonitoringTagRulesPropertiesResponsePtrOutput) Elem() MonitoringTagRulesPropertiesResponseOutput {
-	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) MonitoringTagRulesPropertiesResponse { return *v }).(MonitoringTagRulesPropertiesResponseOutput)
+	return o.ApplyT(func(v *MonitoringTagRulesPropertiesResponse) MonitoringTagRulesPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringTagRulesPropertiesResponse
+		return ret
+	}).(MonitoringTagRulesPropertiesResponseOutput)
 }
 
 // Rules for sending logs.
@@ -2825,7 +2903,7 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutput() ResourceSkuPtrOutput {
 }
 
 func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context) ResourceSkuPtrOutput {
-	return o.ApplyT(func(v ResourceSku) *ResourceSku {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSku) *ResourceSku {
 		return &v
 	}).(ResourceSkuPtrOutput)
 }
@@ -2850,7 +2928,13 @@ func (o ResourceSkuPtrOutput) ToResourceSkuPtrOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
-	return o.ApplyT(func(v *ResourceSku) ResourceSku { return *v }).(ResourceSkuOutput)
+	return o.ApplyT(func(v *ResourceSku) ResourceSku {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSku
+		return ret
+	}).(ResourceSkuOutput)
 }
 
 // Name of the SKU.
@@ -2959,7 +3043,7 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuR
 }
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceSkuResponse) *ResourceSkuResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
 		return &v
 	}).(ResourceSkuResponsePtrOutput)
 }
@@ -2984,7 +3068,13 @@ func (o ResourceSkuResponsePtrOutput) ToResourceSkuResponsePtrOutputWithContext(
 }
 
 func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse { return *v }).(ResourceSkuResponseOutput)
+	return o.ApplyT(func(v *ResourceSkuResponse) ResourceSkuResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceSkuResponse
+		return ret
+	}).(ResourceSkuResponseOutput)
 }
 
 // Name of the SKU.
@@ -3113,7 +3203,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResp
 }
 
 func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *SystemDataResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
 		return &v
 	}).(SystemDataResponsePtrOutput)
 }
@@ -3163,7 +3253,13 @@ func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ct
 }
 
 func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse { return *v }).(SystemDataResponseOutput)
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
 }
 
 // The timestamp of resource creation (UTC).
@@ -3338,7 +3434,7 @@ func (o UserInfoOutput) ToUserInfoPtrOutput() UserInfoPtrOutput {
 }
 
 func (o UserInfoOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) UserInfoPtrOutput {
-	return o.ApplyT(func(v UserInfo) *UserInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserInfo) *UserInfo {
 		return &v
 	}).(UserInfoPtrOutput)
 }
@@ -3383,7 +3479,13 @@ func (o UserInfoPtrOutput) ToUserInfoPtrOutputWithContext(ctx context.Context) U
 }
 
 func (o UserInfoPtrOutput) Elem() UserInfoOutput {
-	return o.ApplyT(func(v *UserInfo) UserInfo { return *v }).(UserInfoOutput)
+	return o.ApplyT(func(v *UserInfo) UserInfo {
+		if v != nil {
+			return *v
+		}
+		var ret UserInfo
+		return ret
+	}).(UserInfoOutput)
 }
 
 // Company information of the user to be passed to partners.
