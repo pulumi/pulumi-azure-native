@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// The output configuration of a job step.
+    /// </summary>
     [OutputType]
     public sealed class JobStepOutputResponse
     {

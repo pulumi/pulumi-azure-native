@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
+    /// <summary>
+    /// The managed application provider authorization.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationAuthorizationResponse
     {

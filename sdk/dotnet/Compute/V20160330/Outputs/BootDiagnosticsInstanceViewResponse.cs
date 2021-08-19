@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160330.Outputs
 {
 
+    /// <summary>
+    /// The instance view of a virtual machine boot diagnostics.
+    /// </summary>
     [OutputType]
     public sealed class BootDiagnosticsInstanceViewResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Defines the Web Application Firewall policy for each routing rule (if applicable)
+    /// </summary>
     [OutputType]
     public sealed class RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLink
     {

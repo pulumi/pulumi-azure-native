@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The sharepoint online list resource dataset.
+    /// </summary>
     [OutputType]
     public sealed class SharePointOnlineListResourceDatasetResponse
     {

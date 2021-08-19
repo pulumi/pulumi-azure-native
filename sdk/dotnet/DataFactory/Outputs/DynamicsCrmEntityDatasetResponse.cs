@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Dynamics CRM entity dataset.
+    /// </summary>
     [OutputType]
     public sealed class DynamicsCrmEntityDatasetResponse
     {

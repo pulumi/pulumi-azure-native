@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// A copy activity SAP Cloud for Customer sink.
+    /// </summary>
     [OutputType]
     public sealed class SapCloudForCustomerSinkResponse
     {

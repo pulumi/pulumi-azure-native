@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Defines NIC IP configuration properties.
+    /// </summary>
     [OutputType]
     public sealed class NicIpConfigurationResourceSettingsResponse
     {

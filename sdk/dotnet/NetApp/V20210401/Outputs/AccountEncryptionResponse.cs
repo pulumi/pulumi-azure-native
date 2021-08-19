@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Encryption settings
+    /// </summary>
     [OutputType]
     public sealed class AccountEncryptionResponse
     {

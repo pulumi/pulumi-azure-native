@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601.Inputs
         /// The custom details.
         /// </summary>
         [Input("customDetails", required: true)]
-        public Input<object> CustomDetails { get; set; } = null!;
+        public object CustomDetails { get; set; } = null!;
 
         [Input("failoverDirections", required: true)]
         private InputList<Union<string, Pulumi.AzureNative.RecoveryServices.V20210601.PossibleOperationsDirections>>? _failoverDirections;

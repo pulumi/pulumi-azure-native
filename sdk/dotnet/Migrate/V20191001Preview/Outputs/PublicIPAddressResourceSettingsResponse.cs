@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.V20191001Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the public IP address resource settings.
+    /// </summary>
     [OutputType]
     public sealed class PublicIPAddressResourceSettingsResponse
     {

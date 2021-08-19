@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20190301.Outputs
 {
 
+    /// <summary>
+    /// Enables or disables a capability on the virtual machine or virtual machine scale set.
+    /// </summary>
     [OutputType]
     public sealed class AdditionalCapabilitiesResponse
     {

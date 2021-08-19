@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Blob range
+    /// </summary>
     [OutputType]
     public sealed class BlobRestoreRangeResponse
     {

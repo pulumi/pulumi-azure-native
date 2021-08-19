@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Outputs
 {
 
+    /// <summary>
+    /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    /// </summary>
     [OutputType]
     public sealed class InputResponse
     {

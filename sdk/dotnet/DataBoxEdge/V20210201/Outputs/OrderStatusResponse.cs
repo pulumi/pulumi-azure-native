@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Represents a single status change.
+    /// </summary>
     [OutputType]
     public sealed class OrderStatusResponse
     {

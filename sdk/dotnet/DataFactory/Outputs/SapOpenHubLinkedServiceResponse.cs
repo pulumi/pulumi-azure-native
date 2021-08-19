@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// SAP Business Warehouse Open Hub Destination Linked Service.
+    /// </summary>
     [OutputType]
     public sealed class SapOpenHubLinkedServiceResponse
     {

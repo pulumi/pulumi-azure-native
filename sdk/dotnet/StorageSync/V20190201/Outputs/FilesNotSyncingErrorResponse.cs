@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20190201.Outputs
 {
 
+    /// <summary>
+    /// Files not syncing error object
+    /// </summary>
     [OutputType]
     public sealed class FilesNotSyncingErrorResponse
     {

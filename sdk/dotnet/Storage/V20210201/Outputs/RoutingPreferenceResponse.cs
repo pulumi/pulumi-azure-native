@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
+    /// </summary>
     [OutputType]
     public sealed class RoutingPreferenceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview.Outputs
 {
 
+    /// <summary>
+    /// Settings for how to dynamically override alert static details
+    /// </summary>
     [OutputType]
     public sealed class AlertDetailsOverrideResponse
     {

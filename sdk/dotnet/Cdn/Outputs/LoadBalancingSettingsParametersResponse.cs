@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Round-Robin load balancing settings for a backend pool
+    /// </summary>
     [OutputType]
     public sealed class LoadBalancingSettingsParametersResponse
     {

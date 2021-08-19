@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Azure Blob source.
+    /// </summary>
     [OutputType]
     public sealed class BlobSourceResponse
     {

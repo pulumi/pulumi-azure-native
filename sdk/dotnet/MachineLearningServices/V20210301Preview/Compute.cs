@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
         /// Compute properties
         /// </summary>
         [Input("properties")]
-        public Input<object>? Properties { get; set; }
+        public object? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

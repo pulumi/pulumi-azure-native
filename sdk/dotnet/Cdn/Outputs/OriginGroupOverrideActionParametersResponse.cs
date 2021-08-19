@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Defines the parameters for the origin group override action.
+    /// </summary>
     [OutputType]
     public sealed class OriginGroupOverrideActionParametersResponse
     {

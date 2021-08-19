@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Skip error file.
+    /// </summary>
     [OutputType]
     public sealed class SkipErrorFileResponse
     {

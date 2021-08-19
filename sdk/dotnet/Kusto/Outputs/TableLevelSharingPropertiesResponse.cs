@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Kusto.Outputs
 {
 
+    /// <summary>
+    /// Tables that will be included and excluded in the follower database
+    /// </summary>
     [OutputType]
     public sealed class TableLevelSharingPropertiesResponse
     {

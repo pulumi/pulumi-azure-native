@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines a managed rule group override setting.
+    /// </summary>
     [OutputType]
     public sealed class ManagedRuleGroupOverrideResponse
     {

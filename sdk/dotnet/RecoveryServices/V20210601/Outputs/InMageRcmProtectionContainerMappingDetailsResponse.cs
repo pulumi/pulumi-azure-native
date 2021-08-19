@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210601.Outputs
 {
 
+    /// <summary>
+    /// InMageRcm provider specific container mapping details.
+    /// </summary>
     [OutputType]
     public sealed class InMageRcmProtectionContainerMappingDetailsResponse
     {

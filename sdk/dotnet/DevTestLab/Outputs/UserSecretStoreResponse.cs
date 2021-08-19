@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties of a user's secret store.
+    /// </summary>
     [OutputType]
     public sealed class UserSecretStoreResponse
     {

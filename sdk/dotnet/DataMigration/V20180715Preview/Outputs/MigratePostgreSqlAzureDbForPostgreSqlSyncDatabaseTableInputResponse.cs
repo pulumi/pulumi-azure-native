@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Selected tables for the migration
+    /// </summary>
     [OutputType]
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseTableInputResponse
     {

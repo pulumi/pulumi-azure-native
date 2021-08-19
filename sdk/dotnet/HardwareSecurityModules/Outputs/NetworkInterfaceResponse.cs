@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HardwareSecurityModules.Outputs
 {
 
+    /// <summary>
+    /// The network interface definition.
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceResponse
     {

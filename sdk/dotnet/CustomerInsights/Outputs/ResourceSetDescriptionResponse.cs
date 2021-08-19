@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// The resource set description.
+    /// </summary>
     [OutputType]
     public sealed class ResourceSetDescriptionResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cache.V20180301.Outputs
 {
 
+    /// <summary>
+    /// Redis cache access keys.
+    /// </summary>
     [OutputType]
     public sealed class RedisAccessKeysResponse
     {

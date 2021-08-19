@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160810.Outputs
 {
 
+    /// <summary>
+    /// InMage specific protection profile details.
+    /// </summary>
     [OutputType]
     public sealed class InMagePolicyDetailsResponse
     {

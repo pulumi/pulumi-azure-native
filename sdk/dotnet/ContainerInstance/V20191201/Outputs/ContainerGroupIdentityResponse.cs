@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20191201.Outputs
 {
 
+    /// <summary>
+    /// Identity for the container group.
+    /// </summary>
     [OutputType]
     public sealed class ContainerGroupIdentityResponse
     {

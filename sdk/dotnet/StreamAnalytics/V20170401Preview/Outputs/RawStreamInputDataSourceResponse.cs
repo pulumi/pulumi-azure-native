@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.V20170401Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a raw input data source that contains stream data. This data source type is only applicable/usable when using the query testing API. You cannot create a job with this data source type or add an input of this data source type to an existing job.
+    /// </summary>
     [OutputType]
     public sealed class RawStreamInputDataSourceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Describes the properties of a run command parameter.
+    /// </summary>
     [OutputType]
     public sealed class RunCommandInputParameterResponse
     {

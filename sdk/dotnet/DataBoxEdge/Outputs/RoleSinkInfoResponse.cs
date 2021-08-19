@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.Outputs
 {
 
+    /// <summary>
+    /// Compute role against which events will be raised.
+    /// </summary>
     [OutputType]
     public sealed class RoleSinkInfoResponse
     {

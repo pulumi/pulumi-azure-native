@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes Advanced Audio Codec (AAC) audio encoding settings.
+    /// </summary>
     [OutputType]
     public sealed class AacAudioResponse
     {

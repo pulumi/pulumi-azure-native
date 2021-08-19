@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.Outputs
 {
 
+    /// <summary>
+    /// The Capacity Reservation properties.
+    /// </summary>
     [OutputType]
     public sealed class CapacityReservationPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180301.Outputs
 {
 
+    /// <summary>
+    /// Class containing DNS settings in a Traffic Manager profile.
+    /// </summary>
     [OutputType]
     public sealed class DnsConfigResponse
     {

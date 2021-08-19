@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20180531.Outputs
 {
 
+    /// <summary>
+    /// The schedule associated with a report config.
+    /// </summary>
     [OutputType]
     public sealed class ReportConfigScheduleResponse
     {

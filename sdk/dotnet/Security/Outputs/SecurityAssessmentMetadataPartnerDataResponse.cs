@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Describes the partner that created the assessment
+    /// </summary>
     [OutputType]
     public sealed class SecurityAssessmentMetadataPartnerDataResponse
     {

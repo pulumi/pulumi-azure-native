@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.Outputs
 {
 
+    /// <summary>
+    /// Image configurations of session host in a HostPool.
+    /// </summary>
     [OutputType]
     public sealed class ImageInfoPropertiesResponse
     {

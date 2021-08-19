@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// The target of the event.
+    /// </summary>
     [OutputType]
     public sealed class TargetResponse
     {

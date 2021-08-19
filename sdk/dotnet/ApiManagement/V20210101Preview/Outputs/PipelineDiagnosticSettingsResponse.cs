@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210101Preview.Outputs
 {
 
+    /// <summary>
+    /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+    /// </summary>
     [OutputType]
     public sealed class PipelineDiagnosticSettingsResponse
     {

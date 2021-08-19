@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Trusted client certificates of an application gateway.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayTrustedClientCertificateResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
+    /// <summary>
+    /// Blob index tag based filtering for blob objects
+    /// </summary>
     [OutputType]
     public sealed class TagFilterResponse
     {

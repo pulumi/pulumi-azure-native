@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Describes a container and its runtime properties.
+    /// </summary>
     [OutputType]
     public sealed class ContainerCodePackagePropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20200930.Outputs
 {
 
+    /// <summary>
+    /// The source image used for creating the disk.
+    /// </summary>
     [OutputType]
     public sealed class ImageDiskReferenceResponse
     {

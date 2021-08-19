@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview.Outputs
 {
 
+    /// <summary>
+    /// Guest configuration assignment properties.
+    /// </summary>
     [OutputType]
     public sealed class GuestConfigurationAssignmentPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs.V20160301.Outputs
 {
 
+    /// <summary>
+    /// The Sku description for a namespace
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Settings for user account that gets created on each on the nodes of a compute.
+    /// </summary>
     [OutputType]
     public sealed class UserAccountCredentialsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Dynamic Executor Allocation Properties
+    /// </summary>
     [OutputType]
     public sealed class DynamicExecutorAllocationResponse
     {

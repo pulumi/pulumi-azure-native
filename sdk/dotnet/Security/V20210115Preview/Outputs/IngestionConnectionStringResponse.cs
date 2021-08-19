@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20210115Preview.Outputs
 {
 
+    /// <summary>
+    /// Connection string for ingesting security data and logs
+    /// </summary>
     [OutputType]
     public sealed class IngestionConnectionStringResponse
     {

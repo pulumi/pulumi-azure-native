@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Subscription.Outputs
 {
 
+    /// <summary>
+    /// Put subscription creation result properties.
+    /// </summary>
     [OutputType]
     public sealed class PutAliasResponsePropertiesResponse
     {

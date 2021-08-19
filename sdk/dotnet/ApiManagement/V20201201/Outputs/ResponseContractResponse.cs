@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Operation response details.
+    /// </summary>
     [OutputType]
     public sealed class ResponseContractResponse
     {

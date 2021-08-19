@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20190601.Outputs
 {
 
+    /// <summary>
+    /// Tag filter information for the VM.
+    /// </summary>
     [OutputType]
     public sealed class TagSettingsPropertiesResponse
     {

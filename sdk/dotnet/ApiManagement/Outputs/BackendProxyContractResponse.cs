@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.Outputs
 {
 
+    /// <summary>
+    /// Details of the Backend WebProxy Server to use in the Request to Backend.
+    /// </summary>
     [OutputType]
     public sealed class BackendProxyContractResponse
     {

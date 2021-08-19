@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maps.V20210701Preview.Outputs
 {
 
+    /// <summary>
+    /// Linked resource is reference to a resource deployed in an Azure subscription, add the linked resource `uniqueName` value as an optional parameter for operations on Azure Maps Geospatial REST APIs.
+    /// </summary>
     [OutputType]
     public sealed class LinkedResourceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
+    /// <summary>
+    /// Additional information about Azure File Share backup item.
+    /// </summary>
     [OutputType]
     public sealed class AzureFileshareProtectedItemExtendedInfoResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20170301.Outputs
 {
 
+    /// <summary>
+    /// Api Version Set Contract details.
+    /// </summary>
     [OutputType]
     public sealed class ApiVersionSetContractResponse
     {

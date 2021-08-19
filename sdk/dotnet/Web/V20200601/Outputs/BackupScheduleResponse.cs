@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200601.Outputs
 {
 
+    /// <summary>
+    /// Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
+    /// </summary>
     [OutputType]
     public sealed class BackupScheduleResponse
     {

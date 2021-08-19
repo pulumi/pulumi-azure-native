@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Properties of the IoT Security solution's user defined resources.
+    /// </summary>
     [OutputType]
     public sealed class UserDefinedResourcesPropertiesResponse
     {

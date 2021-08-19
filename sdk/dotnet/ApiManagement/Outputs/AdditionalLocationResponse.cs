@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.Outputs
 {
 
+    /// <summary>
+    /// Description of an additional API Management resource location.
+    /// </summary>
     [OutputType]
     public sealed class AdditionalLocationResponse
     {

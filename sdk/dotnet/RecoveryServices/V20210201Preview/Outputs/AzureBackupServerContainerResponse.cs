@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// AzureBackupServer (DPMVenus) workload-specific protection container.
+    /// </summary>
     [OutputType]
     public sealed class AzureBackupServerContainerResponse
     {

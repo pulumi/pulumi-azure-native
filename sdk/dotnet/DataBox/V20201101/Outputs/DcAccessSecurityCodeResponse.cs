@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Dc access security code
+    /// </summary>
     [OutputType]
     public sealed class DcAccessSecurityCodeResponse
     {

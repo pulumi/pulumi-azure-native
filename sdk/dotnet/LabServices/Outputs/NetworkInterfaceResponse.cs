@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
+    /// <summary>
+    /// Network details of the environment
+    /// </summary>
     [OutputType]
     public sealed class NetworkInterfaceResponse
     {

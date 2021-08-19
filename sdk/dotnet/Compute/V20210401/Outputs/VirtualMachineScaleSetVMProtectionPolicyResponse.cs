@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The protection policy of a virtual machine scale set VM.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineScaleSetVMProtectionPolicyResponse
     {

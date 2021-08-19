@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Parameters that define the flow log format.
+    /// </summary>
     [OutputType]
     public sealed class FlowLogFormatParametersResponse
     {

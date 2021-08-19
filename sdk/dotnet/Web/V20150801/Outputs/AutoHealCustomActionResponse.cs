@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// AutoHealCustomAction - Describes the custom action to be executed
+    ///             when an auto heal rule is triggered.
+    /// </summary>
     [OutputType]
     public sealed class AutoHealCustomActionResponse
     {

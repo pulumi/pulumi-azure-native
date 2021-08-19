@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview.Outputs
 {
 
+    /// <summary>
+    /// ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
+    /// </summary>
     [OutputType]
     public sealed class ApiKeyAuthenticationResponse
     {

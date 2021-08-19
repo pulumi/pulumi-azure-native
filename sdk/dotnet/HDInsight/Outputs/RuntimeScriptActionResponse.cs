@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HDInsight.Outputs
 {
 
+    /// <summary>
+    /// Describes a script action on a running cluster.
+    /// </summary>
     [OutputType]
     public sealed class RuntimeScriptActionResponse
     {

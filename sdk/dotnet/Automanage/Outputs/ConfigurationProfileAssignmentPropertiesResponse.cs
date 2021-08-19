@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automanage.Outputs
 {
 
+    /// <summary>
+    /// Automanage configuration profile assignment properties.
+    /// </summary>
     [OutputType]
     public sealed class ConfigurationProfileAssignmentPropertiesResponse
     {

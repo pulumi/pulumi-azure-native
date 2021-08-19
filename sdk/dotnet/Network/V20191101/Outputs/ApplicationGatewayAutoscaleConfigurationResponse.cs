@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191101.Outputs
 {
 
+    /// <summary>
+    /// Application Gateway autoscale configuration.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayAutoscaleConfigurationResponse
     {

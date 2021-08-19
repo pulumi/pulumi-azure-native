@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Outputs
 {
 
+    /// <summary>
+    /// The plan object in an ARM, represents a marketplace plan
+    /// </summary>
     [OutputType]
     public sealed class ArmPlanResponse
     {

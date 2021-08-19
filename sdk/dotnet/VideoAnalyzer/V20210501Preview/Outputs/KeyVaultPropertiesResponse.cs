@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview.Outputs
 {
 
+    /// <summary>
+    /// The details for accessing the encryption keys in Key Vault.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultPropertiesResponse
     {

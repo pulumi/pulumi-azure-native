@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210210.Outputs
 {
 
+    /// <summary>
+    /// IaaS VM workload-specific container.
+    /// </summary>
     [OutputType]
     public sealed class IaaSVMContainerResponse
     {

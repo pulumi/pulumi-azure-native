@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
+    /// <summary>
+    /// SKU of Firewall policy.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicySkuResponse
     {

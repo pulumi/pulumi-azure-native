@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The gateway installation reference
+    /// </summary>
     [OutputType]
     public sealed class ConnectionGatewayReferenceResponse
     {

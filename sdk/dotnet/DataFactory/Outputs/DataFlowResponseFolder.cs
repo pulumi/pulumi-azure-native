@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
+    /// </summary>
     [OutputType]
     public sealed class DataFlowResponseFolder
     {

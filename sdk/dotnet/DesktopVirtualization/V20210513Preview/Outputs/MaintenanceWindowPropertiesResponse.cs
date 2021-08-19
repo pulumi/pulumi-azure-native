@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210513Preview.Outputs
 {
 
+    /// <summary>
+    /// Maintenance window starting hour and day of week.
+    /// </summary>
     [OutputType]
     public sealed class MaintenanceWindowPropertiesResponse
     {

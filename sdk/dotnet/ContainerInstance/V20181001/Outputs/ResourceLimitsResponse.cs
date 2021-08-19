@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.V20181001.Outputs
 {
 
+    /// <summary>
+    /// The resource limits.
+    /// </summary>
     [OutputType]
     public sealed class ResourceLimitsResponse
     {

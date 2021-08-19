@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Custom setup script properties for a managed dedicated integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class IntegrationRuntimeCustomSetupScriptPropertiesResponse
     {

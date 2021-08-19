@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties of a lab's support banner
+    /// </summary>
     [OutputType]
     public sealed class LabSupportPropertiesResponse
     {

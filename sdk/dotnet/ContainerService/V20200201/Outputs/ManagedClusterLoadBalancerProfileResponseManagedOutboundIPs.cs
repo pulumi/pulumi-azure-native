@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20200201.Outputs
 {
 
+    /// <summary>
+    /// Desired managed outbound IPs for the cluster load balancer.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.GuestConfiguration.V20180630Preview.Outputs
 {
 
+    /// <summary>
+    /// Configuration setting of LCM (Local Configuration Manager).
+    /// </summary>
     [OutputType]
     public sealed class ConfigurationSettingResponse
     {

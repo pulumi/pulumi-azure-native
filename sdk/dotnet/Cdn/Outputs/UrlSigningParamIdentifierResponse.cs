@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Defines how to identify a parameter for a specific purpose e.g. expires
+    /// </summary>
     [OutputType]
     public sealed class UrlSigningParamIdentifierResponse
     {

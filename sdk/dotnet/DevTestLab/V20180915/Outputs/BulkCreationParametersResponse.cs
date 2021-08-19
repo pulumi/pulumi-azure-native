@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20180915.Outputs
 {
 
+    /// <summary>
+    /// Parameters for creating multiple virtual machines as a single action.
+    /// </summary>
     [OutputType]
     public sealed class BulkCreationParametersResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Allows to disable rules within a rule group or an entire rule group.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationGatewayFirewallDisabledRuleGroupResponse
     {

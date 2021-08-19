@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180301.Outputs
 {
 
+    /// <summary>
+    /// An alert action.
+    /// </summary>
     [OutputType]
     public sealed class MetricAlertActionResponse
     {

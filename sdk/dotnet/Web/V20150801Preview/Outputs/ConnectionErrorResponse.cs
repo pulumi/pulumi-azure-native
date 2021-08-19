@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801Preview.Outputs
 {
 
+    /// <summary>
+    /// Connection error
+    /// </summary>
     [OutputType]
     public sealed class ConnectionErrorResponse
     {

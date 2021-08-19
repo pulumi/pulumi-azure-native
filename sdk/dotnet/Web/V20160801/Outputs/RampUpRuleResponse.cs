@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160801.Outputs
 {
 
+    /// <summary>
+    /// Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
+    /// </summary>
     [OutputType]
     public sealed class RampUpRuleResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.V20190101.Outputs
 {
 
+    /// <summary>
+    /// The configuration for sorting in the query.
+    /// </summary>
     [OutputType]
     public sealed class QuerySortingConfigurationResponse
     {

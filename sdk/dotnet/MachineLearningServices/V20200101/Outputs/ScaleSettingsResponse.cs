@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200101.Outputs
 {
 
+    /// <summary>
+    /// scale settings for AML Compute
+    /// </summary>
     [OutputType]
     public sealed class ScaleSettingsResponse
     {

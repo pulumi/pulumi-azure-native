@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Peering.V20200101Preview.Outputs
 {
 
+    /// <summary>
+    /// The SKU that defines the tier and kind of the peering.
+    /// </summary>
     [OutputType]
     public sealed class PeeringSkuResponse
     {

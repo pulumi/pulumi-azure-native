@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.Outputs
 {
 
+    /// <summary>
+    /// The definition of a Test.
+    /// </summary>
     [OutputType]
     public sealed class TestResponse
     {

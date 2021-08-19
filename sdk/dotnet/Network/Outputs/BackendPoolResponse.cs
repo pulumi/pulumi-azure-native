@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// A backend pool is a collection of backends that can be routed to.
+    /// </summary>
     [OutputType]
     public sealed class BackendPoolResponse
     {

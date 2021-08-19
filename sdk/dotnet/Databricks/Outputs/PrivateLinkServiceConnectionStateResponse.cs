@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.Outputs
 {
 
+    /// <summary>
+    /// The current state of a private endpoint connection
+    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStateResponse
     {

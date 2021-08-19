@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
+    /// <summary>
+    /// The schedule associated with the export.
+    /// </summary>
     [OutputType]
     public sealed class ExportScheduleResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Cloud endpoint change enumeration activity object
+    /// </summary>
     [OutputType]
     public sealed class CloudEndpointChangeEnumerationActivityResponse
     {

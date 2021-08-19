@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool.V20200315Preview.Outputs
 {
 
+    /// <summary>
+    /// Response properties for iSCSI target portal group.
+    /// </summary>
     [OutputType]
     public sealed class TargetPortalGroupResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridNetwork.Outputs
 {
 
+    /// <summary>
+    /// The image reference properties.
+    /// </summary>
     [OutputType]
     public sealed class ImageReferenceResponse
     {

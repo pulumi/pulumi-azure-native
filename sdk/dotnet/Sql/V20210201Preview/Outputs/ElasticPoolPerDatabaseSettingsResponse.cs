@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Per database settings of an elastic pool.
+    /// </summary>
     [OutputType]
     public sealed class ElasticPoolPerDatabaseSettingsResponse
     {

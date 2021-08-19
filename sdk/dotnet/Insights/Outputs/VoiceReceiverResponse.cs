@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// A voice receiver.
+    /// </summary>
     [OutputType]
     public sealed class VoiceReceiverResponse
     {

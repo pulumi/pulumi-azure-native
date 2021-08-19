@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Exchange data type connection.
+    /// </summary>
     [OutputType]
     public sealed class OfficeDataConnectorDataTypesResponseExchange
     {

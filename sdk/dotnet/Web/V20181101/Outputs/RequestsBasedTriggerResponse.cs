@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20181101.Outputs
 {
 
+    /// <summary>
+    /// Trigger based on total requests.
+    /// </summary>
     [OutputType]
     public sealed class RequestsBasedTriggerResponse
     {

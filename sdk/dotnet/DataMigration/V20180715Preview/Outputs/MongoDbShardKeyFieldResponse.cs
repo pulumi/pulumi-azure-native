@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a field reference within a MongoDB shard key
+    /// </summary>
     [OutputType]
     public sealed class MongoDbShardKeyFieldResponse
     {

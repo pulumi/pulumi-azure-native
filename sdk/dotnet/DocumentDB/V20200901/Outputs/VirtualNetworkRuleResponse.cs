@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Virtual Network ACL Rule object
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkRuleResponse
     {

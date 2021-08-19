@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetApp.V20200701.Outputs
 {
 
+    /// <summary>
+    /// Volume Backup Properties
+    /// </summary>
     [OutputType]
     public sealed class VolumeBackupPropertiesResponse
     {

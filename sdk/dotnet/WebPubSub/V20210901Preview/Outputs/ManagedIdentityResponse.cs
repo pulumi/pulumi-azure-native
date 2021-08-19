@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.WebPubSub.V20210901Preview.Outputs
 {
 
+    /// <summary>
+    /// A class represent managed identities used for request and response
+    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityResponse
     {

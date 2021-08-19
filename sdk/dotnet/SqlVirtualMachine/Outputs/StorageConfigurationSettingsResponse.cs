@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
+    /// <summary>
+    /// Storage Configurations for SQL Data, Log and TempDb.
+    /// </summary>
     [OutputType]
     public sealed class StorageConfigurationSettingsResponse
     {

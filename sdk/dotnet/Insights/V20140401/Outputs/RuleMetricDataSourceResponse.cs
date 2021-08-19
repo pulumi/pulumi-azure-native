@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20140401.Outputs
 {
 
+    /// <summary>
+    /// A rule metric data source. The discriminator value is always RuleMetricDataSource in this case.
+    /// </summary>
     [OutputType]
     public sealed class RuleMetricDataSourceResponse
     {

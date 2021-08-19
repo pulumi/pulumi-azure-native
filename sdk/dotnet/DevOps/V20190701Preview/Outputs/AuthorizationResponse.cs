@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevOps.V20190701Preview.Outputs
 {
 
+    /// <summary>
+    /// Authorization info used to access a resource (like code repository).
+    /// </summary>
     [OutputType]
     public sealed class AuthorizationResponse
     {

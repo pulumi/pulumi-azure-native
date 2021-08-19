@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Distcp settings.
+    /// </summary>
     [OutputType]
     public sealed class DistcpSettingsResponse
     {

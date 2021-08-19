@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview.Outputs
 {
 
+    /// <summary>
+    /// The login password for the container registry.
+    /// </summary>
     [OutputType]
     public sealed class RegistryPasswordResponse
     {

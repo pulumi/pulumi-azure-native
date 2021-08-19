@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20180901.Outputs
 {
 
+    /// <summary>
+    /// An arm role receiver.
+    /// </summary>
     [OutputType]
     public sealed class ArmRoleReceiverResponse
     {

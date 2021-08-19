@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// The endpoint used by agents to access their configuration.
+    /// </summary>
     [OutputType]
     public sealed class DataCollectionEndpointResponseConfigurationAccess
     {

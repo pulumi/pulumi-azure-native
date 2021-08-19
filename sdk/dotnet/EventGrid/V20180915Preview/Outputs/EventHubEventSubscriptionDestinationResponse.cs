@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20180915Preview.Outputs
 {
 
+    /// <summary>
+    /// Information about the event hub destination for an event subscription
+    /// </summary>
     [OutputType]
     public sealed class EventHubEventSubscriptionDestinationResponse
     {

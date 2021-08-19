@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Consumption.V20181001.Outputs
 {
 
+    /// <summary>
+    /// The current amount of cost which is being tracked for a budget.
+    /// </summary>
     [OutputType]
     public sealed class CurrentSpendResponse
     {

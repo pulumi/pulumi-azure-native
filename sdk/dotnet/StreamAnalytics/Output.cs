@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public Input<object>? Datasource { get; set; }
+        public object? Datasource { get; set; }
 
         /// <summary>
         /// The name of the streaming job.
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("serialization")]
-        public Input<object>? Serialization { get; set; }
+        public object? Serialization { get; set; }
 
         public OutputArgs()
         {

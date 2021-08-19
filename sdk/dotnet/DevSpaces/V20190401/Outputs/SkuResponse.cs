@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevSpaces.V20190401.Outputs
 {
 
+    /// <summary>
+    /// Model representing SKU for Azure Dev Spaces Controller.
+    /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {

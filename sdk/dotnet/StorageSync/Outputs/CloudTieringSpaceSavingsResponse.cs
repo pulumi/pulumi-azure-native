@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageSync.Outputs
 {
 
+    /// <summary>
+    /// Server endpoint cloud tiering status object.
+    /// </summary>
     [OutputType]
     public sealed class CloudTieringSpaceSavingsResponse
     {

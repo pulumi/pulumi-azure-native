@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// SSIS access credential.
+    /// </summary>
     [OutputType]
     public sealed class SSISAccessCredentialResponse
     {

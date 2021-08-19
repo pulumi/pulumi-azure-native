@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20140401.Outputs
 {
 
+    /// <summary>
+    /// The impact of an operation, both in absolute and relative terms.
+    /// </summary>
     [OutputType]
     public sealed class OperationImpactResponse
     {

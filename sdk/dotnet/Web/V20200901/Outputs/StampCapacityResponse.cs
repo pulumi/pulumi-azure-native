@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20200901.Outputs
 {
 
+    /// <summary>
+    /// Stamp capacity information.
+    /// </summary>
     [OutputType]
     public sealed class StampCapacityResponse
     {

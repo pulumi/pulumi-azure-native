@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Outputs
 {
 
+    /// <summary>
+    /// The managed identity for the DigitalTwinsInstance.
+    /// </summary>
     [OutputType]
     public sealed class DigitalTwinsIdentityResponse
     {

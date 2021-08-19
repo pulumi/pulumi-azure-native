@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TestBase.Outputs
 {
 
+    /// <summary>
+    /// A notification event receiver value.
+    /// </summary>
     [OutputType]
     public sealed class NotificationReceiverValueResponse
     {

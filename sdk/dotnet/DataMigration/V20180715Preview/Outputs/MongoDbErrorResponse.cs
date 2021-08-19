@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes an error or warning that occurred during a MongoDB migration
+    /// </summary>
     [OutputType]
     public sealed class MongoDbErrorResponse
     {

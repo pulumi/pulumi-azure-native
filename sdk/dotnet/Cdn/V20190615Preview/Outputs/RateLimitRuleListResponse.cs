@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.V20190615Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines contents of rate limit rules
+    /// </summary>
     [OutputType]
     public sealed class RateLimitRuleListResponse
     {

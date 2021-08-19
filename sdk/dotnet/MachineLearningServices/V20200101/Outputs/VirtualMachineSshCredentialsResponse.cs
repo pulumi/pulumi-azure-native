@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20200101.Outputs
 {
 
+    /// <summary>
+    /// Admin credentials for virtual machine
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineSshCredentialsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180315Preview.Outputs
 {
 
+    /// <summary>
+    /// Task errors for Sql Server to Sql MI migration.
+    /// </summary>
     [OutputType]
     public sealed class MigrateSqlServerSqlMITaskOutputErrorResponse
     {

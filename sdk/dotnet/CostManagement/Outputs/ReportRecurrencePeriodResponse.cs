@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CostManagement.Outputs
 {
 
+    /// <summary>
+    /// The start and end date for recurrence schedule.
+    /// </summary>
     [OutputType]
     public sealed class ReportRecurrencePeriodResponse
     {

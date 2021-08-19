@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.VideoAnalyzer.Outputs
 {
 
+    /// <summary>
+    /// The details about the associated storage account.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountResponse
     {

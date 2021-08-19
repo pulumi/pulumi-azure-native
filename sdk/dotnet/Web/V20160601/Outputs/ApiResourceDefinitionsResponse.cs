@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20160601.Outputs
 {
 
+    /// <summary>
+    /// API Definitions
+    /// </summary>
     [OutputType]
     public sealed class ApiResourceDefinitionsResponse
     {

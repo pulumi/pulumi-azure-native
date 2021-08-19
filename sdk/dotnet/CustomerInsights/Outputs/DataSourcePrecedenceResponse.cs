@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// The data source precedence is a way to know the precedence of each data source.
+    /// </summary>
     [OutputType]
     public sealed class DataSourcePrecedenceResponse
     {

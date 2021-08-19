@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataLakeStore.V20161101.Outputs
 {
 
+    /// <summary>
+    /// Data Lake Store firewall rule information.
+    /// </summary>
     [OutputType]
     public sealed class FirewallRuleResponse
     {

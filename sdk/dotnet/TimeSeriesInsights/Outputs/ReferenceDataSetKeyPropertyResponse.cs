@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.Outputs
 {
 
+    /// <summary>
+    /// A key property for the reference data set. A reference data set can have multiple key properties.
+    /// </summary>
     [OutputType]
     public sealed class ReferenceDataSetKeyPropertyResponse
     {

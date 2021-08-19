@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20190401.Outputs
 {
 
+    /// <summary>
+    /// Properties of the AzureFirewallRCAction.
+    /// </summary>
     [OutputType]
     public sealed class AzureFirewallRCActionResponse
     {

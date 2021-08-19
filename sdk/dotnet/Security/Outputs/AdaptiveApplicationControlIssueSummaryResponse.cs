@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.Outputs
 {
 
+    /// <summary>
+    /// Represents a summary of the alerts of the machine group
+    /// </summary>
     [OutputType]
     public sealed class AdaptiveApplicationControlIssueSummaryResponse
     {

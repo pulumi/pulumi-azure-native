@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataShare.V20191101.Outputs
 {
 
+    /// <summary>
+    /// A ShareSynchronization data transfer object.
+    /// </summary>
     [OutputType]
     public sealed class ShareSynchronizationResponse
     {

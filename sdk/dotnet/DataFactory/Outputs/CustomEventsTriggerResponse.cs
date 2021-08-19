@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Trigger that runs every time a custom event is received.
+    /// </summary>
     [OutputType]
     public sealed class CustomEventsTriggerResponse
     {

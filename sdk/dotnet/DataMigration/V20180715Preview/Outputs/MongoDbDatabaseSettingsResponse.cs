@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20180715Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes how an individual MongoDB database should be migrated
+    /// </summary>
     [OutputType]
     public sealed class MongoDbDatabaseSettingsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview.Outputs
 {
 
+    /// <summary>
+    /// Schema for MSIX Package Dependencies properties.
+    /// </summary>
     [OutputType]
     public sealed class MsixPackageDependenciesResponse
     {

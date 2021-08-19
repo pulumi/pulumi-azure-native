@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20160330.Outputs
 {
 
+    /// <summary>
+    /// Identity for the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class VirtualMachineIdentityResponse
     {

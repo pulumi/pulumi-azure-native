@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The reference to a user assigned identity associated with the Batch pool which a compute node will use.
+    /// </summary>
     [OutputType]
     public sealed class ComputeNodeIdentityReferenceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Effective Virtual Network
+    /// </summary>
     [OutputType]
     public sealed class EffectiveVirtualNetworkResponse
     {

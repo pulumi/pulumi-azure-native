@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.V20150521Preview.Outputs
 {
 
+    /// <summary>
+    /// A virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class LabVirtualMachineResponse
     {

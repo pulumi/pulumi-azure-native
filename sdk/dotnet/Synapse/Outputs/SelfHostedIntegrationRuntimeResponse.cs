@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.Outputs
 {
 
+    /// <summary>
+    /// Self-hosted integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class SelfHostedIntegrationRuntimeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20180901.Outputs
 {
 
+    /// <summary>
+    /// Describes the credential parameters for accessing the source registry.
+    /// </summary>
     [OutputType]
     public sealed class SourceRegistryCredentialsResponse
     {

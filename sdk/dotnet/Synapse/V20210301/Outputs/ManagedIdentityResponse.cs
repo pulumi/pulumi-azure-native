@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20210301.Outputs
 {
 
+    /// <summary>
+    /// The workspace managed identity
+    /// </summary>
     [OutputType]
     public sealed class ManagedIdentityResponse
     {

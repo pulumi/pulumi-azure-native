@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.Outputs
 {
 
+    /// <summary>
+    /// Defines the artifacts of a service unit.
+    /// </summary>
     [OutputType]
     public sealed class ServiceUnitArtifactsResponse
     {

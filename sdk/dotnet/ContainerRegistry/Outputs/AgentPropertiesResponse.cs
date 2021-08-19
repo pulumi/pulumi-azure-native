@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// The properties that determine the run agent configuration.
+    /// </summary>
     [OutputType]
     public sealed class AgentPropertiesResponse
     {

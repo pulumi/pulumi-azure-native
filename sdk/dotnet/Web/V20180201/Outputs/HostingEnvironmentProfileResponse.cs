@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20180201.Outputs
 {
 
+    /// <summary>
+    /// Specification for an App Service Environment to use for this resource.
+    /// </summary>
     [OutputType]
     public sealed class HostingEnvironmentProfileResponse
     {

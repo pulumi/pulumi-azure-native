@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OperationalInsights.V20200301Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes a storage account connection.
+    /// </summary>
     [OutputType]
     public sealed class StorageAccountResponse
     {

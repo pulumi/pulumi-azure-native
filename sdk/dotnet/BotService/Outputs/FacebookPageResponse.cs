@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.Outputs
 {
 
+    /// <summary>
+    /// A Facebook page for Facebook channel registration
+    /// </summary>
     [OutputType]
     public sealed class FacebookPageResponse
     {

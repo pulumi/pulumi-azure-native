@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.Outputs
 {
 
+    /// <summary>
+    /// The ip address range.
+    /// </summary>
     [OutputType]
     public sealed class IpAddressRangeResponse
     {

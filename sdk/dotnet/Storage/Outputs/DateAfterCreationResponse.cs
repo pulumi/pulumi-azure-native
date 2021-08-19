@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
+    /// <summary>
+    /// Object to define the number of days after creation.
+    /// </summary>
     [OutputType]
     public sealed class DateAfterCreationResponse
     {

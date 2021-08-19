@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
+    /// <summary>
+    /// Additional SQL Server feature settings.
+    /// </summary>
     [OutputType]
     public sealed class AdditionalFeaturesServerConfigurationsResponse
     {

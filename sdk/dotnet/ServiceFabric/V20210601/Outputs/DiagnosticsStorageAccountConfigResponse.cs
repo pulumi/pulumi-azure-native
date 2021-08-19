@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20210601.Outputs
 {
 
+    /// <summary>
+    /// The storage account information for storing Service Fabric diagnostic logs.
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticsStorageAccountConfigResponse
     {

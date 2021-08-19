@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
+    /// <summary>
+    /// Common field for data type in data connectors.
+    /// </summary>
     [OutputType]
     public sealed class DataConnectorDataTypeCommonResponse
     {

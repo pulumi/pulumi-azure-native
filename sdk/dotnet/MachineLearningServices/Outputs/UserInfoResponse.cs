@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// User who created.
+    /// </summary>
     [OutputType]
     public sealed class UserInfoResponse
     {

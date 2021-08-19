@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the storage of the tokens if a file system is used.
+    /// </summary>
     [OutputType]
     public sealed class FileSystemTokenStoreResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceBus.V20170401.Outputs
 {
 
+    /// <summary>
+    /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+    /// </summary>
     [OutputType]
     public sealed class ActionResponse
     {

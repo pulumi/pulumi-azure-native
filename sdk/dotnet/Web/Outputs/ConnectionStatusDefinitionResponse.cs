@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Connection status
+    /// </summary>
     [OutputType]
     public sealed class ConnectionStatusDefinitionResponse
     {

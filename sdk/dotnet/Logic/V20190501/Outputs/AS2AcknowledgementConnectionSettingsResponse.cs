@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic.V20190501.Outputs
 {
 
+    /// <summary>
+    /// The AS2 agreement acknowledgement connection settings.
+    /// </summary>
     [OutputType]
     public sealed class AS2AcknowledgementConnectionSettingsResponse
     {

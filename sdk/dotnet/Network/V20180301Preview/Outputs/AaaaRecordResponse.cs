@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20180301Preview.Outputs
 {
 
+    /// <summary>
+    /// An AAAA record.
+    /// </summary>
     [OutputType]
     public sealed class AaaaRecordResponse
     {

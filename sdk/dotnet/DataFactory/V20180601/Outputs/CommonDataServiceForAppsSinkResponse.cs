@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// A copy activity Common Data Service for Apps sink.
+    /// </summary>
     [OutputType]
     public sealed class CommonDataServiceForAppsSinkResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20170701Preview.Outputs
 {
 
+    /// <summary>
+    /// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+    /// </summary>
     [OutputType]
     public sealed class ApplicationMetricDescriptionResponse
     {

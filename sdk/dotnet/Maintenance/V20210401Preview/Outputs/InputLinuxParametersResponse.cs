@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Maintenance.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Input properties for patching a Linux machine.
+    /// </summary>
     [OutputType]
     public sealed class InputLinuxParametersResponse
     {

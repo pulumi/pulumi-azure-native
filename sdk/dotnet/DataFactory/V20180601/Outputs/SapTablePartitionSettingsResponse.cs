@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// The settings that will be leveraged for SAP table source partitioning.
+    /// </summary>
     [OutputType]
     public sealed class SapTablePartitionSettingsResponse
     {

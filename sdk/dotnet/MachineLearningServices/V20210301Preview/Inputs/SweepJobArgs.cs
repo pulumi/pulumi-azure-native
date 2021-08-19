@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview.Inputs
         /// Early termination policies enable canceling poor-performing runs before they complete.
         /// </summary>
         [Input("earlyTermination")]
-        public Input<object>? EarlyTermination { get; set; }
+        public object? EarlyTermination { get; set; }
 
         /// <summary>
         /// The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.

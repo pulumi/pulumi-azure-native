@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.BotService.V20180712.Outputs
 {
 
+    /// <summary>
+    /// Properties for a Connection Setting Item
+    /// </summary>
     [OutputType]
     public sealed class ConnectionSettingPropertiesResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20161201.Outputs
 {
 
+    /// <summary>
+    /// Contains SKU in an ExpressRouteCircuit.
+    /// </summary>
     [OutputType]
     public sealed class ExpressRouteCircuitSkuResponse
     {

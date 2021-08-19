@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforMySQL.Outputs
 {
 
+    /// <summary>
+    /// Azure Active Directory identity configuration for a resource.
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdentityResponse
     {

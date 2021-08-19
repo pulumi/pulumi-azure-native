@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20181101.Outputs
 {
 
+    /// <summary>
+    /// Enabled configuration.
+    /// </summary>
     [OutputType]
     public sealed class EnabledConfigResponse
     {

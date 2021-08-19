@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Aad.Outputs
 {
 
+    /// <summary>
+    /// Settings for notification
+    /// </summary>
     [OutputType]
     public sealed class NotificationSettingsResponse
     {

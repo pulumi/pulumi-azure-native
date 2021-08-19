@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20181101.Outputs
 {
 
+    /// <summary>
+    /// Actions are applied to the filtered blobs when the execution condition is met.
+    /// </summary>
     [OutputType]
     public sealed class ManagementPolicyActionResponse
     {

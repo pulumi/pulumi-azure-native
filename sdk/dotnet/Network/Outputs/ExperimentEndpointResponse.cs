@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Defines the endpoint properties
+    /// </summary>
     [OutputType]
     public sealed class ExperimentEndpointResponse
     {

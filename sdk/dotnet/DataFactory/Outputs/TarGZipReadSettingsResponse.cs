@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The TarGZip compression read settings.
+    /// </summary>
     [OutputType]
     public sealed class TarGZipReadSettingsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// The parameters for a task run request.
+    /// </summary>
     [OutputType]
     public sealed class TaskRunRequestResponse
     {

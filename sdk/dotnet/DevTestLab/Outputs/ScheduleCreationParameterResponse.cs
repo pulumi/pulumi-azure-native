@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Properties for creating a schedule.
+    /// </summary>
     [OutputType]
     public sealed class ScheduleCreationParameterResponse
     {

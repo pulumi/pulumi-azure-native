@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Definition of an Extended Location
+    /// </summary>
     [OutputType]
     public sealed class ExtendedLocationResponse
     {

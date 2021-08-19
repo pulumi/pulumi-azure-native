@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure Function linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureFunctionLinkedServiceResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The specification of destinations.
+    /// </summary>
     [OutputType]
     public sealed class DataCollectionRuleResponseDestinations
     {

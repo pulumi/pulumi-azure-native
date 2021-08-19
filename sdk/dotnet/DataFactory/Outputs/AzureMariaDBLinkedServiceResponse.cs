@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Azure Database for MariaDB linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureMariaDBLinkedServiceResponse
     {

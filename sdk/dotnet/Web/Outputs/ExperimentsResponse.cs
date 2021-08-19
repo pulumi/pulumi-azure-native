@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.Outputs
 {
 
+    /// <summary>
+    /// Routing rules in production experiments.
+    /// </summary>
     [OutputType]
     public sealed class ExperimentsResponse
     {

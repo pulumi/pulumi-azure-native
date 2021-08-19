@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.Outputs
 {
 
+    /// <summary>
+    /// Describes a reference to a volume resource.
+    /// </summary>
     [OutputType]
     public sealed class VolumeReferenceResponse
     {

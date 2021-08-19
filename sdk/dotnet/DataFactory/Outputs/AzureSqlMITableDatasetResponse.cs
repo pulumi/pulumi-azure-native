@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Azure SQL Managed Instance dataset.
+    /// </summary>
     [OutputType]
     public sealed class AzureSqlMITableDatasetResponse
     {

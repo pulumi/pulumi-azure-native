@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StoragePool.Outputs
 {
 
+    /// <summary>
+    /// Access Control List (ACL) for an iSCSI target portal group
+    /// </summary>
     [OutputType]
     public sealed class AclResponse
     {

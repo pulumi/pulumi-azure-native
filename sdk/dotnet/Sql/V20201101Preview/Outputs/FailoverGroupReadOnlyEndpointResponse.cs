@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Read-only endpoint of the failover group instance.
+    /// </summary>
     [OutputType]
     public sealed class FailoverGroupReadOnlyEndpointResponse
     {

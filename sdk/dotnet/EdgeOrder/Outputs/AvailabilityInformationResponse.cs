@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Availability information of a product system.
+    /// </summary>
     [OutputType]
     public sealed class AvailabilityInformationResponse
     {

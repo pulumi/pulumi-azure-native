@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AlertsManagement.Outputs
 {
 
+    /// <summary>
+    /// Action rule with diagnostics configuration
+    /// </summary>
     [OutputType]
     public sealed class DiagnosticsResponse
     {

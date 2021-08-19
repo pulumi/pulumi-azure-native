@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DevTestLab.Outputs
 {
 
+    /// <summary>
+    /// Information about a Linux OS.
+    /// </summary>
     [OutputType]
     public sealed class LinuxOsInfoResponse
     {

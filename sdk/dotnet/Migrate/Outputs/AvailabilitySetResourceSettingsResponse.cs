@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
+    /// <summary>
+    /// Gets or sets the availability set resource settings.
+    /// </summary>
     [OutputType]
     public sealed class AvailabilitySetResourceSettingsResponse
     {

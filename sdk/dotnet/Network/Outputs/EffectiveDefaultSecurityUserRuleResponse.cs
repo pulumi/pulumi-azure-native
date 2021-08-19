@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.Outputs
 {
 
+    /// <summary>
+    /// Network security default user rule.
+    /// </summary>
     [OutputType]
     public sealed class EffectiveDefaultSecurityUserRuleResponse
     {

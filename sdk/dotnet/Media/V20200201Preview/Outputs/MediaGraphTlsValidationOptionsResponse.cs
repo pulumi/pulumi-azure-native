@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200201Preview.Outputs
 {
 
+    /// <summary>
+    /// Options for controlling the authentication of TLS endpoints.
+    /// </summary>
     [OutputType]
     public sealed class MediaGraphTlsValidationOptionsResponse
     {

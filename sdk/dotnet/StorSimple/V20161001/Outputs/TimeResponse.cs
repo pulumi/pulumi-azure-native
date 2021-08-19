@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorSimple.V20161001.Outputs
 {
 
+    /// <summary>
+    /// The Time.
+    /// </summary>
     [OutputType]
     public sealed class TimeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// The PlayReady license
+    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyPlayReadyLicenseResponse
     {

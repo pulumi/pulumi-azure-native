@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
+    /// </summary>
     [OutputType]
     public sealed class WebAnonymousAuthenticationResponse
     {

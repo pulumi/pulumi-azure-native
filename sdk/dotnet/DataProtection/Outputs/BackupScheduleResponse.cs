@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Schedule for backup
+    /// </summary>
     [OutputType]
     public sealed class BackupScheduleResponse
     {

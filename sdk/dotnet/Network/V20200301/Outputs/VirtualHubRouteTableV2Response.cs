@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200301.Outputs
 {
 
+    /// <summary>
+    /// VirtualHubRouteTableV2 Resource.
+    /// </summary>
     [OutputType]
     public sealed class VirtualHubRouteTableV2Response
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20191001.Outputs
 {
 
+    /// <summary>
+    /// Defines top-level WebApplicationFirewallPolicy configuration settings.
+    /// </summary>
     [OutputType]
     public sealed class FrontDoorPolicySettingsResponse
     {

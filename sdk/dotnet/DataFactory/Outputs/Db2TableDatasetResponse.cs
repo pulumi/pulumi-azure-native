@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The Db2 table dataset.
+    /// </summary>
     [OutputType]
     public sealed class Db2TableDatasetResponse
     {

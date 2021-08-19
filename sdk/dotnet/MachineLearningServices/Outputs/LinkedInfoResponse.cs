@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Info about origin if it is linked.
+    /// </summary>
     [OutputType]
     public sealed class LinkedInfoResponse
     {

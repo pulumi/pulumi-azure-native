@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// Represents a token restriction. Provided token must match these requirements for successful license or key delivery.
+    /// </summary>
     [OutputType]
     public sealed class ContentKeyPolicyTokenRestrictionResponse
     {

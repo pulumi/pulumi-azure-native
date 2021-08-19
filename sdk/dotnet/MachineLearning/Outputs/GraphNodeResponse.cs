@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearning.Outputs
 {
 
+    /// <summary>
+    /// Specifies a node in the web service graph. The node can either be an input, output or asset node, so only one of the corresponding id properties is populated at any given time.
+    /// </summary>
     [OutputType]
     public sealed class GraphNodeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20200301.Outputs
 {
 
+    /// <summary>
+    /// Properties pertained to Nfs3Target
+    /// </summary>
     [OutputType]
     public sealed class Nfs3TargetResponse
     {

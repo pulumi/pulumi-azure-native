@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SignalRService.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Feature of a SignalR resource, which controls the SignalR runtime behavior.
+    /// </summary>
     [OutputType]
     public sealed class SignalRFeatureResponse
     {

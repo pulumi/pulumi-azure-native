@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection.Outputs
 {
 
+    /// <summary>
+    /// Rule based backup policy
+    /// </summary>
     [OutputType]
     public sealed class BackupPolicyResponse
     {

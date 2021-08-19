@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Linked service for PostgreSQL data source.
+    /// </summary>
     [OutputType]
     public sealed class PostgreSqlLinkedServiceResponse
     {

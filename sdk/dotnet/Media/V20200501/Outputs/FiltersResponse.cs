@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
+    /// </summary>
     [OutputType]
     public sealed class FiltersResponse
     {

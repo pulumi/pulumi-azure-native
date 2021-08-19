@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Automation.V20170515Preview.Outputs
 {
 
+    /// <summary>
+    /// The properties of the create Advanced Schedule.
+    /// </summary>
     [OutputType]
     public sealed class AdvancedScheduleResponse
     {

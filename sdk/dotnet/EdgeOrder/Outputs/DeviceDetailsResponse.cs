@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
+    /// <summary>
+    /// Device details.
+    /// </summary>
     [OutputType]
     public sealed class DeviceDetailsResponse
     {

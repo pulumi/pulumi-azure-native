@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Media.Outputs
 {
 
+    /// <summary>
+    /// RTSP source.
+    /// </summary>
     [OutputType]
     public sealed class MediaGraphRtspSourceResponse
     {

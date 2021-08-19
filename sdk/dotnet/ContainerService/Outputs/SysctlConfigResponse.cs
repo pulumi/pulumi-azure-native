@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
+    /// <summary>
+    /// Sysctl settings for Linux agent nodes.
+    /// </summary>
     [OutputType]
     public sealed class SysctlConfigResponse
     {

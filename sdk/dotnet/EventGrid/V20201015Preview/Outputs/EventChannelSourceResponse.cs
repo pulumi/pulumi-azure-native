@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Outputs
 {
 
+    /// <summary>
+    /// Properties of the source of an event channel.
+    /// </summary>
     [OutputType]
     public sealed class EventChannelSourceResponse
     {

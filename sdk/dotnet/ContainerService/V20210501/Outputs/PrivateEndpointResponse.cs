@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Private endpoint which a connection belongs to.
+    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {

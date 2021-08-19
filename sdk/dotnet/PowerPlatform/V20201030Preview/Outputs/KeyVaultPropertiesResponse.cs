@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview.Outputs
 {
 
+    /// <summary>
+    /// Settings concerning key vault encryption for a configuration store.
+    /// </summary>
     [OutputType]
     public sealed class KeyVaultPropertiesResponse
     {

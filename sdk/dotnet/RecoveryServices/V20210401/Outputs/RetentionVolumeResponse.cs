@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20210401.Outputs
 {
 
+    /// <summary>
+    /// The retention details of the MT.
+    /// </summary>
     [OutputType]
     public sealed class RetentionVolumeResponse
     {

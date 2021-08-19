@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20181001.Outputs
 {
 
+    /// <summary>
+    /// Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+    /// </summary>
     [OutputType]
     public sealed class SshPublicKeyResponse
     {

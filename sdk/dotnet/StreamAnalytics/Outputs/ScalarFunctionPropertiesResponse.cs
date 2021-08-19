@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 {
 
+    /// <summary>
+    /// The properties that are associated with a scalar function.
+    /// </summary>
     [OutputType]
     public sealed class ScalarFunctionPropertiesResponse
     {

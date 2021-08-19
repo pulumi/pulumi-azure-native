@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.V20190930Preview.Outputs
 {
 
+    /// <summary>
+    /// Defines the configuration for Log Analytics integration.
+    /// </summary>
     [OutputType]
     public sealed class OpenShiftManagedClusterMonitorProfileResponse
     {

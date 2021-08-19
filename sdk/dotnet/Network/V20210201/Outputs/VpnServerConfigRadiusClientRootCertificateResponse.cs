@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20210201.Outputs
 {
 
+    /// <summary>
+    /// Properties of the Radius client root certificate of VpnServerConfiguration.
+    /// </summary>
     [OutputType]
     public sealed class VpnServerConfigRadiusClientRootCertificateResponse
     {

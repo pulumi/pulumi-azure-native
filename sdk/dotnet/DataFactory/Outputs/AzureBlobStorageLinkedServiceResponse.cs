@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The azure blob storage linked service.
+    /// </summary>
     [OutputType]
     public sealed class AzureBlobStorageLinkedServiceResponse
     {

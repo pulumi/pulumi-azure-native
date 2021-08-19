@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Management.V20191101.Outputs
 {
 
+    /// <summary>
+    /// A path element of a management group ancestors.
+    /// </summary>
     [OutputType]
     public sealed class ManagementGroupPathElementResponse
     {

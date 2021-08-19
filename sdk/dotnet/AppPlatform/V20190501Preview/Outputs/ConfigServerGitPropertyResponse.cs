@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20190501Preview.Outputs
 {
 
+    /// <summary>
+    /// Property of git.
+    /// </summary>
     [OutputType]
     public sealed class ConfigServerGitPropertyResponse
     {

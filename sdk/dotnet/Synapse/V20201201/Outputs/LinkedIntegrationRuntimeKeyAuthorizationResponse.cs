@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The key authorization type integration runtime.
+    /// </summary>
     [OutputType]
     public sealed class LinkedIntegrationRuntimeKeyAuthorizationResponse
     {

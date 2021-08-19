@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache.V20210301.Outputs
 {
 
+    /// <summary>
+    /// Cache Directory Services settings.
+    /// </summary>
     [OutputType]
     public sealed class CacheDirectorySettingsResponse
     {

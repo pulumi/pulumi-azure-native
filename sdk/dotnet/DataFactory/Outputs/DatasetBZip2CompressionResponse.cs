@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// The BZip2 compression method used on a dataset.
+    /// </summary>
     [OutputType]
     public sealed class DatasetBZip2CompressionResponse
     {

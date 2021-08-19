@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights.V20210401.Outputs
 {
 
+    /// <summary>
+    /// Represents an incident label
+    /// </summary>
     [OutputType]
     public sealed class IncidentLabelResponse
     {

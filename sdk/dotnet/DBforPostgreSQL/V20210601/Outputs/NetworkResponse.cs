@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Outputs
 {
 
+    /// <summary>
+    /// Network properties of a server
+    /// </summary>
     [OutputType]
     public sealed class NetworkResponse
     {

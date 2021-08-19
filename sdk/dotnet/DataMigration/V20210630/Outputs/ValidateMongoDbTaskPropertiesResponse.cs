@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataMigration.V20210630.Outputs
 {
 
+    /// <summary>
+    /// Properties for the task that validates a migration between MongoDB data sources
+    /// </summary>
     [OutputType]
     public sealed class ValidateMongoDbTaskPropertiesResponse
     {

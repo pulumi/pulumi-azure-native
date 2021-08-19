@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.V20180201.Outputs
 {
 
+    /// <summary>
+    /// Describes the client certificate details using common name.
+    /// </summary>
     [OutputType]
     public sealed class ClientCertificateCommonNameResponse
     {

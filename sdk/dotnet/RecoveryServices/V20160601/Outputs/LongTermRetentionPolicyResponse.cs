@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.RecoveryServices.V20160601.Outputs
 {
 
+    /// <summary>
+    /// Long-term retention policy.
+    /// </summary>
     [OutputType]
     public sealed class LongTermRetentionPolicyResponse
     {

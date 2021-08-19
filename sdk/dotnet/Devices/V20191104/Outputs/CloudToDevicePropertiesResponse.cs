@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Devices.V20191104.Outputs
 {
 
+    /// <summary>
+    /// The IoT hub cloud-to-device messaging properties.
+    /// </summary>
     [OutputType]
     public sealed class CloudToDevicePropertiesResponse
     {

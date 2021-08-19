@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CertificateRegistration.Outputs
 {
 
+    /// <summary>
+    /// Key Vault container for a certificate that is purchased through Azure.
+    /// </summary>
     [OutputType]
     public sealed class AppServiceCertificateResponse
     {

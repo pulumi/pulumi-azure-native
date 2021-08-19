@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge.V20201201.Outputs
 {
 
+    /// <summary>
+    /// Etcd configuration
+    /// </summary>
     [OutputType]
     public sealed class EtcdInfoResponse
     {

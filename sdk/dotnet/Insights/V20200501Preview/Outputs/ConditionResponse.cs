@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20200501Preview.Outputs
 {
 
+    /// <summary>
+    /// A condition of the scheduled query rule.
+    /// </summary>
     [OutputType]
     public sealed class ConditionResponse
     {

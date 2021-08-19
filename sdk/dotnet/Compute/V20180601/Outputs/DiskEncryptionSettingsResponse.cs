@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute.V20180601.Outputs
 {
 
+    /// <summary>
+    /// Describes a Encryption Settings for a Disk
+    /// </summary>
     [OutputType]
     public sealed class DiskEncryptionSettingsResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
 {
 
+    /// <summary>
+    /// Linked service for MongoDb data source.
+    /// </summary>
     [OutputType]
     public sealed class MongoDbLinkedServiceResponse
     {

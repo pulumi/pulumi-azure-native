@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// GetMetadata activity format settings.
         /// </summary>
         [Input("formatSettings")]
-        public Input<object>? FormatSettings { get; set; }
+        public object? FormatSettings { get; set; }
 
         /// <summary>
         /// Linked service reference.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// GetMetadata activity store settings.
         /// </summary>
         [Input("storeSettings")]
-        public Input<object>? StoreSettings { get; set; }
+        public object? StoreSettings { get; set; }
 
         /// <summary>
         /// Type of activity.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201001.Outputs
 {
 
+    /// <summary>
+    /// Network access control entry.
+    /// </summary>
     [OutputType]
     public sealed class NetworkAccessControlEntryResponse
     {

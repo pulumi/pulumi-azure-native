@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.Outputs
 {
 
+    /// <summary>
+    /// Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
+    /// </summary>
     [OutputType]
     public sealed class MetricAlertMultipleResourceMultipleMetricCriteriaResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20191201Preview.Outputs
 {
 
+    /// <summary>
+    /// Virtual network rule.
+    /// </summary>
     [OutputType]
     public sealed class VirtualNetworkRuleResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Dynamic delivery attribute mapping details.
+    /// </summary>
     [OutputType]
     public sealed class DynamicDeliveryAttributeMappingResponse
     {

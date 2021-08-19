@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// Supplementary contextual messages during a rollout.
+    /// </summary>
     [OutputType]
     public sealed class MessageResponse
     {

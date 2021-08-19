@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AppPlatform.V20210601Preview.Outputs
 {
 
+    /// <summary>
+    /// Desired outbound IP resources for Azure Spring Cloud instance.
+    /// </summary>
     [OutputType]
     public sealed class NetworkProfileResponseOutboundIPs
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network.V20200501.Outputs
 {
 
+    /// <summary>
+    /// Defines contents of a web application firewall global configuration.
+    /// </summary>
     [OutputType]
     public sealed class PolicySettingsResponse
     {

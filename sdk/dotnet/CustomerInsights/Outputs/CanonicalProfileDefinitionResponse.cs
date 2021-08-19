@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CustomerInsights.Outputs
 {
 
+    /// <summary>
+    /// Definition of canonical profile.
+    /// </summary>
     [OutputType]
     public sealed class CanonicalProfileDefinitionResponse
     {

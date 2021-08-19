@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20170301.Outputs
 {
 
+    /// <summary>
+    /// Sampling settings contract.
+    /// </summary>
     [OutputType]
     public sealed class LoggerSamplingContractResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
+    /// <summary>
+    /// The properties of the Azure File volume. Azure File shares are mounted as volumes.
+    /// </summary>
     [OutputType]
     public sealed class AzureFileVolumeResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.Outputs
 {
 
+    /// <summary>
+    /// An object that wraps the blob inventory rule. Each rule is uniquely defined by name.
+    /// </summary>
     [OutputType]
     public sealed class BlobInventoryPolicyRuleResponse
     {

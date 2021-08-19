@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Databricks.V20210401Preview.Outputs
 {
 
+    /// <summary>
+    /// Encryption entities for databricks workspace resource.
+    /// </summary>
     [OutputType]
     public sealed class EncryptionEntitiesDefinitionResponse
     {

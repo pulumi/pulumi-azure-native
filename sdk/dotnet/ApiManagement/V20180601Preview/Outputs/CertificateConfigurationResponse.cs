@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20180601Preview.Outputs
 {
 
+    /// <summary>
+    /// Certificate configuration which consist of non-trusted intermediates and root certificates.
+    /// </summary>
     [OutputType]
     public sealed class CertificateConfigurationResponse
     {

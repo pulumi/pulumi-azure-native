@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningCompute.Outputs
 {
 
+    /// <summary>
+    /// AutoScale configuration properties.
+    /// </summary>
     [OutputType]
     public sealed class AutoScaleConfigurationResponse
     {

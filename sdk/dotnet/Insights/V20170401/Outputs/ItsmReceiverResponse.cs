@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights.V20170401.Outputs
 {
 
+    /// <summary>
+    /// An Itsm receiver.
+    /// </summary>
     [OutputType]
     public sealed class ItsmReceiverResponse
     {

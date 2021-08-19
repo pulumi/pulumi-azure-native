@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Portal.V20181001.Outputs
 {
 
+    /// <summary>
+    /// Settings for terminal appearance.
+    /// </summary>
     [OutputType]
     public sealed class TerminalSettingsResponse
     {

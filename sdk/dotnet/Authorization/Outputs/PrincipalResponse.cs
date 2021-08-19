@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Authorization.Outputs
 {
 
+    /// <summary>
+    /// The name of the entity last modified it
+    /// </summary>
     [OutputType]
     public sealed class PrincipalResponse
     {

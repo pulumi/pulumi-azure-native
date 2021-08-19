@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20201101.Outputs
 {
 
+    /// <summary>
+    /// Provides details about resource creation and update time
+    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HybridCompute.Outputs
 {
 
+    /// <summary>
+    /// Metadata pertaining to the geographic location of the resource.
+    /// </summary>
     [OutputType]
     public sealed class LocationDataResponse
     {

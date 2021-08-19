@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.FluidRelay.V20210615Preview.Outputs
 {
 
+    /// <summary>
+    /// Identity for the resource.
+    /// </summary>
     [OutputType]
     public sealed class IdentityResponse
     {

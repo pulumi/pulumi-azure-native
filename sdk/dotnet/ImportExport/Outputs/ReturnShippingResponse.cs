@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ImportExport.Outputs
 {
 
+    /// <summary>
+    /// Specifies the return carrier and customer's account with the carrier.
+    /// </summary>
     [OutputType]
     public sealed class ReturnShippingResponse
     {

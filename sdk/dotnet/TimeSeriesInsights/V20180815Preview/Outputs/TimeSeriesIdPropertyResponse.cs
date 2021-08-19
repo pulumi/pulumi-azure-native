@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview.Outputs
 {
 
+    /// <summary>
+    /// The structure of the property that a time series id can have. An environment can have multiple such properties.
+    /// </summary>
     [OutputType]
     public sealed class TimeSeriesIdPropertyResponse
     {

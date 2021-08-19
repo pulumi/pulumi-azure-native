@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20150801.Outputs
 {
 
+    /// <summary>
+    /// Class that represents a VIP mapping
+    /// </summary>
     [OutputType]
     public sealed class VirtualIPMappingResponse
     {

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security.V20190101Preview.Outputs
 {
 
+    /// <summary>
+    /// A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
+    /// </summary>
     [OutputType]
     public sealed class AutomationTriggeringRuleResponse
     {

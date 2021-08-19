@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Dataset reference type.
+    /// </summary>
     [OutputType]
     public sealed class DatasetReferenceResponse
     {

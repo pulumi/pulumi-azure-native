@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataFactory.Outputs
 {
 
+    /// <summary>
+    /// Execute power query activity.
+    /// </summary>
     [OutputType]
     public sealed class ExecuteWranglingDataflowActivityResponse
     {

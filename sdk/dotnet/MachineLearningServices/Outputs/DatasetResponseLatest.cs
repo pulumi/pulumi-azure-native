@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Last created Dataset definition.
+    /// </summary>
     [OutputType]
     public sealed class DatasetResponseLatest
     {

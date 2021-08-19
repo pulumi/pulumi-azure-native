@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Storage.V20190601.Outputs
 {
 
+    /// <summary>
+    /// Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical AND is performed on all filters. 
+    /// </summary>
     [OutputType]
     public sealed class ManagementPolicyFilterResponse
     {

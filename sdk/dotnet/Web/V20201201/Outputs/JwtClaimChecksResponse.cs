@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web.V20201201.Outputs
 {
 
+    /// <summary>
+    /// The configuration settings of the checks that should be made while validating the JWT Claims.
+    /// </summary>
     [OutputType]
     public sealed class JwtClaimChecksResponse
     {

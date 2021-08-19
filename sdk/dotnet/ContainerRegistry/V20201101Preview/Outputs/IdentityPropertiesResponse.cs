@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview.Outputs
 {
 
+    /// <summary>
+    /// Managed identity for the resource.
+    /// </summary>
     [OutputType]
     public sealed class IdentityPropertiesResponse
     {

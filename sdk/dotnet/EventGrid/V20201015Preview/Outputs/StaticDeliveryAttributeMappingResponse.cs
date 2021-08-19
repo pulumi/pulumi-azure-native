@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid.V20201015Preview.Outputs
 {
 
+    /// <summary>
+    /// Static delivery attribute mapping details.
+    /// </summary>
     [OutputType]
     public sealed class StaticDeliveryAttributeMappingResponse
     {

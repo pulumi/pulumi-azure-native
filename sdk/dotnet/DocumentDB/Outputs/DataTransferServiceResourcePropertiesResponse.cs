@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DocumentDB.Outputs
 {
 
+    /// <summary>
+    /// Properties for DataTransferServiceResource.
+    /// </summary>
     [OutputType]
     public sealed class DataTransferServiceResourcePropertiesResponse
     {

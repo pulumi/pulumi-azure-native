@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview.Outputs
 {
 
+    /// <summary>
+    /// This type describes a service resource.
+    /// </summary>
     [OutputType]
     public sealed class ServiceResourceDescriptionResponse
     {

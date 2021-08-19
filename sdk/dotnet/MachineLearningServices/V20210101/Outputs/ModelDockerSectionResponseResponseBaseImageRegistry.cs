@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.V20210101.Outputs
 {
 
+    /// <summary>
+    /// Image registry that contains the base image.
+    /// </summary>
     [OutputType]
     public sealed class ModelDockerSectionResponseResponseBaseImageRegistry
     {

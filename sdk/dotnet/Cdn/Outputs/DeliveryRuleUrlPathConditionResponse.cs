@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
+    /// <summary>
+    /// Defines the UrlPath condition for the delivery rule.
+    /// </summary>
     [OutputType]
     public sealed class DeliveryRuleUrlPathConditionResponse
     {

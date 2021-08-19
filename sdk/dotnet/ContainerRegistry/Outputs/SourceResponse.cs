@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 {
 
+    /// <summary>
+    /// The registry node that generated the event. Put differently, while the actor initiates the event, the source generates it.
+    /// </summary>
     [OutputType]
     public sealed class SourceResponse
     {

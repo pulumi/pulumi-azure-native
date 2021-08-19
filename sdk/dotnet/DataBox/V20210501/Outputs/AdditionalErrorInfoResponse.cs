@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBox.V20210501.Outputs
 {
 
+    /// <summary>
+    /// Additional error info.
+    /// </summary>
     [OutputType]
     public sealed class AdditionalErrorInfoResponse
     {

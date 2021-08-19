@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
         /// The request (parameters) for the run
         /// </summary>
         [Input("runRequest")]
-        public Input<object>? RunRequest { get; set; }
+        public object? RunRequest { get; set; }
 
         /// <summary>
         /// The name of the task run.

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices.Outputs
 {
 
+    /// <summary>
+    /// SkuCapability indicates the capability of a certain feature.
+    /// </summary>
     [OutputType]
     public sealed class SkuCapabilityResponse
     {

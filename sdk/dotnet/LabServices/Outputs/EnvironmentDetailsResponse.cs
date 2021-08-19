@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices.Outputs
 {
 
+    /// <summary>
+    /// This represents the details about a User's environment and its state.
+    /// </summary>
     [OutputType]
     public sealed class EnvironmentDetailsResponse
     {
